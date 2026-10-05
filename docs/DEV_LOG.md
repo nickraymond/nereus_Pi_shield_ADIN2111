@@ -40,7 +40,8 @@ what broke, what's next.*
   (set_properties only changed what I named). F2 MAJOR: R42 100 kΩ had no worst-case SHDN margin (I used the
   typical 2 µA; max is 10 µA) → 10 kΩ. Also RTN = GND recorded (§12.1), QE N6 closed, stale SPEC/DESIGN U9
   lines, footprint-link accounting, R41 fields harmonised, sofar_brief row 5 detail
-**Next:** QE round 2, Nick's KiCad look, merge; then S4.d (footprints).
+- QE round 2: **APPROVED WITH NITS**; N5 (current-limit start wording) fixed
+**Next:** Nick's KiCad look, merge; then S4.d (footprints).
 
 ---
 

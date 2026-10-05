@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S5.a in review</strong> <strong>S4.c done</strong> (PR #10 merged). <strong>S5.a:</strong> obsolete U9 replaced by TI TPS26621 (JLC-stocked), R11 DNP, payload off by default and switched by the Pi. Changes for Sofar tracked in <code>docs/design-review/sofar_brief.md</code>. Next: QE, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S5.a, your KiCad look</strong> <strong>S4.c done</strong> (PR #10 merged). <strong>S5.a:</strong> obsolete U9 replaced by TI TPS26621 (JLC-stocked), R11 DNP, payload off by default and switched by the Pi. Changes for Sofar tracked in <code>docs/design-review/sofar_brief.md</code>. QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -198,7 +198,7 @@ const S = [
   items:[
   ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) was fitted and bypassed the load switch (D17). Done in S5.a.</p>`, null, 1],
   ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>U11 = TI TPS26621DRCR (JLC C1848341, TI ACTIVE): R34 9.09 kΩ → 0.73 A, R41 1 MΩ UVLO tie, R42 10 kΩ pull-down (payload off by default; SW_EN now active high), PGOOD dropped (D18).</p>`, null, 1],
-  ["S5.a: QE review, then your KiCad look", `<p>Load Switch sheet (U11 and its parts) and R11 on the Top-Level sheet (DNP cross).</p>`, "nick"],
+  ["S5.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2). Load Switch sheet (U11 and its parts) and R11 on the Top-Level sheet (DNP cross).</p>`, "nick"],
   ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
