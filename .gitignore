@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# KiCad: per-user state, caches, locks, autosave backups
+*.kicad_prl
+fp-info-cache
+*.lck
+~*
+_autosave-*
+*-backups/
+
+# Claude Code worktrees
+.claude/worktrees/
