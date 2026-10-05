@@ -6,8 +6,8 @@ description: Session-start ritual for this repo. Run at the start of every sessi
 # /agent-entry
 
 1. Read `docs/TRACKER.md` cover to cover, including the Rules for Agents.
-2. Skim `docs/SPEC.md` and `docs/DESIGN.md`. If the current sprint is S3,
-   also read `docs/POWER_PATH.md`.
+2. Skim `docs/SPEC.md` and `docs/DESIGN.md`. Read `docs/POWER_PATH.md` only
+   when working on the deferred 50 W revision (DESIGN D12).
 3. Read the top 3 entries of `docs/DEV_LOG.md`.
 4. Run `git status` and `git branch --show-current`; note any uncommitted
    changes and whether the branch matches the sprint.

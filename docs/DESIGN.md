@@ -72,11 +72,12 @@ two local labels with the same name silently join their nets.
 | D4 | 2026-10-04 | 5 V for the Pi: copy of the LMR51430 (U5) set to 5 V, fed from VBUS | Reuses a proven block (checklist Option A) |
 | D5 | 2026-10-04 | 5V_PI reaches Pi pins 2/4 through an open solder jumper | Must stay open whenever the Pi has its own USB power |
 | D6 | 2026-10-04 | Plain 2×20 female socket header, no stacking header | Shield plugs onto the Pi's male pins |
-| D7 | 2026-10-04 | Target ~50 W with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
-| D8 | 2026-10-04 | Rating (P1): ~50 W **absolute max** = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Margin comes from choosing larger magnetics (MSD1514-class, fit pending) | Same basis as the mote's rating; potting removes thermal headroom |
+| D7 | 2026-10-04 | **Superseded by D12 for this board.** Target ~50 W with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
+| D8 | 2026-10-04 | **Superseded by D12 for this board.** Rating (P1): ~50 W **absolute max** = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Margin comes from choosing larger magnetics (MSD1514-class, fit pending) | Same basis as the mote's rating; potting removes thermal headroom |
 | D9 | 2026-10-04 | Electronics are potted. Sofar-vetted parts are kept as-is (including the C22/C23 electrolytics). Newly sourced parts: no aluminium electrolytics, no PPTCs, other risky parts flagged (SPEC constraint 8) | Vetted design is trusted; electrolytics vent or deform under pressure; PPTC trip behaviour changes when encapsulated |
 | D10 | 2026-10-05 | Every PR gets an independent, read-only Quality Engineer review in a separate Code session, one standing session per sprint (never a sub-agent; `.claude/agents/quality-engineer.md`, Opus 5.5, high effort) before Nick's KiCad review; merge needs both | A second pair of eyes on every claim; QE never edits, so it can't collide with Nick or the design agent |
 | D11 | 2026-10-05 | The shield provides I2C pull-ups on I2C1_SDA/SCL (S5), reusing the mote's R26/R27: 4.7 kΩ ERJ-2RKF4701X to 3V3 | Nick: the Pi needs them; the mote's pull-ups were on the removed STM32 sheet |
+| D12 | 2026-10-05 | This first board keeps the Sofar mote's power path unchanged: L1/L2 stay SRF1260-101M and every other path part stays as vetted. Rating = the mote's ~20 W absolute max, 890 mA per port inductor at 24 V (Sofar, More Power Delivery). 50 W (D7/D8, POWER_PATH.md) is deferred until after this board is in production | Nick: reduce technical risk on the first board and reuse Sofar's work, so the board is a new layout of proven hardware. The design has been in the field for years, and Nick already powers his cameras from the mote's power electronics, so it's known to work; no derating question goes to Sofar. The 50 W revision gets scoped with the future motor load |
 
 ## ERC / net-check results
 
@@ -86,6 +87,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S0.4 | 90 / 578 | 42/68 matched; **26 opens**, 0 shorts, 0 unpaired; 43 parts removed, 4 new | **Baseline.** Details in `docs/design-review/netcheck.md`. S1 target: 0 opens |
 | 2026-10-05 | S1 | 65 / 590 | **53/53 matched, 0 opens, 0 shorts** (14 S2-deletion parts excluded); midwire 0 | Import fixed. Edits in `docs/design-review/changelog.md` |
 | 2026-10-05 | S2 | 76 / 562 | 53/53, 0 opens, 0 shorts, **0 excluded**; J1 GND 8/8 on GND | Mezzanine gone, J1 placed. Errors −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins, 8 I2C1/SCL/SDA labels now one-pin, J1.2) |
+| 2026-10-05 | S3 | 76 / 562 | 53/53, 0 opens, 0 shorts, 0 excluded | No schematic change: power path kept as Sofar's (D12) |
 
 **Remaining ERC errors after S2 (76), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted

@@ -2,7 +2,14 @@
 
 *Working trade study for Sprint S3. Nick decides; agreed decisions move to the
 DESIGN.md decision log and this file keeps the evidence.*
-*Last updated: 2026-10-04 · Owner/gate: **Nick***
+*Last updated: 2026-10-05 · Owner/gate: **Nick***
+
+> **Deferred to a later 50 W revision (Nick, 2026-10-05; DESIGN D12).** This
+> first board keeps the Sofar mote's power path unchanged: SRF1260-101M L1/L2
+> and every other part as vetted, rated ~20 W absolute max (890 mA per port
+> inductor at 24 V); Nick already powers his cameras from it. Everything below
+> is the 50 W trade study, kept intact for the future spin that adds a motor
+> load, when it gets scoped against that load. Nothing here applies to this board.
 
 ## Sources
 
@@ -84,7 +91,7 @@ Size fit on the board: Nick to confirm in SolidWorks (2026-10-05).
 | Through-path protection | **none** (no fuse or e-fuse in the schematic; Sofar: the mote has no through-current protection [E]) | Need one that works in both directions and is safe to pot (no PPTC [G]). U9 only protects the payload branch. SOFAR_QUESTIONS Q1 | open |
 | Payload connector, copper | — | Current rating (Nick: copper widths) | open |
 
-## 5. Pending decisions → DESIGN.md once Nick approves
+## 5. Pending decisions → DESIGN.md once Nick approves (all deferred with this file, D12)
 
 - ~~P1 — Rating definition (§1)~~ → decided, DESIGN D8
 - P2 — PoDL magnetics part and count per port (leaning MSD1514-473MED, pending fit)

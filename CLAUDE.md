@@ -11,7 +11,8 @@ Docs map — read per the ritual, don't skip it:
 - `docs/SPEC.md` — goal; verified facts; hard constraints; open questions
 - `docs/TRACKER.md` — rules + sprint ladder (the entry point, the only progress record)
 - `docs/DESIGN.md` — sheet hierarchy, pin map, decision log, ERC/net-check results
-- `docs/POWER_PATH.md` — 50 W power path: inductor trade study and pending decisions
+- `docs/POWER_PATH.md` — 50 W power path trade study, deferred to a later revision (this
+  board keeps the mote's ~20 W path, DESIGN D12)
 - `docs/SOFAR_QUESTIONS.md` — open questions for Sofar and their answers
 - `docs/DEV_LOG.md` — session log, newest first
 - `docs/PROMPTS.md` — Nick's kickoff prompts

@@ -8,7 +8,7 @@
 ## Rules for Agents (READ FIRST, EVERY SESSION)
 
 1. **Read this whole document cover-to-cover first, every session.** Then skim
-   `docs/SPEC.md` and `docs/DESIGN.md` (plus `docs/POWER_PATH.md` in S3).
+   `docs/SPEC.md` and `docs/DESIGN.md` (`docs/POWER_PATH.md` only for the deferred 50 W revision).
    Read the top ~3 entries of `docs/DEV_LOG.md`.
 2. **Take small bites.** One TODO, or one tight group within a sprint, at a
    time. If SPEC.md is too thin to inform the bite, stop and ask Nick.
@@ -121,26 +121,19 @@ In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3
 ERC detail: `python3 tools/ercsum.py --items` (every error has an owner in DESIGN.md).
 **Result:** QE APPROVED (round 3); demo passed and KiCad look OK (Nick, 2026-10-05).
 
-### S3 — 50 W power path: inductors & design decisions  `[ ]`
-**Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
-two-winding magnetics, decided by Nick on cited evidence. Working file:
-`docs/POWER_PATH.md`.
-- [x] Nick defines the rating (POWER_PATH §1) — *gate* (DESIGN D8)
-- [ ] Nick confirms MSD1514 (15.5 × 15.5 × 14.2 mm) fit in SolidWorks
-- [ ] Sort Evan's references; record facts with citations ([G], [E], [J], [DS])
-- [ ] Confirm candidate figures against Coilcraft datasheets, normalised to one basis (§2–3)
-- [ ] Audit every part in the path against the rating and potting rules (§4)
-- [ ] Damping: keep C22/C23/R15/R16; retune only if the new magnetics need it (SOFAR_QUESTIONS Q5)
-- [ ] Propose through-path protection (e-fuse) that works in both directions and is safe to pot (SOFAR_QUESTIONS Q1)
-- [ ] Nick decides P1–P4 → DESIGN.md decision log
-- [ ] Schematic edits: L1/L2 swap, re-rated path parts, damping/bulk provisions,
-      footprints findable (`mote.pretty`)
-**Demo (Nick):** POWER_PATH §4 has no open rows; ERC + net diff show only the
-agreed changes.
-**Needs:** Nick's rating definition; any further references from Evan.
+### S3 — Power path: keep Sofar's  `[~]`
+**Goal:** settle the power path for this board. Decided: keep the mote's power path
+unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Nick
+2026-10-05). The 50 W work moved to the Icebox, kept in `docs/POWER_PATH.md`.
+- [x] Nick defines the rating — first ~50 W (D8), then the mote's ~20 W for this board (D12)
+- [x] Record D12 in SPEC, DESIGN, POWER_PATH, SOFAR_QUESTIONS (Q5 deferred), TRACKER and the viewer;
+      no schematic change
+- [ ] QE review (fresh S3 session), then Nick reviews the docs diff (nothing to see in KiCad)
+**Demo (Nick):** `tools/check.sh` → unchanged from S2: ERC `Errors 76  Warnings 562`,
+`netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches docs only.
 
 ### S4 — 5 V converter for the Pi (copy of U5)  `[ ]`
-*Input side depends on S3 decisions.*
+*Feeds from VBUS on the mote's unchanged power path (D12).*
 - [ ] Copy U5 block with new refs (U5, L3, C28–C31, C33, R20–R23)
 - [ ] Rename copied local labels `3V3_*` → `5V_*`
 - [ ] Set 5 V: R23 copy → 13.7 kΩ (confirm the 0.6 V reference in the LMR51430 datasheet)
@@ -148,7 +141,7 @@ agreed changes.
 - [ ] Output caps rated 10 V or 16 V, with real part numbers
 - [ ] Footprints for new parts extracted to `mote.pretty` (read board, never write it)
 - [ ] `5V_PI` to Top-Level; SolderJumper_2_Open to Pi pins 2 and 4
-- [ ] Bus power budget estimate (shield + Pi + payload vs S3 rating)
+- [ ] Bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12)
 **Demo (Nick):** ERC + net diff; `5V_PI` net contains exactly the intended pins.
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
@@ -159,7 +152,7 @@ agreed changes.
 - [ ] Document the ADIN power-up order
 - [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up). SW_FLAGB/SW_PGOOD sheet pins are
       unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35
-- [ ] VBUS_OUT + GND → 2-pin connector rated for the S3 rating
+- [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
 - [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
       (reference Processor sheet). Note the combined value if the Pi also has pull-ups
@@ -195,4 +188,9 @@ power-up. Agents answer questions here; they don't edit.
 
 - Hardware watchdog switching the 5 V converter's enable (e.g. TI TPL5010)
 - Shared nereus-lib from the UrchinCam parts
+- **50 W revision** (after production; scoped with the future motor load). Deferred S3 work,
+  evidence in `docs/POWER_PATH.md` (DESIGN D7/D8 superseded by D12 for this board):
+  MSD1514 fit check (SolidWorks); sort Evan's references; confirm Coilcraft figures on one
+  basis; audit every path part vs the rating and potting rules; damping retune (SOFAR Q5);
+  potting-safe bidirectional e-fuse (SOFAR Q1); P2–P4 decisions; L1/L2 swap and re-rated parts
 - 100 W variant (see POWER_PATH sources [G])

@@ -1,14 +1,16 @@
 # SPEC.md — nereus_Pi_shield_ADIN2111
 
 *What Nick wants. Stable reference — agents skim this; changes require Nick's approval.*
-*Last updated: 2026-10-04*
+*Last updated: 2026-10-05*
 
 ## Goal
 
 A Raspberry Pi Zero 2W shield made from a copy of the Sofar Bristlemouth mote
 (000639-AB): ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus,
-5 V for the Pi, a 24 V payload port, and a **~50 W power path (absolute max at
-24 V, defined like Sofar's 20 W mote rating)**, fully potted.
+5 V for the Pi, a 24 V payload port, and **the mote's power path kept exactly
+as Sofar built it: ~20 W absolute max (890 mA per port inductor at 24 V)**,
+fully potted. This first board is a new layout of Sofar's vetted hardware; 50 W
+waits for a later revision (DESIGN D12).
 Done = a design-review package in `docs/design-review/` that Nick can review
 with colleagues: ERC clean (or every item justified), kept nets matching the
 mote's copper, every new net listed, schematic PDF, change log, BOM changes,
@@ -19,9 +21,10 @@ and open questions with datasheet citations. Nick owns layout from there.
 The mote design was imported from Altium. The import left pins touching wire
 midpoints unconnected; a 33-junction fix (`Archive/shield_junction_fix.zip`)
 is applied. The STM32 processor and USB go away; the Pi drives the ADIN2111
-over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
-50 W means re-selecting the inductors and re-rating the whole power path
-(see `docs/POWER_PATH.md`).
+over SPI. The commercial mote's PoDL magnetics limit it to ~20 W. Reaching
+50 W means re-selecting the inductors and re-rating the whole power path; that
+trade study is in `docs/POWER_PATH.md`, deferred until after this board is in
+production (DESIGN D12).
 
 ## Inventory / environment
 
@@ -80,8 +83,11 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 5. Every part value, pin number and rating carries a datasheet citation. No
    citation, no part: it goes in Open questions instead.
 6. `KiCAD_reference_designs/` and `Archive/` are read-only.
-7. No power-path part is chosen until it has been checked against the ~50 W
-   absolute-max rating (2.083 A at 24 V) defined in `docs/POWER_PATH.md` §1.
+7. The power path stays exactly as in the Sofar mote: no part in it (L1/L2,
+   D1–D3, U9/R34/R11, R8, C22/C23/R15/R16, …) changes value or part number.
+   The rating is the mote's: ~20 W absolute max = 890 mA per port inductor at
+   24 V *(Sofar, More Power Delivery)*; anything new on the bus (the S4 5 V
+   converter, the payload connector) is checked against it. *(Nick, 2026-10-05; DESIGN D12)*
 8. **The electronics are potted.** Parts kept from the Sofar mote design are
    vetted and stay as they are, unchanged (e.g. C22/C23). These rules apply
    only to **newly sourced** parts *(Nick, 2026-10-04)*:
@@ -103,6 +109,7 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 - Board outline, placement, routing, fabrication outputs (Nick)
 - Firmware or Pi software, beyond documenting the ADIN power-up order
+- A 50 W power path on this board (deferred to a later revision, DESIGN D12)
 - A 100 W variant; a Bristlemouth power-delivery protocol
 - HAT ID EEPROM
 - The shared nereus-lib (icebox)
@@ -111,10 +118,8 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
-- Do two MSD1514-class inductors (15.5 × 15.5 × 14.2 mm each) fit a Pi
-  Zero-sized board? — Nick, SolidWorks check 2026-10-05
 - What is the FPF2700's current-limit range? (The onsemi datasheet link was
-  dead on 2026-10-04.) — S3
+  dead on 2026-10-04.) — S4/S5 power budget; SOFAR_QUESTIONS Q3
 - Which inductor does the 5 V converter need at 24 V in? (The 3.3 V U5 uses
   PA5432.822NLT as L3.) — S4
-- Bus power budget: shield + Pi + payload against the 50 W path — S4/S5
+- Bus power budget: shield + Pi + payload against the ~20 W (890 mA) path — S4/S5
