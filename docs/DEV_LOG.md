@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-10-05 — Sprint S4.a — 5 V converter for the Pi (copy of U5); S3 closed
 
 **Branch:** sprint/4-5v-converter
-**Files touched:** BM_Mote_1_Power.kicad_sch, BM_Mote_1_Master.kicad_sch; tools/schedit.py (copy_block, set_properties; 11 tests); SPEC, DESIGN (D13), TRACKER, viewer, changelog
+**Files touched:** BM_Mote_1_Power.kicad_sch, BM_Mote_1_Master.kicad_sch; tools/schedit.py (copy_block, set_properties; 12 tests); SPEC, DESIGN (D13), TRACKER, viewer, changelog, qe/S4.md
 **ERC:** 78 errors / 629 warnings (was 76/562)  ·  **Net diff:** 53/53, 0 opens, 0 shorts; existing parts identical; 5 new nets
 **Done:**
 - S3 closed: Nick approved PR #7, merged (`09af9d8`); S3 QE session archived
@@ -37,7 +37,12 @@ what broke, what's next.*
 - Murata's DC-bias tool needs a licence accepted, so the 22 µF parts' effective capacitance at
   5 V is an open question rather than a number; the Yageo datasheet link triggered a download
   prompt in Nick's browser pane (read via fetch instead)
-**Next:** QE review (fresh S4 session), Nick's KiCad look, merge; then S4.b (jumper to Pi pins 2/4).
+- QE round 1 (fresh S4 session, report sent to me directly): CHANGES REQUESTED. F1 MAJOR: my
+  `set_properties` silently skipped values containing `\"`, leaving stale 0603 size fields on
+  C56/C57. Fixed the regex, made it refuse partial parses, added a test. Also F2 thermal item
+  scheduled (S4.c), demo line, D13 ripple basis/Vout band/TI Table 9-2, R38 citation, C58 nudged.
+  Report: `qe/S4.md`
+**Next:** QE round 2, Nick's KiCad look, merge; then S4.b (jumper to Pi pins 2/4).
 
 ---
 

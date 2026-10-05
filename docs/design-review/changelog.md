@@ -22,6 +22,10 @@ set (DESIGN D13). Top-Level sheet: new sheet pin and test point.
 | Hierarchical label `5V_PI` + sheet pin | `3V3` | Power Regulators sheet pin at (353.06, 198.12) on the Top-Level sheet |
 | TP38 | TP20 | test point on `5V_PI`, with a `5V_PI` label for S4.b |
 
+After QE round 1: C58 and its GND symbol sit one grid (2.54 mm) right of the first
+placement, at x = 254, with its 10 V rating shown; stale hidden 0603 size fields
+removed from C56/C57 (`set_properties` had skipped values containing `\"`).
+
 Also: TP23/TP24 and their GND symbols (#PWR01, #PWR03) moved 7.62 mm down on the
 Top-Level sheet to clear the new wire (placement only, same connections); sheet
 title now "Buck Converters - 3V3, 1V8, 5V". **Verified:** every existing part's

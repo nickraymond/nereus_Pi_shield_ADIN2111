@@ -133,6 +133,14 @@ class CopyTest(unittest.TestCase):
         self.assertNotIn('"OLD"', out)
         self.assertIn('(property "NEW" "y"', out)
 
+    def test_set_properties_handles_escaped_quotes(self):
+        # QE S4 F1: a value like 0.039\"(1.00mm) used to be skipped silently
+        s = SHEET.replace('(property "Reference" "R2"\n\t\t)\n',
+                          '(property "Reference" "R2"\n\t\t)\n\t\t(property "SIZE" "0.063\\"Lx0.031\\"W"\n\t\t\t(at 0 0 0)\n\t\t)\n')
+        self.assertIn('\\"Lx', s)
+        out = set_properties(s, "R2", {}, keep_only=())
+        self.assertNotIn('"SIZE"', out)
+
 
 if __name__ == "__main__":
     unittest.main()

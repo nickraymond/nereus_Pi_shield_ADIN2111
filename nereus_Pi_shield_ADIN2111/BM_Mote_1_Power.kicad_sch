@@ -2166,7 +2166,7 @@
 		(uuid "c6e67b10-252e-496e-a227-45211a067819")
 	)
 	(junction
-		(at 251.46 210.6422)
+		(at 254 210.6422)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "049f7e1b-41dc-441e-80a9-26bda5fbedcd")
@@ -2993,7 +2993,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 225.8822) (xy 251.46 223.3422)
+			(xy 254 225.8822) (xy 254 223.3422)
 		)
 		(stroke
 			(width 0)
@@ -3013,7 +3013,7 @@
 	)
 	(wire
 		(pts
-			(xy 241.3 210.6422) (xy 251.46 210.6422)
+			(xy 241.3 210.6422) (xy 254 210.6422)
 		)
 		(stroke
 			(width 0)
@@ -3023,7 +3023,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 210.6422) (xy 358.14 210.6422)
+			(xy 254 210.6422) (xy 358.14 210.6422)
 		)
 		(stroke
 			(width 0)
@@ -3043,7 +3043,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 210.6422) (xy 251.46 218.2622)
+			(xy 254 210.6422) (xy 254 218.2622)
 		)
 		(stroke
 			(width 0)
@@ -7702,16 +7702,6 @@
 				(hide yes)
 			)
 		)
-		(property "THICKNESS (MAX)" "0.039\"(1.00mm)"
-			(at 203.454 213.9442 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
 		(property "CAPACITANCE" "22µF"
 			(at 208.026 221.8182 0)
 			(effects
@@ -7751,16 +7741,6 @@
 			)
 		)
 		(property "MANUFACTURER" "Murata"
-			(at 203.454 213.9442 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SIZE / DIMENSION" "0.063\"Lx0.031\"W(1.60mmx0.80mm)"
 			(at 203.454 213.9442 0)
 			(effects
 				(font
@@ -10219,16 +10199,6 @@
 				(hide yes)
 			)
 		)
-		(property "THICKNESS (MAX)" "0.039\"(1.00mm)"
-			(at 239.014 213.9442 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
 		(property "CAPACITANCE" "22µF"
 			(at 243.586 221.8182 0)
 			(effects
@@ -10268,16 +10238,6 @@
 			)
 		)
 		(property "MANUFACTURER" "Murata"
-			(at 239.014 213.9442 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SIZE / DIMENSION" "0.063\"Lx0.031\"W(1.60mmx0.80mm)"
 			(at 239.014 213.9442 0)
 			(effects
 				(font
@@ -10366,7 +10326,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault")
-		(at 251.46 218.2622 0)
+		(at 254 218.2622 0)
 		(unit 0)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10374,7 +10334,7 @@
 		(dnp no)
 		(uuid "99e40c6d-8afd-4c01-b24e-968a2fcc9ca5")
 		(property "Reference" "C58"
-			(at 254.254 221.5642 0)
+			(at 256.794 221.5642 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10383,7 +10343,7 @@
 			)
 		)
 		(property "Value" "GRM155R61A475MEAAD"
-			(at 254.254 224.1042 0)
+			(at 256.794 224.1042 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10393,7 +10353,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 251.46 218.2622 0)
+			(at 254 218.2622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10402,7 +10362,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 251.46 218.2622 0)
+			(at 254 218.2622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10411,7 +10371,7 @@
 			)
 		)
 		(property "Description" "Chip Capacitor, 4.7 uF, +/- 20%, 10 V, X5R, -55 to 85 degC, 0402 (1005 Metric)"
-			(at 251.46 218.2622 0)
+			(at 254 218.2622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10420,7 +10380,7 @@
 			)
 		)
 		(property "CASE/PACKAGE" "0402"
-			(at 248.666 217.7542 0)
+			(at 251.206 217.7542 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10430,7 +10390,7 @@
 			)
 		)
 		(property "CAPACITANCE" "4.7uF"
-			(at 254 225.8822 0)
+			(at 256.54 225.8822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10439,7 +10399,7 @@
 			)
 		)
 		(property "TOLERANCE" "20%"
-			(at 248.666 217.7542 0)
+			(at 251.206 217.7542 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10449,7 +10409,7 @@
 			)
 		)
 		(property "DIELECTRIC" "X5R"
-			(at 248.666 217.7542 0)
+			(at 251.206 217.7542 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10459,17 +10419,16 @@
 			)
 		)
 		(property "VOLTAGE RATING" "10V"
-			(at 248.666 217.7542 0)
+			(at 256.54 228.4222 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
-				(hide yes)
 			)
 		)
 		(property "MANUFACTURER" "Murata"
-			(at 251.46 218.2622 0)
+			(at 254 218.2622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10478,7 +10437,7 @@
 			)
 		)
 		(property "DATASHEET URL" "https://pim.murata.com/en-us/pim/details/?partNum=GRM155R61A475MEAA%23"
-			(at 251.46 218.2622 0)
+			(at 254 218.2622 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10503,7 +10462,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 251.46 225.8822 0)
+		(at 254 225.8822 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10511,7 +10470,7 @@
 		(dnp no)
 		(uuid "8a4fe27f-8a69-4565-a5e0-a39a8c890640")
 		(property "Reference" "#PWR75"
-			(at 251.46 225.8822 0)
+			(at 254 225.8822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10520,7 +10479,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 251.46 232.2322 0)
+			(at 254 232.2322 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10528,7 +10487,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 251.46 225.8822 0)
+			(at 254 225.8822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10536,7 +10495,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 251.46 225.8822 0)
+			(at 254 225.8822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10544,7 +10503,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 251.46 225.8822 0)
+			(at 254 225.8822 0)
 			(effects
 				(font
 					(size 1.27 1.27)

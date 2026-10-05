@@ -147,8 +147,11 @@ S4.b jumper to the Pi, S4.c power budget + footprints. Values: DESIGN D13.*
 - [ ] QE review (fresh S4 session) and Nick's KiCad look — S4.a
 - [ ] S4.b: SolderJumper_2_Open from `5V_PI` to Pi pins 2 and 4
 - [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
-- [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12)
-**Demo (Nick):** ERC + net diff; `5V_PI` net contains exactly the intended pins.
+- [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12),
+      plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)
+**Demo (Nick):** `tools/check.sh` → ERC `Errors 78  Warnings 629`, `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
+excluded`, exit 0; `python3 tools/ercsum.py --items` lists U10 Pin 2 and Pin 6 under power_pin_not_driven;
+netlist net `5V_PI` = C56.2, C57.2, C58.1, L6.2, R37.1, TP38.1 (S4.a).
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and

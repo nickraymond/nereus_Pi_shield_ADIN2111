@@ -35,7 +35,7 @@ from netcheck import blocks  # noqa: E402
 SHEET_PIN = re.compile(r'\(pin "([^"]+)" \w+\n\t\t\t\(at ([-\d.]+) ([-\d.]+)')
 LABEL = re.compile(r'\t\((label|global_label|hierarchical_label) "([^"]+)"\n(?:\t\t\(shape \w+\)\n)?'
                    r'\t\t\(at ([-\d.]+) ([-\d.]+)[^\n]*\n.*?\n\t\)\n', re.S)
-PROP = re.compile(r'\t\t\(property "([^"]+)" "([^"]*)"\n(?:\t\t\t[^\n]*\n)*\t\t\)\n')
+PROP = re.compile(r'\t\t\(property "([^"]+)" "((?:[^"\\]|\\.)*)"\n(?:\t\t\t[^\n]*\n)*\t\t\)\n')
 NO_CONNECT = re.compile(r'\t\(no_connect\n\t\t\(at ([-\d.]+) ([-\d.]+)\)\n.*?\n\t\)\n', re.S)
 
 
@@ -448,6 +448,8 @@ def set_properties(text, ref, values=None, drop=(), keep_only=None):
         if symbol_ref(b) != ref:
             continue
         props = list(PROP.finditer(b))
+        if len(props) != len(re.findall(r'^\t\t\(property ', b, re.M)):
+            raise ValueError(f"{ref}: a property didn't parse; refusing to edit it partially")
         out, last = b, None
         for m in reversed(props):
             name = m.group(1)
