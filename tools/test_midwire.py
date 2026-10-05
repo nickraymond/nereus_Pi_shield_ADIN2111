@@ -33,5 +33,11 @@ class MidwireTest(unittest.TestCase):
         self.assertEqual(len(set(__import__("re").findall(r'\(uuid "([^"]+)"\)', out))), 3)
 
 
+    def test_symbol_whose_name_ends_in_digits_is_seen(self):
+        # Connector:Raspberry_Pi_2_3 ends in "_2_3", like a unit sub-symbol; its pins
+        # were skipped before S4.b
+        s = SHEET.replace('"lib:TP"', '"lib:Pi_2_3"').replace('"TP_0_1"', '"Pi_2_3_1_1"')
+        self.assertEqual(find(s, {}), {(15.0, 20.0022): ["TP1.1"]})
+
 if __name__ == "__main__":
     unittest.main()

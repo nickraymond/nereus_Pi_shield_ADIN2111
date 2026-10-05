@@ -19,6 +19,32 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S4.b — Shield powers the Pi through bridged link JP1; S4.a closed
+
+**Branch:** sprint/4b-pi-5v-jumper
+**Files touched:** BM_Mote_1_Master.kicad_sch; new nereus.pretty (SolderJumper-2_R1210_Bridged_NetTie) + fp-lib-table; tools/midwire.py (+ test); SPEC, DESIGN (D14, D5 superseded), TRACKER, viewer, changelog
+**ERC:** 76 errors / 629 warnings (was 78/629)  ·  **Net diff:** 53/53; existing connections identical; new net PI_5V
+**Done:**
+- S4.a closed: Nick's KiCad look OK, PR #8 merged (`b394edb`)
+- Design discussion with Nick: solder jumper vs 0 Ω resistor vs bridged link. Nick's call: the shield
+  powers the Pi by default, no DNP part; pads that fit a 0 Ω resistor. → JP1 bridged net tie on R11's
+  1210 pads (D14, revises D5's "open by default")
+- Found and fixed a tool bug: J1's pins were invisible to midwire/bbox_clear (symbol name ends in `_2_3`)
+**Broke/surprised us:**
+- First JP1 layout (vertical, close to J1) put rotated text on top of J1's value and the PWR_FLAG;
+  caught in the render, re-laid out horizontally higher up. A label part-way along a wire left the
+  wire's end dangling (+1 ERC warning); moved the label to the end
+- QE round 1 (same S4 session): CHANGES REQUESTED. F1 MAJOR: D14 missed the USB back-feed path
+  (Pi USB 5 V → L6 → U10 high-side body diode → VBUS/bus/payload). Checked the Pi Zero 2 W reduced
+  schematic (power USB feeds 5V directly; data port not shown). Nick chose a bench rule over a hardware
+  guard: no USB 5 V source on a bridged board, shield powered or not. F2–F6 fixed (note cites D14,
+  demo line, footprint renamed SolderJumper-2_R1210_Bridged_NetTie, dead code, cut guidance)
+- QE round 2 (same session): **APPROVED**, no findings
+**Next:** Nick's KiCad look, merge; then S4.c (power budget incl. USB peripherals, bridge current,
+footprints, U10 thermal).
+
+---
+
 ## 2026-10-05 — Sprint S4.a — 5 V converter for the Pi (copy of U5); S3 closed
 
 **Branch:** sprint/4-5v-converter

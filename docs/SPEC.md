@@ -142,10 +142,25 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - U10's input caps copy U5's 2.2 µF (C55) + 100 nF. TI's text suggests ≥ 4.7 µF
   (SLUSEF4A §9.2.2.6), though its own Figure 9-1 uses 2.2 µF; field-proven on
   U5, but U10 draws more input current. — S6 review
+- Does JP1's 1.0 mm copper bridge (1 oz assumed; Nick's stack-up decides) carry the
+  Pi's maximum 5 V current with margin? Check against IPC-2221 trace-current data,
+  with the Pi's current from Raspberry Pi's documentation. — S4.c
+- The Pi Zero 2 W's undervoltage threshold, from a primary Raspberry Pi source
+  (the bench check and the 4.82 V worst-case setpoint depend on it). — S4.c
+- With JP1 bridged, the Pi must never also have a USB cable plugged in. Its power
+  micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
+  J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
+  reduced schematic). Failure modes: shield unpowered → USB 5 V back-feeds through L6
+  and U10's high-side body diode onto VBUS (bus side via L1, payload port via R11);
+  shield powered → two supplies fight. **Decided (Nick, 2026-10-05, D14): bench rule
+  only** — never connect a USB 5 V source (charger, PC host, self-powered hub that
+  back-feeds) to a bridged board's Pi, shield powered or not; Pi-powered USB
+  peripherals are fine and count toward the S4.c budget. Open part: the data port's
+  VBUS wiring (primary source).
 - U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
   RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
   ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)
 - Murata's product pages list "undersea equipment" among applications they
   don't warrant for these consumer/industrial MLCCs. Applies equally to the
   mote's existing Murata parts (C29, C32, C33, …). — note for S6 review
-- Bus power budget: shield + Pi + payload against the ~20 W (890 mA) path — S4/S5
+- Bus power budget: shield + Pi (incl. USB peripherals the Pi powers) + payload against the ~20 W (890 mA) path — S4/S5
