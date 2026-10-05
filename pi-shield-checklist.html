@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S1, fix the Altium import</strong> Agent work done: 53/53 nets match the copper. Waiting on your demo and KiCad look. Next: S2, mezzanine → Pi header.</p>
+    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> <strong>S1 done:</strong> the import is fixed and 53/53 nets match the copper. Next: the S2 plan.</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -154,7 +154,7 @@ const S = [
   ["Remove the unused Processor and USB sheet files", `<p>Deleted; they weren't referenced. ERC and netlist unchanged.</p>`, null, 1],
   ["Number all #PWR power symbols uniquely", `<p>65 × <code>#PWR?</code> → <code>#PWR01</code>–<code>#PWR65</code>.</p>`, null, 1],
   ["Baseline report: ERC + net check against the copper", `<p>netcheck 53/53, 0 opens, 0 shorts. ERC 65 errors / 590 warnings; every error assigned to a later sprint in DESIGN.md. Edit log: <code>docs/design-review/changelog.md</code>.</p>`, null, 1],
-  ["Checkpoint: run the demo and open it in KiCad", `<p><code>tools/check.sh</code> exits 0 (midwire 0; netcheck 53/53, 0 opens). In KiCad, e.g. R8 on the Power Monitor sheet now shows junctions at both ends.</p>`, "nick"]
+  ["Checkpoint: run the demo and open it in KiCad", `<p><code>tools/check.sh</code> exits 0 (midwire 0; netcheck 53/53, 0 opens). Passed, and KiCad look OK, 2026-10-05.</p>`, "nick", 1]
 ]},
 { t:"S2 — Mezzanine (P1) → Pi header; grounds", o:"agent", w:"Claude Code", c:"--sch",
   items:[

@@ -37,7 +37,7 @@ what broke, what's next.*
   wire is clean. The zip's 33 locations were right; the method wasn't
 - The "65 duplicate references" never showed in kicad-cli ERC, because the CLI numbers `#PWR?` in its own report
 - kicad-cli PDF size: `du` reported disk blocks; check.sh now prints real bytes
-**Next:** Nick: S1 demo + KiCad look → S1 done. Then S2, mezzanine → Pi header (plan nibble).
+**Next:** S1 demo passed and KiCad look OK (Nick, 2026-10-05) → S1 done. Next: S2, mezzanine → Pi header (plan nibble).
 
 ## 2026-10-05 — Sprint S0 — Net check built; baseline recorded
 

@@ -17,3 +17,6 @@ docs/design-review/out/
 
 # Personal Claude Code permissions (not shared)
 .claude/settings.local.json
+
+# Python bytecode
+__pycache__/

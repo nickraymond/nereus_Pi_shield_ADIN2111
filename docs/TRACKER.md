@@ -78,7 +78,7 @@ and `netcheck: 42/68 copper nets matched; 26 opens, 0 shorts`; open
 until S1 fixes the opens.
 **Result:** demo passed 2026-10-05 (Nick).
 
-### S1 — Fix the Altium import  `[~]`
+### S1 — Fix the Altium import  `[x]`
 - [x] Fix the opens: 12 are mezzanine nets → `docs/design-review/excluded_parts.txt`
       (S2 deletions); 21 pins sat mid-wire → wire split + junction (`tools/midwire.py`).
       The 33-junction zip had never been applied, and tested alone it breaks
@@ -87,12 +87,13 @@ until S1 fixes the opens.
 - [x] Remove the unused Processor and USB sheet files
 - [x] Number all `#PWR` symbols uniquely (65 → `#PWR01`–`#PWR65`)
 - [x] Baseline report: netcheck 53/53, 0 opens; ERC 65/590, every error assigned (DESIGN.md)
-- [ ] Checkpoint: Nick opens it in KiCad (30-second look)
+- [x] Checkpoint: Nick opens it in KiCad (30-second look)
 **Demo (Nick):** `tools/check.sh` exits 0 → `midwire: 0`, `netcheck: 53/53 …
 0 opens, 0 shorts; 14 parts excluded`, ERC `Errors 65  Warnings 590`. Then open
 the project in KiCad: the 21 fixed points are listed in
 `docs/design-review/changelog.md` (e.g. R8 on the PowerMon sheet now shows
 junctions at both ends).
+**Result:** demo passed and KiCad look OK (Nick, 2026-10-05).
 
 ### S2 — Mezzanine (P1) → Pi header; grounds  `[ ]`
 - [ ] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
