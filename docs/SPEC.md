@@ -142,8 +142,8 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
-  power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). Payloads are small
-  devices, kept as Sofar designed (D17).
+  power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
+  fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
 - **U9 (FPF2700MX) is obsolete**: Digi-Key part status "Obsolete — This product is no
   longer manufactured" (checked 2026-10-05); distributor data gives last-time buy
   2023-06-15, last delivery 2023-12-15. **Nick: replace it with a part JLC can source**

@@ -44,6 +44,9 @@ ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used 
 - Nick asked for a lifecycle check: **FPF2700MX (U9) is obsolete** (Digi-Key). Captured in S5 (replace with a
   JLC-sourceable part) plus a whole-BOM lifecycle check before S6
 - Nick: payloads are small devices, keep Sofar's payload port (D17); U9 needs a JLC-sourceable replacement (S5)
+- QE round 2: CHANGES REQUESTED. F4 MAJOR: R11 (0 Ω across U9) is fitted in our files (and on the mote board),
+  so U9 was bypassed — D17's premise was wrong. Nick: R11 DNP so the switch and limit work (S5). N6: U9
+  replacement must handle output caps / hard shorts up to 32 V
 **Next:** QE round 2, Nick's review, merge; then S4.d (footprints) and the U9 replacement.
 
 ---

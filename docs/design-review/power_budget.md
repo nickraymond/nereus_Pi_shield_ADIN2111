@@ -52,10 +52,12 @@ so VBUS = bus − I · 0.656 Ω (QE S4.c F2). The tables below solve that.
 - **Payload port (U9 FPF2700, R34 = 374 kΩ)**: [FPF] Eq. 1, R_SET (kΩ) = 277.5 / I_LIM(TYP) (A)
   → **I_LIM ≈ 0.74 A typical, 0.59–0.89 A** (±20 % at 25 °C [FPF] electrical table);
   short-circuit limit 0.75 × I_LIM (VOUT < 2 V); off after 0.5 ms blanking and retries
-  every 127.5 ms (FPF2700); 88 mΩ typical; 2.8–36 V; thermal shutdown 140 °C. **R11
-  (0 Ω across U9) bypasses all of this if fitted** (SOFAR_QUESTIONS Q2). **FPF2700MX
-  is obsolete** (Digi-Key, 2026-10-05). Nick: find a replacement JLC can source (S5);
-  its current limit should match ≈ 0.74 A typical.
+  every 127.5 ms (FPF2700); 88 mΩ typical; 2.8–36 V; thermal shutdown 140 °C.
+  **As captured (Sofar's files), R11, the 0 Ω across U9, is fitted** (in BOM, not DNP;
+  a normal footprint on the mote board). That bypasses U9: no limit, and SW_EN does
+  nothing (QE S4.c F4). **Nick (D17): R11 becomes DNP in S5**, so U9 switches and limits
+  the payload. **FPF2700MX is obsolete** (Digi-Key, 2026-10-05), so S5 also replaces U9
+  with a part JLC can source, with a ≈ 0.74 A limit.
 
 ## 2. Budget against both limits
 
@@ -84,11 +86,11 @@ Shield input = U10 input + 0.30 W. Bus current solves I · (bus − 0.656 · I) 
   890 mA through the port it's 0.52 W with a 0.58 V drop. That's the same order as
   U10's loss, and it's heat inside the potting (§3).
 
-→ **Decided (D17, Nick):** the payload port stays as Sofar designed it (U9 with
-R34 → ≈ 0.74 A limit). Payloads are small devices (e.g. another sensor that needs
-switching on); none runs near the limit, so there's no extra budget enforcement.
-The 12 W figure above is for information. U9 itself is obsolete and gets a
-JLC-sourceable replacement in S5 (§1).
+→ **Decided (D17, Nick):** the payload is switched and limited by the load switch
+(≈ 0.74 A, set by R34), with R11 made DNP in S5. Payloads are small devices (e.g.
+another sensor that needs switching on); none runs near the limit, so there's no extra
+budget enforcement. The 12 W figure above is for information. The budget table
+assumes the payload draws little, as Nick describes.
 
 ## 3. Shield heat: U10, L6, L1
 
