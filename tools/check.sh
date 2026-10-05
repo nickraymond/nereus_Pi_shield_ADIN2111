@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# One-command check of the live schematic: ERC, netlist, PDF, net check vs the
-# mote copper. Reads the project; never modifies it.
+# One-command check of the live schematic: ERC, netlist, PDF, pins sitting
+# mid-wire, net check vs the mote copper. Reads the project; never modifies it.
 # Raw outputs → docs/design-review/out/ (git-ignored); docs/design-review/netcheck.md is tracked.
 # Exit code is netcheck's: 0 = connectivity matches the copper, 1 = differences.
 set -euo pipefail
@@ -29,7 +29,10 @@ done
 echo "ERC:      $(grep -o 'ERC messages: .*' "$OUT/erc.rpt")"
 echo "PDF:      $OUT/schematic.pdf ($(( $(wc -c < "$OUT/schematic.pdf") / 1024 )) KB)"
 set +e
+mid_out=$(python3 tools/midwire.py); mid=$?
+echo "${mid_out##*$'\n'}"
 python3 tools/netcheck.py --netlist "$OUT/netlist.net"
 status=$?
 set -e
+[ $mid -ne 0 ] && { echo "$mid_out" | sed '$d'; [ $status -eq 0 ] && status=1; }
 exit $status
