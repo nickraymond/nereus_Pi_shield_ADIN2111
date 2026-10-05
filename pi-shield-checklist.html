@@ -197,7 +197,7 @@ const S = [
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
   ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) was fitted and bypassed the load switch (D17). Done in S5.a.</p>`, null, 1],
-  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>U11 = TI TPS26621DRCR (JLC C1848341, TI ACTIVE): R34 9.09 kΩ → 0.73 A, R41 1 MΩ UVLO tie, R42 pull-down (payload off by default; SW_EN now active high), PGOOD dropped (D18).</p>`, null, 1],
+  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>U11 = TI TPS26621DRCR (JLC C1848341, TI ACTIVE): R34 9.09 kΩ → 0.73 A, R41 1 MΩ UVLO tie, R42 10 kΩ pull-down (payload off by default; SW_EN now active high), PGOOD dropped (D18).</p>`, null, 1],
   ["S5.a: QE review, then your KiCad look", `<p>Load Switch sheet (U11 and its parts) and R11 on the Top-Level sheet (DNP cross).</p>`, "nick"],
   ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>

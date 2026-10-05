@@ -49,7 +49,9 @@ so VBUS = bus − I · 0.656 Ω (QE S4.c F2). The tables below solve that.
   (±2 points, read from a graph; slightly conservative per QE). *Note: the figure's
   legend repeats "PFM, VIN=24V" (and 12 V), but above 0.35 A all 24 V curves agree
   within ~2 points.* The same values are used at 16 V.
-- **Payload port (U9 FPF2700, R34 = 374 kΩ)**: [FPF] Eq. 1, R_SET (kΩ) = 277.5 / I_LIM(TYP) (A)
+- **Payload port** — *superseded by D18 (S5.a): U11 TPS26621DRCR, R34 = 9.09 kΩ → 0.73 A
+  typical (≈ −6/+4 %), R11 DNP. The FPF2700 analysis below is kept for history.*
+  **Was U9 FPF2700, R34 = 374 kΩ**: [FPF] Eq. 1, R_SET (kΩ) = 277.5 / I_LIM(TYP) (A)
   → **I_LIM ≈ 0.74 A typical, 0.59–0.89 A** (±20 % at 25 °C [FPF] electrical table);
   short-circuit limit 0.75 × I_LIM (VOUT < 2 V); off after 0.5 ms blanking and retries
   every 127.5 ms (FPF2700); 88 mΩ typical; 2.8–36 V; thermal shutdown 140 °C.

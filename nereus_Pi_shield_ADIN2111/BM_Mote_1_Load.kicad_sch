@@ -2830,7 +2830,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RMCF0402FT100K"
+		(property "Value" "RMCF0402FT10K0"
 			(at 177.292 153.2382 0)
 			(effects
 				(font
@@ -2858,7 +2858,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 100K OHM 1% 0402: SW_ON pull-down, payload off by default (TPS26621 SHDN active low, D18)"
+		(property "Description" "RES 10K OHM 1% 0402: SW_ON pull-down, payload off by default. Worst case SHDN source 10 uA x 10k = 0.1 V < V(SHUTF) min 0.9 V (SLVSDT4F 7.5, D18)"
 			(at 195.58 154.7622 0)
 			(effects
 				(font
@@ -2897,7 +2897,7 @@
 				(hide yes)
 			)
 		)
-		(property "RESISTANCE" "100kR"
+		(property "RESISTANCE" "10kR"
 			(at 181.864 158.8262 0)
 			(effects
 				(font
@@ -4118,7 +4118,7 @@
 				(hide yes)
 			)
 		)
-		(property "PART NUMBER" "RC0402FR-07374KL"
+		(property "PART NUMBER" "RC0402FR-079K09L"
 			(at 152.908 149.1742 0)
 			(effects
 				(font
@@ -4690,12 +4690,13 @@
 				)
 			)
 		)
-		(property "Value" "1M"
+		(property "Value" "RC0402FR-071ML"
 			(at 206.502 137.16 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
@@ -4725,7 +4726,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RC0402FR-071ML"
+		(property "MANUFACTURER" "Yageo"
 			(at 199.39 139.5222 0)
 			(effects
 				(font
@@ -4734,7 +4735,15 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" "Yageo"
+		(property "RESISTANCE" "1MR"
+			(at 206.502 137.16 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PART NUMBER" "RC0402FR-071ML"
 			(at 199.39 139.5222 0)
 			(effects
 				(font

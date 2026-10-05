@@ -170,6 +170,7 @@ JP1.2, L6.2, R37.1, TP38.1 (S4.b; S4.a's was 78/629 without JP1).
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
       ON, FLAGB/PGOOD; ideally SO-8 pin-compatible; cited, potting-safe; R34/R33/R35 values re-derived; check output-cap /
       hard-short behaviour up to 32 V (FPF2700 Table 2 vs Eq. 2 conflict at 32 V for this limit; C50 is only 100 nF; QE N6)
+      — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
 - [ ] S5.a: QE review (fresh S5 session) and Nick's KiCad look
 - [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and

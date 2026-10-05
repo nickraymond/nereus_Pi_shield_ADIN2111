@@ -36,7 +36,11 @@ what broke, what's next.*
 - JLC's parts page renders only with the browser pane visible; found the part via LCSC search results
 - Quick Look (qlmanage) hung; rendered the schematic PDF page via PDFKit instead
 - R11's description field says "205K OHM" (Altium import junk) — S6 cleanup
-**Next:** QE review (fresh S5 session), Nick's KiCad look, merge; then S4.d (footprints).
+- QE round 1 (fresh S5 session): CHANGES REQUESTED. F1 MAJOR: R34's PART NUMBER field still said 374 kΩ
+  (set_properties only changed what I named). F2 MAJOR: R42 100 kΩ had no worst-case SHDN margin (I used the
+  typical 2 µA; max is 10 µA) → 10 kΩ. Also RTN = GND recorded (§12.1), QE N6 closed, stale SPEC/DESIGN U9
+  lines, footprint-link accounting, R41 fields harmonised, sofar_brief row 5 detail
+**Next:** QE round 2, Nick's KiCad look, merge; then S4.d (footprints).
 
 ---
 

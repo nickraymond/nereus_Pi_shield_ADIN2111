@@ -10,10 +10,10 @@ Load Switch sheet (`BM_Mote_1_Load.kicad_sch`), D18:
 |---|---|
 | U9 FPF2700MX removed | Obsolete (Digi-Key) |
 | **U11 TPS26621DRCR** added at (226.06, 149.68) | New project symbol `nereus:TPS26621DRCR` (new `nereus.kicad_sym` + sym-lib-table entry); stock footprint `Package_SON:Texas_DRC0010J`; LCSC C1848341. Pins placed on U9's old wire ends: IN/ILIM/SHDN/RTN left, OUT/dVdT/FLT/OVP right, GND/EP down to the GND rail |
-| R34 | 374 kΩ → **9.09 kΩ RC0402FR-079K09L** (0.73 A) |
-| **R41** 1 MΩ (stock `Device:R`, 0402, RC0402FR-071ML) | IN → UVLO, tapping the VIN riser (split + junction) |
+| R34 | 374 kΩ → **9.09 kΩ RC0402FR-079K09L** (0.73 A); Value and PART NUMBER fields both updated |
+| **R41** 1 MΩ (stock `Device:R`, 0402; Value/PART NUMBER RC0402FR-071ML, RESISTANCE 1MR shown) | IN → UVLO, tapping the VIN riser (split + junction) |
 | dVdT | no-connect flag (floating = internal ramp) |
-| R32 → **R42**, its 3V3 symbol → GND (#PWR76) | Pull-down instead of pull-up (SHDN active low) |
+| R32 → **R42**, its 3V3 symbol → GND (#PWR76) | Pull-down instead of pull-up (SHDN active low); **10 kΩ RMCF0402FT10K0** (QE round 1: 100 kΩ had no worst-case margin) |
 | R33, TP34, label + hierarchical label SW_PGOOD, #PWR65, 4 wires, 1 junction removed | No PGOOD on TPS26621 |
 | Note text | "Ilim (R34 9.09k): typ 0.73A, −6/+4 %, TPS26621 D18" |
 
