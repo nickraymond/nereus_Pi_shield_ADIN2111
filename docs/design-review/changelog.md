@@ -2,6 +2,12 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S3 — Power path kept as Sofar's (2026-10-05, branch `sprint/3-power-path`)
+
+No schematic edit. Nick decided this board keeps the mote's power path unchanged
+(DESIGN D12), so L1/L2 (SRF1260-101M) and every other power-path part stay as
+imported. `tools/check.sh`: ERC 76/562, netcheck 53/53, same as S2.
+
 ## S2 — Mezzanine (P1) → Pi header (2026-10-05, branch `sprint/2-pi-header`)
 
 All edits on the Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), made with `tools/schedit.py`.

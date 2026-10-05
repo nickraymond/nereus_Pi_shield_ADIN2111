@@ -95,8 +95,8 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: choosing S3 or S4</strong> <strong>S2 done</strong> (PR #5 merged): P1 replaced by the Pi header J1; QE approved; your KiCad look OK.</p>
-    <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
+    <p><strong>Updated 2026-10-05 · Now: S3, your docs review</strong> <strong>S3:</strong> your call, this board keeps Sofar's power path unchanged (D12); docs only, no schematic change; QE approved. Next: S4 (5 V converter).</p>
+    <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
   <div class="legend">
@@ -167,22 +167,16 @@ const S = [
   ["Quality Engineer review: APPROVED", `<p>Independent read-only review in a separate session, before your KiCad look. Round 1: CHANGES REQUESTED, fixed. Round 2: APPROVED WITH NITS, fixed. Round 3: <strong>APPROVED</strong>. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent", 1],
   ["Checkpoint: run the demo and look at the Top-Level sheet", `<p><code>tools/check.sh</code> exits 0 (netcheck 53/53, 0 excluded; ERC 76: −27/+38 vs S1, 30 of them J1 pins for S4/S5). In KiCad: P1 gone, J1 in clear space. Passed 2026-10-05; S1's R8 junctions also confirmed.</p>`, "nick", 1]
 ]},
-{ t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",
-  intro:"~50 W absolute max = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Potted. Working file: docs/POWER_PATH.md.",
+{ t:"S3 — Power path: keep Sofar's", o:"agent", w:"Claude Code", c:"--sch",
+  intro:"This board keeps the mote's power path unchanged: ~20 W absolute max = 890 mA per port inductor at 24 V (D12). The 50 W study moved to Later (docs/POWER_PATH.md).",
   items:[
-  ["Define the rating", `<p>~50 W absolute max at 24 V, on Sofar's basis; margin from larger magnetics (DESIGN D8).</p>`, "nick", 1],
-  ["Confirm MSD1514 (15.5 × 15.5 × 14.2 mm) fits, in SolidWorks", `<p>Two of them, one per BM port.</p>`, "nick"],
-  ["Send the Sofar questions", `<p>See the "Questions for Sofar" section below and <code>docs/SOFAR_QUESTIONS.md</code>.</p>`, "nick"],
-  ["Sort Evan's references; record facts with citations", `<p>Sofar 50W/100W guide, More Power Delivery, Jetpack archive, datasheets.</p>`],
-  ["Confirm candidate figures against Coilcraft datasheets", `<p>Normalise first: Bourns quotes series-mode DCR and a 30 % Isat drop; Coilcraft quotes per-winding DCR and a 10 % drop.</p>`],
-  ["Audit every part in the path against the rating and potting rules", `<p>L1/L2, D1, D2/D3, U5, U9/R34/R11, R8, damping, bulk caps, connector.</p>`],
-  ["Damping: keep C22/C23/R15/R16", `<p>Sofar-vetted, so they stay. Retune only if the new magnetics need it (Sofar Q5).</p>`],
-  ["Propose through-path protection (e-fuse)", `<p>There's none in the design today. It must work with power flowing either way and be safe to pot (no PPTC). Sofar Q1.</p>`],
-  ["You decide P2–P4", `<p>Magnetics, damping/bulk capacitance, protection. Decisions go into the DESIGN.md log.</p>`, "nick"],
-  ["Schematic edits", `<p>L1/L2 swap, re-rated path parts, new provisions; footprints findable.</p>`]
+  ["Define the rating", `<p>First ~50 W (D8); then, to cut risk on the first board, the mote's own ~20 W with every power-path part kept (D12). The design has years in the field and already powers your cameras.</p>`, "nick", 1],
+  ["Record the decision in the docs", `<p>SPEC, DESIGN (D12; D7/D8 superseded), POWER_PATH (deferred), SOFAR_QUESTIONS (Q5 deferred), TRACKER and this page. No schematic change: ERC 76/562 and netcheck 53/53, same as S2.</p>`, null, 1],
+  ["Quality Engineer review: APPROVED WITH NITS", `<p>Fresh S3 session. Round 1: CHANGES REQUESTED (README, Sofar Q1), fixed. Round 2: <strong>APPROVED WITH NITS</strong>, fixed. The QE now sends its reports straight to the design session. Report: <code>docs/design-review/qe/S3.md</code>.</p>`, "agent", 1],
+  ["Your review of the docs diff", `<p>PR #7. Nothing to see in KiCad for this one.</p>`, "nick"]
 ]},
 { t:"S4 — 5 V converter for the Pi (copy of U5)", o:"agent", w:"Claude Code", c:"--sch",
-  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS. Input side depends on S3.",
+  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS on the mote's unchanged power path (D12).",
   items:[
   ["Copy the U5 block with new references", `<p>U5, L3, C28, C29, C30, C31, C33, R20, R21, R22, R23 and their wires.</p>`],
   ["Rename every copied local label", `<p><code>3V3_*</code> → <code>5V_*</code>.</p><div class="warn">Same-named labels would silently join the two converters.</div>`],
@@ -191,7 +185,7 @@ const S = [
   ["Output caps rated 10 V or 16 V", `<p>Same values as C31/C33, real part numbers proposed.</p>`],
   ["Make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
   ["Bring 5V_PI to the Top-Level sheet; solder jumper to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
-  ["Bus power budget estimate", `<p>Shield + Pi + payload against the ~50 W rating. Flagged for review.</p>`]
+  ["Bus power budget estimate", `<p>Shield + Pi + payload against the 890 mA / ~20 W rating (D12). Flagged for review.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
@@ -210,7 +204,7 @@ const S = [
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
   ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default. SW_FLAGB/SW_PGOOD sheet pins are unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35.</p>`],
-  ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for the S3 rating. Raw ~24 V.</p>`],
+  ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
   ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
@@ -227,18 +221,18 @@ const S = [
   ["Pin map, power budget and BOM changes", ``]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
-  intro:"Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  intro:"Send Q2–Q4 when ready; Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
   items:[
-  ["Q1 Fuse / e-fuse on the through-power path?", `<p>Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
+  ["Q1 Fuse / e-fuse on the through-power path? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
   ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
   ["Q3 What current limit does R34 set on the FPF2700?", `<p>We can't get the datasheet (onsemi link dead).</p>`],
   ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
-  ["Q5 MSD1514-473 tested since the guide? Damping values?", `<p>The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
+  ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
 ]},
 { t:"Review and decide", o:"nick", w:"You", c:"--prj",
   items:[
   ["Send the package to Claude (chat) for an independent net check", `<p>I rebuild every net from the files and compare it to the copper and to the intended changes.</p>`],
-  ["Run the design review with colleagues", `<p>Suggested agenda: ~50 W power path, power budget, 5 V converter values, ADIN pull-ups/pull-downs, load switch and R11, connector choices, pin map.</p>`],
+  ["Run the design review with colleagues", `<p>Suggested agenda: power budget against the mote's ~20 W path, 5 V converter values, ADIN pull-ups/pull-downs, load switch and R11, connector choices, pin map.</p>`],
   ["Fold review actions back in", `<p>Small fixes: you or the agent. Then freeze the schematic (git tag).</p>`]
 ]},
 { t:"Board outline", o:"nick", w:"You", c:"--edge",
@@ -254,7 +248,7 @@ const S = [
   ["Clean up leftover tracks and vias", ``],
   ["Flip the header to the bottom and check pin 1 after flipping", `<div class="warn">The most common way to build a shield that plugs in backwards.</div>`],
   ["Position the header exactly", ``],
-  ["Place the PoDL inductors (MSD1514, 14.2 mm tall)", `<p>Leave clearance for potting and heat; the guide warns that packed or potted parts lose their datasheet thermal ratings.</p>`],
+  ["Place the PoDL inductors (SRF1260-101M, 12.5 × 12.5 × 6 mm, as on the mote)", `<p>Same parts as the mote (D12); follow the mote's placement around them.</p>`],
   ["Place the 5 V converter like the 3.3 V one", `<p>Tight input-cap / IC / inductor / output-cap loop.</p>`],
   ["Payload connector at a board edge; silkscreen 24 V", ``],
   ["Silkscreen the 5 V jumper", `<p>"5V→Pi: open before USB power".</p>`]
@@ -262,7 +256,7 @@ const S = [
 { t:"Route and check", o:"nick", w:"You", c:"--brd",
   items:[
   ["Route; wide 5V_PI traces to the header", `<p>At least 1 mm. Keep SPI away from the T1L pair and magnetics.</p>`],
-  ["Power-path copper sized for 2.083 A + margin", `<p>VBUS through both ports, the PoDL inductors and the payload branch.</p>`],
+  ["Power-path copper sized for 890 mA + margin", `<p>VBUS through both ports, the PoDL inductors and the payload branch; the mote's copper is a proven reference.</p>`],
   ["Refill zones; DRC clean", ``],
   ["3D check against a Pi Zero", ``],
   ["Review with your EE before ordering", ``]
@@ -278,6 +272,7 @@ const S = [
   items:[
   ["Hardware watchdog switching the 5 V converter's enable", `<p>e.g. TI TPL5010, so a hung Pi gets power-cycled.</p>`],
   ["Shared nereus-lib from the UrchinCam parts", `<p>For the motor driver, ADC and JST parts on a future board.</p>`],
+  ["50 W spin, scoped with the motor load", `<p>After production. The deferred S3 work: MSD1514 fit, references, Coilcraft figures, parts audit, damping (Q5), e-fuse (Q1), P2–P4, L1/L2 swap. Evidence in docs/POWER_PATH.md.</p>`],
   ["100 W variant", `<p>See the Sofar 50W/100W guide.</p>`]
 ]}
 ];

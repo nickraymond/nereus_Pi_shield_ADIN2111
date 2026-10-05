@@ -81,7 +81,15 @@ schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
 - **Engineering judgement:** anything the change *should* have done but didn't,
   side effects on other sheets, risks for later sprints.
 
-## Report (your final message; it is passed to the design agent and Nick)
+## Report (your final message, and sent to the design session)
+
+When the report is done, send it to the design session named in your request
+(its `local_…` id) with the session-message tool (`send_message` / `SendMessage`),
+so the design agent picks it up without Nick relaying it. You run as a normal
+Code session, so the session-message tool is available even though it isn't in
+the `tools:` list above (that list applies only if this file is loaded as a
+sub-agent, which it must not be). Sending that message is the one outward action
+you take; it doesn't touch the repo.
 
 ```
 # QE review — PR #<N> (<sprint>) — <date>
