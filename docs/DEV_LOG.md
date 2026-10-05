@@ -19,6 +19,34 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S4.a — 5 V converter for the Pi (copy of U5); S3 closed
+
+**Branch:** sprint/4-5v-converter
+**Files touched:** BM_Mote_1_Power.kicad_sch, BM_Mote_1_Master.kicad_sch; tools/schedit.py (copy_block, set_properties; 12 tests); SPEC, DESIGN (D13), TRACKER, viewer, changelog, qe/S4.md
+**ERC:** 78 errors / 629 warnings (was 76/562)  ·  **Net diff:** 53/53, 0 opens, 0 shorts; existing parts identical; 5 new nets
+**Done:**
+- S3 closed: Nick approved PR #7, merged (`09af9d8`); S3 QE session archived
+- U10 block copied from U5 with `copy_block`; R38 13.7 kΩ, C56/C57 22 µF 16 V, C58 4.7 µF 10 V;
+  L6 = same 8.2 µH as L3 (Nick). Values from TI SLUSEF4A and Pulse P890.B (read, cited in SPEC)
+- 5V_PI to the Top-Level sheet via a new sheet pin + TP38
+- Visual check of both sheets (SVG render)
+**Broke/surprised us:**
+- First placement of the 5V_PI wire ran across TP23/TP24's graphics on the Top-Level sheet
+  (bbox_clear only checks pins, wire ends, labels and symbol origins, not bodies or text).
+  Caught in the render; moved TP23/TP24 + their GND symbols 7.62 mm down (same connections)
+- Murata's DC-bias tool needs a licence accepted, so the 22 µF parts' effective capacitance at
+  5 V is an open question rather than a number; the Yageo datasheet link triggered a download
+  prompt in Nick's browser pane (read via fetch instead)
+- QE round 1 (fresh S4 session, report sent to me directly): CHANGES REQUESTED. F1 MAJOR: my
+  `set_properties` silently skipped values containing `\"`, leaving stale 0603 size fields on
+  C56/C57. Fixed the regex, made it refuse partial parses, added a test. Also F2 thermal item
+  scheduled (S4.c), demo line, D13 ripple basis/Vout band/TI Table 9-2, R38 citation, C58 nudged.
+  Report: `qe/S4.md`
+- QE round 2 (same session): **APPROVED WITH NITS**; N1–N3 fixed (report typo, C58 10V text, bench item)
+**Next:** Nick's KiCad look, merge; then S4.b (jumper to Pi pins 2/4).
+
+---
+
 ## 2026-10-05 — Sprint S3 — Keep Sofar's power path for this board (D12)
 
 **Branch:** sprint/3-power-path

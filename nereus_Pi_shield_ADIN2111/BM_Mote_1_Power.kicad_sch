@@ -2012,7 +2012,7 @@
 		)
 		(uuid "ca70f867-5e53-44a3-b487-d471bfd83ed8")
 	)
-	(text_box "Buck Converters - 3V3 and 1V8"
+	(text_box "Buck Converters - 3V3, 1V8, 5V"
 		(exclude_from_sim no)
 		(at 260.096 89.9922 0)
 		(size -77.216 6.35)
@@ -2110,6 +2110,66 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e0ac8aa3-ffc3-4741-8ba8-4fe32c9e3e57")
+	)
+	(junction
+		(at 232.41 238.5822)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "67cf5aad-9a46-4ed5-884a-fa1682ebf9df")
+	)
+	(junction
+		(at 232.41 210.6422)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dae23e58-16ce-4a52-84c9-71de58c31492")
+	)
+	(junction
+		(at 205.74 210.6422)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dc4da94c-3a8c-4418-b711-3db5ae5f0c04")
+	)
+	(junction
+		(at 95.25 205.5622)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "89e8fcd4-32d5-4eaa-813c-aed0aee522ba")
+	)
+	(junction
+		(at 74.93 205.5622)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "290bcf2d-4437-4f48-b709-b7b0e96bf090")
+	)
+	(junction
+		(at 181.61 210.6422)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e37c0b53-b0a9-43f4-9766-1922bd66dac3")
+	)
+	(junction
+		(at 74.93 229.6922)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9aaf3625-75df-4b08-ab1e-6b0ef8ebbb0b")
+	)
+	(junction
+		(at 102.87 205.5622)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f4eb2504-1d30-4978-961d-656efd539e51")
+	)
+	(junction
+		(at 241.3 210.6422)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c6e67b10-252e-496e-a227-45211a067819")
+	)
+	(junction
+		(at 254 210.6422)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "049f7e1b-41dc-441e-80a9-26bda5fbedcd")
 	)
 	(wire
 		(pts
@@ -2621,6 +2681,376 @@
 		)
 		(uuid "ff1dd015-afb8-4bda-affd-928a5e8ca7de")
 	)
+	(wire
+		(pts
+			(xy 232.41 230.9622) (xy 232.41 238.5822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62208f1e-41ae-41e4-acc6-b742cb130942")
+	)
+	(wire
+		(pts
+			(xy 177.8 205.5622) (xy 181.61 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83c24f0c-34b0-4efa-b60f-d7c5c195c91e")
+	)
+	(wire
+		(pts
+			(xy 205.74 224.6122) (xy 205.74 222.0722)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b341970-4cb9-4400-9812-276a45b08806")
+	)
+	(wire
+		(pts
+			(xy 181.61 205.5622) (xy 181.61 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce9f8dbe-560d-47b7-904f-3e0ce5072e8a")
+	)
+	(wire
+		(pts
+			(xy 205.74 210.6422) (xy 205.74 214.4522)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03a6c057-c4b5-4f15-bb47-dc08bbd57155")
+	)
+	(wire
+		(pts
+			(xy 74.93 227.1522) (xy 74.93 229.6922)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cfc2ad8-54a4-471f-820c-3249532bc453")
+	)
+	(wire
+		(pts
+			(xy 168.91 210.6422) (xy 181.61 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3714dd42-f356-480b-8416-a7776604d0de")
+	)
+	(wire
+		(pts
+			(xy 193.04 238.5822) (xy 193.04 215.7222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3a25023-5b52-4cf6-8976-544af9fb53f5")
+	)
+	(wire
+		(pts
+			(xy 198.12 210.6422) (xy 205.74 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f75d2e5-947f-4ac4-91c8-157ce92876bd")
+	)
+	(wire
+		(pts
+			(xy 115.57 210.6422) (xy 128.27 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab9d0fe4-91d2-476c-9b39-a7ff0d614b0f")
+	)
+	(wire
+		(pts
+			(xy 74.93 229.6922) (xy 115.57 229.6922)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e119ca53-b307-4cad-8932-59c24b622f00")
+	)
+	(wire
+		(pts
+			(xy 74.93 205.5622) (xy 95.25 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fed5848e-cf0f-442d-9efd-c19ce113dc3e")
+	)
+	(wire
+		(pts
+			(xy 95.25 205.5622) (xy 102.87 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db001eca-3468-46e1-b79b-d1b0370fccdf")
+	)
+	(wire
+		(pts
+			(xy 168.91 205.5622) (xy 172.72 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f818f9b4-4707-47dd-ba7b-c4dd103e02ec")
+	)
+	(wire
+		(pts
+			(xy 128.27 215.7222) (xy 125.73 215.7222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f738ff39-d1a2-4bac-82c2-56d3c4360794")
+	)
+	(wire
+		(pts
+			(xy 125.73 215.7222) (xy 125.73 218.2622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21a6839b-1aa0-41a2-a2d4-569171dae21d")
+	)
+	(wire
+		(pts
+			(xy 232.41 238.5822) (xy 232.41 241.1222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c9e0f8aa-82bd-4011-8c4e-914a022248d2")
+	)
+	(wire
+		(pts
+			(xy 115.57 229.6922) (xy 115.57 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98603214-ebf7-4636-9fbe-bf62cf66b595")
+	)
+	(wire
+		(pts
+			(xy 102.87 205.5622) (xy 128.27 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "822c93d1-d8a5-4f87-9e7e-f3c4625c2510")
+	)
+	(wire
+		(pts
+			(xy 74.93 209.3722) (xy 74.93 205.5622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5dcc846c-cfc7-4cdd-915d-a8d415142300")
+	)
+	(wire
+		(pts
+			(xy 205.74 210.6422) (xy 232.41 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8438298e-0229-4949-bf5b-c3c7d91d666e")
+	)
+	(wire
+		(pts
+			(xy 95.25 205.5622) (xy 95.25 209.3722)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ca84d28-a059-4fb7-b614-8e0a74d2b3ad")
+	)
+	(wire
+		(pts
+			(xy 102.87 205.5622) (xy 102.87 209.3722)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "037c8d25-b942-418d-84bc-59da38fbe2f0")
+	)
+	(wire
+		(pts
+			(xy 232.41 238.5822) (xy 193.04 238.5822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "108eb8e3-670c-4aa1-885e-5292fa131261")
+	)
+	(wire
+		(pts
+			(xy 193.04 215.7222) (xy 168.91 215.7222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e83b366f-70fa-4a74-b1c1-eed04dbaa0bc")
+	)
+	(wire
+		(pts
+			(xy 74.93 187.7822) (xy 68.58 187.7822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10611d99-085e-48d9-92b4-fb7b288037e4")
+	)
+	(wire
+		(pts
+			(xy 74.93 205.5622) (xy 74.93 187.7822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65ab7c7b-9fd5-49f1-be02-91f19bd3b720")
+	)
+	(wire
+		(pts
+			(xy 74.93 232.2322) (xy 74.93 229.6922)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9dbaa753-7edd-41d7-8446-3339f7ad86d5")
+	)
+	(wire
+		(pts
+			(xy 181.61 210.6422) (xy 187.96 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "105fcc2b-41e5-4dde-85f4-837abca99886")
+	)
+	(wire
+		(pts
+			(xy 232.41 210.6422) (xy 232.41 213.1822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2332b39-ea51-4525-8427-7180b9d33dff")
+	)
+	(wire
+		(pts
+			(xy 241.3 224.6122) (xy 241.3 222.0722)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad11b827-c115-4698-83d7-5dcce86bd1d2")
+	)
+	(wire
+		(pts
+			(xy 254 225.8822) (xy 254 223.3422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6ec413b-2330-40c6-9831-7adc399106c4")
+	)
+	(wire
+		(pts
+			(xy 232.41 210.6422) (xy 241.3 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6bb5343c-f932-4b1b-bad5-f37f9295065a")
+	)
+	(wire
+		(pts
+			(xy 241.3 210.6422) (xy 254 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e18cbc96-6543-4f06-89f8-f25e56d7df18")
+	)
+	(wire
+		(pts
+			(xy 254 210.6422) (xy 358.14 210.6422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "748a21fb-45f7-4171-9c98-f3fabd9810e0")
+	)
+	(wire
+		(pts
+			(xy 241.3 210.6422) (xy 241.3 214.4522)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "622b5986-f66d-44bb-b0cf-fd6e13ca2550")
+	)
+	(wire
+		(pts
+			(xy 254 210.6422) (xy 254 218.2622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5a9d2da-abb3-4d1b-ac3e-5c0401f02520")
+	)
 	(label "3V3_Buck_Input"
 		(at 102.87 129.3622 0)
 		(effects
@@ -2671,6 +3101,57 @@
 		)
 		(uuid "f93221c6-dad4-461d-8f89-ffbffcb726b1")
 	)
+	(label "5V_Buck_Input"
+		(at 102.87 205.5622 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92dc24ee-b046-4bcd-a465-ae092a46e412")
+	)
+	(label "5V_Buck_SW"
+		(at 168.91 210.6422 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "464a1576-42a7-4f96-bf9d-0632c5d56143")
+	)
+	(label "5V_UVLO"
+		(at 90.17 229.6922 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "eaa01913-3709-4d78-bd89-d31f94877c1f")
+	)
+	(label "5V_FB"
+		(at 200.66 238.5822 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6aee1dd3-6056-45c2-8e91-5320755228c1")
+	)
+	(hierarchical_label "VBUS"
+		(shape passive)
+		(at 68.58 187.7822 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3864ad6e-bb80-4f57-b3ed-57adc9fcc5fb")
+	)
 	(hierarchical_label "1V8"
 		(shape passive)
 		(at 358.14 176.3522 0)
@@ -2703,6 +3184,17 @@
 			(justify left)
 		)
 		(uuid "d8b5c639-68f0-4073-bebc-26036124c9da")
+	)
+	(hierarchical_label "5V_PI"
+		(shape passive)
+		(at 358.14 210.6422 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0ee60b42-d2ff-43be-9b3e-8a3db67e091b")
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
@@ -6781,6 +7273,3250 @@
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
 					(reference "#PWR27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 102.87 214.4522 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ee8f6afc-4b0d-4381-8034-0a140b72dc53")
+		(property "Reference" "#PWR68"
+			(at 102.87 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 102.87 220.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "7d47dff1-903f-4533-a7c0-4d23d7dbe649")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR68")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_3_b4654b650e69147ec39a6b967a45e02_Altium Content Vault")
+		(at 177.8 205.5622 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "360452f1-eed7-4f55-97a2-2ba57670b1ef")
+		(property "Reference" "C53"
+			(at 173.736 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CL05A104KA5NNNC"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-CL278-IPC_C"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 +85°C Paper T/R"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PACKAGE QUANTITY" "1"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "HEIGHT" "0.5mm"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1005"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "THICKNESS" "0.022inch"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LEAD FREE" "Lead Free"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0402"
+			(at 177.8 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DEPTH" "0.5mm"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE" "25V"
+			(at 172.72 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "25V"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DIELECTRIC" "X5R"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "10%"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.02inch"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "85°C"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "100nF"
+			(at 172.466 198.4502 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "LENGTH" "1mm"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RADIATION HARDENING" "No"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING (DC)" "25V"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SHEET" "ADIN2111"
+			(at 172.212 202.7682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1cd7082a-77fd-4fc2-9092-15ca8145ca16")
+		)
+		(pin "2"
+			(uuid "6a331202-c133-4b00-a3f1-480914e5e058")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C53")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_1_CAP-NP-2_Altium Content Vault")
+		(at 205.74 222.0722 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "42fef02a-ed04-4ac5-afd5-7a77411b90a6")
+		(property "Reference" "C56"
+			(at 208.026 219.2782 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "GRM21BR61C226ME44L"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Chip Capacitor, 22 uF, +/- 20%, 16 V, X5R, -55 to 85 degC, 0805 (2012 Metric)"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "TEMPERATURE COEFFICIENT" "X5R"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "±20%"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "22µF"
+			(at 208.026 221.8182 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "VOLTAGE - RATED" "16V"
+			(at 208.026 224.3582 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PACKAGE / CASE" "0805(2012Metric)"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DATASHEET URL" "https://pim.murata.com/en-us/pim/details/?partNum=GRM21BR61C226ME44%23"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
+			(at 203.454 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dbe389a5-0f66-4f04-8e69-3640681a492c")
+		)
+		(pin "2"
+			(uuid "3db12658-5ea9-475e-96f8-2f220719f3a9")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C56")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 74.93 242.3922 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f0ba97f5-848a-4640-8dad-43d67437d317")
+		(property "Reference" "#PWR69"
+			(at 74.93 242.3922 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 74.93 248.7422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 242.3922 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 242.3922 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 74.93 242.3922 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "a3aa4c6d-bfac-454b-923e-8401bfb255a8")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR69")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 232.41 258.9022 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2e46b5b6-10dd-43a6-922d-f241aac36afa")
+		(property "Reference" "#PWR70"
+			(at 232.41 258.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 232.41 265.2522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 232.41 258.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 258.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 232.41 258.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "6dc7f0c1-f703-498c-be35-5f262b668fd4")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR70")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_725321dda6339637d4d059423bc1c3c_Sofar Ocean Technologies, Inc.")
+		(at 187.96 210.6422 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "75eb2568-a148-4bdf-8d19-213387492d35")
+		(property "Reference" "L6"
+			(at 187.96 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "PA5432.822NLT"
+			(at 187.96 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "FP-PA5432_472NLT-MFG"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "High Current Composite Inductor 8.2uH 20% DCR max 8 Arms"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "INDUCTANCE" "8.2uH"
+			(at 188.468 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "1"
+			(uuid "e200f5f1-3ec5-4bc0-8460-caf20a1c9542")
+		)
+		(pin "2"
+			(uuid "5dd28ddf-5126-46c2-adb9-bf24d81a16f7")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "L6")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_LMR51430YDDCR_Sofar Ocean Technologies, Inc.")
+		(at 128.27 208.1022 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "73a2ad12-8675-499f-918b-c0f9df1497e8")
+		(property "Reference" "U10"
+			(at 135.89 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "LMR51430YDDCR"
+			(at 135.89 220.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "SOT-23-THIN-6_DDC_TEX"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "No Description Available"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SUPPLIER PART NUMBER 1" ""
+			(at 135.89 220.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "SOURCE" "LMR51430YDDCR.SchLib"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MFR_NAME" "Texas Instruments"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TYPE" "DEV"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER_PART_NUMBER" "LMR51430YDDCR"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PIN COUNT" "6"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "REFDES" "RefDes"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "COMPONENT TYPE" "Standard"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DESIGN ITEM ID" "LMR51430YDDCR"
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "COPYRIGHT" "Copyright (C) 2023 Ultra Librarian. All rights reserved."
+			(at 127 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SHEET" "Power"
+			(at 127.762 223.3422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "1f6aa00b-d332-4ee4-9f03-345b013f7e7b")
+		)
+		(pin "1"
+			(uuid "91bc02e9-b43b-4440-8166-c43298520991")
+		)
+		(pin "2"
+			(uuid "aba19838-229f-4459-83a1-c31485ca40dc")
+		)
+		(pin "3"
+			(uuid "75e97b54-9136-48c2-a394-1aef7de8de6b")
+		)
+		(pin "4"
+			(uuid "68d1b6c9-b80b-42d9-842e-f4190fa07897")
+		)
+		(pin "5"
+			(uuid "0cce07de-7c17-44c5-8bda-bb10986f4b2a")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "U10")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_1_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
+		(at 74.93 227.1522 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8a2dd92c-dc5e-4d82-a1d0-d2228fc87d1f")
+		(property "Reference" "R39"
+			(at 76.454 215.9762 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CRCW04021M82FKED"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-CRCW0402-e3-MFG"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES Thick Film, 1.82MΩ, 1%, 0.063W, 100ppm/°C, 0402"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MILITARY STANDARD" "Not"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE TOLERANCE" "1%"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.5mm"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "POWER RATING" "63mW"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WEIGHT" "2.3E-05oz"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CONTACT PLATING" "Tin"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0402"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTOR TYPE" "Thick Film"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LENGTH" "1mm"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CONSTRUCTION" "Rectangular"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RADIATION HARDENING" "No"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ROHS COMPLIANT" "Yes"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1005"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "50V"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGE QUANTITY" "10"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "HEIGHT" "0.016inch"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "NUMBER OF PINS" "2"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX POWER DISSIPATION" "63mW"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "1%"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "NUMBER OF TERMINATIONS" "2"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DEPTH" "0.5mm"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LEAD FREE" "Lead Free"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TERMINATION" "SMD/SMT"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "FEATURES" "Automotive AEC-Q200"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SERIES" "CRCW"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "155°C"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE" "1.82Mohm"
+			(at 76.454 218.5162 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "VOLTAGE RATING (DC)" "50V"
+			(at 73.406 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SHEET" "Power"
+			(at 73.406 230.2002 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "81df0951-9c60-4842-8321-6799f360316d")
+		)
+		(pin "2"
+			(uuid "fccf6996-4d93-45c3-82b8-835dc81030a9")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "R39")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_1_RES_Altium Content Vault_0")
+		(at 72.39 239.8522 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5666d8e0-a700-48ea-bfeb-c867e3f4f4f0")
+		(property "Reference" "R40"
+			(at 75.692 237.0582 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "RC0402FR-07200KL"
+			(at 74.168 231.7242 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "RESC1005X40X25LL05T10"
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PART NUMBER" "RC0402FR-07200KL"
+			(at 74.168 231.7242 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Yageo / Phycomp"
+			(at 74.168 231.7242 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE" "200kohm"
+			(at 75.692 239.5982 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "SHEET" "Power"
+			(at 74.168 245.4402 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7bfb5dd3-315a-420a-aa21-60845b01244d")
+		)
+		(pin "1"
+			(uuid "ffb48e5f-5b43-409e-a8b2-8021379ff7e3")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "R40")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 205.74 224.6122 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "191abc74-5f26-47c6-b5c8-1d8effb6afa4")
+		(property "Reference" "#PWR71"
+			(at 205.74 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 205.74 230.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 205.74 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 205.74 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 205.74 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "6ffdc693-a81f-41d0-b874-f9d209bc0edf")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR71")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_3_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
+		(at 232.41 213.1822 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "53f77051-6794-4f78-8f2d-d7c6b2737982")
+		(property "Reference" "R37"
+			(at 233.934 219.7862 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "RMCF0402FT100K"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-RMCF0402-IPC_C"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "100kΩ ±1% 0.063W 0402 Thick Film Chip Resistor AEC-Q200 compliant"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MAX POWER DISSIPATION" "63mW"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SIZE CODE" "0402"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE" "100kR"
+			(at 233.934 222.3262 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "RESISTOR TYPE" "Thick Film"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "FEATURES" "Automotive AEC-Q200"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1005"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ROHS COMPLIANT" "Yes"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LENGTH" "1mm"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RADIATION HARDENING" "No"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MILITARY STANDARD" "Not"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0402"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DEPTH" "0.5mm"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "155°C"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LEAD FREE" "Lead Free"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "1%"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CONSTRUCTION" "Rectangular"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "NUMBER OF TERMINATIONS" "2"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.02inch"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SERIES" "RMCF"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CONTACT PLATING" "Tin"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "POWER RATING" "62.5mW"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "HEIGHT" "0.016inch"
+			(at 230.886 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "35c80d79-c5b6-40da-8656-ba8b4d70eef1")
+		)
+		(pin "1"
+			(uuid "bcaf913e-45c4-4b23-8c5d-7e701b2849da")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "R37")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 95.25 214.4522 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "37fae678-9c80-40ef-a647-82f905e29d5e")
+		(property "Reference" "#PWR72"
+			(at 95.25 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 95.25 220.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 214.4522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "38b37b24-1aa7-4d17-bcbe-ae36445b9327")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR72")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_3_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
+		(at 232.41 241.1222 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d3e824ec-fb3a-45cb-8e2d-506026586456")
+		(property "Reference" "R38"
+			(at 233.934 247.7262 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "RC0402FR-0713K7L"
+			(at 233.934 250.2662 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-RC0402-0_4-IPC_B"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 13.7K OHM 1% 1/16W 0402"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.02inch"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "HEIGHT" "0.016inch"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTOR TYPE" "Thick Film"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LENGTH" "0.039inch"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CONSTRUCTION" "Rectangular"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ROHS COMPLIANT" "Yes"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DEPTH" "0.5mm"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX POWER DISSIPATION" "63mW"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "155°C"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TERMINATION" "SMD/SMT"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0402"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LEAD FREE" "Lead Free"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WORKING VOLTAGE" "50V"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE TOLERANCE" "1%"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "FEATURES" "Moisture Resistant"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING (DC)" "50V"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MILITARY STANDARD" "Not"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TECHNOLOGY" "THICK FILM"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "50V"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "1%"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE" "13.7kR"
+			(at 234.95 256.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "REACH SVHC" "No SVHC"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "NUMBER OF TERMINATIONS" "2"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGE QUANTITY" "1"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SERIES" "RC"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "POWER RATING" "62.5mW"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1005"
+			(at 230.886 240.6142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SHEET" "Power"
+			(at 230.886 261.9502 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33355113-8dfd-48f8-a83d-a52010eb81ca")
+		)
+		(pin "2"
+			(uuid "9f448766-08f6-4627-9b08-875db77276fd")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "R38")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_11868f565c42a9108669ba33697ecf6_Altium Content Vault")
+		(at 95.25 209.3722 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e8408030-5c8e-43e6-8852-66f93675102c")
+		(property "Reference" "C54"
+			(at 88.9 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "GRM188R72A104KA35D"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-GRM188-0_1-e0_2_0_5-IPC_B"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Chip Multilayer Ceramic Capacitors for General Purpose, 0603, 0.10uF, X7R, 15%, 10%, 100V"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING (DC)" "100V"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "100nF"
+			(at 86.36 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MATERIAL" "Ceramic"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DIELECTRIC" "X7R"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0603"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGE QUANTITY" "1"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "HEIGHT" "0.8mm"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WEIGHT" "0.000222oz"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DEPTH" "0.8mm"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "THICKNESS" "0.035inch"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE" "100V"
+			(at 86.36 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "REACH SVHC" "No SVHC"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0603"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "100V"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.8mm"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "10%"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LEAD FREE" "Lead Free"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1608"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "RADIATION HARDENING" "No"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "125°C"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TERMINATION" "SMD/SMT"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LENGTH" "1.6mm"
+			(at 92.456 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8652ae05-f279-4c6c-8247-c205d1fcc3c5")
+		)
+		(pin "1"
+			(uuid "72a4e35b-129b-4b4c-98d4-e446e02b5415")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C54")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault")
+		(at 102.87 209.3722 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d92b1457-44c5-48b9-8e9c-57099fddc73e")
+		(property "Reference" "C55"
+			(at 105.664 212.6742 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "UMK107BBJ225KA-T"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "FP-0603-L_1_6_0_2-W_0_8_0-MFG"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Multilayer Ceramic Capacitor 2.2uF 50V X5R 10% SMD 0603 T/R"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "2.2uF"
+			(at 105.664 215.2142 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0603"
+			(at 105.664 217.7542 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1608"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "85°C"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "50V"
+			(at 105.664 220.2942 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "WIDTH" "0.031inch"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "THICKNESS" "0.039inch"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0603"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "10%"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "LENGTH" "0.063inch"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ROHS COMPLIANT" "Yes"
+			(at 100.076 208.8642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SHEET" "Power"
+			(at 100.076 222.8342 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "610babf5-3cb8-447f-8cb4-f980e8815ad6")
+		)
+		(pin "2"
+			(uuid "8d8ddad5-7bd1-45f8-9b50-80b187ffe8e3")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C55")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 125.73 218.2622 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4a6ecda9-f264-4c32-a15e-f1a282dd0107")
+		(property "Reference" "#PWR73"
+			(at 125.73 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 125.73 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 125.73 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "c5b33779-1bd7-486f-a788-e7ef939a3c29")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR73")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_1_CAP-NP-2_Altium Content Vault")
+		(at 241.3 222.0722 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5c1d2db0-3295-4ca9-8bf0-ccc56d686ff4")
+		(property "Reference" "C57"
+			(at 243.586 219.2782 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "GRM21BR61C226ME44L"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Chip Capacitor, 22 uF, +/- 20%, 16 V, X5R, -55 to 85 degC, 0805 (2012 Metric)"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "TEMPERATURE COEFFICIENT" "X5R"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "TOLERANCE" "±20%"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "22µF"
+			(at 243.586 221.8182 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "VOLTAGE - RATED" "16V"
+			(at 243.586 224.3582 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PACKAGE / CASE" "0805(2012Metric)"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DATASHEET URL" "https://pim.murata.com/en-us/pim/details/?partNum=GRM21BR61C226ME44%23"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
+			(at 239.014 213.9442 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b97584bc-c915-420a-93b6-8cf6dfc61cbd")
+		)
+		(pin "2"
+			(uuid "2d83f018-6147-4820-8ac7-bc10daa58ceb")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C57")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 241.3 224.6122 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a5bc0b16-e975-4155-aa2f-eeb8d04ed7af")
+		(property "Reference" "#PWR74"
+			(at 241.3 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 241.3 230.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 241.3 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 241.3 224.6122 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "c0a80eee-d80b-42be-9a5a-fbade354a383")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR74")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:POWER_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault")
+		(at 254 218.2622 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "99e40c6d-8afd-4c01-b24e-968a2fcc9ca5")
+		(property "Reference" "C58"
+			(at 256.794 221.5642 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "GRM155R61A475MEAAD"
+			(at 256.794 224.1042 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Chip Capacitor, 4.7 uF, +/- 20%, 10 V, X5R, -55 to 85 degC, 0402 (1005 Metric)"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 251.206 217.7542 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "CAPACITANCE" "4.7uF"
+			(at 256.54 225.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "TOLERANCE" "20%"
+			(at 251.206 217.7542 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "DIELECTRIC" "X5R"
+			(at 251.206 217.7542 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "VOLTAGE RATING" "10V"
+			(at 257.81 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DATASHEET URL" "https://pim.murata.com/en-us/pim/details/?partNum=GRM155R61A475MEAA%23"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1e65876d-3526-49fa-a8a8-eeee5c99c0cc")
+		)
+		(pin "2"
+			(uuid "6286c972-9e16-4359-aa09-7ff37ed45b68")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "C58")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 254 225.8822 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8a4fe27f-8a69-4565-a5e0-a39a8c890640")
+		(property "Reference" "#PWR75"
+			(at 254 225.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 254 232.2322 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 225.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 225.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 254 225.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "333954c6-4ef9-42d0-b5f5-d38a587b1800")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a"
+					(reference "#PWR75")
 					(unit 1)
 				)
 			)

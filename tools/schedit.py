@@ -14,6 +14,10 @@ load the result, netcheck must show only the intended change).
   add_symbol(text, lib_id, ref, value, x, y, ...)
   add_wire / add_no_connect / add_label
   next_ref(texts, prefix)
+  copy_block(text, box, dx, dy, ref_map, label_map, new_power_ref)
+                                 duplicate a boxed circuit with new refs,
+                                 renamed labels and fresh uuids
+  set_properties(text, ref, values, drop, keep_only)
 
 Python standard library only.
 """
@@ -31,6 +35,7 @@ from netcheck import blocks  # noqa: E402
 SHEET_PIN = re.compile(r'\(pin "([^"]+)" \w+\n\t\t\t\(at ([-\d.]+) ([-\d.]+)')
 LABEL = re.compile(r'\t\((label|global_label|hierarchical_label) "([^"]+)"\n(?:\t\t\(shape \w+\)\n)?'
                    r'\t\t\(at ([-\d.]+) ([-\d.]+)[^\n]*\n.*?\n\t\)\n', re.S)
+PROP = re.compile(r'\t\t\(property "([^"]+)" "((?:[^"\\]|\\.)*)"\n(?:\t\t\t[^\n]*\n)*\t\t\)\n')
 NO_CONNECT = re.compile(r'\t\(no_connect\n\t\t\(at ([-\d.]+) ([-\d.]+)\)\n.*?\n\t\)\n', re.S)
 
 
@@ -358,3 +363,107 @@ def bbox_clear(text, x0, y0, x1, y1):
 
 def dist(a, b):
     return math.hypot(a[0] - b[0], a[1] - b[1])
+
+
+# ---------------------------------------------------------------- copying
+
+def _shift(block, dx, dy):
+    def at(m):
+        return f"({m.group(1)} {fmt(float(m.group(2)) + dx)} {fmt(float(m.group(3)) + dy)}"
+    return re.sub(r'\((at|xy) ([-\d.]+) ([-\d.]+)', at, block)
+
+
+def _new_uuids(block):
+    return re.sub(r'\(uuid "[^"]*"\)', lambda m: f'(uuid "{uuid.uuid4()}")', block)
+
+
+def _in_box(x, y, box):
+    return box[0] <= x <= box[2] and box[1] <= y <= box[3]
+
+
+def copy_block(text, box, dx, dy, ref_map, label_map, new_power_ref):
+    """Copy everything inside box=(x0, y0, x1, y1) to (+dx, +dy), as a duplicate circuit.
+
+    Copied: symbols whose origin is in the box, wires with both ends in it,
+    junctions, labels (all kinds) and no-connect flags in it. Every non-power
+    symbol in the box must be in ref_map (old -> new reference); power symbols
+    get new_power_ref(). Label names are renamed through label_map; names not
+    in it (e.g. a hierarchical label to reuse) are kept. All uuids are new.
+    Returns (text, report) with report = {"symbols": {old: new}, "wires": n,
+    "junctions": n, "labels": [(old, new)], "no_connects": n}.
+    """
+    report = {"symbols": {}, "wires": 0, "junctions": 0, "labels": [], "no_connects": 0}
+    new_syms, new_wires, new_juncs, new_labels, new_ncs = [], [], [], [], []
+    for _, _, b in top_level(text, "symbol"):
+        x, y = map(float, re.search(r'\(lib_id "[^"]+"\)\s*\(at ([-\d.]+) ([-\d.]+)', b).groups())
+        if not _in_box(x, y, box):
+            continue
+        old = symbol_ref(b)
+        if _is_power_ref(old):
+            new = new_power_ref()
+        elif old in ref_map:
+            new = ref_map[old]
+        else:
+            raise ValueError(f"{old} is inside the copy box but not in ref_map")
+        c = _new_uuids(_shift(b, dx, dy))
+        c = c.replace(f'(property "Reference" "{old}"', f'(property "Reference" "{new}"', 1)
+        c = c.replace(f'(reference "{old}")', f'(reference "{new}")')
+        new_syms.append(c)
+        report["symbols"][old] = new
+    for m in WIRE.finditer(text):
+        x1, y1, x2, y2 = map(float, m.groups()[:4])
+        if _in_box(x1, y1, box) and _in_box(x2, y2, box):
+            new_wires.append(_new_uuids(_shift(m.group(0), dx, dy)))
+    for m in JUNCTION.finditer(text):
+        if _in_box(float(m.group(1)), float(m.group(2)), box):
+            new_juncs.append(_new_uuids(_shift(m.group(0), dx, dy)))
+    for m in LABEL.finditer(text):
+        if _in_box(float(m.group(3)), float(m.group(4)), box):
+            old = m.group(2)
+            new = label_map.get(old, old)
+            c = _new_uuids(_shift(m.group(0), dx, dy)).replace(f'({m.group(1)} "{old}"', f'({m.group(1)} "{new}"', 1)
+            new_labels.append(c)
+            report["labels"].append((old, new))
+    for m in NO_CONNECT.finditer(text):
+        if _in_box(float(m.group(1)), float(m.group(2)), box):
+            new_ncs.append(_new_uuids(_shift(m.group(0), dx, dy)))
+    missing = set(ref_map) - set(report["symbols"])
+    if missing:
+        raise ValueError(f"ref_map names parts not inside the copy box: {sorted(missing)}")
+    report["wires"], report["junctions"], report["no_connects"] = len(new_wires), len(new_juncs), len(new_ncs)
+    for kind, items in (("junction", new_juncs), ("no_connect", new_ncs), ("wire", new_wires),
+                        ("label", new_labels), ("symbol", new_syms)):
+        if items:
+            text = _insert_after_last(text, kind, "".join(items), fallback_kind="sheet_instances")
+    return text, report
+
+
+def set_properties(text, ref, values=None, drop=(), keep_only=None):
+    """Edit one symbol's properties: set existing ones (values), remove some (drop),
+    or remove every non-standard property not named in keep_only. A property in
+    values that doesn't exist yet is added, hidden, at the symbol origin."""
+    values = dict(values or {})
+    standard = {"Reference", "Value", "Footprint", "Datasheet", "Description"}
+    for s, e, b in top_level(text, "symbol"):
+        if symbol_ref(b) != ref:
+            continue
+        props = list(PROP.finditer(b))
+        if len(props) != len(re.findall(r'^\t\t\(property ', b, re.M)):
+            raise ValueError(f"{ref}: a property didn't parse; refusing to edit it partially")
+        out, last = b, None
+        for m in reversed(props):
+            name = m.group(1)
+            gone = name in drop or (keep_only is not None and name not in standard
+                                    and name not in keep_only and name not in values)
+            if gone:
+                out = out[:m.start()] + out[m.end():]
+            elif name in values:
+                new = m.group(0).replace(f'"{name}" "{m.group(2)}"', f'"{name}" "{values.pop(name)}"', 1)
+                out = out[:m.start()] + new + out[m.end():]
+        if values:
+            x, y = map(float, re.search(r'\(lib_id "[^"]+"\)\s*\(at ([-\d.]+) ([-\d.]+)', b).groups())
+            last = list(PROP.finditer(out))[-1]
+            extra = "".join(_prop(k, v, x, y, hide=True) for k, v in values.items())
+            out = out[:last.end()] + extra + out[last.end():]
+        return text[:s] + out + text[e:]
+    raise ValueError(f"no symbol {ref}")

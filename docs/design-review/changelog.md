@@ -2,6 +2,37 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S4.a — 5 V converter for the Pi (2026-10-05, branch `sprint/4-5v-converter`)
+
+Power sheet (`BM_Mote_1_Power.kicad_sch`): the U5 block copied 76.2 mm down with
+`tools/schedit.py copy_block` (new refs, renamed labels, fresh uuids), then values
+set (DESIGN D13). Top-Level sheet: new sheet pin and test point.
+
+| Added | Copy of | Value / change |
+|---|---|---|
+| U10 | U5 | LMR51430YDDCR (same) |
+| L6 | L3 | PA5432.822NLT 8.2 µH (same) |
+| R37, **R38** | R21, R23 | 100 kΩ (same); **13.7 kΩ RC0402FR-0713K7L** (was 22.1 kΩ) → 4.98 V |
+| R39, R40 | R20, R22 | 1.82 MΩ / 200 kΩ enable divider (same) |
+| C53, C54, C55 | C28, C29, C30 | bootstrap 100 nF 25 V; input 100 nF 100 V, 2.2 µF 50 V (same) |
+| **C56, C57** | C31 | **22 µF 16 V X5R 0805 GRM21BR61C226ME44L** (was 22 µF 6.3 V 0603); C57 is an extra one; stock KiCad footprint `C_0805_2012Metric` |
+| **C58** | C33 | **4.7 µF 10 V X5R 0402 GRM155R61A475MEAAD** (was 6.3 V); `C_0402_1005Metric` |
+| #PWR68–#PWR75 | GND symbols | for the copied parts |
+| Labels | `3V3_Buck_Input/SW/UVLO/FB` | → `5V_*`; VBUS hierarchical label reused |
+| Hierarchical label `5V_PI` + sheet pin | `3V3` | Power Regulators sheet pin at (353.06, 198.12) on the Top-Level sheet |
+| TP38 | TP20 | test point on `5V_PI`, with a `5V_PI` label for S4.b |
+
+After QE round 1: C58 and its GND symbol sit one grid (2.54 mm) right of the first
+placement, at x = 254, with its 10 V rating shown; stale hidden 0603 size fields
+removed from C56/C57 (`set_properties` had skipped values containing `\"`).
+
+Also: TP23/TP24 and their GND symbols (#PWR01, #PWR03) moved 7.62 mm down on the
+Top-Level sheet to clear the new wire (placement only, same connections); sheet
+title now "Buck Converters - 3V3, 1V8, 5V". **Verified:** every existing part's
+pin-to-net grouping identical; new nets exactly `5V_PI` (C56.2, C57.2, C58.1,
+L6.2, R37.1, TP38.1), `5V_Buck_SW`, `5V_FB`, `5V_UVLO`, `Net-(U10-CB)`; VBUS and
+GND gain only the new parts. netcheck 53/53.
+
 ## S3 — Power path kept as Sofar's (2026-10-05, branch `sprint/3-power-path`)
 
 No schematic edit. Nick decided this board keeps the mote's power path unchanged

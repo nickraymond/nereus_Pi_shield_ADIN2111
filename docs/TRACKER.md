@@ -122,7 +122,7 @@ In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3
 ERC detail: `python3 tools/ercsum.py --items` (every error has an owner in DESIGN.md).
 **Result:** QE APPROVED (round 3); demo passed and KiCad look OK (Nick, 2026-10-05).
 
-### S3 — Power path: keep Sofar's  `[~]`
+### S3 — Power path: keep Sofar's  `[x]`
 **Goal:** settle the power path for this board. Decided: keep the mote's power path
 unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Nick
 2026-10-05). The 50 W work moved to the Icebox, kept in `docs/POWER_PATH.md`.
@@ -130,21 +130,29 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
 - [x] Record D12 in SPEC, DESIGN, POWER_PATH, SOFAR_QUESTIONS (Q5 deferred), TRACKER and the viewer;
       no schematic change
 - [x] QE review (fresh S3 session): **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S3.md`
-- [ ] Nick reviews the docs diff (nothing to see in KiCad)
+- [x] Nick reviews the docs diff (nothing to see in KiCad)
 **Demo (Nick):** `tools/check.sh` → unchanged from S2: ERC `Errors 76  Warnings 562`,
 `netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches only docs, the viewer, README, CLAUDE.md, the skill and the QE role file.
+**Result:** QE APPROVED WITH NITS (round 2); Nick approved; PR #7 merged (`09af9d8`), 2026-10-05.
 
-### S4 — 5 V converter for the Pi (copy of U5)  `[ ]`
-*Feeds from VBUS on the mote's unchanged power path (D12).*
-- [ ] Copy U5 block with new refs (U5, L3, C28–C31, C33, R20–R23)
-- [ ] Rename copied local labels `3V3_*` → `5V_*`
-- [ ] Set 5 V: R23 copy → 13.7 kΩ (confirm the 0.6 V reference in the LMR51430 datasheet)
-- [ ] Inductor for 5 V out at 24 V in, with citation
-- [ ] Output caps rated 10 V or 16 V, with real part numbers
-- [ ] Footprints for new parts extracted to `mote.pretty` (read board, never write it)
-- [ ] `5V_PI` to Top-Level; SolderJumper_2_Open to Pi pins 2 and 4
-- [ ] Bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12)
-**Demo (Nick):** ERC + net diff; `5V_PI` net contains exactly the intended pins.
+### S4 — 5 V converter for the Pi (copy of U5)  `[~]`
+*Feeds from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter (this PR),
+S4.b jumper to the Pi, S4.c power budget + footprints. Values: DESIGN D13.*
+- [x] Copy U5 block with new refs above the mote board's highest (U10, L6, C53–C58, R37–R40, TP38)
+- [x] Rename copied local labels `3V3_*` → `5V_*`
+- [x] Set 5 V: R38 (copy of R23) = 13.7 kΩ RC0402FR-0713K7L; VREF 0.6 V confirmed (TI SLUSEF4A §7.5, §9.2.2.2)
+- [x] Inductor: L6 = PA5432.822NLT, same as L3 (Nick, 2026-10-05; Pulse P890.B)
+- [x] Output caps: C56/C57 22 µF 16 V GRM21BR61C226ME44L (0805), C58 4.7 µF 10 V GRM155R61A475MEAAD (0402)
+- [x] `5V_PI` reaches the Top-Level sheet (new sheet pin, TP38, `5V_PI` label)
+- [x] QE review (fresh S4 session): **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S4.md`
+- [ ] Nick's KiCad look — S4.a
+- [ ] S4.b: SolderJumper_2_Open from `5V_PI` to Pi pins 2 and 4
+- [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
+- [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12),
+      plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)
+**Demo (Nick):** `tools/check.sh` → ERC `Errors 78  Warnings 629`, `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
+excluded`, exit 0; `python3 tools/ercsum.py --items` lists U10 Pin 2 and Pin 6 under power_pin_not_driven;
+netlist net `5V_PI` = C56.2, C57.2, C58.1, L6.2, R37.1, TP38.1 (S4.a).
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and

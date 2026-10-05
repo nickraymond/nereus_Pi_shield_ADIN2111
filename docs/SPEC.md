@@ -58,6 +58,21 @@ production (DESIGN D12).
   *(Bourns SRF1260 datasheet)*
 - C22 and C23 are EEEFT1H470AP 47 µF/50 V aluminium electrolytics in the PoDL
   damping network. *(`BM_Mote_1_PoDL.kicad_sch`)*
+- LMR51430YDDCR (U5, U10) is the 1.1 MHz PFM variant; VIN 4.5–36 V, absolute
+  max 38 V; VREF 0.591 / 0.6 / 0.609 V; 70 ns minimum on-time; 5 V example uses
+  RFBT 100 kΩ / RFBB 13.7 kΩ. *(TI LMR51430 datasheet SLUSEF4A, §1, §5, §7.1,
+  §7.5, §9.2.2.2)*
+- PA5432.822NLT (L3, L6): 8.2 µH ±20 %, Isat 8.4 A (~30 % drop), heating current
+  8 A (ΔT ≈ 40 °C), DCR 24.0 / 26.4 mΩ typ/max, composite, −55 to +155 °C.
+  *(Pulse P890.B, 01/22)*
+- GRM21BR61C226ME44 (C56, C57): 22 µF ±20 %, 16 V, X5R, 0805; GRM155R61A475MEAA
+  (C58): 4.7 µF ±20 %, 10 V, X5R, 0402; both in production. *(Murata product
+  pages, read 2026-10-05)*
+- RC0402FR-0713K7L (R38): Yageo 13.7 kΩ ±1 %, 1/16 W, 0402, thick film.
+  *(Digi-Key product listing 311-13.7KLRCT-ND, 2026-10-05)*
+- TI's own LMR51430 application circuit uses C_IN = 2.2 µF and, at 1.1 MHz,
+  suggests L = 3.3 µH (5 V) / 2.2 µH (3.3 V) with 2 × 10 µF / 25 V output caps.
+  *(SLUSEF4A Figure 9-1, Table 9-2)*
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote
@@ -120,6 +135,17 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   `docs/SOFAR_QUESTIONS.md`.
 - What is the FPF2700's current-limit range? (The onsemi datasheet link was
   dead on 2026-10-04.) — S4/S5 power budget; SOFAR_QUESTIONS Q3
-- Which inductor does the 5 V converter need at 24 V in? (The 3.3 V U5 uses
-  PA5432.822NLT as L3.) — S4
+- Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
+  SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
+  Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a
+  datasheet curve)
+- U10's input caps copy U5's 2.2 µF (C55) + 100 nF. TI's text suggests ≥ 4.7 µF
+  (SLUSEF4A §9.2.2.6), though its own Figure 9-1 uses 2.2 µF; field-proven on
+  U5, but U10 draws more input current. — S6 review
+- U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
+  RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
+  ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)
+- Murata's product pages list "undersea equipment" among applications they
+  don't warrant for these consumer/industrial MLCCs. Applies equally to the
+  mote's existing Murata parts (C29, C32, C33, …). — note for S6 review
 - Bus power budget: shield + Pi + payload against the ~20 W (890 mA) path — S4/S5
