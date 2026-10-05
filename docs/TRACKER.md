@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-04 · Owner/gate: **Nick***
+*Last updated: 2026-10-05 · Owner/gate: **Nick***
 
 ---
 
@@ -12,15 +12,24 @@
    Read the top ~3 entries of `docs/DEV_LOG.md`.
 2. **Take small bites.** One TODO, or one tight group within a sprint, at a
    time. If SPEC.md is too thin to inform the bite, stop and ask Nick.
-3. **Four nibbles per bite:**
+3. **Nibbles per bite:**
    1. **Plan** — list the exact edits (sheet, refs, labels, values) with a
       citation for each. Change no files. *Gate: Nick approves.*
    2. **Edit + check** — confirm KiCad is closed, edit, then run ERC and export
       the netlist (commands below). Diff the nets against the last baseline.
       Flag Nick on any substantial plan change.
-   3. **Nick looks** — Nick opens the project in KiCad. Give copy-pastable
-      kicad-cli commands and say exactly what to look at.
-   4. **Open PR.**
+   3. **Open the PR, unmerged.**
+   4. **QE review** — in a **separate Code session, never a sub-agent**, following
+      `.claude/agents/quality-engineer.md` (Opus 5.5, high effort). **One standing QE
+      session per sprint:** the first review of a sprint is spawned as a task chip Nick
+      starts; later rounds in that sprint are sent to the same session (session message);
+      a new sprint gets a fresh QE session. The QE is read-only; its report stays in its
+      own transcript. The design agent fetches it, saves it to
+      `docs/design-review/qe/<sprint>.md` and posts it on the PR. CHANGES REQUESTED →
+      fix, push, new QE review until APPROVED. Don't edit files while the QE runs.
+   5. **Nick's KiCad review** — only after QE APPROVED. Give copy-pastable
+      commands and say exactly what to look at.
+   6. **Merge** — only after both approvals.
 4. **Feature branch for all new work** — `sprint/<n>-<slug>`. Never commit to main.
 5. **Every sprint ends with a demo Nick can run** — kicad-cli commands that
    produce the ERC report, net diff and PDF, with the expected result.
@@ -44,7 +53,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py` and `python3 tools/test_ercsum.py`. ERC tables: `python3 tools/ercsum.py --items`.
 
 ### Project layout
 
@@ -52,7 +61,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -95,15 +104,22 @@ the project in KiCad: the 21 fixed points are listed in
 junctions at both ends).
 **Result:** demo passed and KiCad look OK (Nick, 2026-10-05).
 
-### S2 — Mezzanine (P1) → Pi header; grounds  `[ ]`
-- [ ] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
-      (keep R10 and TP19); remove each from `docs/design-review/excluded_parts.txt`
-- [ ] Delete leftover STM32/mezzanine labels and wires (keep `ADIN_*`, `I2C1_*`)
-- [ ] Place `Connector:Raspberry_Pi_2_3` on Top-Level, footprint
+### S2 — Mezzanine (P1) → Pi header; grounds  `[x]`
+- [x] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
+      (keep R10 and TP19); exclusion list now empty
+- [x] Delete leftover STM32/mezzanine labels and wires (14 labels, 5 orphan power
+      symbols, 69 wires); `ADIN_*`, `I2C1_*` kept. Kept-pin connectivity verified identical
+- [x] Place J1 `Connector:Raspberry_Pi_2_3` on Top-Level, footprint
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`
-- [ ] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 unconnected
-- [ ] PWR_FLAG on VBUS and GND
-**Demo (Nick):** ERC + net diff → only the intended nets changed.
+- [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
+- [x] PWR_FLAG on VBUS and GND
+- [x] QE review: **APPROVED** in round 3 (round 1 changes requested, round 2 nits; all fixed) — `docs/design-review/qe/S2.md`
+- [x] Checkpoint: Nick looks at the Top-Level sheet in KiCad (also confirmed S1's R8 junctions)
+**Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
+excluded`, ERC `Errors 76  Warnings 562` (−27/+38 vs S1; 30 are J1 pins for S4/S5).
+In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3V3).
+ERC detail: `python3 tools/ercsum.py --items` (every error has an owner in DESIGN.md).
+**Result:** QE APPROVED (round 3); demo passed and KiCad look OK (Nick, 2026-10-05).
 
 ### S3 — 50 W power path: inductors & design decisions  `[ ]`
 **Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
@@ -141,13 +157,23 @@ agreed changes.
 - [ ] ADIN_PWR 100 kΩ pull-down (unless AP22913 has one internally); ADIN_RST
       pull-up only if needed; no pull-up on MISO — each with a citation
 - [ ] Document the ADIN power-up order
-- [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up)
+- [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up). SW_FLAGB/SW_PGOOD sheet pins are
+      unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35
 - [ ] VBUS_OUT + GND → 2-pin connector rated for the S3 rating
+- [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
+      needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
+      (reference Processor sheet). Note the combined value if the Pi also has pull-ups
+      (QE: the Pi documents 1.8 kΩ on GPIO2/3 → ≈1.3 kΩ combined; cite a primary source)
+- [ ] Choose the pull-up rail and document power sequencing: shield 3V3 and Pi 3V3 are
+      separate rails, so one powered while the other is off can back-power through pull-ups /
+      IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 
 ### S6 — Design review package  `[ ]`
-- [ ] ERC clean, or every remaining item justified
+- [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the
+      regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO)
+- [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level)
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit

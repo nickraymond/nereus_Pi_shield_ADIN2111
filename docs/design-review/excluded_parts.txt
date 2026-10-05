@@ -1,17 +1,3 @@
 # Parts netcheck treats as already removed. One reference per line; text after
 # '#' is the reason. Remove each line when the part is actually deleted.
-# Approved by Nick 2026-10-05 (S1 plan): these are deleted in S2 (TRACKER S2).
-P1     # mezzanine connector, replaced by the Pi header
-R9     # mezzanine-side resistor
-TP4    # dead test point on a P1 net
-TP6    # dead test point on a P1 net
-TP9    # dead test point on a P1 net
-TP10   # dead test point on a P1 net
-TP11   # dead test point on a P1 net
-TP12   # dead test point on a P1 net
-TP14   # dead test point on a P1 net
-TP15   # dead test point on a P1 net
-TP16   # dead test point on a P1 net
-TP17   # dead test point on a P1 net
-TP18   # dead test point on a P1 net
-TP33   # dead test point on a P1 net
+# (Empty since S2: P1, R9 and the 12 mezzanine test points were deleted.)

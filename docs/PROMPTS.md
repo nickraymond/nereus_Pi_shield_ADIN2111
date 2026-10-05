@@ -46,7 +46,16 @@ sprint / later sprint / icebox), show me the TRACKER diff, and then
 return to the current bite — do not start work on it.
 ```
 
-## 5 — Layout question (no edits)
+## 5 — Quality Engineer review
+
+```
+Spawn the Quality Engineer review of PR #<N> (<sprint>) as a separate session
+(task chip), never a sub-agent. When it finishes, save its report to
+docs/design-review/qe/<sprint>.md, post it on the PR, and tell me the verdict.
+Fix anything it hands back and spawn a new review until it approves. Don't merge.
+```
+
+## 6 — Layout question (no edits)
 
 ```
 Run /agent-entry, read-only. Layout question: <question>. Answer from the

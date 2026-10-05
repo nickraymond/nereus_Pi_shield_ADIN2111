@@ -19,6 +19,33 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S2 — Mezzanine removed, Pi header J1 placed
+
+**Branch:** sprint/2-pi-header
+**Files touched:** BM_Mote_1_Master.kicad_sch; tools/schedit.py (new, 7 tests); exclusion list emptied; docs
+**ERC:** 76 errors / 562 warnings (was 65/590)  ·  **Net diff:** 53/53, 0 opens, 0 shorts, 0 excluded
+**Done:**
+- Deleted P1, R9, 12 TPs, 14 mezzanine labels, 5 orphan power symbols, 2 NCs, 69 wires, 12 junctions
+- Placed J1 (stock KiCad Pi header + 2×20 socket footprint), GND + PWR_FLAG, NC on 3V3, VBUS PWR_FLAG
+- Verified: all 277 kept pins keep identical connections; J1's 8 GND pins on GND; visual check of the sheet (SVG render)
+**Broke/surprised us:**
+- First deletion pass trimmed the wire under the I2C1 labels (they sat part-way along a stub
+  to P1), leaving them unnamed. Caught by the before/after net-name diff; schedit now shortens
+  such wires instead of deleting them (test added)
+- The mote's I2C pull-ups (R26/R27) were on the STM32 sheet, so the shield now has none.
+  Nick decided the shield adds them (D11, S5 task)
+- ERC errors rose, not fell: −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins,
+  8 I2C1/SCL/SDA labels now one-pin, J1.2)
+- QE round 1 (separate session): CHANGES REQUESTED — my ERC owner table was hand-filtered and
+  missed FID1–6, the SW_FLAGB/SW_PGOOD sheet pins and #PWR34 (also undercounted in S1). Fixed
+  with `tools/ercsum.py`; also deleted a stale MEZZANINE text box. Report: `docs/design-review/qe/S2.md`
+- QE round 2 (fresh session): APPROVED WITH NITS. N1: my F1 fix claimed SW_FLAGB/SW_PGOOD
+  "lost P1" — false (copper: they never reached P1). Lesson: a fix to the docs is still a claim;
+  check it against copper/netlist before writing it. All N1–N7 fixed; ercsum hardened
+- Process: one standing QE session per sprint (Nick)
+- QE round 3 (same standing session): **APPROVED**; 2 nits (R1 log wording, R2 TRACKER date) fixed
+**Next:** Nick's KiCad look → merge → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 
 **Branch:** sprint/1-import-fix

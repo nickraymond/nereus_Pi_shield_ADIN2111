@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> <strong>S1 done:</strong> the import is fixed and 53/53 nets match the copper. Next: the S2 plan.</p>
+    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. <strong>QE APPROVED</strong> (round 3). Your KiCad look is next, then merge.</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -158,12 +158,14 @@ const S = [
 ]},
 { t:"S2 — Mezzanine (P1) → Pi header; grounds", o:"agent", w:"Claude Code", c:"--sch",
   items:[
-  ["Delete P1, its 12 dead test points and R9", `<p>TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33. Keep R10 and TP19.</p>`],
-  ["Delete leftover STM32/mezzanine labels and wires", `<p>Keep <code>ADIN_*</code> and <code>I2C1_*</code>.</p>`],
-  ["Place the stock Pi header on the Top-Level sheet", `<p><code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>. BOM: plain 2×20 female socket, no stacking header.</p>`],
-  ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39.</p>`],
-  ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div>`],
-  ["Add PWR_FLAG on VBUS and GND", ``]
+  ["Delete P1, its 12 dead test points and R9", `<p>TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33. R10 and TP19 kept (still on SW_ON).</p>`, null, 1],
+  ["Delete leftover STM32/mezzanine labels and wires", `<p>14 labels, 5 orphan power symbols, 69 wires. <code>ADIN_*</code> and <code>I2C1_*</code> kept. Every kept pin's connections verified identical.</p>`, null, 1],
+  ["Place the stock Pi header on the Top-Level sheet", `<p>J1 <code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>. BOM: plain 2×20 female socket, no stacking header.</p>`, null, 1],
+  ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39: all 8 on GND (netlist).</p>`, null, 1],
+  ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div><p>No-connect flag placed.</p>`, null, 1],
+  ["Add PWR_FLAG on VBUS and GND", `<p>#FLG01 on GND, #FLG02 on VBUS.</p>`, null, 1],
+  ["Quality Engineer review: APPROVED", `<p>Independent read-only review in a separate session, before your KiCad look. Round 1: CHANGES REQUESTED, fixed. Round 2: APPROVED WITH NITS, fixed. Round 3: <strong>APPROVED</strong>. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent", 1],
+  ["Checkpoint: run the demo and look at the Top-Level sheet", `<p><code>tools/check.sh</code> exits 0 (netcheck 53/53, 0 excluded; ERC 76: −27/+38 vs S1, 30 of them J1 pins for S4/S5). In KiCad: P1 gone, J1 in clear space.</p>`, "nick"]
 ]},
 { t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",
   intro:"~50 W absolute max = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Potted. Working file: docs/POWER_PATH.md.",
@@ -207,14 +209,17 @@ const S = [
   ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
-  ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default.</p>`],
+  ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default. SW_FLAGB/SW_PGOOD sheet pins are unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35.</p>`],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for the S3 rating. Raw ~24 V.</p>`],
+  ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
+  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Everything lands in docs/design-review/ so you can run a real review with colleagues.",
   items:[
-  ["ERC clean, or every remaining item justified", ``],
+  ["ERC clean, or every remaining item justified", `<p>Includes FID1–6 hidden NC pins, regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO. Tables via <code>tools/ercsum.py --items</code>.</p>`],
+  ["Remove stale sheet notes", `<p>e.g. "Processor + onboard logic runs off 3V3…" on the Top-Level sheet.</p>`],
   ["Net check: kept nets match the copper; every new net listed", ``],
   ["Schematic PDF (all sheets)", ``],
   ["Change log of every edit", ``],
