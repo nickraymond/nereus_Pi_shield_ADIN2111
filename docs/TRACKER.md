@@ -153,7 +153,8 @@ S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D
 - [x] S4.c: bus power budget, U10/L6 losses, JP1 bridge current, Pi supply voltage → `docs/design-review/power_budget.md`
 - [x] S4.c: Nick decided D15 (Pi load ≤ 1 A continuous) and D16 (keep R38 13.7 kΩ)
 - [x] S4.c: payload port decided (D17): switched and limited by U9; R11 DNP and U9 replacement in S5
-- [ ] S4.c: QE review (same S4 session; round 1 CHANGES REQUESTED, fixed) and Nick's review of power_budget.md
+- [x] S4.c: QE review (same S4 session): **APPROVED WITH NITS** in round 4, nit fixed — `docs/design-review/qe/S4.md`
+- [ ] S4.c: Nick's review of power_budget.md
 - [ ] S4.d: all footprints findable — extract the mote board's 57 footprints (read the board, never write it) into a
       project library named `Vault` (matches the board's `Vault:` IDs; 57 footprint IDs, 167 instances) and point every footprint field at it
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,

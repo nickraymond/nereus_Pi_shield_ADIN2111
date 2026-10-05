@@ -50,7 +50,8 @@ ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used 
 - QE round 3: CHANGES REQUESTED. F5 MAJOR: D17 contradicted SPEC hard constraint 7 (no power-path part
   changes, naming U9/R34/R11). Nick explicitly amended constraint 7: payload load switch excepted (R11 DNP,
   U9 replaced, R34/R33/R35 re-derived); everything else stays Sofar's. N7 D14 wording, N8 viewer line
-**Next:** QE round 2, Nick's review, merge; then S4.d (footprints) and the U9 replacement.
+- QE round 4: **APPROVED WITH NITS**; N9 (three summary lines missing the D17 exception) fixed
+**Next:** Nick's review, merge; then the U9 replacement + R11 DNP, and S4.d (footprints).
 
 ---
 

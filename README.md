@@ -2,7 +2,7 @@
 
 A Raspberry Pi Zero 2W shield built from a copy of the Sofar Bristlemouth mote:
 ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus, 5 V for the Pi,
-a 24 V payload port, and the Sofar mote's power path unchanged (~20 W absolute
+a 24 V payload port, and the Sofar mote's power path unchanged except the payload load switch (D17) (~20 W absolute
 max, 890 mA per port inductor at 24 V; 50 W in a later revision). Potted.
 
 Claude Code does the schematic capture, up to a design-review package. Nick
