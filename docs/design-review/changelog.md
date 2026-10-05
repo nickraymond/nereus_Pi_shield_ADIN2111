@@ -48,3 +48,28 @@ U9.1 off VBUS). Splitting the wire at the pin connects it with no side effects.
 `BM_Mote_1_Processor.kicad_sch` and `BM_Mote_1_USB.kicad_sch` were not
 referenced by any sheet or by the project file. Deleting them changed neither
 the ERC counts nor the netlist.
+
+### S1.3 Power symbols numbered
+
+All 65 power symbols had the same reference, `#PWR?`, in both the
+property and the instance record (the checklist's "65 duplicate references").
+They are now `#PWR01`–`#PWR65` in hierarchy order (Master 01–17, Power 18–27,
+ADIN2111 28–50, PoDL 51–57, PowerMon 58, Load 59–65). ERC counts and the
+netlist are unchanged.
+
+### S1.4 ADIN_VDDIO label — verified, not changed
+
+The plain label `ADIN_VDDIO` on the ADIN2111 sheet sits on the C13/C14 wire,
+and the netlist has one `ADIN_VDDIO` net holding U3.A1 (switch output),
+U1.18/U1.46, the R1/R3/R5/R6 pull-ups, TP2, C13 and C14, matching the copper.
+The checklist's goal (pull-ups powered from ADIN_VDDIO) is met, so the label
+was left as it is.
+
+### S1 result
+
+| Check | Before S1 | After S1 |
+|---|---|---|
+| netcheck (excl. S2 deletions) | 39/53 matched, 14 opens | **53/53, 0 opens, 0 shorts** |
+| Pins mid-wire (kept parts) | 21 | **0** |
+| ERC errors / warnings | 90 / 578 | 65 / 590 |
+| Unnumbered power symbols | 65 | 0 |
