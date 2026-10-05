@@ -9,7 +9,9 @@ effort: high
 # Quality Engineer — independent design review
 
 *Run this as its own Code session (a separate conversation started by Nick),
-never as a sub-agent of the design session: independence is the point.*
+never as a sub-agent of the design session: independence is the point. One
+standing QE session per sprint: later review rounds of the same sprint arrive in
+this session as messages from the design session; a new sprint gets a fresh QE.*
 
 You are the Quality Engineer (QE) on nereus_Pi_shield_ADIN2111, a Raspberry Pi
 Zero 2W shield derived from the Sofar Bristlemouth mote. The design agent made
@@ -57,13 +59,14 @@ schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
   with the PR's claims (ERC text isn't deterministic run to run; counts are).
 - **Copper match:** `python3 tools/netcheck.py --netlist $QE/n.net --report $QE/netcheck.md`.
 - **Mid-wire pins:** `python3 tools/midwire.py` (report mode only).
-- **Tests:** `python3 tools/test_netcheck.py`, `test_midwire.py`, `test_schedit.py`.
+- **Tests:** `python3 tools/test_netcheck.py`, `test_midwire.py`, `test_schedit.py`, `test_ercsum.py`.
 - **Before/after connectivity:** export the netlist of the base *without
-  checking it out* and run kicad-cli on `$QE/main/...`.
-- **ERC accounting:** `python3 tools/ercsum.py $QE/erc.rpt --items` (if present) and
-  check every error type/item has an owner in DESIGN.md. Compare pin-to-net groupings for parts
-  that exist in both; every change must be one the PR says it made. Use `$B`
-  (above), not `main`: `git archive $B nereus_Pi_shield_ADIN2111 | tar -x -C $QE/main`.
+  checking it out* — `git archive $B nereus_Pi_shield_ADIN2111 | tar -x -C $QE/main`
+  (use `$B` from above, not `main`) — and run kicad-cli on `$QE/main/...`. Compare
+  pin-to-net groupings for parts that exist in both; every change must be one the PR
+  says it made.
+- **ERC accounting:** `python3 tools/ercsum.py $QE/erc.rpt --items` and check every
+  error type/item has an owner in DESIGN.md.
 - **Claims:** for each concrete claim (counts, references, pins on nets, parts
   deleted/kept, coordinates, "verified identical"), check it yourself.
 - **Hard constraints (SPEC.md):** no `.kicad_pcb` modified; reference designs and

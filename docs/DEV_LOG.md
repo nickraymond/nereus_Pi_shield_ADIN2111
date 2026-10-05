@@ -39,7 +39,11 @@ what broke, what's next.*
 - QE round 1 (separate session): CHANGES REQUESTED — my ERC owner table was hand-filtered and
   missed FID1–6, the SW_FLAGB/SW_PGOOD sheet pins and #PWR34 (also undercounted in S1). Fixed
   with `tools/ercsum.py`; also deleted a stale MEZZANINE text box. Report: `docs/design-review/qe/S2.md`
-**Next:** QE round 2 → Nick's KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+- QE round 2 (fresh session): APPROVED WITH NITS. N1: my F1 fix claimed SW_FLAGB/SW_PGOOD
+  "lost P1" — false (copper: they never reached P1). Lesson: a fix to the docs is still a claim;
+  check it against copper/netlist before writing it. All N1–N7 fixed; ercsum hardened
+- Process: one standing QE session per sprint (Nick)
+**Next:** QE round-3 confirmation (standing session) → Nick's KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
 
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 

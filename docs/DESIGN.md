@@ -75,7 +75,7 @@ two local labels with the same name silently join their nets.
 | D7 | 2026-10-04 | Target ~50 W with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
 | D8 | 2026-10-04 | Rating (P1): ~50 W **absolute max** = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Margin comes from choosing larger magnetics (MSD1514-class, fit pending) | Same basis as the mote's rating; potting removes thermal headroom |
 | D9 | 2026-10-04 | Electronics are potted. Sofar-vetted parts are kept as-is (including the C22/C23 electrolytics). Newly sourced parts: no aluminium electrolytics, no PPTCs, other risky parts flagged (SPEC constraint 8) | Vetted design is trusted; electrolytics vent or deform under pressure; PPTC trip behaviour changes when encapsulated |
-| D10 | 2026-10-05 | Every PR gets an independent, read-only Quality Engineer review in a separate Code session (never a sub-agent; `.claude/agents/quality-engineer.md`, Opus 5.5, high effort) before Nick's KiCad review; merge needs both | A second pair of eyes on every claim; QE never edits, so it can't collide with Nick or the design agent |
+| D10 | 2026-10-05 | Every PR gets an independent, read-only Quality Engineer review in a separate Code session, one standing session per sprint (never a sub-agent; `.claude/agents/quality-engineer.md`, Opus 5.5, high effort) before Nick's KiCad review; merge needs both | A second pair of eyes on every claim; QE never edits, so it can't collide with Nick or the design agent |
 | D11 | 2026-10-05 | The shield provides I2C pull-ups on I2C1_SDA/SCL (S5), reusing the mote's R26/R27: 4.7 kΩ ERJ-2RKF4701X to 3V3 | Nick: the Pi needs them; the mote's pull-ups were on the removed STM32 sheet |
 
 ## ERC / net-check results
@@ -93,8 +93,8 @@ pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
 | Type | # | What | Resolved by |
 |---|---|---|---|
-| pin_not_connected | 41 | J1: 28 GPIO pins + pin 4 (5V, stacked with 2) = 29; Load Switch sheet pins SW_FLAGB, SW_PGOOD (their partner was P1) = 2; FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S4 (5V), S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
-| label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the Power Monitor sheet's SCL/SDA: each net has one pin until the Pi header is wired | S5 |
+| pin_not_connected | 41 | J1: 28 GPIO pins + pin 2 (5V, stacked with 4) = 29; Load Switch sheet pins SW_FLAGB, SW_PGOOD = 2 (unconnected on the Top-Level sheet since import; on the mote these nets go only to U9/R33/R35/TP34/TP35); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S4 (5V), S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
+| label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the PoDL and Power Monitor sheets' SCL/SDA: each net has one pin until the Pi header is wired | S5 |
 | power_pin_not_driven | 8 | J1 pin 2 (5V, stacked with 4); #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | S4 (J1.2); remainder justified or flagged in S6 |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
 
