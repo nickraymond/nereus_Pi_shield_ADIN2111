@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.c in review</strong> <strong>S4.b done</strong> (PR #9 merged): the shield powers the Pi through bridged link JP1. <strong>S4.c:</strong> power budget written (docs only); U10's temperature limits the Pi to about 1 A continuous — two proposals for you. Next: QE, then your review.</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.c in review</strong> <strong>S4.b done</strong> (PR #9 merged): the shield powers the Pi through bridged link JP1. <strong>S4.c:</strong> power budget (docs only): Pi ≤ 1 A (D15), R38 kept (D16); payload port kept (D17); U9 is obsolete, replacement queued in S5. Next: QE round 2, then your review.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -189,12 +189,15 @@ const S = [
   ["S4.b: QE approved; your KiCad look", `<p>QE APPROVED (round 2); your look OK; PR #9 merged.</p>`, "nick", 1],
 
   ["S4.c: power budget written", `<p><code>docs/design-review/power_budget.md</code>: bus headroom, U10/L6 losses, JP1 bridge (2.4 A at 10 °C rise), Pi supply voltage (the Zero has no undervoltage detector). U10's temperature is the binding limit: ~42–57 °C rise at 1 A, 90–121 °C at 2 A.</p>`, null, 1],
-  ["S4.c: decide P-S4c-1 and P-S4c-2", `<p>P-S4c-1: continuous Pi load target ≤ 1 A (Pi + its USB devices), copper at U10, measure at bring-up. P-S4c-2: keep R38 = 13.7 kΩ (4.82–5.14 V, inside USB's 4.75–5.25 V).</p>`, "nick"],
+  ["S4.c: Pi load ≤ 1 A (D15) and R38 13.7 kΩ (D16)", `<p>Your calls. Pi + its USB devices ≤ 1 A continuous; measure U10's case temperature at bring-up. R38 stays 13.7 kΩ; 13.5 kΩ is the fix if 5V_PI < 4.75 V at J1.</p>`, "nick", 1],
+  ["S4.c: payload port kept as Sofar designed (D17)", `<p>Payloads are small devices (e.g. a sensor to switch on); the ≈ 0.74 A limit stays.</p>`, "nick", 1],
   ["S4.c: QE review, then your review of power_budget.md", `<p>Docs only; nothing to see in KiCad.</p>`, "nick"],
-  ["S4.d: make all footprints findable", `<p>Extract the mote board's 57 footprints (read only) into a project library named <code>Vault</code>, matching the board's IDs, so your F8 re-link changes nothing.</p>`]
+  ["S4.d: make all footprints findable", `<p>Extract the mote board's 57 footprint IDs (167 instances; read only) into a project library named <code>Vault</code>, matching the board's IDs, so your F8 re-link changes nothing.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
+  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>Digi-Key: "no longer manufactured". Match the function: 36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD; ideally SO-8 pin-compatible (D17).</p>`],
+  ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
 <tr><td>22</td><td>25</td><td>ADIN_INT</td></tr>
@@ -227,11 +230,11 @@ const S = [
   ["Pin map, power budget and BOM changes", ``]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
-  intro:"Send Q2–Q4 when ready; Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  intro:"Send Q2 and Q4 when ready (Q3 answered from the datasheet); Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
   items:[
   ["Q1 Fuse / e-fuse on the through-power path? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
   ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
-  ["Q3 What current limit does R34 set on the FPF2700?", `<p>We can't get the datasheet (onsemi link dead).</p>`],
+  ["Q3 What current limit does R34 set on the FPF2700? (answered, don't send)", `<p>From the datasheet you found: ≈ 0.74 A typical, 0.59–0.89 A.</p>`, null, 1],
   ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
   ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
 ]},

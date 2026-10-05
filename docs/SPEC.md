@@ -73,6 +73,14 @@ production (DESIGN D12).
 - TI's own LMR51430 application circuit uses C_IN = 2.2 µF and, at 1.1 MHz,
   suggests L = 3.3 µH (5 V) / 2.2 µH (3.3 V) with 2 × 10 µF / 25 V output caps.
   *(SLUSEF4A Figure 9-1, Table 9-2)*
+- FPF2700 (U9): 2.8–36 V, 88 mΩ typical; R_SET (kΩ) = 277.5 / I_LIM(TYP) (A), ±20 %;
+  short-circuit limit 0.75 × I_LIM; FPF2700 turns off after 0.5 ms blanking and
+  retries after 127.5 ms; thermal shutdown 140 °C. With R34 = 374 kΩ, I_LIM ≈ 0.74 A
+  typical. *(Fairchild FPF2700/1/2 datasheet Rev. 1.0.3, Eq. 1)*
+- Pi Zero 2 W: recommended PSU 2 A, typical bare-board active 350 mA, Camera Module
+  250 mA; all models require a 5.1 V supply; no low-voltage detector on the Zero range.
+  *(Raspberry Pi documentation, "Power supply")* Input power 5 V DC 2.5 A; operating
+  temperature −20 °C to +70 °C. *(Zero 2 W product brief, April 2024)*
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote
@@ -133,9 +141,13 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
-- What is the FPF2700's current-limit range? (The onsemi datasheet link was
-  dead on 2026-10-04 and again 2026-10-05.) It caps the payload's share of the
-  budget headroom. — SOFAR_QUESTIONS Q3; Nick may supply the datasheet
+- ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
+  power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). Payloads are small
+  devices, kept as Sofar designed (D17).
+- **U9 (FPF2700MX) is obsolete**: Digi-Key part status "Obsolete — This product is no
+  longer manufactured" (checked 2026-10-05); distributor data gives last-time buy
+  2023-06-15, last delivery 2023-12-15. **Nick: replace it with a part JLC can source**
+  (D17) — S5. Also lifecycle-check every BOM part before S6.
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
   SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
   Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a
@@ -148,7 +160,7 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - ~~Pi undervoltage threshold~~ answered (power_budget §5): the Zero range has **no**
   low-voltage detector (Raspberry Pi documentation, "Power supply warnings"); the
   bench check is 5V_PI ≥ 4.75 V at J1 (USB 2.0 VBUS minimum). R38 stays 13.7 kΩ
-  pending Nick (proposal P-S4c-2).
+  (D16); 13.5 kΩ is the drop-in fix if the bench check fails.
 - With JP1 bridged, the Pi must never also have a USB cable plugged in. Its power
   micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
   J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
@@ -159,15 +171,15 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   back-feeds) to a bridged board's Pi, shield powered or not; Pi-powered USB
   peripherals are fine and count toward the S4.c budget. Open part: the data port's
   VBUS wiring (primary source).
-- U10/L6 losses (power_budget §3): U10's temperature is the binding limit, not the
-  bus: ΔTj ≈ 42–57 °C at 1 A to the Pi, 90–121 °C at 2 A (RθJA 80–107.8 °C/W, free
-  air). Proposal P-S4c-1 (Nick to decide): continuous Pi load target ≤ 1 A, generous
-  copper at U10, measure case temperature at bring-up. Potted RθJA still unknown.
+- U10/L6/L1 heat (power_budget §3): ΔTj ≈ 42–57 °C at the D15 target (1 A), indicative
+  only (TI's RθJA is for comparison; 25 °C efficiency). Potted RθJA unknown; measure
+  T_top at bring-up (Tj ≈ T_top + 9.3 °C/W · P_U10).
 - ADIN2111 power at 2.4 V p-p and the other 3.3 V loads: the budget uses a 0.30 W
   allowance at U5's input (ADI: 77 mW typical at 1.0 V p-p, dual supply) until the
   full datasheet is read. — S6
 - Murata's product pages list "undersea equipment" among applications they
   don't warrant for these consumer/industrial MLCCs. Applies equally to the
   mote's existing Murata parts (C29, C32, C33, …). — note for S6 review
-- ~~Bus power budget~~ done (power_budget §2): at 24 V, shield + a 1 A Pi leave 647 mA
-  for payload + pass-through; only a 2.5 A Pi on a 16 V bus exceeds 890 mA.
+- ~~Bus power budget~~ done (power_budget §2): against the 12 W v1 module limit a 1 A
+  Pi leaves ≈ 6.2 W for the payload; against 890 mA it leaves 645 mA at 24 V for
+  payload + pass-through (VBUS behind L1's 0.656 Ω included).

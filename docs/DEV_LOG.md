@@ -35,7 +35,16 @@ what broke, what's next.*
 - Split S4: footprints become S4.d (library named `Vault` to match the board's IDs)
 **Broke/surprised us:** analog.com and onsemi datasheets wouldn't download (timeouts / landing page);
 ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used for the 3.3 V domain)
-**Next:** QE review (same S4 session), Nick's decisions on P-S4c-1/2 and review, merge; then S4.d.
+- Nick decided D15 (Pi ≤ 1 A) and D16 (R38 13.7 kΩ); Nick found the FPF2700 datasheet (Fairchild
+  Rev. 1.0.3): R34 sets ≈ 0.74 A typical, so Sofar Q3 is answered
+- QE round 1: CHANGES REQUESTED. F1 MAJOR: I'd missed Bristlemouth v1's 12 W per-module limit (already
+  in SPEC) — with a 1 A Pi the payload gets ≈ 6.2 W, and U9's 0.74 A limit doesn't enforce that →
+  P-S4c-3 for Nick. Also L1's 0.656 Ω drop/heat, thermal caveats + ψJT bench check, camera figures,
+  13.5 kΩ option, footprint count wording, Fig 7-2 legend note
+- Nick asked for a lifecycle check: **FPF2700MX (U9) is obsolete** (Digi-Key). Captured in S5 (replace with a
+  JLC-sourceable part) plus a whole-BOM lifecycle check before S6
+- Nick: payloads are small devices, keep Sofar's payload port (D17); U9 needs a JLC-sourceable replacement (S5)
+**Next:** QE round 2, Nick's review, merge; then S4.d (footprints) and the U9 replacement.
 
 ---
 
