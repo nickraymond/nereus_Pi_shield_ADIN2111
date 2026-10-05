@@ -39,22 +39,26 @@ Reserved: 26 (CE1), 29, 32, 33 (motor). Avoid: 27, 28 (HAT EEPROM), 8, 10 (conso
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
 
-**Net-check method:** *(S0.3)*
+**Net-check method:** *(S0.3)* Note: ERC reports aren't deterministic run to
+run (same violations, different example labels), so compare ERC by counts and
+types; nets are compared from the exported netlist only.
 
 ## Decision log
 
 | # | Date | Decision | Rationale |
 |---|---|---|---|
 | D1 | 2026-10-04 | Agents own schematic capture up to the design-review package; Nick owns review, board and bring-up | Clear boundary; the board is Nick's |
-| D2 | 2026-10-04 | TRACKER.md is the single source of truth; the checklist HTML is reference only | The HTML saves progress in a browser, which agents can't see |
+| D2 | 2026-10-04 | TRACKER.md is the single source of truth. `pi-shield-checklist.html` is the shared visual view of it: agents keep it in sync every PR, and finished work is marked in its data (`done`), not only in the browser (revised same day at Nick's request) | Nick and colleagues use the HTML; ticks stored only in a browser are invisible to agents and other viewers |
 | D3 | 2026-10-04 | Live project folder is `nereus_Pi_shield_ADIN2111/` (renamed from `_002` in S0.1) | One stable name; git keeps the history |
 | D4 | 2026-10-04 | 5 V for the Pi: copy of the LMR51430 (U5) set to 5 V, fed from VBUS | Reuses a proven block (checklist Option A) |
 | D5 | 2026-10-04 | 5V_PI reaches Pi pins 2/4 through an open solder jumper | Must stay open whenever the Pi has its own USB power |
 | D6 | 2026-10-04 | Plain 2×20 female socket header, no stacking header | Shield plugs onto the Pi's male pins |
-| D7 | 2026-10-04 | Target 50 W nominal at 24 V with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
+| D7 | 2026-10-04 | Target ~50 W with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
+| D8 | 2026-10-04 | Rating (P1): ~50 W **absolute max** = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Margin comes from choosing larger magnetics (MSD1514-class, fit pending) | Same basis as the mote's rating; potting removes thermal headroom |
+| D9 | 2026-10-04 | Electronics are potted. Sofar-vetted parts are kept as-is (including the C22/C23 electrolytics). Newly sourced parts: no aluminium electrolytics, no PPTCs, other risky parts flagged (SPEC constraint 8) | Vetted design is trusted; electrolytics vent or deform under pressure; PPTC trip behaviour changes when encapsulated |
 
 ## ERC / net-check results
 
 | Date | Sprint | ERC errors / warnings | Net diff vs copper | Notes |
 |---|---|---|---|---|
-| | | | | |
+| 2026-10-04 | S0.1 | 90 / 578 before and after the rename | Netlist identical apart from the library path | Rename confirmed safe; not the S0.4 baseline |

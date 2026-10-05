@@ -12,8 +12,10 @@ Docs map — read per the ritual, don't skip it:
 - `docs/TRACKER.md` — rules + sprint ladder (the entry point, the only progress record)
 - `docs/DESIGN.md` — sheet hierarchy, pin map, decision log, ERC/net-check results
 - `docs/POWER_PATH.md` — 50 W power path: inductor trade study and pending decisions
+- `docs/SOFAR_QUESTIONS.md` — open questions for Sofar and their answers
 - `docs/DEV_LOG.md` — session log, newest first
 - `docs/PROMPTS.md` — Nick's kickoff prompts
+- `pi-shield-checklist.html` — shared visual view of TRACKER; keep it in sync every PR
 
 Layout: `nereus_Pi_shield_ADIN2111/` is the live KiCad project; `docs/design-review/`
 holds check outputs; `KiCAD_reference_designs/` and `Archive/` are read-only.

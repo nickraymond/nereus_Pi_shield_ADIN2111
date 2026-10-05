@@ -26,7 +26,9 @@
    produce the ERC report, net diff and PDF, with the expected result.
    Commands go in the sprint's Demo line and the PR description.
 6. **End of every session:** DEV_LOG.md entry (newest on top); DESIGN.md updated
-   on any design or decision change.
+   on any design or decision change; **`pi-shield-checklist.html` synced to
+   this tracker** (items, `done` flags, the status panel's "Updated / Now" line)
+   in the same PR.
 7. **Facts carry sources; unknowns get flagged, not guessed.**
 8. **KiCad files:** never write a `.kicad_pcb`. Reference designs and
    `Archive/` are read-only. After every `.kicad_sch` text edit, kicad-cli must
@@ -46,12 +48,12 @@ $K sch export pdf -o docs/design-review/schematic.pdf "$P"
 ### Project layout
 
 ```
-docs/                         SPEC TRACKER DESIGN POWER_PATH DEV_LOG PROMPTS
+docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           check outputs + the final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
-pi-shield-checklist.html      Nick's visual walkthrough (reference, not state)
+pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
 .claude/skills/               /agent-entry, /capture-task
 ```
 
@@ -61,11 +63,11 @@ pi-shield-checklist.html      Nick's visual walkthrough (reference, not state)
 
 State key: `[ ]` pending · `[~]` in progress · `[x]` done · `[!]` blocked
 
-### S0 — Repo & baseline  `[ ]`
+### S0 — Repo & baseline  `[~]`
 **Goal:** one live project and a repeatable check.
-- [ ] S0.1 Rename `nereus_Pi_shield_ADIN2111_002/` → `nereus_Pi_shield_ADIN2111/`
-      (`git mv`; inspect, then delete the stray `.kicad_pro` already there)
-- [ ] S0.2 Untrack files now covered by `.gitignore` (`git rm --cached`)
+- [x] S0.1 Rename `nereus_Pi_shield_ADIN2111_002/` → `nereus_Pi_shield_ADIN2111/`
+      (stray `.kicad_pro` was byte-identical; removed. ERC 90/578 unchanged)
+- [x] S0.2 Untrack files now covered by `.gitignore` (58 files; still on disk)
 - [ ] S0.3 Net-check method: extract kept nets from the mote `.kicad_pcb`
       and diff them against the exported netlist; record the method in DESIGN.md
 - [ ] S0.4 First ERC + net-check baseline recorded in DESIGN.md
@@ -94,12 +96,16 @@ shows every kept net matches the copper.
 **Demo (Nick):** ERC + net diff → only the intended nets changed.
 
 ### S3 — 50 W power path: inductors & design decisions  `[ ]`
-**Goal:** a 50 W nominal (24 V) PoDL path with two-winding magnetics, decided
-by Nick on cited evidence. Working file: `docs/POWER_PATH.md`.
-- [ ] Nick defines the rating (POWER_PATH §1) — *gate*
+**Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
+two-winding magnetics, decided by Nick on cited evidence. Working file:
+`docs/POWER_PATH.md`.
+- [x] Nick defines the rating (POWER_PATH §1) — *gate* (DESIGN D8)
+- [ ] Nick confirms MSD1514 (15.5 × 15.5 × 14.2 mm) fit in SolidWorks
 - [ ] Sort Evan's references; record facts with citations ([G], [E], [J], [DS])
-- [ ] Confirm candidate figures against Coilcraft datasheets (§3)
-- [ ] Audit every part in the path against the rating (§4)
+- [ ] Confirm candidate figures against Coilcraft datasheets, normalised to one basis (§2–3)
+- [ ] Audit every part in the path against the rating and potting rules (§4)
+- [ ] Damping: keep C22/C23/R15/R16; retune only if the new magnetics need it (SOFAR_QUESTIONS Q5)
+- [ ] Propose through-path protection (e-fuse) that works in both directions and is safe to pot (SOFAR_QUESTIONS Q1)
 - [ ] Nick decides P1–P4 → DESIGN.md decision log
 - [ ] Schematic edits: L1/L2 swap, re-rated path parts, damping/bulk provisions,
       footprints findable (`mote.pretty`)

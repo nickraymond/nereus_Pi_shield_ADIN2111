@@ -11,6 +11,8 @@ description: Capture a new task in docs/TRACKER.md without acting on it. Use whe
    - a later sprint, if it fits that sprint's goal
    - the Icebox, otherwise
 3. **Write it** as a `- [ ]` line in TRACKER.md using the sprint's wording
-   style. If it raises an unknown, also add it to SPEC.md §Open questions.
-4. **Show Nick the TRACKER diff** and wait for an OK.
+   style, and add the matching item to `pi-shield-checklist.html`. If it
+   raises an unknown, also add it to SPEC.md §Open questions (or to
+   `docs/SOFAR_QUESTIONS.md` if only Sofar can answer it).
+4. **Show Nick the diff** and wait for an OK.
 5. **Return to the current bite.** Don't start the captured task.

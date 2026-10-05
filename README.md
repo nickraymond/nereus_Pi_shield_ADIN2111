@@ -2,7 +2,7 @@
 
 A Raspberry Pi Zero 2W shield built from a copy of the Sofar Bristlemouth mote:
 ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus, 5 V for the Pi,
-a 24 V payload port, and a 50 W nominal power path at 24 V.
+a 24 V payload port, and a ~50 W power path (absolute max at 24 V). Potted.
 
 Claude Code does the schematic capture, up to a design-review package. Nick
 reviews, lays out, routes and brings up the board.
@@ -15,7 +15,7 @@ docs/                        spec, tracker, design log, power-path study
 docs/design-review/          ERC, netlist, PDF and the review package
 KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)
 Archive/                     earlier iterations, junction fix (read-only)
-pi-shield-checklist.html     visual walkthrough (reference; progress lives in docs/TRACKER.md)
+pi-shield-checklist.html     shared visual view of docs/TRACKER.md (open in a browser)
 ```
 
 ## Working on it
