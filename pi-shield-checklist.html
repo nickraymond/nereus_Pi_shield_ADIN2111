@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.a, your KiCad look</strong> <strong>S3 done</strong> (PR #7 merged): this board keeps Sofar's power path (D12). <strong>S4.a:</strong> 5 V converter U10 built as a copy of U5 (13.7 kΩ, 16 V output caps, same 8.2 µH inductor); 5V_PI reaches the Top-Level sheet. QE approved; next: your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.b in review</strong> <strong>S4.a done</strong> (PR #8 merged): 5 V converter U10. <strong>S4.b:</strong> the shield powers the Pi by default through JP1, a bridged copper link on R11-size 1210 pads (cut it before potting for a battery- or USB-powered Pi; refit a 0 Ω 1210 to reconnect). Next: QE, then your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -184,8 +184,9 @@ const S = [
   ["Inductor: same 8.2 µH as the 3.3 V one", `<p>L6 = PA5432.822NLT, your call. Ripple 12.7–15.6 % of 3 A, a bit under TI's 20 % guideline but above the 9.7–10.9 % the field-proven 3.3 V converter runs at. Isat 8.4 A. Output 4.82–5.14 V worst case.</p>`, "nick", 1],
   ["Output caps rated 16 V / 10 V", `<p>C56, C57: 22 µF 16 V X5R 0805 (GRM21BR61C226ME44L); C58: 4.7 µF 10 V 0402 (GRM155R61A475MEAAD). Effective capacitance at 5 V still to confirm (Murata SimSurfing needs a licence click).</p>`, null, 1],
   ["Bring 5V_PI to the Top-Level sheet", `<p>New sheet pin, test point TP38 and a 5V_PI label, next to TP20 (3V3) and TP21 (1V8).</p>`, null, 1],
-  ["S4.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2), nits fixed. Look at the Power Regulators sheet (the copy below U5) and the Top-Level sheet beside the Power Regulators block.</p>`, "nick"],
-  ["S4.b: solder jumper from 5V_PI to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
+  ["S4.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2); your look OK; PR #8 merged.</p>`, "nick", 1],
+  ["S4.b: JP1 bridged link from 5V_PI to Pi pins 2 and 4", `<p>Shield powers the Pi as built. Footprint <code>nereus:R_1210_Bridged_NetTie</code>: R11's 1210 pads joined by 1 mm of copper, no BOM part. Cut to isolate; refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect (D14).</p>`, null, 1],
+  ["S4.b: QE review, then your KiCad look", `<p>Top-Level sheet, above J1: JP1, PI_5V + PWR_FLAG, the note.</p>`, "nick"],
   ["S4.c: make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
   ["S4.c: bus power budget estimate", `<p>Shield + Pi + payload against the 890 mA / ~20 W rating (D12), plus U10/L6 losses and temperature rise at the Pi's maximum load, potted. Flagged for review.</p>`]
 ]},
@@ -199,7 +200,7 @@ const S = [
 <tr><td>3 / 5</td><td>2 / 3</td><td>I2C1_SDA / I2C1_SCL</td></tr>
 <tr><td>36</td><td>16</td><td>SW_EN (low = payload on)</td></tr>
 <tr><td>38 / 40</td><td>20 / 21</td><td>SW_FLAGB / SW_PGOOD</td></tr>
-<tr><td>2 / 4</td><td>—</td><td>5V_PI via jumper</td></tr></table></div>`],
+<tr><td>2 / 4</td><td>—</td><td>PI_5V, joined to 5V_PI by JP1 (bridged; cut to isolate)</td></tr></table></div>`],
   ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console).</p>`],
   ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>Unless the AP22913 has an internal one.</p>`],
   ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
@@ -253,7 +254,7 @@ const S = [
   ["Place the PoDL inductors (SRF1260-101M, 12.5 × 12.5 × 6 mm, as on the mote)", `<p>Same parts as the mote (D12); follow the mote's placement around them.</p>`],
   ["Place the 5 V converter like the 3.3 V one", `<p>Tight input-cap / IC / inductor / output-cap loop.</p>`],
   ["Payload connector at a board edge; silkscreen 24 V", ``],
-  ["Silkscreen the 5 V jumper", `<p>"5V→Pi: open before USB power".</p>`]
+  ["Silkscreen JP1", `<p>e.g. "CUT for battery/USB Pi". It must stay reachable until potting.</p>`]
 ]},
 { t:"Route and check", o:"nick", w:"You", c:"--brd",
   items:[
@@ -265,9 +266,9 @@ const S = [
 ]},
 { t:"First power-up (bench)", o:"nick", w:"You", c:"--prj",
   items:[
-  ["Jumper open, no Pi: current-limited 24 V supply (~100 mA)", ``],
+  ["No Pi plugged in: current-limited 24 V supply (~100 mA)", ``],
   ["Measure 3.3 V, 1.8 V and 5V_PI", `<p>TP20 = 3.3 V, TP21 = 1.8 V; 5V_PI ≈ 4.98 V.</p>`],
-  ["Close the jumper, add the Pi (no USB power)", `<p>Raise the limit to ~1 A.</p>`],
+  ["Plug in the Pi (JP1 bridged, never USB power at the same time)", `<p>Raise the limit to ~1 A.</p>`],
   ["5V_PI holds up under load", `<p>Judge by droop from the measured no-load value (the setpoint itself can be 4.82–5.14 V, D13) and by margin above the Pi's undervoltage threshold, to be cited in S4.c.</p>`],
   ["Check U10's SW node for jitter at full and light load", `<p>L6 is 2.5× TI's suggested inductance, so ripple is low; TI notes that weakens the peak-current comparator's signal-to-noise (QE S4 F5).</p>`]
 ]},

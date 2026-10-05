@@ -30,7 +30,7 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 | 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL |
 | 36 | 16 | SW_EN (low = payload on) |
 | 38 / 40 | 20 / 21 | SW_FLAGB / SW_PGOOD |
-| 2 / 4 | — | 5V_PI via solder jumper |
+| 2 / 4 | — | `PI_5V`, joined to `5V_PI` by JP1 (bridged link; cut to isolate, D14) |
 | 6, 9, 14, 20, 25, 30, 34, 39 | — | GND |
 | 1, 17 | — | **unconnected** (Pi 3.3 V) |
 
@@ -70,7 +70,7 @@ two local labels with the same name silently join their nets.
 | D2 | 2026-10-04 | TRACKER.md is the single source of truth. `pi-shield-checklist.html` is the shared visual view of it: agents keep it in sync every PR, and finished work is marked in its data (`done`), not only in the browser (revised same day at Nick's request) | Nick and colleagues use the HTML; ticks stored only in a browser are invisible to agents and other viewers |
 | D3 | 2026-10-04 | Live project folder is `nereus_Pi_shield_ADIN2111/` (renamed from `_002` in S0.1) | One stable name; git keeps the history |
 | D4 | 2026-10-04 | 5 V for the Pi: copy of the LMR51430 (U5) set to 5 V, fed from VBUS | Reuses a proven block (checklist Option A) |
-| D5 | 2026-10-04 | 5V_PI reaches Pi pins 2/4 through an open solder jumper | Must stay open whenever the Pi has its own USB power |
+| D5 | 2026-10-04 | **Superseded by D14.** 5V_PI reaches Pi pins 2/4 through an open solder jumper | Must stay open whenever the Pi has its own USB power |
 | D6 | 2026-10-04 | Plain 2×20 female socket header, no stacking header | Shield plugs onto the Pi's male pins |
 | D7 | 2026-10-04 | **Superseded by D12 for this board.** Target ~50 W with two-winding PoDL inductors, one per port; selection in POWER_PATH.md | Commercial mote magnetics limit it to ~20 W |
 | D8 | 2026-10-04 | **Superseded by D12 for this board.** Rating (P1): ~50 W **absolute max** = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Margin comes from choosing larger magnetics (MSD1514-class, fit pending) | Same basis as the mote's rating; potting removes thermal headroom |
@@ -79,6 +79,7 @@ two local labels with the same name silently join their nets.
 | D11 | 2026-10-05 | The shield provides I2C pull-ups on I2C1_SDA/SCL (S5), reusing the mote's R26/R27: 4.7 kΩ ERJ-2RKF4701X to 3V3 | Nick: the Pi needs them; the mote's pull-ups were on the removed STM32 sheet |
 | D12 | 2026-10-05 | This first board keeps the Sofar mote's power path unchanged: L1/L2 stay SRF1260-101M and every other path part stays as vetted. Rating = the mote's ~20 W absolute max, 890 mA per port inductor at 24 V (Sofar, More Power Delivery). 50 W (D7/D8, POWER_PATH.md) is deferred until after this board is in production | Nick: reduce technical risk on the first board and reuse Sofar's work, so the board is a new layout of proven hardware. The design has been in the field for years, and Nick already powers his cameras from the mote's power electronics, so it's known to work; no derating question goes to Sofar. The 50 W revision gets scoped with the future motor load |
 | D13 | 2026-10-05 | 5 V for the Pi (S4.a): U10 LMR51430YDDCR, a copy of U5 with new refs above the mote board's highest. Changed from U5: R38 = 13.7 kΩ (5 V, TI's own example), output caps C56/C57 22 µF 16 V 0805 + C58 4.7 µF 10 V 0402 (U5's are 6.3 V). Kept: L6 = PA5432.822NLT 8.2 µH (same as L3), input caps, bootstrap cap, its own 1.82 MΩ/200 kΩ enable divider | Reuse the proven block (D4, D12). Ripple (16–32 V in, nominal L): 8.2 µH gives 12.7–15.6 % of 3 A at 5 V, below TI's 20–60 % guideline (§9.2.2.4) but above the 9.7–10.9 % the field-proven 3.3 V converter runs at; Nick chose it over 4.7 µH. TI Table 9-2 (1.1 MHz) suggests 3.3 µH for 5 V and 2.2 µH for 3.3 V, so L6 is 2.5× and U5's L3 3.7× TI's value; low ripple weakens the peak-current comparator's signal-to-noise (§9.2.2.4), so bring-up checks the SW node for jitter at full and light load. Output capacitance from TI Eq. 14 (≥ 22 µF effective at 1.1 MHz, 1.5 A step, 5 %). Vout 4.98 V nominal, 4.82–5.14 V worst case (VREF ±1.5 %, 1 % resistors). Own enable divider keeps the 5 V watchdog idea open |
+| D14 | 2026-10-05 | The shield powers the Pi by default. JP1, a bridged link (project footprint `nereus:R_1210_Bridged_NetTie`: Sofar R11's 1210 pads joined by a 1.0 mm copper net tie, no BOM part), joins `5V_PI` to `PI_5V` (Pi pins 2/4). Battery- or USB-powered Pi: cut the bridge before potting; reconnect by fitting a 0 Ω 1210 (CRCW12100000Z0EA, as R11). Revises D5 | Nick: the usual case is the shield as the Pi's only supply; no DNP part wanted. Copper is repeatable at fab with no assembly step; a 0 Ω resistor fits the pads if a cut ever needs undoing. Bridge current rating checked in S4.c |
 
 ## ERC / net-check results
 
@@ -90,16 +91,17 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S2 | 76 / 562 | 53/53, 0 opens, 0 shorts, **0 excluded**; J1 GND 8/8 on GND | Mezzanine gone, J1 placed. Errors −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins, 8 I2C1/SCL/SDA labels now one-pin, J1.2) |
 | 2026-10-05 | S3 | 76 / 562 | 53/53, 0 opens, 0 shorts, 0 excluded | No schematic change: power path kept as Sofar's (D12) |
 | 2026-10-05 | S4.a | 78 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 13 new parts; existing parts' connections identical | 5 V converter U10 (copy of U5): +2 errors (U10 CB/SW, like U5), +57 off-grid, +10 footprint links. New nets 5V_PI, 5V_Buck_SW, 5V_FB, 5V_UVLO, U10 CB; VBUS and GND gain only the new parts |
+| 2026-10-05 | S4.b | 76 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 1 new part (JP1); existing connections identical | JP1 bridged link 5V_PI → PI_5V (J1.2/J1.4), #FLG03 on PI_5V: −2 errors (J1 pin 2 not connected / not driven). midwire now sees J1's 40 pins (tool fix); still 0 |
 
-**Remaining ERC errors after S4.a (78), and who resolves each** (counted with
+**Remaining ERC errors after S4.b (76), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
 pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
 | Type | # | What | Resolved by |
 |---|---|---|---|
-| pin_not_connected | 41 | J1: 28 GPIO pins + pin 2 (5V, stacked with 4) = 29; Load Switch sheet pins SW_FLAGB, SW_PGOOD = 2 (unconnected on the Top-Level sheet since import; on the mote these nets go only to U9/R33/R35/TP34/TP35); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S4 (5V), S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
+| pin_not_connected | 40 | J1: 28 GPIO pins (pin 2 cleared in S4.b); Load Switch sheet pins SW_FLAGB, SW_PGOOD = 2 (unconnected on the Top-Level sheet since import; on the mote these nets go only to U9/R33/R35/TP34/TP35); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
 | label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the PoDL and Power Monitor sheets' SCL/SDA: each net has one pin until the Pi header is wired | S5 |
-| power_pin_not_driven | 10 | J1 pin 2 (5V, stacked with 4); #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | S4 (J1.2); remainder justified or flagged in S6 |
+| power_pin_not_driven | 9 | #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | justified or flagged in S6 (J1.2 cleared in S4.b by #FLG03) |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
 
 S2's PWR_FLAGs cleared U5 VIN (VBUS) and U6 GND.

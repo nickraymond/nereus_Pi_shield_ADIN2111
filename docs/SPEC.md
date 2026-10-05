@@ -142,6 +142,14 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - U10's input caps copy U5's 2.2 µF (C55) + 100 nF. TI's text suggests ≥ 4.7 µF
   (SLUSEF4A §9.2.2.6), though its own Figure 9-1 uses 2.2 µF; field-proven on
   U5, but U10 draws more input current. — S6 review
+- Does JP1's 1.0 mm copper bridge (1 oz assumed; Nick's stack-up decides) carry the
+  Pi's maximum 5 V current with margin? Check against IPC-2221 trace-current data,
+  with the Pi's current from Raspberry Pi's documentation. — S4.c
+- The Pi Zero 2 W's undervoltage threshold, from a primary Raspberry Pi source
+  (the bench check and the 4.82 V worst-case setpoint depend on it). — S4.c
+- With JP1 bridged, the Pi must never also get USB power: the two 5 V sources would
+  be tied together. Recorded in the schematic note, bench list and D14; a hardware
+  guard (ideal diode / load switch) is a later-revision idea. — S6 review
 - U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
   RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
   ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)

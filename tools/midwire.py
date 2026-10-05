@@ -52,7 +52,8 @@ def lib_pins(text):
     out = {}
     for sym in blocks(next(blocks(text, "lib_symbols")), 'symbol "'):
         name = re.match(r'\(symbol "([^"]+)"', sym).group(1)
-        if re.search(r'_\d+_\d+$', name):
+        parent = re.match(r'(.*)_\d+_\d+$', name)
+        if parent and parent.group(1) in out:  # a unit sub-symbol of a symbol already read
             continue
         units = out.setdefault(name, {})
         for sub in blocks(sym[1:], 'symbol "'):
