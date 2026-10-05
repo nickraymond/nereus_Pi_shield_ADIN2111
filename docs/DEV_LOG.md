@@ -19,6 +19,27 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S5.a — Payload load switch: U9 → TPS26621, R11 DNP; S4.c closed
+
+**Branch:** sprint/5a-u9-replacement
+**Files touched:** BM_Mote_1_Load.kicad_sch, BM_Mote_1_Master.kicad_sch; new nereus.kicad_sym + sym-lib-table entry; SPEC, DESIGN (D18), TRACKER (+rule: Sofar brief), viewer, changelog, CLAUDE.md; new docs/design-review/sofar_brief.md
+**ERC:** 74 / 626 (was 76/629)  ·  **Net diff:** 50/50; kept parts identical; U9/R32/R33/TP34 out, U11/R41/R42 in
+**Done:**
+- S4.c closed: Nick approved PR #10, merged (`1f906bc`)
+- Part search: TI TPS26621DRCR (JLC C1848341 via LCSC listing; TI ACTIVE; SLVSDT4F Rev. F read). Nick approved
+  it plus the R42 pull-down (SHDN active low) and dropping PGOOD
+- Symbol drawn from TI's pin table with pins on U9's old wire ends, so most wiring stayed; R11 DNP
+- Started `docs/design-review/sofar_brief.md` (Nick: a tight mote-vs-shield table for Sofar, ships with the
+  board); TRACKER rule 6 now requires a row for every deviation
+**Broke/surprised us:**
+- TI's product summary claimed PGOOD variants; the datasheet pinout has none (FLT only)
+- JLC's parts page renders only with the browser pane visible; found the part via LCSC search results
+- Quick Look (qlmanage) hung; rendered the schematic PDF page via PDFKit instead
+- R11's description field says "205K OHM" (Altium import junk) — S6 cleanup
+**Next:** QE review (fresh S5 session), Nick's KiCad look, merge; then S4.d (footprints).
+
+---
+
 ## 2026-10-05 — Sprint S4.c — Power budget (docs only); S4.b closed
 
 **Branch:** sprint/4c-power-budget

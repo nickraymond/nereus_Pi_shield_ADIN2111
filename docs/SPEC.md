@@ -82,6 +82,11 @@ production (DESIGN D12).
   250 mA; all models require a 5.1 V supply; no low-voltage detector on the Zero range.
   *(Raspberry Pi documentation, "Power supply")* Input power 5 V DC 2.5 A; operating
   temperature −20 °C to +70 °C. *(Zero 2 W product brief, April 2024)*
+- TPS26621DRCR (U11): 4.5–60 V (62 V abs max), 478 mΩ, current limit
+  R_ILIM (kΩ) = 6.636 / I_LIM (A), I(OL) 0.757/0.80/0.827 A at 8.25 kΩ, auto-retry,
+  FLT open drain, no PGOOD; SHDN low = shutdown (≈ 2 µA internal pull-up); dVdT may
+  float (24 V/660 µs); UVLO to IN via ≥ 1 MΩ and OVP to RTN when unused; status ACTIVE.
+  *(TI SLVSDT4F Rev. F; ti.com part page 2026-10-05)* JLC/LCSC C1848341.
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote
@@ -146,10 +151,10 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
-- **U9 (FPF2700MX) is obsolete**: Digi-Key part status "Obsolete — This product is no
-  longer manufactured" (checked 2026-10-05); distributor data gives last-time buy
-  2023-06-15, last delivery 2023-12-15. **Nick: replace it with a part JLC can source**
-  (D17) — S5. Also lifecycle-check every BOM part before S6.
+- ~~U9 (FPF2700MX) obsolete~~ done (S5.a, D18): replaced by TPS26621DRCR (U11). Still
+  open: lifecycle-check every BOM part before S6.
+- R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
+  0 Ω CRCW1210 jumper: stale import data to clean in S6.
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
   SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
   Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a

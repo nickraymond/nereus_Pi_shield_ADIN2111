@@ -2,6 +2,27 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.a — Payload load switch: U9 → U11 TPS26621, R11 DNP (2026-10-05, branch `sprint/5a-u9-replacement`)
+
+Load Switch sheet (`BM_Mote_1_Load.kicad_sch`), D18:
+
+| Change | Detail |
+|---|---|
+| U9 FPF2700MX removed | Obsolete (Digi-Key) |
+| **U11 TPS26621DRCR** added at (226.06, 149.68) | New project symbol `nereus:TPS26621DRCR` (new `nereus.kicad_sym` + sym-lib-table entry); stock footprint `Package_SON:Texas_DRC0010J`; LCSC C1848341. Pins placed on U9's old wire ends: IN/ILIM/SHDN/RTN left, OUT/dVdT/FLT/OVP right, GND/EP down to the GND rail |
+| R34 | 374 kΩ → **9.09 kΩ RC0402FR-079K09L** (0.73 A) |
+| **R41** 1 MΩ (stock `Device:R`, 0402, RC0402FR-071ML) | IN → UVLO, tapping the VIN riser (split + junction) |
+| dVdT | no-connect flag (floating = internal ramp) |
+| R32 → **R42**, its 3V3 symbol → GND (#PWR76) | Pull-down instead of pull-up (SHDN active low) |
+| R33, TP34, label + hierarchical label SW_PGOOD, #PWR65, 4 wires, 1 junction removed | No PGOOD on TPS26621 |
+| Note text | "Ilim (R34 9.09k): typ 0.73A, −6/+4 %, TPS26621 D18" |
+
+Top-Level sheet: **R11 DNP**; SW_PGOOD pin removed from the Load Switch sheet symbol.
+**Verified:** kept parts' connections identical; new nets only `Net-(U11-UVLO)` and the
+floating dVdT; VBUS + R41.1, U11.1; VBUS_OUT + U11.10; GND + R42.2, U11.3/5/6/11;
+SW_ON + R42.1, U11.4; SW_FLAGB + U11.9; ISET + U11.7. ERC 76/629 → 74/626; netcheck
+50/50, 0 opens, 0 shorts.
+
 ## S4.c — Power budget (2026-10-05, branch `sprint/4c-power-budget`)
 
 No schematic edit. New `docs/design-review/power_budget.md`. `tools/check.sh`: ERC 76/629,

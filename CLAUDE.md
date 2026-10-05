@@ -16,6 +16,7 @@ Docs map — read per the ritual, don't skip it:
 - `docs/SOFAR_QUESTIONS.md` — open questions for Sofar and their answers
 - `docs/DEV_LOG.md` — session log, newest first
 - `docs/PROMPTS.md` — Nick's kickoff prompts
+- `docs/design-review/sofar_brief.md` — every change from Sofar's mote and why (ships with the board)
 - `pi-shield-checklist.html` — shared visual view of TRACKER; keep it in sync every PR
 - `.claude/agents/quality-engineer.md` — read-only QE reviewer; reviews every PR
   before Nick's KiCad review (reports in `docs/design-review/qe/`)

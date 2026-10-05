@@ -9368,7 +9368,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8067e6fd-efdb-48c3-8fdd-83b2ed79c5d7")
 		(property "Reference" "R11"
 			(at 159.004 188.976 0)
@@ -14667,16 +14667,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-		(pin "SW_PGOOD" passive
-			(at 185.42 218.44 0)
-			(uuid "6b3aee64-e248-4842-bb6d-661f84077901")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 		(pin "SW_EN" passive
