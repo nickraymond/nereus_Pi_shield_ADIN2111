@@ -152,12 +152,15 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
   reduced schematic). Failure modes: shield unpowered → USB 5 V back-feeds through L6
   and U10's high-side body diode onto VBUS (bus side via L1, payload port via R11);
-  shield powered → two supplies fight. Hardware guard (reverse-blocking ideal diode
-  or power mux on 5V_PI) vs procedure only: Nick's call (QE S4.b F1). — S4.b
+  shield powered → two supplies fight. **Decided (Nick, 2026-10-05, D14): bench rule
+  only** — never connect a USB 5 V source (charger, PC host, self-powered hub that
+  back-feeds) to a bridged board's Pi, shield powered or not; Pi-powered USB
+  peripherals are fine and count toward the S4.c budget. Open part: the data port's
+  VBUS wiring (primary source).
 - U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
   RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
   ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)
 - Murata's product pages list "undersea equipment" among applications they
   don't warrant for these consumer/industrial MLCCs. Applies equally to the
   mote's existing Murata parts (C29, C32, C33, …). — note for S6 review
-- Bus power budget: shield + Pi + payload against the ~20 W (890 mA) path — S4/S5
+- Bus power budget: shield + Pi (incl. USB peripherals the Pi powers) + payload against the ~20 W (890 mA) path — S4/S5

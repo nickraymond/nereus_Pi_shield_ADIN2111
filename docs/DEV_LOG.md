@@ -34,6 +34,11 @@ what broke, what's next.*
 - First JP1 layout (vertical, close to J1) put rotated text on top of J1's value and the PWR_FLAG;
   caught in the render, re-laid out horizontally higher up. A label part-way along a wire left the
   wire's end dangling (+1 ERC warning); moved the label to the end
+- QE round 1 (same S4 session): CHANGES REQUESTED. F1 MAJOR: D14 missed the USB back-feed path
+  (Pi USB 5 V → L6 → U10 high-side body diode → VBUS/bus/payload). Checked the Pi Zero 2 W reduced
+  schematic (power USB feeds 5V directly; data port not shown). Nick chose a bench rule over a hardware
+  guard: no USB 5 V source on a bridged board, shield powered or not. F2–F6 fixed (note cites D14,
+  demo line, footprint renamed SolderJumper-2_R1210_Bridged_NetTie, dead code, cut guidance)
 **Next:** QE review (same S4 session), Nick's KiCad look, merge; then S4.c (power budget, bridge current,
 footprints, U10 thermal).
 

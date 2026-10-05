@@ -6446,7 +6446,7 @@
 		)
 		(uuid "e9418398-cacf-454f-8010-174e97cb6b9e")
 	)
-	(text "JP1 bridged as built: the shield powers the Pi (D14).\nCut the bridge before potting if the Pi gets power elsewhere (battery pack)\nor will ever have ANY USB cable plugged in (power or data port).\nRefit a 0R 1210 (CRCW12100000Z0EA) to reconnect."
+	(text "JP1 bridged as built: the shield powers the Pi (D14).\nBridged: never plug a 5 V source into the Pi's USB (charger, PC, self-powered hub), shield powered or not.\nUSB peripherals powered by the Pi are OK. Pi powered elsewhere (battery pack): cut the bridge before potting;\nrefit a 0R 1210 (CRCW12100000Z0EA) to reconnect."
 		(exclude_from_sim no)
 		(at 106.68 30.48 0)
 		(effects

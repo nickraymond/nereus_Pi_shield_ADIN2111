@@ -188,7 +188,7 @@ const S = [
   ["S4.b: JP1 bridged link from 5V_PI to Pi pins 2 and 4", `<p>Shield powers the Pi as built. Footprint <code>nereus:SolderJumper-2_R1210_Bridged_NetTie</code>: R11's 1210 pads joined by 1 mm of copper, no BOM part. Cut to isolate; refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect (D14).</p>`, null, 1],
   ["S4.b: QE review, then your KiCad look", `<p>Top-Level sheet, above J1: JP1, PI_5V + PWR_FLAG, the note.</p>`, "nick"],
   ["S4.c: make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
-  ["S4.c: bus power budget estimate", `<p>Shield + Pi + payload against the 890 mA / ~20 W rating (D12), plus U10/L6 losses and temperature rise at the Pi's maximum load, potted. Flagged for review.</p>`]
+  ["S4.c: bus power budget estimate", `<p>Shield + Pi (incl. USB peripherals it powers) + payload against the 890 mA / ~20 W rating (D12), plus U10/L6 losses and temperature rise at the Pi's maximum load, potted. Flagged for review.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
@@ -268,7 +268,7 @@ const S = [
   items:[
   ["No Pi plugged in: current-limited 24 V supply (~100 mA)", ``],
   ["Measure 3.3 V, 1.8 V and 5V_PI", `<p>TP20 = 3.3 V, TP21 = 1.8 V; 5V_PI ≈ 4.98 V.</p>`],
-  ["Plug in the Pi (JP1 bridged, no USB cable on the Pi at all)", `<p>Raise the limit to ~1 A. Any USB cable (power or data) on a bridged board ties another 5 V to 5V_PI and can back-feed the bus through U10 (D14).</p>`],
+  ["Plug in the Pi (JP1 bridged): no USB 5 V source on the Pi", `<p>Raise the limit to ~1 A. Never plug a charger, PC/laptop or self-powered hub into the Pi on a bridged board, shield powered or not: it ties a second 5 V to 5V_PI and can back-feed the bus through U10 (D14). USB peripherals the Pi powers are fine.</p>`],
   ["To isolate the Pi: cut JP1", `<p>Score both ends of the 1 mm bridge, lift the copper out, check open with a meter. Before potting. Refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect.</p>`],
   ["5V_PI holds up under load", `<p>Judge by droop from the measured no-load value (the setpoint itself can be 4.82–5.14 V, D13) and by margin above the Pi's undervoltage threshold, to be cited in S4.c.</p>`],
   ["Check U10's SW node for jitter at full and light load", `<p>L6 is 2.5× TI's suggested inductance, so ripple is low; TI notes that weakens the peak-current comparator's signal-to-noise (QE S4 F5).</p>`]

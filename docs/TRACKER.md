@@ -150,7 +150,7 @@ S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
       in a new project library `nereus.pretty` (D14, revises D5); midwire now sees J1's pins (tool fix)
 - [ ] S4.b: QE review (same S4 session) and Nick's KiCad look
 - [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
-- [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12),
+- [ ] S4.c: bus power budget estimate (shield + Pi incl. USB peripherals it powers + payload vs the 890 mA / ~20 W rating, D12),
       plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,
 0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py --items`: J1 pins list has no 2 and no
