@@ -39,7 +39,8 @@ what broke, what's next.*
   schematic (power USB feeds 5V directly; data port not shown). Nick chose a bench rule over a hardware
   guard: no USB 5 V source on a bridged board, shield powered or not. F2–F6 fixed (note cites D14,
   demo line, footprint renamed SolderJumper-2_R1210_Bridged_NetTie, dead code, cut guidance)
-**Next:** QE review (same S4 session), Nick's KiCad look, merge; then S4.c (power budget, bridge current,
+- QE round 2 (same session): **APPROVED**, no findings
+**Next:** Nick's KiCad look, merge; then S4.c (power budget incl. USB peripherals, bridge current,
 footprints, U10 thermal).
 
 ---

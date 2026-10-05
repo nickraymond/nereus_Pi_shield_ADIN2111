@@ -148,7 +148,8 @@ S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
 - [x] Nick's KiCad look — S4.a (PR #8 merged, `b394edb`)
 - [x] S4.b: JP1 bridged link `5V_PI` → `PI_5V` (Pi pins 2/4), #FLG03; footprint `nereus:SolderJumper-2_R1210_Bridged_NetTie`
       in a new project library `nereus.pretty` (D14, revises D5); midwire now sees J1's pins (tool fix)
-- [ ] S4.b: QE review (same S4 session) and Nick's KiCad look
+- [x] S4.b: QE review (same S4 session): **APPROVED** in round 2 — `docs/design-review/qe/S4.md`
+- [ ] S4.b: Nick's KiCad look
 - [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
 - [ ] S4.c: bus power budget estimate (shield + Pi incl. USB peripherals it powers + payload vs the 890 mA / ~20 W rating, D12),
       plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)

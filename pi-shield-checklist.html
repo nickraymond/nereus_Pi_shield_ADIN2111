@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.b in review</strong> <strong>S4.a done</strong> (PR #8 merged): 5 V converter U10. <strong>S4.b:</strong> the shield powers the Pi by default through JP1, a bridged copper link on R11-size 1210 pads (cut it before potting for a battery- or USB-powered Pi; refit a 0 Ω 1210 to reconnect). Next: QE, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.b, your KiCad look</strong> <strong>S4.a done</strong> (PR #8 merged): 5 V converter U10. <strong>S4.b:</strong> the shield powers the Pi by default through JP1, a bridged copper link on R11-size 1210 pads (cut it before potting for a battery- or USB-powered Pi; refit a 0 Ω 1210 to reconnect). QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -186,7 +186,7 @@ const S = [
   ["Bring 5V_PI to the Top-Level sheet", `<p>New sheet pin, test point TP38 and a 5V_PI label, next to TP20 (3V3) and TP21 (1V8).</p>`, null, 1],
   ["S4.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2); your look OK; PR #8 merged.</p>`, "nick", 1],
   ["S4.b: JP1 bridged link from 5V_PI to Pi pins 2 and 4", `<p>Shield powers the Pi as built. Footprint <code>nereus:SolderJumper-2_R1210_Bridged_NetTie</code>: R11's 1210 pads joined by 1 mm of copper, no BOM part. Cut to isolate; refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect (D14).</p>`, null, 1],
-  ["S4.b: QE review, then your KiCad look", `<p>Top-Level sheet, above J1: JP1, PI_5V + PWR_FLAG, the note.</p>`, "nick"],
+  ["S4.b: QE approved; your KiCad look", `<p>QE APPROVED (round 2). Look at the Top-Level sheet, above J1: JP1, PI_5V + PWR_FLAG, the note.</p>`, "nick"],
   ["S4.c: make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
   ["S4.c: bus power budget estimate", `<p>Shield + Pi (incl. USB peripherals it powers) + payload against the 890 mA / ~20 W rating (D12), plus U10/L6 losses and temperature rise at the Pi's maximum load, potted. Flagged for review.</p>`]
 ]},
