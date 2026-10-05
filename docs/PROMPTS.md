@@ -49,9 +49,10 @@ return to the current bite — do not start work on it.
 ## 5 — Quality Engineer review
 
 ```
-Run the quality-engineer agent on PR #<N> (<sprint>). Save its report to
+Spawn the Quality Engineer review of PR #<N> (<sprint>) as a separate session
+(task chip), never a sub-agent. When it finishes, save its report to
 docs/design-review/qe/<sprint>.md, post it on the PR, and tell me the verdict.
-Fix anything it hands back and re-run it until it approves. Don't merge.
+Fix anything it hands back and spawn a new review until it approves. Don't merge.
 ```
 
 ## 6 — Layout question (no edits)

@@ -19,10 +19,12 @@
       the netlist (commands below). Diff the nets against the last baseline.
       Flag Nick on any substantial plan change.
    3. **Open the PR, unmerged.**
-   4. **QE review** — launch the `quality-engineer` agent (read-only, Opus 5.5,
-      high effort) on the PR. Save its report to `docs/design-review/qe/<sprint>.md`
-      and post it on the PR. CHANGES REQUESTED → fix, push, re-review until APPROVED.
-      Don't edit files while the QE is running.
+   4. **QE review** — in a **separate Code session, never a sub-agent** (spawn it as a
+      task chip Nick starts; Opus 5.5, high effort), following
+      `.claude/agents/quality-engineer.md`. The QE is read-only; its report stays in its
+      own transcript. The design agent fetches it, saves it to
+      `docs/design-review/qe/<sprint>.md` and posts it on the PR. CHANGES REQUESTED →
+      fix, push, new QE review until APPROVED. Don't edit files while the QE runs.
    5. **Nick's KiCad review** — only after QE APPROVED. Give copy-pastable
       commands and say exactly what to look at.
    6. **Merge** — only after both approvals.
