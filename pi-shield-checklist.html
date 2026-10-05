@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S3, your docs review</strong> <strong>S3:</strong> your call, this board keeps Sofar's power path unchanged (D12); docs only, no schematic change; QE approved. Next: S4 (5 V converter).</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.a in review</strong> <strong>S3 done</strong> (PR #7 merged): this board keeps Sofar's power path (D12). <strong>S4.a:</strong> 5 V converter U10 built as a copy of U5 (13.7 kΩ, 16 V output caps, same 8.2 µH inductor); 5V_PI reaches the Top-Level sheet. Next: QE, then your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -173,19 +173,21 @@ const S = [
   ["Define the rating", `<p>First ~50 W (D8); then, to cut risk on the first board, the mote's own ~20 W with every power-path part kept (D12). The design has years in the field and already powers your cameras.</p>`, "nick", 1],
   ["Record the decision in the docs", `<p>SPEC, DESIGN (D12; D7/D8 superseded), POWER_PATH (deferred), SOFAR_QUESTIONS (Q5 deferred), TRACKER and this page. No schematic change: ERC 76/562 and netcheck 53/53, same as S2.</p>`, null, 1],
   ["Quality Engineer review: APPROVED WITH NITS", `<p>Fresh S3 session. Round 1: CHANGES REQUESTED (README, Sofar Q1), fixed. Round 2: <strong>APPROVED WITH NITS</strong>, fixed. The QE now sends its reports straight to the design session. Report: <code>docs/design-review/qe/S3.md</code>.</p>`, "agent", 1],
-  ["Your review of the docs diff", `<p>PR #7. Nothing to see in KiCad for this one.</p>`, "nick"]
+  ["Your review of the docs diff", `<p>PR #7, approved and merged.</p>`, "nick", 1]
 ]},
 { t:"S4 — 5 V converter for the Pi (copy of U5)", o:"agent", w:"Claude Code", c:"--sch",
-  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS on the mote's unchanged power path (D12).",
+  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter, S4.b jumper, S4.c budget + footprints. Values: DESIGN D13.",
   items:[
-  ["Copy the U5 block with new references", `<p>U5, L3, C28, C29, C30, C31, C33, R20, R21, R22, R23 and their wires.</p>`],
-  ["Rename every copied local label", `<p><code>3V3_*</code> → <code>5V_*</code>.</p><div class="warn">Same-named labels would silently join the two converters.</div>`],
-  ["Set 5 V: copied R23 → 13.7 kΩ", `<p>0.6 × (1 + 100 / 13.7) ≈ 4.98 V. The agent confirms the 0.6 V reference from the datasheet.</p>`],
-  ["Choose the inductor for 5 V out at 24 V in", `<p>From the LMR51430 datasheet, for this part's switching frequency. Newly sourced, so potting rules apply.</p>`],
-  ["Output caps rated 10 V or 16 V", `<p>Same values as C31/C33, real part numbers proposed.</p>`],
-  ["Make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
-  ["Bring 5V_PI to the Top-Level sheet; solder jumper to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
-  ["Bus power budget estimate", `<p>Shield + Pi + payload against the 890 mA / ~20 W rating (D12). Flagged for review.</p>`]
+  ["Copy the U5 block with new references", `<p>U10, L6, C53–C58, R37–R40, TP38: numbered above the mote board's highest so the copper check never confuses them with removed mote parts.</p>`, null, 1],
+  ["Rename every copied local label", `<p><code>3V3_*</code> → <code>5V_*</code>.</p><div class="warn">Same-named labels would silently join the two converters.</div>`, null, 1],
+  ["Set 5 V: R38 (copy of R23) → 13.7 kΩ", `<p>0.6 × (1 + 100 / 13.7) ≈ 4.98 V; TI's own 5 V example. VREF 0.591–0.609 V confirmed (SLUSEF4A).</p>`, null, 1],
+  ["Inductor: same 8.2 µH as the 3.3 V one", `<p>L6 = PA5432.822NLT, your call. Ripple 13–16 % of 3 A, a bit under TI's 20 % guideline but above what the field-proven 3.3 V converter runs at. Isat 8.4 A.</p>`, "nick", 1],
+  ["Output caps rated 16 V / 10 V", `<p>C56, C57: 22 µF 16 V X5R 0805 (GRM21BR61C226ME44L); C58: 4.7 µF 10 V 0402 (GRM155R61A475MEAAD). Effective capacitance at 5 V still to confirm (Murata SimSurfing needs a licence click).</p>`, null, 1],
+  ["Bring 5V_PI to the Top-Level sheet", `<p>New sheet pin, test point TP38 and a 5V_PI label, next to TP20 (3V3) and TP21 (1V8).</p>`, null, 1],
+  ["S4.a: QE review, then your KiCad look", `<p>Power Regulators sheet (the copy below U5) and the Top-Level sheet beside the Power Regulators block.</p>`, "nick"],
+  ["S4.b: solder jumper from 5V_PI to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
+  ["S4.c: make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
+  ["S4.c: bus power budget estimate", `<p>Shield + Pi + payload against the 890 mA / ~20 W rating (D12). Flagged for review.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[

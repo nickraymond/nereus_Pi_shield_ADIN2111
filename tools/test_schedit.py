@@ -4,7 +4,7 @@ import re
 import unittest
 
 from midwire import WIRE
-from schedit import add_label, add_no_connect, add_symbol, add_wire, delete, next_ref
+from schedit import add_label, add_no_connect, add_symbol, add_wire, copy_block, delete, next_ref, set_properties
 
 LIB = ('\t(lib_symbols\n'
        '\t\t(symbol "lib:R"\n\t\t\t(symbol "R_0_1"\n'
@@ -99,6 +99,39 @@ class AddTest(unittest.TestCase):
         self.assertIn("(no_connect\n\t\t(at 5 5)", out)
         self.assertEqual(next_ref([SHEET], "#PWR"), "#PWR02")
         self.assertEqual(next_ref([SHEET], "J"), "J1")
+
+
+class CopyTest(unittest.TestCase):
+    def setUp(self):
+        n = iter(["#PWR09"])
+        self.out, self.rep = copy_block(SHEET, (15, -1, 35, 11), 0, 50, {"R2": "R12"},
+                                        {"KEEP": "KEEP2"}, lambda: next(n))
+
+    def test_symbols_wires_labels_copied_and_renamed(self):
+        self.assertEqual(self.rep["symbols"], {"R2": "R12"})
+        self.assertIn('(property "Reference" "R12"', self.out)
+        self.assertIn('(reference "R12")', self.out)
+        self.assertIn('(property "Reference" "R2"', self.out)  # original kept
+        self.assertIn(("20", "50", "20", "60"), wires(self.out))
+        self.assertIn(("20", "50", "30", "50"), wires(self.out))
+        self.assertNotIn(("10", "50", "20", "50"), wires(self.out))  # one end outside the box
+        self.assertIn('(label "KEEP2"\n\t\t(at 30 50 0)', self.out)
+        self.assertIn("(junction\n\t\t(at 20 50)", self.out)
+
+    def test_uuids_are_new(self):
+        uu = re.findall(r'\(uuid "([^"]*)"\)', self.out)
+        self.assertEqual(len(uu), len(set(uu)))
+
+    def test_unmapped_part_in_box_is_an_error(self):
+        with self.assertRaises(ValueError):
+            copy_block(SHEET, (15, -1, 35, 11), 0, 50, {}, {}, lambda: "#PWR09")
+
+    def test_set_properties(self):
+        s = SHEET.replace('(property "Reference" "R2"\n\t\t)\n',
+                          '(property "Reference" "R2"\n\t\t)\n\t\t(property "OLD" "x"\n\t\t\t(at 0 0 0)\n\t\t)\n')
+        out = set_properties(s, "R2", {"Reference": "R2", "NEW": "y"}, keep_only=())
+        self.assertNotIn('"OLD"', out)
+        self.assertIn('(property "NEW" "y"', out)
 
 
 if __name__ == "__main__":

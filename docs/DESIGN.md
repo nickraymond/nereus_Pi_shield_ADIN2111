@@ -78,6 +78,7 @@ two local labels with the same name silently join their nets.
 | D10 | 2026-10-05 | Every PR gets an independent, read-only Quality Engineer review in a separate Code session, one standing session per sprint (never a sub-agent; `.claude/agents/quality-engineer.md`, Opus 5.5, high effort) before Nick's KiCad review; merge needs both | A second pair of eyes on every claim; QE never edits, so it can't collide with Nick or the design agent |
 | D11 | 2026-10-05 | The shield provides I2C pull-ups on I2C1_SDA/SCL (S5), reusing the mote's R26/R27: 4.7 kΩ ERJ-2RKF4701X to 3V3 | Nick: the Pi needs them; the mote's pull-ups were on the removed STM32 sheet |
 | D12 | 2026-10-05 | This first board keeps the Sofar mote's power path unchanged: L1/L2 stay SRF1260-101M and every other path part stays as vetted. Rating = the mote's ~20 W absolute max, 890 mA per port inductor at 24 V (Sofar, More Power Delivery). 50 W (D7/D8, POWER_PATH.md) is deferred until after this board is in production | Nick: reduce technical risk on the first board and reuse Sofar's work, so the board is a new layout of proven hardware. The design has been in the field for years, and Nick already powers his cameras from the mote's power electronics, so it's known to work; no derating question goes to Sofar. The 50 W revision gets scoped with the future motor load |
+| D13 | 2026-10-05 | 5 V for the Pi (S4.a): U10 LMR51430YDDCR, a copy of U5 with new refs above the mote board's highest. Changed from U5: R38 = 13.7 kΩ (5 V, TI's own example), output caps C56/C57 22 µF 16 V 0805 + C58 4.7 µF 10 V 0402 (U5's are 6.3 V). Kept: L6 = PA5432.822NLT 8.2 µH (same as L3), input caps, bootstrap cap, its own 1.82 MΩ/200 kΩ enable divider | Reuse the proven block (D4, D12). 8.2 µH gives 13–16 % ripple at 5 V, below TI's 20–60 % guideline but above the 10–13 % the field-proven 3.3 V converter runs at; Nick chose it over 4.7 µH. Output capacitance from TI Eq. 14 (≥ 22 µF effective at 1.1 MHz). Own enable divider keeps the 5 V watchdog idea open |
 
 ## ERC / net-check results
 
@@ -88,8 +89,9 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S1 | 65 / 590 | **53/53 matched, 0 opens, 0 shorts** (14 S2-deletion parts excluded); midwire 0 | Import fixed. Edits in `docs/design-review/changelog.md` |
 | 2026-10-05 | S2 | 76 / 562 | 53/53, 0 opens, 0 shorts, **0 excluded**; J1 GND 8/8 on GND | Mezzanine gone, J1 placed. Errors −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins, 8 I2C1/SCL/SDA labels now one-pin, J1.2) |
 | 2026-10-05 | S3 | 76 / 562 | 53/53, 0 opens, 0 shorts, 0 excluded | No schematic change: power path kept as Sofar's (D12) |
+| 2026-10-05 | S4.a | 78 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 13 new parts; existing parts' connections identical | 5 V converter U10 (copy of U5): +2 errors (U10 CB/SW, like U5), +57 off-grid, +10 footprint links. New nets 5V_PI, 5V_Buck_SW, 5V_FB, 5V_UVLO, U10 CB; VBUS and GND gain only the new parts |
 
-**Remaining ERC errors after S2 (76), and who resolves each** (counted with
+**Remaining ERC errors after S4.a (78), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
 pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
@@ -97,12 +99,14 @@ pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 |---|---|---|---|
 | pin_not_connected | 41 | J1: 28 GPIO pins + pin 2 (5V, stacked with 4) = 29; Load Switch sheet pins SW_FLAGB, SW_PGOOD = 2 (unconnected on the Top-Level sheet since import; on the mote these nets go only to U9/R33/R35/TP34/TP35); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S4 (5V), S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
 | label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the PoDL and Power Monitor sheets' SCL/SDA: each net has one pin until the Pi header is wired | S5 |
-| power_pin_not_driven | 8 | J1 pin 2 (5V, stacked with 4); #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | S4 (J1.2); remainder justified or flagged in S6 |
+| power_pin_not_driven | 10 | J1 pin 2 (5V, stacked with 4); #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | S4 (J1.2); remainder justified or flagged in S6 |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
 
 S2's PWR_FLAGs cleared U5 VIN (VBUS) and U6 GND.
 
-Warnings (562) are cosmetic import leftovers: 428 off-grid endpoints (Altium
+Warnings (629) are cosmetic import leftovers: 485 off-grid endpoints (Altium
 coordinates such as `…0.0022`; +2 in S2 where the trimmed I2C1 wires end on
-off-grid label anchors), 111 footprint-library links, 11 dangling wire ends
+off-grid label anchors; +57 in S4.a, the U10 copy keeps U5's off-grid offset),
+121 footprint-library links (+10 in S4.a: the copied parts keep the mote's
+library-less footprint names; S4.c), 11 dangling wire ends
 (all pre-existing), 12 duplicate net names (e.g. `PHY1_P`/`BM1_P` on the same wire).
