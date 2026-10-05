@@ -12,15 +12,20 @@
    Read the top ~3 entries of `docs/DEV_LOG.md`.
 2. **Take small bites.** One TODO, or one tight group within a sprint, at a
    time. If SPEC.md is too thin to inform the bite, stop and ask Nick.
-3. **Four nibbles per bite:**
+3. **Nibbles per bite:**
    1. **Plan** — list the exact edits (sheet, refs, labels, values) with a
       citation for each. Change no files. *Gate: Nick approves.*
    2. **Edit + check** — confirm KiCad is closed, edit, then run ERC and export
       the netlist (commands below). Diff the nets against the last baseline.
       Flag Nick on any substantial plan change.
-   3. **Nick looks** — Nick opens the project in KiCad. Give copy-pastable
-      kicad-cli commands and say exactly what to look at.
-   4. **Open PR.**
+   3. **Open the PR, unmerged.**
+   4. **QE review** — launch the `quality-engineer` agent (read-only, Opus 5.5,
+      high effort) on the PR. Save its report to `docs/design-review/qe/<sprint>.md`
+      and post it on the PR. CHANGES REQUESTED → fix, push, re-review until APPROVED.
+      Don't edit files while the QE is running.
+   5. **Nick's KiCad review** — only after QE APPROVED. Give copy-pastable
+      commands and say exactly what to look at.
+   6. **Merge** — only after both approvals.
 4. **Feature branch for all new work** — `sprint/<n>-<slug>`. Never commit to main.
 5. **Every sprint ends with a demo Nick can run** — kicad-cli commands that
    produce the ERC report, net diff and PDF, with the expected result.
@@ -104,6 +109,7 @@ junctions at both ends).
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`
 - [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
 - [x] PWR_FLAG on VBUS and GND
+- [ ] QE review: APPROVED (`docs/design-review/qe/S2.md`)
 - [ ] Checkpoint: Nick looks at the Top-Level sheet in KiCad
 **Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
 excluded`, ERC `Errors 76  Warnings 562` (the 29 extra errors are J1 pins S4/S5 wire).
@@ -147,8 +153,9 @@ agreed changes.
 - [ ] Document the ADIN power-up order
 - [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up)
 - [ ] VBUS_OUT + GND → 2-pin connector rated for the S3 rating
-- [ ] I2C pull-ups: the mote's (R26/R27) went with the STM32 sheet, so the shield has
-      none. Confirm the Pi's on-board pull-ups on GPIO2/3 from a primary source, or add them
+- [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
+      needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
+      (reference Processor sheet). Note the combined value if the Pi also has pull-ups
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 

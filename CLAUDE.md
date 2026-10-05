@@ -16,6 +16,8 @@ Docs map — read per the ritual, don't skip it:
 - `docs/DEV_LOG.md` — session log, newest first
 - `docs/PROMPTS.md` — Nick's kickoff prompts
 - `pi-shield-checklist.html` — shared visual view of TRACKER; keep it in sync every PR
+- `.claude/agents/quality-engineer.md` — read-only QE reviewer; reviews every PR
+  before Nick's KiCad review (reports in `docs/design-review/qe/`)
 
 Layout: `nereus_Pi_shield_ADIN2111/` is the live KiCad project; `tools/check.sh`
 runs every check; `docs/design-review/` holds check outputs;
