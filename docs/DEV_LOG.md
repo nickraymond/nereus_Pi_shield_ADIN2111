@@ -19,6 +19,26 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S4.c — Power budget (docs only); S4.b closed
+
+**Branch:** sprint/4c-power-budget
+**Files touched:** docs/design-review/power_budget.md (new); SPEC open questions, TRACKER, DESIGN results row, viewer, changelog
+**ERC:** 76 / 629 (unchanged)  ·  **Net diff:** none (docs only)
+**Done:**
+- S4.b closed: Nick's KiCad look OK, PR #9 merged (`11914fb`)
+- Budget from primary sources: RPi docs (Zero 2 W: 2 A PSU, 350 mA typical; **no undervoltage
+  detector on the Zero range**; all models want 5.1 V), RPi product brief (5 V 2.5 A), TI SLUSEF4A
+  Fig 7-2 efficiency, Pulse P890.B, ADI product page (ADIN2111 77 mW typ), IPC-2221
+- Findings: U10's temperature is the binding limit (≈ 42–57 °C rise at 1 A, 90–121 °C at 2 A), not the
+  bus; JP1 bridge fine (2.4 A at 10 °C rise). Proposals for Nick: P-S4c-1 Pi load ≤ 1 A continuous;
+  P-S4c-2 keep R38 13.7 kΩ (USB-range corners)
+- Split S4: footprints become S4.d (library named `Vault` to match the board's IDs)
+**Broke/surprised us:** analog.com and onsemi datasheets wouldn't download (timeouts / landing page);
+ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used for the 3.3 V domain)
+**Next:** QE review (same S4 session), Nick's decisions on P-S4c-1/2 and review, merge; then S4.d.
+
+---
+
 ## 2026-10-05 — Sprint S4.b — Shield powers the Pi through bridged link JP1; S4.a closed
 
 **Branch:** sprint/4b-pi-5v-jumper

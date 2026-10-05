@@ -92,6 +92,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S3 | 76 / 562 | 53/53, 0 opens, 0 shorts, 0 excluded | No schematic change: power path kept as Sofar's (D12) |
 | 2026-10-05 | S4.a | 78 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 13 new parts; existing parts' connections identical | 5 V converter U10 (copy of U5): +2 errors (U10 CB/SW, like U5), +57 off-grid, +10 footprint links. New nets 5V_PI, 5V_Buck_SW, 5V_FB, 5V_UVLO, U10 CB; VBUS and GND gain only the new parts |
 | 2026-10-05 | S4.b | 76 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 1 new part (JP1); existing connections identical | JP1 bridged link 5V_PI → PI_5V (J1.2/J1.4), #FLG03 on PI_5V: −2 errors (J1 pin 2 not connected / not driven). midwire now sees J1's 40 pins (tool fix); still 0 |
+| 2026-10-05 | S4.c | 76 / 629 | unchanged (docs only) | Power budget in `docs/design-review/power_budget.md`; proposals P-S4c-1/2 pending Nick |
 
 **Remaining ERC errors after S4.b (76), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted

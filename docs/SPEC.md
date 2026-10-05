@@ -134,7 +134,8 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
 - What is the FPF2700's current-limit range? (The onsemi datasheet link was
-  dead on 2026-10-04.) — S4/S5 power budget; SOFAR_QUESTIONS Q3
+  dead on 2026-10-04 and again 2026-10-05.) It caps the payload's share of the
+  budget headroom. — SOFAR_QUESTIONS Q3; Nick may supply the datasheet
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
   SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
   Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a
@@ -142,11 +143,12 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - U10's input caps copy U5's 2.2 µF (C55) + 100 nF. TI's text suggests ≥ 4.7 µF
   (SLUSEF4A §9.2.2.6), though its own Figure 9-1 uses 2.2 µF; field-proven on
   U5, but U10 draws more input current. — S6 review
-- Does JP1's 1.0 mm copper bridge (1 oz assumed; Nick's stack-up decides) carry the
-  Pi's maximum 5 V current with margin? Check against IPC-2221 trace-current data,
-  with the Pi's current from Raspberry Pi's documentation. — S4.c
-- The Pi Zero 2 W's undervoltage threshold, from a primary Raspberry Pi source
-  (the bench check and the 4.82 V worst-case setpoint depend on it). — S4.c
+- ~~JP1 bridge current~~ answered (S4.c, `docs/design-review/power_budget.md` §4):
+  IPC-2221, 1 oz assumed, 2.4 A at ΔT 10 °C / 3.2 A at 20 °C; 2 mV drop at 2.5 A.
+- ~~Pi undervoltage threshold~~ answered (power_budget §5): the Zero range has **no**
+  low-voltage detector (Raspberry Pi documentation, "Power supply warnings"); the
+  bench check is 5V_PI ≥ 4.75 V at J1 (USB 2.0 VBUS minimum). R38 stays 13.7 kΩ
+  pending Nick (proposal P-S4c-2).
 - With JP1 bridged, the Pi must never also have a USB cable plugged in. Its power
   micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
   J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
@@ -157,10 +159,15 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   back-feeds) to a bridged board's Pi, shield powered or not; Pi-powered USB
   peripherals are fine and count toward the S4.c budget. Open part: the data port's
   VBUS wiring (primary source).
-- U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
-  RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
-  ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)
+- U10/L6 losses (power_budget §3): U10's temperature is the binding limit, not the
+  bus: ΔTj ≈ 42–57 °C at 1 A to the Pi, 90–121 °C at 2 A (RθJA 80–107.8 °C/W, free
+  air). Proposal P-S4c-1 (Nick to decide): continuous Pi load target ≤ 1 A, generous
+  copper at U10, measure case temperature at bring-up. Potted RθJA still unknown.
+- ADIN2111 power at 2.4 V p-p and the other 3.3 V loads: the budget uses a 0.30 W
+  allowance at U5's input (ADI: 77 mW typical at 1.0 V p-p, dual supply) until the
+  full datasheet is read. — S6
 - Murata's product pages list "undersea equipment" among applications they
   don't warrant for these consumer/industrial MLCCs. Applies equally to the
   mote's existing Murata parts (C29, C32, C33, …). — note for S6 review
-- Bus power budget: shield + Pi (incl. USB peripherals the Pi powers) + payload against the ~20 W (890 mA) path — S4/S5
+- ~~Bus power budget~~ done (power_budget §2): at 24 V, shield + a 1 A Pi leave 647 mA
+  for payload + pass-through; only a 2.5 A Pi on a 16 V bus exceeds 890 mA.

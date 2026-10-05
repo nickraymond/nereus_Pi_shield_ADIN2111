@@ -2,6 +2,11 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S4.c — Power budget (2026-10-05, branch `sprint/4c-power-budget`)
+
+No schematic edit. New `docs/design-review/power_budget.md`. `tools/check.sh`: ERC 76/629,
+netcheck 53/53, same as S4.b.
+
 ## S4.b — Shield powers the Pi through JP1 (2026-10-05, branch `sprint/4b-pi-5v-jumper`)
 
 Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), above J1 (DESIGN D14):
