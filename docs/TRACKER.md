@@ -23,8 +23,9 @@
       `.claude/agents/quality-engineer.md` (Opus 5.5, high effort). **One standing QE
       session per sprint:** the first review of a sprint is spawned as a task chip Nick
       starts; later rounds in that sprint are sent to the same session (session message);
-      a new sprint gets a fresh QE session. The QE is read-only; its report stays in its
-      own transcript. The design agent fetches it, saves it to
+      a new sprint gets a fresh QE session. The QE is read-only. Every review request
+      names the design session; when done, the QE **sends its report to that session**
+      (session message), so Nick never relays. The design agent saves it to
       `docs/design-review/qe/<sprint>.md` and posts it on the PR. CHANGES REQUESTED →
       fix, push, new QE review until APPROVED. Don't edit files while the QE runs.
    5. **Nick's KiCad review** — only after QE APPROVED. Give copy-pastable
@@ -130,7 +131,7 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
       no schematic change
 - [ ] QE review (fresh S3 session), then Nick reviews the docs diff (nothing to see in KiCad)
 **Demo (Nick):** `tools/check.sh` → unchanged from S2: ERC `Errors 76  Warnings 562`,
-`netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches docs only.
+`netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches only docs, the viewer, README, CLAUDE.md and the skill.
 
 ### S4 — 5 V converter for the Pi (copy of U5)  `[ ]`
 *Feeds from VBUS on the mote's unchanged power path (D12).*

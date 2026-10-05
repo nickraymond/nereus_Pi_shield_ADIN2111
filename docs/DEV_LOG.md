@@ -33,6 +33,12 @@ what broke, what's next.*
 - S4 power budget and the S5 payload connector now check against 890 mA
 **Broke/surprised us:** nothing. I proposed asking Sofar whether 20 W holds when potted;
 Nick declined (field-proven), so no Q6
+- QE round 1 (fresh S3 session): CHANGES REQUESTED, schematic side all clean. I'd missed the
+  README headline (still ~50 W) and left Sofar Q1 (e-fuse, worded for 50 W) as "send now"
+  while its work moved to the Icebox. Fixed: README matches SPEC; Q1 deferred like Q5; Q3
+  wording, POWER_PATH S3 references and the TRACKER demo line fixed. Report: `qe/S3.md`
+- Process (Nick): the QE sends its report straight to the design session when done; Nick
+  doesn't relay. Written into TRACKER rule 3.4 and `quality-engineer.md`
 **Next:** QE review (fresh S3 session), Nick's docs review, merge; then S4 (5 V converter).
 
 ---

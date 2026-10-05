@@ -1,6 +1,6 @@
 # POWER_PATH.md — 50 W Power Path: Inductors & Design Decisions
 
-*Working trade study for Sprint S3. Nick decides; agreed decisions move to the
+*Working trade study, started in Sprint S3 and deferred to the 50 W revision (D12). Nick decides; agreed decisions move to the
 DESIGN.md decision log and this file keeps the evidence.*
 *Last updated: 2026-10-05 · Owner/gate: **Nick***
 
@@ -55,7 +55,7 @@ drops ~0.58 V and each inductor dissipates ~0.52 W.
 - **Normalise across vendors before comparing.** Bourns quotes series-mode
   DCR (both windings), Irms and Isat at a **30 %** inductance drop [DS-SRF].
   Coilcraft quotes DCR per winding and Isat at a **10 %** drop [G]. Convert
-  everything to the same basis in S3.
+  everything to the same basis in the 50 W revision.
 
 ## 3. Candidates
 
