@@ -7,7 +7,8 @@
 
 A Raspberry Pi Zero 2W shield made from a copy of the Sofar Bristlemouth mote
 (000639-AB): ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus,
-5 V for the Pi, a 24 V payload port, and a **50 W nominal power path at 24 V**.
+5 V for the Pi, a 24 V payload port, and a **~50 W power path (absolute max at
+24 V, defined like Sofar's 20 W mote rating)**, fully potted.
 Done = a design-review package in `docs/design-review/` that Nick can review
 with colleagues: ERC clean (or every item justified), kept nets matching the
 mote's copper, every new net listed, schematic PDF, change log, BOM changes,
@@ -26,7 +27,7 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 
 | Item | Location | Role |
 |---|---|---|
-| Live KiCad project | `nereus_Pi_shield_ADIN2111/` (S0.1 renames it from `nereus_Pi_shield_ADIN2111_002/`) | The design. The only thing agents edit. |
+| Live KiCad project | `nereus_Pi_shield_ADIN2111/` (renamed from `_002` in S0.1) | The design. The only thing agents edit. |
 | Mote reference | `KiCAD_reference_designs/20250409_BM_Mote_000639-AB/` | Its `.kicad_pcb` copper is the truth for kept nets. Read-only. |
 | UrchinCam | `KiCAD_reference_designs/UrchinCam-main/` | Prior art for a Pi shield. Read-only. |
 | Archive | `Archive/` | Earlier iterations and the junction fix. Read-only. |
@@ -49,6 +50,16 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 - Bristlemouth v1 spec: a module draws ≤ 12 W from a nominal 24 V bus and must
   run from 16 V to 32 V. *(Sofar, More Power Delivery)*
 - 50 W is 2.083 A at 24 V and 3.125 A at 16 V. *(arithmetic; matches the Sofar guide)*
+- SRF1260-101M in series mode: 400 µH, Irms 0.892 A (40 °C rise), Isat 1.1 A
+  (30 % drop), DCR 0.656 Ω max. That's where the mote's 20 W comes from.
+  *(Bourns SRF1260 datasheet)*
+- C22 and C23 are EEEFT1H470AP 47 µF/50 V aluminium electrolytics in the PoDL
+  damping network. *(`BM_Mote_1_PoDL.kicad_sch`)*
+- There is no fuse, PTC or e-fuse anywhere in the schematic.
+  *(live schematic sheets, 2026-10-04)*
+- kicad-cli ERC output isn't deterministic: two runs on the same file can name
+  different example labels for the same violation. Compare ERC by counts and
+  types, and do net checks on the exported netlist. *(measured 2026-10-04)*
 
 ## Safety / hard constraints (non-negotiable)
 
@@ -62,8 +73,20 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 5. Every part value, pin number and rating carries a datasheet citation. No
    citation, no part: it goes in Open questions instead.
 6. `KiCAD_reference_designs/` and `Archive/` are read-only.
-7. No power-path part is chosen until it has been checked against the 50 W
-   rating defined in `docs/POWER_PATH.md` §1.
+7. No power-path part is chosen until it has been checked against the ~50 W
+   absolute-max rating (2.083 A at 24 V) defined in `docs/POWER_PATH.md` §1.
+8. **The electronics are potted.** Parts kept from the Sofar mote design are
+   vetted and stay as they are, unchanged (e.g. C22/C23). These rules apply
+   only to **newly sourced** parts *(Nick, 2026-10-04)*:
+   - **No aluminium electrolytic capacitors.** *(Nick, 2026-10-04)*
+   - **No PPTC resettable fuses**; their trip behaviour changes when
+     encapsulated. *(Sofar 50W/100W guide)*
+   - Flag for Nick: any part with internal voids, vents or moving parts
+     (trimmers, switches, relays); large MLCCs (1210 and up; prefer
+     flexible-termination parts); ferrite magnetics (check vendor potting
+     guidance).
+   - Thermal ratings assume free air; potted parts need derating.
+     *(Sofar 50W/100W guide)*
 
 ## Success criteria by sprint
 
@@ -79,13 +102,12 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 ## Open questions (flag, don't guess)
 
-- Is R11 fitted? (0 Ω across the load switch; fitted means always on.) — Nick to ask
-- Why does the mezzanine side control the load switch? — Nick to ask
-- What current limit does R34 set on U9? — Nick to ask, and the agent checks the FPF2700 datasheet
-- What exactly does "50 W" cover: port-to-port pass-through, the payload port, or
-  both? At what minimum local voltage? — Nick (POWER_PATH.md §1)
+- Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
+  `docs/SOFAR_QUESTIONS.md`.
 - Do two MSD1514-class inductors (15.5 × 15.5 × 14.2 mm each) fit a Pi
-  Zero-sized board? — Nick (layout)
+  Zero-sized board? — Nick, SolidWorks check 2026-10-05
+- What is the FPF2700's current-limit range? (The onsemi datasheet link was
+  dead on 2026-10-04.) — S3
 - Which inductor does the 5 V converter need at 24 V in? (The 3.3 V U5 uses
   PA5432.822NLT as L3.) — S4
 - Bus power budget: shield + Pi + payload against the 50 W path — S4/S5

@@ -19,6 +19,25 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-04 — Sprint S0 — Project renamed, junk untracked, rating defined
+
+**Branch:** sprint/0-repo-baseline
+**Files touched:** project folder (rename only), 58 files untracked, docs/*
+**ERC:** 90 errors / 578 warnings, the same before and after  ·  **Net diff:** clean (library path only)
+**Done:**
+- S0.1: `_002` → `nereus_Pi_shield_ADIN2111/`; the stray `.kicad_pro` was byte-identical
+- S0.2: `git rm --cached` for everything `.gitignore` covers
+- Recorded Nick's decisions: ~50 W absolute max at 24 V (D8); potted, so newly
+  sourced parts can't be electrolytics or PPTCs, while vetted Sofar parts stay
+  as-is (D9, SPEC constraint 8)
+- Bourns SRF1260 datasheet figures added to POWER_PATH; this explains the mote's 20 W
+- New `docs/SOFAR_QUESTIONS.md` (Q1 e-fuse, Q2–Q4 moved from SPEC, Q5 MSD1514/damping)
+**Broke/surprised us:**
+- kicad-cli ERC names different example labels from run to run; compare counts, not text
+- No fuse or e-fuse anywhere on the through path (Nick remembered one; asked Sofar, Q1)
+- The FPF2700 datasheet link on onsemi is dead
+**Next:** S0.3, the net-check method.
+
 ## 2026-10-04 — Pre-work — Docs fitted to the KiCad project
 
 **Branch:** claude/kicad-docs-setup-19be00
