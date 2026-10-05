@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-04 · Owner/gate: **Nick***
+*Last updated: 2026-10-05 · Owner/gate: **Nick***
 
 ---
 
@@ -113,7 +113,7 @@ junctions at both ends).
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`
 - [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
 - [x] PWR_FLAG on VBUS and GND
-- [~] QE review: round 1 CHANGES REQUESTED (fixed); round 2 APPROVED WITH NITS (fixed); round-3 confirmation pending (`docs/design-review/qe/S2.md`)
+- [x] QE review: **APPROVED** in round 3 (round 1 changes requested, round 2 nits; all fixed) — `docs/design-review/qe/S2.md`
 - [ ] Checkpoint: Nick looks at the Top-Level sheet in KiCad
 **Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
 excluded`, ERC `Errors 76  Warnings 562` (−27/+38 vs S1; 30 are J1 pins for S4/S5).

@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. QE round 2 approved with nits (fixed); quick QE confirmation, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. <strong>QE APPROVED</strong> (round 3). Your KiCad look is next, then merge.</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -164,7 +164,7 @@ const S = [
   ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39: all 8 on GND (netlist).</p>`, null, 1],
   ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div><p>No-connect flag placed.</p>`, null, 1],
   ["Add PWR_FLAG on VBUS and GND", `<p>#FLG01 on GND, #FLG02 on VBUS.</p>`, null, 1],
-  ["Quality Engineer review: APPROVED", `<p>Independent read-only review in a separate session, before your KiCad look. Round 1: CHANGES REQUESTED, fixed. Round 2: APPROVED WITH NITS, nits fixed. Round-3 confirmation in the same QE session. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent"],
+  ["Quality Engineer review: APPROVED", `<p>Independent read-only review in a separate session, before your KiCad look. Round 1: CHANGES REQUESTED, fixed. Round 2: APPROVED WITH NITS, fixed. Round 3: <strong>APPROVED</strong>. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent", 1],
   ["Checkpoint: run the demo and look at the Top-Level sheet", `<p><code>tools/check.sh</code> exits 0 (netcheck 53/53, 0 excluded; ERC 76: −27/+38 vs S1, 30 of them J1 pins for S4/S5). In KiCad: P1 gone, J1 in clear space.</p>`, "nick"]
 ]},
 { t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",

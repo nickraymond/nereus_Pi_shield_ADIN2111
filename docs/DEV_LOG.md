@@ -43,7 +43,8 @@ what broke, what's next.*
   "lost P1" — false (copper: they never reached P1). Lesson: a fix to the docs is still a claim;
   check it against copper/netlist before writing it. All N1–N7 fixed; ercsum hardened
 - Process: one standing QE session per sprint (Nick)
-**Next:** QE round-3 confirmation (standing session) → Nick's KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+- QE round 3 (same standing session): **APPROVED**; 2 nits (R1 log wording, R2 TRACKER date) fixed
+**Next:** Nick's KiCad look → merge → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
 
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 
