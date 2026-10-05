@@ -32,6 +32,9 @@ what broke, what's next.*
   as-is (D9, SPEC constraint 8)
 - Bourns SRF1260 datasheet figures added to POWER_PATH; this explains the mote's 20 W
 - New `docs/SOFAR_QUESTIONS.md` (Q1 e-fuse, Q2–Q4 moved from SPEC, Q5 MSD1514/damping)
+- `pi-shield-checklist.html` rebuilt to mirror TRACKER: S0–S6, Sofar questions,
+  status panel; finished work marked "✓ in repo" in the data (D2 revised;
+  TRACKER rule 6 now requires syncing it every PR)
 **Broke/surprised us:**
 - kicad-cli ERC names different example labels from run to run; compare counts, not text
 - No fuse or e-fuse anywhere on the through path (Nick remembered one; asked Sofar, Q1)

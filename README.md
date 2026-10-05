@@ -15,7 +15,7 @@ docs/                        spec, tracker, design log, power-path study
 docs/design-review/          ERC, netlist, PDF and the review package
 KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)
 Archive/                     earlier iterations, junction fix (read-only)
-pi-shield-checklist.html     visual walkthrough (reference; progress lives in docs/TRACKER.md)
+pi-shield-checklist.html     shared visual view of docs/TRACKER.md (open in a browser)
 ```
 
 ## Working on it

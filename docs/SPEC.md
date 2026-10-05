@@ -32,7 +32,7 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 | UrchinCam | `KiCAD_reference_designs/UrchinCam-main/` | Prior art for a Pi shield. Read-only. |
 | Archive | `Archive/` | Earlier iterations and the junction fix. Read-only. |
 | KiCad 9.0.6 + kicad-cli | `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli` | ERC, netlist export, PDF export |
-| Checklist | `pi-shield-checklist.html` | Nick's visual walkthrough. Reference only; TRACKER.md holds progress. |
+| Checklist | `pi-shield-checklist.html` | Shared visual view of TRACKER.md; agents keep it in sync. |
 | Sofar 50 W/100 W guide | [Component Selection & Circuit Design Guide](https://manual.sofarocean.com/50W-100W-Bristlemouth-Mote-Component-Selection-Circuit-Design-Guide-f78b6124579340ba88ac8631a784dd88) | Inductor and power-path selection (from Evan) |
 | Sofar BM power roadmap | [Bristlemouth Evolution — More Power Delivery](https://manual.sofarocean.com/bristlemouth-evolution-more-power-delivery) | Context, Jetpack and Dev Kit precedents (from Evan) |
 

@@ -26,7 +26,9 @@
    produce the ERC report, net diff and PDF, with the expected result.
    Commands go in the sprint's Demo line and the PR description.
 6. **End of every session:** DEV_LOG.md entry (newest on top); DESIGN.md updated
-   on any design or decision change.
+   on any design or decision change; **`pi-shield-checklist.html` synced to
+   this tracker** (items, `done` flags, the status panel's "Updated / Now" line)
+   in the same PR.
 7. **Facts carry sources; unknowns get flagged, not guessed.**
 8. **KiCad files:** never write a `.kicad_pcb`. Reference designs and
    `Archive/` are read-only. After every `.kicad_sch` text edit, kicad-cli must
@@ -51,7 +53,7 @@ docs/design-review/           check outputs + the final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
-pi-shield-checklist.html      Nick's visual walkthrough (reference, not state)
+pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
 .claude/skills/               /agent-entry, /capture-task
 ```
 

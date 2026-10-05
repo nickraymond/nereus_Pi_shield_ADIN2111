@@ -81,6 +81,11 @@ table{border-collapse:collapse;font-size:.88rem;min-width:100%}
 th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
 th{background:var(--code-bg)}
 .rec{font-weight:700}
+.status{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--done);border-radius:8px;padding:10px 14px;margin:0 0 18px;font-size:.95rem}
+.status p{margin:0 0 6px;max-width:68ch}.status p:last-child{margin:0}
+.status .small{color:var(--muted);font-size:.85rem}
+.repo{font-size:.72rem;border:1px solid var(--done);color:var(--done);border-radius:999px;padding:0 6px;margin-left:6px;white-space:nowrap;vertical-align:1px}
+.row input:disabled{cursor:default;opacity:1}
 @media (max-width:520px){ .shead{flex-wrap:wrap} .where{order:3} h1{font-size:1.55rem} }
 @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
 </style>
@@ -88,8 +93,12 @@ th{background:var(--code-bg)}
 <body>
 <div class="wrap">
   <h1>Mote → Pi Zero 2W shield</h1>
-  <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail. Progress is saved in this browser.</p>
-  <p class="sub"><strong>Reference only.</strong> Project progress lives in <code>docs/TRACKER.md</code>; the 50 W power-path work is in <code>docs/POWER_PATH.md</code>.</p>
+  <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
+  <div class="status">
+    <p><strong>Updated 2026-10-04 · Now: S0, repo &amp; baseline</strong> (S0.1–S0.2 done; next S0.3, the net-check method)</p>
+    <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
+    <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
+  </div>
   <div class="legend">
     <span style="--c:var(--prj)">Project window</span>
     <span style="--c:var(--sch)">Schematic editor</span>
@@ -116,52 +125,72 @@ th{background:var(--code-bg)}
 </div>
 
 <script>
+// Mirrors docs/TRACKER.md. Item = [title, detail, owner|null, done]. done=1 means
+// finished in the repo (agents set it with every PR); viewers can't untick it.
 const S = [
-{ t:"Kick off the agent", o:"nick", w:"You", c:"--prj",
+{ t:"Kick off", o:"nick", w:"You", c:"--prj",
   intro:"The Claude Code agent owns schematic capture only, up to a design-review-ready package. You own everything on the board.",
   items:[
-  ["Repo contains the project with the junction fix applied", `<p>The project folder plus the 5 files from <code>shield_junction_fix.zip</code>. Commit as the baseline.</p>`],
-  ["Confirm kicad-cli runs", `<p>In Terminal: <code>/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli version</code>. The agent uses it to run ERC and export netlists and PDFs.</p>`],
-  ["Close KiCad while the agent works", `<p>Avoids KiCad and the agent overwriting each other's edits.</p>`],
-  ["Paste the kickoff prompt into Claude Code", `<p>From the chat. The agent stops after the import fix for a quick check (next section).</p>`]
+  ["Repo contains the project with the junction fix applied", `<p>Committed as the baseline (a943099).</p>`, null, 1],
+  ["Confirm kicad-cli runs", `<p>kicad-cli 9.0.6 at <code>/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli</code>.</p>`, null, 1],
+  ["Repo docs set up for agents", `<p>CLAUDE.md, docs/ (SPEC, TRACKER, DESIGN, POWER_PATH, SOFAR_QUESTIONS, DEV_LOG, PROMPTS), skills <code>/agent-entry</code> and <code>/capture-task</code>. PR #1.</p>`, "agent", 1],
+  ["Close KiCad while the agent works", `<p>Avoids KiCad and the agent overwriting each other's edits. Every session.</p>`, null, 1]
 ]},
-{ t:"Fix the Altium import", o:"agent", w:"Claude Code", c:"--sch",
+{ t:"S0 — Repo &amp; baseline", o:"agent", w:"Claude Code", c:"--prj",
+  intro:"One live project and a repeatable check.",
+  items:[
+  ["S0.1 Rename the live project folder", `<p><code>nereus_Pi_shield_ADIN2111_002/</code> → <code>nereus_Pi_shield_ADIN2111/</code>. The stray <code>.kicad_pro</code> was byte-identical and is removed. ERC 90 errors / 578 warnings before and after; netlist identical.</p>`, null, 1],
+  ["S0.2 Untrack files .gitignore covers", `<p>58 autosave zips, <code>.kicad_prl</code>, <code>fp-info-cache</code>, <code>.DS_Store</code>. Still on disk.</p>`, null, 1],
+  ["Checkpoint: you open it in KiCad", `<p>All sheets open, no missing symbols.</p>`, "nick", 1],
+  ["S0.3 Net-check method", `<p>Extract kept nets from the mote's <code>.kicad_pcb</code> copper and diff them against the exported netlist. ERC is compared by counts and types, because its text isn't deterministic run to run.</p>`],
+  ["S0.4 First ERC + net-check baseline recorded", `<p>In DESIGN.md.</p>`]
+]},
+{ t:"S1 — Fix the Altium import", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Pins touching the middle of a wire aren't connected in KiCad. The fix adds junctions; the agent verifies and finishes the import clean-up.",
   items:[
   ["Verify the 33 junctions are present", `<p>If not, re-apply them. The board's copper is the reference: every kept net must match it.</p>`],
   ["Change the ADIN_VDDIO plain label to a global label", `<p>So it joins the ADIN_VDDIO power symbols (powers pull-ups R1/R3/R5/R6).</p>`],
-  ["Remove the unused Processor and USB sheet files", ``],
+  ["Remove the unused Processor and USB sheet files", `<p>No sheet references them, so only the files need deleting.</p>`],
   ["Number all #PWR power symbols uniquely", `<p>Clears the 65 duplicate-reference errors. Real part numbers stay the same.</p>`],
   ["Baseline report: ERC + net check against the copper", `<p>Shows every kept net matches the board before design changes start.</p>`],
   ["Checkpoint: you open it in KiCad", `<p>30-second look that it opens and looks right. Then tell the agent to continue.</p>`, "nick"]
 ]},
-{ t:"Swap the mezzanine (P1) for the Pi header", o:"agent", w:"Claude Code", c:"--sch",
+{ t:"S2 — Mezzanine (P1) → Pi header; grounds", o:"agent", w:"Claude Code", c:"--sch",
   items:[
   ["Delete P1, its 12 dead test points and R9", `<p>TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33. Keep R10 and TP19.</p>`],
   ["Delete leftover STM32/mezzanine labels and wires", `<p>Keep <code>ADIN_*</code> and <code>I2C1_*</code>.</p>`],
-  ["Place the stock Pi header on the Top-Level sheet", `<p><code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>.</p>`],
-  ["BOM: standard 2×20 female socket header", `<p>Plain 2.54 mm socket that plugs onto the Pi's male pins. No stacking header.</p>`]
-]},
-{ t:"Power: self-contained from the bus", o:"agent", w:"Claude Code", c:"--sch",
-  items:[
+  ["Place the stock Pi header on the Top-Level sheet", `<p><code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>. BOM: plain 2×20 female socket, no stacking header.</p>`],
   ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39.</p>`],
   ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div>`],
   ["Add PWR_FLAG on VBUS and GND", ``]
 ]},
-{ t:"Add the 5 V converter for the Pi (copy of U5)", o:"agent", w:"Claude Code", c:"--sch",
-  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed straight from VBUS.",
+{ t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",
+  intro:"~50 W absolute max = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Potted. Working file: docs/POWER_PATH.md.",
+  items:[
+  ["Define the rating", `<p>~50 W absolute max at 24 V, on Sofar's basis; margin from larger magnetics (DESIGN D8).</p>`, "nick", 1],
+  ["Confirm MSD1514 (15.5 × 15.5 × 14.2 mm) fits, in SolidWorks", `<p>Two of them, one per BM port.</p>`, "nick"],
+  ["Send the Sofar questions", `<p>See the "Questions for Sofar" section below and <code>docs/SOFAR_QUESTIONS.md</code>.</p>`, "nick"],
+  ["Sort Evan's references; record facts with citations", `<p>Sofar 50W/100W guide, More Power Delivery, Jetpack archive, datasheets.</p>`],
+  ["Confirm candidate figures against Coilcraft datasheets", `<p>Normalise first: Bourns quotes series-mode DCR and a 30 % Isat drop; Coilcraft quotes per-winding DCR and a 10 % drop.</p>`],
+  ["Audit every part in the path against the rating and potting rules", `<p>L1/L2, D1, D2/D3, U5, U9/R34/R11, R8, damping, bulk caps, connector.</p>`],
+  ["Damping: keep C22/C23/R15/R16", `<p>Sofar-vetted, so they stay. Retune only if the new magnetics need it (Sofar Q5).</p>`],
+  ["Propose through-path protection (e-fuse)", `<p>There's none in the design today. It must work with power flowing either way and be safe to pot (no PPTC). Sofar Q1.</p>`],
+  ["You decide P2–P4", `<p>Magnetics, damping/bulk capacitance, protection. Decisions go into the DESIGN.md log.</p>`, "nick"],
+  ["Schematic edits", `<p>L1/L2 swap, re-rated path parts, new provisions; footprints findable.</p>`]
+]},
+{ t:"S4 — 5 V converter for the Pi (copy of U5)", o:"agent", w:"Claude Code", c:"--sch",
+  intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS. Input side depends on S3.",
   items:[
   ["Copy the U5 block with new references", `<p>U5, L3, C28, C29, C30, C31, C33, R20, R21, R22, R23 and their wires.</p>`],
   ["Rename every copied local label", `<p><code>3V3_*</code> → <code>5V_*</code>.</p><div class="warn">Same-named labels would silently join the two converters.</div>`],
   ["Set 5 V: copied R23 → 13.7 kΩ", `<p>0.6 × (1 + 100 / 13.7) ≈ 4.98 V. The agent confirms the 0.6 V reference from the datasheet.</p>`],
-  ["Choose the inductor for 5 V out at 24 V in", `<p>From the LMR51430 datasheet, for this part's switching frequency. Proposal with citation.</p>`],
-  ["Upsize the output caps to 10 V or 16 V", `<p>Same values as C31/C33, real part numbers proposed.</p>`],
-  ["Make the copied parts' footprints findable", `<p>The mote's footprints exist only inside the board file. The agent extracts the ones the new parts need into a project library (<code>mote.pretty</code>), so your F8 can place them. It reads the board file but doesn't change it.</p>`],
-  ["Bring 5V_PI to the Top-Level sheet", `<p>Hierarchical label and sheet pin.</p>`],
-  ["Solder jumper from 5V_PI to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
-  ["Bus power budget estimate", `<p>Shield + Pi + margin, at 24 V, against the PoDL and R8 shunt path. Flagged for review.</p>`]
+  ["Choose the inductor for 5 V out at 24 V in", `<p>From the LMR51430 datasheet, for this part's switching frequency. Newly sourced, so potting rules apply.</p>`],
+  ["Output caps rated 10 V or 16 V", `<p>Same values as C31/C33, real part numbers proposed.</p>`],
+  ["Make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
+  ["Bring 5V_PI to the Top-Level sheet; solder jumper to Pi pins 2 and 4", `<p><code>Jumper:SolderJumper_2_Open</code>. Open it whenever the Pi has its own USB power.</p>`],
+  ["Bus power budget estimate", `<p>Shield + Pi + payload against the ~50 W rating. Flagged for review.</p>`]
 ]},
-{ t:"Wire the Pi header", o:"agent", w:"Claude Code", c:"--sch",
+{ t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
@@ -173,25 +202,15 @@ const S = [
 <tr><td>38 / 40</td><td>20 / 21</td><td>SW_FLAGB / SW_PGOOD</td></tr>
 <tr><td>2 / 4</td><td>—</td><td>5V_PI via jumper</td></tr></table></div>`],
   ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console).</p>`],
-  ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
-]},
-{ t:"ADIN details", o:"agent", w:"Claude Code", c:"--sch",
-  intro:"The agent researches each one, adds the part if needed, and cites the datasheet line so the review can confirm.",
-  items:[
   ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>Unless the AP22913 has an internal one.</p>`],
   ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
-  ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`]
-]},
-{ t:"Load switch: 24 V payload port", o:"agent", w:"Claude Code", c:"--sch",
-  items:[
+  ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
   ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default.</p>`],
-  ["VBUS_OUT + GND to a 2-pin connector", `<p>Agent proposes the part (current rating vs the R34 limit). Raw ~24 V.</p>`],
-  ["Ask your buddy: is R11 fitted?", `<p>0 Ω across the switch; fitted means always on.</p>`, "nick"],
-  ["Ask your buddy: why mezzanine-side control?", ``, "nick"],
-  ["Ask your buddy: what current limit does R34 set?", ``, "nick"]
+  ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for the S3 rating. Raw ~24 V.</p>`],
+  ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
-{ t:"Design review package", o:"agent", w:"Claude Code", c:"--sch",
+{ t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Everything lands in docs/design-review/ so you can run a real review with colleagues.",
   items:[
   ["ERC clean, or every remaining item justified", ``],
@@ -201,10 +220,19 @@ const S = [
   ["Open questions and proposed values, with datasheet citations", ``],
   ["Pin map, power budget and BOM changes", ``]
 ]},
+{ t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
+  intro:"Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  items:[
+  ["Q1 Fuse / e-fuse on the through-power path?", `<p>Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
+  ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
+  ["Q3 What current limit does R34 set on the FPF2700?", `<p>We can't get the datasheet (onsemi link dead).</p>`],
+  ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
+  ["Q5 MSD1514-473 tested since the guide? Damping values?", `<p>The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
+]},
 { t:"Review and decide", o:"nick", w:"You", c:"--prj",
   items:[
   ["Send the package to Claude (chat) for an independent net check", `<p>I rebuild every net from the files and compare it to the copper and to the intended changes.</p>`],
-  ["Run the design review with colleagues", `<p>Suggested agenda: power budget, 5 V converter values, ADIN pull-ups/pull-downs, load switch and R11, connector choices, pin map.</p>`],
+  ["Run the design review with colleagues", `<p>Suggested agenda: ~50 W power path, power budget, 5 V converter values, ADIN pull-ups/pull-downs, load switch and R11, connector choices, pin map.</p>`],
   ["Fold review actions back in", `<p>Small fixes: you or the agent. Then freeze the schematic (git tag).</p>`]
 ]},
 { t:"Board outline", o:"nick", w:"You", c:"--edge",
@@ -220,6 +248,7 @@ const S = [
   ["Clean up leftover tracks and vias", ``],
   ["Flip the header to the bottom and check pin 1 after flipping", `<div class="warn">The most common way to build a shield that plugs in backwards.</div>`],
   ["Position the header exactly", ``],
+  ["Place the PoDL inductors (MSD1514, 14.2 mm tall)", `<p>Leave clearance for potting and heat; the guide warns that packed or potted parts lose their datasheet thermal ratings.</p>`],
   ["Place the 5 V converter like the 3.3 V one", `<p>Tight input-cap / IC / inductor / output-cap loop.</p>`],
   ["Payload connector at a board edge; silkscreen 24 V", ``],
   ["Silkscreen the 5 V jumper", `<p>"5V→Pi: open before USB power".</p>`]
@@ -227,6 +256,7 @@ const S = [
 { t:"Route and check", o:"nick", w:"You", c:"--brd",
   items:[
   ["Route; wide 5V_PI traces to the header", `<p>At least 1 mm. Keep SPI away from the T1L pair and magnetics.</p>`],
+  ["Power-path copper sized for 2.083 A + margin", `<p>VBUS through both ports, the PoDL inductors and the payload branch.</p>`],
   ["Refill zones; DRC clean", ``],
   ["3D check against a Pi Zero", ``],
   ["Review with your EE before ordering", ``]
@@ -241,21 +271,18 @@ const S = [
 { t:"Later", o:"nick", w:"Future", c:"--muted",
   items:[
   ["Hardware watchdog switching the 5 V converter's enable", `<p>e.g. TI TPL5010, so a hung Pi gets power-cycled.</p>`],
-  ["Shared nereus-lib from the UrchinCam parts", `<p>For the motor driver, ADC and JST parts on a future board.</p>`]
+  ["Shared nereus-lib from the UrchinCam parts", `<p>For the motor driver, ADC and JST parts on a future board.</p>`],
+  ["100 W variant", `<p>See the Sofar 50W/100W guide.</p>`]
 ]}
 ];
 
-const KEY="pi-shield-checklist-v3";
-const V2MAP={"0-0":"Pull reusable parts out of the UrchinCam shield||Export the symbols","0-1":"Pull reusable parts out of the UrchinCam shield||Export the footprints","0-2":"Pull reusable parts out of the UrchinCam shield||Put both in a shared nereus-lib folder (git repo)","0-3":"Pull reusable parts out of the UrchinCam shield||Copy the 3Dmodels folder next to the new .kicad_pro","0-4":"Pull reusable parts out of the UrchinCam shield||Add the library to the project","0-5":"Pull reusable parts out of the UrchinCam shield||Fix footprint links on any exported part you place","1-0":"Copy and rename the mote||Save As from the main KiCad window","1-1":"Copy and rename the mote||Confirm both editors open under the new name","1-2":"Copy and rename the mote||Commit to git before editing","2-0":"Fix the Altium import (before any F8)||Install the junction fix","2-1":"Fix the Altium import (before any F8)||Change the ADIN_VDDIO label to a global label","2-2":"Fix the Altium import (before any F8)||Delete the unused sheet files from the folder","2-3":"Fix the Altium import (before any F8)||Number the power symbols","2-4":"Fix the Altium import (before any F8)||Commit to git","3-0":"Swap the mezzanine (P1) for the Pi header||Delete P1","3-1":"Swap the mezzanine (P1) for the Pi header||Delete the test points on P1's dead nets","3-2":"Swap the mezzanine (P1) for the Pi header||Delete R9; keep R10 and TP19","3-3":"Swap the mezzanine (P1) for the Pi header||Delete leftover STM32/mezzanine labels and wires","3-4":"Swap the mezzanine (P1) for the Pi header||Place the stock Pi header on the Top-Level sheet","3-5":"Swap the mezzanine (P1) for the Pi header||Set the footprint","3-6":"Swap the mezzanine (P1) for the Pi header||Note the BOM part: a stacking header","4-0":"Power: self-contained, ground only to the Pi||Connect all Pi GND pins to board GND","4-1":"Power: self-contained, ground only to the Pi||Leave the Pi's 3.3 V and 5 V pins unconnected","4-2":"Power: self-contained, ground only to the Pi||Add PWR_FLAG on VBUS and GND","5-0":"Wire the Pi header||Connect the ADIN SPI lines","5-1":"Wire the Pi header||Connect the ADIN control lines","5-2":"Wire the Pi header||Connect I2C","5-3":"Wire the Pi header||Connect the load switch lines","5-4":"Wire the Pi header||Leave the reserved and avoided pins free","5-5":"Wire the Pi header||Use exact label names","5-6":"Wire the Pi header||Check every net","6-0":"ADIN details||Add a 100 kΩ pull-down on ADIN_PWR","6-1":"ADIN details||Check whether ADIN_RST needs a pull-up","6-2":"ADIN details||Don't add a pull-up to MISO","6-3":"ADIN details||Note the software power-up order","7-0":"Load switch: keep it as a 24 V payload port||Connect SW_EN to Pi pin 36 (GPIO16)","7-1":"Load switch: keep it as a 24 V payload port||Connect SW_FLAGB and SW_PGOOD to pins 38 and 40","7-2":"Load switch: keep it as a 24 V payload port||Route VBUS_OUT to a 2-pin JST","7-3":"Load switch: keep it as a 24 V payload port||Ask your buddy: is R11 fitted?","7-4":"Load switch: keep it as a 24 V payload port||Ask your buddy: why mezzanine control?","7-5":"Load switch: keep it as a 24 V payload port||Ask your buddy: what current limit does R34 set?","8-0":"ERC clean-up||Run ERC and fix all real errors","8-1":"ERC clean-up||Ignore the cosmetic import leftovers","8-2":"ERC clean-up||Commit to git","8-3":"ERC clean-up||Send the zip to Claude for a net check","9-0":"Replace the board outline||Draw candidate outlines on custom layers","9-1":"Replace the board outline||Import DXFs ungrouped","9-2":"Replace the board outline||Move the chosen outline to Edge.Cuts","9-3":"Replace the board outline||Add four M2.5 mounting holes","9-4":"Replace the board outline||Confirm the outline is closed","10-0":"Update the board and place parts||First F8: re-link only","10-1":"Update the board and place parts||Second F8: remove deleted parts and add the header","10-2":"Update the board and place parts||Clean up leftover tracks and vias","10-3":"Update the board and place parts||Flip the header to the bottom side","10-4":"Update the board and place parts||Check pin 1 AFTER flipping","10-5":"Update the board and place parts||Position the header exactly","10-6":"Update the board and place parts||Place the payload JST at a board edge","10-7":"Update the board and place parts||Keep tall parts clear above the header","11-0":"Route and check||Route the new Pi signals","11-1":"Route and check||Refill copper zones","11-2":"Route and check||DRC passes cleanly","11-3":"Route and check||3D check against a Pi Zero","11-4":"Route and check||Review with your EE / buddy before ordering","12-0":"Later: power the Pi from the bus (not this board)||Add a 24 V → 5 V buck after the switch","12-1":"Later: power the Pi from the bus (not this board)||Make the switch default ON","12-2":"Later: power the Pi from the bus (not this board)||Hold the switch off long enough to reboot","12-3":"Later: power the Pi from the bus (not this board)||Use a hardware watchdog in production","12-4":"Later: power the Pi from the bus (not this board)||Add a solder jumper on the Pi 5 V feed"};
+const KEY="pi-shield-checklist-v4";
 let state={};
 try{
   const raw=localStorage.getItem(KEY);
   if(raw){ state=JSON.parse(raw)||{}; }
-  else{
-    const o=JSON.parse(localStorage.getItem("pi-shield-checklist-v2")||"{}")||{};
-    for(const k in o){ if(o[k]&&V2MAP[k]) state[V2MAP[k]]=true; }
-  }
 }catch(e){ state={}; }
+const isDone=(sec,it)=>it[3]===1||!!state[`${sec.t}||${it[0]}`];
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
 
 const list=document.getElementById("list");
@@ -269,10 +296,10 @@ S.forEach((sec,si)=>{
     total++;
     const id=`${sec.t}||${it[0]}`;
     const li=document.createElement("li");
-    const own=it[2]||sec.o; li.dataset.o=own;
-    li.innerHTML=`<div class="row"><input type="checkbox" aria-label="Done: ${it[0].replace(/"/g,'&quot;')}"><details><summary><span class="t">${it[0]}<span class="own ${own}">${own==="agent"?"Claude Code":"Me"}</span></span><span class="chev" aria-hidden="true">▶</span></summary><div class="body">${it[1]||"<p>No extra detail.</p>"}</div></details></div>`;
+    const own=it[2]||sec.o; li.dataset.o=own; const repo=it[3]===1;
+    li.innerHTML=`<div class="row"><input type="checkbox" aria-label="Done: ${it[0].replace(/"/g,'&quot;')}"><details><summary><span class="t">${it[0]}<span class="own ${own}">${own==="agent"?"Claude Code":"Me"}</span>${repo?'<span class="repo">✓ in repo</span>':''}</span><span class="chev" aria-hidden="true">▶</span></summary><div class="body">${it[1]||"<p>No extra detail.</p>"}</div></details></div>`;
     const cb=li.querySelector("input");
-    cb.checked=!!state[id];
+    cb.checked=repo||!!state[id]; cb.disabled=repo;
     li.classList.toggle("checked",cb.checked);
     cb.addEventListener("change",()=>{ state[id]=cb.checked; li.classList.toggle("checked",cb.checked); save(); update(); });
     ul.appendChild(li);
@@ -284,7 +311,7 @@ function update(){
   let done=0;
   S.forEach((sec,si)=>{
     let d=0;
-    sec.items.forEach(it=>{ if(state[`${sec.t}||${it[0]}`]) d++; });
+    sec.items.forEach(it=>{ if(isDone(sec,it)) d++; });
     done+=d;
     document.querySelector(`[data-s="${si}"]`).textContent=`${d}/${sec.items.length}`;
     list.children[si].classList.toggle("sdone",d===sec.items.length);
@@ -303,10 +330,9 @@ document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{
 document.getElementById("expand").onclick=()=>document.querySelectorAll("details").forEach(d=>d.open=true);
 document.getElementById("collapse").onclick=()=>document.querySelectorAll("details").forEach(d=>d.open=false);
 document.getElementById("reset").onclick=()=>{
-  if(!confirm("Clear all ticks?")) return;
+  if(!confirm("Clear your own ticks? (✓ in repo items stay.)")) return;
   state={}; save();
-  document.querySelectorAll("li.checked").forEach(li=>li.classList.remove("checked"));
-  document.querySelectorAll('.row input').forEach(cb=>cb.checked=false);
+  document.querySelectorAll('.row input:not(:disabled)').forEach(cb=>{ cb.checked=false; cb.closest("li").classList.remove("checked"); });
   update();
 };
 </script>
