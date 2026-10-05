@@ -83,15 +83,18 @@ two local labels with the same name silently join their nets.
 | 2026-10-04 | S0.1 | 90 / 578 before and after the rename | Netlist identical apart from the library path | Rename confirmed safe; not the S0.4 baseline |
 | 2026-10-05 | S0.4 | 90 / 578 | 42/68 matched; **26 opens**, 0 shorts, 0 unpaired; 43 parts removed, 4 new | **Baseline.** Details in `docs/design-review/netcheck.md`. S1 target: 0 opens |
 | 2026-10-05 | S1 | 65 / 590 | **53/53 matched, 0 opens, 0 shorts** (14 S2-deletion parts excluded); midwire 0 | Import fixed. Edits in `docs/design-review/changelog.md` |
+| 2026-10-05 | S2 | 76 / 562 | 53/53, 0 opens, 0 shorts, **0 excluded**; J1 GND 8/8 on GND | Mezzanine gone, J1 placed. +29 errors are J1 pins awaiting S4/S5 |
 
-**Remaining ERC errors after S1 (65), and who resolves each:**
+**Remaining ERC errors after S2 (76), and who resolves each:**
 
 | Type | # | What | Resolved by |
 |---|---|---|---|
-| pin_not_connected | 16 | 12 test points on the S2 delete list; MTG1–4 mounting holes | S2; MTG1–4 Nick (board) |
-| label_dangling | 23 | Mezzanine leftovers (MZ_*, MCU_RESET, BOOT, LPUART*, PAYLOAD_*, IOEXP_INT, I2C_MUX_RST, BM_INT); ADIN_* and the ADIN sheet's CS/MISO/MOSI/SCK/RST labels waiting for the Pi header | S2 deletes; S5 wires |
-| power_pin_not_driven | 9 | U9.8, U5 (VIN/CB/SW), U6 (VIN/SW/VOS/GND): nets with no power-source flag | S2 PWR_FLAG; remainder justified in S6 |
+| pin_not_connected | 33 | J1: 28 GPIO pins + pin 4 (5V); MTG1–4 mounting holes | S4 (5V), S5 (GPIO); MTG1–4 Nick (board) |
+| label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the Power Monitor sheet's SCL/SDA: each net has one pin until the Pi header is wired | S5 |
+| power_pin_not_driven | 8 | J1.2 (5V); U9.8 VOUT; U5 CB/SW; U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | S4 (J1.2); remainder justified or flagged in S6 |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
+
+S2's PWR_FLAGs cleared U5 VIN (VBUS) and U6 GND.
 
 Warnings (590) are cosmetic import leftovers: 426 off-grid endpoints (Altium
 coordinates such as `…0.0022`), 126 footprint-library links, 26 dangling wire

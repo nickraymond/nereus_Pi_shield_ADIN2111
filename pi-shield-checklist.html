@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> <strong>S1 done:</strong> the import is fixed and 53/53 nets match the copper. Next: the S2 plan.</p>
+    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. Waiting on your demo and KiCad look.</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -158,12 +158,13 @@ const S = [
 ]},
 { t:"S2 — Mezzanine (P1) → Pi header; grounds", o:"agent", w:"Claude Code", c:"--sch",
   items:[
-  ["Delete P1, its 12 dead test points and R9", `<p>TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33. Keep R10 and TP19.</p>`],
-  ["Delete leftover STM32/mezzanine labels and wires", `<p>Keep <code>ADIN_*</code> and <code>I2C1_*</code>.</p>`],
-  ["Place the stock Pi header on the Top-Level sheet", `<p><code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>. BOM: plain 2×20 female socket, no stacking header.</p>`],
-  ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39.</p>`],
-  ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div>`],
-  ["Add PWR_FLAG on VBUS and GND", ``]
+  ["Delete P1, its 12 dead test points and R9", `<p>TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33. R10 and TP19 kept (still on SW_ON).</p>`, null, 1],
+  ["Delete leftover STM32/mezzanine labels and wires", `<p>14 labels, 5 orphan power symbols, 69 wires. <code>ADIN_*</code> and <code>I2C1_*</code> kept. Every kept pin's connections verified identical.</p>`, null, 1],
+  ["Place the stock Pi header on the Top-Level sheet", `<p>J1 <code>Connector:Raspberry_Pi_2_3</code>, footprint <code>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</code>. BOM: plain 2×20 female socket, no stacking header.</p>`, null, 1],
+  ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39: all 8 on GND (netlist).</p>`, null, 1],
+  ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div><p>No-connect flag placed.</p>`, null, 1],
+  ["Add PWR_FLAG on VBUS and GND", `<p>#FLG01 on GND, #FLG02 on VBUS.</p>`, null, 1],
+  ["Checkpoint: run the demo and look at the Top-Level sheet", `<p><code>tools/check.sh</code> exits 0 (netcheck 53/53, 0 excluded; ERC 76, of which 29 are J1 pins for S4/S5). In KiCad: P1 gone, J1 in clear space.</p>`, "nick"]
 ]},
 { t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",
   intro:"~50 W absolute max = 2.083 A per port inductor at 24 V, defined like Sofar's 20 W. Potted. Working file: docs/POWER_PATH.md.",
@@ -209,6 +210,7 @@ const S = [
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
   ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default.</p>`],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for the S3 rating. Raw ~24 V.</p>`],
+  ["I2C pull-ups", `<p>The mote's R26/R27 went with the STM32 sheet. Confirm the Pi's GPIO2/3 pull-ups from a primary source, or add them.</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",

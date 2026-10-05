@@ -113,6 +113,9 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   `docs/SOFAR_QUESTIONS.md`.
 - Do two MSD1514-class inductors (15.5 × 15.5 × 14.2 mm each) fit a Pi
   Zero-sized board? — Nick, SolidWorks check 2026-10-05
+- I2C pull-ups: the mote's R26/R27 were on the removed STM32 sheet, so the
+  shield has none on I2C1_SDA/SCL (INA232 U4). Does the Pi provide them on
+  GPIO2/3, and at what value? Needs a primary source (Raspberry Pi docs) — S5
 - What is the FPF2700's current-limit range? (The onsemi datasheet link was
   dead on 2026-10-04.) — S3
 - Which inductor does the 5 V converter need at 24 V in? (The 3.3 V U5 uses

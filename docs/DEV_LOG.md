@@ -19,6 +19,24 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S2 — Mezzanine removed, Pi header J1 placed
+
+**Branch:** sprint/2-pi-header
+**Files touched:** BM_Mote_1_Master.kicad_sch; tools/schedit.py (new, 7 tests); exclusion list emptied; docs
+**ERC:** 76 errors / 562 warnings (was 65/590)  ·  **Net diff:** 53/53, 0 opens, 0 shorts, 0 excluded
+**Done:**
+- Deleted P1, R9, 12 TPs, 14 mezzanine labels, 5 orphan power symbols, 2 NCs, 69 wires, 12 junctions
+- Placed J1 (stock KiCad Pi header + 2×20 socket footprint), GND + PWR_FLAG, NC on 3V3, VBUS PWR_FLAG
+- Verified: all 277 kept pins keep identical connections; J1's 8 GND pins on GND; visual check of the sheet (SVG render)
+**Broke/surprised us:**
+- First deletion pass trimmed the wire under the I2C1 labels (they sat part-way along a stub
+  to P1), leaving them unnamed. Caught by the before/after net-name diff; schedit now shortens
+  such wires instead of deleting them (test added)
+- The mote's I2C pull-ups (R26/R27) were on the STM32 sheet, so the shield now has none.
+  Logged for S5 (SPEC open question)
+- ERC errors rose, not fell: the mezzanine errors went (−18) but J1's 29 unwired pins arrived (+29)
+**Next:** Nick: S2 demo + KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 
 **Branch:** sprint/1-import-fix

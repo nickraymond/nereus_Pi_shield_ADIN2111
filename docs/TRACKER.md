@@ -44,7 +44,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py` and `python3 tools/test_schedit.py`.
 
 ### Project layout
 
@@ -52,7 +52,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -95,15 +95,19 @@ the project in KiCad: the 21 fixed points are listed in
 junctions at both ends).
 **Result:** demo passed and KiCad look OK (Nick, 2026-10-05).
 
-### S2 — Mezzanine (P1) → Pi header; grounds  `[ ]`
-- [ ] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
-      (keep R10 and TP19); remove each from `docs/design-review/excluded_parts.txt`
-- [ ] Delete leftover STM32/mezzanine labels and wires (keep `ADIN_*`, `I2C1_*`)
-- [ ] Place `Connector:Raspberry_Pi_2_3` on Top-Level, footprint
+### S2 — Mezzanine (P1) → Pi header; grounds  `[~]`
+- [x] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
+      (keep R10 and TP19); exclusion list now empty
+- [x] Delete leftover STM32/mezzanine labels and wires (14 labels, 5 orphan power
+      symbols, 69 wires); `ADIN_*`, `I2C1_*` kept. Kept-pin connectivity verified identical
+- [x] Place J1 `Connector:Raspberry_Pi_2_3` on Top-Level, footprint
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`
-- [ ] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 unconnected
-- [ ] PWR_FLAG on VBUS and GND
-**Demo (Nick):** ERC + net diff → only the intended nets changed.
+- [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
+- [x] PWR_FLAG on VBUS and GND
+- [ ] Checkpoint: Nick looks at the Top-Level sheet in KiCad
+**Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
+excluded`, ERC `Errors 76  Warnings 562` (the 29 extra errors are J1 pins S4/S5 wire).
+In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3V3).
 
 ### S3 — 50 W power path: inductors & design decisions  `[ ]`
 **Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
@@ -143,6 +147,8 @@ agreed changes.
 - [ ] Document the ADIN power-up order
 - [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up)
 - [ ] VBUS_OUT + GND → 2-pin connector rated for the S3 rating
+- [ ] I2C pull-ups: the mote's (R26/R27) went with the STM32 sheet, so the shield has
+      none. Confirm the Pi's on-board pull-ups on GPIO2/3 from a primary source, or add them
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 
