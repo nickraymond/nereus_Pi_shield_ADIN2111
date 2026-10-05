@@ -59,7 +59,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -111,11 +111,12 @@ junctions at both ends).
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`
 - [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
 - [x] PWR_FLAG on VBUS and GND
-- [ ] QE review: APPROVED (`docs/design-review/qe/S2.md`)
+- [~] QE review: round 1 CHANGES REQUESTED (fixed); round 2 pending (`docs/design-review/qe/S2.md`)
 - [ ] Checkpoint: Nick looks at the Top-Level sheet in KiCad
 **Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
 excluded`, ERC `Errors 76  Warnings 562` (the 29 extra errors are J1 pins S4/S5 wire).
 In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3V3).
+ERC detail: `python3 tools/ercsum.py --items` (every error has an owner in DESIGN.md).
 
 ### S3 — 50 W power path: inductors & design decisions  `[ ]`
 **Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
@@ -158,11 +159,19 @@ agreed changes.
 - [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
       (reference Processor sheet). Note the combined value if the Pi also has pull-ups
+      (QE: the Pi documents 1.8 kΩ on GPIO2/3 → ≈1.3 kΩ combined; cite a primary source)
+- [ ] Choose the pull-up rail and document power sequencing: shield 3V3 and Pi 3V3 are
+      separate rails, so one powered while the other is off can back-power through pull-ups /
+      IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk
+- [ ] Keep pins 27/28 (ID_SD/ID_SC, HAT EEPROM) unassigned unless HAT ID is implemented
+- [ ] SW_FLAGB/SW_PGOOD Load Switch sheet pins (dangling since P1 went) → Pi pins 38/40
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 
 ### S6 — Design review package  `[ ]`
-- [ ] ERC clean, or every remaining item justified
+- [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the
+      regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO)
+- [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level)
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit

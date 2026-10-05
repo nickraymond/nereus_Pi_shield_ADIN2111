@@ -6271,27 +6271,6 @@
 		)
 		(uuid "0b4b0ab1-b7f6-431e-91aa-7408ec0bb441")
 	)
-	(text_box "MEZZANINE"
-		(exclude_from_sim no)
-		(at 181.61 175.26 0)
-		(size -66.04 5.08)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width -0.0001)
-			(type default)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 3.048 3.048)
-			)
-			(justify left top)
-		)
-		(uuid "8f59e7fc-c336-452d-8b9f-c66eeec4d403")
-	)
 	(text_box "PoDL - POWER OVER DATA LINE"
 		(exclude_from_sim no)
 		(at 447.04 144.78 0)

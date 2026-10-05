@@ -32,12 +32,17 @@ mezzanine nets. The netcheck exclusion list is now empty.
 
 J1 pins 2/4 (5V) are left for S4; the 28 GPIO pins for S5.
 
+### S2.3 QE round 1 fixes
+
+- Deleted the stale `MEZZANINE` text box (section header of the old mezzanine area, (115.57–181.61, 175.26)). Netlist and ERC unchanged.
+- ERC accounting corrected (see DESIGN.md); new `tools/ercsum.py` builds those tables.
+
 ### S2 result
 
 | Check | Before S2 | After S2 |
 |---|---|---|
 | netcheck | 53/53, 14 parts excluded | **53/53, 0 opens, 0 shorts, 0 excluded** |
-| ERC errors / warnings | 65 / 590 | 76 / 562 (mezzanine errors gone; +29 J1 pins not yet wired) |
+| ERC errors / warnings | 65 / 590 | 76 / 562: −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins, 8 I2C1/SCL/SDA labels now one-pin, J1.2) |
 | J1 GND pins on GND | — | 8/8 (netlist) |
 
 ## S1 — Fix the Altium import (2026-10-05, branch `sprint/1-import-fix`)

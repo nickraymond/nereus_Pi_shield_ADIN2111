@@ -33,9 +33,13 @@ what broke, what's next.*
   to P1), leaving them unnamed. Caught by the before/after net-name diff; schedit now shortens
   such wires instead of deleting them (test added)
 - The mote's I2C pull-ups (R26/R27) were on the STM32 sheet, so the shield now has none.
-  Logged for S5 (SPEC open question)
-- ERC errors rose, not fell: the mezzanine errors went (−18) but J1's 29 unwired pins arrived (+29)
-**Next:** Nick: S2 demo + KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+  Nick decided the shield adds them (D11, S5 task)
+- ERC errors rose, not fell: −27 (12 TPs, 13 mezzanine labels, U5 VIN, U6 GND) / +38 (29 J1 pins,
+  8 I2C1/SCL/SDA labels now one-pin, J1.2)
+- QE round 1 (separate session): CHANGES REQUESTED — my ERC owner table was hand-filtered and
+  missed FID1–6, the SW_FLAGB/SW_PGOOD sheet pins and #PWR34 (also undercounted in S1). Fixed
+  with `tools/ercsum.py`; also deleted a stale MEZZANINE text box. Report: `docs/design-review/qe/S2.md`
+**Next:** QE round 2 → Nick's KiCad look → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
 
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 

@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. Quality Engineer review next, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S2, mezzanine → Pi header</strong> Agent work done: P1 gone, J1 placed, 53/53 nets. QE round 1 fixes pushed; QE round 2, then your KiCad look.</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -164,7 +164,7 @@ const S = [
   ["Connect all Pi GND pins to board GND", `<p>Pins 6, 9, 14, 20, 25, 30, 34, 39: all 8 on GND (netlist).</p>`, null, 1],
   ["Leave the Pi's 3.3 V pins (1, 17) unconnected", `<div class="warn">Never tie the Pi's 3.3 V to the shield's 3.3 V.</div><p>No-connect flag placed.</p>`, null, 1],
   ["Add PWR_FLAG on VBUS and GND", `<p>#FLG01 on GND, #FLG02 on VBUS.</p>`, null, 1],
-  ["Quality Engineer review: APPROVED", `<p>Independent read-only review of the PR before your KiCad look. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent"],
+  ["Quality Engineer review: APPROVED", `<p>Independent read-only review in a separate session, before your KiCad look. Round 1: CHANGES REQUESTED (ERC accounting, stale MEZZANINE text box): fixed. Round 2 pending. Report: <code>docs/design-review/qe/S2.md</code>.</p>`, "agent"],
   ["Checkpoint: run the demo and look at the Top-Level sheet", `<p><code>tools/check.sh</code> exits 0 (netcheck 53/53, 0 excluded; ERC 76, of which 29 are J1 pins for S4/S5). In KiCad: P1 gone, J1 in clear space.</p>`, "nick"]
 ]},
 { t:"S3 — ~50 W power path: inductors &amp; decisions", o:"agent", w:"Claude Code", c:"--sch",
@@ -211,13 +211,16 @@ const S = [
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
   ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default.</p>`],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for the S3 rating. Raw ~24 V.</p>`],
-  ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402.</p>`],
+  ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
+  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],
+  ["SW_FLAGB / SW_PGOOD sheet pins → Pi 38/40", `<p>Dangling since P1 went.</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Everything lands in docs/design-review/ so you can run a real review with colleagues.",
   items:[
-  ["ERC clean, or every remaining item justified", ``],
+  ["ERC clean, or every remaining item justified", `<p>Includes FID1–6 hidden NC pins, regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO. Tables via <code>tools/ercsum.py --items</code>.</p>`],
+  ["Remove stale sheet notes", `<p>e.g. "Processor + onboard logic runs off 3V3…" on the Top-Level sheet.</p>`],
   ["Net check: kept nets match the copper; every new net listed", ``],
   ["Schematic PDF (all sheets)", ``],
   ["Change log of every edit", ``],

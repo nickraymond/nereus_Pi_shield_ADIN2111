@@ -41,8 +41,9 @@ when you started. Report both.
 
 1. `CLAUDE.md`, `docs/TRACKER.md` (rules + current sprint), `docs/SPEC.md`
    (hard constraints, facts, open questions).
-2. The PR under review: `gh pr view <N>` and `gh pr diff <N>`, plus
-   `git log --oneline main..HEAD` and `git diff --stat main...HEAD`.
+2. The PR under review: `gh pr view <N>` and `gh pr diff <N>`. The baseline is the
+   PR's base commit, **not local `main`** (it can be stale): `B=$(gh pr view <N> --json
+   baseRefOid -q .baseRefOid)`, then `git log --oneline $B..HEAD`, `git diff --stat $B...HEAD`.
 3. `docs/design-review/changelog.md` (the sprint's section), `docs/DESIGN.md`
    (results table, ERC owners), `docs/DEV_LOG.md` (top entry).
 
@@ -57,10 +58,12 @@ schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
 - **Copper match:** `python3 tools/netcheck.py --netlist $QE/n.net --report $QE/netcheck.md`.
 - **Mid-wire pins:** `python3 tools/midwire.py` (report mode only).
 - **Tests:** `python3 tools/test_netcheck.py`, `test_midwire.py`, `test_schedit.py`.
-- **Before/after connectivity:** export the netlist of `main` *without
-  checking it out*: `git archive main nereus_Pi_shield_ADIN2111 | tar -x -C $QE/main`
-  then run kicad-cli on `$QE/main/...`. Compare pin-to-net groupings for parts
-  that exist in both; every change must be one the PR says it made.
+- **Before/after connectivity:** export the netlist of the base *without
+  checking it out* and run kicad-cli on `$QE/main/...`.
+- **ERC accounting:** `python3 tools/ercsum.py $QE/erc.rpt --items` (if present) and
+  check every error type/item has an owner in DESIGN.md. Compare pin-to-net groupings for parts
+  that exist in both; every change must be one the PR says it made. Use `$B`
+  (above), not `main`: `git archive $B nereus_Pi_shield_ADIN2111 | tar -x -C $QE/main`.
 - **Claims:** for each concrete claim (counts, references, pins on nets, parts
   deleted/kept, coordinates, "verified identical"), check it yourself.
 - **Hard constraints (SPEC.md):** no `.kicad_pcb` modified; reference designs and
