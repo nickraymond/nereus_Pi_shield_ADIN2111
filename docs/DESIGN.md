@@ -54,7 +54,13 @@ two local labels with the same name silently join their nets.
   own copper, so the opens come from the import, not the tool.
 - ERC reports aren't deterministic run to run (same violations, different
   example labels), so compare ERC by counts and types.
-- From S2 on, intended net changes will need an allowlist (not built yet).
+- Parts scheduled for deletion are listed in `docs/design-review/excluded_parts.txt`
+  and treated as already removed.
+- `tools/midwire.py` (also run by check.sh) flags any pin whose end sits mid-wire;
+  KiCad needs the wire split there, a junction alone isn't enough (measured).
+- Copper can't verify nets whose other end was a removed part: e.g. the ADIN SPI
+  went to the STM32. Those are checked from the netlist: `ADIN_MISO/MOSI/SCK/NSS/RST/INT`
+  each reach the Top-Level sheet from U1 (verified 2026-10-05), ready for S5.
 
 ## Decision log
 
@@ -76,3 +82,17 @@ two local labels with the same name silently join their nets.
 |---|---|---|---|---|
 | 2026-10-04 | S0.1 | 90 / 578 before and after the rename | Netlist identical apart from the library path | Rename confirmed safe; not the S0.4 baseline |
 | 2026-10-05 | S0.4 | 90 / 578 | 42/68 matched; **26 opens**, 0 shorts, 0 unpaired; 43 parts removed, 4 new | **Baseline.** Details in `docs/design-review/netcheck.md`. S1 target: 0 opens |
+| 2026-10-05 | S1 | 65 / 590 | **53/53 matched, 0 opens, 0 shorts** (14 S2-deletion parts excluded); midwire 0 | Import fixed. Edits in `docs/design-review/changelog.md` |
+
+**Remaining ERC errors after S1 (65), and who resolves each:**
+
+| Type | # | What | Resolved by |
+|---|---|---|---|
+| pin_not_connected | 16 | 12 test points on the S2 delete list; MTG1–4 mounting holes | S2; MTG1–4 Nick (board) |
+| label_dangling | 23 | Mezzanine leftovers (MZ_*, MCU_RESET, BOOT, LPUART*, PAYLOAD_*, IOEXP_INT, I2C_MUX_RST, BM_INT); ADIN_* and the ADIN sheet's CS/MISO/MOSI/SCK/RST labels waiting for the Pi header | S2 deletes; S5 wires |
+| power_pin_not_driven | 9 | U9.8, U5 (VIN/CB/SW), U6 (VIN/SW/VOS/GND): nets with no power-source flag | S2 PWR_FLAG; remainder justified in S6 |
+| unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
+
+Warnings (590) are cosmetic import leftovers: 426 off-grid endpoints (Altium
+coordinates such as `…0.0022`), 126 footprint-library links, 26 dangling wire
+ends, 12 duplicate net names (e.g. `PHY1_P`/`BM1_P` on the same wire).

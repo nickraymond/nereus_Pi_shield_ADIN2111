@@ -44,7 +44,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`.
 
 ### Project layout
 
@@ -52,7 +52,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -78,21 +78,26 @@ and `netcheck: 42/68 copper nets matched; 26 opens, 0 shorts`; open
 until S1 fixes the opens.
 **Result:** demo passed 2026-10-05 (Nick).
 
-### S1 — Fix the Altium import  `[ ]`
-- [ ] Fix the 26 opens in `docs/design-review/netcheck.md` (mostly single pins
-      on wire midpoints: test points, one cap pin, D4/D5 pin 1, R1 pin 1);
-      verify the 33 junctions while doing it
-- [ ] ADIN_VDDIO plain label → global label
-- [ ] Remove the unused Processor and USB sheet files
-- [ ] Number all `#PWR` symbols uniquely (clears the 65 duplicate-reference errors)
-- [ ] Baseline report: ERC + net check against the copper
-- [ ] Checkpoint: Nick opens it in KiCad (30-second look)
-**Demo (Nick):** `tools/check.sh` exits 0 → netcheck 0 opens, 0 shorts;
-ERC shows no duplicate-reference errors.
+### S1 — Fix the Altium import  `[x]`
+- [x] Fix the opens: 12 are mezzanine nets → `docs/design-review/excluded_parts.txt`
+      (S2 deletions); 21 pins sat mid-wire → wire split + junction (`tools/midwire.py`).
+      The 33-junction zip had never been applied, and tested alone it breaks
+      neighbouring connections in KiCad 9, so it was not used
+- [x] ADIN_VDDIO label: verified already on the ADIN_VDDIO net with the pull-ups; left as is
+- [x] Remove the unused Processor and USB sheet files
+- [x] Number all `#PWR` symbols uniquely (65 → `#PWR01`–`#PWR65`)
+- [x] Baseline report: netcheck 53/53, 0 opens; ERC 65/590, every error assigned (DESIGN.md)
+- [x] Checkpoint: Nick opens it in KiCad (30-second look)
+**Demo (Nick):** `tools/check.sh` exits 0 → `midwire: 0`, `netcheck: 53/53 …
+0 opens, 0 shorts; 14 parts excluded`, ERC `Errors 65  Warnings 590`. Then open
+the project in KiCad: the 21 fixed points are listed in
+`docs/design-review/changelog.md` (e.g. R8 on the PowerMon sheet now shows
+junctions at both ends).
+**Result:** demo passed and KiCad look OK (Nick, 2026-10-05).
 
 ### S2 — Mezzanine (P1) → Pi header; grounds  `[ ]`
 - [ ] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
-      (keep R10 and TP19)
+      (keep R10 and TP19); remove each from `docs/design-review/excluded_parts.txt`
 - [ ] Delete leftover STM32/mezzanine labels and wires (keep `ADIN_*`, `I2C1_*`)
 - [ ] Place `Connector:Raspberry_Pi_2_3` on Top-Level, footprint
       `Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical`

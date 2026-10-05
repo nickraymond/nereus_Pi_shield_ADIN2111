@@ -19,6 +19,26 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
+
+**Branch:** sprint/1-import-fix
+**Files touched:** ADIN2111, Load, Master, PoDL, PowerMon sheets; Processor/USB sheets deleted; tools/midwire.py (new); netcheck exclusions; docs
+**ERC:** 65 errors / 590 warnings (was 90/578)  ·  **Net diff:** 53/53 matched, 0 opens, 0 shorts (14 S2 parts excluded)
+**Done (Nick away; worked through the S1 checklist unattended, as Nick asked):**
+- Exclusion list for S2 deletions (P1, R9, 12 TPs), approved by Nick
+- 21 pins sat mid-wire (Altium connects them, KiCad doesn't): wire split + junction at each, via `tools/midwire.py --fix`
+- Orphan Processor/USB sheets deleted; 65 `#PWR?` numbered `#PWR01`–`#PWR65`
+- ADIN_VDDIO label verified correct, not changed; ADIN SPI/INT/RST verified to reach the Top-Level sheet
+- Every remaining ERC error assigned to a sprint (DESIGN.md); edit log in `docs/design-review/changelog.md`
+**Broke/surprised us:**
+- The 33-junction zip had never been applied to the live project. Applied wholesale it
+  fixed 4 nets but broke others (U9.1, U4.1/2, U1.39, U1.18/46, T1.6). Tested one junction
+  at a time: each connects its pin but knocks a neighbour off the same wire. Splitting the
+  wire is clean. The zip's 33 locations were right; the method wasn't
+- The "65 duplicate references" never showed in kicad-cli ERC, because the CLI numbers `#PWR?` in its own report
+- kicad-cli PDF size: `du` reported disk blocks; check.sh now prints real bytes
+**Next:** S1 demo passed and KiCad look OK (Nick, 2026-10-05) → S1 done. Next: S2, mezzanine → Pi header (plan nibble).
+
 ## 2026-10-05 — Sprint S0 — Net check built; baseline recorded
 
 **Branch:** sprint/0-net-check

@@ -60,6 +60,10 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
 - The Altium import breaks connectivity: the untouched reference mote
   schematic shows 38 opens against its own copper. Our project, with the
   junction fix, still shows 26. *(tools/netcheck.py, 2026-10-05)*
+- In KiCad 9.0.6, a pin whose end sits mid-wire is unconnected, and a junction
+  loaded from file at that point connects the pin but can disconnect a
+  neighbouring pin on the same wire. Splitting the wire at the pin works.
+  *(measured one junction at a time, 2026-10-05)*
 - kicad-cli ERC output isn't deterministic: two runs on the same file can name
   different example labels for the same violation. Compare ERC by counts and
   types, and do net checks on the exported netlist. *(measured 2026-10-04)*
