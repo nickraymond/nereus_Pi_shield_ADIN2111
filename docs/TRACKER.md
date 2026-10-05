@@ -136,7 +136,7 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
 **Result:** QE APPROVED WITH NITS (round 2); Nick approved; PR #7 merged (`09af9d8`), 2026-10-05.
 
 ### S4 — 5 V converter for the Pi (copy of U5)  `[~]`
-*Feeds from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter (this PR),
+*Feeds from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter (done),
 S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
 - [x] Copy U5 block with new refs above the mote board's highest (U10, L6, C53–C58, R37–R40, TP38)
 - [x] Rename copied local labels `3V3_*` → `5V_*`
@@ -146,15 +146,16 @@ S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
 - [x] `5V_PI` reaches the Top-Level sheet (new sheet pin, TP38, `5V_PI` label)
 - [x] QE review (fresh S4 session): **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S4.md`
 - [x] Nick's KiCad look — S4.a (PR #8 merged, `b394edb`)
-- [x] S4.b: JP1 bridged link `5V_PI` → `PI_5V` (Pi pins 2/4), #FLG03; footprint `nereus:R_1210_Bridged_NetTie`
+- [x] S4.b: JP1 bridged link `5V_PI` → `PI_5V` (Pi pins 2/4), #FLG03; footprint `nereus:SolderJumper-2_R1210_Bridged_NetTie`
       in a new project library `nereus.pretty` (D14, revises D5); midwire now sees J1's pins (tool fix)
 - [ ] S4.b: QE review (same S4 session) and Nick's KiCad look
 - [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
 - [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12),
       plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)
-**Demo (Nick):** `tools/check.sh` → ERC `Errors 78  Warnings 629`, `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
-excluded`, exit 0; `python3 tools/ercsum.py --items` lists U10 Pin 2 and Pin 6 under power_pin_not_driven;
-netlist net `5V_PI` = C56.2, C57.2, C58.1, L6.2, R37.1, TP38.1 (S4.a).
+**Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,
+0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py --items`: J1 pins list has no 2 and no
+J1 entry under power_pin_not_driven; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1,
+JP1.2, L6.2, R37.1, TP38.1 (S4.b; S4.a's was 78/629 without JP1).
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and

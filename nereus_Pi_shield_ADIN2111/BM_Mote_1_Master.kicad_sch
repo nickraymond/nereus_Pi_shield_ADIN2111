@@ -6446,7 +6446,7 @@
 		)
 		(uuid "e9418398-cacf-454f-8010-174e97cb6b9e")
 	)
-	(text "JP1 bridged as built: the shield powers the Pi (D5).\nCut the bridge before potting if the Pi gets power elsewhere\n(battery pack or USB); refit a 0R 1210 (CRCW12100000Z0EA) to reconnect."
+	(text "JP1 bridged as built: the shield powers the Pi (D14).\nCut the bridge before potting if the Pi gets power elsewhere (battery pack)\nor will ever have ANY USB cable plugged in (power or data port).\nRefit a 0R 1210 (CRCW12100000Z0EA) to reconnect."
 		(exclude_from_sim no)
 		(at 106.68 30.48 0)
 		(effects
@@ -14078,7 +14078,7 @@
 				)
 			)
 		)
-		(property "Footprint" "nereus:R_1210_Bridged_NetTie"
+		(property "Footprint" "nereus:SolderJumper-2_R1210_Bridged_NetTie"
 			(at 120.65 40.64 0)
 			(effects
 				(font

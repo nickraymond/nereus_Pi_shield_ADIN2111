@@ -1,8 +1,8 @@
-(footprint "R_1210_Bridged_NetTie"
+(footprint "SolderJumper-2_R1210_Bridged_NetTie"
 	(version 20241229)
 	(generator "nereus_tools")
 	(layer "F.Cu")
-	(descr "1210 (3225 metric) 0 ohm resistor pads, geometry from the Sofar mote's R11 (Vault:FP-CRCW1210-e3-IPC_B), joined by a 1.0 mm copper bridge (net tie): connected as fabricated. Cut the bridge to open; refit a 0 ohm 1210 (Vishay CRCW12100000Z0EA, as R11) to close again. No paste: nothing is placed by assembly.")
+	(descr "1210 (3225 metric) 0 ohm resistor pads, geometry from the Sofar mote's R11 (Vault:FP-CRCW1210-e3-IPC_B), joined by a 1.0 mm copper bridge (net tie): connected as fabricated. Cut the bridge to open; refit a 0 ohm 1210 (Vishay CRCW12100000Z0EA, as R11) to close again. To cut: score both ends of the bridge, lift the copper out, check open with a meter. No paste: nothing is placed by assembly.")
 	(tags "net tie jumper bridged 1210 0R cuttable")
 	(property "Reference" "REF**"
 		(at 0 -2.4 0)
@@ -15,7 +15,7 @@
 			)
 		)
 	)
-	(property "Value" "R_1210_Bridged_NetTie"
+	(property "Value" "SolderJumper-2_R1210_Bridged_NetTie"
 		(at 0 2.4 0)
 		(layer "F.Fab")
 		(uuid "ecf76e23-47cd-44e4-9ee7-20b945b1314f")

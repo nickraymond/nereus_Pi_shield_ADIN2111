@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-10-05 — Sprint S4.b — Shield powers the Pi through bridged link JP1; S4.a closed
 
 **Branch:** sprint/4b-pi-5v-jumper
-**Files touched:** BM_Mote_1_Master.kicad_sch; new nereus.pretty (R_1210_Bridged_NetTie) + fp-lib-table; tools/midwire.py (+ test); SPEC, DESIGN (D14, D5 superseded), TRACKER, viewer, changelog
+**Files touched:** BM_Mote_1_Master.kicad_sch; new nereus.pretty (SolderJumper-2_R1210_Bridged_NetTie) + fp-lib-table; tools/midwire.py (+ test); SPEC, DESIGN (D14, D5 superseded), TRACKER, viewer, changelog
 **ERC:** 76 errors / 629 warnings (was 78/629)  ·  **Net diff:** 53/53; existing connections identical; new net PI_5V
 **Done:**
 - S4.a closed: Nick's KiCad look OK, PR #8 merged (`b394edb`)

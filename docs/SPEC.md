@@ -147,9 +147,13 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   with the Pi's current from Raspberry Pi's documentation. — S4.c
 - The Pi Zero 2 W's undervoltage threshold, from a primary Raspberry Pi source
   (the bench check and the 4.82 V worst-case setpoint depend on it). — S4.c
-- With JP1 bridged, the Pi must never also get USB power: the two 5 V sources would
-  be tied together. Recorded in the schematic note, bench list and D14; a hardware
-  guard (ideal diode / load switch) is a later-revision idea. — S6 review
+- With JP1 bridged, the Pi must never also have a USB cable plugged in. Its power
+  micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
+  J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
+  reduced schematic). Failure modes: shield unpowered → USB 5 V back-feeds through L6
+  and U10's high-side body diode onto VBUS (bus side via L1, payload port via R11);
+  shield powered → two supplies fight. Hardware guard (reverse-blocking ideal diode
+  or power mux on 5V_PI) vs procedure only: Nick's call (QE S4.b F1). — S4.b
 - U10/L6 losses and temperature rise at the Pi's maximum load, potted: U10's
   RθJA is 107.8 °C/W (SLUSEF4A §7.4, JEDEC board), so ~0.4–0.6 W of IC loss is
   ~45–65 °C before any potting derating (SPEC constraint 8). — S4.c (QE S4 F2)

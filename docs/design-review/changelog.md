@@ -11,7 +11,7 @@ Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), above J1 (DESIGN D14):
 | JP1 `Jumper:SolderJumper_2_Bridged` (KiCad 9.0.6 stock) at (120.65, 40.64) | Not in BOM. Pin 2 → `5V_PI` label; pin 1 → J1 pin 2 (5V, pin 4 stacked) |
 | Net `PI_5V` | label on the tap to #FLG03 (PWR_FLAG); J1.2, J1.4, JP1.1 |
 | Text note | "JP1 bridged as built … cut … refit a 0R 1210 (CRCW12100000Z0EA)" |
-| Footprint `nereus:R_1210_Bridged_NetTie` (new `nereus.pretty` + project `fp-lib-table`) | Pads from the mote's R11 (1.2049 × 2.7062 mm at ±1.45065 mm, read from the reference board), 1.0 mm F.Cu bridge, net tie "1, 2", mask opened over the bridge, no paste, excluded from BOM and position files. Loads in kicad-cli (`fp export svg`) |
+| Footprint `nereus:SolderJumper-2_R1210_Bridged_NetTie` (new `nereus.pretty` + project `fp-lib-table`) | Pads from the mote's R11 (1.2049 × 2.7062 mm at ±1.45065 mm, read from the reference board), 1.0 mm F.Cu bridge, net tie "1, 2", mask opened over the bridge, no paste, excluded from BOM and position files. Loads in kicad-cli (`fp export svg`) |
 
 Tool: `midwire.lib_pins` skipped any library symbol whose name ends in `_<n>_<n>`
 (`Raspberry_Pi_2_3`), so J1's pins were invisible to midwire, the island graph and
