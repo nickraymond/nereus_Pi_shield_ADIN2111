@@ -42,7 +42,8 @@ what broke, what's next.*
   C56/C57. Fixed the regex, made it refuse partial parses, added a test. Also F2 thermal item
   scheduled (S4.c), demo line, D13 ripple basis/Vout band/TI Table 9-2, R38 citation, C58 nudged.
   Report: `qe/S4.md`
-**Next:** QE round 2, Nick's KiCad look, merge; then S4.b (jumper to Pi pins 2/4).
+- QE round 2 (same session): **APPROVED WITH NITS**; N1–N3 fixed (report typo, C58 10V text, bench item)
+**Next:** Nick's KiCad look, merge; then S4.b (jumper to Pi pins 2/4).
 
 ---
 

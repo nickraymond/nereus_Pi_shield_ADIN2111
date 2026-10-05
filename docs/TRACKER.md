@@ -144,7 +144,8 @@ S4.b jumper to the Pi, S4.c power budget + footprints. Values: DESIGN D13.*
 - [x] Inductor: L6 = PA5432.822NLT, same as L3 (Nick, 2026-10-05; Pulse P890.B)
 - [x] Output caps: C56/C57 22 µF 16 V GRM21BR61C226ME44L (0805), C58 4.7 µF 10 V GRM155R61A475MEAAD (0402)
 - [x] `5V_PI` reaches the Top-Level sheet (new sheet pin, TP38, `5V_PI` label)
-- [ ] QE review (fresh S4 session) and Nick's KiCad look — S4.a
+- [x] QE review (fresh S4 session): **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S4.md`
+- [ ] Nick's KiCad look — S4.a
 - [ ] S4.b: SolderJumper_2_Open from `5V_PI` to Pi pins 2 and 4
 - [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
 - [ ] S4.c: bus power budget estimate (shield + Pi + payload vs the 890 mA / ~20 W rating, D12),
