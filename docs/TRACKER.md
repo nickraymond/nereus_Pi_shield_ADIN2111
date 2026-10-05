@@ -104,7 +104,7 @@ the project in KiCad: the 21 fixed points are listed in
 junctions at both ends).
 **Result:** demo passed and KiCad look OK (Nick, 2026-10-05).
 
-### S2 — Mezzanine (P1) → Pi header; grounds  `[~]`
+### S2 — Mezzanine (P1) → Pi header; grounds  `[x]`
 - [x] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33
       (keep R10 and TP19); exclusion list now empty
 - [x] Delete leftover STM32/mezzanine labels and wires (14 labels, 5 orphan power
@@ -114,11 +114,12 @@ junctions at both ends).
 - [x] All Pi GND pins (6, 9, 14, 20, 25, 30, 34, 39) → GND; pins 1 and 17 no-connect flag
 - [x] PWR_FLAG on VBUS and GND
 - [x] QE review: **APPROVED** in round 3 (round 1 changes requested, round 2 nits; all fixed) — `docs/design-review/qe/S2.md`
-- [ ] Checkpoint: Nick looks at the Top-Level sheet in KiCad
+- [x] Checkpoint: Nick looks at the Top-Level sheet in KiCad (also confirmed S1's R8 junctions)
 **Demo (Nick):** `tools/check.sh` exits 0 → `netcheck: 53/53 … 0 opens, 0 shorts; 0 parts
 excluded`, ERC `Errors 76  Warnings 562` (−27/+38 vs S1; 30 are J1 pins for S4/S5).
 In KiCad: P1 gone, J1 in clear space with GND + PWR_FLAG below, an X on pin 1 (3V3).
 ERC detail: `python3 tools/ercsum.py --items` (every error has an owner in DESIGN.md).
+**Result:** QE APPROVED (round 3); demo passed and KiCad look OK (Nick, 2026-10-05).
 
 ### S3 — 50 W power path: inductors & design decisions  `[ ]`
 **Goal:** a ~50 W absolute-max (2.083 A at 24 V), potting-safe PoDL path with
