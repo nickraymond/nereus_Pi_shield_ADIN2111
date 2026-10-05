@@ -47,6 +47,9 @@ ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used 
 - QE round 2: CHANGES REQUESTED. F4 MAJOR: R11 (0 Ω across U9) is fitted in our files (and on the mote board),
   so U9 was bypassed — D17's premise was wrong. Nick: R11 DNP so the switch and limit work (S5). N6: U9
   replacement must handle output caps / hard shorts up to 32 V
+- QE round 3: CHANGES REQUESTED. F5 MAJOR: D17 contradicted SPEC hard constraint 7 (no power-path part
+  changes, naming U9/R34/R11). Nick explicitly amended constraint 7: payload load switch excepted (R11 DNP,
+  U9 replaced, R34/R33/R35 re-derived); everything else stays Sofar's. N7 D14 wording, N8 viewer line
 **Next:** QE round 2, Nick's review, merge; then S4.d (footprints) and the U9 replacement.
 
 ---

@@ -106,9 +106,10 @@ production (DESIGN D12).
 5. Every part value, pin number and rating carries a datasheet citation. No
    citation, no part: it goes in Open questions instead.
 6. `KiCAD_reference_designs/` and `Archive/` are read-only.
-7. The power path stays exactly as in the Sofar mote: no part in it (L1/L2,
-   D1–D3, U9/R34/R11, R8, C22/C23/R15/R16, …) changes value or part number.
-   The rating is the mote's: ~20 W absolute max = 890 mA per port inductor at
+7. The power path stays exactly as in the Sofar mote, except the payload load
+   switch: R11 is DNP and U9 (obsolete) is replaced by a function-equivalent part,
+   with R34/R33/R35 re-derived as needed (D17). L1/L2, D1–D3, R8, C22/C23/R15/R16
+   etc. stay unchanged. *(Amended by Nick, 2026-10-05, QE S4.c F5.)* The rating is the mote's: ~20 W absolute max = 890 mA per port inductor at
    24 V *(Sofar, More Power Delivery)*; anything new on the bus (the S4 5 V
    converter, the payload connector) is checked against it. *(Nick, 2026-10-05; DESIGN D12)*
 8. **The electronics are potted.** Parts kept from the Sofar mote design are
