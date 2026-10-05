@@ -44,7 +44,11 @@ what broke, what's next.*
   check it against copper/netlist before writing it. All N1–N7 fixed; ercsum hardened
 - Process: one standing QE session per sprint (Nick)
 - QE round 3 (same standing session): **APPROVED**; 2 nits (R1 log wording, R2 TRACKER date) fixed
-**Next:** Nick's KiCad look → merge → S2 done. Then S3 (50 W power path) or S4 (5 V converter).
+- Nick's KiCad look OK, via the worktree `open` command (his earlier S0/S1 looks had opened the
+  stale main checkout; this look also confirmed S1's R8 junctions). PR #5 merged (`5885820`)
+- Close-out slip: my close-out script failed on one HTML text match, but the chained git commands
+  still committed and merged TRACKER alone. This follow-up PR syncs the viewer and DEV_LOG
+**Next:** S2 done. Choose S3 (50 W power path) or S4 (5 V converter); fresh QE session for it.
 
 ## 2026-10-05 — Sprint S1 — Altium import fixed: 53/53 nets match the copper
 
