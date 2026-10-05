@@ -27,7 +27,7 @@ for f in erc.rpt netlist.net schematic.pdf; do
 done
 
 echo "ERC:      $(grep -o 'ERC messages: .*' "$OUT/erc.rpt")"
-echo "PDF:      $OUT/schematic.pdf ($(du -k "$OUT/schematic.pdf" | cut -f1) KB)"
+echo "PDF:      $OUT/schematic.pdf ($(( $(wc -c < "$OUT/schematic.pdf") / 1024 )) KB)"
 set +e
 python3 tools/netcheck.py --netlist "$OUT/netlist.net"
 status=$?

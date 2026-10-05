@@ -2,7 +2,7 @@
 """Unit tests for netcheck.py on tiny hand-written fixtures. Run: python3 tools/test_netcheck.py"""
 import unittest
 
-from netcheck import compare, netlist_connectivity, pcb_connectivity
+from netcheck import compare, netlist_connectivity, pcb_connectivity, read_exclusions
 
 PCB = """(kicad_pcb
   (footprint "R" (property "Reference" "R1")
@@ -50,6 +50,18 @@ class NetcheckTest(unittest.TestCase):
     def test_short_detected(self):
         r = run(netlist(("AB", ["R1.1", "R2.1", "TP1.1", "R1.2", "R2.2"])))
         self.assertEqual(list(r["shorts"]), ["AB"])
+
+    def test_exclusion_removes_open(self):
+        sch = netlist(("A", ["R1.1", "R2.1"]), ("unconnected-(TP1-Pad1)", ["TP1.1"]),
+                      ("B", ["R1.2", "R2.2"]))
+        pcb_nets, no_net = pcb_connectivity(PCB)
+        r = compare(pcb_nets, no_net, netlist_connectivity(sch), {"TP1": "dead", "X9": "gone"})
+        self.assertFalse(r["opens"])
+        self.assertEqual(r["excluded"], ["TP1"])
+        self.assertEqual(r["excluded_missing"], ["X9"])
+
+    def test_read_exclusions(self):
+        self.assertEqual(read_exclusions("# hdr\nP1   # mezz\n\nTP4\n"), {"P1": "mezz", "TP4": ""})
 
     def test_unpaired_pins(self):
         r = run(netlist(("A", ["R1.1", "R2.1", "TP1.1", "TP1.2"]), ("B", ["R1.2"])))

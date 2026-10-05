@@ -10,6 +10,9 @@ are compared.
   shorts : a schematic net that joins pins from several copper nets
   missing: a pin/pad on a shared part that exists on only one side
 
+Parts listed in the exclusion file (scheduled for deletion) are treated as
+already removed from both sides.
+
 Exit code 0 = connectivity matches, 1 = differences, 2 = bad input.
 Python standard library only.
 """
@@ -22,6 +25,17 @@ from pathlib import Path
 DEFAULT_PCB = "KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb"
 DEFAULT_NETLIST = "docs/design-review/out/netlist.net"
 DEFAULT_REPORT = "docs/design-review/netcheck.md"
+DEFAULT_EXCLUDE = "docs/design-review/excluded_parts.txt"
+
+
+def read_exclusions(text):
+    """Return {ref: reason} from 'REF  # reason' lines; blank and comment lines ignored."""
+    out = {}
+    for line in text.splitlines():
+        ref, _, reason = line.partition("#")
+        if ref.strip():
+            out[ref.strip()] = reason.strip()
+    return out
 
 
 def blocks(text, head):
@@ -87,10 +101,10 @@ def ref_of(node):
     return node.rsplit(".", 1)[0]
 
 
-def compare(pcb_nets, pcb_no_net, sch_nets):
+def compare(pcb_nets, pcb_no_net, sch_nets, excluded=()):
     pcb_refs = {ref_of(n) for v in pcb_nets.values() for n in v} | {ref_of(n) for n in pcb_no_net}
     sch_refs = {ref_of(n) for v in sch_nets.values() for n in v}
-    shared = pcb_refs & sch_refs
+    shared = (pcb_refs & sch_refs) - set(excluded)
 
     def restrict(nets):
         return {name: frozenset(n for n in nodes if ref_of(n) in shared)
@@ -117,6 +131,8 @@ def compare(pcb_nets, pcb_no_net, sch_nets):
         "pins_not_in_copper": sorted(set(sch_of) - all_pcb),
         "pads_not_in_schematic": sorted(set(pcb_of) - set(sch_of)),
         "only_pcb": sorted(pcb_refs - sch_refs), "only_sch": sorted(sch_refs - pcb_refs),
+        "excluded": sorted(set(excluded) & (pcb_refs | sch_refs)),
+        "excluded_missing": sorted(set(excluded) - (pcb_refs | sch_refs)),
     }
 
 
@@ -124,7 +140,7 @@ def natural(s):
     return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", s)]
 
 
-def render(r, pcb_path, netlist_path):
+def render(r, pcb_path, netlist_path, reasons=None):
     ok = not (r["opens"] or r["shorts"] or r["pins_not_in_copper"] or r["pads_not_in_schematic"])
     out = ["# Net check — schematic vs mote copper", "",
            f"*Copper: `{pcb_path}` · Schematic netlist: `{netlist_path}`*", "",
@@ -138,7 +154,17 @@ def render(r, pcb_path, netlist_path):
            f"| Copper pads with no schematic pin | {len(r['pads_not_in_schematic'])} |",
            f"| Parts only in copper (removed) | {len(r['only_pcb'])} |",
            f"| Parts only in schematic (new) | {len(r['only_sch'])} |",
+           f"| Parts excluded (scheduled for deletion) | {len(r['excluded'])} |",
            "", f"**Status: {'MATCH' if ok else 'DIFFERENCES'}**", ""]
+    if r["excluded"]:
+        reasons = reasons or {}
+        out += ["## Excluded parts", "", "Treated as already removed (see the exclusion file).", ""]
+        out += [f"- {ref} — {reasons.get(ref, '')}".rstrip(" —") for ref in sorted(r["excluded"], key=natural)]
+        out.append("")
+    if r["excluded_missing"]:
+        out += ["## Exclusion list entries no longer in either design", "",
+                "Delete these lines from the exclusion file: "
+                + ", ".join(sorted(r["excluded_missing"], key=natural)), ""]
     if r["opens"]:
         out += ["## Opens", "", "Pins joined in copper but split in the schematic, "
                 "grouped by the schematic net each pin landed on.", ""]
@@ -174,7 +200,16 @@ def main(argv=None):
     ap.add_argument("--pcb", default=DEFAULT_PCB, help="mote board (read-only)")
     ap.add_argument("--netlist", default=DEFAULT_NETLIST, help="kicadsexpr netlist from our schematic")
     ap.add_argument("--report", default=DEFAULT_REPORT, help="markdown report to write")
+    ap.add_argument("--exclude", default=DEFAULT_EXCLUDE,
+                    help="parts scheduled for deletion ('' to disable)")
     a = ap.parse_args(argv)
+    reasons = {}
+    if a.exclude:
+        if not Path(a.exclude).is_file():
+            print(f"netcheck: exclusion file not found: {a.exclude}\n"
+                  f"  hint: pass --exclude '' to run without one", file=sys.stderr)
+            return 2
+        reasons = read_exclusions(Path(a.exclude).read_text())
     for p in (a.pcb, a.netlist):
         if not Path(p).is_file() or Path(p).stat().st_size == 0:
             print(f"netcheck: missing or empty input: {p}\n"
@@ -186,14 +221,14 @@ def main(argv=None):
         print(f"netcheck: parsed no nets (copper {len(pcb_nets)}, schematic {len(sch_nets)}); "
               "is the file format right?", file=sys.stderr)
         return 2
-    r = compare(pcb_nets, pcb_no_net, sch_nets)
-    text, ok = render(r, a.pcb, a.netlist)
+    r = compare(pcb_nets, pcb_no_net, sch_nets, reasons)
+    text, ok = render(r, a.pcb, a.netlist, reasons)
     Path(a.report).parent.mkdir(parents=True, exist_ok=True)
     Path(a.report).write_text(text + "\n")
     print(f"netcheck: {len(r['matched'])}/{len(r['multi'])} copper nets matched; "
           f"{len(r['opens'])} opens, {len(r['shorts'])} shorts, "
-          f"{len(r['pins_not_in_copper'])}+{len(r['pads_not_in_schematic'])} unpaired pins "
-          f"→ {a.report}")
+          f"{len(r['pins_not_in_copper'])}+{len(r['pads_not_in_schematic'])} unpaired pins; "
+          f"{len(r['excluded'])} parts excluded → {a.report}")
     return 0 if ok else 1
 
 
