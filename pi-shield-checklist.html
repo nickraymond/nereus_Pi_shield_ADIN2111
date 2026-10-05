@@ -95,8 +95,8 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.b, your KiCad look</strong> <strong>S4.a done</strong> (PR #8 merged): 5 V converter U10. <strong>S4.b:</strong> the shield powers the Pi by default through JP1, a bridged copper link on R11-size 1210 pads (cut it before potting for a battery- or USB-powered Pi; refit a 0 Ω 1210 to reconnect). QE approved; next: your KiCad look.</p>
-    <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.c in review</strong> <strong>S4.b done</strong> (PR #9 merged): the shield powers the Pi through bridged link JP1. <strong>S4.c:</strong> power budget (docs only): Pi ≤ 1 A (D15), R38 kept (D16); payload switched and limited by U9 with R11 DNP (D17); U9 is obsolete, replacement queued in S5. QE approved; next: your review.</p>
+    <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
   <div class="legend">
@@ -186,12 +186,19 @@ const S = [
   ["Bring 5V_PI to the Top-Level sheet", `<p>New sheet pin, test point TP38 and a 5V_PI label, next to TP20 (3V3) and TP21 (1V8).</p>`, null, 1],
   ["S4.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2); your look OK; PR #8 merged.</p>`, "nick", 1],
   ["S4.b: JP1 bridged link from 5V_PI to Pi pins 2 and 4", `<p>Shield powers the Pi as built. Footprint <code>nereus:SolderJumper-2_R1210_Bridged_NetTie</code>: R11's 1210 pads joined by 1 mm of copper, no BOM part. Cut to isolate; refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect (D14).</p>`, null, 1],
-  ["S4.b: QE approved; your KiCad look", `<p>QE APPROVED (round 2). Look at the Top-Level sheet, above J1: JP1, PI_5V + PWR_FLAG, the note.</p>`, "nick"],
-  ["S4.c: make the copied parts' footprints findable", `<p>Extracted into a project library (<code>mote.pretty</code>) so your F8 can place them. The agent reads the board file but never writes it.</p>`],
-  ["S4.c: bus power budget estimate", `<p>Shield + Pi (incl. USB peripherals it powers) + payload against the 890 mA / ~20 W rating (D12), plus U10/L6 losses and temperature rise at the Pi's maximum load, potted. Flagged for review.</p>`]
+  ["S4.b: QE approved; your KiCad look", `<p>QE APPROVED (round 2); your look OK; PR #9 merged.</p>`, "nick", 1],
+
+  ["S4.c: power budget written", `<p><code>docs/design-review/power_budget.md</code>: bus headroom, U10/L6 losses, JP1 bridge (2.4 A at 10 °C rise), Pi supply voltage (the Zero has no undervoltage detector). U10's temperature is the binding limit: ~42–57 °C rise at 1 A, 90–121 °C at 2 A.</p>`, null, 1],
+  ["S4.c: Pi load ≤ 1 A (D15) and R38 13.7 kΩ (D16)", `<p>Your calls. Pi + its USB devices ≤ 1 A continuous; measure U10's case temperature at bring-up. R38 stays 13.7 kΩ; 13.5 kΩ is the fix if 5V_PI < 4.75 V at J1.</p>`, "nick", 1],
+  ["S4.c: payload port switched and limited (D17)", `<p>Your call: R11 DNP so U9 switches (SW_EN) and limits (≈ 0.74 A) the payload; payloads are small devices. Schematic change in S5.</p>`, "nick", 1],
+  ["S4.c: QE approved; your review of power_budget.md", `<p>QE APPROVED WITH NITS (round 4). Docs only; nothing to see in KiCad.</p>`, "nick"],
+  ["S4.d: make all footprints findable", `<p>Extract the mote board's 57 footprint IDs (167 instances; read only) into a project library named <code>Vault</code>, matching the board's IDs, so your F8 re-link changes nothing.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
+  ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) is fitted and bypasses the load switch (D17).</p>`],
+  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>Digi-Key: "no longer manufactured". Match the function: 36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD; ideally SO-8 pin-compatible; check output caps / hard shorts up to 32 V (D17).</p>`],
+  ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
 <tr><td>22</td><td>25</td><td>ADIN_INT</td></tr>
@@ -224,11 +231,11 @@ const S = [
   ["Pin map, power budget and BOM changes", ``]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
-  intro:"Send Q2–Q4 when ready; Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  intro:"Send Q2 and Q4 when ready (Q3 answered from the datasheet); Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
   items:[
   ["Q1 Fuse / e-fuse on the through-power path? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
   ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
-  ["Q3 What current limit does R34 set on the FPF2700?", `<p>We can't get the datasheet (onsemi link dead).</p>`],
+  ["Q3 What current limit does R34 set on the FPF2700? (answered, don't send)", `<p>From the datasheet you found: ≈ 0.74 A typical, 0.59–0.89 A.</p>`, null, 1],
   ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
   ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
 ]},
@@ -270,7 +277,8 @@ const S = [
   ["Measure 3.3 V, 1.8 V and 5V_PI", `<p>TP20 = 3.3 V, TP21 = 1.8 V; 5V_PI ≈ 4.98 V.</p>`],
   ["Plug in the Pi (JP1 bridged): no USB 5 V source on the Pi", `<p>Raise the limit to ~1 A. Never plug a charger, PC/laptop or self-powered hub into the Pi on a bridged board, shield powered or not: it ties a second 5 V to 5V_PI and can back-feed the bus through U10 (D14). USB peripherals the Pi powers are fine.</p>`],
   ["To isolate the Pi: cut JP1", `<p>Score both ends of the 1 mm bridge, lift the copper out, check open with a meter. Before potting. Refit a 0 Ω 1210 (CRCW12100000Z0EA) to reconnect.</p>`],
-  ["5V_PI holds up under load", `<p>Judge by droop from the measured no-load value (the setpoint itself can be 4.82–5.14 V, D13) and by margin above the Pi's undervoltage threshold, to be cited in S4.c.</p>`],
+  ["5V_PI holds up under load", `<p>5V_PI at J1 stays ≥ 4.75 V (USB VBUS minimum) under the real load; the setpoint itself can be 4.82–5.14 V (D13). The Zero 2 W has no undervoltage detector.</p>`],
+  ["Measure U10's case temperature under the real camera load", `<p>U10's heat is the binding limit (power_budget §3).</p>`],
   ["Check U10's SW node for jitter at full and light load", `<p>L6 is 2.5× TI's suggested inductance, so ripple is low; TI notes that weakens the peak-current comparator's signal-to-noise (QE S4 F5).</p>`]
 ]},
 { t:"Later", o:"nick", w:"Future", c:"--muted",

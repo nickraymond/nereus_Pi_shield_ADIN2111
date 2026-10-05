@@ -19,6 +19,42 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S4.c — Power budget (docs only); S4.b closed
+
+**Branch:** sprint/4c-power-budget
+**Files touched:** docs/design-review/power_budget.md (new); SPEC open questions, TRACKER, DESIGN results row, viewer, changelog
+**ERC:** 76 / 629 (unchanged)  ·  **Net diff:** none (docs only)
+**Done:**
+- S4.b closed: Nick's KiCad look OK, PR #9 merged (`11914fb`)
+- Budget from primary sources: RPi docs (Zero 2 W: 2 A PSU, 350 mA typical; **no undervoltage
+  detector on the Zero range**; all models want 5.1 V), RPi product brief (5 V 2.5 A), TI SLUSEF4A
+  Fig 7-2 efficiency, Pulse P890.B, ADI product page (ADIN2111 77 mW typ), IPC-2221
+- Findings: U10's temperature is the binding limit (≈ 42–57 °C rise at 1 A, 90–121 °C at 2 A), not the
+  bus; JP1 bridge fine (2.4 A at 10 °C rise). Proposals for Nick: P-S4c-1 Pi load ≤ 1 A continuous;
+  P-S4c-2 keep R38 13.7 kΩ (USB-range corners)
+- Split S4: footprints become S4.d (library named `Vault` to match the board's IDs)
+**Broke/surprised us:** analog.com and onsemi datasheets wouldn't download (timeouts / landing page);
+ADIN2111 2.4 V p-p power and the FPF2700 limit stay open (0.30 W allowance used for the 3.3 V domain)
+- Nick decided D15 (Pi ≤ 1 A) and D16 (R38 13.7 kΩ); Nick found the FPF2700 datasheet (Fairchild
+  Rev. 1.0.3): R34 sets ≈ 0.74 A typical, so Sofar Q3 is answered
+- QE round 1: CHANGES REQUESTED. F1 MAJOR: I'd missed Bristlemouth v1's 12 W per-module limit (already
+  in SPEC) — with a 1 A Pi the payload gets ≈ 6.2 W, and U9's 0.74 A limit doesn't enforce that →
+  P-S4c-3 for Nick. Also L1's 0.656 Ω drop/heat, thermal caveats + ψJT bench check, camera figures,
+  13.5 kΩ option, footprint count wording, Fig 7-2 legend note
+- Nick asked for a lifecycle check: **FPF2700MX (U9) is obsolete** (Digi-Key). Captured in S5 (replace with a
+  JLC-sourceable part) plus a whole-BOM lifecycle check before S6
+- Nick: payloads are small devices, keep Sofar's payload port (D17); U9 needs a JLC-sourceable replacement (S5)
+- QE round 2: CHANGES REQUESTED. F4 MAJOR: R11 (0 Ω across U9) is fitted in our files (and on the mote board),
+  so U9 was bypassed — D17's premise was wrong. Nick: R11 DNP so the switch and limit work (S5). N6: U9
+  replacement must handle output caps / hard shorts up to 32 V
+- QE round 3: CHANGES REQUESTED. F5 MAJOR: D17 contradicted SPEC hard constraint 7 (no power-path part
+  changes, naming U9/R34/R11). Nick explicitly amended constraint 7: payload load switch excepted (R11 DNP,
+  U9 replaced, R34/R33/R35 re-derived); everything else stays Sofar's. N7 D14 wording, N8 viewer line
+- QE round 4: **APPROVED WITH NITS**; N9 (three summary lines missing the D17 exception) fixed
+**Next:** Nick's review, merge; then the U9 replacement + R11 DNP, and S4.d (footprints).
+
+---
+
 ## 2026-10-05 — Sprint S4.b — Shield powers the Pi through bridged link JP1; S4.a closed
 
 **Branch:** sprint/4b-pi-5v-jumper

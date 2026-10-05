@@ -137,7 +137,7 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
 
 ### S4 — 5 V converter for the Pi (copy of U5)  `[~]`
 *Feeds from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter (done),
-S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
+S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D13, D14.*
 - [x] Copy U5 block with new refs above the mote board's highest (U10, L6, C53–C58, R37–R40, TP38)
 - [x] Rename copied local labels `3V3_*` → `5V_*`
 - [x] Set 5 V: R38 (copy of R23) = 13.7 kΩ RC0402FR-0713K7L; VREF 0.6 V confirmed (TI SLUSEF4A §7.5, §9.2.2.2)
@@ -149,16 +149,26 @@ S4.b link to the Pi, S4.c power budget + footprints. Values: DESIGN D13, D14.*
 - [x] S4.b: JP1 bridged link `5V_PI` → `PI_5V` (Pi pins 2/4), #FLG03; footprint `nereus:SolderJumper-2_R1210_Bridged_NetTie`
       in a new project library `nereus.pretty` (D14, revises D5); midwire now sees J1's pins (tool fix)
 - [x] S4.b: QE review (same S4 session): **APPROVED** in round 2 — `docs/design-review/qe/S4.md`
-- [ ] S4.b: Nick's KiCad look
-- [ ] S4.c: footprints for new parts extracted to `mote.pretty` (read board, never write it)
-- [ ] S4.c: bus power budget estimate (shield + Pi incl. USB peripherals it powers + payload vs the 890 mA / ~20 W rating, D12),
-      plus U10/L6 loss and temperature rise at the Pi's maximum load, potted (QE S4 F2)
+- [x] S4.b: Nick's KiCad look (PR #9 merged, `11914fb`)
+- [x] S4.c: bus power budget, U10/L6 losses, JP1 bridge current, Pi supply voltage → `docs/design-review/power_budget.md`
+- [x] S4.c: Nick decided D15 (Pi load ≤ 1 A continuous) and D16 (keep R38 13.7 kΩ)
+- [x] S4.c: payload port decided (D17): switched and limited by U9; R11 DNP and U9 replacement in S5
+- [x] S4.c: QE review (same S4 session): **APPROVED WITH NITS** in round 4, nit fixed — `docs/design-review/qe/S4.md`
+- [ ] S4.c: Nick's review of power_budget.md
+- [ ] S4.d: all footprints findable — extract the mote board's 57 footprints (read the board, never write it) into a
+      project library named `Vault` (matches the board's `Vault:` IDs; 57 footprint IDs, 167 instances) and point every footprint field at it
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,
 0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py --items`: J1 pins list has no 2 and no
 J1 entry under power_pin_not_driven; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1,
 JP1.2, L6.2, R37.1, TP38.1 (S4.b; S4.a's was 78/629 without JP1).
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
+- [ ] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
+- [ ] **Replace U9** (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
+      checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
+      ON, FLAGB/PGOOD; ideally SO-8 pin-compatible; cited, potting-safe; R34/R33/R35 values re-derived; check output-cap /
+      hard-short behaviour up to 32 V (FPF2700 Table 2 vs Eq. 2 conflict at 32 V for this limit; C50 is only 100 nF; QE N6)
+- [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and
       avoided (8, 10, 27, 28) pins free
 - [ ] ADIN_PWR 100 kΩ pull-down (unless AP22913 has one internally); ADIN_RST
