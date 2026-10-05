@@ -207200,18 +207200,6 @@
 			)
 		)
 	)
-	(group ""
-		(uuid "1a16aade-d520-46d8-8351-7de8c8087cf7")
-		(members "01b96979-3767-465e-860d-cb74d02fbec4" "140ab141-5030-4ff5-b2e5-4beb16a52d9b"
-			"2e2a54ff-3f80-49e6-8b96-7774d100165d" "3502b48e-37f4-46f9-bafa-5c0701b4fed2"
-			"42739761-a8cc-4068-aa5d-af0f623366a7" "4746b0ea-96bd-4cb2-a453-9c3c1976e716"
-			"4b5007fb-fc8c-4a8f-873d-0af83e837480" "66e78265-32b4-4fec-9f33-f6586f24821e"
-			"6926ee0c-c76a-4ac5-a6cc-85f8f678fedc" "80c6452e-7fe5-4819-85a8-14c3c01fbc1e"
-			"9e827152-f557-4cfe-b18c-4ad60227b42c" "afa3bc82-041c-437a-a1b0-9393848111c5"
-			"b4572f85-bd24-46f1-a50d-a6f1b581d357" "ca6581ce-8ac0-4b96-b22d-0b7eb6fc7d1c"
-			"e6135bfb-4872-457a-9a3a-cdbc4327b877" "f594ea08-848a-4021-904a-113f9c2cb6e9"
-		)
-	)
 	(embedded_fonts no)
 	(embedded_files
 		(file

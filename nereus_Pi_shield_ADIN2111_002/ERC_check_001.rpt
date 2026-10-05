@@ -1,0 +1,2356 @@
+ERC report (2026-10-04T21:24:22-0700, Encoding UTF8)
+
+***** Sheet /
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(1000 mils, 1843 mils): Graphic Text '${PCBPARTNAME}'
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(1900 mils, 3243 mils): Graphic Text '${PCBPARTNUMBER}'
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4050 mils, 3500 mils): Symbol #PWR0109 [3V3_BAR]
+    @(7800 mils, 4000 mils): Symbol #PWR0110 [3V3_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4050 mils, 4100 mils): Symbol #PWR0106 [GND_POWER_GROUND]
+    @(4050 mils, 5300 mils): Symbol #PWR0108 [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4050 mils, 5300 mils): Symbol #PWR0108 [GND_POWER_GROUND]
+    @(4350 mils, 6600 mils): Symbol #PWR0107 [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(3700 mils, 6300 mils): Label 'MCU_RESET'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4350 mils, 6600 mils): Symbol #PWR0107 [GND_POWER_GROUND]
+    @(5750 mils, 6600 mils): Symbol #PWR0111 [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4400 mils): Label 'MZ_BM_MISO'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4500 mils): Label 'MZ_BM_MOSI-TX3'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4600 mils): Label 'MZ_BM_SCK-RX3'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4700 mils): Label 'MZ_BM_CS'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4800 mils): Label 'BM_INT'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 4900 mils): Label 'IOEXP_INT'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 5200 mils): Label 'PAYLOAD_DE_CTS'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 5300 mils): Label 'PAYLOAD_RE_RTS'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 5400 mils): Label 'LPUART1_RX'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 5500 mils): Label 'LPUART1_TX'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(5750 mils, 6600 mils): Symbol #PWR0111 [GND_POWER_GROUND]
+    @(14500 mils, 8000 mils): Symbol #PWR0115 [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7800 mils, 4000 mils): Symbol #PWR0110 [3V3_BAR]
+    @(14100 mils, 4100 mils): Symbol #PWR0102 [3V3_BAR]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(6800 mils, 5600 mils): Label 'I2C_MUX_RST'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(8300 mils, 6300 mils): Label 'BOOT'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7600 mils, 7600 mils): Symbol #PWR0112 [VBUS_BAR]
+    @(11800 mils, 7400 mils): Symbol #PWR0114 [VBUS_BAR]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4100 mils): Label 'ADIN_MISO'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4200 mils): Label 'ADIN_MOSI'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4300 mils): Label 'ADIN_SCK'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4400 mils): Label 'ADIN_NSS'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4800 mils): Label 'ADIN_RST'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11600 mils, 4900 mils): Label 'ADIN_INT'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11800 mils, 7400 mils): Symbol #PWR0114 [VBUS_BAR]
+    @(15400 mils, 4100 mils): Symbol #PWR0104 [VBUS_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(14100 mils, 4100 mils): Symbol #PWR0102 [3V3_BAR]
+    @(14700 mils, 7300 mils): Symbol #PWR0117 [3V3_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(14250 mils, 4200 mils): Symbol #PWR0101 [1V8_BAR]
+    @(15100 mils, 7500 mils): Symbol #PWR0113 [1V8_BAR]
+[unannotated]: Item not annotated: #PWR?
+    ; error
+    @(14250 mils, 4200 mils): Symbol #PWR0101 [1V8_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(15400 mils, 4100 mils): Symbol #PWR0104 [VBUS_BAR]
+    @(3650 mils, 4700 mils): Symbol #PWR0105 [VBUS_OUT_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(15100 mils, 5200 mils): Symbol #PWR0103 [3V3_BAR]
+    @(7000 mils, 6093 mils): Symbol #PWR? [3V3_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(14700 mils, 7300 mils): Symbol #PWR0117 [3V3_BAR]
+    @(15100 mils, 5200 mils): Symbol #PWR0103 [3V3_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(14500 mils, 8000 mils): Symbol #PWR0115 [GND_POWER_GROUND]
+    @(14800 mils, 8000 mils): Symbol #PWR0116 [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(14800 mils, 8000 mils): Symbol #PWR0116 [GND_POWER_GROUND]
+    @(3100 mils, 3693 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(15100 mils, 7500 mils): Symbol #PWR0113 [1V8_BAR]
+    @(4050 mils, 3500 mils): Symbol #PWR0109 [3V3_BAR]
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(19440 mils, 14350 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(6000 mils, 5493 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(7750 mils, 7093 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7000 mils, 6093 mils): Symbol #PWR? [3V3_BAR]
+    @(10300 mils, 5793 mils): Symbol #PWR? [3V3_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7750 mils, 7093 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10700 mils, 5493 mils): Symbol #PWR? [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(9550 mils, 5893 mils): Label 'SW_PGOOD'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10300 mils, 5793 mils): Symbol #PWR? [3V3_BAR]
+    @(11000 mils, 6093 mils): Symbol #PWR? [3V3_BAR]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(9800 mils, 6793 mils): Label 'SW_FLAGB'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10700 mils, 5493 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(11500 mils, 5893 mils): Symbol #PWR? [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(10350 mils, 6493 mils): Hierarchical Label 'SW_PGOOD'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11000 mils, 6093 mils): Symbol #PWR? [3V3_BAR]
+    @(4900 mils, 2493 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11500 mils, 5893 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(2400 mils, 5293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(11100 mils, 6793 mils): Hierarchical Label 'SW_FLAGB'
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(3100 mils, 3693 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(3600 mils, 3793 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(3600 mils, 3793 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(5900 mils, 7793 mils): Symbol #PWR? [GND_POWER_GROUND]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 2893 mils): Hierarchical Label 'INT'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4900 mils, 2493 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+    @(10400 mils, 3893 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 3193 mils): Hierarchical Label 'CS'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 4393 mils): Hierarchical Label 'RST'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 4493 mils): Hierarchical Label 'SCK'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 4593 mils): Hierarchical Label 'MOSI'
+[label_dangling]: Label not connected to anything
+    ; error
+    @(4600 mils, 4693 mils): Hierarchical Label 'MISO'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(6300 mils, 3593 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(7600 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(5900 mils, 7793 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(5900 mils, 8993 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(5900 mils, 8993 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(6300 mils, 3593 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10400 mils, 3093 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10900 mils, 2993 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10400 mils, 3893 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+    @(10400 mils, 4193 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10400 mils, 4193 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+    @(10400 mils, 4693 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7600 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8100 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10900 mils, 2993 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(11300 mils, 3593 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10400 mils, 4693 mils): Symbol #PWR? [ADIN_VDDIO_BAR]
+    @(4050 mils, 4100 mils): Symbol #PWR0106 [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10000 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10400 mils, 3093 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8100 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8500 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11300 mils, 3593 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(11300 mils, 4093 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11500 mils, 2893 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(12000 mils, 2793 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8500 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8500 mils, 9393 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11300 mils, 4093 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(11300 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8900 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8900 mils, 9393 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(12000 mils, 2793 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(6000 mils, 5493 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(11300 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(11500 mils, 2893 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8500 mils, 9393 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8900 mils, 8293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8900 mils, 9393 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10000 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(3750 mils, 5443 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(4050 mils, 5443 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4050 mils, 5443 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(4950 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(2950 mils, 6543 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(3750 mils, 5443 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4950 mils, 5593 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8100 mils, 5843 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8100 mils, 5843 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(9150 mils, 7193 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(9150 mils, 7193 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10100 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10100 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(10850 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(10850 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(12350 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(12350 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(13250 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(13250 mils, 7543 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(7600 mils, 7600 mils): Symbol #PWR0112 [VBUS_BAR]
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(2400 mils, 5293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(2400 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4600 mils, 5293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(4600 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(8200 mils, 4393 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(13200 mils, 6293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(2400 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(4600 mils, 5293 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(4600 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(7700 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7700 mils, 9693 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(8200 mils, 4393 mils): Symbol #PWR? [GND_POWER_GROUND]
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(13200 mils, 6293 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(7000 mils, 6393 mils): Symbol #PWR? [GND_POWER_GROUND]
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[duplicate_reference]: Duplicate items #PWR?
+
+    ; error
+    @(7000 mils, 6393 mils): Symbol #PWR? [GND_POWER_GROUND]
+    @(2950 mils, 6543 mils): Symbol #PWR? [GND_POWER_GROUND]
+[unresolved_variable]: Unresolved text variable
+    ; error
+    @(14050 mils, 11243 mils): Graphic Text '${PCBPARTNUMBER}'
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4350 mils, 3500 mils): Symbol P1 [Designator_0_mirrored_c198d1f49c97...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(5750 mils, 3500 mils): Symbol P1 [Designator_0_c198d1f49c97548841516...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 4400 mils): Symbol TP4 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 4600 mils): Symbol TP9 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 4800 mils): Symbol TP11 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 5200 mils): Symbol TP14 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8150 mils, 4500 mils): Symbol TP6 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 5400 mils): Symbol TP16 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4900 mils, 8000 mils): Symbol TP36 [Designator_3_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8150 mils, 4700 mils): Symbol TP10 [Designator_2_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7650 mils, 5600 mils): Symbol TP18 [Designator_2_TEST_POINT_Sofar Ocea...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(7800 mils, 4000 mils): Horizontal Wire, length 800 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8150 mils, 4900 mils): Symbol TP12 [Designator_2_TEST_POINT_Sofar Ocea...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(8600 mils, 4100 mils): Horizontal Wire, length 800 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6750 mils, 4400 mils): Horizontal Wire, length 1850 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6650 mils, 4500 mils): Horizontal Wire, length 1950 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8150 mils, 5300 mils): Symbol TP15 [Designator_2_TEST_POINT_Sofar Ocea...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6550 mils, 4600 mils): Horizontal Wire, length 2050 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6450 mils, 4700 mils): Horizontal Wire, length 2150 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8150 mils, 5500 mils): Symbol TP17 [Designator_2_TEST_POINT_Sofar Ocea...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6350 mils, 4800 mils): Horizontal Wire, length 2250 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6250 mils, 4900 mils): Horizontal Wire, length 2350 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(5950 mils, 5200 mils): Horizontal Wire, length 2650 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(5750 mils, 5300 mils): Horizontal Wire, length 2850 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7900 mils, 6300 mils): Symbol TP33 [Designator_0_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(6800 mils, 7500 mils): Symbol R11 [Designator_2_1029c3af85768c4190bb7...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(5950 mils, 5400 mils): Horizontal Wire, length 2650 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6050 mils, 5500 mils): Horizontal Wire, length 2550 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(6150 mils, 5600 mils): Horizontal Wire, length 2450 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8000 mils, 6600 mils): Symbol R9 [Designator_0_RES_Altium Content Va...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8000 mils, 6800 mils): Symbol R10 [Designator_0_RES_Altium Content Va...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(5750 mils, 6300 mils): Horizontal Wire, length 2850 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8400 mils, 6600 mils): Symbol TP19 [Designator_3_TEST_POINT_Sofar Ocea...]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(8600 mils, 6700 mils): Horizontal Wire, length 200 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4100 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4200 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4300 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4400 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4700 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4800 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 4900 mils): Horizontal Wire, length 1600 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 5800 mils): Horizontal Wire, length 500 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(10600 mils, 5900 mils): Horizontal Wire, length 350 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11400 mils, 4700 mils): Symbol TP8 [Designator_2_mirrored_TEST_POINT_S...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12000 mils, 7300 mils): Symbol TP22 [Designator_3_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8750 mils, 12750 mils): Symbol FID1 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9350 mils, 12750 mils): Symbol FID2 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9942 mils, 12758 mils): Symbol FID3 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(14500 mils, 7200 mils): Symbol TP20 [Designator_3_TEST_POINT_Sofar Ocea...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10242 mils, 12758 mils): Symbol FID3 Hidden pin 0 [NC, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(14500 mils, 7900 mils): Symbol TP23 [Designator_3_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10542 mils, 12758 mils): Symbol FID4 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(14900 mils, 7400 mils): Symbol TP21 [Designator_3_TEST_POINT_Sofar Ocea...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10842 mils, 12758 mils): Symbol FID4 Hidden pin 0 [NC, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(14800 mils, 7900 mils): Symbol TP24 [Designator_3_TEST_POINT_Sofar Ocea...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11142 mils, 12758 mils): Symbol FID5 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11442 mils, 12758 mils): Symbol FID5 Hidden pin 0 [NC, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11742 mils, 12758 mils): Symbol FID6 [Designator_0_FIDUCIAL_Sofar Ocean ...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12042 mils, 12758 mils): Symbol FID6 Hidden pin 0 [NC, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12450 mils, 12650 mils): Symbol MTG1 [Designator_0_Symbol_Sofar Ocean Te...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12950 mils, 12650 mils): Symbol MTG2 [Designator_0_Symbol_Sofar Ocean Te...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(13450 mils, 12650 mils): Symbol MTG3 [Designator_0_Symbol_Sofar Ocean Te...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(13950 mils, 12650 mils): Symbol MTG4 [Designator_0_Symbol_Sofar Ocean Te...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(18600 mils, 4000 mils): Symbol TP3 [Designator_3_mirrored_TEST_POINT_S...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(18600 mils, 4300 mils): Symbol TP5 [Designator_1_mirrored_TEST_POINT_S...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(18600 mils, 4700 mils): Symbol TP7 [Designator_3_mirrored_TEST_POINT_S...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(18600 mils, 5000 mils): Symbol TP13 [Designator_1_mirrored_TEST_POINT_S...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(19100 mils, 3600 mils): Symbol MP1 [Designator_2_592fd666227962cf5a7f6...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(19100 mils, 4200 mils): Symbol MP2 [Designator_2_592fd666227962cf5a7f6...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(19100 mils, 4800 mils): Symbol MP3 [Designator_2_592fd666227962cf5a7f6...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(19100 mils, 5400 mils): Symbol MP4 [Designator_2_592fd666227962cf5a7f6...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5100 mils, 5293 mils): Horizontal Wire, length 2600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6000 mils, 5293 mils): Symbol C49 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(6000 mils, 5293 mils): Symbol C49 [Load_0_11868f565c42a9108669ba33697...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6000 mils, 5493 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6050 mils, 5893 mils): Symbol R34 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5100 mils, 6793 mils): Horizontal Wire, length 2600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(5950 mils, 6193 mils): Symbol R34 [Load_1_RES_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6050 mils, 6293 mils): Vertical Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 6093 mils): Symbol #PWR? Hidden pin  [3V3, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6050 mils, 7093 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 5693 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 6093 mils): Symbol R32 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 6093 mils): Horizontal Wire, length 600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7700 mils, 6093 mils): Symbol R32 [Load_2_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8300 mils, 5693 mils): Symbol U9 Pin 1 [VIN, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8300 mils, 5693 mils): Horizontal Wire, length 600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8500 mils, 5593 mils): Symbol U9 [Load_0_FAIR-FPF27XX-SOP-8_Altium C...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8300 mils, 5893 mils): Horizontal Wire, length 2250 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 6793 mils): Vertical Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8300 mils, 6293 mils): Vertical Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7750 mils, 7093 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7750 mils, 7093 mils): Horizontal Wire, length 550 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9500 mils, 5293 mils): Horizontal Wire, length 2300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8300 mils, 7093 mils): Horizontal Wire, length 1200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9500 mils, 5693 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9500 mils, 6093 mils): Horizontal Wire, length 250 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9750 mils, 6093 mils): Vertical Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 5893 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 5793 mils): Symbol #PWR? Hidden pin  [3V3, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9500 mils, 7093 mils): Vertical Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9750 mils, 6793 mils): Horizontal Wire, length 1350 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 6493 mils): Horizontal Wire, length 350 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 6493 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10700 mils, 5293 mils): Symbol C50 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10700 mils, 5293 mils): Symbol C50 [Load_0_11868f565c42a9108669ba33697...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10700 mils, 5493 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 6493 mils): Symbol TP34 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 6493 mils): Symbol R33 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10300 mils, 6493 mils): Symbol R33 [Load_1_1029c3af85768c4190bb7ad29bc...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10300 mils, 6593 mils): Symbol TP34 [Load_1_TEST_POINT_Sofar Ocean Tech...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11000 mils, 6093 mils): Symbol #PWR? Hidden pin  [3V3, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11500 mils, 5893 mils): Symbol D3 Pin 2 [A, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11500 mils, 5893 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11500 mils, 5893 mils): Symbol D3 [Load_1_c1678fac7984e62e0809fbf79c0...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11000 mils, 6793 mils): Symbol R35 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11000 mils, 6793 mils): Symbol TP35 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11000 mils, 6793 mils): Symbol R35 [Load_1_1029c3af85768c4190bb7ad29bc...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11000 mils, 6893 mils): Symbol TP35 [Load_1_TEST_POINT_Sofar Ocean Tech...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 3393 mils): Symbol C5 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 3393 mils): Horizontal Wire, length 3200 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(3100 mils, 3393 mils): Symbol C5 [ADIN_0_11868f565c42a9108669ba33697...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 3693 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 3693 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3600 mils, 3493 mils): Symbol C6 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(3600 mils, 3493 mils): Symbol C6 [ADIN_0_11868f565c42a9108669ba33697...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3600 mils, 3793 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3600 mils, 3793 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 2893 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4900 mils, 2493 mils): Symbol R1 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4900 mils, 2493 mils): Symbol #PWR? Hidden pin  [ADIN_VDDIO, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4800 mils, 2793 mils): Symbol R1 [ADIN_1_RES_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 3193 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 3793 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4800 mils, 3993 mils): Horizontal Wire, length 1500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 4293 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 4693 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 3093 mils): Horizontal Wire, length 1500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 3493 mils): Horizontal Wire, length 2700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 3593 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 3893 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 4193 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 4393 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 4493 mils): Horizontal Wire, length 1700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6300 mils, 4593 mils): Horizontal Wire, length 1700 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8100 mils, 3893 mils): Symbol U1 [ADIN_0_ADIN2111BCPZ_Sofar Ocean Te...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5600 mils, 7693 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5900 mils, 7693 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5900 mils, 7793 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 2593 mils): Horizontal Wire, length 2100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 2993 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 2693 mils): Horizontal Wire, length 1500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 3093 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 3193 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 3293 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 3093 mils): Vertical Wire, length 400 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7000 mils, 7793 mils): Symbol U2 [ADIN_2_AP22913CN4-7-Symbol-1_Sofar...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 2793 mils): Horizontal Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5600 mils, 8893 mils): Vertical Wire, length 1200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 3593 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 3193 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10200 mils, 2893 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5900 mils, 8893 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7300 mils, 7793 mils): Symbol U2 Pin A1 [VOUT, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7300 mils, 7793 mils): Symbol TP1 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10200 mils, 3293 mils): Vertical Wire, length 400 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10000 mils, 3893 mils): Symbol R3 [ADIN_0_RES-2_Altium Content Vault]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7300 mils, 7893 mils): Symbol TP1 [ADIN_1_TEST_POINT_Sofar Ocean Tech...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 4193 mils): Symbol U1 Pin 48 [P2_LED_1/P2_TX2P4_EN, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5900 mils, 8993 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 2893 mils): Symbol C4 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10400 mils, 2893 mils): Symbol C4 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10200 mils, 3593 mils): Horizontal Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10000 mils, 4193 mils): Symbol R5 [ADIN_0_RES-2_Altium Content Vault]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 3093 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 7793 mils): Horizontal Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10300 mils, 3593 mils): Symbol R2 [ADIN_0_RES-2_Altium Content Vault]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 7893 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 7893 mils): Symbol C9 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7600 mils, 7893 mils): Symbol C9 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 3893 mils): Symbol R3 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 4893 mils): Horizontal Wire, length 1400 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10000 mils, 4693 mils): Symbol R6 [ADIN_0_RES-2_Altium Content Vault]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9900 mils, 4993 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 3893 mils): Symbol #PWR? Hidden pin  [ADIN_VDDIO, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 3893 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 4193 mils): Symbol R5 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 7693 mils): Horizontal Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4093 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4093 mils): Symbol R4 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 4993 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10600 mils, 3593 mils): Symbol R2 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4193 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4193 mils): Symbol #PWR? Hidden pin  [ADIN_VDDIO, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 7793 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 8293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 8293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10900 mils, 2793 mils): Symbol C3 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10900 mils, 2793 mils): Symbol C3 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 5193 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 5193 mils): Symbol C7 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10000 mils, 5193 mils): Symbol C7 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10500 mils, 4093 mils): Symbol R4 [ADIN_0_RES-2_Altium Content Vault]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10900 mils, 2993 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 7893 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 7893 mils): Symbol C10 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8100 mils, 7893 mils): Symbol C10 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10300 mils, 4693 mils): Symbol R6 Pin 2 [2, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7000 mils, 8993 mils): Symbol U3 [ADIN_2_AP22913CN4-7-Symbol-1_Sofar...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4693 mils): Symbol #PWR? Hidden pin  [ADIN_VDDIO, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4693 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10200 mils, 5193 mils): Symbol Y1 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10200 mils, 5193 mils): Symbol Y1 [ADIN_0_5fba445d8d5f95165d6b3865099...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 5593 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10000 mils, 5593 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 7793 mils): Horizontal Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7300 mils, 8993 mils): Symbol TP2 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7300 mils, 8993 mils): Horizontal Wire, length 2100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7300 mils, 8993 mils): Symbol U3 Pin A1 [VOUT, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 8293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 8293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 7893 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 7893 mils): Symbol C11 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8500 mils, 7893 mils): Symbol C11 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 6893 mils): Symbol U1 Pin 2 [DNC, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7300 mils, 9093 mils): Symbol TP2 [ADIN_1_TEST_POINT_Sofar Ocean Tech...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11500 mils, 2693 mils): Symbol C2 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11500 mils, 2693 mils): Symbol C2 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 7793 mils): Horizontal Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 3593 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 3593 mils): Horizontal Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11500 mils, 2893 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 8293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 8293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 7893 mils): Symbol C12 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 7893 mils): Vertical Wire, length 100 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8900 mils, 7893 mils): Symbol C12 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 4093 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 4093 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 8893 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 8293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 8293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 7793 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 7893 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12000 mils, 2593 mils): Symbol C1 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12000 mils, 2593 mils): Symbol C1 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 4893 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12000 mils, 2793 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 7993 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 8993 mils): Symbol C13 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8500 mils, 8993 mils): Symbol C13 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8093 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11100 mils, 5593 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5193 mils): Symbol C8 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5193 mils): Horizontal Wire, length 200 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11300 mils, 5193 mils): Symbol C8 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 8693 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8193 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 8793 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5393 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8293 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8393 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5593 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5593 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 8993 mils): Symbol C14 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8900 mils, 8993 mils): Symbol C14 [ADIN_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 9393 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 9393 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8493 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 9393 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8900 mils, 9393 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10200 mils, 7993 mils): Symbol U1 [ADIN_0_ADIN2111BCPZ_Sofar Ocean Te...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 9093 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 4393 mils): Horizontal Wire, length 250 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 5093 mils): Horizontal Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 5093 mils): Vertical Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 5243 mils): Vertical Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3750 mils, 5093 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3750 mils, 5093 mils): Vertical Wire, length 150 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(3750 mils, 5243 mils): Symbol C29 [POWER_0_11868f565c42a9108669ba3369...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4050 mils, 5093 mils): Horizontal Wire, length 1000 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4050 mils, 5093 mils): Vertical Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3750 mils, 5443 mils): Symbol C29 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3750 mils, 5443 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4050 mils, 5243 mils): Symbol C30 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4050 mils, 5243 mils): Symbol C30 [POWER_0_b4654b650e69147ec39a6b967a...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 5943 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 5943 mils): Symbol R20 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2950 mils, 5943 mils): Symbol R20 [POWER_1_1029c3af85768c4190bb7ad29b...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 6043 mils): Horizontal Wire, length 1600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4050 mils, 5443 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 6143 mils): Symbol R22 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 6143 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4550 mils, 5293 mils): Horizontal Wire, length 500 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2850 mils, 6443 mils): Symbol R22 [POWER_1_RES_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2950 mils, 6543 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(5050 mils, 5193 mils): Symbol U5 [POWER_0_LMR51430YDDCR_Sofar Ocean ...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4950 mils, 5493 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(5050 mils, 5493 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4950 mils, 5593 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4550 mils, 6043 mils): Vertical Wire, length 750 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6650 mils, 5093 mils): Symbol U5 Pin 6 [CB, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6650 mils, 5093 mils): Horizontal Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6650 mils, 5293 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 5093 mils): Horizontal Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 5093 mils): Symbol C28 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7000 mils, 5093 mils): Symbol C28 [POWER_3_b4654b650e69147ec39a6b967a...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7150 mils, 5093 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7150 mils, 5293 mils): Horizontal Wire, length 250 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 5293 mils): Symbol L3 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7400 mils, 5293 mils): Symbol L3 [POWER_0_725321dda6339637d4d059423b...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 5493 mils): Horizontal Wire, length 950 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7800 mils, 5293 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 5293 mils): Vertical Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 5293 mils): Horizontal Wire, length 1050 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 5743 mils): Symbol C31 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8100 mils, 5743 mils): Symbol C31 [POWER_1_CAP-NP-2_Altium Content Va...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7600 mils, 6393 mils): Vertical Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 5843 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8100 mils, 5843 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 5293 mils): Horizontal Wire, length 950 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 5293 mils): Vertical Wire, length 100 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9150 mils, 5393 mils): Symbol R21 [POWER_3_1029c3af85768c4190bb7ad29b...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 6093 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 6093 mils): Symbol R21 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 6393 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 6393 mils): Horizontal Wire, length 1550 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 6493 mils): Symbol R23 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9150 mils, 6493 mils): Symbol R23 [POWER_3_1029c3af85768c4190bb7ad29b...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 5293 mils): Horizontal Wire, length 4000 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9150 mils, 7193 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 6943 mils): Horizontal Wire, length 750 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 6943 mils): Vertical Wire, length 1650 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 7243 mils): Symbol C33 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 7243 mils): Vertical Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10100 mils, 7243 mils): Symbol C33 [POWER_0_b4654b650e69147ec39a6b967a...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 7543 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 7543 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10850 mils, 6943 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10950 mils, 6943 mils): Symbol U6 Pin B1 [VIN, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10950 mils, 6943 mils): Symbol U6 [POWER_0_c4b2ba52c5c06523be8e235897...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10850 mils, 7243 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10950 mils, 7243 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10850 mils, 7443 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10850 mils, 7543 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10950 mils, 7443 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12250 mils, 6943 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12350 mils, 6943 mils): Symbol L4 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12350 mils, 6943 mils): Symbol L4 [POWER_0_725321dda6339637d4d059423b...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12250 mils, 7243 mils): Horizontal Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12350 mils, 7443 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12350 mils, 7543 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12350 mils, 7543 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12950 mils, 6943 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12950 mils, 7243 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13250 mils, 6943 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13250 mils, 6943 mils): Vertical Wire, length 250 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13250 mils, 7193 mils): Symbol C32 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(13250 mils, 7193 mils): Symbol C32 [POWER_0_11868f565c42a9108669ba3369...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13250 mils, 7393 mils): Vertical Wire, length 150 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13250 mils, 7543 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14100 mils, 6943 mils): Horizontal Wire, length 850 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1500 mils, 2493 mils): Horizontal Wire, length 1600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 2493 mils): Symbol D4 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(1700 mils, 2493 mils): Symbol D4 [PODL_3_2a623c39825ec74b79ff93836af...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 2893 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 3193 mils): Symbol C16 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2400 mils, 3193 mils): Symbol C16 [PODL_2_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 2693 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 2893 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 2893 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 3493 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 3493 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 3893 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 3893 mils): Horizontal Wire, length 1400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 3893 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 3093 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 3293 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 3493 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 3493 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 4093 mils): Symbol R14 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2400 mils, 4093 mils): Symbol R14 [PODL_3_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 2793 mils): Symbol T1 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 2793 mils): Horizontal Wire, length 1600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4000 mils, 2793 mils): Symbol T1 [PODL_0_mirrored_d649d023f56decee7d...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 3893 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 3193 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 4793 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 3593 mils): Horizontal Wire, length 1600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2300 mils, 5093 mils): Symbol C19 [PODL_1_CAP_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 3193 mils): Vertical Wire, length 1200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 5193 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 5193 mils): Symbol C19 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 5293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 4593 mils): Symbol C18 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 4593 mils): Vertical Wire, length 700 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4600 mils, 4593 mils): Symbol C18 [PODL_2_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 5293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1500 mils, 6893 mils): Horizontal Wire, length 1600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 6893 mils): Symbol D5 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(1700 mils, 6893 mils): Symbol D5 [PODL_3_2a623c39825ec74b79ff93836af...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 6893 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 7293 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7293 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 7593 mils): Symbol C24 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2400 mils, 7593 mils): Symbol C24 [PODL_2_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7493 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 7493 mils): Symbol T2 Pin 4 [4, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 7193 mils): Horizontal Wire, length 1600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4000 mils, 7193 mils): Symbol T2 [PODL_0_mirrored_d649d023f56decee7d...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 7893 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 7893 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7693 mils): Horizontal Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 3393 mils): Vertical Wire, length 1600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7893 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3000 mils, 7893 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 8293 mils): Horizontal Wire, length 1400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 8293 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(1700 mils, 8293 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 7593 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 8493 mils): Symbol R18 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2400 mils, 8493 mils): Symbol R18 [PODL_3_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(3100 mils, 8293 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 3393 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 7593 mils): Vertical Wire, length 1200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4000 mils, 7993 mils): Horizontal Wire, length 1600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 3693 mils): Vertical Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8200 mils, 3693 mils): Symbol C17 [PODL_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 3893 mils): Symbol C17 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 3893 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 4993 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 4993 mils): Horizontal Wire, length 3600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 3493 mils): Horizontal Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 4393 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8200 mils, 4393 mils): Horizontal Wire, length 2400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 9193 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 2893 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 3393 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 3393 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 3393 mils): Symbol L1 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(2300 mils, 9493 mils): Symbol C27 [PODL_1_CAP_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 9593 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 9593 mils): Symbol C27 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 4093 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(2400 mils, 9693 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9400 mils, 3493 mils): Symbol L1 [PODL_0_SRF1260-101M_Sofar Ocean Te...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 8993 mils): Symbol C25 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 8993 mils): Vertical Wire, length 700 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(4600 mils, 8993 mils): Symbol C25 [PODL_2_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 4093 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 5893 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 5993 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 2893 mils): Symbol R12 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 2893 mils): Horizontal Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10100 mils, 2893 mils): Symbol R12 [PODL_2_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 7193 mils): Vertical Wire, length 1500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 6393 mils): Horizontal Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(4600 mils, 9693 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8500 mils, 6593 mils): Horizontal Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 2893 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 4093 mils): Symbol R13 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10100 mils, 4093 mils): Symbol R13 [PODL_2_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 3493 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10600 mils, 3493 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 4093 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9200 mils, 6393 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9200 mils, 6593 mils): Vertical Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10600 mils, 4393 mils): Vertical Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 8693 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 3393 mils): Horizontal Wire, length 900 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(11300 mils, 3393 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8000 mils, 8693 mils): Horizontal Wire, length 1100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8000 mils, 8993 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8000 mils, 8993 mils): Symbol C26 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8000 mils, 8993 mils): Symbol C26 [PODL_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8400 mils, 8793 mils): Horizontal Wire, length 700 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8000 mils, 9193 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 8193 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 4993 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 9693 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7700 mils, 9693 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 8193 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(8000 mils, 9693 mils): Horizontal Wire, length 2600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 8693 mils): Symbol L2 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 5593 mils): Symbol C20 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11300 mils, 5593 mils): Symbol C20 [PODL_0_11868f565c42a9108669ba33697...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 4993 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 4993 mils): Horizontal Wire, length 500 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9400 mils, 8793 mils): Symbol L2 [PODL_0_SRF1260-101M_Sofar Ocean Te...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11300 mils, 6293 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 8193 mils): Symbol R17 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10100 mils, 8193 mils): Symbol R17 [PODL_2_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 5593 mils): Symbol C21 Pin 1 [1, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 5593 mils): Vertical Wire, length 600 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(11800 mils, 5593 mils): Symbol C21 [PODL_0_b4654b650e69147ec39a6b967a4...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9100 mils, 9393 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 8193 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 4993 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9400 mils, 9393 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 5093 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 5093 mils): Symbol R15 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 6293 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11800 mils, 6293 mils): Horizontal Wire, length 500 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12300 mils, 5293 mils): Symbol R15 [PODL_1_CRCW08057R50FKEAHP_Sofar Oc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 8693 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 5793 mils): Vertical Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(12300 mils, 5793 mils): Symbol C22 [PODL_0_a00bbbee19879c290e62620ae7e...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 8793 mils): Vertical Wire, length 600 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 5993 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 5993 mils): Symbol C22 Pin 1 [C, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10600 mils, 8793 mils): Horizontal Wire, length 200 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10100 mils, 9393 mils): Symbol R19 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(10100 mils, 9393 mils): Symbol R19 [PODL_2_1029c3af85768c4190bb7ad29bc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(12300 mils, 6293 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10400 mils, 9393 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 4993 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 5093 mils): Symbol R16 Pin 2 [2, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 5093 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(11200 mils, 8693 mils): Horizontal Wire, length 800 mils
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(11200 mils, 8693 mils): Horizontal Wire, length 800 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(13200 mils, 5293 mils): Symbol R16 [PODL_1_CRCW08057R50FKEAHP_Sofar Oc...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10600 mils, 9693 mils): Vertical Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 5793 mils): Vertical Wire, length 300 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(13200 mils, 5793 mils): Symbol C23 [PODL_0_a00bbbee19879c290e62620ae7e...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 5993 mils): Symbol C23 Pin 1 [C, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 5993 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 6293 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 6293 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(13200 mils, 6293 mils): Horizontal Wire, length 900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14100 mils, 4993 mils): Vertical Wire, length 500 mils
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(14100 mils, 5693 mils): Symbol D1 [PODL_1_SMA6F33A_Sofar Ocean Techno...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14100 mils, 5893 mils): Symbol D1 Pin 1 [ANODE, Passive, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14100 mils, 6293 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(14100 mils, 6293 mils): Horizontal Wire, length 1000 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15100 mils, 4993 mils): Horizontal Wire, length 1000 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15100 mils, 5393 mils): Vertical Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15100 mils, 5993 mils): Symbol D2 Pin 2 [A, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(15100 mils, 5993 mils): Symbol D2 [PODL_1_c1678fac7984e62e0809fbf79c0...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15100 mils, 6293 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(15600 mils, 4993 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6600 mils, 5893 mils): Horizontal Wire, length 1300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6600 mils, 6293 mils): Horizontal Wire, length 1300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 5893 mils): Symbol R8 Pin 2 [2, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(6900 mils, 6193 mils): Symbol R8 [P1_1_RES_Altium Content Vault_0]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 6393 mils): Symbol #PWR? Hidden pin  [GND, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7000 mils, 6393 mils): Horizontal Wire, length 400 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(6600 mils, 6993 mils): Horizontal Wire, length 800 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 6393 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 6493 mils): Vertical Wire, length 100 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 6493 mils): Symbol C15 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(7400 mils, 6493 mils): Symbol C15 [P1_0_b4654b650e69147ec39a6b967a45e...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 6693 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7900 mils, 6193 mils): Vertical Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7900 mils, 6193 mils): Symbol U4 Pin 1 [IN+, Input, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(8200 mils, 5993 mils): Symbol U4 [P1_0_INA232AIDDFR-Symbol-1_Sofar O...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7400 mils, 6993 mils): Horizontal Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7900 mils, 6993 mils): Vertical Wire, length 500 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(7900 mils, 6993 mils): Horizontal Wire, length 2900 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9500 mils, 5493 mils): Symbol R7 Pin 1 [1, Passive, Line]
+[footprint_link_issues]: The current configuration does not include the footprint library ''.
+    ; warning
+    @(9500 mils, 5493 mils): Symbol R7 [P1_3_1029c3af85768c4190bb7ad29bc67...]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9800 mils, 6293 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9800 mils, 6393 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(9800 mils, 6493 mils): Horizontal Wire, length 300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10800 mils, 5493 mils): Horizontal Wire, length 1300 mils
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(10800 mils, 6993 mils): Vertical Wire, length 1500 mils
+
+***** Sheet /Top-Level Schematic/
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 4400 mils): Symbol TP4 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 4600 mils): Symbol TP9 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 4800 mils): Symbol TP11 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 5200 mils): Symbol TP14 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8050 mils, 4500 mils): Symbol TP6 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 5400 mils): Symbol TP16 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8050 mils, 4700 mils): Symbol TP10 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7550 mils, 5600 mils): Symbol TP18 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8050 mils, 4900 mils): Symbol TP12 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(4900 mils, 8100 mils): Symbol TP36 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8050 mils, 5300 mils): Symbol TP15 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8050 mils, 5500 mils): Symbol TP17 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8000 mils, 6300 mils): Symbol TP33 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7300 mils, 8500 mils): Hierarchical Sheet Pin SW_FLAGB
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7300 mils, 8600 mils): Hierarchical Sheet Pin SW_PGOOD
+[pin_not_connected]: Pin not connected
+    ; error
+    @(11500 mils, 4700 mils): Symbol TP8 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(12000 mils, 7400 mils): Symbol TP22 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(9050 mils, 12750 mils): Symbol FID1 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(9650 mils, 12750 mils): Symbol FID2 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(14500 mils, 7300 mils): Symbol TP20 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(10242 mils, 12758 mils): Symbol FID3 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(14900 mils, 7500 mils): Symbol TP21 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(10842 mils, 12758 mils): Symbol FID4 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(11442 mils, 12758 mils): Symbol FID5 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(12042 mils, 12758 mils): Symbol FID6 Hidden pin 0 [NC, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(12450 mils, 12950 mils): Symbol MTG1 Pin 0 [0, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(12950 mils, 12950 mils): Symbol MTG2 Pin 0 [0, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(13450 mils, 12950 mils): Symbol MTG3 Pin 0 [0, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(13950 mils, 12950 mils): Symbol MTG4 Pin 0 [0, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(18600 mils, 4100 mils): Symbol TP3 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(18600 mils, 4200 mils): Symbol TP5 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(18600 mils, 4800 mils): Symbol TP7 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(18600 mils, 4900 mils): Symbol TP13 Pin 1 [1, Passive, Line]
+
+***** Sheet /Top-Level Schematic/ADIN/
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(4900 mils, 2493 mils): Symbol #PWR? Hidden pin  [ADIN_VDDIO, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(4900 mils, 2893 mils): Symbol R1 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8500 mils, 8993 mils): Symbol C13 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(8900 mils, 8993 mils): Symbol C14 Pin 1 [1, Passive, Line]
+
+***** Sheet /Top-Level Schematic/Load Switch/
+[pin_not_connected]: Pin not connected
+    ; error
+    @(6000 mils, 5293 mils): Symbol C49 Pin 1 [1, Passive, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(9500 mils, 5693 mils): Symbol U9 Pin 8 [VOUT, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(10700 mils, 5293 mils): Symbol C50 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(11500 mils, 5293 mils): Symbol D3 Pin 1 [C, Passive, Line]
+[multiple_net_names]: Both SW_ON and SW_EN are attached to the same items; SW_ON will be used in the netlist
+    ; warning
+    @(7850 mils, 6093 mils): Label 'SW_ON'
+    @(5100 mils, 6793 mils): Hierarchical Label 'SW_EN'
+[multiple_net_names]: Both VBUS_P and VBUS_OUT are attached to the same items; VBUS_P will be used in the netlist
+    ; warning
+    @(9600 mils, 5293 mils): Label 'VBUS_P'
+    @(11800 mils, 5293 mils): Hierarchical Label 'VBUS_OUT'
+
+***** Sheet /Top-Level Schematic/PoDL/
+[pin_not_connected]: Pin not connected
+    ; error
+    @(1700 mils, 2493 mils): Symbol D4 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(1700 mils, 6893 mils): Symbol D5 Pin 1 [1, Passive, Line]
+[multiple_net_names]: Both PHY1_P and BM1_P are attached to the same items; PHY1_P will be used in the netlist
+    ; warning
+    @(1800 mils, 2493 mils): Label 'PHY1_P'
+    @(1500 mils, 2493 mils): Hierarchical Label 'BM1_P'
+[multiple_net_names]: Both PHY1_N and BM1_N are attached to the same items; PHY1_N will be used in the netlist
+    ; warning
+    @(1800 mils, 3893 mils): Label 'PHY1_N'
+    @(1500 mils, 3893 mils): Hierarchical Label 'BM1_N'
+[multiple_net_names]: Both DATA1_P and BM1_DATA_P are attached to the same items; DATA1_P will be used in the netlist
+    ; warning
+    @(4900 mils, 2793 mils): Label 'DATA1_P'
+    @(5600 mils, 2793 mils): Hierarchical Label 'BM1_DATA_P'
+[multiple_net_names]: Both DATA1_N and BM1_DATA_N are attached to the same items; DATA1_N will be used in the netlist
+    ; warning
+    @(4900 mils, 3593 mils): Label 'DATA1_N'
+    @(5600 mils, 3593 mils): Hierarchical Label 'BM1_DATA_N'
+[multiple_net_names]: Both PHY2_P and BM2_P are attached to the same items; PHY2_P will be used in the netlist
+    ; warning
+    @(10900 mils, 8693 mils): Label 'PHY2_P'
+    @(1500 mils, 6893 mils): Hierarchical Label 'BM2_P'
+[multiple_net_names]: Both PHY2_N and BM2_N are attached to the same items; PHY2_N will be used in the netlist
+    ; warning
+    @(8400 mils, 8793 mils): Label 'PHY2_N'
+    @(1500 mils, 8293 mils): Hierarchical Label 'BM2_N'
+[multiple_net_names]: Both DATA2_P and BM2_DATA_P are attached to the same items; DATA2_P will be used in the netlist
+    ; warning
+    @(4900 mils, 7193 mils): Label 'DATA2_P'
+    @(5600 mils, 7193 mils): Hierarchical Label 'BM2_DATA_P'
+[multiple_net_names]: Both DATA2_N and BM2_DATA_N are attached to the same items; DATA2_N will be used in the netlist
+    ; warning
+    @(4900 mils, 7993 mils): Label 'DATA2_N'
+    @(5600 mils, 7993 mils): Hierarchical Label 'BM2_DATA_N'
+
+***** Sheet /Top-Level Schematic/PoDL/Power Monitor/
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7000 mils, 5893 mils): Symbol R8 Pin 2 [2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(7000 mils, 6293 mils): Symbol R8 Pin 1 [1, Passive, Line]
+
+***** Sheet /Top-Level Schematic/Power Regulators/
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(5050 mils, 5093 mils): Symbol U5 Pin 3 [VIN, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(6650 mils, 5093 mils): Symbol U5 Pin 6 [CB, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(6650 mils, 5293 mils): Symbol U5 Pin 2 [SW, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(10950 mils, 6943 mils): Symbol U6 Pin B1 [VIN, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(12250 mils, 6943 mils): Symbol U6 Pin B2 [SW, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(12250 mils, 7243 mils): Symbol U6 Pin A2 [VOS, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(12250 mils, 7443 mils): Symbol U6 Pin A1 [GND, Power input, Line]
+[multiple_net_names]: Both 3V3_Buck_Input and VBUS are attached to the same items; 3V3_Buck_Input will be used in the netlist
+    ; warning
+    @(4050 mils, 5093 mils): Label '3V3_Buck_Input'
+    @(2700 mils, 4393 mils): Hierarchical Label 'VBUS'
+[multiple_net_names]: Both 1V8_Buck_Input and 3V3 are attached to the same items; 1V8_Buck_Input will be used in the netlist
+    ; warning
+    @(10150 mils, 6943 mils): Label '1V8_Buck_Input'
+    @(14100 mils, 5293 mils): Hierarchical Label '3V3'
+
+ ** ERC messages: 733  Errors 155  Warnings 578

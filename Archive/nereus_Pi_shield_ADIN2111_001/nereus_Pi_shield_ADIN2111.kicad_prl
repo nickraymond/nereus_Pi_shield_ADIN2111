@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 2,
+    "active_layer": 43,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -31,7 +31,6 @@
     "visible_items": [
       "vias",
       "footprint_text",
-      "footprint_anchors",
       "ratsnest",
       "grid",
       "footprints_front",
@@ -45,11 +44,11 @@
       "pads",
       "zones",
       "drc_warnings",
-      "locked_item_shadows",
+      "drc_exclusions",
       "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "00000000_00000000_00000000_02000000",
+    "visible_layers": "ffffffff_ffffffff_fffffd75_57ff5000",
     "zone_display_mode": 0
   },
   "git": {
@@ -58,11 +57,13 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "UrchinCam_01.kicad_prl",
+    "filename": "nereus_Pi_shield_ADIN2111.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
     "col_hidden": [
+      false,
+      false,
       false,
       false,
       false,
@@ -88,21 +89,25 @@
       8,
       9,
       10,
-      11
+      11,
+      12,
+      13
     ],
     "col_widths": [
-      18,
-      15,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      10,
-      57
+      156,
+      141,
+      103,
+      71,
+      103,
+      103,
+      103,
+      74,
+      103,
+      103,
+      103,
+      103,
+      103,
+      103
     ],
     "custom_group_rules": [],
     "expanded_rows": [],
