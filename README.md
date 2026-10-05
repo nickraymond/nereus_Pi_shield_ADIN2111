@@ -1,57 +1,26 @@
-# Agent Process Template
+# nereus_Pi_shield_ADIN2111
 
-Sofar-style agent discipline, parameterized. This folder mirrors a real repo's
-layout exactly — starting a new project is copy-and-fill.
+A Raspberry Pi Zero 2W shield built from a copy of the Sofar Bristlemouth mote:
+ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus, 5 V for the Pi,
+a 24 V payload port, and a 50 W nominal power path at 24 V.
 
-```
-SPEC.md      ─┐  what OWNER wants      ┌─ DESIGN.md    ─┐
-TRACKER.md   ─┴──► code generation ────┤                ├─ what it did
-                        │              └─ DEV_LOG.md   ─┘
-                        ▼
-                    the thing
-```
+Claude Code does the schematic capture, up to a design-review package. Nick
+reviews, lays out, routes and brings up the board.
 
-## Contents (mirrors repo root)
+## Folders
 
 ```
-CLAUDE.md                      always-loaded router + engineering values
-.claude/skills/agent-entry/    session-start ritual  → /agent-entry
-.claude/skills/capture-task/   tracker capture       → /capture-task
-docs/SPEC.md                   goal, verified facts, constraints, open questions
-docs/TRACKER.md                rules + sprint ladder (the agent entry point)
-docs/DESIGN.md                 as-built architecture + decision log
-docs/DEV_LOG.md                session log, newest first
-docs/PROMPTS.md                owner's kickoff prompts (verbatim, fill <N>/<slug>)
+nereus_Pi_shield_ADIN2111/   live KiCad 9 project — open the .kicad_pro
+docs/                        spec, tracker, design log, power-path study
+docs/design-review/          ERC, netlist, PDF and the review package
+KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)
+Archive/                     earlier iterations, junction fix (read-only)
+pi-shield-checklist.html     visual walkthrough (reference; progress lives in docs/TRACKER.md)
 ```
 
-## Starting a new project
+## Working on it
 
-1. Copy everything in this folder into the new repo root (including the hidden
-   `.claude/` directory — check it survived the copy).
-2. Find-and-replace across all files: `{{OWNER}}` → your name,
-   `{{PROJECT}}` → project name, `{{DATE}}` → today.
-3. Fill `docs/SPEC.md` (goal, verified facts, non-goals) and the TRACKER.md
-   sprint ladder. DESIGN.md / DEV_LOG.md start near-empty — agents fill them.
-4. Add project code dirs; update the layout lines in CLAUDE.md and TRACKER.md.
-5. First session: paste the "New sprint" prompt from docs/PROMPTS.md.
-
-## Division of labor (why each file exists)
-
-- **CLAUDE.md** — loaded every session, kept short: points at the ritual,
-  carries only timeless engineering values. One home per rule; no duplicates.
-- **Skills** — procedures, loaded on demand. Repo-local so the repo controls
-  them. Do NOT copy these into `~/.claude/skills/` — a same-named personal
-  skill silently overrides every repo's version.
-- **docs/** — all project state. Prompts stay constant; requirements go in
-  SPEC/TRACKER, never in chat.
-
-## The rules (summary — full text in docs/TRACKER.md)
-
-- TRACKER cover-to-cover every session; skim SPEC + DESIGN; top 3 DEV_LOG entries
-- Bites ~300 LoC, one TODO at a time
-- Four nibbles: plan (OWNER gate) → code+tests → manual tests (OWNER runs,
-  copy-pastable CLI) → PR
-- Feature branch for ALL new work (`sprint/<n>-<slug>`); never commit to main
-- Every sprint ends with a live demo OWNER can run
-- DEV_LOG entry every session; DESIGN updated on any decision
-- Facts carry sources; unknowns get flagged, not guessed
+- Agents: start with `CLAUDE.md`, then `/agent-entry`.
+- People: `docs/TRACKER.md` shows where things stand; `docs/SPEC.md` says what
+  we're building and why.
+- Close KiCad before an agent edits the project.
