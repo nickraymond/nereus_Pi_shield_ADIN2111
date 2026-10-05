@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S3 in review</strong> <strong>S3:</strong> your call, this board keeps Sofar's power path unchanged (D12); docs only, no schematic change. Next: S4 (5 V converter).</p>
+    <p><strong>Updated 2026-10-05 · Now: S3, your docs review</strong> <strong>S3:</strong> your call, this board keeps Sofar's power path unchanged (D12); docs only, no schematic change; QE approved. Next: S4 (5 V converter).</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it. 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -172,7 +172,8 @@ const S = [
   items:[
   ["Define the rating", `<p>First ~50 W (D8); then, to cut risk on the first board, the mote's own ~20 W with every power-path part kept (D12). The design has years in the field and already powers your cameras.</p>`, "nick", 1],
   ["Record the decision in the docs", `<p>SPEC, DESIGN (D12; D7/D8 superseded), POWER_PATH (deferred), SOFAR_QUESTIONS (Q5 deferred), TRACKER and this page. No schematic change: ERC 76/562 and netcheck 53/53, same as S2.</p>`, null, 1],
-  ["QE review, then your review of the docs diff", `<p>Fresh S3 QE session first. Nothing to see in KiCad for this one.</p>`]
+  ["Quality Engineer review: APPROVED WITH NITS", `<p>Fresh S3 session. Round 1: CHANGES REQUESTED (README, Sofar Q1), fixed. Round 2: <strong>APPROVED WITH NITS</strong>, fixed. The QE now sends its reports straight to the design session. Report: <code>docs/design-review/qe/S3.md</code>.</p>`, "agent", 1],
+  ["Your review of the docs diff", `<p>PR #7. Nothing to see in KiCad for this one.</p>`, "nick"]
 ]},
 { t:"S4 — 5 V converter for the Pi (copy of U5)", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Option A: copy of the proven LMR51430 3.3 V converter, set to 5 V, fed from VBUS on the mote's unchanged power path (D12).",

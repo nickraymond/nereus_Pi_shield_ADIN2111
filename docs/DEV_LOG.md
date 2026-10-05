@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-10-05 — Sprint S3 — Keep Sofar's power path for this board (D12)
 
 **Branch:** sprint/3-power-path
-**Files touched:** SPEC, DESIGN (D12; D7/D8 superseded), POWER_PATH (deferred banner), SOFAR_QUESTIONS (Q5 deferred), TRACKER, checklist viewer, CLAUDE.md, /agent-entry; no schematic change
+**Files touched:** SPEC, DESIGN (D12; D7/D8 superseded), POWER_PATH (deferred banner), SOFAR_QUESTIONS (Q1, Q5 deferred), TRACKER, checklist viewer, README, CLAUDE.md, /agent-entry, PROMPTS §5, quality-engineer.md, qe/S3.md; no schematic change
 **ERC:** 76 errors / 562 warnings (unchanged)  ·  **Net diff:** 53/53, 0 opens, 0 shorts (unchanged)
 **Done:**
 - Nick chose S3 next, then decided to cut risk on the first board: keep the mote's power path
@@ -31,15 +31,17 @@ what broke, what's next.*
 - 50 W deferred to a later spin, scoped with the future motor load; the S3 inductor/e-fuse
   work moved to the TRACKER Icebox with its evidence kept in POWER_PATH.md
 - S4 power budget and the S5 payload connector now check against 890 mA
-**Broke/surprised us:** nothing. I proposed asking Sofar whether 20 W holds when potted;
-Nick declined (field-proven), so no Q6
 - QE round 1 (fresh S3 session): CHANGES REQUESTED, schematic side all clean. I'd missed the
   README headline (still ~50 W) and left Sofar Q1 (e-fuse, worded for 50 W) as "send now"
   while its work moved to the Icebox. Fixed: README matches SPEC; Q1 deferred like Q5; Q3
   wording, POWER_PATH S3 references and the TRACKER demo line fixed. Report: `qe/S3.md`
 - Process (Nick): the QE sends its report straight to the design session when done; Nick
-  doesn't relay. Written into TRACKER rule 3.4 and `quality-engineer.md`
-**Next:** QE review (fresh S3 session), Nick's docs review, merge; then S4 (5 V converter).
+  doesn't relay. Written into TRACKER rule 3.4, `quality-engineer.md` and PROMPTS §5
+- QE round 2 (same session, report sent to me directly): **APPROVED WITH NITS**; all 5 fixed
+  (PR body, process wiring, DEV_LOG layout, TRACKER demo line, qe/S3.md wording)
+**Broke/surprised us:** nothing in the design. I proposed asking Sofar whether 20 W holds
+when potted; Nick declined (field-proven), so no Q6
+**Next:** Nick's docs review, merge; then S4 (5 V converter).
 
 ---
 

@@ -129,9 +129,10 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
 - [x] Nick defines the rating — first ~50 W (D8), then the mote's ~20 W for this board (D12)
 - [x] Record D12 in SPEC, DESIGN, POWER_PATH, SOFAR_QUESTIONS (Q5 deferred), TRACKER and the viewer;
       no schematic change
-- [ ] QE review (fresh S3 session), then Nick reviews the docs diff (nothing to see in KiCad)
+- [x] QE review (fresh S3 session): **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S3.md`
+- [ ] Nick reviews the docs diff (nothing to see in KiCad)
 **Demo (Nick):** `tools/check.sh` → unchanged from S2: ERC `Errors 76  Warnings 562`,
-`netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches only docs, the viewer, README, CLAUDE.md and the skill.
+`netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches only docs, the viewer, README, CLAUDE.md, the skill and the QE role file.
 
 ### S4 — 5 V converter for the Pi (copy of U5)  `[ ]`
 *Feeds from VBUS on the mote's unchanged power path (D12).*

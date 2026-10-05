@@ -50,9 +50,11 @@ return to the current bite — do not start work on it.
 
 ```
 Spawn the Quality Engineer review of PR #<N> (<sprint>) as a separate session
-(task chip), never a sub-agent. When it finishes, save its report to
-docs/design-review/qe/<sprint>.md, post it on the PR, and tell me the verdict.
-Fix anything it hands back and spawn a new review until it approves. Don't merge.
+(task chip), never a sub-agent; later rounds go to the same session. Put your
+session id in every request so the QE sends its report back to you. Save each
+report to docs/design-review/qe/<sprint>.md, post it on the PR, fix anything it
+hands back and send the next round until it approves; then tell me the verdict.
+Don't merge.
 ```
 
 ## 6 — Layout question (no edits)
