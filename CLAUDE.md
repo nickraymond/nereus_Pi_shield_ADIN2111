@@ -17,8 +17,9 @@ Docs map — read per the ritual, don't skip it:
 - `docs/PROMPTS.md` — Nick's kickoff prompts
 - `pi-shield-checklist.html` — shared visual view of TRACKER; keep it in sync every PR
 
-Layout: `nereus_Pi_shield_ADIN2111/` is the live KiCad project; `docs/design-review/`
-holds check outputs; `KiCAD_reference_designs/` and `Archive/` are read-only.
+Layout: `nereus_Pi_shield_ADIN2111/` is the live KiCad project; `tools/check.sh`
+runs every check; `docs/design-review/` holds check outputs;
+`KiCAD_reference_designs/` and `Archive/` are read-only.
 
 ## Engineering values (apply to every bite)
 

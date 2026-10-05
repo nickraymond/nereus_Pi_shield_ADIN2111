@@ -57,6 +57,9 @@ over SPI. The commercial mote's PoDL magnetics limit it to ~20 W, so reaching
   damping network. *(`BM_Mote_1_PoDL.kicad_sch`)*
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
+- The Altium import breaks connectivity: the untouched reference mote
+  schematic shows 38 opens against its own copper. Our project, with the
+  junction fix, still shows 26. *(tools/netcheck.py, 2026-10-05)*
 - kicad-cli ERC output isn't deterministic: two runs on the same file can name
   different example labels for the same violation. Compare ERC by counts and
   types, and do net checks on the exported netlist. *(measured 2026-10-04)*

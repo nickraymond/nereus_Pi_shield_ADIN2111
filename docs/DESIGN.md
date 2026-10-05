@@ -39,9 +39,22 @@ Reserved: 26 (CE1), 29, 32, 33 (motor). Avoid: 27, 28 (HAT EEPROM), 8, 10 (conso
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
 
-**Net-check method:** *(S0.3)* Note: ERC reports aren't deterministic run to
-run (same violations, different example labels), so compare ERC by counts and
-types; nets are compared from the exported netlist only.
+**Net-check method** (`tools/netcheck.py`, run by `tools/check.sh`):
+- **Truth:** pad-to-net assignments in the mote board
+  `KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb`
+  (read-only).
+- **Candidate:** the kicadsexpr netlist exported from our schematic.
+- **Compare connectivity, not names** (the import renamed nets). Only parts
+  present in both are compared; nodes are `REF.PIN` = `REF.PAD`.
+- **Reports:** opens (a copper net split across schematic nets), shorts (a
+  schematic net joining copper nets), unpaired pins/pads on shared parts,
+  removed and new parts. Exit 0 only if there are no opens, shorts or unpaired pins.
+- **Validated:** unit tests on fixtures; the TP22→VBUS open was confirmed by hand
+  in both files; the untouched reference schematic shows 38 opens against its
+  own copper, so the opens come from the import, not the tool.
+- ERC reports aren't deterministic run to run (same violations, different
+  example labels), so compare ERC by counts and types.
+- From S2 on, intended net changes will need an allowlist (not built yet).
 
 ## Decision log
 
@@ -62,3 +75,4 @@ types; nets are compared from the exported netlist only.
 | Date | Sprint | ERC errors / warnings | Net diff vs copper | Notes |
 |---|---|---|---|---|
 | 2026-10-04 | S0.1 | 90 / 578 before and after the rename | Netlist identical apart from the library path | Rename confirmed safe; not the S0.4 baseline |
+| 2026-10-05 | S0.4 | 90 / 578 | 42/68 matched; **26 opens**, 0 shorts, 0 unpaired; 43 parts removed, 4 new | **Baseline.** Details in `docs/design-review/netcheck.md`. S1 target: 0 opens |

@@ -19,6 +19,24 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S0 — Net check built; baseline recorded
+
+**Branch:** sprint/0-net-check
+**Files touched:** tools/ (new), .gitignore, docs/design-review/netcheck.md, docs/*, checklist HTML
+**ERC:** 90 errors / 578 warnings  ·  **Net diff:** 42/68 matched, 26 opens, 0 shorts
+**Done:**
+- `tools/netcheck.py` (stdlib, 5 unit tests) compares schematic connectivity
+  with the mote copper; `tools/check.sh` runs ERC + netlist + PDF + netcheck
+- Baseline in DESIGN.md; every open listed in `docs/design-review/netcheck.md`
+**Broke/surprised us:**
+- The junction fix isn't complete: 26 copper nets are still split, mostly
+  single pins on wire midpoints (TP20/21/22, C13/C14, D4/D5 pin 1, R1 pin 1, …)
+- The untouched reference schematic has 38 opens against its own copper, so
+  this is import damage
+- The probe's 48/74 became 42/68 in the tool: same opens, minus 6 trivially
+  matched single-pin nets
+**Next:** S0 demo passed (Nick, 2026-10-05) → S0 done. Next: S1, fixing the 26 opens (plan nibble).
+
 ## 2026-10-04 — Sprint S0 — Project renamed, junk untracked, rating defined
 
 **Branch:** sprint/0-repo-baseline

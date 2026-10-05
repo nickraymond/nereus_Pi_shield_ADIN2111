@@ -35,22 +35,24 @@
    load the schematic and ERC must run, or the edit is not done.
 9. **The board is Nick's.** Answer layout and routing questions; don't act on them.
 
-### Check commands
+### Check command
 
 ```bash
-K=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
-P=nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch
-$K sch erc --severity-all -o docs/design-review/erc.rpt "$P"
-$K sch export netlist -o docs/design-review/netlist.net "$P"
-$K sch export pdf -o docs/design-review/schematic.pdf "$P"
+tools/check.sh
 ```
+
+This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
+go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
+is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
+`python3 tools/test_netcheck.py`.
 
 ### Project layout
 
 ```
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
-docs/design-review/           check outputs + the final review package
+docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
+tools/                        check.sh, netcheck.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -63,27 +65,30 @@ pi-shield-checklist.html      shared visual view of this tracker (agents keep it
 
 State key: `[ ]` pending · `[~]` in progress · `[x]` done · `[!]` blocked
 
-### S0 — Repo & baseline  `[~]`
+### S0 — Repo & baseline  `[x]`
 **Goal:** one live project and a repeatable check.
 - [x] S0.1 Rename `nereus_Pi_shield_ADIN2111_002/` → `nereus_Pi_shield_ADIN2111/`
       (stray `.kicad_pro` was byte-identical; removed. ERC 90/578 unchanged)
 - [x] S0.2 Untrack files now covered by `.gitignore` (58 files; still on disk)
-- [ ] S0.3 Net-check method: extract kept nets from the mote `.kicad_pcb`
-      and diff them against the exported netlist; record the method in DESIGN.md
-- [ ] S0.4 First ERC + net-check baseline recorded in DESIGN.md
-**Demo (Nick):** run the check commands → ERC report, netlist and PDF appear;
-the counts match DESIGN.md.
-**Needs:** Nick closes KiCad.
+- [x] S0.3 Net-check method: `tools/netcheck.py` + `tools/check.sh`; method in DESIGN.md
+- [x] S0.4 First baseline in DESIGN.md: ERC 90/578; netcheck 42/68 matched, 26 opens, 0 shorts
+**Demo (Nick):** `tools/check.sh` → `ERC messages: 668  Errors 90  Warnings 578`
+and `netcheck: 42/68 copper nets matched; 26 opens, 0 shorts`; open
+`docs/design-review/netcheck.md` to see every open. Exit code 1 is expected
+until S1 fixes the opens.
+**Result:** demo passed 2026-10-05 (Nick).
 
 ### S1 — Fix the Altium import  `[ ]`
-- [ ] Verify the 33 junctions are present; re-apply if not
+- [ ] Fix the 26 opens in `docs/design-review/netcheck.md` (mostly single pins
+      on wire midpoints: test points, one cap pin, D4/D5 pin 1, R1 pin 1);
+      verify the 33 junctions while doing it
 - [ ] ADIN_VDDIO plain label → global label
 - [ ] Remove the unused Processor and USB sheet files
 - [ ] Number all `#PWR` symbols uniquely (clears the 65 duplicate-reference errors)
 - [ ] Baseline report: ERC + net check against the copper
 - [ ] Checkpoint: Nick opens it in KiCad (30-second look)
-**Demo (Nick):** check commands → no duplicate-reference errors; net diff
-shows every kept net matches the copper.
+**Demo (Nick):** `tools/check.sh` exits 0 → netcheck 0 opens, 0 shorts;
+ERC shows no duplicate-reference errors.
 
 ### S2 — Mezzanine (P1) → Pi header; grounds  `[ ]`
 - [ ] Delete P1, R9 and test points TP4, 6, 9, 10, 11, 12, 14, 15, 16, 17, 18, 33

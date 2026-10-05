@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-04 · Now: S0, repo &amp; baseline</strong> (S0.1–S0.2 done; next S0.3, the net-check method)</p>
+    <p><strong>Updated 2026-10-05 · Now: S1, fix the Altium import</strong> <strong>S0 done.</strong> Next: S1, fix the import (26 opens → 0)</p>
     <p><strong>Rating:</strong> ~50 W absolute max = 2.083 A per port inductor at 24 V, on the same basis as Sofar's 20 W mote. <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -142,13 +142,14 @@ const S = [
   ["S0.1 Rename the live project folder", `<p><code>nereus_Pi_shield_ADIN2111_002/</code> → <code>nereus_Pi_shield_ADIN2111/</code>. The stray <code>.kicad_pro</code> was byte-identical and is removed. ERC 90 errors / 578 warnings before and after; netlist identical.</p>`, null, 1],
   ["S0.2 Untrack files .gitignore covers", `<p>58 autosave zips, <code>.kicad_prl</code>, <code>fp-info-cache</code>, <code>.DS_Store</code>. Still on disk.</p>`, null, 1],
   ["Checkpoint: you open it in KiCad", `<p>All sheets open, no missing symbols.</p>`, "nick", 1],
-  ["S0.3 Net-check method", `<p>Extract kept nets from the mote's <code>.kicad_pcb</code> copper and diff them against the exported netlist. ERC is compared by counts and types, because its text isn't deterministic run to run.</p>`],
-  ["S0.4 First ERC + net-check baseline recorded", `<p>In DESIGN.md.</p>`]
+  ["S0.3 Net-check method", `<p><code>tools/check.sh</code> runs ERC, netlist, PDF and <code>tools/netcheck.py</code>, which compares our connectivity with the mote's copper (ignoring net names). ERC is compared by counts, because its text isn't deterministic run to run.</p>`, null, 1],
+  ["S0.4 First baseline recorded", `<p>ERC 90 errors / 578 warnings. Netcheck 42/68 copper nets matched, <strong>26 opens</strong>, 0 shorts; every open is listed in <code>docs/design-review/netcheck.md</code>.</p>`, null, 1],
+  ["Run the S0 demo", `<p><code>tools/check.sh</code> → ERC 668 and <code>netcheck: 42/68 … 26 opens, 0 shorts</code>. Passed 2026-10-05.</p>`, "nick", 1]
 ]},
 { t:"S1 — Fix the Altium import", o:"agent", w:"Claude Code", c:"--sch",
   intro:"Pins touching the middle of a wire aren't connected in KiCad. The fix adds junctions; the agent verifies and finishes the import clean-up.",
   items:[
-  ["Verify the 33 junctions are present", `<p>If not, re-apply them. The board's copper is the reference: every kept net must match it.</p>`],
+  ["Fix the 26 opens from the net check", `<p>Mostly single pins sitting on wire midpoints: TP20/21/22, C13/C14, D4/D5 pin 1, R1 pin 1, and others. Verify the 33 junctions while doing it. Target: <code>tools/check.sh</code> exits 0.</p>`],
   ["Change the ADIN_VDDIO plain label to a global label", `<p>So it joins the ADIN_VDDIO power symbols (powers pull-ups R1/R3/R5/R6).</p>`],
   ["Remove the unused Processor and USB sheet files", `<p>No sheet references them, so only the files need deleting.</p>`],
   ["Number all #PWR power symbols uniquely", `<p>Clears the 65 duplicate-reference errors. Real part numbers stay the same.</p>`],
