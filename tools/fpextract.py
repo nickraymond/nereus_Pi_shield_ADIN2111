@@ -17,25 +17,11 @@ instance of the same name: pad numbers, pad sizes (the matching copper side for
 flipped parts), the multiset of pad-to-pad distances, and exact pad centres after
 placing a copy of the library footprint the way the instance is placed (flipped
 for back-side instances), so a mirrored library would fail. Exit 1 on mismatch.
-
-Deliberate library fixes (S5.g, DESIGN D24) that verify allows for: the PoDL
-threaded inserts' SMD pad is unnumbered on the board, so a new layout couldn't
-put the bus net on it; the library pad is "1" (RENUMBER_SMD). 3D models are not
-compared.
 """
 import itertools
 import math
 import sys
 from pathlib import Path
-
-
-# footprint name -> {board SMD pad number: library pad number}
-RENUMBER_SMD = {"78614015360-Footprint-2": {"": "1"}}
-
-
-def renumbered(number, is_smd, mapping):
-    """Library pad number expected for a board pad (deliberate fixes only touch SMD pads)."""
-    return mapping.get(number, number) if (is_smd and mapping) else number
 
 
 def choose_instance(instances):
@@ -57,7 +43,7 @@ def _instances_by_name(board):
     return out
 
 
-def _local_pads(fp, layer=None, renumber=None):
+def _local_pads(fp, layer=None):
     """[(number, (w, h), (x, y) relative to the footprint, unrotated)] in mm.
 
     KiCad's y axis points down, so undoing an orientation θ is the textbook
@@ -74,8 +60,7 @@ def _local_pads(fp, layer=None, renumber=None):
         x, y = pcbnew.ToMM(d.x), pcbnew.ToMM(d.y)
         xr, yr = x * math.cos(ang) - y * math.sin(ang), x * math.sin(ang) + y * math.cos(ang)
         s = p.GetSize(layer)
-        num = renumbered(p.GetNumber(), p.GetAttribute() == pcbnew.PAD_ATTRIB_SMD, renumber)
-        out.append((num, tuple(sorted((round(pcbnew.ToMM(s.x), 3), round(pcbnew.ToMM(s.y), 3)))),
+        out.append((p.GetNumber(), tuple(sorted((round(pcbnew.ToMM(s.x), 3), round(pcbnew.ToMM(s.y), 3)))),
                     (xr, yr)))
     return out
 
@@ -121,8 +106,7 @@ def verify(board_path, out_dir, names):
             continue
         lp = _local_pads(lib)
         for inst, flipped in by[name]:
-            fix = RENUMBER_SMD.get(name)
-            bp = _local_pads(inst, pcbnew.B_Cu if flipped else pcbnew.F_Cu, fix)
+            bp = _local_pads(inst, pcbnew.B_Cu if flipped else pcbnew.F_Cu)
             ref = inst.GetReference()
             if sorted(n for n, _, _ in lp) != sorted(n for n, _, _ in bp):
                 problems.append(f"{name} vs {ref}: pad numbers differ")
@@ -139,8 +123,7 @@ def verify(board_path, out_dir, names):
             placed.SetOrientation(inst.GetOrientation())
             placed.SetPosition(inst.GetPosition())
             a = sorted((p.GetNumber(), pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in placed.Pads())
-            b = sorted((renumbered(p.GetNumber(), p.GetAttribute() == pcbnew.PAD_ATTRIB_SMD, fix),
-                        pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in inst.Pads())
+            b = sorted((p.GetNumber(), pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in inst.Pads())
             if not all(na == nb and _close((xa, ya), (xb, yb)) for (na, xa, ya), (nb, xb, yb) in zip(a, b)):
                 problems.append(f"{name} vs {ref}{' (back)' if flipped else ''}: placed pad positions differ")
     return problems

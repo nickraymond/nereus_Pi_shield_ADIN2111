@@ -2,22 +2,22 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
-## S5.g — Footprint library fixes (2026-10-06, branch `sprint/5g-footprint-fixes`)
+## S5.g — Footprint library 3D fixes (2026-10-06, branch `sprint/5g-footprint-fixes`)
 
-Library `mote.pretty` (`Vault`) only, D24; no schematic change:
+Library `mote.pretty` (`Vault`) only, D24; no schematic change, no pad change:
 
 | Footprint | Change |
 |---|---|
-| 78614015360-Footprint-2 (MP1–MP4, PoDL inserts) | SMD pad `""` → `"1"`; model `FST-000629.STEP` opacity 0 → 1 |
+| 78614015360-Footprint-2 (MP1–MP4, PoDL inserts) | model `FST-000629.STEP` opacity 0 → 1 (pads untouched: contact question → Sofar Q6) |
 | CAPC1608X100X20ML10 (C31) | + `Capacitor_SMD.3dshapes/C_0603_1608Metric.step` |
 | CAPC2013X145X50LL20T25 (C19, C27) | + `Capacitor_SMD.3dshapes/C_0805_2012Metric.step` |
 | CRCW08057R50FKEAHP-Footprint-1 (R15, R16) | + `Resistor_SMD.3dshapes/R_0805_2012Metric.step` |
 | RESC1005X40X25LL05T10 (R22, R34, R40), RESC1005X40X25ML05T10 (R1), RESC1005X40X25NL05T10 (R10's, unused) | + `Resistor_SMD.3dshapes/R_0402_1005Metric.step` |
 | RESC1608X60X55ML20T10 (R8) | + `Resistor_SMD.3dshapes/R_0603_1608Metric.step` |
 
-`tools/fpextract.py`: `RENUMBER_SMD` declares the insert pad fix (+ test). **Verified:** `fpextract --verify` 0 problems
-(8 if the fix map is cleared: pad numbers and placed pads on all four inserts); all 8 footprints load in KiCad's pcbnew
-with their model at opacity 1; ERC/netcheck unchanged (schematic untouched).
+**Verified:** `fpextract --verify` 0 problems (pads identical to the board); all 8 footprints load in pcbnew with their
+model at opacity 1; ERC/netcheck unchanged. A first draft also renumbered the insert pad and taught fpextract about it;
+both reverted after QE S5.g F1 (the bus contact is a front copper ring) and Nick's call to ask Sofar first.
 
 ## S5.d — Payload connector J5 (2026-10-06, branch `sprint/5d-payload-connector`)
 

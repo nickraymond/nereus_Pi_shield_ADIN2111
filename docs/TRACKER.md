@@ -193,11 +193,12 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the Top-Level sheet (Nick)
 - [x] S5.d: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.d: Nick's KiCad look
-- [x] S5.g (D24): PoDL insert footprint (MP1–MP4): pad numbered `1` so the bus nets reach it; 3D model opacity 0 → 1;
-      stock 3D models on 7 footprints (C31, C19/C27, R15/R16, R1, R8, R22/R34/R40, plus R10's spare); orientation checked
-      (non-polarised, pads and models on x); U2/U3 left without a model (no stock WLB0909-4); R10's footprint kept (Nick)
+- [x] S5.g (D24): PoDL insert model (MP1–MP4) visible (opacity 0 → 1); stock 3D models on 7 footprints (C31, C19/C27,
+      R15/R16, R1, R8, R22/R34/R40, plus R10's spare), orientation checked (non-polarised, pads and models on x);
+      U2/U3 without a model (no stock WLB0909-4); R10's footprint kept (Nick). Insert pads unchanged: contact → Sofar Q6
 - [ ] S5.g: confirm the insert model sits body-up in KiCad's 3D viewer (Nick's KiCad look)
-- [ ] S5.g: QE review (standing S5 session)
+- [ ] S5.g: QE review (standing S5 session) — round 1 CHANGES REQUESTED (F1: the bus contact is a front copper ring);
+      pad change reverted, Sofar Q6 added; round 2 pending
 - [ ] S5.g: Nick's KiCad look
 - [x] S5.c (D20): Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them; also for a bench MCU). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
