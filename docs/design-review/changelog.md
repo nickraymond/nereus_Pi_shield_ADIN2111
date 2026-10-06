@@ -2,6 +2,17 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.d — Payload connector J5 (2026-10-06, branch `sprint/5d-payload-connector`)
+
+Top-Level sheet: **J5** JST GH SM02B-GHS-TB (LCSC C189893), footprint
+`Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal`; pin 1 → VBUS_OUT symbol (#PWR80), pin 2 → GND
+(#PWR81); note text below it. Placed on the right side under MP1–MP4, pins on the inserts' column (Nick: interconnects
+live on the right; moved after his first look, netlist identical). Sofar's stale note "Bristlemouth Bus: Molex 2-pin"
+now reads "Bristlemouth bus: M3 threaded inserts MP1-MP4" (the Molex was replaced by the inserts, Nick). Symbol `nereus:SM02B-GHS` copied from the UrchinCam schematic into `nereus.kicad_sym`
+(name changed from `Connectors:SM02B-GHS`, otherwise verbatim). **Verified:** netlist diff = VBUS_OUT + J5.1, GND +
+J5.2, nothing else; ERC 27/508 unchanged; netcheck 51/51; midwire 0; the footprint's pads are 1, 2 and two "MP" mounting
+pads (no symbol pin, so no net, as on the UrchinCam).
+
 ## S5.c — Pull-ups, ADIN power-up, R10 removed (2026-10-05, branch `sprint/5c-pullups`)
 
 Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), D20–D22:

@@ -110,6 +110,11 @@ production (DESIGN D12).
   product brief), not separately verified)*
 - I²C standard/fast mode: V_OL ≤ 0.4 V at 3 mA sink, so R_P(min) = (3.3 − 0.4) / 3 mA = 967 Ω at 3.3 V; R_P(max) =
   t_r / (0.8473 · C_b) with t_r 1000 ns / 300 ns. *(TI SLVA689, Table 1 from the I²C specification; Eq. 1–2)*
+- JST GH (1.25 mm): current rating 1.0 A AC/DC per contact (AWG #26), voltage rating 50 V AC/DC, −40 °C to +105 °C
+  incl. temperature rise, contact resistance 30 mΩ max initial; wire AWG #30–#26. SM02B-GHS-TB is the 2-pin SMD
+  right-angle header. *(JST GH connector datasheet, eGH.pdf)* JLC part C189893 for SM02B-GHS. *(Nick's UrchinCam BOM,
+  UrchinCam_0v1_BOM_20260121.csv)* LCSC C189893 = SM02B-GHS-TB(LF)(SN), shown out of stock on 2026-10-06
+  *(lcsc.com, QE S5.d)*; recheck in S5.e.
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote

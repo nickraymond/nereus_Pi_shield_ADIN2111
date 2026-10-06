@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S5.c, your KiCad look</strong> <strong>S5.b done</strong> (PR #13 merged). <strong>S5.c:</strong> I²C pull-ups R26/R27 back (Sofar's parts), R43 100 kΩ keeps the ADIN off unless the Pi turns it on, R10 removed (TP19 stays on SW_EN). The ADIN boot order and back-power rules are written up in DESIGN. ERC unchanged; netcheck 51/51. QE approved; next: your KiCad look.</p>
+    <p><strong>Updated 2026-10-06 · Now: S5.d, your KiCad look</strong> <strong>S5.c done</strong> (PR #14 merged). <strong>S5.d:</strong> payload power now leaves on J5, a JST GH 2-pin (SM02B-GHS-TB, from your UrchinCam): pin 1 VBUS_OUT, pin 2 GND, on the Top-Level sheet. QE approved; next: your KiCad look. S5.g (footprint fixes: PoDL insert pads and 3D models) follows.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -217,11 +217,12 @@ const S = [
   ["Document the software power-up order", `<p>DESIGN "ADIN power and boot": config.txt drives RST low and ADIN_PWR high at boot (<code>gpio=24=op,dl</code>, <code>gpio=23=op,dh</code>) → wait ≥ 40 ms → release RST → wait for INT low (≤ 90 ms) → SPI. Never leave CS/RST high with the ADIN off (your Option 1). The ADIN's power-on reset covers a missed step. Includes the strap table.</p>`, null, 1],
   ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free. Done in S5.b: new SW_EN label on the R10/sheet-pin wire, stub + label on the SW_FLAGB sheet pin.</p>`, null, 1],
   ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1); your look OK; PR #13 merged.</p>`, "nick", 1],
-  ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
+  ["VBUS_OUT + GND to a 2-pin connector", `<p>S5.d: J5, JST GH SM02B-GHS-TB (C189893), your UrchinCam part. 1.0 A per contact, 50 V; pin 1 VBUS_OUT, pin 2 GND (UrchinCam J4/J6 order). On the right side of the Top-Level sheet under the PoDL inserts, with a note (D23). Sofar's "Molex 2-pin" bus note now says M3 threaded inserts.</p>`, null, 1],
+  ["S5.d: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), fixed (C189893 out of stock on LCSC today: recheck in S5.e). Top-Level sheet, right side: J5 under MP1–MP4 with VBUS_OUT/GND symbols and the note.</p>`, "nick"],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>S5.c: R26/R27, Sofar's refs, part and footprint, to the shield's 3V3 (D20). With the Pi's 1.8 kΩ (Zero 2 W schematic R23/R24) the bus sees ≈ 1.3 kΩ, above the 967 Ω I²C minimum (TI SLVA689). Also lets a bench MCU use the bus.</p>`, null, 1],
   ["Pull-up rail and power sequencing", `<p>Shield 3V3. Back-power cases tabled in DESIGN "ADIN power and boot": CE0 defaults high at Pi reset (BCM2835 §6.2), INT into an unpowered Pi (prevented by R43), small pull-up leaks only with JP1 cut.</p>`, null, 1],
   ["S5.c: remove R10, keep TP19", `<p>Your call: the Pi is the only load-switch controller. R10 (0 Ω option link from the mote) is gone; TP19 sits directly on SW_EN (D22).</p>`, null, 1],
-  ["S5.c: QE approved; your KiCad look", `<p>QE APPROVED (round 2). Top-Level sheet: R26/R27 right of J1, R43 left of J1, TP19 on the SW_EN wire.</p>`, "nick"],
+  ["S5.c: QE approved; your KiCad look", `<p>QE APPROVED (round 2); your look OK; PR #14 merged.</p>`, "nick", 1],
   ["S5.f: ADIN status LEDs", `<p>Your call (2026-10-05). Red "ADIN powered" LED on ADIN_VDDIO; green "link/activity" LED on P1_LED_1 (pin 21, active low; the 1.0 V p-p strap stays high via R3). Both through one shared bridged cut jumper (JP2) from ADIN_VDDIO, to save ≈ 6 mW. Resistors reuse R1's 1.5 kΩ part; two new 0603 LEDs (green Vf ≈ 2 V). Pi software enables the green LED over SPI. Open: visible after potting?</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
@@ -230,6 +231,7 @@ const S = [
   items:[
   ["ERC clean, or every remaining item justified", `<p>Includes FID1–6 hidden NC pins, regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO. Tables via <code>tools/ercsum.py --items</code>.</p>`],
   ["Remove stale sheet notes", `<p>e.g. "Processor + onboard logic runs off 3V3…" on the Top-Level sheet.</p>`],
+  ["Schematic tidy (after the technical work)", `<p>Your call: R26/R27 drawn onto J1's I²C stubs instead of floating with labels; every board interconnect on the right of the Top-Level sheet; general cosmetic layout.</p>`],
   ["Net check: kept nets match the copper; every new net listed", ``],
   ["Schematic PDF (all sheets)", ``],
   ["Change log of every edit", ``],
