@@ -31,8 +31,12 @@ what broke, what's next.*
 **Broke/surprised us:**
 - All 18 label_dangling errors cleared, including the sub-sheet hierarchical labels: KiCad reported each as
   "not connected" because its net held one pin, not because it was unwired
-- One multiple_net_names line changed only in which VBUS label KiCad cites for the same 3V3_Buck_Input/VBUS warning
+- One multiple_net_names line cites a different example label; count and type unchanged (ERC text varies run to run, QE N2)
 **Next:** QE review (standing S5 session), then Nick's KiCad look; then S5.c pull-ups + sequencing
+- QE round 1: **APPROVED WITH NITS** (DEV_LOG separator and wording, fixed); carry-over risk for S5.c: CE0
+  (GPIO8) defaults high and can back-power the ADIN through its IO clamps while ADIN_VDDIO is off
+
+---
 
 ## 2026-10-05 — Sprint S4.d — Footprints findable (library `Vault`); S5.a closed
 

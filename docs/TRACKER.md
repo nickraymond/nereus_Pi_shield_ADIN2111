@@ -185,7 +185,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [ ] Document the ADIN power-up order
 - [x] S5.b: SW_EN → pin 36 (**active high** now; R42 pull-down keeps the payload off) and SW_FLAGB → pin 38 (R35
       pull-up, TP35); SW_FLAGB's sheet pin (unconnected since import) now has a stub + label. SW_PGOOD dropped (D18)
-- [ ] S5.b: QE review (standing S5 session)
+- [x] S5.b: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.b: Nick's KiCad look
 - [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
 - [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
@@ -194,7 +194,9 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       (QE: the Pi documents 1.8 kΩ on GPIO2/3 → ≈1.3 kΩ combined; cite a primary source)
 - [ ] Choose the pull-up rail and document power sequencing: shield 3V3 and Pi 3V3 are
       separate rails, so one powered while the other is off can back-power through pull-ups /
-      IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk
+      IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk. Cover specifically (QE S5.b): CE0/GPIO8
+      (ADIN_NSS) defaults high at Pi reset and SPI0 idles CS high while ADIN_PWR keeps ADIN_VDDIO off; R35 (100 kΩ to
+      shield 3V3) feeds GPIO20 when the Pi is off (≈ 33 µA); the Pi's own I²C pull-ups go to Pi 3V3, U4 is on shield 3V3
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;

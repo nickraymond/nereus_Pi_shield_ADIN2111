@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S5.b, QE review</strong> <strong>S4 done</strong> (PR #12 merged). <strong>S5.b:</strong> the Pi header is wired: 11 signal pins get a stub and a label (I²C, ADIN SPI/INT/RST/PWR, SW_EN, SW_FLAGB), the 17 unused GPIO pins get no-connect flags. ERC errors 74 → 27. Next: QE review, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S5.b, your KiCad look</strong> <strong>S4 done</strong> (PR #12 merged). <strong>S5.b:</strong> the Pi header is wired: 11 signal pins get a stub and a label (I²C, ADIN SPI/INT/RST/PWR, SW_EN, SW_FLAGB), the 17 unused GPIO pins get no-connect flags. ERC errors 74 → 27. QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -216,10 +216,10 @@ const S = [
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
   ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free. Done in S5.b: new SW_EN label on the R10/sheet-pin wire, stub + label on the SW_FLAGB sheet pin.</p>`, null, 1],
-  ["S5.b: QE review; your KiCad look", `<p>Top-Level sheet: J1 (stubs, labels, no-connect flags) and the Load Switch sheet pins SW_EN / SW_FLAGB.</p>`, "nick"],
+  ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), nits fixed. Top-Level sheet: J1 (stubs, labels, no-connect flags) and the Load Switch sheet pins SW_EN / SW_FLAGB.</p>`, "nick"],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
-  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],
+  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk). Specifically CE0/GPIO8 (ADIN_NSS) defaults high at Pi reset while the ADIN is unpowered (QE S5.b).</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",
