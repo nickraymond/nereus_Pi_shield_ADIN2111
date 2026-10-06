@@ -168,7 +168,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 **Result:** S4.a–d each QE-approved and reviewed by Nick; PRs #8, #9, #10, #12 merged (last `9949b37`), 2026-10-05.
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[~]`
-*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check, S5.f ADIN status LEDs, S5.g footprint library fixes.*
+*Bites: S5.a load switch, S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.g footprint library fixes, S5.f ADIN status LEDs, then **S5.e BOM lifecycle + stock check last, once every part is on the schematic** (Nick, 2026-10-06).*
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
 - [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
@@ -177,7 +177,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
 - [x] S5.a: QE review (fresh S5 session): **APPROVED WITH NITS** in round 2, nit fixed — `docs/design-review/qe/S5.md`
 - [x] S5.a: Nick's KiCad look (PR #11 merged, `10d64d0`)
-- [ ] Lifecycle check of every BOM part (not just U9) before the S6 package; include stock (J5's C189893 showed out of
+- [ ] S5.e (last in S5): lifecycle check of every BOM part (not just U9) before the S6 package; include stock (J5's C189893 showed out of
       stock on LCSC 2026-10-06, QE S5.d F1)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
@@ -214,15 +214,11 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       — done: shield 3V3; back-power table in DESIGN "ADIN power and boot"
 - [x] S5.c: QE review (standing S5 session): **APPROVED** in round 2 (round 1 F1 + nits fixed) — `docs/design-review/qe/S5.md`
 - [x] S5.c: Nick's KiCad look (PR #14 merged, `d5bc13b`)
-- [ ] S5.f: ADIN status LEDs (Nick, 2026-10-05; plan approved in outline, details planned at the bite) — red "ADIN
-      powered" LED from ADIN_VDDIO via 1.5 kΩ to GND; green "link/activity" LED from ADIN_VDDIO via 1.5 kΩ to
-      **P1_LED_1 (pin 21)**, active low (ADIN2111 Rev. B Fig. 24; R3 4.7 kΩ pull-up stays, so the P1_TX2P4_EN strap
-      still reads high = 1.0 V p-p, required with AVDD at 1.8 V). Not pin 19 (P1_LED_0/SPI_CFG1: "use without LED" in
-      OPEN Alliance mode). Both fed through **one shared normally-bridged cut jumper** (JP2) from ADIN_VDDIO — never the
-      always-on 3V3 (would back-power pin 21 with the ADIN off). Resistors reuse RC0402FR-071K5L (R1's part); LEDs are
-      new 0603 JLC parts, green with Vf ≈ 2 V (headroom 3.3 V − ~0.4 V); cite datasheets. LED_1 is off by default:
-      Pi enables it over SPI (pin mux + LED1_EN). New refs above the mote's highest; Sofar brief row. Open: are the
-      LEDs visible after potting (if not, cut JP2 before potting)?
+- [x] S5.f (D25): ADIN status LEDs on the ADIN sheet — D8 red KT-0603R (C2286) "ADIN powered", D9 yellow-green KT-0603YG
+      (C2289) port 1 link/activity on ADIN pin 21 (active low, R3 stays as pull-up: strap unchanged); R44/R45 1.5 kΩ (R1's
+      part); one shared bridged cut jumper JP2 from ADIN_VDDIO (Nick: option a). Open: visible after potting?
+- [ ] S5.f: QE review (standing S5 session)
+- [ ] S5.f: Nick's KiCad look
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 S5.d: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), netcheck 51/51, midwire 0, exit 0; netlist: VBUS_OUT + J5.1,

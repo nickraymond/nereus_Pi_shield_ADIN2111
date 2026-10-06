@@ -121,6 +121,11 @@ production (DESIGN D12).
   right-angle header. *(JST GH connector datasheet, eGH.pdf)* JLC part C189893 for SM02B-GHS. *(Nick's UrchinCam BOM,
   UrchinCam_0v1_BOM_20260121.csv)* LCSC C189893 = SM02B-GHS-TB(LF)(SN), shown out of stock on 2026-10-06
   *(lcsc.com, QE S5.d)*; recheck in S5.e.
+- Status LEDs (S5.f): Hubei KENTO KT-0603R, 0603 red, 615–630 nm, V_F 1.8–2.4 V at 20 mA, 300 mcd, LCSC C2286 (stock
+  ≈ 2.6 M on 2026-10-06); KT-0603YG, 0603 yellow-green, 567–573 nm, V_F 2.0–2.2 V at 20 mA, 30–42 mcd, LCSC C2289
+  (stock ≈ 24 k; JLC extended part). *(lcsc.com product pages, 2026-10-06; JLC part page for C2289)* KENTO marks the
+  cathode with a green mark. *(KENTO KT-0603R specification, distributor copy rcscomponents.kiev.ua)* KiCad
+  `Device:LED` pin 1 = K, pin 2 = A; `LED_SMD:LED_0603_1608Metric` pad 1 = cathode. *(KiCad 9.0.6 libraries)*
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote

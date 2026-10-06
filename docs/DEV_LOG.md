@@ -19,6 +19,26 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.f — ADIN status LEDs
+
+**Branch:** sprint/5f-adin-leds
+**Files touched:** BM_Mote_1_ADIN2111.kicad_sch; DESIGN (D25), SPEC, sofar_brief, TRACKER, viewer, changelog
+**ERC:** 27 / 506 (was 27/508)  ·  **Net diff:** LED nets + pin-21 net renamed — intended
+**Done:**
+- S5.d and S5.g closed: Nick's look OK (J5 moved right, 3D models checked), PRs #15/#16 merged (`c9aa575`, `94bc4b8`)
+- Nick: lifecycle check only once every part is on the schematic → S5.f before S5.e
+- D8 red (ADIN powered) + D9 yellow-green (pin 21 link/activity), R44/R45 1.5 kΩ, JP2 cut-to-disable (option a)
+- Parts from LCSC with stock; KENTO's spec sheet gives the cathode mark (green), matching pad 1 / pin K
+**Broke/surprised us:**
+- R3 touched U1 pin 21 directly, leaving nowhere clean to tap: moved R3 into the LED group, stub + label on pin 21
+- The mid-wire junction quirk again: R45 came up unconnected until the wire was split at the junction
+- JP1's Footprint property is indented 4 tabs (S4.b leftover; KiCad doesn't care) and tripped set_properties' guard;
+  normalised on the JP2 copy only
+- Rotated LED field text collided with the label: fields set horizontal
+**Next:** QE review, Nick's KiCad look; then S5.e (lifecycle + stock, all parts)
+
+---
+
 ## 2026-10-06 — Sprint S5.g — Footprint library 3D fixes (PoDL insert model, stock models)
 
 **Branch:** sprint/5g-footprint-fixes (stacked on S5.d)
