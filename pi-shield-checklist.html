@@ -220,6 +220,7 @@ const S = [
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
   ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk). Specifically CE0/GPIO8 (ADIN_NSS) defaults high at Pi reset while the ADIN is unpowered (QE S5.b).</p>`],
+  ["S5.f: ADIN status LEDs", `<p>Your call (2026-10-05). Red "ADIN powered" LED on ADIN_VDDIO; green "link/activity" LED on P1_LED_1 (pin 21, active low; the 1.0 V p-p strap stays high via R3). Both through one shared bridged cut jumper (JP2) from ADIN_VDDIO, to save ≈ 6 mW. Resistors reuse R1's 1.5 kΩ part; two new 0603 LEDs (green Vf ≈ 2 V). Pi software enables the green LED over SPI. Open: visible after potting?</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",

@@ -168,7 +168,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 **Result:** S4.a–d each QE-approved and reviewed by Nick; PRs #8, #9, #10, #12 merged (last `9949b37`), 2026-10-05.
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[~]`
-*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check.*
+*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check, S5.f ADIN status LEDs.*
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
 - [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
@@ -197,6 +197,15 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk. Cover specifically (QE S5.b): CE0/GPIO8
       (ADIN_NSS) defaults high at Pi reset and SPI0 idles CS high while ADIN_PWR keeps ADIN_VDDIO off; R35 (100 kΩ to
       shield 3V3) feeds GPIO20 when the Pi is off (≈ 33 µA); the Pi's own I²C pull-ups go to Pi 3V3, U4 is on shield 3V3
+- [ ] S5.f: ADIN status LEDs (Nick, 2026-10-05; plan approved in outline, details planned at the bite) — red "ADIN
+      powered" LED from ADIN_VDDIO via 1.5 kΩ to GND; green "link/activity" LED from ADIN_VDDIO via 1.5 kΩ to
+      **P1_LED_1 (pin 21)**, active low (ADIN2111 Rev. B Fig. 24; R3 4.7 kΩ pull-up stays, so the P1_TX2P4_EN strap
+      still reads high = 1.0 V p-p, required with AVDD at 1.8 V). Not pin 19 (P1_LED_0/SPI_CFG1: "use without LED" in
+      OPEN Alliance mode). Both fed through **one shared normally-bridged cut jumper** (JP2) from ADIN_VDDIO — never the
+      always-on 3V3 (would back-power pin 21 with the ADIN off). Resistors reuse RC0402FR-071K5L (R1's part); LEDs are
+      new 0603 JLC parts, green with Vf ≈ 2 V (headroom 3.3 V − ~0.4 V); cite datasheets. LED_1 is off by default:
+      Pi enables it over SPI (pin mux + LED1_EN). New refs above the mote's highest; Sofar brief row. Open: are the
+      LEDs visible after potting (if not, cut JP2 before potting)?
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;
