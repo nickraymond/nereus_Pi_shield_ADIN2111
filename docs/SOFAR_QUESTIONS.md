@@ -3,7 +3,7 @@
 *Questions about the Sofar mote design that only Sofar can answer. Nick sends
 them; record the answer, date and who answered, then move the fact into
 SPEC.md or POWER_PATH.md with "Sofar, <name>, <date>" as its source.*
-*Last updated: 2026-10-05*
+*Last updated: 2026-10-06*
 
 State key: `[ ]` not sent · `[>]` sent, waiting · `[x]` answered · `[-]` deferred (don't send yet)
 
@@ -14,3 +14,4 @@ State key: `[ ]` not sent · `[>]` sent, waiting · `[x]` answered · `[-]` defe
 | Q3 | [x] | What current limit does R34 (374 kΩ) set on the FPF2700 (U9)? | Payload port rating vs the mote's 890 mA (D12); we couldn't get the datasheet | **Answered from the datasheet, no need to ask Sofar:** ≈ 0.74 A typical, 0.59–0.89 A (Fairchild FPF2700 Rev. 1.0.3, Eq. 1; supplied by Nick, 2026-10-05) |
 | Q4 | [-] | Why is the load switch controlled from the mezzanine side? | Deferred (context only): the Pi (GPIO16) is the only controller; the R9/R10 option links are removed (DESIGN D22) | |
 | Q5 | [-] | Has MSD1514-473MED (one per port) been built or tested since the guide was written? Any recommended damping values (R15/R16, C22/C23) to go with it? | The guide says it's not qualified at 50 W and that damping should be retuned for new magnetics. **Deferred with the 50 W revision** (DESIGN D12, 2026-10-05) | |
+| Q6 | [ ] | How should the PoDL bus connect to the threaded inserts (MP1–MP4, Würth 78614015360)? On 000639-AB the inserts are on the back with net-less pads, and the bus reaches each one through a front-side C-shaped copper arc on the bus track (~290° around the hole, 1.2 mm wide, ~3 mm radius), which we assume the screwed lug sits on. Is that deliberate (keeping bus current out of the insert's solder joint and screw thread)? For our new layout, should we copy the ring as-is, also tie the insert pad to the net, or put a ring pad in the footprint? | Our schematic has a pin on each insert but your footprint pad has no number, so the net can't land on it; we want to copy your contact exactly, not guess (DESIGN D24) | |

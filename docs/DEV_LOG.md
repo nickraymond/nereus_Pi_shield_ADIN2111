@@ -19,6 +19,25 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.g — Footprint library 3D fixes (PoDL insert model, stock models)
+
+**Branch:** sprint/5g-footprint-fixes (stacked on S5.d)
+**Files touched:** mote.pretty (8 footprints, 3D only); DESIGN (D24), SPEC, SOFAR_QUESTIONS (Q6), TRACKER, viewer, changelog
+**ERC:** 27 / 508 (unchanged)  ·  **Net diff:** none (library only)
+**Done:**
+- Nick: the mote's bus attaches with threaded inserts; found them as MP1–MP4 (Würth 78614015360) on BM1±/BM2±
+- Insert model was present but opacity 0 → now visible; geometry settles the "1.5 mm": M3, 6 mm × 1.5 mm body
+- Stock 3D models on 7 footprints (+ R10's spare); orientation checked numerically (non-polarised, pads and model on x)
+**Broke/surprised us:**
+- I numbered the insert pad "1" thinking the bus fed through it. QE round 1 (CHANGES REQUESTED) found the real contact:
+  a front-side C-shaped copper arc on the bus track (presumably under the screwed lug); the back insert pads are net-less. Nick: don't jump
+  to layout details; ask Sofar (Q6). Pad change and the fpextract exception reverted
+- KiCad has no 0.9 mm, 0.5 mm-pitch 4-ball model, so U2/U3 stay without one
+- The insert model's up/down depends on KiCad's rotation sign, not confirmable offline → Nick checked in the 3D viewer:
+  body-up, models check out
+**Next:** QE round 2; Nick's KiCad look (incl. the 3D check)
+---
+
 ## 2026-10-06 — Sprint S5.d — Payload connector J5 (JST GH 2-pin)
 
 **Branch:** sprint/5d-payload-connector

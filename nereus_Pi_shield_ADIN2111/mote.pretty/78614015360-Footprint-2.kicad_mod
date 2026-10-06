@@ -406,7 +406,7 @@
 		)
 	)
 	(model "kicad-embed://FST-000629.STEP"
-		(opacity 0.0000)
+		(opacity 1.0000)
 		(offset
 			(xyz 0 0 0)
 		)

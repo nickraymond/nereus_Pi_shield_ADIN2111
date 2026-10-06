@@ -100,9 +100,15 @@ production (DESIGN D12).
   protection (Table 22); 2.4 V p-p needs AVDD_H 3.3 V. VDDIO 1.71 V min (1.8/2.5/3.3 V typ); digital V_IL 0.8 V /
   V_IH 2.0 V at VDDIO 3.3 V; LED pins 8 mA at 3.3 V. *(ADIN2111 Rev. B datasheet, Tables 1, 3, 5, 8, 22,
   "Reset Operations"; PDF supplied by Nick, SHA-256 10b6521e7b7fabeaedf7afee6b15a058a923c72ed6e401ad4de53911201b2fba)*
+- PoDL bus contact on the mote: threaded inserts MP1–MP4 (Würth 78614015360) sit on B.Cu with unnumbered,
+  net-less pads (an SMD ring and the Ø4.4 NPTH); the bus nets reach each insert position through a front F.Cu arc
+  on the bus track, C-shaped (~290°, not a closed ring), width 1.2 mm, radius 3.03 mm (copper ≈ 2.4–3.6 mm from centre): MP1 BM1_P, MP2 BM1_N, MP3 BM2_P
+  (two arcs), MP4 BM2_N; no vias within 3.5 mm. *(reference .kicad_pcb, read 2026-10-06; QE S5.g F1)* Why, and how a
+  new layout should copy it: Sofar Q6.
 - AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max
   (V_IN 1.4–3.6 V) / 0.6 V (3.6–5.5 V); output discharge when off; reverse-current blocking always active; R_ON
-  56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4"). *(Diodes DS41203 Rev. 6-2)*
+  56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4": 0.9 × 0.9 mm, 0.5 mm ball pitch; top view A1 VOUT (pin-1 dot) and A2 VIN
+  on the top row, B1 GND and B2 ON on the bottom row). *(Diodes DS41203 Rev. 6-2, p. 1 "Pin Assignments")*
 - Pi Zero 2 W I²C1: R23/R24 1.8 kΩ 1 % pull-ups from GPIO2/GPIO3 to the Pi's 3V3. *(Raspberry Pi Zero 2 W reduced
   schematics, datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-reduced-schematics.pdf)*
 - Pi GPIO reset-default pulls: GPIO0–8 pull up (incl. GPIO8 = CE0), GPIO9–27 pull down (incl. GPIO9 MISO,
