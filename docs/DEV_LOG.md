@@ -35,7 +35,8 @@ what broke, what's next.*
 - JP1's Footprint property is indented 4 tabs (S4.b leftover; KiCad doesn't care) and tripped set_properties' guard;
   normalised on the JP2 copy only
 - Rotated LED field text collided with the label: fields set horizontal
-**Next:** QE review, Nick's KiCad look; then S5.e (lifecycle + stock, all parts)
+**Next:** Nick's KiCad look; then S5.e (lifecycle + stock, all parts)
+- QE round 1: **APPROVED WITH NITS** (off-grid accounting −3/+1; ≈ 8 mW with R3's current while D9 is lit), fixed
 
 ---
 

@@ -18,7 +18,7 @@ ADIN sheet (`BM_Mote_1_ADIN2111.kicad_sch`), D25:
 
 **Verified:** netlist diff = the pin-21 net renamed ADIN_P1_LED1 with + D9.1; ADIN_VDDIO + JP2.1; GND + D8.1; new nets
 ADIN_LED_VDD (JP2.2, R44.2, R45.2), Net-(D8-A) (D8.2, R44.1), Net-(D9-A) (D9.2, R45.1); nothing else. ERC 27/508 →
-27/506 (two off-grid warnings gone with R3); netcheck 51/51; midwire 0. The mid-wire junction quirk (SPEC) bit once:
+27/506 (off-grid −3 with R3, its symbol and wire on grid, +1 for the pin-21 stub on U1's off-grid y); netcheck 51/51; midwire 0. The mid-wire junction quirk (SPEC) bit once:
 the ADIN_LED_VDD wire is split at the junction and at the label.
 
 ## S5.g — Footprint library 3D fixes (2026-10-06, branch `sprint/5g-footprint-fixes`)

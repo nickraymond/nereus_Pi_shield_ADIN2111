@@ -217,7 +217,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.f (D25): ADIN status LEDs on the ADIN sheet — D8 red KT-0603R (C2286) "ADIN powered", D9 yellow-green KT-0603YG
       (C2289) port 1 link/activity on ADIN pin 21 (active low, R3 stays as pull-up: strap unchanged); R44/R45 1.5 kΩ (R1's
       part); one shared bridged cut jumper JP2 from ADIN_VDDIO (Nick: option a). Open: visible after potting?
-- [ ] S5.f: QE review (standing S5 session)
+- [x] S5.f: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.f: Nick's KiCad look
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
