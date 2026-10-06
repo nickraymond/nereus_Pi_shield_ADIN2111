@@ -25,8 +25,8 @@ Top-Level sheet: **J5** JST GH SM02B-GHS-TB (LCSC C189893), footprint
 `Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal`; pin 1 → VBUS_OUT symbol (#PWR80), pin 2 → GND
 (#PWR81); note text below it. Symbol `nereus:SM02B-GHS` copied from the UrchinCam schematic into `nereus.kicad_sym`
 (name changed from `Connectors:SM02B-GHS`, otherwise verbatim). **Verified:** netlist diff = VBUS_OUT + J5.1, GND +
-J5.2, nothing else; ERC 27/508 unchanged; netcheck 51/51; midwire 0; the footprint's pads are 1, 2 and two unnumbered
-MP mounting pads (no net, as on the UrchinCam).
+J5.2, nothing else; ERC 27/508 unchanged; netcheck 51/51; midwire 0; the footprint's pads are 1, 2 and two "MP" mounting
+pads (no symbol pin, so no net, as on the UrchinCam).
 
 ## S5.c — Pull-ups, ADIN power-up, R10 removed (2026-10-05, branch `sprint/5c-pullups`)
 
