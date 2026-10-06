@@ -188,7 +188,10 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       pull-up, TP35); SW_FLAGB's sheet pin (unconnected since import) now has a stub + label. SW_PGOOD dropped (D18)
 - [x] S5.b: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [x] S5.b: Nick's KiCad look (PR #13 merged, `31bc0f3`)
-- [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
+- [x] S5.d (D23): VBUS_OUT + GND → **J5 JST GH 2-pin** SM02B-GHS-TB (C189893, from the UrchinCam), 1.0 A per contact
+      ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the Top-Level sheet (Nick)
+- [ ] S5.d: QE review (standing S5 session)
+- [ ] S5.d: Nick's KiCad look
 - [x] S5.c (D20): Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them; also for a bench MCU). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
       (reference Processor sheet). Note the combined value if the Pi also has pull-ups
@@ -201,7 +204,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       shield 3V3) feeds GPIO20 when the Pi is off (≈ 33 µA); the Pi's own I²C pull-ups go to Pi 3V3, U4 is on shield 3V3
       — done: shield 3V3; back-power table in DESIGN "ADIN power and boot"
 - [x] S5.c: QE review (standing S5 session): **APPROVED** in round 2 (round 1 F1 + nits fixed) — `docs/design-review/qe/S5.md`
-- [ ] S5.c: Nick's KiCad look
+- [x] S5.c: Nick's KiCad look (PR #14 merged, `d5bc13b`)
 - [ ] S5.f: ADIN status LEDs (Nick, 2026-10-05; plan approved in outline, details planned at the bite) — red "ADIN
       powered" LED from ADIN_VDDIO via 1.5 kΩ to GND; green "link/activity" LED from ADIN_VDDIO via 1.5 kΩ to
       **P1_LED_1 (pin 21)**, active low (ADIN2111 Rev. B Fig. 24; R3 4.7 kΩ pull-up stays, so the P1_TX2P4_EN strap
@@ -213,6 +216,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       LEDs visible after potting (if not, cut JP2 before potting)?
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
+S5.d: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), netcheck 51/51, midwire 0, exit 0; netlist: VBUS_OUT + J5.1,
+GND + J5.2, nothing else.
 S5.c: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), **netcheck 51/51**, midwire 0, exit 0; netlist: R26 on
 I2C1_SCL + 3V3, R27 on I2C1_SDA + 3V3, R43 on ADIN_PWR + GND, TP19 on SW_EN, R10 gone, nothing else.
 S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;

@@ -19,6 +19,24 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.d — Payload connector J5 (JST GH 2-pin)
+
+**Branch:** sprint/5d-payload-connector
+**Files touched:** BM_Mote_1_Master.kicad_sch; nereus.kicad_sym (SM02B-GHS); DESIGN (D23), SPEC, sofar_brief, TRACKER, viewer, changelog
+**ERC:** 27 / 508 (unchanged)  ·  **Net diff:** J5 on VBUS_OUT / GND — intended
+**Done:**
+- S5.c closed: Nick's KiCad look OK, PR #14 merged (`d5bc13b`)
+- Traced VBUS_OUT on the mote copper: it left through mezzanine P1 pins 14/16/18, gone since S2
+- Nick: JST GH, the 2-pin variant, part and footprint from his UrchinCam (J4/J6), shown on the Top-Level sheet
+- Found while answering the bus question: the PoDL threaded inserts MP1–MP4 (Würth 78614015360, M3) have an
+  invisible 3D model (opacity 0) and an unnumbered copper pad, so a new layout wouldn't put the bus nets on them —
+  fixed next in S5.g
+**Broke/surprised us:**
+- First placement: the note crossed the VBUS_OUT wire and the value touched GND; re-placed after the render
+**Next:** QE review, Nick's KiCad look; S5.g footprint fixes
+
+---
+
 ## 2026-10-05 — Sprint S5.c — I²C pull-ups, ADIN_PWR pull-down, R10 removed, ADIN boot order
 
 **Branch:** sprint/5c-pullups
