@@ -102,7 +102,7 @@ production (DESIGN D12).
   "Reset Operations"; PDF supplied by Nick, SHA-256 10b6521e7b7fabeaedf7afee6b15a058a923c72ed6e401ad4de53911201b2fba)*
 - PoDL bus contact on the mote: threaded inserts MP1–MP4 (Würth 78614015360) sit on B.Cu with unnumbered,
   net-less pads (an SMD ring and the Ø4.4 NPTH); the bus nets reach each insert position through a front F.Cu arc
-  on the bus track, width 1.2 mm, radius 3.03 mm (copper ≈ 2.4–3.6 mm from centre): MP1 BM1_P, MP2 BM1_N, MP3 BM2_P
+  on the bus track, C-shaped (~290°, not a closed ring), width 1.2 mm, radius 3.03 mm (copper ≈ 2.4–3.6 mm from centre): MP1 BM1_P, MP2 BM1_N, MP3 BM2_P
   (two arcs), MP4 BM2_N; no vias within 3.5 mm. *(reference .kicad_pcb, read 2026-10-06; QE S5.g F1)* Why, and how a
   new layout should copy it: Sofar Q6.
 - AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max

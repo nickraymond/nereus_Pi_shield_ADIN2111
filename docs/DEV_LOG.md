@@ -30,7 +30,7 @@ what broke, what's next.*
 - Stock 3D models on 7 footprints (+ R10's spare); orientation checked numerically (non-polarised, pads and model on x)
 **Broke/surprised us:**
 - I numbered the insert pad "1" thinking the bus fed through it. QE round 1 (CHANGES REQUESTED) found the real contact:
-  a front-side copper ring on the bus track under the screwed lug; the back insert pads are net-less. Nick: don't jump
+  a front-side C-shaped copper arc on the bus track (presumably under the screwed lug); the back insert pads are net-less. Nick: don't jump
   to layout details; ask Sofar (Q6). Pad change and the fpextract exception reverted
 - KiCad has no 0.9 mm, 0.5 mm-pitch 4-ball model, so U2/U3 stay without one
 - The insert model's up/down depends on KiCad's rotation sign, not confirmable offline → Nick checks in the 3D viewer
