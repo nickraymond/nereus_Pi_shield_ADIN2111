@@ -33,6 +33,10 @@ what broke, what's next.*
   fixed next in S5.g
 **Broke/surprised us:**
 - First placement: the note crossed the VBUS_OUT wire and the value touched GND; re-placed after the render
+- Nick's look: move J5 to the right with the inserts (interconnects live there), drop the UrchinCam reference from the
+  note, update the stale "Molex 2-pin" bus note. My first move broke the sheet: re.sub turned the note's `\n` escapes
+  into real newlines inside a quoted string, KiCad couldn't parse it (ERC 4, empty netlist). Caught by check.sh, fixed;
+  netlist identical after the move
 **Next:** Nick's KiCad look; S5.g footprint fixes
 - QE round 1: **APPROVED WITH NITS** — C189893 out of stock on LCSC today (recorded, recheck in S5.e); MP pad wording;
   layout silkscreen "VBUS 16–32 V" next to J5 so a 5 V GH cable isn't plugged in
