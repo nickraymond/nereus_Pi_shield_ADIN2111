@@ -19,7 +19,7 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 
 ## Key designs
 
-**Pi header pin map** *(planned; becomes as-built in S5)*
+**Pi header pin map** *(as built, S5.b: each signal pin has a short stub and a same-name label on the Top-Level sheet; every other GPIO pin has a no-connect flag)*
 
 | Pi pin | GPIO | Signal |
 |---|---|---|
@@ -35,6 +35,8 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 | 1, 17 | — | **unconnected** (Pi 3.3 V) |
 
 Reserved: 26 (CE1), 29, 32, 33 (motor). Free: 40 (SW_PGOOD dropped, D18). Avoid: 27, 28 (HAT EEPROM), 8, 10 (console).
+All 17 unused GPIO pins (7, 8, 10–13, 15, 26–29, 31–33, 35, 37, 40) carry no-connect flags; remove the flag when a pin is used.
+Pull-ups/pull-downs on these nets (I²C, ADIN_PWR, ADIN_RST) come in S5.c.
 
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
@@ -100,15 +102,15 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S4.c | 76 / 629 | unchanged (docs only) | Power budget in `docs/design-review/power_budget.md`; D15 (Pi ≤ 1 A), D16 (R38 13.7 kΩ), D17 (payload switched/limited by U9, R11 DNP and U9 replacement in S5) |
 | 2026-10-05 | S5.a | 74 / 626 | 50/50, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical; U9/R32/R33/TP34 removed, U11/R41/R42 new | Load switch replaced (D18), R11 DNP: −2 errors (SW_PGOOD sheet pin, U9.8), −3 footprint-link warnings. Copper nets 53 → 50: three nets now hold only removed parts |
 | 2026-10-05 | S4.d | 74 / 508 | 50/50, 0 opens, 0 shorts; netlist identical except 117 footprint fields (bare → `Vault:`) | Footprint library `Vault` (D19): −118 footprint-link warnings |
+| 2026-10-05 | S5.b | 27 / 508 | 50/50, 0 opens, 0 shorts, 0 excluded; 11 nets each gain exactly one J1 pin, nothing else changes | Pi header wired: −29 pin_not_connected (28 J1 GPIO, SW_FLAGB sheet pin), −18 label_dangling (every one-pin I2C1/ADIN net now has the Pi pin). Net names: `Load Switch/SW_ON` → `SW_EN`, `Load Switch/SW_FLAGB` → `SW_FLAGB` (new top-level labels) |
 
-**Remaining ERC errors after S5.a (74), and who resolves each** (counted with
+**Remaining ERC errors after S5.b (27), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
 pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
 | Type | # | What | Resolved by |
 |---|---|---|---|
-| pin_not_connected | 39 | J1: 28 GPIO pins (pin 2 cleared in S4.b); Load Switch sheet pin SW_FLAGB = 1 (unconnected on the Top-Level sheet since import; SW_PGOOD removed in S5.a); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S5 (GPIO, SW_FLAGB → Pi 38); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
-| label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the PoDL and Power Monitor sheets' SCL/SDA: each net has one pin until the Pi header is wired | S5 |
+| pin_not_connected | 10 | FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 (J1's 28 GPIO pins and the SW_FLAGB sheet pin cleared in S5.b) | FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
 | power_pin_not_driven | 8 | #PWR34 ADIN_VDDIO (switched rail from U3); U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | justified or flagged in S6 (J1.2 cleared in S4.b by #FLG03) |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
 

@@ -19,6 +19,21 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S5.b — Pi header wired
+
+**Branch:** sprint/5b-pi-header-wiring
+**Files touched:** BM_Mote_1_Master.kicad_sch; tools/schedit.py (180° labels) + test; DESIGN, TRACKER, viewer, changelog
+**ERC:** 27 / 508 (was 74/508)  ·  **Net diff:** 11 nets each + one J1 pin — intended
+**Done:**
+- S4 closed: Nick's KiCad look OK, PR #12 merged (`9949b37`); S4 QE session archived (Nick)
+- J1: 11 signal pins stubbed and labelled per the pin map, 17 unused GPIO pins no-connect flagged
+- SW_EN label on the R10.1 / sheet-pin wire; SW_FLAGB sheet pin stubbed and labelled
+**Broke/surprised us:**
+- All 18 label_dangling errors cleared, including the sub-sheet hierarchical labels: KiCad reported each as
+  "not connected" because its net held one pin, not because it was unwired
+- One multiple_net_names line changed only in which VBUS label KiCad cites for the same 3V3_Buck_Input/VBUS warning
+**Next:** QE review (standing S5 session), then Nick's KiCad look; then S5.c pull-ups + sequencing
+
 ## 2026-10-05 — Sprint S4.d — Footprints findable (library `Vault`); S5.a closed
 
 **Branch:** sprint/4d-footprints

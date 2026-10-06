@@ -137,7 +137,7 @@ unchanged, ~20 W absolute max = 890 mA per port inductor at 24 V (DESIGN D12, Ni
 `netcheck: 53/53 … 0 opens, 0 shorts`; `git diff main --stat` touches only docs, the viewer, README, CLAUDE.md, the skill and the QE role file.
 **Result:** QE APPROVED WITH NITS (round 2); Nick approved; PR #7 merged (`09af9d8`), 2026-10-05.
 
-### S4 — 5 V converter for the Pi (copy of U5)  `[~]`
+### S4 — 5 V converter for the Pi (copy of U5)  `[x]`
 *Feeds from VBUS on the mote's unchanged power path (D12). Bites: S4.a converter (done),
 S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D13, D14.*
 - [x] Copy U5 block with new refs above the mote board's highest (U10, L6, C53–C58, R37–R40, TP38)
@@ -160,13 +160,15 @@ S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D
 - [x] S4.d: all footprints findable — the 43 footprints the schematic uses, extracted read-only from the mote board
       into `mote.pretty` (nickname `Vault`, matching the board IDs); every bare field → `Vault:<name>` (D19)
 - [x] S4.d: QE review (standing S4 session): **APPROVED** in round 2 — `docs/design-review/qe/S4.md`
-- [ ] S4.d: Nick's KiCad look
+- [x] S4.d: Nick's KiCad look (PR #12 merged, `9949b37`)
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 582  Errors 74  Warnings 508` (S4.d; includes S5.a's load-switch
 change), `netcheck: 50/50 … 0 opens, 0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py` lists
 no footprint_link_issues; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1, JP1.2, L6.2, R37.1,
 TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
+**Result:** S4.a–d each QE-approved and reviewed by Nick; PRs #8, #9, #10, #12 merged (last `9949b37`), 2026-10-05.
 
-### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
+### S5 — Pi header wiring, ADIN details, load switch  `[~]`
+*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check.*
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
 - [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
@@ -174,15 +176,17 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       hard-short behaviour up to 32 V (FPF2700 Table 2 vs Eq. 2 conflict at 32 V for this limit; C50 is only 100 nF; QE N6)
       — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
 - [x] S5.a: QE review (fresh S5 session): **APPROVED WITH NITS** in round 2, nit fixed — `docs/design-review/qe/S5.md`
-- [ ] S5.a: Nick's KiCad look
+- [x] S5.a: Nick's KiCad look (PR #11 merged, `10d64d0`)
 - [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
-- [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and
-      avoided (8, 10, 27, 28) pins free
+- [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
+      avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
 - [ ] ADIN_PWR 100 kΩ pull-down (unless AP22913 has one internally); ADIN_RST
       pull-up only if needed; no pull-up on MISO — each with a citation
 - [ ] Document the ADIN power-up order
-- [ ] SW_EN → pin 36 (**active high** now; R42 pull-down keeps the payload off) and SW_FLAGB → pin 38 (R35
-      pull-up, TP35). SW_FLAGB's sheet pin is unconnected on the Top-Level sheet since import. SW_PGOOD dropped (D18)
+- [x] S5.b: SW_EN → pin 36 (**active high** now; R42 pull-down keeps the payload off) and SW_FLAGB → pin 38 (R35
+      pull-up, TP35); SW_FLAGB's sheet pin (unconnected since import) now has a stub + label. SW_PGOOD dropped (D18)
+- [ ] S5.b: QE review (standing S5 session)
+- [ ] S5.b: Nick's KiCad look
 - [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
 - [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
@@ -193,6 +197,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
+S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;
+netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each gain exactly their J1 pin (22/21/19/24/16/18/23, 3/5, 36, 38).
 
 ### S6 — Design review package  `[ ]`
 - [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the

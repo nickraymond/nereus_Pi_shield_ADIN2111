@@ -2,6 +2,23 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.b — Pi header wired (2026-10-05, branch `sprint/5b-pi-header-wiring`)
+
+Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), pin map in DESIGN.md:
+
+| Change | Detail |
+|---|---|
+| 11 J1 signal pins | 2.54 mm stub + same-name local label: 3 I2C1_SDA, 5 I2C1_SCL, 19 ADIN_MOSI, 21 ADIN_MISO, 23 ADIN_SCK, 24 ADIN_NSS (right side); 16 ADIN_PWR, 18 ADIN_RST, 22 ADIN_INT, 36 SW_EN, 38 SW_FLAGB (left side, labels read leftward) |
+| 17 unused J1 GPIO pins | no-connect flags: 7, 8, 10, 11, 12, 13, 15, 26, 27, 28, 29, 31, 32, 33, 35, 37, 40. Pins 1/17 (Pi 3V3) keep theirs; 5 V and GND unchanged |
+| SW_EN | label at the corner of the existing wire from the Load Switch SW_EN sheet pin to R10.1 |
+| SW_FLAGB | 2.54 mm stub + label on the Load Switch sheet pin (unconnected on this sheet since import) |
+
+**Verified:** netlist diff = exactly one J1 pin added to each of the 11 nets (ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK,
+I2C1_SDA/SCL, SW_EN, SW_FLAGB), the 11 one-pin `unconnected-(J1-…)` nets gone, nothing else; two nets renamed by the
+new top-level labels (`Load Switch/SW_ON` → `SW_EN`, `Load Switch/SW_FLAGB` → `SW_FLAGB`). ERC 74/508 → 27/508
+(−29 pin_not_connected, −18 label_dangling); netcheck 50/50; midwire 0. Tool: `schedit.add_label` writes 180° labels
+right-justified, as KiCad does.
+
 ## S4.d — Footprints findable (2026-10-05, branch `sprint/4d-footprints`)
 
 New project library `nereus_Pi_shield_ADIN2111/mote.pretty`, registered in the project
