@@ -91,6 +91,25 @@ production (DESIGN D12).
   fast-trip 1.6 A typ / 220 ns; thermal shutdown 155 °C, retry 512 ms; §12.1 allows RTN,
   GND and PowerPAD together when reverse-input protection isn't needed (RTN = GND here).
   *(TI SLVSDT4F Rev. F; ti.com part page 2026-10-05)* JLC/LCSC C1848341.
+- ADIN2111 (U1): no supply sequencing required; supply ramp ≤ 40 ms; internal power good 20–43 ms after the
+  last supply; SPI active ≤ 50 ms (Table 3). Built-in power-on reset holds the chip in reset until supplies are
+  good. RESET: active low, internal pull-up, may float, hold low > 10 µs, < 1 µs rejected; SPI accessible ≤ 90 ms
+  after release. INT: open drain, active low, requires 1.5 kΩ to VDDIO; asserts after any reset. SPI, INT, LED and
+  RESET pins rated −0.3 V to VDDIO + 0.3 V. Straps (internal pull): SPI_CFG1 pin 19 PU, SDO/SPI_CFG0 PD,
+  P1_SWPD_EN pin 41 PD, P2_SWPD_EN pin 47 PU, Px_TX2P4_EN pins 21/48 PD; SPI_CFG1/0 = 0/0 → OPEN Alliance with
+  protection (Table 22); 2.4 V p-p needs AVDD_H 3.3 V. VDDIO 1.71 V min (1.8/2.5/3.3 V typ); digital V_IL 0.8 V /
+  V_IH 2.0 V at VDDIO 3.3 V; LED pins 8 mA at 3.3 V. *(ADIN2111 Rev. B datasheet, Tables 1, 3, 5, 8, 22,
+  "Reset Operations"; PDF supplied by Nick, SHA-256 10b6521e7b7fabeaedf7afee6b15a058a923c72ed6e401ad4de53911201b2fba)*
+- AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max
+  (V_IN 1.4–3.6 V) / 0.6 V (3.6–5.5 V); output discharge when off; reverse-current blocking always active; R_ON
+  56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4"). *(Diodes DS41203 Rev. 6-2)*
+- Pi Zero 2 W I²C1: R23/R24 1.8 kΩ 1 % pull-ups from GPIO2/GPIO3 to the Pi's 3V3. *(Raspberry Pi Zero 2 W reduced
+  schematics, datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-reduced-schematics.pdf)*
+- Pi GPIO reset-default pulls: GPIO0–8 pull up (incl. GPIO8 = CE0), GPIO9–27 pull down (incl. GPIO9 MISO,
+  GPIO16, 20, 23, 24, 25). *(BCM2835 ARM Peripherals §6.2 p. 102; assumed to apply to the Zero 2 W's BCM2710A1 (in the RP3A0,
+  product brief), not separately verified)*
+- I²C standard/fast mode: V_OL ≤ 0.4 V at 3 mA sink, so R_P(min) = (3.3 − 0.4) / 3 mA = 967 Ω at 3.3 V; R_P(max) =
+  t_r / (0.8473 · C_b) with t_r 1000 ns / 300 ns. *(TI SLVA689, Table 1 from the I²C specification; Eq. 1–2)*
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote

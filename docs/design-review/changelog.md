@@ -2,6 +2,21 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.c — Pull-ups, ADIN power-up, R10 removed (2026-10-05, branch `sprint/5c-pullups`)
+
+Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), D20–D22:
+
+| Change | Detail |
+|---|---|
+| **R27** I2C1_SDA → 3V3, **R26** I2C1_SCL → 3V3 | 4.7 kΩ ERJ-2RKF4701X, `Vault:RESC1005X40X25LL05T05`; placed right of J1 (labels + 3V3 symbols #PWR77/#PWR78). Cloned from R3 (same part and symbol), fields set to the mote's R26/R27 (Processor sheet) except SHEET = Top-Level |
+| **R43** ADIN_PWR → GND | 100 kΩ RMCF0402FT100K, cloned from R21 (all fields); left of J1 (ADIN_PWR label, GND #PWR79) |
+| **R10 removed** | Symbol and its now-unused lib symbol deleted; a wire joins the SW_EN corner to TP19's wire |
+
+**Verified:** netlist diff = R26/R27/R43 added on exactly those nets, R10 gone, TP19 moved from `Net-(R10-Pad2)` to
+SW_EN, nothing else; netcheck 50/50 → **51/51** (R26/R27 restore copper connections), 0 opens/shorts; ERC 27/508,
+counts and types unchanged; midwire 0. Tool: `schedit.clone_symbol` (place a copy of a part from another sheet, all
+fields kept) + test.
+
 ## S5.b — Pi header wired (2026-10-05, branch `sprint/5b-pi-header-wiring`)
 
 Top-Level sheet (`BM_Mote_1_Master.kicad_sch`), pin map in DESIGN.md:

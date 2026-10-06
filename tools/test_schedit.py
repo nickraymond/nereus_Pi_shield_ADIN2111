@@ -4,7 +4,9 @@ import re
 import unittest
 
 from midwire import WIRE
-from schedit import add_label, add_no_connect, add_symbol, add_wire, copy_block, delete, next_ref, set_properties
+from schedit import (add_label, add_no_connect, add_symbol, add_wire, clone_symbol, copy_block, delete, next_ref,
+                     set_properties)
+from midwire import symbol_pins
 
 LIB = ('\t(lib_symbols\n'
        '\t\t(symbol "lib:R"\n\t\t\t(symbol "R_0_1"\n'
@@ -102,6 +104,25 @@ class AddTest(unittest.TestCase):
         self.assertIn("(no_connect\n\t\t(at 5 5)", out)
         self.assertEqual(next_ref([SHEET], "#PWR"), "#PWR02")
         self.assertEqual(next_ref([SHEET], "J"), "J1")
+
+
+class CloneTest(unittest.TestCase):
+    def test_clone_from_another_sheet(self):
+        dst = '(kicad_sch\n\t(lib_symbols\n\t)\n\t(sheet_instances\n\t)\n)\n'
+        out = clone_symbol(dst, SHEET, "R2", "R9", 50, 60, "/top")
+        self.assertIn('(symbol "lib:R"', out)                      # lib symbol copied over
+        self.assertIn('(property "Reference" "R9"', out)
+        self.assertIn('(path "/top"', out)
+        self.assertIn('(reference "R9")', out)
+        self.assertNotIn('"R2"', out)
+        self.assertEqual(sorted((r, n, x, y) for r, n, x, y in symbol_pins(out)),
+                         [("R9", "1", 50.0, 60.0), ("R9", "2", 60.0, 60.0)])
+        again = clone_symbol(out, SHEET, "R2", "R10", 0, 0, "/top")
+        self.assertEqual(again.count('(symbol "lib:R"'), 1)          # not copied twice
+        with self.assertRaises(ValueError):
+            clone_symbol(out, SHEET, "R2", "R9", 0, 0, "/top")       # ref already used
+        with self.assertRaises(ValueError):
+            clone_symbol(out, SHEET, "R77", "R11", 0, 0, "/top")     # unknown source
 
 
 class CopyTest(unittest.TestCase):

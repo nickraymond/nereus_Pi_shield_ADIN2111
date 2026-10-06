@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S5.b, your KiCad look</strong> <strong>S4 done</strong> (PR #12 merged). <strong>S5.b:</strong> the Pi header is wired: 11 signal pins get a stub and a label (I²C, ADIN SPI/INT/RST/PWR, SW_EN, SW_FLAGB), the 17 unused GPIO pins get no-connect flags. ERC errors 74 → 27. QE approved; next: your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S5.c, QE review</strong> <strong>S5.b done</strong> (PR #13 merged). <strong>S5.c:</strong> I²C pull-ups R26/R27 back (Sofar's parts), R43 100 kΩ keeps the ADIN off unless the Pi turns it on, R10 removed (TP19 stays on SW_EN). The ADIN boot order and back-power rules are written up in DESIGN. ERC unchanged; netcheck 51/51. Next: QE review, then your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -211,15 +211,17 @@ const S = [
 <tr><td>38</td><td>20</td><td>SW_FLAGB</td></tr>
 <tr><td>2 / 4</td><td>—</td><td>PI_5V, joined to 5V_PI by JP1 (bridged; cut to isolate)</td></tr></table></div><p>Wired in S5.b: a short stub and a same-name label on each signal pin (Top-Level sheet). Each of the 11 nets gained exactly J1's pin in the netlist.</p>`, null, 1],
   ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console). S5.b: all 17 unused GPIO pins carry no-connect flags; pins 1/17 (Pi 3V3) stay unconnected.</p>`, null, 1],
-  ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>Unless the AP22913 has an internal one.</p>`],
-  ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
-  ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
-  ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
+  ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>S5.c: R43 100 kΩ (R21's part). The AP22913 ON pin has no internal pull-down (≤ 1 µA leakage → ≤ 0.1 V). ADIN off unless the Pi drives GPIO23 high (D21).</p>`, null, 1],
+  ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Not needed: the ADIN2111 has an internal pull-up on RESET and may float (Rev. B Table 8). The Pi's default pull-down on GPIO24 holds reset at boot.</p>`, null, 1],
+  ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 strap (internal pull-down → OPEN Alliance with protection, with R2 on SPI_CFG1). The Pi's GPIO9 default pull-down agrees.</p>`, null, 1],
+  ["Document the software power-up order", `<p>DESIGN "ADIN power and boot": RST low → ADIN_PWR high → wait ≥ 40 ms → release RST → wait for INT low (≤ 90 ms) → SPI. Never leave CS/RST high with the ADIN off; power it early with a device-tree GPIO hog (your Option 1). Includes the strap table.</p>`, null, 1],
   ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free. Done in S5.b: new SW_EN label on the R10/sheet-pin wire, stub + label on the SW_FLAGB sheet pin.</p>`, null, 1],
-  ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), nits fixed. Top-Level sheet: J1 (stubs, labels, no-connect flags) and the Load Switch sheet pins SW_EN / SW_FLAGB.</p>`, "nick"],
+  ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1); your look OK; PR #13 merged.</p>`, "nick", 1],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
-  ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
-  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk). Specifically CE0/GPIO8 (ADIN_NSS) defaults high at Pi reset while the ADIN is unpowered (QE S5.b).</p>`],
+  ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>S5.c: R26/R27, Sofar's refs, part and footprint, to the shield's 3V3 (D20). With the Pi's 1.8 kΩ (Zero 2 W schematic R23/R24) the bus sees ≈ 1.3 kΩ, above the 967 Ω I²C minimum (TI SLVA689). Also lets a bench MCU use the bus.</p>`, null, 1],
+  ["Pull-up rail and power sequencing", `<p>Shield 3V3. Back-power cases tabled in DESIGN "ADIN power and boot": CE0 defaults high at Pi reset (BCM2835 §6.2), INT into an unpowered Pi (prevented by R43), small pull-up leaks only with JP1 cut.</p>`, null, 1],
+  ["S5.c: remove R10, keep TP19", `<p>Your call: the Pi is the only load-switch controller. R10 (0 Ω option link from the mote) is gone; TP19 sits directly on SW_EN (D22).</p>`, null, 1],
+  ["S5.c: QE review; your KiCad look", `<p>Top-Level sheet: R26/R27 right of J1, R43 left of J1, TP19 on the SW_EN wire.</p>`, "nick"],
   ["S5.f: ADIN status LEDs", `<p>Your call (2026-10-05). Red "ADIN powered" LED on ADIN_VDDIO; green "link/activity" LED on P1_LED_1 (pin 21, active low; the 1.0 V p-p strap stays high via R3). Both through one shared bridged cut jumper (JP2) from ADIN_VDDIO, to save ≈ 6 mW. Resistors reuse R1's 1.5 kΩ part; two new 0603 LEDs (green Vf ≈ 2 V). Pi software enables the green LED over SPI. Open: visible after potting?</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},

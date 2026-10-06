@@ -25,10 +25,10 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 |---|---|---|
 | 19 / 21 / 23 / 24 | 10 / 9 / 11 / 8 | ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS |
 | 22 | 25 | ADIN_INT |
-| 18 | 24 | ADIN_RST |
-| 16 | 23 | ADIN_PWR |
-| 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL |
-| 36 | 16 | SW_EN (**high = payload on**; R42 pull-down keeps it off, D18) |
+| 18 | 24 | ADIN_RST (no external pull: ADIN internal pull-up; Pi default pull-down holds reset at boot) |
+| 16 | 23 | ADIN_PWR (**R43 100 kΩ pull-down**: ADIN off unless the Pi drives it high, D21) |
+| 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL (**R27/R26 4.7 kΩ to shield 3V3**, plus the Pi's own 1.8 kΩ to Pi 3V3, D20) |
+| 36 | 16 | SW_EN (**high = payload on**; R42 pull-down keeps it off, D18); TP19 test pad on this net (R10 removed, D22) |
 | 38 | 20 | SW_FLAGB (U11 FLT, open drain, R35 pull-up) |
 | 2 / 4 | — | `PI_5V`, joined to `5V_PI` by JP1 (bridged link; cut to isolate, D14) |
 | 6, 9, 14, 20, 25, 30, 34, 39 | — | GND |
@@ -36,7 +36,51 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 
 Reserved: 26 (CE1), 29, 32, 33 (motor). Free: 40 (SW_PGOOD dropped, D18). Avoid: 27, 28 (HAT EEPROM), 8, 10 (console).
 All 17 unused GPIO pins (7, 8, 10–13, 15, 26–29, 31–33, 35, 37, 40) carry no-connect flags; remove the flag when a pin is used.
-Pull-ups/pull-downs on these nets (I²C, ADIN_PWR, ADIN_RST) come in S5.c.
+Pull resistors on these nets: S5.c (D20, D21). None on MISO (SDO is the SPI_CFG0 strap, see below) or on RST.
+
+**ADIN power and boot** *(S5.c; Sofar's circuit, unchanged)*
+
+U2 (1V8 → ADIN_AVDD) and U3 (3V3 → ADIN_VDDIO), both AP22913, share one ON net, ADIN_PWR (TP8). Sofar's sheet note:
+the load switches cut ADIN power for "<10mW mote operation". ADIN_VDDIO ≈ 3.32 V when on (U5: 0.6 V × (1 + 100/22.1);
+U3 ≈ 56 mΩ), 0 V when off (U3 output discharge). The ADIN needs no supply order and holds itself in reset until its
+supplies are good (ADIN2111 Rev. B Table 3 note, "Power-On Reset").
+
+Hardware configuration straps, read at power-up / reset release (Table 8, Tables 18–22; all on ADIN_VDDIO or GND, so
+only valid with the ADIN powered):
+
+| ADIN pin | Chip default (internal pull) | Sofar's resistor (overrides) | Reads | Result |
+|---|---|---|---|---|
+| 19 P1_LED_0 / SPI_CFG1 | pull-up → 1 | R2 4.7 kΩ to GND | 0 | with SPI_CFG0 = 0: OPEN Alliance SPI with protection (Table 22) |
+| 43 SDO / SPI_CFG0 | pull-down → 0 | none | 0 | (Pi GPIO9's default pull-down agrees) |
+| 41 TEST_0 / P1_SWPD_EN | pull-down → 0 (port 1 asleep) | R6 4.7 kΩ to ADIN_VDDIO | 1 | port 1 active after reset, links up |
+| 47 P2_LED_0 / P2_SWPD_EN | pull-up → 1 (port 2 active) | R4 4.7 kΩ to GND | 0 | port 2 in software power-down |
+| 21 / 48 Px_LED_1 / Px_TX2P4_EN | pull-down → 0 (2.4 V p-p allowed) | R3 / R5 4.7 kΩ to ADIN_VDDIO | 1 | 1.0 V p-p only, locked. **Required**: AVDD is 1.8 V, and 2.4 V p-p needs 3.3 V AVDD_H "otherwise, the device cannot start up" |
+| 39 INT | pull-up | R1 1.5 kΩ to ADIN_VDDIO | — | the datasheet requires 1.5 kΩ to VDDIO |
+| 20 RESET | pull-up | none | — | may float; hold low > 10 µs to reset; < 1 µs pulses ignored |
+
+**Boot order (Pi software, D21):**
+1. Hold ADIN_RST low with ADIN_PWR low. These are the Pi's reset defaults (GPIO23/24 pull down) and R43's state.
+2. Drive ADIN_PWR high.
+3. Wait ≥ 40 ms (supply ramp, Table 3).
+4. Release ADIN_RST.
+5. Wait for INT to go low. It asserts after any reset; SPI is accessible ≤ 90 ms after RESET is released ("Hardware Reset").
+6. Configure over SPI.
+
+**Rule:** never leave CS, RST, SCK or MOSI high while ADIN_PWR is off. The ADIN's SPI/RESET/LED pins are rated −0.3 V to
+VDDIO + 0.3 V (Table 5), so a high pin back-powers the unpowered chip through its clamps. U3's reverse blocking keeps
+this off the shield's 3V3, but not off ADIN_VDDIO. Power the ADIN early in boot, before the SPI driver loads (CS idles
+high), with a device-tree GPIO hog on GPIO23, and keep it on while SPI0 is enabled (Option 1, Nick 2026-10-05; no series
+resistors).
+
+**Back-power cases** (Pi 3V3 and shield 3V3 are separate rails; they only differ when JP1 is cut):
+
+| Case | Path | Size | Handling |
+|---|---|---|---|
+| Pi booting, ADIN off | GPIO8 (CE0) defaults to pull-up (BCM2835 §6.2) → ADIN CS clamp | weak internal pull (value not given in the BCM2835 manual): small | power the ADIN early (rule above) |
+| Pi running, ADIN off | spidev idles CS high, driven | mA-level through the clamp | not allowed by the rule |
+| Pi off, shield on | INT: R1 1.5 kΩ from ADIN_VDDIO into GPIO25 | ≈ 1.8 mA if the ADIN were on | R43 keeps the ADIN off when the Pi doesn't drive GPIO23 |
+| Pi off, shield on | R26/R27 4.7 kΩ into GPIO2/3; R35 100 kΩ into GPIO20 | ≈ 0.6 mA / line; ≈ 33 µA | accepted (small); only with JP1 cut |
+| Pi on, shield off | the Pi's 1.8 kΩ I²C pull-ups into U4 (INA232) | — | exists without R26/R27; only with JP1 cut |
 
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
@@ -87,6 +131,9 @@ two local labels with the same name silently join their nets.
 | D17 | 2026-10-05 | Payload port: switched by the Pi (SW_EN) and current-limited by the load switch (R34 → ≈ 0.74 A typical, FPF2700 datasheet), with **R11 DNP** (S5). As captured from Sofar, R11 (0 Ω across U9) was fitted, which bypassed U9 entirely. U9 FPF2700MX is obsolete, so S5 replaces it with a part JLC can source, matching the function (36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD) | Amends SPEC constraint 7 (Nick, 2026-10-05). Nick: payloads are small devices (e.g. another sensor to switch on), none runs near the limit; he wants the switch and limit active (QE S4.c F4 found R11 fitted). Digi-Key lists FPF2700MX as no longer manufactured (2026-10-05) |
 | D18 | 2026-10-05 | U9 FPF2700MX → **U11 TI TPS26621DRCR** (JLC C1848341; TI status ACTIVE). R34 → 9.09 kΩ (I_LIM = 6.636/R = 0.73 A, SLVSDT4F Eq. 3; ≈ −6/+4 %); new R41 1 MΩ IN→UVLO and OVP→GND (UV/OV cut-off unused, Fig. 10-14); dVdT open (internal 24 V/660 µs ramp). SHDN is active low, so the SW_ON pull-up R32 becomes a **10 kΩ pull-down R42** (RMCF0402FT10K0): worst-case SHDN source current 10 µA → 0.1 V, below V(SHUTF) min 0.9 V; the Pi's 3.3 V high is above V(SHUTR) max 1.8 V (SLVSDT4F §7.5; 100 kΩ had no worst-case margin, QE S5.a F2). Payload off by default, Pi drives SW_EN high. No PGOOD: SW_PGOOD, R33, TP34 and the sheet pin removed (Pi pin 40 freed); FLT keeps SW_FLAGB. R11 DNP (D17). **RTN = GND** (with GND and the PowerPAD): reverse-input protection isn't used — VBUS is internal behind D1, and the FPF2700 had none (§12.1 allows it; §10.4's "don't" applies only when reverse protection is wanted). R_ON 478 mΩ vs FPF2700's 88 mΩ: ≈ 0.35 V drop and ≈ 0.25 W at 0.73 A. Hard short / output caps (closes QE S4.c N6): C_OUT ≥ 0.01 µF (ROC), start-up into a short is current-limited (Fig. 9-12), fast-trip 1.6 A typ / 220 ns, thermal shutdown 155 °C with 512 ms auto-retry, D3 is TI's recommended output Schottky (§11). Floating dVdT ramps at ≈ 36 V/ms, so a payload input capacitance above ≈ 20 µF charges in current limit (≈ C·V/0.73 A, e.g. 4.4 ms for 100 µF at 32 V, well inside tCL(dly) 512 ms); auto-retry only if thermal shutdown trips. New project symbol `nereus:TPS26621DRCR`; footprint `Package_SON:Texas_DRC0010J` (stock) | Nick: JLC-sourceable replacement for the obsolete part, payload switched and limited; the three sub-choices (part, pull-down, drop PGOOD) approved 2026-10-05. Tracked for Sofar in `docs/design-review/sofar_brief.md` |
 | D19 | 2026-10-05 | Footprints from the mote come from a project library `mote.pretty`, nickname **`Vault`** (matching the board's `Vault:` IDs): the 43 footprints the schematic uses, extracted read-only from the reference board with KiCad's own pcbnew 9.0.6 (`tools/fpextract.py`; back-side instances flipped to the front, position/rotation zeroed, nets cleared). Every bare footprint field is now `Vault:<name>`; new parts keep their stock/`nereus` libraries | With IDs identical to the board's, Nick's F8 re-links by reference without replacing any kept footprint. `fpextract --verify` checks every board instance: pad numbers, sizes, pad-to-pad distances and exact pad centres after placing the library footprint like the instance, flipped for back-side ones (0 problems; it catches a moved, resized or mirrored pad set). **Expect ≈ 58 graphics-only "footprint doesn't match library" DRC warnings** (QE S4.d F1): the Altium import varies Fab/User-layer graphics and text between instances of one footprint, and Hole_M3's keepouts serialise differently; pads are identical. Don't run "Update Footprints from Library" on kept parts unless graphics-only changes are acceptable. The import also left no SMD/THT attributes and no courtyards (pre-existing, for layout/S6) |
+| D20 | 2026-10-05 | I²C pull-ups **fitted**: R26 (I2C1_SCL) and R27 (I2C1_SDA) = Sofar's 4.7 kΩ ERJ-2RKF4701X to the shield's 3V3, same refs, footprint (`Vault:RESC1005X40X25LL05T05`) and fields as on the mote's Processor sheet, so netcheck verifies them against the copper. With the Pi's own pull-ups (Pi Zero 2 W reduced schematic: R23/R24 1.8 kΩ 1 % to the Pi's 3V3 on GPIO2/3) the bus sees ≈ 1.30 kΩ: ≥ R_P(min) 967 Ω at 3.3 V (V_OL ≤ 0.4 V at 3 mA, standard/fast mode; TI SLVA689 Table 1 / Eq. 1), ≈ 2.2 mA at V_OL. Rise time at 1.30 kΩ allows ≤ 272 pF (fast mode, SLVA689 Eq. 2) | Nick: the shield should work with another MCU on the bench, not only the Pi. Back-power with JP1 cut: ≈ 0.6 mA per line into an unpowered Pi (accepted) |
+| D21 | 2026-10-05 | **R43 100 kΩ pull-down on ADIN_PWR** (RMCF0402FT100K, R21's part). AP22913 ON has no internal pull-down: input leakage ≤ 1 µA, so R43 holds ≤ 0.1 V, below V_IL 0.4 V (V_IN 1.4–3.6 V); the Pi's 3.3 V high clears V_IH 1.1 V at 33 µA (Diodes DS41203 Rev. 6-2). No resistor on ADIN_RST (the ADIN has an internal pull-up; floating is allowed, Rev. B Table 8) or MISO (SPI_CFG0 strap). CS/RST back-power handled in Pi software, not hardware (Option 1): boot order and rule in "ADIN power and boot" | The mote relied on STM32 firmware to drive ADIN_PWR; R43 keeps the ADIN off whenever the Pi is booting, absent or off, so its straps are read only on a deliberate power-up and INT can't feed an unpowered Pi. Option 1 chosen by Nick 2026-10-05 (Option 2, 1 kΩ series on CS/RST, not taken) |
+| D22 | 2026-10-05 | **R10 removed**; TP19 tied straight to SW_EN. On the mote R10 (0 Ω) linked STM32 pin 19 (and, via R9, the mezzanine) to SW_ON, choosing the load-switch controller; R9 went with the mezzanine in S2 | Nick: the Pi header is the only controller; fewer parts, simpler to build. TP19 kept as a bench pad to probe or force SW_EN |
 
 ## ERC / net-check results
 
@@ -103,6 +150,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S5.a | 74 / 626 | 50/50, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical; U9/R32/R33/TP34 removed, U11/R41/R42 new | Load switch replaced (D18), R11 DNP: −2 errors (SW_PGOOD sheet pin, U9.8), −3 footprint-link warnings. Copper nets 53 → 50: three nets now hold only removed parts |
 | 2026-10-05 | S4.d | 74 / 508 | 50/50, 0 opens, 0 shorts; netlist identical except 117 footprint fields (bare → `Vault:`) | Footprint library `Vault` (D19): −118 footprint-link warnings |
 | 2026-10-05 | S5.b | 27 / 508 | 50/50, 0 opens, 0 shorts, 0 excluded; 11 nets each gain exactly one J1 pin, nothing else changes | Pi header wired: −29 pin_not_connected (28 J1 GPIO, SW_FLAGB sheet pin), −18 label_dangling (every one-pin I2C1/ADIN net now has the Pi pin). Net names: `Load Switch/SW_ON` → `SW_EN`, `Load Switch/SW_FLAGB` → `SW_FLAGB` (new top-level labels) |
+| 2026-10-05 | S5.c | 27 / 508 | **51/51**, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical | R26/R27 → I2C1_SCL/SDA + 3V3 (restoring their copper connections: copper nets 50 → 51), R43 ADIN_PWR → GND, R10 removed and TP19 moved onto SW_EN; nothing else changed. ERC counts and types unchanged |
 
 **Remaining ERC errors after S5.b (27), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
