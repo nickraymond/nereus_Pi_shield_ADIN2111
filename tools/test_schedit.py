@@ -96,6 +96,9 @@ class AddTest(unittest.TestCase):
         out = add_no_connect(add_label(add_wire(SHEET, 1, 2, 3, 2), "N1", 1, 2), 5, 5)
         self.assertIn(("1", "2", "3", "2"), wires(out))
         self.assertIn('(label "N1"', out)
+        self.assertIn("(justify left bottom)", out)
+        self.assertIn("(at 4 2 180)\n\t\t(effects\n\t\t\t(font\n\t\t\t\t(size 1.27 1.27)\n\t\t\t)\n\t\t\t(justify right bottom)",
+                      add_label(SHEET, "N2", 4, 2, 180))
         self.assertIn("(no_connect\n\t\t(at 5 5)", out)
         self.assertEqual(next_ref([SHEET], "#PWR"), "#PWR02")
         self.assertEqual(next_ref([SHEET], "J"), "J1")

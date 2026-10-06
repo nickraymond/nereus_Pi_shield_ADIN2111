@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.d, your KiCad look</strong> <strong>S5.a done</strong> (PR #11 merged): payload switch U11 TPS26621, R11 DNP. <strong>S4.d:</strong> every footprint now comes from a real library (the mote's own, extracted as <code>Vault</code>), so F8 re-links cleanly. QE approved; next: your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S5.b, your KiCad look</strong> <strong>S4 done</strong> (PR #12 merged). <strong>S5.b:</strong> the Pi header is wired: 11 signal pins get a stub and a label (I²C, ADIN SPI/INT/RST/PWR, SW_EN, SW_FLAGB), the 17 unused GPIO pins get no-connect flags. ERC errors 74 → 27. QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -193,13 +193,13 @@ const S = [
   ["S4.c: payload port switched and limited (D17)", `<p>Your call: R11 DNP so U9 switches (SW_EN) and limits (≈ 0.74 A) the payload; payloads are small devices. Schematic change in S5.</p>`, "nick", 1],
   ["S4.c: QE approved; your review of power_budget.md", `<p>QE APPROVED WITH NITS (round 4); you approved; PR #10 merged.</p>`, "nick", 1],
   ["S4.d: make all footprints findable", `<p>The 43 footprints the schematic uses, extracted read-only from the mote board into <code>mote.pretty</code> (library nickname <code>Vault</code>, matching the board's IDs). Every footprint field now names a real library, so your F8 re-link changes nothing for kept parts (D19).</p>`, null, 1],
-  ["S4.d: QE approved; your KiCad look", `<p>QE APPROVED (round 2). Open any part's footprint (e.g. R11) in the Footprint Editor from the <code>Vault</code> library.</p>`, "nick"]
+  ["S4.d: QE approved; your KiCad look", `<p>QE APPROVED (round 2); your look OK; PR #12 merged.</p>`, "nick", 1]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
   ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) was fitted and bypassed the load switch (D17). Done in S5.a.</p>`, null, 1],
   ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>U11 = TI TPS26621DRCR (JLC C1848341, TI ACTIVE): R34 9.09 kΩ → 0.73 A, R41 1 MΩ UVLO tie, R42 10 kΩ pull-down (payload off by default; SW_EN now active high), PGOOD dropped (D18).</p>`, null, 1],
-  ["S5.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2). Load Switch sheet (U11 and its parts) and R11 on the Top-Level sheet (DNP cross).</p>`, "nick"],
+  ["S5.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2); your look OK; PR #11 merged.</p>`, "nick", 1],
   ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
@@ -209,16 +209,18 @@ const S = [
 <tr><td>3 / 5</td><td>2 / 3</td><td>I2C1_SDA / I2C1_SCL</td></tr>
 <tr><td>36</td><td>16</td><td>SW_EN (high = payload on)</td></tr>
 <tr><td>38</td><td>20</td><td>SW_FLAGB</td></tr>
-<tr><td>2 / 4</td><td>—</td><td>PI_5V, joined to 5V_PI by JP1 (bridged; cut to isolate)</td></tr></table></div>`],
-  ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console).</p>`],
+<tr><td>2 / 4</td><td>—</td><td>PI_5V, joined to 5V_PI by JP1 (bridged; cut to isolate)</td></tr></table></div><p>Wired in S5.b: a short stub and a same-name label on each signal pin (Top-Level sheet). Each of the 11 nets gained exactly J1's pin in the netlist.</p>`, null, 1],
+  ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console). S5.b: all 17 unused GPIO pins carry no-connect flags; pins 1/17 (Pi 3V3) stay unconnected.</p>`, null, 1],
   ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>Unless the AP22913 has an internal one.</p>`],
   ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
-  ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free.</p>`],
+  ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free. Done in S5.b: new SW_EN label on the R10/sheet-pin wire, stub + label on the SW_FLAGB sheet pin.</p>`, null, 1],
+  ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), nits fixed. Top-Level sheet: J1 (stubs, labels, no-connect flags) and the Load Switch sheet pins SW_EN / SW_FLAGB.</p>`, "nick"],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
-  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],
+  ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk). Specifically CE0/GPIO8 (ADIN_NSS) defaults high at Pi reset while the ADIN is unpowered (QE S5.b).</p>`],
+  ["S5.f: ADIN status LEDs", `<p>Your call (2026-10-05). Red "ADIN powered" LED on ADIN_VDDIO; green "link/activity" LED on P1_LED_1 (pin 21, active low; the 1.0 V p-p strap stays high via R3). Both through one shared bridged cut jumper (JP2) from ADIN_VDDIO, to save ≈ 6 mW. Resistors reuse R1's 1.5 kΩ part; two new 0603 LEDs (green Vf ≈ 2 V). Pi software enables the green LED over SPI. Open: visible after potting?</p>`],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",

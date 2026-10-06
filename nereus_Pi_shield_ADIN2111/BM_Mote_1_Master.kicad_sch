@@ -6700,6 +6700,74 @@
 		(at 127 55.88)
 		(uuid "3348e63a-7aa4-486b-841c-60b9449c3b9e")
 	)
+	(no_connect
+		(at 142.24 81.28)
+		(uuid "15997390-17f8-4a9f-893e-c2b9cdf8812e")
+	)
+	(no_connect
+		(at 101.6 66.04)
+		(uuid "c6296554-44e5-4e47-b44c-cf86e1bfe87d")
+	)
+	(no_connect
+		(at 101.6 68.58)
+		(uuid "69163296-d833-4acd-9ecd-aed7a97d9311")
+	)
+	(no_connect
+		(at 101.6 76.2)
+		(uuid "af28b2fc-f766-4ab8-a948-8207a83459f1")
+	)
+	(no_connect
+		(at 101.6 78.74)
+		(uuid "e7095415-b273-4369-8bd5-2d9aea497db5")
+	)
+	(no_connect
+		(at 101.6 106.68)
+		(uuid "91507703-5f82-4385-80e4-cff5f01a94c3")
+	)
+	(no_connect
+		(at 101.6 93.98)
+		(uuid "296cb222-4be1-48a4-b525-dd85b17df0f1")
+	)
+	(no_connect
+		(at 142.24 91.44)
+		(uuid "e798b256-4ebc-47ad-963c-06d1be2f90a9")
+	)
+	(no_connect
+		(at 142.24 66.04)
+		(uuid "b03bf83e-6da1-4abe-a658-b57e4cfa72d3")
+	)
+	(no_connect
+		(at 142.24 68.58)
+		(uuid "b3d93c9c-0e42-453b-aacc-01754c2335cb")
+	)
+	(no_connect
+		(at 142.24 83.82)
+		(uuid "a95fb911-202f-4424-86ee-44a966304a23")
+	)
+	(no_connect
+		(at 142.24 86.36)
+		(uuid "a850d322-7785-4823-a16f-8d44799a3236")
+	)
+	(no_connect
+		(at 142.24 106.68)
+		(uuid "e5d00659-5549-4f6f-90c4-c3f869899685")
+	)
+	(no_connect
+		(at 142.24 109.22)
+		(uuid "36076fa5-1a42-4a7a-b6f3-61ef4f4f594b")
+	)
+	(no_connect
+		(at 101.6 83.82)
+		(uuid "f9182803-678c-400a-9804-50cf45bf7866")
+	)
+	(no_connect
+		(at 101.6 104.14)
+		(uuid "f1fc065c-8f92-43fb-9dea-9700cc563037")
+	)
+	(no_connect
+		(at 101.6 88.9)
+		(uuid "ba4cc686-84ca-4d12-b257-6d774c7d2fb9")
+	)
 	(wire
 		(pts
 			(xy 447.04 106.68) (xy 472.44 106.68)
@@ -7400,6 +7468,126 @@
 		)
 		(uuid "ffe7578a-2794-48f3-882a-34554c940711")
 	)
+	(wire
+		(pts
+			(xy 142.24 73.66) (xy 144.78 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dba81998-1ef0-4461-86e3-55c31c979190")
+	)
+	(wire
+		(pts
+			(xy 142.24 76.2) (xy 144.78 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e5eca30-d11c-4cea-9232-6e1984b9da1f")
+	)
+	(wire
+		(pts
+			(xy 142.24 93.98) (xy 144.78 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96ef3d8f-b9c1-4071-a178-133ac39becdf")
+	)
+	(wire
+		(pts
+			(xy 142.24 96.52) (xy 144.78 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6501621b-264b-4c7a-ac96-5526365b0dfd")
+	)
+	(wire
+		(pts
+			(xy 142.24 99.06) (xy 144.78 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82325aa7-8255-435c-b8e3-a9209de22277")
+	)
+	(wire
+		(pts
+			(xy 142.24 101.6) (xy 144.78 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "861ed1f3-3f6a-4c7e-b73c-68a22af63b72")
+	)
+	(wire
+		(pts
+			(xy 101.6 96.52) (xy 99.06 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8ee156d-5b46-4ac5-93f9-6ad2e9061b66")
+	)
+	(wire
+		(pts
+			(xy 101.6 99.06) (xy 99.06 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58d05da1-8bd9-4e8b-ad57-0c8c3f88323e")
+	)
+	(wire
+		(pts
+			(xy 101.6 101.6) (xy 99.06 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ba59978-4582-420b-a148-c0d6213d7db5")
+	)
+	(wire
+		(pts
+			(xy 101.6 73.66) (xy 99.06 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5fed45b-65bc-4736-bb34-d21372a93a19")
+	)
+	(wire
+		(pts
+			(xy 101.6 86.36) (xy 99.06 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12d25814-55de-41fc-8bd4-9bd1c2135f91")
+	)
+	(wire
+		(pts
+			(xy 185.42 215.9) (xy 187.96 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "780d9f52-a3a3-4331-857d-4668dc4dc04c")
+	)
 	(label "BM2_P"
 		(at 454.66 121.92 0)
 		(effects
@@ -7619,6 +7807,136 @@
 			(justify left bottom)
 		)
 		(uuid "863192f1-e392-450e-a1fb-9fa954c40e35")
+	)
+	(label "I2C1_SDA"
+		(at 144.78 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31e6a255-5ae0-41da-8f25-e902b79e0420")
+	)
+	(label "I2C1_SCL"
+		(at 144.78 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c6166921-f9f6-45bc-9cd6-5f4f1e6376f8")
+	)
+	(label "ADIN_NSS"
+		(at 144.78 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5ccdf2f-cbeb-4869-b069-3bf55c20afcd")
+	)
+	(label "ADIN_MISO"
+		(at 144.78 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "60c8ae4f-f9c4-4326-a21f-dbb594bcd479")
+	)
+	(label "ADIN_MOSI"
+		(at 144.78 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c925d50-83f7-442c-bc71-e7eb0e875142")
+	)
+	(label "ADIN_SCK"
+		(at 144.78 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d92167c3-1107-48e1-8ef2-93a4838ffff9")
+	)
+	(label "ADIN_PWR"
+		(at 99.06 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8c4a84a9-2bcb-4b7c-8ae1-b3e917f293bb")
+	)
+	(label "ADIN_RST"
+		(at 99.06 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bfedad51-218a-4b5f-ab63-4567f581fc2c")
+	)
+	(label "ADIN_INT"
+		(at 99.06 101.6 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3c95624f-c8f3-4c2c-a44c-dac565d3952d")
+	)
+	(label "SW_EN"
+		(at 99.06 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b10701c5-acd3-4591-b8ad-6b5b3d75faa0")
+	)
+	(label "SW_FLAGB"
+		(at 99.06 86.36 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "782f0322-c946-4dfb-b183-19587be2475d")
+	)
+	(label "SW_EN"
+		(at 200.66 213.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e5c3cc09-a90a-4849-8ed1-a2f5c4169a65")
+	)
+	(label "SW_FLAGB"
+		(at 187.96 215.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "763c5a1f-7638-4463-9348-00f65245e059")
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_0_Symbol_Sofar Ocean Technologies, Inc.")

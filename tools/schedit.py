@@ -329,8 +329,10 @@ def add_no_connect(text, x, y):
 
 
 def add_label(text, name, x, y, angle=0):
+    """Local label; angle 180 reads leftward from (x, y), as KiCad writes it (justify right)."""
+    just = "right bottom" if angle == 180 else "left bottom"
     b = (f'\t(label "{name}"\n\t\t(at {fmt(x)} {fmt(y)} {fmt(angle)})\n'
-         "\t\t(effects\n\t\t\t(font\n\t\t\t\t(size 1.27 1.27)\n\t\t\t)\n\t\t\t(justify left bottom)\n\t\t)\n"
+         f"\t\t(effects\n\t\t\t(font\n\t\t\t\t(size 1.27 1.27)\n\t\t\t)\n\t\t\t(justify {just})\n\t\t)\n"
          f'\t\t(uuid "{uuid.uuid4()}")\n\t)\n')
     return _insert_after_last(text, "label", b)
 
