@@ -18,6 +18,7 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
 | 6 | ADIN power enable (ADIN_PWR → U2/U3 ON) | Driven by the STM32, no pull resistor | Driven by Pi GPIO23 with a new **R43 100 kΩ pull-down** (your R21 part). The AP22913 ON pin has no internal pull-down | Keeps the ADIN off while the Pi boots, is absent or is off, so the straps are only read on a deliberate power-up and INT can't feed an unpowered Pi. CS/RST back-power is handled by a boot order in Pi software (D21) |
 | 7 | Load-switch control links | R10 0 Ω (STM32 pin 19 → SW_ON) and R9 0 Ω (mezzanine → same net), TP19 | R9 and R10 removed; TP19 kept, tied to SW_EN; Pi GPIO16 is the only controller (D22) | One controller; fewer parts to place |
 | 8 | Payload power out | VBUS_OUT through mezzanine P1 pins 14/16/18 | **J5 JST GH 2-pin** (SM02B-GHS-TB): pin 1 VBUS_OUT, pin 2 GND; 1.0 A per contact, 50 V (D23) | The mezzanine is gone; the payload needs its own connector |
+| 9 | ADIN status LEDs | None | **D8 red** (ADIN powered), **D9 / D10 yellow-green** (port 1 / port 2 link/activity on ADIN pins 21 / 48, active low; your R3 / R5 stay as their pull-ups, so the 1.0 V p-p straps are unchanged), each via 1.5 kΩ from ADIN_VDDIO through **JP2**, a bridged link that is cut to disable them (D25) | Bench visibility of PHY power and per-port link; a few mW, off with the ADIN |
 
 **Notes for your review**
 
