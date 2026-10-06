@@ -4955,7 +4955,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 116.84 134.4422 0)
 			(effects
 				(font
@@ -5018,7 +5018,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "SRF1260-101M-Footprint-1"
+		(property "Footprint" "Vault:SRF1260-101M-Footprint-1"
 			(at 238.76 223.3422 0)
 			(effects
 				(font
@@ -5103,7 +5103,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-0805-L_2_01_0_2-W_1_25-MFG"
+		(property "Footprint" "Vault:FP-0805-L_2_01_0_2-W_1_25-MFG"
 			(at 60.96 192.8622 0)
 			(effects
 				(font
@@ -5440,7 +5440,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "CRCW08057R50FKEAHP-Footprint-1"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 335.28 134.4422 0)
 			(effects
 				(font
@@ -5575,7 +5575,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 195.58 246.2022 0)
 			(effects
 				(font
@@ -5637,7 +5637,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 116.84 246.2022 0)
 			(effects
 				(font
@@ -5700,7 +5700,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-SOD-323-MFG"
+		(property "Footprint" "Vault:FP-SOD-323-MFG"
 			(at 43.18 175.0822 0)
 			(effects
 				(font
@@ -6070,7 +6070,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CRCW1210-e3-IPC_B"
+		(property "Footprint" "Vault:FP-CRCW1210-e3-IPC_B"
 			(at 256.54 103.9622 0)
 			(effects
 				(font
@@ -6396,7 +6396,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 60.96 134.4422 0)
 			(effects
 				(font
@@ -6460,7 +6460,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-RR0510-IPC_B"
+		(property "Footprint" "Vault:FP-RR0510-IPC_B"
 			(at 60.96 103.9622 0)
 			(effects
 				(font
@@ -6798,7 +6798,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-0805-L_2_01_0_2-W_1_25-MFG"
+		(property "Footprint" "Vault:FP-0805-L_2_01_0_2-W_1_25-MFG"
 			(at 116.84 116.6622 0)
 			(effects
 				(font
@@ -7134,7 +7134,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-74930000-MFG"
+		(property "Footprint" "Vault:FP-74930000-MFG"
 			(at 101.6 70.9422 0)
 			(effects
 				(font
@@ -7238,7 +7238,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-FTD-MFG"
+		(property "Footprint" "Vault:FP-FTD-MFG"
 			(at 312.42 147.1422 0)
 			(effects
 				(font
@@ -7626,7 +7626,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-0805-L_2_01_0_2-W_1_25-MFG"
+		(property "Footprint" "Vault:FP-0805-L_2_01_0_2-W_1_25-MFG"
 			(at 116.84 228.4222 0)
 			(effects
 				(font
@@ -7961,7 +7961,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 60.96 246.2022 0)
 			(effects
 				(font
@@ -8025,7 +8025,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CRCW1210-e3-IPC_B"
+		(property "Footprint" "Vault:FP-CRCW1210-e3-IPC_B"
 			(at 256.54 73.4822 0)
 			(effects
 				(font
@@ -8353,7 +8353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CRCW1210-e3-IPC_B"
+		(property "Footprint" "Vault:FP-CRCW1210-e3-IPC_B"
 			(at 256.54 208.1022 0)
 			(effects
 				(font
@@ -8681,7 +8681,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-GRM188-0_1-e0_2_0_5-IPC_B"
+		(property "Footprint" "Vault:FP-GRM188-0_1-e0_2_0_5-IPC_B"
 			(at 287.02 142.0622 0)
 			(effects
 				(font
@@ -8999,7 +8999,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "CAPC2013X145X50LL20T25"
+		(property "Footprint" "Vault:CAPC2013X145X50LL20T25"
 			(at 58.42 241.1222 0)
 			(effects
 				(font
@@ -9126,7 +9126,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "CRCW08057R50FKEAHP-Footprint-1"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 312.42 134.4422 0)
 			(effects
 				(font
@@ -9263,7 +9263,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-C2012-125-0_2-MFG"
+		(property "Footprint" "Vault:FP-C2012-125-0_2-MFG"
 			(at 203.2 228.4222 0)
 			(effects
 				(font
@@ -9610,7 +9610,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL32-IPC_C"
+		(property "Footprint" "Vault:FP-CL32-IPC_C"
 			(at 299.72 142.0622 0)
 			(effects
 				(font
@@ -9897,7 +9897,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-0805-L_2_01_0_2-W_1_25-MFG"
+		(property "Footprint" "Vault:FP-0805-L_2_01_0_2-W_1_25-MFG"
 			(at 60.96 81.1022 0)
 			(effects
 				(font
@@ -10232,7 +10232,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 335.28 159.8422 0)
 			(effects
 				(font
@@ -10296,7 +10296,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-C2012-125-0_2-MFG"
+		(property "Footprint" "Vault:FP-C2012-125-0_2-MFG"
 			(at 208.28 93.8022 0)
 			(effects
 				(font
@@ -10643,7 +10643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-RR0510-IPC_B"
+		(property "Footprint" "Vault:FP-RR0510-IPC_B"
 			(at 60.96 215.7222 0)
 			(effects
 				(font
@@ -10980,7 +10980,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-PMDTM-MFG"
+		(property "Footprint" "Vault:FP-PMDTM-MFG"
 			(at 383.54 152.2222 0)
 			(effects
 				(font
@@ -11050,7 +11050,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CRCW1210-e3-IPC_B"
+		(property "Footprint" "Vault:FP-CRCW1210-e3-IPC_B"
 			(at 256.54 238.5822 0)
 			(effects
 				(font
@@ -11378,7 +11378,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "CAPC2013X145X50LL20T25"
+		(property "Footprint" "Vault:CAPC2013X145X50LL20T25"
 			(at 58.42 129.3622 0)
 			(effects
 				(font
@@ -11504,7 +11504,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-SOD-323-MFG"
+		(property "Footprint" "Vault:FP-SOD-323-MFG"
 			(at 43.18 63.3222 0)
 			(effects
 				(font
@@ -11873,7 +11873,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-74930000-MFG"
+		(property "Footprint" "Vault:FP-74930000-MFG"
 			(at 101.6 182.7022 0)
 			(effects
 				(font
@@ -11977,7 +11977,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-FTD-MFG"
+		(property "Footprint" "Vault:FP-FTD-MFG"
 			(at 335.28 147.1422 0)
 			(effects
 				(font
@@ -12364,7 +12364,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "SMA6F33A-Footprint-1"
+		(property "Footprint" "Vault:SMA6F33A-Footprint-1"
 			(at 358.14 144.6022 0)
 			(effects
 				(font
@@ -12552,7 +12552,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 208.28 111.5822 0)
 			(effects
 				(font
@@ -12615,7 +12615,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "SRF1260-101M-Footprint-1"
+		(property "Footprint" "Vault:SRF1260-101M-Footprint-1"
 			(at 238.76 88.7222 0)
 			(effects
 				(font

@@ -3664,7 +3664,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 185.42 200.4822 0)
 			(effects
 				(font
@@ -3941,7 +3941,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25ML05T10"
+		(property "Footprint" "Vault:RESC1005X40X25ML05T10"
 			(at 121.92 70.9422 0)
 			(effects
 				(font
@@ -4048,7 +4048,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 91.44 96.3422 0)
 			(effects
 				(font
@@ -4110,7 +4110,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 215.9 238.5822 0)
 			(effects
 				(font
@@ -4172,7 +4172,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 226.06 238.5822 0)
 			(effects
 				(font
@@ -4235,7 +4235,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "ADIN2111BCPZ-Footprint-1"
+		(property "Footprint" "Vault:ADIN2111BCPZ-Footprint-1"
 			(at 259.08 203.0222 0)
 			(effects
 				(font
@@ -4456,7 +4456,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 226.06 228.4222 0)
 			(effects
 				(font
@@ -4743,7 +4743,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 185.42 230.9622 0)
 			(effects
 				(font
@@ -5019,7 +5019,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 160.02 91.2622 0)
 			(effects
 				(font
@@ -5082,7 +5082,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "AP22913CN4-7-Footprint-1"
+		(property "Footprint" "Vault:AP22913CN4-7-Footprint-1"
 			(at 177.8 228.4222 0)
 			(effects
 				(font
@@ -5166,7 +5166,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 264.16 78.5622 0)
 			(effects
 				(font
@@ -5228,7 +5228,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 287.02 103.9622 0)
 			(effects
 				(font
@@ -5292,7 +5292,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 276.86 70.9422 0)
 			(effects
 				(font
@@ -5579,7 +5579,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CC0402-MFG"
+		(property "Footprint" "Vault:FP-CC0402-MFG"
 			(at 91.44 88.7222 0)
 			(effects
 				(font
@@ -5937,7 +5937,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 264.16 106.5022 0)
 			(effects
 				(font
@@ -6001,7 +6001,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T05"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
 			(at 254 106.5022 0)
 			(effects
 				(font
@@ -6358,7 +6358,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 124.46 63.3222 0)
 			(effects
 				(font
@@ -6420,7 +6420,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 78.74 93.8022 0)
 			(effects
 				(font
@@ -6483,7 +6483,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 264.16 119.2022 0)
 			(effects
 				(font
@@ -6547,7 +6547,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T05"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
 			(at 261.62 91.2622 0)
 			(effects
 				(font
@@ -6904,7 +6904,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 276.86 76.0222 0)
 			(effects
 				(font
@@ -6966,7 +6966,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 254 142.0622 0)
 			(effects
 				(font
@@ -7028,7 +7028,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 226.06 210.6422 0)
 			(effects
 				(font
@@ -7092,7 +7092,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 226.06 200.4822 0)
 			(effects
 				(font
@@ -7377,7 +7377,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 149.86 197.9422 0)
 			(effects
 				(font
@@ -7440,7 +7440,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "AP22913CN4-7-Footprint-1"
+		(property "Footprint" "Vault:AP22913CN4-7-Footprint-1"
 			(at 177.8 197.9422 0)
 			(effects
 				(font
@@ -7526,7 +7526,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CC0402-0_55-IPC_B"
+		(property "Footprint" "Vault:FP-CC0402-0_55-IPC_B"
 			(at 254 131.9022 0)
 			(effects
 				(font
@@ -7894,7 +7894,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "ADIN2111BCPZ-Footprint-1"
+		(property "Footprint" "Vault:ADIN2111BCPZ-Footprint-1"
 			(at 205.74 98.8822 0)
 			(effects
 				(font
@@ -8115,7 +8115,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CC0402-0_55-IPC_B"
+		(property "Footprint" "Vault:FP-CC0402-0_55-IPC_B"
 			(at 287.02 131.9022 0)
 			(effects
 				(font
@@ -8483,7 +8483,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-ABM11W-MFG"
+		(property "Footprint" "Vault:FP-ABM11W-MFG"
 			(at 259.08 131.9022 0)
 			(effects
 				(font
@@ -8585,7 +8585,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 149.86 228.4222 0)
 			(effects
 				(font
@@ -8649,7 +8649,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T05"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
 			(at 266.7 103.9622 0)
 			(effects
 				(font
@@ -9008,7 +9008,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL511-IPC_C"
+		(property "Footprint" "Vault:FP-CL511-IPC_C"
 			(at 292.1 68.4022 0)
 			(effects
 				(font
@@ -9285,7 +9285,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 193.04 210.6422 0)
 			(effects
 				(font
@@ -9349,7 +9349,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 304.8 65.8622 0)
 			(effects
 				(font
@@ -9636,7 +9636,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T05"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
 			(at 254 98.8822 0)
 			(effects
 				(font
@@ -9993,7 +9993,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 292.1 73.4822 0)
 			(effects
 				(font
@@ -10055,7 +10055,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 215.9 210.6422 0)
 			(effects
 				(font
@@ -10117,7 +10117,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 304.8 70.9422 0)
 			(effects
 				(font
@@ -10181,7 +10181,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL511-IPC_C"
+		(property "Footprint" "Vault:FP-CL511-IPC_C"
 			(at 264.16 73.4822 0)
 			(effects
 				(font
@@ -10460,7 +10460,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 215.9 228.4222 0)
 			(effects
 				(font
@@ -10745,7 +10745,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 205.74 210.6422 0)
 			(effects
 				(font
@@ -10809,7 +10809,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 215.9 200.4822 0)
 			(effects
 				(font
@@ -11096,7 +11096,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T05"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
 			(at 254 119.2022 0)
 			(effects
 				(font
@@ -11455,7 +11455,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CC0402-MFG"
+		(property "Footprint" "Vault:FP-CC0402-MFG"
 			(at 78.74 86.1822 0)
 			(effects
 				(font
@@ -11812,7 +11812,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 287.02 91.2622 0)
 			(effects
 				(font
@@ -11876,7 +11876,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 193.04 200.4822 0)
 			(effects
 				(font
@@ -12163,7 +12163,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 205.74 200.4822 0)
 			(effects
 				(font
@@ -12449,7 +12449,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 264.16 98.8822 0)
 			(effects
 				(font
@@ -12512,7 +12512,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 287.02 142.0622 0)
 			(effects
 				(font

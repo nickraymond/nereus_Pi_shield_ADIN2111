@@ -2447,7 +2447,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 292.1 149.6822 0)
 			(effects
 				(font
@@ -2511,7 +2511,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 279.4 175.0822 0)
 			(effects
 				(font
@@ -2776,7 +2776,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 196.85 180.1622 0)
 			(effects
 				(font
@@ -2840,7 +2840,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-RMCF0402-IPC_C"
+		(property "Footprint" "Vault:FP-RMCF0402-IPC_C"
 			(at 195.58 154.7622 0)
 			(effects
 				(font
@@ -3179,7 +3179,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-RMCF0402-IPC_C"
+		(property "Footprint" "Vault:FP-RMCF0402-IPC_C"
 			(at 279.4 172.5422 0)
 			(effects
 				(font
@@ -3516,7 +3516,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 177.8 154.7622 0)
 			(effects
 				(font
@@ -3578,7 +3578,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 152.4 139.5222 0)
 			(effects
 				(font
@@ -3641,7 +3641,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FP-PMDTM-MFG"
+		(property "Footprint" "Vault:FP-PMDTM-MFG"
 			(at 292.1 149.6822 0)
 			(effects
 				(font
@@ -3709,7 +3709,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 271.78 139.5222 0)
 			(effects
 				(font
@@ -3773,7 +3773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-GRM188-0_1-e0_2_0_5-IPC_B"
+		(property "Footprint" "Vault:FP-GRM188-0_1-e0_2_0_5-IPC_B"
 			(at 271.78 134.4422 0)
 			(effects
 				(font
@@ -4091,7 +4091,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25LL05T10"
+		(property "Footprint" "Vault:RESC1005X40X25LL05T10"
 			(at 151.13 157.3022 0)
 			(effects
 				(font
@@ -4207,7 +4207,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 279.4 154.7622 0)
 			(effects
 				(font
@@ -4271,7 +4271,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-GRM188-0_1-e0_2_0_5-IPC_B"
+		(property "Footprint" "Vault:FP-GRM188-0_1-e0_2_0_5-IPC_B"
 			(at 152.4 134.4422 0)
 			(effects
 				(font
@@ -4586,7 +4586,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SON:Texas_DRC0010J"
+				(property "Footprint" "Package_SON:Texas_DRC0010J"
 			(at 226.06 149.6822 0)
 			(effects
 				(font
@@ -4699,7 +4699,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+				(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 199.39 139.5222 0)
 			(effects
 				(font
