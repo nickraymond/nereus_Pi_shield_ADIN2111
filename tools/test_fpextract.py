@@ -5,7 +5,7 @@ Run: python3 tools/test_fpextract.py. The pcbnew-backed extract/verify paths
 are exercised by running fpextract.py --verify on KiCad's Python."""
 import unittest
 
-from fpextract import _close, choose_instance, pad_distances
+from fpextract import RENUMBER_SMD, _close, choose_instance, pad_distances, renumbered
 
 
 class FpextractTest(unittest.TestCase):
@@ -20,6 +20,13 @@ class FpextractTest(unittest.TestCase):
         self.assertEqual(pad_distances(pts), pad_distances(rotated))
         self.assertEqual(pad_distances(pts), pad_distances(mirrored))
         self.assertNotEqual(pad_distances(pts), pad_distances([(0, 0), (1.1, 0), (0, 2)]))
+
+    def test_renumbered_only_touches_listed_smd_pads(self):
+        fix = RENUMBER_SMD["78614015360-Footprint-2"]
+        self.assertEqual(renumbered("", True, fix), "1")      # the insert's SMD pad
+        self.assertEqual(renumbered("", False, fix), "")      # its NPTH hole stays unnumbered
+        self.assertEqual(renumbered("2", True, fix), "2")
+        self.assertEqual(renumbered("", True, None), "")      # other footprints untouched
 
     def test_close_tolerance(self):
         self.assertTrue(_close((1.714, 4.255), (1.715, 4.255)))

@@ -281,7 +281,7 @@
 			)
 		)
 	)
-	(pad "" smd custom
+	(pad "1" smd custom
 		(at 2.19992 0 4)
 		(size 0.000001 0.000001)
 		(layers "F.Cu")
@@ -406,7 +406,7 @@
 		)
 	)
 	(model "kicad-embed://FST-000629.STEP"
-		(opacity 0.0000)
+		(opacity 1.0000)
 		(offset
 			(xyz 0 0 0)
 		)

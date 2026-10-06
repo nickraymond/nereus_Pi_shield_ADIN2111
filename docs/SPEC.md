@@ -102,7 +102,8 @@ production (DESIGN D12).
   "Reset Operations"; PDF supplied by Nick, SHA-256 10b6521e7b7fabeaedf7afee6b15a058a923c72ed6e401ad4de53911201b2fba)*
 - AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max
   (V_IN 1.4–3.6 V) / 0.6 V (3.6–5.5 V); output discharge when off; reverse-current blocking always active; R_ON
-  56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4"). *(Diodes DS41203 Rev. 6-2)*
+  56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4": 0.9 × 0.9 mm, 0.5 mm ball pitch; top view A1 VOUT (pin-1 dot) and A2 VIN
+  on the top row, B1 GND and B2 ON on the bottom row). *(Diodes DS41203 Rev. 6-2, p. 1 "Pin Assignments")*
 - Pi Zero 2 W I²C1: R23/R24 1.8 kΩ 1 % pull-ups from GPIO2/GPIO3 to the Pi's 3V3. *(Raspberry Pi Zero 2 W reduced
   schematics, datasheets.raspberrypi.com/rpizero2/raspberry-pi-zero-2-w-reduced-schematics.pdf)*
 - Pi GPIO reset-default pulls: GPIO0–8 pull up (incl. GPIO8 = CE0), GPIO9–27 pull down (incl. GPIO9 MISO,

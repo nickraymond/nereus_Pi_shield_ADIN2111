@@ -168,7 +168,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 **Result:** S4.a–d each QE-approved and reviewed by Nick; PRs #8, #9, #10, #12 merged (last `9949b37`), 2026-10-05.
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[~]`
-*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check, S5.f ADIN status LEDs.*
+*Bites: S5.a load switch (done), S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.e BOM lifecycle check, S5.f ADIN status LEDs, S5.g footprint library fixes.*
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
 - [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
@@ -192,6 +192,12 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the Top-Level sheet (Nick)
 - [ ] S5.d: QE review (standing S5 session)
 - [ ] S5.d: Nick's KiCad look
+- [x] S5.g (D24): PoDL insert footprint (MP1–MP4): pad numbered `1` so the bus nets reach it; 3D model opacity 0 → 1;
+      stock 3D models on 7 footprints (C31, C19/C27, R15/R16, R1, R8, R22/R34/R40, plus R10's spare); orientation checked
+      (non-polarised, pads and models on x); U2/U3 left without a model (no stock WLB0909-4); R10's footprint kept (Nick)
+- [ ] S5.g: confirm the insert model sits body-up in KiCad's 3D viewer (Nick's KiCad look)
+- [ ] S5.g: QE review (standing S5 session)
+- [ ] S5.g: Nick's KiCad look
 - [x] S5.c (D20): Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them; also for a bench MCU). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
       (reference Processor sheet). Note the combined value if the Pi also has pull-ups
