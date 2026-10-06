@@ -3,10 +3,9 @@
 import re
 import unittest
 
-from midwire import WIRE
+from midwire import WIRE, symbol_pins
 from schedit import (add_label, add_no_connect, add_symbol, add_wire, clone_symbol, copy_block, delete, next_ref,
                      set_properties)
-from midwire import symbol_pins
 
 LIB = ('\t(lib_symbols\n'
        '\t\t(symbol "lib:R"\n\t\t\t(symbol "R_0_1"\n'

@@ -200,7 +200,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       (ADIN_NSS) defaults high at Pi reset and SPI0 idles CS high while ADIN_PWR keeps ADIN_VDDIO off; R35 (100 kΩ to
       shield 3V3) feeds GPIO20 when the Pi is off (≈ 33 µA); the Pi's own I²C pull-ups go to Pi 3V3, U4 is on shield 3V3
       — done: shield 3V3; back-power table in DESIGN "ADIN power and boot"
-- [ ] S5.c: QE review (standing S5 session)
+- [x] S5.c: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, F1 + nits fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.c: Nick's KiCad look
 - [ ] S5.f: ADIN status LEDs (Nick, 2026-10-05; plan approved in outline, details planned at the bite) — red "ADIN
       powered" LED from ADIN_VDDIO via 1.5 kΩ to GND; green "link/activity" LED from ADIN_VDDIO via 1.5 kΩ to

@@ -35,7 +35,10 @@ what broke, what's next.*
 - git's default diff showed ~7,500 changed lines for ~1,450 added; `--diff-algorithm=patience` shows the real
   +1665/−214 (two Altium symbols with ~35 fields each)
 - NXP's I²C spec download returns 404 to scripts; cited TI SLVA689's table of the spec values instead
-**Next:** QE review (standing S5 session), then Nick's KiCad look; then S5.d payload connector
+**Next:** Nick's KiCad look; then S5.d payload connector
+- QE round 1: **APPROVED WITH NITS**. F1 (minor): the Pi's default pull-down doesn't hold ADIN RESET once the
+  ADIN is powered (it fights the internal pull-up) → boot order now drives GPIO24 low / GPIO23 high from config.txt;
+  nits: TP19's move isn't visible to netcheck (layout note added), Q4 state key, duplicate import
 
 ---
 

@@ -25,7 +25,7 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 |---|---|---|
 | 19 / 21 / 23 / 24 | 10 / 9 / 11 / 8 | ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS |
 | 22 | 25 | ADIN_INT |
-| 18 | 24 | ADIN_RST (no external pull: ADIN internal pull-up; Pi default pull-down holds reset at boot) |
+| 18 | 24 | ADIN_RST (no external pull: ADIN internal pull-up; the Pi must drive GPIO24 low to hold reset, see boot order) |
 | 16 | 23 | ADIN_PWR (**R43 100 kΩ pull-down**: ADIN off unless the Pi drives it high, D21) |
 | 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL (**R27/R26 4.7 kΩ to shield 3V3**, plus the Pi's own 1.8 kΩ to Pi 3V3, D20) |
 | 36 | 16 | SW_EN (**high = payload on**; R42 pull-down keeps it off, D18); TP19 test pad on this net (R10 removed, D22) |
@@ -59,18 +59,25 @@ only valid with the ADIN powered):
 | 20 RESET | pull-up | none | — | may float; hold low > 10 µs to reset; < 1 µs pulses ignored |
 
 **Boot order (Pi software, D21):**
-1. Hold ADIN_RST low with ADIN_PWR low. These are the Pi's reset defaults (GPIO23/24 pull down) and R43's state.
-2. Drive ADIN_PWR high.
-3. Wait ≥ 40 ms (supply ramp, Table 3).
-4. Release ADIN_RST.
-5. Wait for INT to go low. It asserts after any reset; SPI is accessible ≤ 90 ms after RESET is released ("Hardware Reset").
-6. Configure over SPI.
+1. Firmware, before the kernel: `config.txt` lines `gpio=24=op,dl` (drive ADIN_RST low) and `gpio=23=op,dh` (drive
+   ADIN_PWR high). Firmware applies these at boot, and the kernel or user space can still change the pins later
+   (Raspberry Pi documentation, config.txt "GPIO control"). GPIO24 must be **driven** low: once ADIN_VDDIO is up, the
+   ADIN's internal RESET pull-up fights the Pi's weak default pull-down (neither value is published), so the default
+   alone doesn't hold reset (QE S5.c F1).
+2. Wait ≥ 40 ms (supply ramp, Table 3).
+3. Release ADIN_RST (drive GPIO24 high, or a > 10 µs low pulse later for a deliberate reset).
+4. Wait for INT to go low. It asserts after any reset; SPI is accessible ≤ 90 ms after RESET is released ("Hardware Reset").
+5. Configure over SPI.
+
+Even if step 1 is missed, the ADIN's power-on reset resets it when ADIN_PWR comes up, and the straps read correctly
+(Pi GPIO9's default pull-down agrees with SDO's). The software then issues a deliberate RST pulse after the SPI driver
+loads.
 
 **Rule:** never leave CS, RST, SCK or MOSI high while ADIN_PWR is off. The ADIN's SPI/RESET/LED pins are rated −0.3 V to
 VDDIO + 0.3 V (Table 5), so a high pin back-powers the unpowered chip through its clamps. U3's reverse blocking keeps
 this off the shield's 3V3, but not off ADIN_VDDIO. Power the ADIN early in boot, before the SPI driver loads (CS idles
-high), with a device-tree GPIO hog on GPIO23, and keep it on while SPI0 is enabled (Option 1, Nick 2026-10-05; no series
-resistors).
+high), with the `config.txt` lines in step 1, and keep it on while SPI0 is enabled (Option 1, Nick 2026-10-05; no series
+resistors). If the ADIN is ever switched off at runtime, drive CS, RST, SCK and MOSI low first.
 
 **Back-power cases** (Pi 3V3 and shield 3V3 are separate rails; they only differ when JP1 is cut):
 
@@ -133,7 +140,7 @@ two local labels with the same name silently join their nets.
 | D19 | 2026-10-05 | Footprints from the mote come from a project library `mote.pretty`, nickname **`Vault`** (matching the board's `Vault:` IDs): the 43 footprints the schematic uses, extracted read-only from the reference board with KiCad's own pcbnew 9.0.6 (`tools/fpextract.py`; back-side instances flipped to the front, position/rotation zeroed, nets cleared). Every bare footprint field is now `Vault:<name>`; new parts keep their stock/`nereus` libraries | With IDs identical to the board's, Nick's F8 re-links by reference without replacing any kept footprint. `fpextract --verify` checks every board instance: pad numbers, sizes, pad-to-pad distances and exact pad centres after placing the library footprint like the instance, flipped for back-side ones (0 problems; it catches a moved, resized or mirrored pad set). **Expect ≈ 58 graphics-only "footprint doesn't match library" DRC warnings** (QE S4.d F1): the Altium import varies Fab/User-layer graphics and text between instances of one footprint, and Hole_M3's keepouts serialise differently; pads are identical. Don't run "Update Footprints from Library" on kept parts unless graphics-only changes are acceptable. The import also left no SMD/THT attributes and no courtyards (pre-existing, for layout/S6) |
 | D20 | 2026-10-05 | I²C pull-ups **fitted**: R26 (I2C1_SCL) and R27 (I2C1_SDA) = Sofar's 4.7 kΩ ERJ-2RKF4701X to the shield's 3V3, same refs, footprint (`Vault:RESC1005X40X25LL05T05`) and fields as on the mote's Processor sheet, so netcheck verifies them against the copper. With the Pi's own pull-ups (Pi Zero 2 W reduced schematic: R23/R24 1.8 kΩ 1 % to the Pi's 3V3 on GPIO2/3) the bus sees ≈ 1.30 kΩ: ≥ R_P(min) 967 Ω at 3.3 V (V_OL ≤ 0.4 V at 3 mA, standard/fast mode; TI SLVA689 Table 1 / Eq. 1), ≈ 2.2 mA at V_OL. Rise time at 1.30 kΩ allows ≤ 272 pF (fast mode, SLVA689 Eq. 2) | Nick: the shield should work with another MCU on the bench, not only the Pi. Back-power with JP1 cut: ≈ 0.6 mA per line into an unpowered Pi (accepted) |
 | D21 | 2026-10-05 | **R43 100 kΩ pull-down on ADIN_PWR** (RMCF0402FT100K, R21's part). AP22913 ON has no internal pull-down: input leakage ≤ 1 µA, so R43 holds ≤ 0.1 V, below V_IL 0.4 V (V_IN 1.4–3.6 V); the Pi's 3.3 V high clears V_IH 1.1 V at 33 µA (Diodes DS41203 Rev. 6-2). No resistor on ADIN_RST (the ADIN has an internal pull-up; floating is allowed, Rev. B Table 8) or MISO (SPI_CFG0 strap). CS/RST back-power handled in Pi software, not hardware (Option 1): boot order and rule in "ADIN power and boot" | The mote relied on STM32 firmware to drive ADIN_PWR; R43 keeps the ADIN off whenever the Pi is booting, absent or off, so its straps are read only on a deliberate power-up and INT can't feed an unpowered Pi. Option 1 chosen by Nick 2026-10-05 (Option 2, 1 kΩ series on CS/RST, not taken) |
-| D22 | 2026-10-05 | **R10 removed**; TP19 tied straight to SW_EN. On the mote R10 (0 Ω) linked STM32 pin 19 (and, via R9, the mezzanine) to SW_ON, choosing the load-switch controller; R9 went with the mezzanine in S2 | Nick: the Pi header is the only controller; fewer parts, simpler to build. TP19 kept as a bench pad to probe or force SW_EN |
+| D22 | 2026-10-05 | **R10 removed**; TP19 tied straight to SW_EN. On the mote R10 (0 Ω) linked STM32 pin 19 (and, via R9, the mezzanine) to SW_ON, choosing the load-switch controller; R9 went with the mezzanine in S2 | Nick: the Pi header is the only controller; fewer parts, simpler to build. TP19 kept as a bench pad to probe or force SW_EN. **Layout:** route TP19 to SW_EN where R10's footprint was; netcheck can't check this (QE S5.c N1) |
 
 ## ERC / net-check results
 
@@ -150,7 +157,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S5.a | 74 / 626 | 50/50, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical; U9/R32/R33/TP34 removed, U11/R41/R42 new | Load switch replaced (D18), R11 DNP: −2 errors (SW_PGOOD sheet pin, U9.8), −3 footprint-link warnings. Copper nets 53 → 50: three nets now hold only removed parts |
 | 2026-10-05 | S4.d | 74 / 508 | 50/50, 0 opens, 0 shorts; netlist identical except 117 footprint fields (bare → `Vault:`) | Footprint library `Vault` (D19): −118 footprint-link warnings |
 | 2026-10-05 | S5.b | 27 / 508 | 50/50, 0 opens, 0 shorts, 0 excluded; 11 nets each gain exactly one J1 pin, nothing else changes | Pi header wired: −29 pin_not_connected (28 J1 GPIO, SW_FLAGB sheet pin), −18 label_dangling (every one-pin I2C1/ADIN net now has the Pi pin). Net names: `Load Switch/SW_ON` → `SW_EN`, `Load Switch/SW_FLAGB` → `SW_FLAGB` (new top-level labels) |
-| 2026-10-05 | S5.c | 27 / 508 | **51/51**, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical | R26/R27 → I2C1_SCL/SDA + 3V3 (restoring their copper connections: copper nets 50 → 51), R43 ADIN_PWR → GND, R10 removed and TP19 moved onto SW_EN; nothing else changed. ERC counts and types unchanged |
+| 2026-10-05 | S5.c | 27 / 508 | **51/51**, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical except TP19 (D22). netcheck can't see TP19's move: its copper net is now TP19 alone, and copper SW_ON has no shared parts left | R26/R27 → I2C1_SCL/SDA + 3V3 (restoring their copper connections: copper nets 50 → 51), R43 ADIN_PWR → GND, R10 removed and TP19 moved onto SW_EN; nothing else changed. ERC counts and types unchanged |
 
 **Remaining ERC errors after S5.b (27), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
