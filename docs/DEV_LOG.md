@@ -33,7 +33,9 @@ what broke, what's next.*
   fixed next in S5.g
 **Broke/surprised us:**
 - First placement: the note crossed the VBUS_OUT wire and the value touched GND; re-placed after the render
-**Next:** QE review, Nick's KiCad look; S5.g footprint fixes
+**Next:** Nick's KiCad look; S5.g footprint fixes
+- QE round 1: **APPROVED WITH NITS** — C189893 out of stock on LCSC today (recorded, recheck in S5.e); MP pad wording;
+  layout silkscreen "VBUS 16–32 V" next to J5 so a 5 V GH cable isn't plugged in
 
 ---
 

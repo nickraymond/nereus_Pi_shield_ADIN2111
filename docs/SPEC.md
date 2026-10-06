@@ -113,7 +113,8 @@ production (DESIGN D12).
 - JST GH (1.25 mm): current rating 1.0 A AC/DC per contact (AWG #26), voltage rating 50 V AC/DC, −40 °C to +105 °C
   incl. temperature rise, contact resistance 30 mΩ max initial; wire AWG #30–#26. SM02B-GHS-TB is the 2-pin SMD
   right-angle header. *(JST GH connector datasheet, eGH.pdf)* JLC part C189893 for SM02B-GHS. *(Nick's UrchinCam BOM,
-  UrchinCam_0v1_BOM_20260121.csv)*
+  UrchinCam_0v1_BOM_20260121.csv)* LCSC C189893 = SM02B-GHS-TB(LF)(SN), shown out of stock on 2026-10-06
+  *(lcsc.com, QE S5.d)*; recheck in S5.e.
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote

@@ -177,7 +177,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
 - [x] S5.a: QE review (fresh S5 session): **APPROVED WITH NITS** in round 2, nit fixed — `docs/design-review/qe/S5.md`
 - [x] S5.a: Nick's KiCad look (PR #11 merged, `10d64d0`)
-- [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
+- [ ] Lifecycle check of every BOM part (not just U9) before the S6 package; include stock (J5's C189893 showed out of
+      stock on LCSC 2026-10-06, QE S5.d F1)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
 - [x] S5.c: ADIN_PWR **R43 100 kΩ** pull-down (AP22913 has none, DS41203); ADIN_RST none (internal pull-up,
@@ -190,7 +191,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.b: Nick's KiCad look (PR #13 merged, `31bc0f3`)
 - [x] S5.d (D23): VBUS_OUT + GND → **J5 JST GH 2-pin** SM02B-GHS-TB (C189893, from the UrchinCam), 1.0 A per contact
       ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the Top-Level sheet (Nick)
-- [ ] S5.d: QE review (standing S5 session)
+- [x] S5.d: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.d: Nick's KiCad look
 - [x] S5.c (D20): Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them; also for a bench MCU). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
