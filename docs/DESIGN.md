@@ -84,6 +84,7 @@ two local labels with the same name silently join their nets.
 | D16 | 2026-10-05 | R38 stays 13.7 kΩ: U10 at 4.98 V nominal, 4.82–5.14 V worst case (P-S4c-2) | Every corner inside USB's 4.75–5.25 V for the Pi's peripherals; no cable/fuse drop to the Pi's rail; the Zero range has no undervoltage detector (RPi docs). 13.5 kΩ (5.04 V) is the drop-in fix if bring-up shows 5V_PI < 4.75 V at J1 |
 | D17 | 2026-10-05 | Payload port: switched by the Pi (SW_EN) and current-limited by the load switch (R34 → ≈ 0.74 A typical, FPF2700 datasheet), with **R11 DNP** (S5). As captured from Sofar, R11 (0 Ω across U9) was fitted, which bypassed U9 entirely. U9 FPF2700MX is obsolete, so S5 replaces it with a part JLC can source, matching the function (36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD) | Amends SPEC constraint 7 (Nick, 2026-10-05). Nick: payloads are small devices (e.g. another sensor to switch on), none runs near the limit; he wants the switch and limit active (QE S4.c F4 found R11 fitted). Digi-Key lists FPF2700MX as no longer manufactured (2026-10-05) |
 | D18 | 2026-10-05 | U9 FPF2700MX → **U11 TI TPS26621DRCR** (JLC C1848341; TI status ACTIVE). R34 → 9.09 kΩ (I_LIM = 6.636/R = 0.73 A, SLVSDT4F Eq. 3; ≈ −6/+4 %); new R41 1 MΩ IN→UVLO and OVP→GND (UV/OV cut-off unused, Fig. 10-14); dVdT open (internal 24 V/660 µs ramp). SHDN is active low, so the SW_ON pull-up R32 becomes a **10 kΩ pull-down R42** (RMCF0402FT10K0): worst-case SHDN source current 10 µA → 0.1 V, below V(SHUTF) min 0.9 V; the Pi's 3.3 V high is above V(SHUTR) max 1.8 V (SLVSDT4F §7.5; 100 kΩ had no worst-case margin, QE S5.a F2). Payload off by default, Pi drives SW_EN high. No PGOOD: SW_PGOOD, R33, TP34 and the sheet pin removed (Pi pin 40 freed); FLT keeps SW_FLAGB. R11 DNP (D17). **RTN = GND** (with GND and the PowerPAD): reverse-input protection isn't used — VBUS is internal behind D1, and the FPF2700 had none (§12.1 allows it; §10.4's "don't" applies only when reverse protection is wanted). R_ON 478 mΩ vs FPF2700's 88 mΩ: ≈ 0.35 V drop and ≈ 0.25 W at 0.73 A. Hard short / output caps (closes QE S4.c N6): C_OUT ≥ 0.01 µF (ROC), start-up into a short is current-limited (Fig. 9-12), fast-trip 1.6 A typ / 220 ns, thermal shutdown 155 °C with 512 ms auto-retry, D3 is TI's recommended output Schottky (§11). Floating dVdT ramps at ≈ 36 V/ms, so a payload input capacitance above ≈ 20 µF charges in current limit (≈ C·V/0.73 A, e.g. 4.4 ms for 100 µF at 32 V, well inside tCL(dly) 512 ms); auto-retry only if thermal shutdown trips. New project symbol `nereus:TPS26621DRCR`; footprint `Package_SON:Texas_DRC0010J` (stock) | Nick: JLC-sourceable replacement for the obsolete part, payload switched and limited; the three sub-choices (part, pull-down, drop PGOOD) approved 2026-10-05. Tracked for Sofar in `docs/design-review/sofar_brief.md` |
+| D19 | 2026-10-05 | Footprints from the mote come from a project library `mote.pretty`, nickname **`Vault`** (matching the board's `Vault:` IDs): the 43 footprints the schematic uses, extracted read-only from the reference board with KiCad's own pcbnew 9.0.6 (`tools/fpextract.py`; back-side instances flipped to the front, position/rotation zeroed, nets cleared). Every bare footprint field is now `Vault:<name>`; new parts keep their stock/`nereus` libraries | With IDs identical to the board's, Nick's F8 re-links by reference without replacing any kept footprint. `fpextract --verify` checks every board instance: pad numbers, sizes, all pad-to-pad distances and exact front-side positions (0 problems; it catches a moved or resized pad) |
 
 ## ERC / net-check results
 
@@ -98,6 +99,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S4.b | 76 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 1 new part (JP1); existing connections identical | JP1 bridged link 5V_PI → PI_5V (J1.2/J1.4), #FLG03 on PI_5V: −2 errors (J1 pin 2 not connected / not driven). midwire now sees J1's 40 pins (tool fix); still 0 |
 | 2026-10-05 | S4.c | 76 / 629 | unchanged (docs only) | Power budget in `docs/design-review/power_budget.md`; D15 (Pi ≤ 1 A), D16 (R38 13.7 kΩ), D17 (payload switched/limited by U9, R11 DNP and U9 replacement in S5) |
 | 2026-10-05 | S5.a | 74 / 626 | 50/50, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical; U9/R32/R33/TP34 removed, U11/R41/R42 new | Load switch replaced (D18), R11 DNP: −2 errors (SW_PGOOD sheet pin, U9.8), −3 footprint-link warnings. Copper nets 53 → 50: three nets now hold only removed parts |
+| 2026-10-05 | S4.d | 74 / 508 | 50/50, 0 opens, 0 shorts; netlist identical except 117 footprint fields (bare → `Vault:`) | Footprint library `Vault` (D19): −118 footprint-link warnings |
 
 **Remaining ERC errors after S5.a (74), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
@@ -112,10 +114,9 @@ pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
 S2's PWR_FLAGs cleared U5 VIN (VBUS) and U6 GND.
 
-Warnings (626) are cosmetic import leftovers: 485 off-grid endpoints (Altium
+Warnings (508) are cosmetic import leftovers: 485 off-grid endpoints (Altium
 coordinates such as `…0.0022`; +2 in S2 where the trimmed I2C1 wires end on
 off-grid label anchors; +57 in S4.a, the U10 copy keeps U5's off-grid offset),
-118 footprint-library links (+10 in S4.a: the copied parts keep the mote's
-library-less footprint names; S5.a: −4 for U9/R32/R33/TP34, +1 for R42, which keeps
-R32's library-less footprint; S4.d), 11 dangling wire ends
+0 footprint-library links (all 118 cleared in S4.d: every footprint field now
+names a real library), 11 dangling wire ends
 (all pre-existing), 12 duplicate net names (e.g. `PHY1_P`/`BM1_P` on the same wire).

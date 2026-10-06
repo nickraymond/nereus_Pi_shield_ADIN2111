@@ -2,6 +2,19 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S4.d — Footprints findable (2026-10-05, branch `sprint/4d-footprints`)
+
+New project library `nereus_Pi_shield_ADIN2111/mote.pretty`, registered in the project
+`fp-lib-table` as **`Vault`**: the 43 footprints the schematic uses
+(`docs/design-review/vault_footprints.txt`), extracted from the reference mote board
+with KiCad 9.0.6's pcbnew (`tools/fpextract.py`; the board is only read). 24 came from
+a front-side instance, 19 were flipped from the back. All schematic footprint fields
+without a library (117 parts, 118 fields counting U1's two units) now read `Vault:<name>`.
+No other field, value or connection changed. **Verified:** `fpextract --verify` 0
+problems over every board instance; netlist identical except the footprint fields;
+ERC 74/626 → 74/508 (the 118 footprint-link warnings gone); netcheck 50/50; all 43
+load in `kicad-cli fp export svg`.
+
 ## S5.a — Payload load switch: U9 → U11 TPS26621, R11 DNP (2026-10-05, branch `sprint/5a-u9-replacement`)
 
 Load Switch sheet (`BM_Mote_1_Load.kicad_sch`), D18:

@@ -19,6 +19,25 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S4.d — Footprints findable (library `Vault`); S5.a closed
+
+**Branch:** sprint/4d-footprints
+**Files touched:** new mote.pretty (43 footprints) + fp-lib-table entry; footprint fields on all sheets; tools/fpextract.py (+ test_fpextract.py); docs/design-review/vault_footprints.txt; DESIGN (D19), TRACKER, viewer, changelog
+**ERC:** 74 / 508 (was 74/626)  ·  **Net diff:** identical except 117 footprint fields
+**Done:**
+- S5.a closed: Nick's KiCad look OK (asked the QE about the R11 cross / page contents), PR #11 merged (`10d64d0`)
+- Extracted only the footprints the schematic uses (Nick: keep only what we use) with KiCad's own pcbnew
+  (bundled Python 3.9), library nickname `Vault` = the board's prefix, so F8 re-links without replacing
+- Verifier compares every board instance; negative test (moved pad, widened pad) is caught
+**Broke/surprised us:**
+- My first verifier rotated the wrong way (KiCad's y axis points down) and compared front-layer pad sizes
+  on flipped parts (the mezzanine standoff has different front/back pads): 22 false alarms, fixed and proven
+  with a deliberate-corruption test
+- `pcbnew.FootprintSave` can't guess the library type of an empty folder; used PCB_IO_KICAD_SEXPR directly
+**Next:** QE review (standing S4 session), Nick's KiCad look, merge; S4 then done.
+
+---
+
 ## 2026-10-05 — Sprint S5.a — Payload load switch: U9 → TPS26621, R11 DNP; S4.c closed
 
 **Branch:** sprint/5a-u9-replacement

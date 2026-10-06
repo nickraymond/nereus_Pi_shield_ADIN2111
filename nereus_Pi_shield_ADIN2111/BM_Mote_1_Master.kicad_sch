@@ -7648,7 +7648,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Hole_M3"
+		(property "Footprint" "Vault:Hole_M3"
 			(at 328.93 321.31 0)
 			(effects
 				(font
@@ -7733,7 +7733,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 375.92 210.82 0)
 			(effects
 				(font
@@ -7796,7 +7796,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "78614015360-Footprint-2"
+		(property "Footprint" "Vault:78614015360-Footprint-2"
 			(at 485.14 121.92 0)
 			(effects
 				(font
@@ -7901,7 +7901,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 92.71 119.38 0)
 			(effects
 				(font
@@ -7965,7 +7965,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Hole_M3"
+		(property "Footprint" "Vault:Hole_M3"
 			(at 354.33 321.31 0)
 			(effects
 				(font
@@ -8051,7 +8051,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 237.49 323.85 0)
 			(effects
 				(font
@@ -8147,7 +8147,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 267.76 324.042 0)
 			(effects
 				(font
@@ -8244,7 +8244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 472.44 101.6 0)
 			(effects
 				(font
@@ -8509,7 +8509,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 368.3 210.82 0)
 			(effects
 				(font
@@ -8572,7 +8572,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 283 324.042 0)
 			(effects
 				(font
@@ -8667,7 +8667,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 193.04 193.04 0)
 			(effects
 				(font
@@ -8730,7 +8730,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "78614015360-Footprint-2"
+		(property "Footprint" "Vault:78614015360-Footprint-2"
 			(at 485.14 137.16 0)
 			(effects
 				(font
@@ -8835,7 +8835,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 198.12 101.6 0)
 			(effects
 				(font
@@ -8899,7 +8899,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 213.36 167.64 0)
 			(effects
 				(font
@@ -9164,7 +9164,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 361.95 106.68 0)
 			(effects
 				(font
@@ -9226,7 +9226,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 391.16 104.14 0)
 			(effects
 				(font
@@ -9290,7 +9290,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1005X40X25NL05T10"
+		(property "Footprint" "Vault:RESC1005X40X25NL05T10"
 			(at 203.2 172.72 0)
 			(effects
 				(font
@@ -9389,7 +9389,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CRCW1210-e3-IPC_B"
+		(property "Footprint" "Vault:FP-CRCW1210-e3-IPC_B"
 			(at 172.72 190.5 0)
 			(effects
 				(font
@@ -9717,7 +9717,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Hole_M3"
+		(property "Footprint" "Vault:Hole_M3"
 			(at 341.63 321.31 0)
 			(effects
 				(font
@@ -9802,7 +9802,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 383.54 190.5 0)
 			(effects
 				(font
@@ -9866,7 +9866,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 304.8 185.42 0)
 			(effects
 				(font
@@ -10133,7 +10133,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 289.56 119.38 0)
 			(effects
 				(font
@@ -10400,7 +10400,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 375.92 208.28 0)
 			(effects
 				(font
@@ -10667,7 +10667,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 472.44 119.38 0)
 			(effects
 				(font
@@ -10934,7 +10934,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 472.44 127 0)
 			(effects
 				(font
@@ -11200,7 +11200,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 252.52 324.042 0)
 			(effects
 				(font
@@ -11296,7 +11296,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "78614015360-Footprint-2"
+		(property "Footprint" "Vault:78614015360-Footprint-2"
 			(at 485.14 106.68 0)
 			(effects
 				(font
@@ -11403,7 +11403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Hole_M3"
+		(property "Footprint" "Vault:Hole_M3"
 			(at 316.23 321.31 0)
 			(effects
 				(font
@@ -11490,7 +11490,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 368.3 208.28 0)
 			(effects
 				(font
@@ -11757,7 +11757,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 378.46 187.96 0)
 			(effects
 				(font
@@ -12023,7 +12023,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 299.72 187.96 0)
 			(effects
 				(font
@@ -12085,7 +12085,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 358.14 104.14 0)
 			(effects
 				(font
@@ -12149,7 +12149,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 472.44 109.22 0)
 			(effects
 				(font
@@ -12415,7 +12415,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "78614015360-Footprint-2"
+		(property "Footprint" "Vault:78614015360-Footprint-2"
 			(at 485.14 91.44 0)
 			(effects
 				(font
@@ -12521,7 +12521,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 222.25 323.85 0)
 			(effects
 				(font
@@ -12617,7 +12617,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "FIDUCIAL_075MM"
+		(property "Footprint" "Vault:FIDUCIAL_075MM"
 			(at 298.24 324.042 0)
 			(effects
 				(font
@@ -12714,7 +12714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 124.46 203.2 0)
 			(effects
 				(font
@@ -12981,7 +12981,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 368.3 182.88 0)
 			(effects
 				(font
@@ -13247,7 +13247,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 383.54 132.08 0)
 			(effects
 				(font
@@ -13309,7 +13309,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 373.38 185.42 0)
 			(effects
 				(font
@@ -13370,7 +13370,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical"
+				(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical"
 			(at 121.92 88.9 0)
 			(effects
 				(font
@@ -13552,7 +13552,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 121.92 127 0)
 			(effects
 				(font
@@ -13617,7 +13617,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 127 127 0)
 			(effects
 				(font
@@ -13682,7 +13682,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 137.16 129.54 0)
 			(effects
 				(font
@@ -13747,7 +13747,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 137.16 134.62 0)
 			(effects
 				(font
@@ -13814,7 +13814,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "PCB_TP_1.5mm"
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
 			(at 368.3 195.58 0)
 			(effects
 				(font
@@ -14078,7 +14078,7 @@
 				)
 			)
 		)
-		(property "Footprint" "nereus:SolderJumper-2_R1210_Bridged_NetTie"
+				(property "Footprint" "nereus:SolderJumper-2_R1210_Bridged_NetTie"
 			(at 120.65 40.64 0)
 			(effects
 				(font
@@ -14146,7 +14146,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 106.68 45.72 0)
 			(effects
 				(font

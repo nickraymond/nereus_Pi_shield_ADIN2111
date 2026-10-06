@@ -1237,7 +1237,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "INA232AIDDFR-Footprint-1"
+		(property "Footprint" "Vault:INA232AIDDFR-Footprint-1"
 			(at 208.28 152.2222 0)
 			(effects
 				(font
@@ -1335,7 +1335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-CL278-IPC_C"
+		(property "Footprint" "Vault:FP-CL278-IPC_C"
 			(at 187.96 164.9222 0)
 			(effects
 				(font
@@ -1622,7 +1622,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "FP-RC0402-0_4-IPC_C"
+		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
 			(at 241.3 139.5222 0)
 			(effects
 				(font
@@ -1980,7 +1980,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "RESC1608X60X55ML20T10"
+		(property "Footprint" "Vault:RESC1608X60X55ML20T10"
 			(at 175.26 157.3022 0)
 			(effects
 				(font
@@ -2157,7 +2157,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+				(property "Footprint" ""
 			(at 177.8 162.3822 0)
 			(effects
 				(font

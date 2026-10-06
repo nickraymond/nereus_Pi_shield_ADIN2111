@@ -56,7 +56,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py` and `python3 tools/test_ercsum.py`. ERC tables: `python3 tools/ercsum.py --items`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py` and `python3 tools/test_fpextract.py`. ERC tables: `python3 tools/ercsum.py --items`.
 
 ### Project layout
 
@@ -64,7 +64,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -157,12 +157,13 @@ S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D
 - [x] S4.c: payload port decided (D17): switched and limited by U9; R11 DNP and U9 replacement in S5
 - [x] S4.c: QE review (same S4 session): **APPROVED WITH NITS** in round 4, nit fixed — `docs/design-review/qe/S4.md`
 - [x] S4.c: Nick's review of power_budget.md (PR #10 merged, `1f906bc`)
-- [ ] S4.d: all footprints findable — extract the mote board's 57 footprints (read the board, never write it) into a
-      project library named `Vault` (matches the board's `Vault:` IDs; 57 footprint IDs, 167 instances) and point every footprint field at it
-**Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,
-0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py --items`: J1 pins list has no 2 and no
-J1 entry under power_pin_not_driven; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1,
-JP1.2, L6.2, R37.1, TP38.1 (S4.b; S4.a's was 78/629 without JP1).
+- [x] S4.d: all footprints findable — the 43 footprints the schematic uses, extracted read-only from the mote board
+      into `mote.pretty` (nickname `Vault`, matching the board IDs); every bare field → `Vault:<name>` (D19)
+- [ ] S4.d: QE review (standing S4 session) and Nick's KiCad look
+**Demo (Nick):** `tools/check.sh` → `ERC messages: 582  Errors 74  Warnings 508` (S4.d; includes S5.a's load-switch
+change), `netcheck: 50/50 … 0 opens, 0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py` lists
+no footprint_link_issues; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1, JP1.2, L6.2, R37.1,
+TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
