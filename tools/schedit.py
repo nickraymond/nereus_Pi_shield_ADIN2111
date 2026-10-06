@@ -18,6 +18,9 @@ load the result, netcheck must show only the intended change).
                                  duplicate a boxed circuit with new refs,
                                  renamed labels and fresh uuids
   set_properties(text, ref, values, drop, keep_only)
+  clone_symbol(dst, src, src_ref, new_ref, x, y, sheet_path)
+                                 place a copy of a part from another sheet
+                                 (all fields kept, lib symbol copied over)
 
 Python standard library only.
 """
@@ -377,6 +380,33 @@ def _shift(block, dx, dy):
 
 def _new_uuids(block):
     return re.sub(r'\(uuid "[^"]*"\)', lambda m: f'(uuid "{uuid.uuid4()}")', block)
+
+
+def clone_symbol(dst, src, src_ref, new_ref, x, y, sheet_path):
+    """Place a copy of part `src_ref` from sheet text `src` into sheet text `dst`.
+
+    Every field is kept (positions move with the part, rotation unchanged); the
+    reference becomes `new_ref`, uuids are new, the instance path is
+    `sheet_path`. The part's lib symbol is copied into dst's lib_symbols if
+    missing. Returns new dst text."""
+    block = next((b for _, _, b in top_level(src, "symbol") if symbol_ref(b) == src_ref), None)
+    if block is None:
+        raise ValueError(f"clone_symbol: {src_ref} not found in source sheet")
+    if re.search(r'\(reference "' + re.escape(new_ref) + r'"\)', dst):
+        raise ValueError(f"clone_symbol: {new_ref} already exists in destination sheet")
+    lib_id = re.search(r'\(lib_id "([^"]+)"\)', block).group(1)
+    if f'(symbol "{lib_id}"' not in dst:
+        lib = next(top_level(src, "lib_symbols"))[2]
+        lsym = next(b for b in blocks(lib, f'symbol "{lib_id}"'))
+        ls = next(top_level(dst, "lib_symbols"))
+        pos = ls[1] - len("\t)\n")
+        dst = dst[:pos] + "\t\t" + lsym.rstrip("\n").lstrip("\t") + "\n" + dst[pos:]
+    ox, oy = map(float, re.search(r'\(lib_id "[^"]+"\)\s*\(at ([-\d.]+) ([-\d.]+)', block).groups())
+    b = _new_uuids(_shift(block, x - ox, y - oy))
+    b = re.sub(r'(\(property "Reference" )"[^"]*"', rf'\1"{new_ref}"', b, count=1)
+    b = re.sub(r'\(reference "[^"]*"\)', f'(reference "{new_ref}")', b)
+    b = re.sub(r'\(path "[^"]*"', f'(path "{sheet_path}"', b)
+    return _insert_after_last(dst, "symbol", b)
 
 
 def _in_box(x, y, box):

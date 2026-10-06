@@ -180,23 +180,28 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
-- [ ] ADIN_PWR 100 kΩ pull-down (unless AP22913 has one internally); ADIN_RST
-      pull-up only if needed; no pull-up on MISO — each with a citation
-- [ ] Document the ADIN power-up order
+- [x] S5.c: ADIN_PWR **R43 100 kΩ** pull-down (AP22913 has none, DS41203); ADIN_RST none (internal pull-up,
+      ADIN2111 Rev. B); no pull-up on MISO (SPI_CFG0 strap) — D21
+- [x] S5.c: ADIN power-up order documented (DESIGN "ADIN power and boot"; Option 1: software, Nick)
+- [x] S5.c: R10 removed, TP19 tied to SW_EN (Nick: Pi is the only controller) — D22
 - [x] S5.b: SW_EN → pin 36 (**active high** now; R42 pull-down keeps the payload off) and SW_FLAGB → pin 38 (R35
       pull-up, TP35); SW_FLAGB's sheet pin (unconnected since import) now has a stub + label. SW_PGOOD dropped (D18)
 - [x] S5.b: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
-- [ ] S5.b: Nick's KiCad look
+- [x] S5.b: Nick's KiCad look (PR #13 merged, `31bc0f3`)
 - [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
-- [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
-      needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
+- [x] S5.c (D20): Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
+      needs them; also for a bench MCU). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402
       (reference Processor sheet). Note the combined value if the Pi also has pull-ups
-      (QE: the Pi documents 1.8 kΩ on GPIO2/3 → ≈1.3 kΩ combined; cite a primary source)
-- [ ] Choose the pull-up rail and document power sequencing: shield 3V3 and Pi 3V3 are
+      (QE: the Pi documents 1.8 kΩ on GPIO2/3 → ≈1.3 kΩ combined; cite a primary source) — cited: Pi Zero 2 W
+      reduced schematic R23/R24 1.8 kΩ; ≥ 967 Ω R_P(min) (TI SLVA689)
+- [x] S5.c: Choose the pull-up rail and document power sequencing: shield 3V3 and Pi 3V3 are
       separate rails, so one powered while the other is off can back-power through pull-ups /
       IO clamp diodes (applies to the ADIN SPI/control lines too) — QE S2 risk. Cover specifically (QE S5.b): CE0/GPIO8
       (ADIN_NSS) defaults high at Pi reset and SPI0 idles CS high while ADIN_PWR keeps ADIN_VDDIO off; R35 (100 kΩ to
       shield 3V3) feeds GPIO20 when the Pi is off (≈ 33 µA); the Pi's own I²C pull-ups go to Pi 3V3, U4 is on shield 3V3
+      — done: shield 3V3; back-power table in DESIGN "ADIN power and boot"
+- [x] S5.c: QE review (standing S5 session): **APPROVED** in round 2 (round 1 F1 + nits fixed) — `docs/design-review/qe/S5.md`
+- [ ] S5.c: Nick's KiCad look
 - [ ] S5.f: ADIN status LEDs (Nick, 2026-10-05; plan approved in outline, details planned at the bite) — red "ADIN
       powered" LED from ADIN_VDDIO via 1.5 kΩ to GND; green "link/activity" LED from ADIN_VDDIO via 1.5 kΩ to
       **P1_LED_1 (pin 21)**, active low (ADIN2111 Rev. B Fig. 24; R3 4.7 kΩ pull-up stays, so the P1_TX2P4_EN strap
@@ -208,6 +213,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       LEDs visible after potting (if not, cut JP2 before potting)?
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
+S5.c: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), **netcheck 51/51**, midwire 0, exit 0; netlist: R26 on
+I2C1_SCL + 3V3, R27 on I2C1_SDA + 3V3, R43 on ADIN_PWR + GND, TP19 on SW_EN, R10 gone, nothing else.
 S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;
 netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each gain exactly their J1 pin (22/21/19/24/16/18/23, 3/5, 36, 38).
 

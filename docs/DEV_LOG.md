@@ -19,6 +19,29 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-05 — Sprint S5.c — I²C pull-ups, ADIN_PWR pull-down, R10 removed, ADIN boot order
+
+**Branch:** sprint/5c-pullups
+**Files touched:** BM_Mote_1_Master.kicad_sch; tools/schedit.py (clone_symbol) + test; DESIGN (D20–D22, "ADIN power and boot"), SPEC, SOFAR_QUESTIONS, sofar_brief, TRACKER, viewer, changelog
+**ERC:** 27 / 508 (unchanged)  ·  **Net diff:** R26/R27/R43 added, R10 removed, TP19 → SW_EN — intended
+**Done:**
+- S5.b closed: Nick's KiCad look OK, PR #13 merged (`31bc0f3`)
+- Read Sofar's reference sheets (Nick: answer from the mote design first): the ADIN load switches exist for
+  "<10mW mote operation"; every strap checked against the ADIN2111 Rev. B datasheet Nick supplied
+- Citations: Pi Zero 2 W schematic (1.8 kΩ I²C pull-ups to Pi 3V3), BCM2835 §6.2 (GPIO reset pulls; Zero 2 W =
+  BCM2710A1 per product brief), AP22913 DS41203 (no ON pull-down), TI SLVA689 (I²C R_P(min) 967 Ω)
+- Nick chose Option 1 (software boot order, no CS/RST series resistors); R10 removed (Pi is the only controller)
+**Broke/surprised us:**
+- git's default diff showed ~7,500 changed lines for ~1,450 added; `--diff-algorithm=patience` shows the real
+  +1665/−214 (two Altium symbols with ~35 fields each)
+- NXP's I²C spec download returns 404 to scripts; cited TI SLVA689's table of the spec values instead
+**Next:** Nick's KiCad look; then S5.d payload connector
+- QE round 1: **APPROVED WITH NITS**. F1 (minor): the Pi's default pull-down doesn't hold ADIN RESET once the
+  ADIN is powered (it fights the internal pull-up) → boot order now drives GPIO24 low / GPIO23 high from config.txt;
+  nits: TP19's move isn't visible to netcheck (layout note added), Q4 state key, duplicate import
+
+---
+
 ## 2026-10-05 — Sprint S5.b — Pi header wired
 
 **Branch:** sprint/5b-pi-header-wiring
