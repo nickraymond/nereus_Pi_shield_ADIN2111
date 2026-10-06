@@ -60,7 +60,8 @@ only valid with the ADIN powered):
 
 **Boot order (Pi software, D21):**
 1. Firmware, before the kernel: `config.txt` lines `gpio=24=op,dl` (drive ADIN_RST low) and `gpio=23=op,dh` (drive
-   ADIN_PWR high). Firmware applies these at boot, and the kernel or user space can still change the pins later
+   ADIN_PWR high). Firmware applies these a few seconds after power-up (the ADIN is held off by R43 until then), and the
+   kernel or user space can still change the pins later
    (Raspberry Pi documentation, config.txt "GPIO control"). GPIO24 must be **driven** low: once ADIN_VDDIO is up, the
    ADIN's internal RESET pull-up fights the Pi's weak default pull-down (neither value is published), so the default
    alone doesn't hold reset (QE S5.c F1).
