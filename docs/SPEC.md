@@ -45,9 +45,10 @@ production (DESIGN D12).
 - kicad-cli 9.0.6 is installed at the path above. *(measured 2026-10-04)*
 - PoDL magnetics today are L1 and L2, both Bourns SRF1260-101M.
   *(`BM_Mote_1_PoDL.kicad_sch`)*
-- The 3.3 V buck is U5, an LMR51430YDDCR; the load switch is U9, an FPF2700MX;
-  R34 is 374 kΩ (RC0402FR-07374KL); R11 is a 0 Ω 1210 jumper; the R8 shunt is
-  a UR73D1JTTD10L0F. *(live schematic sheets)*
+- The 3.3 V buck is U5, an LMR51430YDDCR; the load switch is U11, a TPS26621DRCR
+  (was U9 FPF2700MX, replaced in S5.a, D18); R34 is 9.09 kΩ (RC0402FR-079K09L, was
+  374 kΩ); R11 is a 0 Ω 1210 jumper, DNP (D17); the R8 shunt is a UR73D1JTTD10L0F.
+  *(live schematic sheets)*
 - The commercial mote's absolute maximum BM current is 890 mA (~20 W),
   limited by its PoDL inductors, and it has no through-current protection.
   *(Sofar, More Power Delivery)*
@@ -74,7 +75,7 @@ production (DESIGN D12).
 - TI's own LMR51430 application circuit uses C_IN = 2.2 µF and, at 1.1 MHz,
   suggests L = 3.3 µH (5 V) / 2.2 µH (3.3 V) with 2 × 10 µF / 25 V output caps.
   *(SLUSEF4A Figure 9-1, Table 9-2)*
-- FPF2700 (U9): 2.8–36 V, 88 mΩ typical; R_SET (kΩ) = 277.5 / I_LIM(TYP) (A), ±20 %;
+- *Historical (U9 removed in S5.a):* FPF2700: 2.8–36 V, 88 mΩ typical; R_SET (kΩ) = 277.5 / I_LIM(TYP) (A), ±20 %;
   short-circuit limit 0.75 × I_LIM; FPF2700 turns off after 0.5 ms blanking and
   retries after 127.5 ms; thermal shutdown 140 °C. With R34 = 374 kΩ, I_LIM ≈ 0.74 A
   typical. *(Fairchild FPF2700/1/2 datasheet Rev. 1.0.3, Eq. 1)*
@@ -82,6 +83,14 @@ production (DESIGN D12).
   250 mA; all models require a 5.1 V supply; no low-voltage detector on the Zero range.
   *(Raspberry Pi documentation, "Power supply")* Input power 5 V DC 2.5 A; operating
   temperature −20 °C to +70 °C. *(Zero 2 W product brief, April 2024)*
+- TPS26621DRCR (U11): 4.5–60 V (62 V abs max), 478 mΩ, current limit
+  R_ILIM (kΩ) = 6.636 / I_LIM (A), I(OL) 0.757/0.80/0.827 A at 8.25 kΩ, auto-retry,
+  FLT open drain, no PGOOD; SHDN low = shutdown (≈ 2 µA internal pull-up); dVdT may
+  float (24 V/660 µs); UVLO to IN via ≥ 1 MΩ and OVP to RTN when unused; status ACTIVE.
+  SHDN: I(SHDN) −2.4 µA typ / −10 µA max at 0.4 V, V(SHUTF) min 0.9 V, V(SHUTR) max 1.8 V;
+  fast-trip 1.6 A typ / 220 ns; thermal shutdown 155 °C, retry 512 ms; §12.1 allows RTN,
+  GND and PowerPAD together when reverse-input protection isn't needed (RTN = GND here).
+  *(TI SLVSDT4F Rev. F; ti.com part page 2026-10-05)* JLC/LCSC C1848341.
 - There is no fuse, PTC or e-fuse anywhere in the schematic.
   *(live schematic sheets, 2026-10-04)*
 - The Altium import breaks connectivity: the untouched reference mote
@@ -146,10 +155,10 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
-- **U9 (FPF2700MX) is obsolete**: Digi-Key part status "Obsolete — This product is no
-  longer manufactured" (checked 2026-10-05); distributor data gives last-time buy
-  2023-06-15, last delivery 2023-12-15. **Nick: replace it with a part JLC can source**
-  (D17) — S5. Also lifecycle-check every BOM part before S6.
+- ~~U9 (FPF2700MX) obsolete~~ done (S5.a, D18): replaced by TPS26621DRCR (U11). Still
+  open: lifecycle-check every BOM part before S6.
+- R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
+  0 Ω CRCW1210 jumper: stale import data to clean in S6.
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
   SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
   Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a
@@ -167,7 +176,7 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
   J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the
   reduced schematic). Failure modes: shield unpowered → USB 5 V back-feeds through L6
-  and U10's high-side body diode onto VBUS (bus side via L1, payload port via R11);
+  and U10's high-side body diode onto VBUS (bus side via L1, payload port through U11 when SW_EN has it on; R11 is DNP);
   shield powered → two supplies fight. **Decided (Nick, 2026-10-05, D14): bench rule
   only** — never connect a USB 5 V source (charger, PC host, self-powered hub that
   back-feeds) to a bridged board's Pi, shield powered or not; Pi-powered USB

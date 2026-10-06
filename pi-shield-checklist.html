@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.c in review</strong> <strong>S4.b done</strong> (PR #9 merged): the shield powers the Pi through bridged link JP1. <strong>S4.c:</strong> power budget (docs only): Pi ≤ 1 A (D15), R38 kept (D16); payload switched and limited by U9 with R11 DNP (D17); U9 is obsolete, replacement queued in S5. QE approved; next: your review.</p>
+    <p><strong>Updated 2026-10-05 · Now: S5.a, your KiCad look</strong> <strong>S4.c done</strong> (PR #10 merged). <strong>S5.a:</strong> obsolete U9 replaced by TI TPS26621 (JLC-stocked), R11 DNP, payload off by default and switched by the Pi. Changes for Sofar tracked in <code>docs/design-review/sofar_brief.md</code>. QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -191,13 +191,14 @@ const S = [
   ["S4.c: power budget written", `<p><code>docs/design-review/power_budget.md</code>: bus headroom, U10/L6 losses, JP1 bridge (2.4 A at 10 °C rise), Pi supply voltage (the Zero has no undervoltage detector). U10's temperature is the binding limit: ~42–57 °C rise at 1 A, 90–121 °C at 2 A.</p>`, null, 1],
   ["S4.c: Pi load ≤ 1 A (D15) and R38 13.7 kΩ (D16)", `<p>Your calls. Pi + its USB devices ≤ 1 A continuous; measure U10's case temperature at bring-up. R38 stays 13.7 kΩ; 13.5 kΩ is the fix if 5V_PI < 4.75 V at J1.</p>`, "nick", 1],
   ["S4.c: payload port switched and limited (D17)", `<p>Your call: R11 DNP so U9 switches (SW_EN) and limits (≈ 0.74 A) the payload; payloads are small devices. Schematic change in S5.</p>`, "nick", 1],
-  ["S4.c: QE approved; your review of power_budget.md", `<p>QE APPROVED WITH NITS (round 4). Docs only; nothing to see in KiCad.</p>`, "nick"],
+  ["S4.c: QE approved; your review of power_budget.md", `<p>QE APPROVED WITH NITS (round 4); you approved; PR #10 merged.</p>`, "nick", 1],
   ["S4.d: make all footprints findable", `<p>Extract the mote board's 57 footprint IDs (167 instances; read only) into a project library named <code>Vault</code>, matching the board's IDs, so your F8 re-link changes nothing.</p>`]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[
-  ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) is fitted and bypasses the load switch (D17).</p>`],
-  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>Digi-Key: "no longer manufactured". Match the function: 36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD; ideally SO-8 pin-compatible; check output caps / hard shorts up to 32 V (D17).</p>`],
+  ["R11 → DNP", `<p>As captured R11 (0 Ω across U9) was fitted and bypassed the load switch (D17). Done in S5.a.</p>`, null, 1],
+  ["Replace U9 (FPF2700MX obsolete) with a part JLC can source", `<p>U11 = TI TPS26621DRCR (JLC C1848341, TI ACTIVE): R34 9.09 kΩ → 0.73 A, R41 1 MΩ UVLO tie, R42 10 kΩ pull-down (payload off by default; SW_EN now active high), PGOOD dropped (D18).</p>`, null, 1],
+  ["S5.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2). Load Switch sheet (U11 and its parts) and R11 on the Top-Level sheet (DNP cross).</p>`, "nick"],
   ["Lifecycle check of every BOM part before S6", ``],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
@@ -205,15 +206,15 @@ const S = [
 <tr><td>18</td><td>24</td><td>ADIN_RST</td></tr>
 <tr><td>16</td><td>23</td><td>ADIN_PWR</td></tr>
 <tr><td>3 / 5</td><td>2 / 3</td><td>I2C1_SDA / I2C1_SCL</td></tr>
-<tr><td>36</td><td>16</td><td>SW_EN (low = payload on)</td></tr>
-<tr><td>38 / 40</td><td>20 / 21</td><td>SW_FLAGB / SW_PGOOD</td></tr>
+<tr><td>36</td><td>16</td><td>SW_EN (high = payload on)</td></tr>
+<tr><td>38</td><td>20</td><td>SW_FLAGB</td></tr>
 <tr><td>2 / 4</td><td>—</td><td>PI_5V, joined to 5V_PI by JP1 (bridged; cut to isolate)</td></tr></table></div>`],
   ["Leave reserved and avoided pins free", `<p>Reserve 32, 33, 29 (motor) and 26 (CE1). Avoid 27, 28 (HAT EEPROM) and 8, 10 (console).</p>`],
   ["ADIN_PWR default-off pull-down (100 kΩ)", `<p>Unless the AP22913 has an internal one.</p>`],
   ["ADIN_RST pull-up if needed (10 kΩ to ADIN_VDDIO)", `<p>Only if the ADIN2111 has no internal pull-up.</p>`],
   ["No pull-up on MISO", `<p>SDO doubles as the SPI_CFG0 configuration pin read at reset. Leave as the mote has it.</p>`],
   ["Document the software power-up order", `<p>ADIN_PWR on → release RESET → start SPI.</p>`],
-  ["SW_EN, SW_FLAGB, SW_PGOOD to Pi pins 36, 38, 40", `<p>Keep R32's pull-up: off by default. SW_FLAGB/SW_PGOOD sheet pins are unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35.</p>`],
+  ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free.</p>`],
   ["VBUS_OUT + GND to a 2-pin connector", `<p>Rated for at least 890 mA (D12). Raw ~24 V.</p>`],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>The Pi needs them (your call, D11). Reuse the mote's vetted R26/R27: 4.7 kΩ ERJ-2RKF4701X, 0402. With the Pi's own pull-ups (documented 1.8 kΩ, to be cited) the combined value is ≈1.3 kΩ.</p>`],
   ["Pull-up rail and power sequencing", `<p>Shield 3V3 and Pi 3V3 are separate rails: one on and one off can back-power through pull-ups/IO clamps (also the ADIN SPI lines). Choose the rail, document sequencing (QE risk).</p>`],

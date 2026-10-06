@@ -12,7 +12,7 @@ nereus_Pi_shield_ADIN2111.kicad_sch     root
     ├── BM_Mote_1_ADIN2111              ADIN2111 + AP22913 switches
     ├── BM_Mote_1_PoDL                  L1/L2 PoDL magnetics, D1/D2 protection
     │   └── BM_Mote_1_PowerMon          INA232 + R8 shunt
-    └── BM_Mote_1_Load                  U9 24 V payload switch
+    └── BM_Mote_1_Load                  U11 24 V payload switch (TPS26621, D18)
 
 Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_1_USB
 ```
@@ -28,13 +28,13 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 | 18 | 24 | ADIN_RST |
 | 16 | 23 | ADIN_PWR |
 | 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL |
-| 36 | 16 | SW_EN (low = payload on) |
-| 38 / 40 | 20 / 21 | SW_FLAGB / SW_PGOOD |
+| 36 | 16 | SW_EN (**high = payload on**; R42 pull-down keeps it off, D18) |
+| 38 | 20 | SW_FLAGB (U11 FLT, open drain, R35 pull-up) |
 | 2 / 4 | — | `PI_5V`, joined to `5V_PI` by JP1 (bridged link; cut to isolate, D14) |
 | 6, 9, 14, 20, 25, 30, 34, 39 | — | GND |
 | 1, 17 | — | **unconnected** (Pi 3.3 V) |
 
-Reserved: 26 (CE1), 29, 32, 33 (motor). Avoid: 27, 28 (HAT EEPROM), 8, 10 (console).
+Reserved: 26 (CE1), 29, 32, 33 (motor). Free: 40 (SW_PGOOD dropped, D18). Avoid: 27, 28 (HAT EEPROM), 8, 10 (console).
 
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
@@ -83,6 +83,7 @@ two local labels with the same name silently join their nets.
 | D15 | 2026-10-05 | Continuous Pi load target ≤ 1 A at 5V_PI (Pi + its USB devices), short peaks above; generous copper at U10; measure U10's case temperature at bring-up (P-S4c-1) | U10's temperature is the binding limit: ≈ 42–57 °C junction rise at 1 A vs 90–121 °C at 2 A (indicative, `docs/design-review/power_budget.md` §3). Typical Pi + camera + GPIO ≈ 650 mA (RPi docs) |
 | D16 | 2026-10-05 | R38 stays 13.7 kΩ: U10 at 4.98 V nominal, 4.82–5.14 V worst case (P-S4c-2) | Every corner inside USB's 4.75–5.25 V for the Pi's peripherals; no cable/fuse drop to the Pi's rail; the Zero range has no undervoltage detector (RPi docs). 13.5 kΩ (5.04 V) is the drop-in fix if bring-up shows 5V_PI < 4.75 V at J1 |
 | D17 | 2026-10-05 | Payload port: switched by the Pi (SW_EN) and current-limited by the load switch (R34 → ≈ 0.74 A typical, FPF2700 datasheet), with **R11 DNP** (S5). As captured from Sofar, R11 (0 Ω across U9) was fitted, which bypassed U9 entirely. U9 FPF2700MX is obsolete, so S5 replaces it with a part JLC can source, matching the function (36 V class, ≈ 0.74 A limit, active-low ON, FLAGB/PGOOD) | Amends SPEC constraint 7 (Nick, 2026-10-05). Nick: payloads are small devices (e.g. another sensor to switch on), none runs near the limit; he wants the switch and limit active (QE S4.c F4 found R11 fitted). Digi-Key lists FPF2700MX as no longer manufactured (2026-10-05) |
+| D18 | 2026-10-05 | U9 FPF2700MX → **U11 TI TPS26621DRCR** (JLC C1848341; TI status ACTIVE). R34 → 9.09 kΩ (I_LIM = 6.636/R = 0.73 A, SLVSDT4F Eq. 3; ≈ −6/+4 %); new R41 1 MΩ IN→UVLO and OVP→GND (UV/OV cut-off unused, Fig. 10-14); dVdT open (internal 24 V/660 µs ramp). SHDN is active low, so the SW_ON pull-up R32 becomes a **10 kΩ pull-down R42** (RMCF0402FT10K0): worst-case SHDN source current 10 µA → 0.1 V, below V(SHUTF) min 0.9 V; the Pi's 3.3 V high is above V(SHUTR) max 1.8 V (SLVSDT4F §7.5; 100 kΩ had no worst-case margin, QE S5.a F2). Payload off by default, Pi drives SW_EN high. No PGOOD: SW_PGOOD, R33, TP34 and the sheet pin removed (Pi pin 40 freed); FLT keeps SW_FLAGB. R11 DNP (D17). **RTN = GND** (with GND and the PowerPAD): reverse-input protection isn't used — VBUS is internal behind D1, and the FPF2700 had none (§12.1 allows it; §10.4's "don't" applies only when reverse protection is wanted). R_ON 478 mΩ vs FPF2700's 88 mΩ: ≈ 0.35 V drop and ≈ 0.25 W at 0.73 A. Hard short / output caps (closes QE S4.c N6): C_OUT ≥ 0.01 µF (ROC), start-up into a short is current-limited (Fig. 9-12), fast-trip 1.6 A typ / 220 ns, thermal shutdown 155 °C with 512 ms auto-retry, D3 is TI's recommended output Schottky (§11). Floating dVdT ramps at ≈ 36 V/ms, so a payload input capacitance above ≈ 20 µF charges in current limit (≈ C·V/0.73 A, e.g. 4.4 ms for 100 µF at 32 V, well inside tCL(dly) 512 ms); auto-retry only if thermal shutdown trips. New project symbol `nereus:TPS26621DRCR`; footprint `Package_SON:Texas_DRC0010J` (stock) | Nick: JLC-sourceable replacement for the obsolete part, payload switched and limited; the three sub-choices (part, pull-down, drop PGOOD) approved 2026-10-05. Tracked for Sofar in `docs/design-review/sofar_brief.md` |
 
 ## ERC / net-check results
 
@@ -96,23 +97,25 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S4.a | 78 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 13 new parts; existing parts' connections identical | 5 V converter U10 (copy of U5): +2 errors (U10 CB/SW, like U5), +57 off-grid, +10 footprint links. New nets 5V_PI, 5V_Buck_SW, 5V_FB, 5V_UVLO, U10 CB; VBUS and GND gain only the new parts |
 | 2026-10-05 | S4.b | 76 / 629 | 53/53, 0 opens, 0 shorts, 0 excluded; 1 new part (JP1); existing connections identical | JP1 bridged link 5V_PI → PI_5V (J1.2/J1.4), #FLG03 on PI_5V: −2 errors (J1 pin 2 not connected / not driven). midwire now sees J1's 40 pins (tool fix); still 0 |
 | 2026-10-05 | S4.c | 76 / 629 | unchanged (docs only) | Power budget in `docs/design-review/power_budget.md`; D15 (Pi ≤ 1 A), D16 (R38 13.7 kΩ), D17 (payload switched/limited by U9, R11 DNP and U9 replacement in S5) |
+| 2026-10-05 | S5.a | 74 / 626 | 50/50, 0 opens, 0 shorts, 0 excluded; kept parts' connections identical; U9/R32/R33/TP34 removed, U11/R41/R42 new | Load switch replaced (D18), R11 DNP: −2 errors (SW_PGOOD sheet pin, U9.8), −3 footprint-link warnings. Copper nets 53 → 50: three nets now hold only removed parts |
 
-**Remaining ERC errors after S4.b (76), and who resolves each** (counted with
+**Remaining ERC errors after S5.a (74), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
 pin_not_connected, 16 vs 24, by missing FID and sheet-pin items — QE S2 F1):
 
 | Type | # | What | Resolved by |
 |---|---|---|---|
-| pin_not_connected | 40 | J1: 28 GPIO pins (pin 2 cleared in S4.b); Load Switch sheet pins SW_FLAGB, SW_PGOOD = 2 (unconnected on the Top-Level sheet since import; on the mote these nets go only to U9/R33/R35/TP34/TP35); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S5 (GPIO, SW_FLAGB/SW_PGOOD → Pi 38/40); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
+| pin_not_connected | 39 | J1: 28 GPIO pins (pin 2 cleared in S4.b); Load Switch sheet pin SW_FLAGB = 1 (unconnected on the Top-Level sheet since import; SW_PGOOD removed in S5.a); FID1–6 fiducials' hidden NC pin = 6; MTG1–4 mounting holes = 4 | S5 (GPIO, SW_FLAGB → Pi 38); FID1–6 S6 (justify/exclude); MTG1–4 Nick (board) |
 | label_dangling | 18 | ADIN_MISO/MOSI/NSS/RST/SCK and the ADIN sheet's CS/MISO/MOSI/SCK/RST; I2C1_SCL/SDA and the PoDL and Power Monitor sheets' SCL/SDA: each net has one pin until the Pi header is wired | S5 |
-| power_pin_not_driven | 9 | #PWR34 ADIN_VDDIO (switched rail from U3); U9.8 VOUT; U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | justified or flagged in S6 (J1.2 cleared in S4.b by #FLG03) |
+| power_pin_not_driven | 8 | #PWR34 ADIN_VDDIO (switched rail from U3); U5 CB/SW; U10 CB/SW (S4.a copy of U5); U6 VIN/SW/VOS (switch nodes / regulator-fed rails with no power-output pin) | justified or flagged in S6 (J1.2 cleared in S4.b by #FLG03) |
 | unresolved_variable | 9 | Title block `${PCBPARTNAME}` ×1, `${PCBPARTNUMBER}` ×8 | Needs a name/part number from Nick (S6) |
 
 S2's PWR_FLAGs cleared U5 VIN (VBUS) and U6 GND.
 
-Warnings (629) are cosmetic import leftovers: 485 off-grid endpoints (Altium
+Warnings (626) are cosmetic import leftovers: 485 off-grid endpoints (Altium
 coordinates such as `…0.0022`; +2 in S2 where the trimmed I2C1 wires end on
 off-grid label anchors; +57 in S4.a, the U10 copy keeps U5's off-grid offset),
-121 footprint-library links (+10 in S4.a: the copied parts keep the mote's
-library-less footprint names; S4.c), 11 dangling wire ends
+118 footprint-library links (+10 in S4.a: the copied parts keep the mote's
+library-less footprint names; S5.a: −4 for U9/R32/R33/TP34, +1 for R42, which keeps
+R32's library-less footprint; S4.d), 11 dangling wire ends
 (all pre-existing), 12 duplicate net names (e.g. `PHY1_P`/`BM1_P` on the same wire).

@@ -39,6 +39,8 @@
    on any design or decision change; **`pi-shield-checklist.html` synced to
    this tracker** (items, `done` flags, the status panel's "Updated / Now" line)
    in the same PR.
+   **Every deliberate change from Sofar's mote goes in `docs/design-review/sofar_brief.md`**
+   (one row: mote vs shield vs why), shipped with the board files.
 7. **Facts carry sources; unknowns get flagged, not guessed.**
 8. **KiCad files:** never write a `.kicad_pcb`. Reference designs and
    `Archive/` are read-only. After every `.kicad_sch` text edit, kicad-cli must
@@ -154,7 +156,7 @@ S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D
 - [x] S4.c: Nick decided D15 (Pi load ≤ 1 A continuous) and D16 (keep R38 13.7 kΩ)
 - [x] S4.c: payload port decided (D17): switched and limited by U9; R11 DNP and U9 replacement in S5
 - [x] S4.c: QE review (same S4 session): **APPROVED WITH NITS** in round 4, nit fixed — `docs/design-review/qe/S4.md`
-- [ ] S4.c: Nick's review of power_budget.md
+- [x] S4.c: Nick's review of power_budget.md (PR #10 merged, `1f906bc`)
 - [ ] S4.d: all footprints findable — extract the mote board's 57 footprints (read the board, never write it) into a
       project library named `Vault` (matches the board's `Vault:` IDs; 57 footprint IDs, 167 instances) and point every footprint field at it
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 705  Errors 76  Warnings 629`, `netcheck: 53/53 … 0 opens,
@@ -163,19 +165,22 @@ J1 entry under power_pin_not_driven; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V
 JP1.2, L6.2, R37.1, TP38.1 (S4.b; S4.a's was 78/629 without JP1).
 
 ### S5 — Pi header wiring, ADIN details, load switch  `[ ]`
-- [ ] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
-- [ ] **Replace U9** (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
+- [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
+- [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
       checked 2026-10-05) with a part **JLC can source** (Nick, D17): 36 V class, ≈ 0.74 A current limit, active-low
       ON, FLAGB/PGOOD; ideally SO-8 pin-compatible; cited, potting-safe; R34/R33/R35 values re-derived; check output-cap /
       hard-short behaviour up to 32 V (FPF2700 Table 2 vs Eq. 2 conflict at 32 V for this limit; C50 is only 100 nF; QE N6)
+      — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
+- [x] S5.a: QE review (fresh S5 session): **APPROVED WITH NITS** in round 2, nit fixed — `docs/design-review/qe/S5.md`
+- [ ] S5.a: Nick's KiCad look
 - [ ] Lifecycle check of every BOM part (not just U9) before the S6 package
 - [ ] Wire the pin map in DESIGN.md; leave reserved (26, 29, 32, 33) and
       avoided (8, 10, 27, 28) pins free
 - [ ] ADIN_PWR 100 kΩ pull-down (unless AP22913 has one internally); ADIN_RST
       pull-up only if needed; no pull-up on MISO — each with a citation
 - [ ] Document the ADIN power-up order
-- [ ] SW_EN/SW_FLAGB/SW_PGOOD → pins 36/38/40 (keep R32 pull-up). SW_FLAGB/SW_PGOOD sheet pins are
-      unconnected on the Top-Level sheet since import; reuse their R33/R35 pull-ups and TP34/TP35
+- [ ] SW_EN → pin 36 (**active high** now; R42 pull-down keeps the payload off) and SW_FLAGB → pin 38 (R35
+      pull-up, TP35). SW_FLAGB's sheet pin is unconnected on the Top-Level sheet since import. SW_PGOOD dropped (D18)
 - [ ] VBUS_OUT + GND → 2-pin connector rated for at least 890 mA (D12)
 - [ ] Add I2C pull-ups on I2C1_SDA/SCL to the shield's 3V3 (Nick, 2026-10-05: the Pi
       needs them). Reuse the mote's vetted parts: R26/R27 = 4.7 kΩ ERJ-2RKF4701X, 0402

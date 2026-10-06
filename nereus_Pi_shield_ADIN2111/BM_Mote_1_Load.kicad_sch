@@ -1486,6 +1486,410 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "nereus:TPS26621DRCR"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -10.16 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TPS26621DRCR"
+				(at 0 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SON:Texas_DRC0010J"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2662.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "TPS26621 60 V 0.88 A eFuse, adjustable current limit, auto-retry, FLT output, VSON-10 (DRC). Pin numbers per TI SLVSDT4F Table 6-1; EP = PowerPAD (connect to RTN)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "eFuse load switch current limit"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Texas*DRC0010J*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TPS26621DRCR_0_1"
+				(rectangle
+					(start -10.16 12.7)
+					(end 10.16 -12.7)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TPS26621DRCR_1_1"
+				(pin input line
+					(at -15.24 10.16 0)
+					(length 5.08)
+					(name "UVLO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -15.24 5.08 0)
+					(length 5.08)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -15.24 0 0)
+					(length 5.08)
+					(name "ILIM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -5.08 0)
+					(length 5.08)
+					(name "~{SHDN}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -15.24 -10.16 0)
+					(length 5.08)
+					(name "RTN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 15.24 5.08 180)
+					(length 5.08)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 15.24 0 180)
+					(length 5.08)
+					(name "dVdT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin open_collector line
+					(at 15.24 -5.08 180)
+					(length 5.08)
+					(name "~{FLT}"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 15.24 -10.16 180)
+					(length 5.08)
+					(name "OVP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -17.78 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -17.78 90)
+					(length 5.08)
+					(name "EP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(text "${##}"
 		(exclude_from_sim no)
@@ -1574,7 +1978,7 @@
 		)
 		(uuid "3b381ade-8ba2-4157-a4cf-712c32aaf367")
 	)
-	(text_box "Ilim 20% tol:\n  min: 0.59A\n  typ: 0.74A\n  max: 0.89A"
+	(text_box "Ilim (R34 9.09k):\n  typ: 0.73A\n  -6/+4 %\n  TPS26621 D18"
 		(exclude_from_sim no)
 		(at 151.13 145.8722 0)
 		(size -33.02 20.32)
@@ -1614,12 +2018,6 @@
 		(uuid "2f9717bc-8f3f-4ab8-99d0-2248829f5ae0")
 	)
 	(junction
-		(at 261.62 164.9222)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd97bf43-fd3f-4ed2-9374-720948d0cc9c")
-	)
-	(junction
 		(at 271.78 134.4422)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1637,6 +2035,28 @@
 		(color 0 0 0 0)
 		(uuid "81626b5a-dce7-47f2-ada5-7bd9e6dc7a98")
 	)
+	(junction
+		(at 195.58 139.5222)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3b387d9e-3cbb-4c03-a1fe-234b5694532e")
+	)
+	(junction
+		(at 223.52 180.1622)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e0339f41-285f-4249-8e69-4190e69c1daf")
+	)
+	(junction
+		(at 228.6 180.1622)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "05e4ba2d-e07c-48b6-8e2b-b6420beb5ccf")
+	)
+	(no_connect
+		(at 241.3 149.6822)
+		(uuid "0fb7b537-08bd-4879-82ff-bd3d801624a1")
+	)
 	(wire
 		(pts
 			(xy 153.67 180.1622) (xy 196.85 180.1622)
@@ -1649,13 +2069,23 @@
 	)
 	(wire
 		(pts
-			(xy 195.58 144.6022) (xy 195.58 134.4422)
+			(xy 195.58 144.6022) (xy 195.58 139.5222)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "097cdf1e-3af1-4c69-9d3b-20d2d2b8e96b")
+	)
+	(wire
+		(pts
+			(xy 195.58 139.5222) (xy 195.58 134.4422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c1676e5-57ed-4dc8-b171-7dc415a9cac7")
 	)
 	(wire
 		(pts
@@ -1679,13 +2109,33 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 180.1622) (xy 241.3 180.1622)
+			(xy 210.82 180.1622) (xy 223.52 180.1622)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "4030b03e-4363-4c8e-a48a-6b122f5d7aa9")
+	)
+	(wire
+		(pts
+			(xy 223.52 180.1622) (xy 228.6 180.1622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c848882-d5f1-4619-ab9e-3396cf22edbf")
+	)
+	(wire
+		(pts
+			(xy 228.6 180.1622) (xy 241.3 180.1622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc4b8d6a-add2-4268-a39f-2594bddfe33e")
 	)
 	(wire
 		(pts
@@ -1779,26 +2229,6 @@
 	)
 	(wire
 		(pts
-			(xy 254 164.9222) (xy 261.62 164.9222)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "874c58d0-94a5-40e5-bd6c-22ed928e5b37")
-	)
-	(wire
-		(pts
-			(xy 261.62 164.9222) (xy 262.89 164.9222)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "16a8c01a-1387-4873-a721-6d66ddad8218")
-	)
-	(wire
-		(pts
 			(xy 129.54 172.5422) (xy 195.58 172.5422)
 		)
 		(stroke
@@ -1826,16 +2256,6 @@
 			(type default)
 		)
 		(uuid "a9f39897-f286-48fa-8645-2407a47136c1")
-	)
-	(wire
-		(pts
-			(xy 254 149.6822) (xy 241.3 149.6822)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b299c939-1149-4c94-a16c-8e1580c2e1aa")
 	)
 	(wire
 		(pts
@@ -1879,16 +2299,6 @@
 	)
 	(wire
 		(pts
-			(xy 254 164.9222) (xy 254 149.6822)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f345478a-3499-4fb8-bdbb-ffbe30fa336b")
-	)
-	(wire
-		(pts
 			(xy 210.82 149.6822) (xy 153.67 149.6822)
 		)
 		(stroke
@@ -1896,6 +2306,36 @@
 			(type default)
 		)
 		(uuid "fddec381-8857-45c8-b408-28bda15d1f36")
+	)
+	(wire
+		(pts
+			(xy 203.2 139.5222) (xy 210.82 139.5222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39f39873-d3a1-4b11-a91d-3b613e011a8b")
+	)
+	(wire
+		(pts
+			(xy 223.52 167.4622) (xy 223.52 180.1622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70bc5f64-95f7-4a5e-934a-faaadd524e22")
+	)
+	(wire
+		(pts
+			(xy 228.6 167.4622) (xy 228.6 180.1622)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a357ec5-bbb1-4be3-b88e-156d8c64a4be")
 	)
 	(label "ISET"
 		(at 171.45 149.6822 0)
@@ -1916,16 +2356,6 @@
 			(justify left bottom)
 		)
 		(uuid "6ec5dd1d-b008-4bd7-9417-fe1b00370d87")
-	)
-	(label "SW_PGOOD"
-		(at 242.57 149.6822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7fb300d6-e493-41e7-9899-3d86c9494b73")
 	)
 	(label "VBUS_P"
 		(at 243.84 134.4422 0)
@@ -1969,17 +2399,6 @@
 		)
 		(uuid "55a53390-34a6-4974-8d69-170dc233817d")
 	)
-	(hierarchical_label "SW_PGOOD"
-		(shape passive)
-		(at 262.89 164.9222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5b9050a3-258e-4913-ba57-36fb20c4762e")
-	)
 	(hierarchical_label "VIN"
 		(shape passive)
 		(at 129.54 134.4422 180)
@@ -2001,345 +2420,6 @@
 			(justify left)
 		)
 		(uuid "b8233b14-0b22-4625-9b5e-15518f885055")
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Load_1_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
-		(at 261.62 164.9222 0)
-		(unit 0)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "11c1c535-a0f8-45de-8786-57a0c00d905b")
-		(property "Reference" "R33"
-			(at 263.144 153.7462 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "RMCF0402FT100K"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "FP-RMCF0402-IPC_C"
-			(at 261.62 164.9222 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 261.62 164.9222 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "100kΩ ±1% 0.063W 0402 Thick Film Chip Resistor AEC-Q200 compliant"
-			(at 261.62 164.9222 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MAX POWER DISSIPATION" "63mW"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGING" "Tape and Reel"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SIZE CODE" "0402"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "RESISTANCE" "100kR"
-			(at 263.144 156.2862 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "RESISTOR TYPE" "Thick Film"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "FEATURES" "Automotive AEC-Q200"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CASE CODE (METRIC)" "1005"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ROHS COMPLIANT" "Yes"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "LENGTH" "1mm"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "RADIATION HARDENING" "No"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MILITARY STANDARD" "Not"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "DEPTH" "0.5mm"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MAX OPERATING TEMPERATURE" "155°C"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "LEAD FREE" "Lead Free"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CASE/PACKAGE" "0402"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "TOLERANCE" "1%"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CONSTRUCTION" "Rectangular"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "NUMBER OF TERMINATIONS" "2"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MOUNT" "Surface Mount"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MIN OPERATING TEMPERATURE" "-55°C"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "WIDTH" "0.02inch"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SERIES" "RMCF"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "CONTACT PLATING" "Tin"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "POWER RATING" "62.5mW"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "HEIGHT" "0.016inch"
-			(at 260.096 146.6342 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f09fd325-e986-43ca-a54d-a662c75d26d2")
-		)
-		(pin "2"
-			(uuid "5d3627c0-dbbc-4d54-b255-aea6384eea17")
-		)
-		(instances
-			(project ""
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "R33")
-					(unit 0)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
@@ -2741,7 +2821,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "88b52f49-f75c-49c9-bb64-69fc0a9e38b4")
-		(property "Reference" "R32"
+		(property "Reference" "R42"
 			(at 181.864 153.2382 0)
 			(effects
 				(font
@@ -2750,7 +2830,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RMCF0402FT100K"
+		(property "Value" "RMCF0402FT10K0"
 			(at 177.292 153.2382 0)
 			(effects
 				(font
@@ -2778,7 +2858,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100kΩ ±1% 0.063W 0402 Thick Film Chip Resistor AEC-Q200 compliant"
+		(property "Description" "RES 10K OHM 1% 0402: SW_ON pull-down, payload off by default. Worst case SHDN source 10 uA x 10k = 0.1 V < V(SHUTF) min 0.9 V (SLVSDT4F 7.5, D18)"
 			(at 195.58 154.7622 0)
 			(effects
 				(font
@@ -2817,7 +2897,7 @@
 				(hide yes)
 			)
 		)
-		(property "RESISTANCE" "100kR"
+		(property "RESISTANCE" "10kR"
 			(at 181.864 158.8262 0)
 			(effects
 				(font
@@ -3065,415 +3145,8 @@
 		(instances
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "R32")
+					(reference "R42")
 					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Load_0_FAIR-FPF27XX-SOP-8_Altium Content Vault")
-		(at 215.9 142.0622 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a07e13e3-fae6-4f1c-8545-cfd38fd816b1")
-		(property "Reference" "U9"
-			(at 215.9 142.0622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "FPF2700MX"
-			(at 215.9 164.9222 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "FAIR-SO-8_V"
-			(at 215.9 142.0622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 215.9 142.0622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "AccuPower(TM) Over-Current Protection Load Switch, 0.4 to 2 A Adjustable, 2.8 to 36 V, -40 to 85 degC, 8-Pin SOP, RoHS, Tape and Reel"
-			(at 215.9 142.0622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER" "FairchildSemiconductor"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ROHS" "Details"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM OPERATING TEMPERATURE" "+85C"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE REFERENCE" "SO-8"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE VERSION" "Rev. 16, 08/2015"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE URL" "https://www.fairchildsemi.com/package-drawings/M0/M08A.pdf"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ON RESISTANCE (MAX)" "140mOhms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MOUNTING STYLE" "SMD/SMT"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "OFF TIME - MAX" "0.1ms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "BRAND" "FairchildSemiconductor"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "FACTORY PACK QUANTITY" "2500"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ON TIME (MAX)" "2.7ms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "OPERATING SUPPLY VOLTAGE" "2.8Vto36V"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "UNIT WEIGHT" "0.005044oz"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE DESCRIPTION" "8-Pin Small Outline Integrated Circuit, Body 4.9 x 3.9 mm, Pitch 1.27 mm"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "DATASHEET URL" "https://datasheet.ciiva.com/1963/fpf2700-1963152.pdf"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SWITCH CURRENT - MAX" "3.5A"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "OFF TIME (MAX)" "0.1ms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MAXIMUM POWER DISSIPATION" "1.25W"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MANUFACTURER URL" "https://www.fairchildsemi.com/"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MOUNTING TECHNOLOGY" "SurfaceMount"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "INPUT VOLTAGE MIN" "2.8V"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SERIES" "FPF2700"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "DATASHEET VERSION" "Rev. 1.0.3, 12/2013"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SWITCH CURRENT (MAX)" "3.5A"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGING" "Reel"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ON RESISTANCE - MAX" "140mOhms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PACKAGE / CASE" "SO-8"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "INPUT VOLTAGE MAX" "36V"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MINIMUM OPERATING TEMPERATURE" "-40C"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ON TIME - MAX" "2.7ms"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PRODUCT CATEGORY" "PowerSwitchICs-PowerDistribution"
-			(at 210.312 138.2522 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8eaa4b16-cebc-4d8f-8962-baf15b8ccac1")
-		)
-		(pin "2"
-			(uuid "cb8e6042-5baf-4c55-8eef-e20a2c54b0cb")
-		)
-		(pin "3"
-			(uuid "8df2743b-04d3-42d0-ab51-79b6a9a03b92")
-		)
-		(pin "4"
-			(uuid "0d989400-0e88-4eab-94b9-43901ee46b6f")
-		)
-		(pin "5"
-			(uuid "8fdde1b7-3413-42d5-a5c4-47809579b7c6")
-		)
-		(pin "6"
-			(uuid "4d84cfb3-20ad-4367-b320-02dc136a6467")
-		)
-		(pin "7"
-			(uuid "4e3993f3-10e5-49f7-a7b4-c79c54ba3658")
-		)
-		(pin "8"
-			(uuid "a921d4fa-7861-4ef0-a28e-6f4182033acf")
-		)
-		(instances
-			(project ""
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "U9")
-					(unit 1)
 				)
 			)
 		)
@@ -3818,15 +3491,15 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
 		(at 177.8 154.7622 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ad718afd-18e3-4430-8b85-a91f73caa9e0")
-		(property "Reference" "#PWR61"
+		(uuid "5e9be87e-3164-4591-81c3-fff38875a74d")
+		(property "Reference" "#PWR76"
 			(at 177.8 154.7622 0)
 			(effects
 				(font
@@ -3835,13 +3508,12 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "3V3"
-			(at 173.99 154.7622 90)
+		(property "Value" "GND"
+			(at 177.8 161.1122 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -3869,12 +3541,12 @@
 			)
 		)
 		(pin ""
-			(uuid "52856769-c697-40a1-bd6a-9f41c64e5ad2")
+			(uuid "6ac632fa-5934-466f-bbe7-7f8688fdcf6a")
 		)
 		(instances
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "#PWR61")
+					(reference "#PWR76")
 					(unit 1)
 				)
 			)
@@ -4409,7 +4081,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Value" "RC0402FR-07374KL"
+		(property "Value" "RC0402FR-079K09L"
 			(at 152.908 149.1742 0)
 			(effects
 				(font
@@ -4437,7 +4109,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 9.09K OHM 1% 1/16W 0402: U11 current limit 6.636/9.09 = 0.73 A (SLVSDT4F Eq. 3)"
 			(at 151.13 157.3022 0)
 			(effects
 				(font
@@ -4446,7 +4118,7 @@
 				(hide yes)
 			)
 		)
-		(property "PART NUMBER" "RC0402FR-07374KL"
+		(property "PART NUMBER" "RC0402FR-079K09L"
 			(at 152.908 149.1742 0)
 			(effects
 				(font
@@ -4466,7 +4138,7 @@
 				(hide yes)
 			)
 		)
-		(property "RESISTANCE" "374k"
+		(property "RESISTANCE" "9.09kR"
 			(at 154.432 157.0482 0)
 			(effects
 				(font
@@ -4504,273 +4176,6 @@
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
 					(reference "R34")
-					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Load_1_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 261.62 167.4622 0)
-		(unit 0)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c7b4eac9-05b2-45f4-ae6e-8e37f7c47e5f")
-		(property "Reference" "TP34"
-			(at 262.89 170.0022 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "TEST_POINT"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "PCB_TP_1.5mm"
-			(at 261.62 167.4622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 261.62 167.4622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "18mil Test Point"
-			(at 261.62 167.4622 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "$PN" "?"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "LIFESTATUS" "CUR"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTTYPE" "non BOM"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PN" "#"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PARTID" "56x-tmp12"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ICS_PARTTYPE" "non BOM"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MNTTYPE" "SMT"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "REVISION" "REV"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "SOURCE" "WS0.2.SchLib"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ALTIUM_VALUE" "TP18"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "BIDIRECTIONAL" "TRUE"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ISSUENO" "4891"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "ROHS" "ROHS"
-			(at 260.35 164.4142 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b3783529-5b30-464d-9b5f-5cb82de8b4c8")
-		)
-		(instances
-			(project ""
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "TP34")
 					(unit 0)
 				)
 			)
@@ -5157,16 +4562,32 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 261.62 147.1422 180)
+		(lib_id "nereus:TPS26621DRCR")
+		(at 226.06 149.6822 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ffbbc5db-0aae-4d52-abca-27d5026fdf48")
-		(property "Reference" "#PWR65"
-			(at 261.62 147.1422 0)
+		(uuid "cd0aab90-1f99-4308-9a33-b17b2b5b8798")
+		(property "Reference" "U11"
+			(at 215.9 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPS26621DRCR"
+			(at 229.87 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SON:Texas_DRC0010J"
+			(at 226.06 149.6822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5174,45 +4595,173 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "3V3"
-			(at 261.62 143.3322 0)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps2662.pdf"
+			(at 226.06 149.6822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" ""
-			(at 261.62 147.1422 0)
+		(property "Description" "TI TPS26621DRCR 60 V eFuse, R34 sets the current limit (SLVSDT4F Eq. 3), auto-retry; replaces obsolete FPF2700MX (D18)"
+			(at 226.06 149.6822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 261.62 147.1422 0)
+		(property "LCSC" "C1848341"
+			(at 226.06 149.6822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 261.62 147.1422 0)
+		(property "MANUFACTURER" "Texas Instruments"
+			(at 226.06 149.6822 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(pin ""
-			(uuid "028234a0-a484-4b3c-bd75-4e5aed35f295")
+		(pin "2"
+			(uuid "c82634e2-aa61-4881-b6e6-fbf62987a6db")
+		)
+		(pin "1"
+			(uuid "50a8a1d8-62d4-49d3-9698-d46116156f95")
+		)
+		(pin "7"
+			(uuid "0d9fed63-f73e-4ca7-a0ad-12df32249426")
+		)
+		(pin "4"
+			(uuid "053ae79d-e468-4052-8982-1859f7f7fd82")
+		)
+		(pin "5"
+			(uuid "093710fe-0e22-4a4b-9486-9dd40f89261f")
+		)
+		(pin "10"
+			(uuid "d1b32f2c-8ef0-425d-8936-2ca6b2e6438a")
+		)
+		(pin "8"
+			(uuid "3566e2ea-cb08-4429-a5a9-1a8e1ec0fb7b")
+		)
+		(pin "9"
+			(uuid "f49369db-2850-4499-8ce2-6a97a85fe6f3")
+		)
+		(pin "3"
+			(uuid "f1ebe862-3347-4615-a137-c4d58d1d3238")
+		)
+		(pin "6"
+			(uuid "ac7a5f20-5484-4e51-bcdf-9e4b2762f738")
+		)
+		(pin "11"
+			(uuid "b861ce2d-38c0-4484-9449-75d69a43f7a1")
 		)
 		(instances
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
-					(reference "#PWR65")
+					(reference "U11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 199.39 139.5222 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "257b8004-43cc-4db5-9d7a-c8d11ae22a57")
+		(property "Reference" "R41"
+			(at 199.39 136.652 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RC0402FR-071ML"
+			(at 206.502 137.16 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 199.39 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 199.39 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 1M OHM 1% 1/16W 0402, IN to UVLO (UVLO unused: SLVSDT4F pin table, Fig. 10-14)"
+			(at 199.39 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Yageo"
+			(at 199.39 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "RESISTANCE" "1MR"
+			(at 206.502 137.16 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PART NUMBER" "RC0402FR-071ML"
+			(at 199.39 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bfaeeba3-3df3-444a-aadf-8eca4832e5d5")
+		)
+		(pin "2"
+			(uuid "b9b68e30-1a0a-47f6-9452-0a21c079661b")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
+					(reference "R41")
 					(unit 1)
 				)
 			)
