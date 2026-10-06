@@ -37,6 +37,8 @@ what broke, what's next.*
 - Rotated LED field text collided with the label: fields set horizontal
 **Next:** Nick's KiCad look; then S5.e (lifecycle + stock, all parts)
 - QE round 1: **APPROVED WITH NITS** (off-grid accounting −3/+1; ≈ 8 mW with R3's current while D9 is lit), fixed
+- Nick: add the port-2 twin → D10 + R46 on ADIN pin 48 (R5 moved like R3, stub + label); D10 joins the ADIN_LED_VDD
+  wire directly; note reflowed to stay inside the sheet
 
 ---
 

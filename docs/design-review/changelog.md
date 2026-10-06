@@ -12,13 +12,16 @@ ADIN sheet (`BM_Mote_1_ADIN2111.kicad_sch`), D25:
 | **R44, R45** | clones of R1 (RC0402FR-071K5L 1.5 kΩ) |
 | **D8** | `Device:LED`, KT-0603R red (C2286), `LED_SMD:LED_0603_1608Metric`; ADIN_LED_VDD → R44 → D8 → GND (#PWR83) |
 | **D9** | `Device:LED`, KT-0603YG yellow-green (C2289); ADIN_LED_VDD → R45 → D9 → label ADIN_P1_LED1 |
+| **R46, D10** (port 2, added at Nick's request) | R1 clone + KT-0603YG; ADIN_LED_VDD → R46 → D10 → label ADIN_P2_LED1 |
+| **R5 moved** (with #PWR34 and their wire) | same shift as R3, into the LED group; connections unchanged |
+| U1 pin 48 | 5.08 mm stub + label ADIN_P2_LED1 |
 | **R3 moved** (with #PWR49 and their wire) | from beside U1 into the LED group, onto the grid; connections unchanged (pin 21 net and ADIN_VDDIO) |
 | U1 pin 21 | 5.08 mm stub + label ADIN_P1_LED1 (R3 used to touch the pin directly) |
 | Note | LED functions, Pi enable, strap, cut JP2 |
 
-**Verified:** netlist diff = the pin-21 net renamed ADIN_P1_LED1 with + D9.1; ADIN_VDDIO + JP2.1; GND + D8.1; new nets
-ADIN_LED_VDD (JP2.2, R44.2, R45.2), Net-(D8-A) (D8.2, R44.1), Net-(D9-A) (D9.2, R45.1); nothing else. ERC 27/508 →
-27/506 (off-grid −3 with R3, its symbol and wire on grid, +1 for the pin-21 stub on U1's off-grid y); netcheck 51/51; midwire 0. The mid-wire junction quirk (SPEC) bit once:
+**Verified:** netlist diff = the pin-21 / pin-48 nets renamed ADIN_P1_LED1 / ADIN_P2_LED1 with + D9.1 / D10.1; ADIN_VDDIO
++ JP2.1; GND + D8.1; new nets ADIN_LED_VDD (JP2.2, R44.2, R45.2, R46.2), Net-(D8-A), Net-(D9-A), Net-(D10-A); nothing
+else. ERC 27/508 → 27/504 (off-grid −3 each for the R3 and R5 groups on grid, +1 each for the two stubs on U1's off-grid y); netcheck 51/51; midwire 0. The mid-wire junction quirk (SPEC) bit once:
 the ADIN_LED_VDD wire is split at the junction and at the label.
 
 ## S5.g — Footprint library 3D fixes (2026-10-06, branch `sprint/5g-footprint-fixes`)

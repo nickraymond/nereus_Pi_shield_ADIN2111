@@ -2738,9 +2738,9 @@
 		)
 		(uuid "e561f927-587b-4605-b8dc-f3013f344f43")
 	)
-	(text "ADIN status LEDs (D25): D8 red = ADIN powered (ADIN_VDDIO on).\nD9 yellow-green = port 1 link/activity on ADIN pin 21 (P1_LED_1), active low;\noff until the Pi enables LED_1 over SPI. R3 keeps the P1_TX2P4_EN strap high (1.0 V p-p).\nCut JP2 to disable both LEDs (~6 mW)."
+	(text "ADIN status LEDs (D25): D8 red = ADIN powered (ADIN_VDDIO on).\nD9 / D10 yellow-green = port 1 / port 2 link/activity, ADIN pins 21 / 48, active low.\nOff until the Pi enables each port's LED_1 over SPI; port 2 is also asleep until woken.\nR3 / R5 keep the TX2P4_EN straps high (1.0 V p-p). Cut JP2 to disable all three LEDs."
 		(exclude_from_sim no)
-		(at 302.26 200.66 0)
+		(at 302.26 208.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2965,6 +2965,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fca77bc1-7b7d-4802-a7c0-4a4c7bb11117")
+	)
+	(junction
+		(at 340.36 160.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "013f117d-c8cf-4344-8ac3-a97992045698")
 	)
 	(no_connect
 		(at 238.76 190.3222)
@@ -3512,7 +3518,7 @@
 	)
 	(wire
 		(pts
-			(xy 264.16 106.5022) (xy 261.62 106.5022)
+			(xy 358.14 198.12) (xy 355.6 198.12)
 		)
 		(stroke
 			(width 0)
@@ -3930,6 +3936,66 @@
 		)
 		(uuid "9c326881-f61d-4149-bfba-785d0b687ffd")
 	)
+	(wire
+		(pts
+			(xy 251.46 106.5022) (xy 256.54 106.5022)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1597fe23-185f-416c-bd6e-51ad9e9a1660")
+	)
+	(wire
+		(pts
+			(xy 345.44 198.12) (xy 342.9 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "302633d7-8210-401b-aebc-7e7e42bec3c1")
+	)
+	(wire
+		(pts
+			(xy 388.62 175.26) (xy 388.62 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42dac6ff-c233-417d-860a-7e61f73f8f9d")
+	)
+	(wire
+		(pts
+			(xy 388.62 185.42) (xy 388.62 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1474695-8a6b-4a60-b34d-bdbc9dbdc17d")
+	)
+	(wire
+		(pts
+			(xy 340.36 160.02) (xy 388.62 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "089b52b1-4ee0-4477-8bb6-5dbd33374fc8")
+	)
+	(wire
+		(pts
+			(xy 388.62 160.02) (xy 388.62 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8570e026-b26a-4dd1-863e-2f95abbee928")
+	)
 	(label "ADIN_CLK25_REF"
 		(at 121.92 78.5622 0)
 		(effects
@@ -4039,6 +4105,36 @@
 			(justify left bottom)
 		)
 		(uuid "c2396a92-1a77-4a41-8ddd-022e9975b2cb")
+	)
+	(label "ADIN_P2_LED1"
+		(at 256.54 106.5022 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11a11f91-de56-40cd-a364-a28104f28d60")
+	)
+	(label "ADIN_P2_LED1"
+		(at 342.9 198.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "71f3a57b-addf-452c-ab73-c2bdbe65ba21")
+	)
+	(label "ADIN_P2_LED1"
+		(at 388.62 190.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9b169795-76bd-4af2-b4dc-a3b33b829398")
 	)
 	(hierarchical_label "SCK"
 		(shape passive)
@@ -6459,7 +6555,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_VDDIO_BAR")
-		(at 264.16 106.5022 90)
+		(at 358.14 198.12 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6467,7 +6563,7 @@
 		(dnp no)
 		(uuid "649e2c04-d557-48c8-8104-5115f8002f48")
 		(property "Reference" "#PWR34"
-			(at 264.16 106.5022 0)
+			(at 358.14 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6476,7 +6572,7 @@
 			)
 		)
 		(property "Value" "ADIN_VDDIO"
-			(at 267.97 106.5022 90)
+			(at 361.95 198.12 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6485,7 +6581,7 @@
 			)
 		)
 				(property "Footprint" ""
-			(at 264.16 106.5022 0)
+			(at 358.14 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6493,7 +6589,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 264.16 106.5022 0)
+			(at 358.14 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6501,7 +6597,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 264.16 106.5022 0)
+			(at 358.14 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6522,7 +6618,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_0_RES-2_Altium Content Vault")
-		(at 254 106.5022 0)
+		(at 347.98 198.12 0)
 		(unit 0)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6530,7 +6626,7 @@
 		(dnp no)
 		(uuid "6752a891-a19f-4f48-8847-2a544957ac3e")
 		(property "Reference" "R5"
-			(at 251.46 106.5022 0)
+			(at 345.44 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6539,7 +6635,7 @@
 			)
 		)
 		(property "Value" "ERJ-2RKF4701X"
-			(at 253.746 109.8042 0)
+			(at 347.726 201.422 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6549,7 +6645,7 @@
 			)
 		)
 		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
-			(at 254 106.5022 0)
+			(at 347.98 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6558,7 +6654,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 254 106.5022 0)
+			(at 347.98 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6567,7 +6663,7 @@
 			)
 		)
 		(property "Description" "Chip Resistor, 4.7 KOhm, +/- 1%, 0.1 W, -55 to 155 degC, 0402 (1005 Metric), RoHS, Tape and Reel"
-			(at 254 106.5022 0)
+			(at 347.98 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6576,7 +6672,7 @@
 			)
 		)
 		(property "HEIGHT" "0.35 mm"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6586,7 +6682,7 @@
 			)
 		)
 		(property "MOUNTING TECHNOLOGY" "Surface Mount"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6596,7 +6692,7 @@
 			)
 		)
 		(property "REACH SVHC" "Yes"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6606,7 +6702,7 @@
 			)
 		)
 		(property "RESISTANCE" "4.7 KOhm"
-			(at 254 109.0422 0)
+			(at 347.98 200.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6615,7 +6711,7 @@
 			)
 		)
 		(property "MAX OPERATING TEMPERATURE" "155 degC"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6625,7 +6721,7 @@
 			)
 		)
 		(property "COMPONENTLINK1DESCRIPTION" "Manufacturer URL"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6635,7 +6731,7 @@
 			)
 		)
 		(property "COMPONENTLINK2DESCRIPTION" "Datasheet"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6645,7 +6741,7 @@
 			)
 		)
 		(property "PINS" "2"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6655,7 +6751,7 @@
 			)
 		)
 		(property "PACKAGEREFERENCE" "0402"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6665,7 +6761,7 @@
 			)
 		)
 		(property "TOLERANCE" "1%"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6675,7 +6771,7 @@
 			)
 		)
 		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6685,7 +6781,7 @@
 			)
 		)
 		(property "LENGTH" "1 mm"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6695,7 +6791,7 @@
 			)
 		)
 		(property "PACKAGEDESCRIPTION" "2-Pin Surface Mount Device, Body 1 x 0.5 mm"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6705,7 +6801,7 @@
 			)
 		)
 		(property "PARTNUMBER" "ERJ-2RKF4701X"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6715,7 +6811,7 @@
 			)
 		)
 		(property "ROHSCOMPLIANT" "true"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6725,7 +6821,7 @@
 			)
 		)
 		(property "PACKAGE QUANTITY" "1"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6735,7 +6831,7 @@
 			)
 		)
 		(property "RADIATION HARDENING" "No"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6745,7 +6841,7 @@
 			)
 		)
 		(property "DATASHEETVERSION" "04/2015"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6755,7 +6851,7 @@
 			)
 		)
 		(property "WIDTH" "0.5 mm"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6765,7 +6861,7 @@
 			)
 		)
 		(property "CASE CODE (METRIC)" "1005"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6775,7 +6871,7 @@
 			)
 		)
 		(property "VOLTAGE RATING" "50 V"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6785,7 +6881,7 @@
 			)
 		)
 		(property "CAS~{E}/PACKAGE" "0402"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6795,7 +6891,7 @@
 			)
 		)
 		(property "MOUNT" "Surface Mount"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6805,7 +6901,7 @@
 			)
 		)
 		(property "COMPONENTLINK1URL" "http://www.panasonic.com/"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6815,7 +6911,7 @@
 			)
 		)
 		(property "MIN OPERATING TEMPERATURE" "-55 degC"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6825,7 +6921,7 @@
 			)
 		)
 		(property "POWER RATING" "100 mW"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6835,7 +6931,7 @@
 			)
 		)
 		(property "PACKAGING" "Cut Tape"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6845,7 +6941,7 @@
 			)
 		)
 		(property "COMPONENTLINK2URL" "http://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C86.pdf"
-			(at 250.952 105.7402 0)
+			(at 344.932 197.358 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6855,7 +6951,7 @@
 			)
 		)
 		(property "SHEET" "ADIN2111"
-			(at 250.952 111.5822 0)
+			(at 344.932 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13675,6 +13771,200 @@
 			(project ""
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15"
 					(reference "#PWR83")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_1_RES_Altium Content Vault_0")
+		(at 386.08 172.72 0)
+		(unit 0)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "798c5379-c228-4b23-91e9-2f4808251bff")
+		(property "Reference" "R46"
+			(at 389.382 169.926 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "RC0402FR-071K5L"
+			(at 387.858 164.592 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Vault:RESC1005X40X25ML05T10"
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Yageo / Phycomp"
+			(at 387.858 164.592 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PART NUMBER" "RC0402FR-071K5L"
+			(at 387.858 164.592 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALTIUM_VALUE" "1.5k"
+			(at 389.382 172.466 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "SHEET" "ADIN2111"
+			(at 387.858 178.308 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3fba5397-ad61-48d5-861a-574e8dcd42d9")
+		)
+		(pin "1"
+			(uuid "dbf157d6-3d3d-4d8c-8a45-642015436ce1")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15"
+					(reference "R46")
+					(unit 0)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 388.62 181.61 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4363fcaf-fecb-4575-bf87-1d9d0e141f29")
+		(property "Reference" "D10"
+			(at 392.43 180.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KT-0603YG"
+			(at 396.24 182.88 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2289.pdf"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Hubei KENTO KT-0603YG 0603 LED, yellow-green, 567-573 nm, 2.0-2.2 V at 20 mA, 30-42 mcd: port 2 link/activity, ADIN pin 48 active low (D25)"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Hubei KENTO Elec"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2289"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6120a6da-5ed7-47a4-b283-8c56cedbe471")
+		)
+		(pin "2"
+			(uuid "0e278adc-f37a-44ee-9a80-3f1b23d5d97a")
+		)
+		(instances
+			(project ""
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15"
+					(reference "D10")
 					(unit 1)
 				)
 			)

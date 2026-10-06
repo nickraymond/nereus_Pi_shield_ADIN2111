@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-06 · Now: S5.f, your KiCad look</strong> <strong>S5.d and S5.g done</strong> (PRs #15, #16 merged). <strong>S5.f:</strong> ADIN status LEDs on the ADIN sheet: D8 red = ADIN powered, D9 yellow-green = port 1 link/activity (Pi enables it over SPI), both through JP2 (cut to disable). QE approved; next: your KiCad look; then S5.e lifecycle check last.</p>
+    <p><strong>Updated 2026-10-06 · Now: S5.f, QE round 2</strong> <strong>S5.d and S5.g done</strong> (PRs #15, #16 merged). <strong>S5.f:</strong> ADIN status LEDs on the ADIN sheet: D8 red = ADIN powered, D9 / D10 yellow-green = port 1 / port 2 link/activity (the Pi enables them over SPI), all through JP2 (cut to disable). Next: QE round 2, then your KiCad look; then S5.e lifecycle check last.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -225,8 +225,8 @@ const S = [
   ["Pull-up rail and power sequencing", `<p>Shield 3V3. Back-power cases tabled in DESIGN "ADIN power and boot": CE0 defaults high at Pi reset (BCM2835 §6.2), INT into an unpowered Pi (prevented by R43), small pull-up leaks only with JP1 cut.</p>`, null, 1],
   ["S5.c: remove R10, keep TP19", `<p>Your call: the Pi is the only load-switch controller. R10 (0 Ω option link from the mote) is gone; TP19 sits directly on SW_EN (D22).</p>`, null, 1],
   ["S5.c: QE approved; your KiCad look", `<p>QE APPROVED (round 2); your look OK; PR #14 merged.</p>`, "nick", 1],
-  ["S5.f: ADIN status LEDs", `<p>Done (D25): D8 KT-0603R red (C2286) lit when the ADIN is powered; D9 KT-0603YG yellow-green (C2289) on ADIN pin 21, active low, for port 1 link/activity (off until the Pi enables LED_1 over SPI). R44/R45 1.5 kΩ (R1's part), option a. JP2 bridged, cut to disable both (~6 mW). R3 stays as pin 21's pull-up, so the 1.0 V p-p strap is unchanged. Open: visible after potting?</p>`, null, 1],
-  ["S5.f: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), fixed. ADIN sheet, lower right: JP2, D8/D9, R44/R45 and R3 with the note; U1 pin 21 now has a short stub labelled ADIN_P1_LED1.</p>`, "nick"],
+  ["S5.f: ADIN status LEDs", `<p>Done (D25): D8 KT-0603R red (C2286) lit when the ADIN is powered; D9 / D10 KT-0603YG yellow-green (C2289) on ADIN pins 21 / 48, active low, for port 1 / port 2 link/activity (off until the Pi enables each port's LED_1 over SPI; port 2 also has to be woken). Daisy chain: both blink; leaf: only the cabled port. R44/R45/R46 1.5 kΩ (R1's part), option a. JP2 bridged, cut to disable all three. R3 / R5 stay as the pins' pull-ups, so the 1.0 V p-p straps are unchanged. Open: visible after potting?</p>`, null, 1],
+  ["S5.f: QE review; your KiCad look", `<p>QE round 1 APPROVED WITH NITS (fixed); round 2 for the port-2 LED pending. ADIN sheet, lower right: JP2, D8/D9/D10, R44/R45/R46, R3 and R5 with the note; U1 pins 21 and 48 have short stubs labelled ADIN_P1_LED1 / ADIN_P2_LED1.</p>`, "nick"],
   ["Every net checked", `<p>Each new net contains exactly the intended pins, verified from the exported netlist.</p>`]
 ]},
 { t:"S6 — Design review package", o:"agent", w:"Claude Code", c:"--sch",

@@ -214,10 +214,11 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       — done: shield 3V3; back-power table in DESIGN "ADIN power and boot"
 - [x] S5.c: QE review (standing S5 session): **APPROVED** in round 2 (round 1 F1 + nits fixed) — `docs/design-review/qe/S5.md`
 - [x] S5.c: Nick's KiCad look (PR #14 merged, `d5bc13b`)
-- [x] S5.f (D25): ADIN status LEDs on the ADIN sheet — D8 red KT-0603R (C2286) "ADIN powered", D9 yellow-green KT-0603YG
-      (C2289) port 1 link/activity on ADIN pin 21 (active low, R3 stays as pull-up: strap unchanged); R44/R45 1.5 kΩ (R1's
-      part); one shared bridged cut jumper JP2 from ADIN_VDDIO (Nick: option a). Open: visible after potting?
-- [x] S5.f: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
+- [x] S5.f (D25): ADIN status LEDs on the ADIN sheet — D8 red KT-0603R (C2286) "ADIN powered", D9 / D10 yellow-green
+      KT-0603YG (C2289) port 1 / port 2 link/activity on ADIN pins 21 / 48 (active low, R3 / R5 stay as pull-ups: straps
+      unchanged; D10 added at Nick's request); R44/R45/R46 1.5 kΩ (R1's part); one shared bridged cut jumper JP2 from
+      ADIN_VDDIO (Nick: option a). Open: visible after potting?
+- [ ] S5.f: QE review (standing S5 session): round 1 **APPROVED WITH NITS**, nits fixed; round 2 for the port-2 LED (D10) pending
 - [ ] S5.f: Nick's KiCad look
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
