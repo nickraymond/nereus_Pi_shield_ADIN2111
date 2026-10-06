@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-05 · Now: S4.d in review</strong> <strong>S5.a done</strong> (PR #11 merged): payload switch U11 TPS26621, R11 DNP. <strong>S4.d:</strong> every footprint now comes from a real library (the mote's own, extracted as <code>Vault</code>), so F8 re-links cleanly. Next: QE, then your KiCad look.</p>
+    <p><strong>Updated 2026-10-05 · Now: S4.d, your KiCad look</strong> <strong>S5.a done</strong> (PR #11 merged): payload switch U11 TPS26621, R11 DNP. <strong>S4.d:</strong> every footprint now comes from a real library (the mote's own, extracted as <code>Vault</code>), so F8 re-links cleanly. QE approved; next: your KiCad look.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -193,7 +193,7 @@ const S = [
   ["S4.c: payload port switched and limited (D17)", `<p>Your call: R11 DNP so U9 switches (SW_EN) and limits (≈ 0.74 A) the payload; payloads are small devices. Schematic change in S5.</p>`, "nick", 1],
   ["S4.c: QE approved; your review of power_budget.md", `<p>QE APPROVED WITH NITS (round 4); you approved; PR #10 merged.</p>`, "nick", 1],
   ["S4.d: make all footprints findable", `<p>The 43 footprints the schematic uses, extracted read-only from the mote board into <code>mote.pretty</code> (library nickname <code>Vault</code>, matching the board's IDs). Every footprint field now names a real library, so your F8 re-link changes nothing for kept parts (D19).</p>`, null, 1],
-  ["S4.d: QE review, then your KiCad look", `<p>Open any part's footprint (e.g. R11) in the Footprint Editor from the <code>Vault</code> library.</p>`, "nick"]
+  ["S4.d: QE approved; your KiCad look", `<p>QE APPROVED (round 2). Open any part's footprint (e.g. R11) in the Footprint Editor from the <code>Vault</code> library.</p>`, "nick"]
 ]},
 { t:"S5 — Pi header wiring, ADIN details, load switch", o:"agent", w:"Claude Code", c:"--sch",
   items:[

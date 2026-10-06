@@ -159,7 +159,8 @@ S4.b link to the Pi, S4.c power budget (docs), S4.d footprints. Values: DESIGN D
 - [x] S4.c: Nick's review of power_budget.md (PR #10 merged, `1f906bc`)
 - [x] S4.d: all footprints findable — the 43 footprints the schematic uses, extracted read-only from the mote board
       into `mote.pretty` (nickname `Vault`, matching the board IDs); every bare field → `Vault:<name>` (D19)
-- [ ] S4.d: QE review (standing S4 session) and Nick's KiCad look
+- [x] S4.d: QE review (standing S4 session): **APPROVED** in round 2 — `docs/design-review/qe/S4.md`
+- [ ] S4.d: Nick's KiCad look
 **Demo (Nick):** `tools/check.sh` → `ERC messages: 582  Errors 74  Warnings 508` (S4.d; includes S5.a's load-switch
 change), `netcheck: 50/50 … 0 opens, 0 shorts; 0 parts excluded`, midwire 0, exit 0; `python3 tools/ercsum.py` lists
 no footprint_link_issues; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.2, C57.2, C58.1, JP1.2, L6.2, R37.1,

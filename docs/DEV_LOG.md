@@ -37,7 +37,9 @@ what broke, what's next.*
 - QE round 1: APPROVED WITH NITS (placed-pad check on all 150 instances, 10 nm). Expect ≈ 58 graphics-only
   library-mismatch DRC warnings (Altium import); verifier now catches a mirrored library; Value = footprint name;
   SMD/THT attributes + courtyards missing since import → S6/layout item
-**Next:** QE confirm, Nick's KiCad look, merge; S4 then done.
+- QE round 2: **APPROVED**, no findings. Its report didn't arrive: the session-message tool pauses a session's
+  sends after 10 messages without user input; Nick noticed nothing was running and I read it from the transcript
+**Next:** Nick's KiCad look, merge; S4 then done.
 
 ---
 
