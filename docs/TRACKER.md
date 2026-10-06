@@ -202,6 +202,9 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [ ] Change log of every edit
 - [ ] Open questions and proposed values, with datasheet citations
 - [ ] Pin map, power budget, BOM changes
+- [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
+      courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
+      (QE S4.d N3; Nick's layout or a schematic/library pass)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
 
 ---

@@ -255,6 +255,8 @@ const S = [
 ]},
 { t:"Update the board and place parts", o:"nick", w:"You", c:"--brd",
   items:[
+  ["First DRC after F8: expect ≈ 58 \"doesn't match library\" warnings", `<p>Graphics-only differences from the Altium import (Fab/User-layer text and outlines vary between instances); pads verified identical (D19). Don't run "Update Footprints from Library" on kept parts.</p>`],
+  ["Set footprint types (SMD/THT) and courtyards before fab outputs", `<p>The import left them unspecified/missing; an SMD-only position file would drop parts.</p>`],
   ["First F8: re-link only", `<p>Tick re-link by reference; untick "Delete footprints with no symbols." Expect no Add/Remove lines.</p>`],
   ["Second F8: remove deleted parts, add new ones", `<p>Tick "Delete footprints with no symbols."</p>`],
   ["Clean up leftover tracks and vias", ``],

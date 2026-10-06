@@ -34,7 +34,10 @@ what broke, what's next.*
   on flipped parts (the mezzanine standoff has different front/back pads): 22 false alarms, fixed and proven
   with a deliberate-corruption test
 - `pcbnew.FootprintSave` can't guess the library type of an empty folder; used PCB_IO_KICAD_SEXPR directly
-**Next:** QE review (standing S4 session), Nick's KiCad look, merge; S4 then done.
+- QE round 1: APPROVED WITH NITS (placed-pad check on all 150 instances, 10 nm). Expect ≈ 58 graphics-only
+  library-mismatch DRC warnings (Altium import); verifier now catches a mirrored library; Value = footprint name;
+  SMD/THT attributes + courtyards missing since import → S6/layout item
+**Next:** QE confirm, Nick's KiCad look, merge; S4 then done.
 
 ---
 

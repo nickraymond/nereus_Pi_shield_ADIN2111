@@ -13,9 +13,10 @@ used when one exists; a back-side one is flipped to the front. Position and
 rotation are zeroed and pad nets cleared, then KiCad's own writer saves it.
 
 --verify reloads each library footprint and compares it with every board
-instance of the same name: pad count, pad numbers, pad sizes and the multiset of
-pad-to-pad distances (independent of rotation and flip), plus exact pad
-positions against a front-side instance when there is one. Exit 1 on mismatch.
+instance of the same name: pad numbers, pad sizes (the matching copper side for
+flipped parts), the multiset of pad-to-pad distances, and exact pad centres after
+placing a copy of the library footprint the way the instance is placed (flipped
+for back-side instances), so a mirrored library would fail. Exit 1 on mismatch.
 """
 import itertools
 import math
@@ -85,6 +86,7 @@ def extract(board_path, out_dir, names):
         fp.SetPosition(pcbnew.VECTOR2I(0, 0))
         fp.SetLocked(False)
         fp.SetReference("REF**")
+        fp.SetValue(name)
         for p in fp.Pads():
             p.SetNetCode(0)
         pcbnew.PCB_IO_KICAD_SEXPR().FootprintSave(str(out_dir), fp)
@@ -112,11 +114,18 @@ def verify(board_path, out_dir, names):
                 problems.append(f"{name} vs {ref}: pad sizes differ")
             if not _close(pad_distances([c for _, _, c in lp], 4), pad_distances([c for _, _, c in bp], 4)):
                 problems.append(f"{name} vs {ref}: pad geometry differs")
-            if not flipped:
-                a = sorted((n, c) for n, _, c in lp)
-                b = sorted((n, c) for n, _, c in bp)
-                if not all(na == nb and _close(ca, cb) for (na, ca), (nb, cb) in zip(a, b)):
-                    problems.append(f"{name} vs {ref} (front): pad positions differ")
+            # exact placement check, flipped instances included: place a copy of the
+            # library footprint the way the board instance is placed, compare pad centres
+            placed = lib.Duplicate()
+            placed.SetParent(board)  # Flip needs a parent board
+            if flipped:
+                placed.Flip(pcbnew.VECTOR2I(0, 0), pcbnew.FLIP_DIRECTION_TOP_BOTTOM)
+            placed.SetOrientation(inst.GetOrientation())
+            placed.SetPosition(inst.GetPosition())
+            a = sorted((p.GetNumber(), pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in placed.Pads())
+            b = sorted((p.GetNumber(), pcbnew.ToMM(p.GetPosition().x), pcbnew.ToMM(p.GetPosition().y)) for p in inst.Pads())
+            if not all(na == nb and _close((xa, ya), (xb, yb)) for (na, xa, ya), (nb, xb, yb) in zip(a, b)):
+                problems.append(f"{name} vs {ref}{' (back)' if flipped else ''}: placed pad positions differ")
     return problems
 
 

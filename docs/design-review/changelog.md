@@ -11,7 +11,8 @@ with KiCad 9.0.6's pcbnew (`tools/fpextract.py`; the board is only read). 24 cam
 a front-side instance, 19 were flipped from the back. All schematic footprint fields
 without a library (117 parts, 118 fields counting U1's two units) now read `Vault:<name>`.
 No other field, value or connection changed. **Verified:** `fpextract --verify` 0
-problems over every board instance; netlist identical except the footprint fields;
+problems over every board instance (pad centres compared after placing the library
+footprint like each instance, flipped for back-side ones; a mirrored library is caught); netlist identical except the footprint fields;
 ERC 74/626 → 74/508 (the 118 footprint-link warnings gone); netcheck 50/50; all 43
 load in `kicad-cli fp export svg`.
 

@@ -8,7 +8,7 @@
 		(unlocked yes)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "14185e1a-bb10-4d78-9676-cd979bc69a24")
+		(uuid "604d4394-dcc0-4e5e-9236-05cc23f30cc3")
 		(effects
 			(font
 				(size 0.6 0.6)
@@ -21,7 +21,7 @@
 		(unlocked yes)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "5ad2b7e0-d84e-4137-8551-35f6c4243e5c")
+		(uuid "3169eb85-b11f-4cf8-9f61-a9ae4a556e96")
 		(effects
 			(font
 				(size 0.6 0.6)
@@ -33,7 +33,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "d87b5a39-0b68-421a-b674-dfd22a97ffd6")
+		(uuid "866f99eb-21d9-47e2-9568-4805957e224b")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -45,7 +45,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "da4dc922-09a2-4f66-b61d-2ae6ce848ea2")
+		(uuid "a37151d2-3966-43ec-b2d1-a1565daf4eff")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -62,7 +62,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "a20f22a2-a646-46bb-8ecb-a5b1a3c988e2")
+		(uuid "53de386e-f422-4acd-a0a3-9fe5cf3fafa6")
 	)
 	(pad "0" thru_hole circle
 		(at 0 0)
@@ -72,13 +72,13 @@
 		(remove_unused_layers yes)
 		(keep_end_layers yes)
 		(thermal_bridge_angle 90)
-		(uuid "d082d5c5-b75e-4b16-9ab0-10345fab1311")
+		(uuid "483919e4-dccd-4625-be5e-8d28beefdf21")
 	)
 	(zone
 		(net 0)
 		(net_name "")
 		(layer "F.Cu")
-		(uuid "c0e6daae-c399-45ed-a650-1a86a70b41b5")
+		(uuid "73c5e561-f9a6-4e79-a970-d391a393f6fc")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)
@@ -136,7 +136,7 @@
 		(net 0)
 		(net_name "")
 		(layer "F.Cu")
-		(uuid "fe16f19d-bd1b-4677-82ec-26fe9b90660b")
+		(uuid "51538ac8-f397-4aa4-93dc-aa8ebc0b8f3f")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)
@@ -187,7 +187,7 @@
 		(net 0)
 		(net_name "")
 		(layer "B.Cu")
-		(uuid "0f3b5811-bf6a-42ec-b58c-bf933fb210f8")
+		(uuid "37ce2a52-525f-4fb4-81f5-abb693c0ae9c")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)
@@ -245,7 +245,7 @@
 		(net 0)
 		(net_name "")
 		(layer "B.Cu")
-		(uuid "857d46dc-52f8-4f4b-948c-de0c36722597")
+		(uuid "858b4e6b-505a-4c2a-87de-adb6362b30c2")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)

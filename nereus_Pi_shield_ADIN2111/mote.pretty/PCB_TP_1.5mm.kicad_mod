@@ -7,7 +7,7 @@
 		(at -0.5212 -1.800005 270)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "cc62f9d5-1b8d-4060-a4dd-7029410ef4ea")
+		(uuid "eb2817f4-7999-4c44-bb2f-2b66078c62cd")
 		(effects
 			(font
 				(size 0.6 0.6)
@@ -15,12 +15,12 @@
 			)
 		)
 	)
-	(property "Value" "TEST_POINT"
+	(property "Value" "PCB_TP_1.5mm"
 		(at -2.479802 6.84296 270)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "51a70ed5-ac86-4fd7-824b-d3b2c46d57d5")
+		(uuid "52cca88d-c32a-4d64-8648-8e79f928fab0")
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -32,7 +32,7 @@
 		(at 0 0 180)
 		(layer "B.Fab")
 		(hide yes)
-		(uuid "5f667a97-cfaa-4fd0-8024-2187668677aa")
+		(uuid "2b5793b8-b913-4209-bb43-bd2d2d665ac3")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -45,7 +45,7 @@
 		(at 0 0 180)
 		(layer "B.Fab")
 		(hide yes)
-		(uuid "d88b793f-dadc-46a3-b6d5-d3d25518a3d2")
+		(uuid "83e71a29-25f4-41c9-970d-e8117cb2ea24")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -62,7 +62,7 @@
 			(type solid)
 		)
 		(layer "User.11")
-		(uuid "3603ef6d-8386-44f5-a214-e0840dfc1f69")
+		(uuid "b8dda61d-28b0-4c20-b962-708aaf0a00ca")
 	)
 	(fp_line
 		(start 0 0.889)
@@ -72,7 +72,7 @@
 			(type solid)
 		)
 		(layer "User.11")
-		(uuid "74c2fc98-efcd-4c66-99d6-5540ffa422b7")
+		(uuid "bc79d836-fa82-478e-af2b-11f3bbff1cc6")
 	)
 	(fp_circle
 		(center 0 0)
@@ -83,7 +83,7 @@
 		)
 		(fill no)
 		(layer "User.11")
-		(uuid "93ebf94b-648a-4c77-9e8e-f2ecd2393a34")
+		(uuid "7cab1df8-df84-4b42-b88f-841622987d4a")
 	)
 	(fp_line
 		(start -0.35 0)
@@ -93,7 +93,7 @@
 			(type solid)
 		)
 		(layer "User.14")
-		(uuid "055638f0-44f1-4c84-9fac-3dbc9e8094e7")
+		(uuid "5d2f73ed-2f2d-46ab-b58e-aa9fa2de6aab")
 	)
 	(fp_line
 		(start 0 0.35)
@@ -103,7 +103,7 @@
 			(type solid)
 		)
 		(layer "User.14")
-		(uuid "b030a329-066f-4369-8447-b12270e05611")
+		(uuid "c7efe9c9-2d38-4ffd-8dbc-5d10c3d60086")
 	)
 	(fp_circle
 		(center 0 0)
@@ -114,7 +114,7 @@
 		)
 		(fill no)
 		(layer "User.14")
-		(uuid "f57de1de-ee69-47a4-8e3a-92b0b74ea991")
+		(uuid "79f08d40-e1d0-465a-8c06-a08a065b9b9f")
 	)
 	(fp_circle
 		(center 0 0)
@@ -125,13 +125,13 @@
 		)
 		(fill no)
 		(layer "User.14")
-		(uuid "0de1fe0a-4bdd-4b8d-bd3a-a3deb81a20b1")
+		(uuid "59dde822-e830-495a-bcd5-b2b5ca55f71b")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 1 0.568453 0)
 		(unlocked yes)
 		(layer "User.11")
-		(uuid "3162c643-6c95-45e6-9b37-5d9bf316b5ba")
+		(uuid "50c04a0e-7692-4f9e-9923-11c05b5e8dd1")
 		(effects
 			(font
 				(size 0.5588 0.5588)
@@ -146,7 +146,7 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(solder_paste_margin -2)
 		(thermal_bridge_angle 90)
-		(uuid "0697ed7b-2b6a-4dc3-973e-4b154d7177ca")
+		(uuid "71962484-5f45-4dba-b4f2-5eee7ed59c9b")
 	)
 	(embedded_fonts no)
 )
