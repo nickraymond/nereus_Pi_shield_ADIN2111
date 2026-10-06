@@ -238,7 +238,8 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 - [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
       note was updated in S5.d)
 - [ ] Schematic tidy, after all technical work (Nick, 2026-10-06): R26/R27 drawn onto J1's I²C stubs instead of floating
-      with labels; every board interconnect on the right of the Top-Level sheet; general cosmetic layout
+      with labels; every board interconnect on the right of the Top-Level sheet; widen the bus text box (wraps to 5 lines,
+      QE); general cosmetic layout
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit
