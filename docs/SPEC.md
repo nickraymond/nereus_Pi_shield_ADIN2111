@@ -191,7 +191,8 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
 - ~~U9 (FPF2700MX) obsolete~~ done (S5.a, D18): replaced by TPS26621DRCR (U11). Still
-  open: lifecycle-check every BOM part before S6.
+  open: lifecycle-check every BOM part before S6. — done in S5.e (`docs/design-review/bom_lifecycle.md`); the sourcing
+  decisions per flagged part and J1's part number (socket height) are open, for Nick.
 - R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
   0 Ω CRCW1210 jumper: stale import data to clean in S6.
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's

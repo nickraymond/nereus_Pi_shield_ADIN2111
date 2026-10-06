@@ -168,6 +168,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-05 | S5.d | 27 / 508 | 51/51, 0 opens, 0 shorts, 0 excluded; J5 new | J5 added: VBUS_OUT + J5.1, GND + J5.2, nothing else. ERC counts and types unchanged |
 | 2026-10-06 | S5.g | 27 / 508 | 51/51 (unchanged; library only) | 8 Vault footprints: 3D models only (D24), pads unchanged; `fpextract --verify` 0 problems |
 | 2026-10-06 | S5.f | 27 / 504 | 51/51, 0 opens, 0 shorts, 0 excluded; R3 and R5 keep their connections | LEDs added (D25): new nets ADIN_LED_VDD, Net-(D8-A), Net-(D9-A), Net-(D10-A); the pin-21 / pin-48 nets are now named ADIN_P1_LED1 / ADIN_P2_LED1 and gain D9.K / D10.K; ADIN_VDDIO + JP2.1, GND + D8.K. ERC errors unchanged; warnings −4 (−3 each for the R3 and R5 groups now on grid, +1 each for the pin-21 / pin-48 stubs on U1's off-grid y) |
+| 2026-10-06 | S5.e | 27 / 504 | unchanged (docs only) | Lifecycle + stock check of all 50 BOM parts (20 boards) → `docs/design-review/bom_lifecycle.md`; sourcing decisions open |
 
 **Remaining ERC errors after S5.b (27), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted
