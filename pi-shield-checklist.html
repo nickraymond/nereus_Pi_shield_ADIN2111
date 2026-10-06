@@ -217,8 +217,8 @@ const S = [
   ["Document the software power-up order", `<p>DESIGN "ADIN power and boot": config.txt drives RST low and ADIN_PWR high at boot (<code>gpio=24=op,dl</code>, <code>gpio=23=op,dh</code>) → wait ≥ 40 ms → release RST → wait for INT low (≤ 90 ms) → SPI. Never leave CS/RST high with the ADIN off (your Option 1). The ADIN's power-on reset covers a missed step. Includes the strap table.</p>`, null, 1],
   ["SW_EN, SW_FLAGB to Pi pins 36, 38", `<p>SW_EN is active high now (R42 pull-down: off by default). SW_FLAGB keeps R35 and TP35. SW_PGOOD dropped (D18); pin 40 free. Done in S5.b: new SW_EN label on the R10/sheet-pin wire, stub + label on the SW_FLAGB sheet pin.</p>`, null, 1],
   ["S5.b: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1); your look OK; PR #13 merged.</p>`, "nick", 1],
-  ["VBUS_OUT + GND to a 2-pin connector", `<p>S5.d: J5, JST GH SM02B-GHS-TB (C189893), your UrchinCam part. 1.0 A per contact, 50 V; pin 1 VBUS_OUT, pin 2 GND (UrchinCam J4/J6 order). On the Top-Level sheet with a note (D23).</p>`, null, 1],
-  ["S5.d: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), fixed (C189893 out of stock on LCSC today: recheck in S5.e). Top-Level sheet: J5 with VBUS_OUT/GND symbols and the note, left of the VBUS_OUT wire.</p>`, "nick"],
+  ["VBUS_OUT + GND to a 2-pin connector", `<p>S5.d: J5, JST GH SM02B-GHS-TB (C189893), your UrchinCam part. 1.0 A per contact, 50 V; pin 1 VBUS_OUT, pin 2 GND (UrchinCam J4/J6 order). On the right side of the Top-Level sheet under the PoDL inserts, with a note (D23). Sofar's "Molex 2-pin" bus note now says M3 threaded inserts.</p>`, null, 1],
+  ["S5.d: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), fixed (C189893 out of stock on LCSC today: recheck in S5.e). Top-Level sheet, right side: J5 under MP1–MP4 with VBUS_OUT/GND symbols and the note.</p>`, "nick"],
   ["S5.g: footprint library fixes", `<p>PoDL inserts MP1–MP4: their 3D model was invisible (opacity 0), now shown (M3, 6 mm × 1.5 mm body). Stock 3D models on C31, C19/C27, R15/R16, R1, R8, R22/R34/R40 and R10's spare, orientation checked (heights generic). U2/U3: no stock model exists. Insert pads left as Sofar has them: the bus reaches the inserts through a front C-shaped copper arc, and how to copy that is now Sofar question Q6 (D24).</p>`, null, 1],
   ["S5.g: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2), fixed. Footprint Editor, Vault library: open 78614015360-Footprint-2 and press Alt+3. The 6 mm body should sit on top with the short spigot going down into the hole. Then glance at the seven passives.</p>`, "nick"],
   ["Add I2C pull-ups (4.7 kΩ to 3V3)", `<p>S5.c: R26/R27, Sofar's refs, part and footprint, to the shield's 3V3 (D20). With the Pi's 1.8 kΩ (Zero 2 W schematic R23/R24) the bus sees ≈ 1.3 kΩ, above the 967 Ω I²C minimum (TI SLVA689). Also lets a bench MCU use the bus.</p>`, null, 1],
@@ -233,6 +233,7 @@ const S = [
   items:[
   ["ERC clean, or every remaining item justified", `<p>Includes FID1–6 hidden NC pins, regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO. Tables via <code>tools/ercsum.py --items</code>.</p>`],
   ["Remove stale sheet notes", `<p>e.g. "Processor + onboard logic runs off 3V3…" on the Top-Level sheet.</p>`],
+  ["Schematic tidy (after the technical work)", `<p>Your call: R26/R27 drawn onto J1's I²C stubs instead of floating with labels; every board interconnect on the right of the Top-Level sheet; general cosmetic layout.</p>`],
   ["Net check: kept nets match the copper; every new net listed", ``],
   ["Schematic PDF (all sheets)", ``],
   ["Change log of every edit", ``],

@@ -33,7 +33,8 @@ what broke, what's next.*
   a front-side C-shaped copper arc on the bus track (presumably under the screwed lug); the back insert pads are net-less. Nick: don't jump
   to layout details; ask Sofar (Q6). Pad change and the fpextract exception reverted
 - KiCad has no 0.9 mm, 0.5 mm-pitch 4-ball model, so U2/U3 stay without one
-- The insert model's up/down depends on KiCad's rotation sign, not confirmable offline → Nick checks in the 3D viewer
+- The insert model's up/down depends on KiCad's rotation sign, not confirmable offline → Nick checked in the 3D viewer:
+  body-up, models check out
 **Next:** QE round 2; Nick's KiCad look (incl. the 3D check)
 ---
 
@@ -51,6 +52,10 @@ what broke, what's next.*
   fixed next in S5.g
 **Broke/surprised us:**
 - First placement: the note crossed the VBUS_OUT wire and the value touched GND; re-placed after the render
+- Nick's look: move J5 to the right with the inserts (interconnects live there), drop the UrchinCam reference from the
+  note, update the stale "Molex 2-pin" bus note. My first move broke the sheet: re.sub turned the note's `\n` escapes
+  into real newlines inside a quoted string, KiCad couldn't parse it (ERC 4, empty netlist). Caught by check.sh, fixed;
+  netlist identical after the move
 **Next:** Nick's KiCad look; S5.g footprint fixes
 - QE round 1: **APPROVED WITH NITS** — C189893 out of stock on LCSC today (recorded, recheck in S5.e); MP pad wording;
   layout silkscreen "VBUS 16–32 V" next to J5 so a 5 V GH cable isn't plugged in

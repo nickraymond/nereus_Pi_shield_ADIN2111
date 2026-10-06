@@ -190,13 +190,14 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.b: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [x] S5.b: Nick's KiCad look (PR #13 merged, `31bc0f3`)
 - [x] S5.d (D23): VBUS_OUT + GND → **J5 JST GH 2-pin** SM02B-GHS-TB (C189893, from the UrchinCam), 1.0 A per contact
-      ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the Top-Level sheet (Nick)
+      ≥ 890 mA (D12), 50 V; pin 1 VBUS_OUT, pin 2 GND; on the right side of the Top-Level sheet under MP1–MP4 (Nick: interconnects live on the right); Sofar's "Molex 2-pin"
+      bus note → "M3 threaded inserts MP1-MP4"
 - [x] S5.d: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.d: Nick's KiCad look
 - [x] S5.g (D24): PoDL insert model (MP1–MP4) visible (opacity 0 → 1); stock 3D models on 7 footprints (C31, C19/C27,
       R15/R16, R1, R8, R22/R34/R40, plus R10's spare), orientation checked (non-polarised, pads and models on x);
       U2/U3 without a model (no stock WLB0909-4); R10's footprint kept (Nick). Insert pads unchanged: contact → Sofar Q6
-- [ ] S5.g: confirm the insert model sits body-up in KiCad's 3D viewer (Nick's KiCad look)
+- [x] S5.g: insert model sits body-up in KiCad's 3D viewer; stock models check out (Nick, 2026-10-06)
 - [x] S5.g: QE review (standing S5 session): round 1 CHANGES REQUESTED (F1: the bus contact is a front copper arc) →
       pad change reverted, Sofar Q6 added; **APPROVED WITH NITS** in round 2, nits fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.g: Nick's KiCad look
@@ -234,7 +235,10 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 ### S6 — Design review package  `[ ]`
 - [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the
       regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO)
-- [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level)
+- [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
+      note was updated in S5.d)
+- [ ] Schematic tidy, after all technical work (Nick, 2026-10-06): R26/R27 drawn onto J1's I²C stubs instead of floating
+      with labels; every board interconnect on the right of the Top-Level sheet; general cosmetic layout
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit
