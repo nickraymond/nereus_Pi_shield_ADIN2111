@@ -56,7 +56,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py` and `python3 tools/test_ercexclude.py`. ERC tables: `python3 tools/ercsum.py --items`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py`, `python3 tools/test_ercexclude.py` and `python3 tools/test_fpattrs.py`. ERC tables: `python3 tools/ercsum.py --items`.
 ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate from `docs/design-review/erc_justifications.csv`).
 
 ### Project layout
@@ -65,7 +65,7 @@ ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate fr
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -279,14 +279,20 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
 - [ ] Change log of every edit
 - [ ] Open questions and proposed values, with datasheet citations
 - [ ] Pin map, power budget, BOM changes (note: the Mfr column mixes Sofar's spellings with the lifecycle table's, QE S6.a N1)
-- [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
-      courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
-      (QE S4.d N3; Nick's layout or a schematic/library pass)
+- [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
+      mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
+      library only, pads verified (`fpextract --verify` 0 problems). `tools/fpattrs.py`; record `docs/design-review/footprints.md`.
+      **Nick (layout):** pcbnew → Tools → Update Footprints from Library to pick them up (its options decide whether text/field
+      positions are kept); U2/U3's courtyard is tight (0.05 mm past the body, Sofar's outline)
+- [x] S6.c: QE review (S6 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S6.md`; merged (PR #24)
 - [x] S6.a BOM for a JLC order: TP×16, FID1–6, MTG1–4 → `in_bom no` (bare copper / holes; QE S5.h N2); `MANUFACTURER` filled on
       the 75 BOM parts that had none (from `bom_lifecycle.md`; J1 open), Sofar's other maker fields untouched; LCSC field
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
 - [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.c: `$PY tools/fpattrs.py nereus_Pi_shield_ADIN2111/mote.pretty` → every line "type kept; courtyard kept"; `$PY tools/fpextract.py
+KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb nereus_Pi_shield_ADIN2111/mote.pretty
+docs/design-review/vault_footprints.txt --verify` → 0 problems; `tools/check.sh` unchanged (504/0/504, 51/51).
 S6.b: `tools/check.sh` → `ERC messages: 504  Errors 0  Warnings 504`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
 missing exclusions`, netcheck 51/51, midwire 0, exit 0; PDF title blocks read "Rev: AA" and PCB-000001-AA.
 S6.a: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: … (51 rows)`; no TP/FID/MTG

@@ -2,6 +2,15 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.c — Footprint types and courtyards (2026-10-06, branch `sprint/6c-footprints`)
+
+Library `mote.pretty` (`Vault`) only, D29; no schematic or pad change. 43 footprints: one `(attr …)` line and four F.CrtYd
+`fp_line`s each, inserted as text (0 lines removed). Per-footprint type, courtyard size and source:
+`docs/design-review/footprints.md`. New `tools/fpattrs.py` (+ `test_fpattrs.py`). `nereus.pretty`'s jumper already had both.
+
+**Verified:** `fpextract --verify` 0 problems (pads identical to the mote board); every written file re-loaded with pcbnew
+(type and 4 courtyard lines read back); a second run changes nothing; `check.sh` unchanged (504/0/504, 51/51, midwire 0).
+
 ## S6.b — ERC clean or justified (2026-10-06, branch `sprint/6b-erc`)
 
 | Change | Where |

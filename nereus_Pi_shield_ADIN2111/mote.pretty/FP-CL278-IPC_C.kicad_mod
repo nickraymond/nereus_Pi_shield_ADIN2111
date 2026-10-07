@@ -52,6 +52,7 @@
 			)
 		)
 	)
+	(attr smd)
 	(fp_line
 		(start 0.63624 -0.675)
 		(end -0.63624 -0.675)
@@ -297,6 +298,46 @@
 				)
 			)
 		)
+	)
+	(fp_line
+		(start -0.73624 -0.375)
+		(end 0.73624 -0.375)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "eddebca2-7463-4ccb-8a1e-6ac22fce3833")
+	)
+	(fp_line
+		(start 0.73624 -0.375)
+		(end 0.73624 0.375)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "83dcfc5a-c86e-4ea9-99b1-9ce5f4a9e226")
+	)
+	(fp_line
+		(start 0.73624 0.375)
+		(end -0.73624 0.375)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9e4298b6-1cdc-47a7-9ddf-b88c831c32a5")
+	)
+	(fp_line
+		(start -0.73624 0.375)
+		(end -0.73624 -0.375)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "7f1fcb94-a493-4a80-a111-04181e724d8a")
 	)
 	(pad "1" smd rect
 		(at -0.37856 0)

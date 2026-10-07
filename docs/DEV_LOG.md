@@ -19,6 +19,26 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S6.c — Footprint types and courtyards (overnight run, bite 3 of 5)
+
+**Branch:** sprint/6c-footprints
+**Files touched:** mote.pretty (43 footprints, inserts only); tools/fpattrs.py (+ test); footprints.md (new); DESIGN (D29),
+changelog, TRACKER, viewer
+**ERC:** 0 / 504 (unchanged)  ·  **Net diff:** none (library only)
+**Done:**
+- S6.b merged (PR #23) after QE round 2
+- Type + F.CrtYd on all 43 Vault footprints; courtyards from Sofar's outlines first (39), computed for 4
+**Broke/surprised us:**
+- A pads+fab courtyard came out smaller than the body (SRF1260 6.1 × 13.5 mm vs a 12.5 mm body): these Altium footprints
+  draw the body on User layers, not Fab. Rule changed to use Sofar's User-layer outline first
+- KiCad's writer (FootprintSave) regenerates every uuid and drops default-valued fields (the S5.g `opacity 1`), so the
+  change is written as text inserts and re-read with pcbnew; BOX2I.Merge didn't behave through SWIG: plain min/max
+- QE sends from the S6 session get queued, not delivered: read its verdicts from its transcript
+- QE APPROVED WITH NITS: footprints.md "Used by" was wrong on 5 rows (regex ran across netlist components), regenerated
+**Next:** S6.d (minor schematic tidy)
+
+---
+
 ## 2026-10-06 — Sprint S6.b — ERC clean or justified (overnight run, bite 2 of 5)
 
 **Branch:** sprint/6b-erc

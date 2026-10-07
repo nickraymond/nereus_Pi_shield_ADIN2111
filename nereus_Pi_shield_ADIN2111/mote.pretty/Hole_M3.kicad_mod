@@ -53,6 +53,7 @@
 			)
 		)
 	)
+	(attr exclude_from_pos_files exclude_from_bom)
 	(fp_circle
 		(center 0 0)
 		(end 0 -4)
@@ -63,6 +64,46 @@
 		(fill no)
 		(layer "F.SilkS")
 		(uuid "53de386e-f422-4acd-a0a3-9fe5cf3fafa6")
+	)
+	(fp_line
+		(start -4.25 -4.25)
+		(end 4.25 -4.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9ace10f0-eba2-436e-99a9-9078f0bfd3d4")
+	)
+	(fp_line
+		(start 4.25 -4.25)
+		(end 4.25 4.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "01ce3f52-e759-48fc-b56f-599ad10393b8")
+	)
+	(fp_line
+		(start 4.25 4.25)
+		(end -4.25 4.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6e15ae45-598e-4a79-9455-4b5fb83d2358")
+	)
+	(fp_line
+		(start -4.25 4.25)
+		(end -4.25 -4.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "f1dea5a8-85c9-46fa-b030-1823ef066249")
 	)
 	(pad "0" thru_hole circle
 		(at 0 0)
