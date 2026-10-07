@@ -179,6 +179,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-06 | S6.b | **0** / 504 | 51/51; netlist: title-block revs + 3 text variables only | ERC clean (D28): 9 title-block errors fixed, 18 excluded with reasons; warnings item-for-item unchanged |
 | 2026-10-06 | S6.c | 0 / 504 | 51/51 (unchanged; library only) | 43 Vault footprints: type + F.CrtYd added (D29); `fpextract --verify` 0 problems |
 | 2026-10-06 | S6.d | 0 / 495 | 51/51; netlist identical (nets and pins) | Minor tidy: positions, text, notes, 9 dangling wire ends removed (warnings −9, no new items); #PWR34's exclusion key regenerated (reason unchanged) |
+| 2026-10-06 | S6.e | 0 / 495 | 51/51; netlist identical except 5 Description values | Review package: README, schematic.pdf, new-nets table in netcheck.md; jumper descriptions fixed |
 
 **ERC errors after S6.b: 0** (D28). The 9 title-block `unresolved_variable` errors are fixed (text variables
 `PCBPARTNAME` = nereus_Pi_shield_ADIN2111, `PCBPARTNUMBER` = PCB-000001-AA, `PROJECTREVISION` = AA; title-block rev AA on

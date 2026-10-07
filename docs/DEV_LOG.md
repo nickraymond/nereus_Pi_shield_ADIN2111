@@ -19,6 +19,23 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S6.e — Review package (overnight run, bite 5 of 5)
+
+**Branch:** sprint/6e-review-package
+**Files touched:** README.md + schematic.pdf (new, design-review); tools/netcheck.py (+ test), netcheck.md; R11–R13/R17/R19
+Description; SPEC, DESIGN, changelog, TRACKER, viewer
+**ERC:** 0 / 495 (unchanged)  ·  **Net diff:** 5 Description values — intended
+**Done:**
+- S6.d merged (PR #25) after QE (rendered base vs head; redundant junction removed)
+- netcheck now lists every new net with its pins; package README ties the whole review together
+- SPEC's S6 cleanup: the five CRCW1210 jumpers' wrong "205K" Description
+**Broke/surprised us:**
+- The S6 QE's sends arrive late or in bursts: its S6.b/S6.c reports landed after they were already acted on from its transcript
+- QE APPROVED WITH NITS: 4 open SPEC items added to the README, MP1–MP4 wording, Description source, U11 note; merged
+**Next:** Nick's demo of the package; then S6 is complete
+
+---
+
 ## 2026-10-06 — Sprint S6.d — Minor schematic tidy (overnight run, bite 4 of 5)
 
 **Branch:** sprint/6d-tidy

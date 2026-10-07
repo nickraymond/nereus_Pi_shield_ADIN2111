@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-06 · Now: S6 overnight run</strong> S5 complete (PR #21). <strong>S6</strong> runs bite by bite, each QE-approved and merged before the next: S6.a BOM hygiene (merged), S6.b ERC (merged), S6.c footprints (merged), S6.d minor tidy (merged), S6.e review package.</p>
+    <p><strong>Updated 2026-10-06 · Now: S6 overnight run</strong> S5 complete (PR #21). <strong>S6</strong> runs bite by bite, each QE-approved and merged before the next: S6.a BOM hygiene (merged), S6.b ERC (merged), S6.c footprints (merged), S6.d minor tidy (merged), S6.e review package (merged).</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -240,11 +240,8 @@ const S = [
   items:[
   ["S6.b: ERC clean, or every remaining item justified", `<p><strong>0 errors.</strong> Title blocks: name, rev AA, PCB-000001-AA (yours). 18 errors excluded in KiCad with the reason as the comment: fiducials and mounting holes (no net on the mote board), regulator switch/bootstrap pins and inductor-fed rails, ADIN_VDDIO (U3's output pin typed passive). <code>tools/ercexclude.py</code> keeps them current. Open: the title blocks still say "=ProjectAuthor" — whose name goes there?</p>`, null, 1],
   ["S6.d: stale notes + minor schematic tidy", `<p>Small readability fixes, no overhaul: R26/R27 drawn onto J1's I²C stubs; ADIN status LEDs evenly spaced with R3/R5 under their LEDs; labels and resistor text off junctions and wires; overlapping and over-wrapped notes fixed; the "Processor + onboard logic" note updated; dead 3V3 stub and dangling wire lead-ins removed. Connections unchanged (netlist identical). Not done: moving J1 to the right of the sheet (more than minor).</p>`, null, 1],
-  ["Net check: kept nets match the copper; every new net listed", ``],
-  ["Schematic PDF (all sheets)", ``],
-  ["Change log of every edit", ``],
-  ["Open questions and proposed values, with datasheet citations", ``],
-  ["Pin map, power budget and BOM changes", ``]
+  ["S6.e: the review package", `<p><strong>docs/design-review/README.md</strong>: status, reading order, open questions. Includes the schematic PDF (rev AA), the change log, the net check with every new net listed, the pin map, power budget and BOM (Sofar's part vs planned part), footprints and ERC reasons. Also cleaned: the five 0 Ω jumpers' wrong "205K" description.</p>`, null, 1],
+  ["S6: your demo", `<p>Open docs/design-review/README.md and schematic.pdf. Then S6 is complete.</p>`, "nick"],
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
   intro:"Send Q2 and Q4 when ready (Q3 answered from the datasheet); Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",

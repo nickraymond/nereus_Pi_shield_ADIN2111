@@ -81,7 +81,7 @@ Shield input = U10 input + 0.30 W. Bus current solves I · (bus − 0.656 · I) 
   ≈ 6.2 W. The 890 mA rating leaves 645 mA at 24 V for payload **plus** pass-through.
 - **U9 doesn't enforce the budget.** Its limit (≈ 0.74 A typical, ≈ 17.8 W at 24 V) is
   well above 6.2 W. A 1 A Pi plus a payload at U9's limit is ≈ 0.99 A, over 890 mA as
-  well. So the payload budget has to come from the payload's own design, or from
+  well. *(U9 → U11 TPS26621 in S5.a, D18: 0.73 A typical, ≈ 17.5 W at 24 V; the conclusion is unchanged.)* So the payload budget has to come from the payload's own design, or from
   software watching the shield's INA232 (U4 on the R8 shunt, which measures this
   module's bus current).
 - **Shield heat from L1:** at the shield's own 245 mA, L1 dissipates 39 mW. At a full

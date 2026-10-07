@@ -37,6 +37,8 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
   exact part, through JLC global sourcing). Side by side in `docs/design-review/bom.csv`; reasoning and stock in
   `bom_alternates.md` and `bom_lifecycle.md`. The PoDL/power-path ones (R8, R15/R16, C22/C23, C17/C21/C26, PoDL
   front end) are marked "Sofar review": we won't adopt any of them without you.
+- Import housekeeping, not design changes: the five 0 Ω CRCW1210 jumpers (R11, R12, R13, R17, R19) carried the
+  Description "RES SMD 205K OHM 1% 1/2W 1992" from the import; it now reads "RES SMD 0 OHM JUMPER 1210" (same part).
 - Import housekeeping, not design changes: Altium-import connectivity repairs (21
   mid-wire pins split and joined), new reference numbers start above the mote
   board's highest (U10+, C53+, R37+).

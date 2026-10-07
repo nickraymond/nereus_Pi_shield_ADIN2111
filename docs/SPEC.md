@@ -193,8 +193,8 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 - ~~U9 (FPF2700MX) obsolete~~ done (S5.a, D18): replaced by TPS26621DRCR (U11). Still
   open: lifecycle-check every BOM part before S6. — done in S5.e (`docs/design-review/bom_lifecycle.md`); the sourcing
   decisions per flagged part and J1's part number (socket height) are open, for Nick.
-- R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
-  0 Ω CRCW1210 jumper: stale import data to clean in S6.
+- ~~R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
+  0 Ω CRCW1210 jumper: stale import data to clean in S6.~~ done in S6.e for all five CRCW1210 jumpers (R11–R13, R17, R19).
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's
   SimSurfing tool needs its licence accepted first, so it's unmeasured; TI's
   Eq. 14 wants ≥ 22 µF effective (≈ 1.5 A step, 5 %). — S4.c / S6 (Nick or a
