@@ -6,8 +6,8 @@
 
 | Change | Where |
 |---|---|
-| Description "RES SMD 205K OHM 1% 1/2W 1992" (Altium import, wrong) → "RES SMD 0 OHM JUMPER 1210" | R11 (Top-Level), R12, R13, R17, R19 (PoDL): the CRCW12100000Z0EA 0 Ω jumpers |
-| `netcheck.md` gains "Schematic nets with new parts": every net touching a part not on the mote board, with all its pins (unconnected single pins collapsed into one row) | `tools/netcheck.py` (+ test) |
+| Description "RES SMD 205K OHM 1% 1/2W 1992" (Altium import, wrong) → "RES SMD 0 OHM JUMPER 1210" | R11 (Top-Level), R12, R13, R17, R19 (PoDL): CRCW12100000Z0EA is Vishay's 0 Ω jumper (MPN code "0000Z0"; `bom_lifecycle.md` S5.e row; the symbols' own RESISTANCE field "0mR"). Field text only, same part |
+| `netcheck.md` gains "Schematic nets with new parts": every net touching a part with no pins on the mote's copper (new parts, plus MP1–MP4 with unnumbered insert pads), with all its pins (unconnected single pins collapsed into one row) | `tools/netcheck.py` (+ test) |
 | Package index `docs/design-review/README.md`; reviewed snapshot `docs/design-review/schematic.pdf` (rev AA) | docs |
 
 **Verified:** netlist identical except the 5 Description values; ERC 495/0/495; ercexclude 18/0/0/0; netcheck 51/51;

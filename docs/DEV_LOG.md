@@ -31,7 +31,8 @@ Description; SPEC, DESIGN, changelog, TRACKER, viewer
 - SPEC's S6 cleanup: the five CRCW1210 jumpers' wrong "205K" Description
 **Broke/surprised us:**
 - The S6 QE's sends arrive late or in bursts: its S6.b/S6.c reports landed after they were already acted on from its transcript
-**Next:** QE review; Nick's demo of the package; S6 complete
+- QE APPROVED WITH NITS: 4 open SPEC items added to the README, MP1–MP4 wording, Description source, U11 note; merged
+**Next:** Nick's demo of the package; then S6 is complete
 
 ---
 

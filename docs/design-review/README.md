@@ -44,11 +44,22 @@ our lifecycle table ("Yageo", "Würth Elektronik"), because Sofar's fields were 
 - **The planned parts** (10 BOM lines, `bom.csv` Planned columns): LCSC-stocked equivalents of parts LCSC doesn't stock.
   Nothing is adopted without your review (D26/D27).
 
-**For the design review** (`../SPEC.md` → "Open questions"):
+**For the design review** (`../SPEC.md` → "Open questions"; the bring-up items below are from there too):
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44, 22 µF 16 V 0805) at 5 V DC bias: unmeasured; TI SLUSEF4A Eq. 14
   wants ≥ 22 µF effective.
 - U10's input capacitance copies U5's (2.2 µF + 100 nF); TI SLUSEF4A §9.2.2.6 suggests ≥ 4.7 µF, its own Figure 9-1 uses
   2.2 µF. Field-proven on U5; U10 draws more input current.
+- ADIN2111 power at 2.4 V p-p: the power budget carries a 0.30 W allowance at U5's input (ADI: 77 mW typical at 1.0 V
+  p-p, dual supply) until the full datasheet is read.
+- Murata's product pages list "undersea equipment" among applications they don't warrant for these consumer/industrial
+  MLCCs; this applies equally to the mote's existing Murata parts (C29, C32, C33, …).
+
+**For Nick (bring-up):**
+- U10/L6/L1 heat: ΔTj ≈ 42–57 °C at the 1 A Pi target, indicative only (TI's RθJA is for comparison; potted RθJA
+  unknown). Measure T_top at bring-up: Tj ≈ T_top + 9.3 °C/W · P_U10 (`power_budget.md` §3).
+- Whether the Pi's data-port USB VBUS also feeds its 5 V rail is unconfirmed (not shown in the Zero 2 W reduced
+  schematic; primary source needed). Until then the D14 bench rule stands: never connect a USB 5 V source to a
+  bridged board's Pi.
 
 **For Nick (layout and release):**
 - J1's socket part number (height, once the board spacing is known).

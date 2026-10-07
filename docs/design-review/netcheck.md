@@ -28,7 +28,7 @@ C53, C54, C55, C56, C57, C58, D8, D9, D10, J1, J5, JP1, JP2, L6, MP1, MP2, MP3, 
 
 ## Schematic nets with new parts
 
-Every schematic net that includes a pin of a part not on the mote board, with all its pins (pins of kept parts on these nets are also checked against the copper above).
+Every schematic net that includes a pin of a part with no pins on the mote's copper (the new parts, plus MP1–MP4: on the mote board but with unnumbered insert pads, Sofar Q6), with all its pins. Pins of kept parts on these nets are also checked against the copper above.
 
 | Net | Pins |
 |---|---|

@@ -290,7 +290,7 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
 - [x] S6.e Stale import data (SPEC open question): the five CRCW1210 0 Ω jumpers R11/R12/R13/R17/R19 had the Description
       "RES SMD 205K OHM 1% 1/2W 1992" → "RES SMD 0 OHM JUMPER 1210"
 - [x] S6.e Package index: `docs/design-review/README.md` (status, reading order, open questions, how to regenerate)
-- [ ] S6.e: QE review (S6 session)
+- [x] S6.e: QE review (S6 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S6.md`; merged (PR #26)
 - [ ] S6: Nick's demo — open `docs/design-review/README.md`; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);

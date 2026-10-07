@@ -197,8 +197,9 @@ def render(r, pcb_path, netlist_path, reasons=None):
             out += [f"## {title}", "", ", ".join(sorted(r[key], key=natural)), ""]
     if r.get("new_nets"):
         out += ["## Schematic nets with new parts", "",
-                "Every schematic net that includes a pin of a part not on the mote board, with all its pins "
-                "(pins of kept parts on these nets are also checked against the copper above).", "",
+                "Every schematic net that includes a pin of a part with no pins on the mote's copper (the new "
+                "parts, plus MP1–MP4: on the mote board but with unnumbered insert pads, Sofar Q6), with all its "
+                "pins. Pins of kept parts on these nets are also checked against the copper above.", "",
                 "| Net | Pins |", "|---|---|"]
         loose = sorted((n for n in r["new_nets"] if n.startswith("unconnected-")), key=natural)
         for name in sorted(r["new_nets"], key=natural):
