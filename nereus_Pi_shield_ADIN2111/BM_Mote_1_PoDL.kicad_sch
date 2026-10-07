@@ -5090,6 +5090,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Bourns"
+			(at 238.76 223.3422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4af9451f-e4ca-4e89-8642-16e840273331")
 		)
@@ -5533,6 +5542,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "KYOCERA AVX"
 			(at 60.96 192.8622 0)
 			(effects
 				(font
@@ -6679,6 +6697,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Vishay Dale"
+			(at 256.54 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0ad4c870-51bb-49d6-a035-18743347bca8")
 		)
@@ -7187,6 +7214,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Susumu"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8930aef2-8388-4a11-8645-7de359f50277")
 		)
@@ -7632,6 +7668,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "KYOCERA AVX"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "676e525b-3632-4246-bdba-b5874e68ac35")
 		)
@@ -7749,6 +7794,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 101.6 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Würth Elektronik"
 			(at 101.6 70.9422 0)
 			(effects
 				(font
@@ -8267,6 +8321,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Panasonic"
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d9863956-c460-423a-b157-6f92b67ff6f2")
 		)
@@ -8712,6 +8775,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "KYOCERA AVX"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3b16fdde-76bf-412e-9249-4f32a4670209")
 		)
@@ -9138,6 +9210,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Vishay Dale"
+			(at 256.54 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "97cbf7a7-057b-42b3-aeef-40b9e1580ffb")
 		)
@@ -9502,6 +9583,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Vishay Dale"
+			(at 256.54 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1c5ab486-5d1f-4e5f-9b92-67c41c057f0a")
 		)
@@ -9848,6 +9938,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 287.02 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
 			(at 287.02 142.0622 0)
 			(effects
 				(font
@@ -10791,6 +10890,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "TDK"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "71b7d37e-1178-4cd3-b8c5-b467da58bc53")
 		)
@@ -11178,6 +11286,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "10 µF ±10 % 50 V X7R 1210 from Taiyo Yuden, an established MLCC maker, for the power path (FH ALT1 has more stock, kept as backup); specified Samsung out of stock at LCSC and DK; Sofar review"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 299.72 142.0622 0)
 			(effects
 				(font
@@ -11623,6 +11740,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "KYOCERA AVX"
 			(at 60.96 81.1022 0)
 			(effects
 				(font
@@ -12148,6 +12274,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "TDK"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0b69834a-c616-4211-8a72-4c69791c4bec")
 		)
@@ -12594,6 +12729,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Susumu"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3097a459-08ab-44a5-b2e6-6087b40aa805")
 		)
@@ -12700,6 +12844,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 383.54 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "ROHM"
 			(at 383.54 152.2222 0)
 			(effects
 				(font
@@ -13064,6 +13217,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 256.54 238.5822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Vishay Dale"
 			(at 256.54 238.5822 0)
 			(effects
 				(font
@@ -13837,6 +13999,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Würth Elektronik"
+			(at 101.6 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "bf65f9b4-2d21-4799-9dd2-a403a8df92a0")
 		)
@@ -14347,6 +14518,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Panasonic"
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "66229e64-a816-4f5d-bb66-b3db6d4eaa5c")
 		)
@@ -14581,6 +14761,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "STMicroelectronics"
+			(at 358.14 144.6022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a000dd7e-e69b-47ea-8867-05abaf5e0699")
 		)
@@ -14749,6 +14938,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06) (thin margin)"
+			(at 238.76 88.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Bourns"
 			(at 238.76 88.7222 0)
 			(effects
 				(font

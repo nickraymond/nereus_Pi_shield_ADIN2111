@@ -2488,7 +2488,7 @@
 		(at 279.4 175.0822 0)
 		(unit 0)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "68cad502-ab04-432e-a08c-0bb8bf342583")
@@ -3172,6 +3172,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Stackpole"
+			(at 195.58 154.7622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4cd2aa7b-4a21-4331-b185-ddcc8b027c45")
 		)
@@ -3619,6 +3628,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Stackpole"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "343fa1ad-8419-431b-b2c4-66511b94e39f")
 		)
@@ -3849,6 +3867,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 292.1 149.6822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "ROHM"
 			(at 292.1 149.6822 0)
 			(effects
 				(font
@@ -4265,6 +4292,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 271.78 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
 			(at 271.78 134.4422 0)
 			(effects
 				(font
@@ -4907,6 +4943,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 152.4 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
 			(at 152.4 134.4422 0)
 			(effects
 				(font

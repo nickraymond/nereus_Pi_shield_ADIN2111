@@ -2,6 +2,20 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.a — BOM hygiene (2026-10-06, branch `sprint/6a-bom-hygiene`)
+
+Six sheet files (root untouched); flags and one field only. No connection, value or footprint changed.
+
+| Change | Refs |
+|---|---|
+| `(in_bom yes)` → `(in_bom no)`: bare copper pads and holes, not purchased | TP1–3, TP5, TP7, TP8, TP13, TP19–24, TP35, TP36, TP38; FID1–6; MTG1–4 (26) |
+| + `MANUFACTURER` (hidden), from `bom_lifecycle.md`'s Mfr column (S5.e, Digi-Key-checked) | the 75 BOM parts (76 blocks, U1 ×2) with no `MANUFACTURER`; J1 has no part yet. Sofar's `MFR_NAME` (U5/U10), `MANUFACTURER1` (D1: its *second source*, Vishay) and `MANUFACTURER 1` (R15/R16) untouched; D1's `MANUFACTURER` = STMicroelectronics (its specified part) |
+
+**Verified:** structural compare against `main`: 26 `in_bom` flips, 76 appended hidden `MANUFACTURER` fields, nothing else.
+Netlist: + 26 `exclude_from_bom` markers and the new `MANUFACTURER` fields only. ERC 531 / 27 / 504, items identical
+with locations stripped (one `multiple_net_names` item names VBUS or 5V_Buck_Input as the second label from run to run on
+the unchanged base too). netcheck 51/51; midwire 0. `bom.csv` 51 rows (TP/FID/MTG rows gone), `Mfr` blank only on J1.
+
 ## S5.i — Planned part per BOM line (2026-10-06, branch `sprint/5i-planned-parts`)
 
 Six sheet files (root sheet untouched); fields only (D27). No connection, value or footprint changed.

@@ -19,6 +19,23 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S6.a — BOM hygiene (overnight run, bite 1 of 5)
+
+**Branch:** sprint/6a-bom-hygiene
+**Files touched:** six sheet files (flags + MANUFACTURER); bom.csv; bom_lifecycle, changelog, DESIGN, TRACKER, viewer
+**ERC:** 27 / 504 (unchanged)  ·  **Net diff:** 26 exclude_from_bom markers + MANUFACTURER fields — intended
+**Done:**
+- S5.i merged (PR #21) on Nick's instruction; S5 complete except J1's part number
+- Nick: run S6.a–e overnight, QE-approved before each next bite; fresh S6 QE session started from a task chip
+- Title block values from Nick: name = file name, rev AA, part number PCB-000001-AA (for S6.b)
+- TP/FID/MTG out of the BOM; MANUFACTURER filled from the lifecycle table on the 75 parts without one
+**Broke/surprised us:**
+- First pass treated Sofar's MANUFACTURER1 as D1's maker; it belongs to their *second source* (Vishay). Redone with
+  MANUFACTURER as the only BOM field: D1 = STMicroelectronics, U5/U10 = Texas Instruments (Sofar's MFR_NAME agrees)
+**Next:** QE review; then S6.b (ERC)
+
+---
+
 ## 2026-10-06 — Sprint S5.i — Planned part per BOM line (D27)
 
 **Branch:** sprint/5i-planned-parts

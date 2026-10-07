@@ -3570,6 +3570,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Murata"
+			(at 336.55 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "edef43bf-be35-44ae-8d0e-f565819ab3aa")
 		)
@@ -3677,6 +3686,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 278.13 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 278.13 176.3522 0)
 			(effects
 				(font
@@ -4012,6 +4030,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 177.8 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 177.8 129.3622 0)
 			(effects
 				(font
@@ -4775,6 +4802,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Murata"
+			(at 313.69 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0003c5d8-3686-47e3-835b-5edc4ddebda1")
 		)
@@ -4890,6 +4926,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Pulse (YAGEO group)"
 			(at 187.96 134.4422 0)
 			(effects
 				(font
@@ -5104,6 +5149,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 128.27 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 128.27 131.9022 0)
 			(effects
 				(font
@@ -5641,6 +5695,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Vishay Dale"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f9f906b-fe91-40a5-964a-88ea9a86be18")
 		)
@@ -6133,6 +6196,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 256.54 183.9722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Murata"
 			(at 256.54 183.9722 0)
 			(effects
 				(font
@@ -6650,6 +6722,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Stackpole"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "380dad2e-e3ed-4352-890f-6153361bb468")
 		)
@@ -7137,6 +7218,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Yageo"
+			(at 232.41 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "51030ac4-b2d9-4447-8d8a-c25f2d8b06f2")
 		)
@@ -7615,6 +7705,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Murata"
+			(at 95.25 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "55ca3e9e-2912-46a1-9e83-869550790b3e")
 		)
@@ -7860,6 +7959,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+			(at 102.87 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Taiyo Yuden"
 			(at 102.87 133.1722 0)
 			(effects
 				(font
@@ -8377,6 +8485,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Samsung"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1cd7082a-77fd-4fc2-9092-15ca8145ca16")
 		)
@@ -8798,6 +8915,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Pulse (YAGEO group)"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e200f5f1-3ec5-4bc0-8460-caf20a1c9542")
 		)
@@ -9004,6 +9130,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 128.27 208.1022 0)
 			(effects
 				(font
@@ -9533,6 +9668,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "Only stocked LCSC match: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Vishay part has no LCSC listing"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Vishay Dale"
 			(at 74.93 227.1522 0)
 			(effects
 				(font
@@ -10195,6 +10339,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Stackpole"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "35c80d79-c5b6-40da-8656-ba8b4d70eef1")
 		)
@@ -10682,6 +10835,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Yageo"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "33355113-8dfd-48f8-a83d-a52010eb81ca")
 		)
@@ -11036,6 +11198,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Murata"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8652ae05-f279-4c6c-8247-c205d1fcc3c5")
 		)
@@ -11281,6 +11452,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Taiyo Yuden"
 			(at 102.87 209.3722 0)
 			(effects
 				(font

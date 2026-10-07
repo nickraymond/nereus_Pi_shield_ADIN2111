@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-06 · Now: S5 complete, S6 next</strong> <strong>S5.i merged</strong> (PR #21): a Planned part (MPN, maker, LCSC, why) beside Sofar's part on every BOM line; 10 lines change (D27). Only J1's socket part number is open (yours). <strong>Next, S6:</strong> the design-review package, starting with the S6.a plan (BOM hygiene).</p>
+    <p><strong>Updated 2026-10-06 · Now: S6 overnight run</strong> S5 complete (PR #21). <strong>S6</strong> runs bite by bite, each QE-approved and merged before the next: S6.a BOM hygiene (in review), S6.b ERC, S6.c footprints, S6.d minor tidy, S6.e review package.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -272,7 +272,7 @@ const S = [
   items:[
   ["First DRC after F8: expect ≈ 58 \"doesn't match library\" warnings", `<p>Graphics-only differences from the Altium import (Fab/User-layer text and outlines vary between instances); pads verified identical (D19). Don't run "Update Footprints from Library" on kept parts.</p>`],
   ["Set footprint types (SMD/THT) and courtyards before fab outputs", `<p>The import left them unspecified/missing; an SMD-only position file would drop parts.</p>`],
-  ["BOM ready for a JLC order", `<p>bom.csv also lists the 16 test points, fiducials and mounting holes (in BOM since the import). Take them out of the BOM, or filter the export (QE S5.h).</p>`],
+  ["S6.a: BOM ready for a JLC order", `<p>Test points, fiducials and mounting holes out of the BOM (bare copper / holes). The maker filled on the 75 parts that had none (from the S5.e lifecycle table; Sofar's own maker fields untouched). bom.csv: 51 rows, maker on every row but J1.</p>`, null, 1],
   ["First F8: re-link only", `<p>Tick re-link by reference; untick "Delete footprints with no symbols." Expect no Add/Remove lines.</p>`],
   ["Second F8: remove deleted parts, add new ones", `<p>Tick "Delete footprints with no symbols."</p>`],
   ["Clean up leftover tracks and vias", ``],

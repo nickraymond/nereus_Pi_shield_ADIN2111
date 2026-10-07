@@ -258,7 +258,10 @@ I2C1_SCL + 3V3, R27 on I2C1_SDA + 3V3, R43 on ADIN_PWR + GND, TP19 on SW_EN, R10
 S5.b: `tools/check.sh` → `ERC messages: 535  Errors 27  Warnings 508`, netcheck 50/50, midwire 0, exit 0;
 netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each gain exactly their J1 pin (22/21/19/24/16/18/23, 3/5, 36, 38).
 
-### S6 — Design review package  `[ ]`
+### S6 — Design review package  `[~]`
+*Bites (Nick, 2026-10-06; run overnight, each QE-approved and merged before the next): S6.a BOM hygiene, S6.b ERC clean or
+justified (title block: name = file name, rev AA, part number PCB-000001-AA), S6.c footprint attributes + courtyards (library
+only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no overhaul), S6.e review package. Fresh S6 QE session.*
 - [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the
       regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO)
 - [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
@@ -274,9 +277,13 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 - [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
       courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
       (QE S4.d N3; Nick's layout or a schematic/library pass)
-- [ ] BOM for a JLC order: `bom.csv` also lists the 16 test points, FID1–6 and MTG1–4 (`in_bom yes` since the import; QE S5.h
-      N2). Set `in_bom no` on them or filter the export
+- [x] S6.a BOM for a JLC order: TP×16, FID1–6, MTG1–4 → `in_bom no` (bare copper / holes; QE S5.h N2); `MANUFACTURER` filled on
+      the 75 BOM parts that had none (from `bom_lifecycle.md`; J1 open), Sofar's other maker fields untouched; LCSC field
+      harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
+- [ ] S6.a: QE review (S6 session)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.a: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: … (51 rows)`; no TP/FID/MTG
+row; `Mfr` blank only on J1.
 
 ---
 
