@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-05 · Owner/gate: **Nick***
+*Last updated: 2026-10-06 · Owner/gate: **Nick***
 
 ---
 
@@ -185,10 +185,20 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.e: Nick's review of bom_lifecycle.md (PR #18 merged, `f5b2279`)
 - [x] Sourcing policy (Nick, D26): critical parts via JLC global sourcing; passives keep the specified part with LCSC
       `ALT…` field proposals for Sofar's design review (S5.h); constraint amendments only after Sofar weighs in
-- [ ] S5.h **(next — ready to execute)**: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged
-      passives, `SOURCING` on the critical parts; BOM CSV export with alternates side by side. Approved by Nick; S5.e merged
-      (`f5b2279`). Steps, field values and the alternates (verified on LCSC 2026-10-06) are in
-      `docs/design-review/bom_alternates.md`. Then QE (standing S5 session) and Nick's look; S5 is then complete → S6
+- [x] S5.h: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` + `SOURCING` fields on the 24 flagged passives,
+      `SOURCING` on the critical parts (U1–U3, L3/L6, Y1, D1–D3, MP1–MP4, J5, J1); `tools/check.sh` writes the tracked
+      `docs/design-review/bom.csv`: Sofar's specified part first (`Value (MPN)`), alternates beside it (Nick). Grouped by
+      Value and DNP (R11 kept apart from R12/R13/R17/R19). Values: `docs/design-review/bom_alternates.md`
+- [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed; **APPROVED** in round 2 — `docs/design-review/qe/S5.md`
+- [x] S5.h: Symbol Fields Table view "Sofar review (alternates)" in the `.kicad_pro`, opened by default; matches `bom.csv` cell for
+      cell (Nick's first look: new fields are hidden columns until enabled); QE **APPROVED** in round 3
+- [x] S5.h: Nick's KiCad look: fields and values present; KiCad 9 on macOS draws the Symbol Fields Table header row blank with these
+      columns shown (its Export has the headers and equals `bom.csv` cell for cell), so `bom.csv` is the review table (PR #20)
+- [ ] S5.i **(next — approved by Nick)**: **Planned part** fields `PLANNED MPN/MFR/LCSC` + `PLANNED NOTE` (why) on every BOM part, right
+      after Sofar's `Value` in the view and `bom.csv`, so Sofar reviews one diff column (D27). Nick: Value stays Sofar's part; the
+      first build buys planned parts **after Sofar's review**; ALT1/ALT2 stay as backups after Planned. Picks: 10 changed lines
+      (R34, R20/R39, R21 group, C31, C17/C26, C21, C16 group, C19/C27, R14/R18, D1 → Vishay second source), R8 after a land-pattern
+      check, the rest as specified. Then QE and Nick's look; S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
@@ -234,6 +244,9 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.f: Nick's KiCad look (PR #17 merged, `e62d974`)
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
+S5.h: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: docs/design-review/bom.csv
+(54 rows)`; netlist identical except the new `ALT…`/`SOURCING` fields; `bom.csv` row R8 shows UR73D1JTTD10L0F then the ROHM and
+Vishay alternates.
 S5.d: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), netcheck 51/51, midwire 0, exit 0; netlist: VBUS_OUT + J5.1,
 GND + J5.2, nothing else.
 S5.c: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), **netcheck 51/51**, midwire 0, exit 0; netlist: R26 on
@@ -257,6 +270,8 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 - [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
       courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
       (QE S4.d N3; Nick's layout or a schematic/library pass)
+- [ ] BOM for a JLC order: `bom.csv` also lists the 16 test points, FID1–6 and MTG1–4 (`in_bom yes` since the import; QE S5.h
+      N2). Set `in_bom no` on them or filter the export
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
 
 ---

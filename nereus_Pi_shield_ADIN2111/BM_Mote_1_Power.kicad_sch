@@ -4310,6 +4310,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "CL10A226MQ8NRNC"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "Samsung"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C59461"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "GRM188R60J226MEA0D"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Murata"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C77042"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "22 µF ±20 % 6.3 V X5R 0603"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ab1d518b-90ff-4699-8009-be384d08e209")
 		)
@@ -4599,6 +4671,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -5197,6 +5278,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "RTT021824FTH"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "RALEC"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C166520"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6026,6 +6179,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "0402WGF1003TCE"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "UNI-ROYAL"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C25741"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "RC0402FR-07100KL"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "YAGEO"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C60491"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 kΩ ±1 % 62.5 mW 50 V ±100 ppm; ALT1 is JLC Basic; AEC-Q200 not stated (Stackpole is)"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -7952,6 +8177,15 @@
 				(justify left bottom)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e200f5f1-3ec5-4bc0-8460-caf20a1c9542")
 		)
@@ -8551,6 +8785,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "RTT021824FTH"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "RALEC"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C166520"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "81df0951-9c60-4842-8321-6799f360316d")
 		)
@@ -9058,6 +9364,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "0402WGF1003TCE"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "UNI-ROYAL"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C25741"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "RC0402FR-07100KL"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "YAGEO"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C60491"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 kΩ ±1 % 62.5 mW 50 V ±100 ppm; ALT1 is JLC Basic; AEC-Q200 not stated (Stackpole is)"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

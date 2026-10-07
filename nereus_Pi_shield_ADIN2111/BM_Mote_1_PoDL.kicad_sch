@@ -5397,6 +5397,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "CC0805KKX7R0BB474"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C596323"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "08051C474K4Z2A"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "KYOCERA AVX"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C597303"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "470 nF ±10 % 100 V X7R 0805; PoDL front end: Sofar review"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 60.96 192.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "55bbec94-2a50-4160-9d0d-92656c427c06")
 		)
@@ -5531,6 +5603,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "SR0805FR-477R5L"
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C873769"
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "Sofar review: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated"
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 335.28 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6755,6 +6899,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "RT0402BRD07100RL"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C705627"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "ERA2AEB101X"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Panasonic"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C445575"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 60.96 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8930aef2-8388-4a11-8645-7de359f50277")
 		)
@@ -7089,6 +7305,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "CC0805KKX7R0BB474"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C596323"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "08051C474K4Z2A"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "KYOCERA AVX"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C597303"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "470 nF ±10 % 100 V X7R 0805; PoDL front end: Sofar review"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 116.84 116.6622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -7583,6 +7871,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate; JLC global sourcing"
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 312.42 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d9863956-c460-423a-b157-6f92b67ff6f2")
 		)
@@ -7917,6 +8277,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "CC0805KKX7R0BB474"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C596323"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "08051C474K4Z2A"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "KYOCERA AVX"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C597303"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "470 nF ±10 % 100 V X7R 0805; PoDL front end: Sofar review"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 116.84 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -9083,6 +9515,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "C0805C102KDRACTU"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "KEMET"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C2167549"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "0805B102K102CT"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Walsin"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C303890"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1 nF 1 kV X7R 0805, ±10 % (tighter); PoDL front end: Sofar review"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 58.42 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "79cb19a3-ac55-4910-97d7-253a70c5a907")
 		)
@@ -9217,6 +9721,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "SR0805FR-477R5L"
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C873769"
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "Sofar review: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated"
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 312.42 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -9567,6 +10143,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "TDK"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C342785"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Murata"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C126585"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1 µF ±10 % 100 V X7S 0805; power path: Sofar review"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 203.2 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "71b7d37e-1178-4cd3-b8c5-b467da58bc53")
 		)
@@ -9851,6 +10499,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "1210B106K500NT"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "FH"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C116808"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "UMK325AB7106KM-T"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Taiyo Yuden"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C386167"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "10 µF ±10 % 50 V X7R 1210; power path: Sofar review"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 299.72 142.0622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10188,6 +10908,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "CC0805KKX7R0BB474"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C596323"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "08051C474K4Z2A"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "KYOCERA AVX"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C597303"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "470 nF ±10 % 100 V X7R 0805; PoDL front end: Sofar review"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 60.96 81.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10600,6 +11392,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "TDK"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C342785"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Murata"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C126585"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1 µF ±10 % 100 V X7S 0805; power path: Sofar review"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 208.28 93.8022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0b69834a-c616-4211-8a72-4c69791c4bec")
 		)
@@ -10938,6 +11802,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "RT0402BRD07100RL"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C705627"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "ERA2AEB101X"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Panasonic"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C445575"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 60.96 215.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3097a459-08ab-44a5-b2e6-6087b40aa805")
 		)
@@ -10999,6 +11935,15 @@
 			)
 		)
 		(property "Description" "Rectifier Diode Schottky Si 60V 3A Automotive 2-Pin PMDT-M T/R"
+			(at 383.54 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
 			(at 383.54 152.2222 0)
 			(effects
 				(font
@@ -11459,6 +12404,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "C0805C102KDRACTU"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "KEMET"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C2167549"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "0805B102K102CT"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Walsin"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C303890"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "1 nF 1 kV X7R 0805, ±10 % (tighter); PoDL front end: Sofar review"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 58.42 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -12322,6 +13339,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" ""
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate; JLC global sourcing"
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 335.28 147.1422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "66229e64-a816-4f5d-bb66-b3db6d4eaa5c")
 		)
@@ -12508,6 +13597,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing of Sofar's second source Vishay SMA6F33A-M3/H (ST part obsolete; Sofar Q7) (D26)"
+			(at 358.14 144.6022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

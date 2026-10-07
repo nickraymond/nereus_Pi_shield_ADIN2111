@@ -2,6 +2,30 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.h — BOM alternates as hidden fields (2026-10-06, branch `sprint/5h-bom-fields`)
+
+Six sheet files (the root `nereus_Pi_shield_ADIN2111.kicad_sch` untouched); fields only (D26, `docs/design-review/bom_alternates.md`). No connection, value or
+footprint changed. Every new field is hidden, at the symbol origin.
+
+| Change | Refs |
+|---|---|
+| + `ALT1 MPN`, `ALT1 MFR`, `ALT1 LCSC`, `ALT2 MPN`, `ALT2 MFR`, `ALT2 LCSC`, `ALT NOTE`, `SOURCING` ("JLC global sourcing (first build) until an ALT is approved (D26)") | 24 flagged passives: R34 (Load); R20, R39, R21, R37, C31 (Power); R35 (Load); R43 (Master); R8 (PowerMon); C16–C19, C21–C27, R14–R16, R18 (PoDL) — values per `bom_alternates.md`; empty where it lists no alternate (R20/R39 and R15/R16 ALT2, C22/C23 both) |
+| + `SOURCING` only | U1 (both units), U2, U3, Y1 (ADIN2111); L3, L6 (Power); D1, D2 (PoDL); D3 (Load); MP1–MP4, J5, J1 (Master) |
+| J1 `Footprint` property line re-indented 4 → 2 tabs | whitespace only (import leftover, like JP1 in S5.f); `set_properties` refuses a symbol with an unparsed property |
+| `tools/check.sh` exports `docs/design-review/bom.csv` (tracked) | `Value (MPN)` = the specified part, then Mfr, LCSC, Sourcing, Alt1/Alt2 MPN/Mfr/LCSC, Alt note; grouped by Value and DNP |
+
+| `.kicad_pro`: Symbol Fields Table view **"Sofar review (alternates)"** (`bom_presets`), also the view the dialog opens with (`bom_settings`, was "Default Editing") | Refs, Qty, Value (MPN), Mfr, LCSC, DNP, Sourcing, Alt1/Alt2 MPN/Mfr/LCSC, Alt note, Footprint; grouped by Value + DNP; BOM-excluded parts (JP1/JP2) hidden. `kicad-cli sch export bom --preset "Sofar review (alternates)"` gives the same 54 groups as `bom.csv`, every cell equal. Added after Nick's look: new fields need their columns switched on, and the ones he enabled landed after the wide Footprint/Datasheet columns |
+
+Field text follows `bom_alternates.md` except: C22/C23 `ALT NOTE` leaves out the plan's "(DK 78,606)" (stock figures drift; it stays in
+the plan); R8 `ALT NOTE` is "Sofar review: power-path current sense; check land pattern" (Nick: at most 3 alternates per part; R8's
+7 Sofar fields `MANUFACTURERPARTNUMBER1–7` stay untouched, outside bom.csv).
+
+**Verified:** 208 fields added (24 × 8 + 16 SOURCING blocks); a structural compare against `HEAD` finds every existing
+property of every symbol unchanged and in order, nothing outside symbol blocks changed, and every new field hidden.
+Netlist diff: 0 lines removed; all 414 added lines are the new fields (component `property` + libpart `field`). ERC
+531 / 27 / 504, item-for-item identical to the baseline apart from which copy of a repeated label `multiple_net_names`
+cites (KiCad's choice varies between runs on the same file); netcheck 51/51; midwire 0.
+
 ## S5.f — ADIN status LEDs (2026-10-06, branch `sprint/5f-adin-leds`)
 
 ADIN sheet (`BM_Mote_1_ADIN2111.kicad_sch`), D25:

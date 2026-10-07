@@ -8633,6 +8633,15 @@
 				(hide yes)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+			(at 485.14 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "92a63094-153d-49df-b454-dc8631d31484")
 		)
@@ -9564,6 +9573,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+			(at 485.14 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -12034,6 +12052,15 @@
 				(hide yes)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+			(at 485.14 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5e59d4c4-144e-4c4d-bf6c-d5c9c2d1f161")
 		)
@@ -13153,6 +13180,15 @@
 				(hide yes)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+			(at 485.14 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b71eb350-3516-4e4d-869a-188448806552")
 		)
@@ -14041,7 +14077,7 @@
 				)
 			)
 		)
-				(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical"
 			(at 121.92 88.9 0)
 			(effects
 				(font
@@ -14060,6 +14096,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 121.92 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
 			(at 121.92 88.9 0)
 			(effects
 				(font
@@ -16028,6 +16073,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "0402WGF1003TCE"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "UNI-ROYAL"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C25741"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "RC0402FR-07100KL"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "YAGEO"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C60491"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 kΩ ±1 % 62.5 mW 50 V ±100 ppm; ALT1 is JLC Basic; AEC-Q200 not stated (Stackpole is)"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 78.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9b689f8d-fe75-4783-977a-a5d0d93ca298")
 		)
@@ -16170,6 +16287,15 @@
 			)
 		)
 		(property "LCSC" "C189893"
+			(at 490.22 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); LCSC C189893 out of stock, DK 10,839"
 			(at 490.22 161.29 0)
 			(effects
 				(font

@@ -4,6 +4,13 @@
 lcsc.com product pages on 2026-10-06. Recheck stock before ordering. Nothing here changes a connection: the specified
 parts stay; only hidden fields are added.*
 
+**Executed in S5.h (2026-10-06, branch `sprint/5h-bom-fields`)** as below, with one change to the export: a `${DNP}`
+column and `--group-by 'Value,${DNP}'`, because grouping by Value alone merged R11 (DNP) into the row of the fitted
+R12/R13/R17/R19 and marked all five DNP. Result: `docs/design-review/bom.csv`; changes in `changelog.md`.
+
+**Cap (Nick, 2026-10-06; D26):** at most 3 alternates per part, the best by match and availability. This plan uses at most 2. Sofar's own
+listed alternates (R8's `MANUFACTURERPARTNUMBER1–7`, D1's second sources) stay in their original fields, outside `bom.csv`.
+
 ## What to do
 
 1. **On each flagged passive**, add these hidden symbol fields with `schedit.set_properties` (it adds missing fields

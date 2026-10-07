@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # One-command check of the live schematic: ERC, netlist, PDF, pins sitting
 # mid-wire, net check vs the mote copper. Reads the project; never modifies it.
-# Raw outputs → docs/design-review/out/ (git-ignored); docs/design-review/netcheck.md is tracked.
+# Raw outputs → docs/design-review/out/ (git-ignored); docs/design-review/netcheck.md and bom.csv are tracked.
 # Exit code is netcheck's: 0 = connectivity matches the copper, 1 = differences.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -21,13 +21,22 @@ mkdir -p "$OUT"
 "$K" sch erc --severity-all -o "$OUT/erc.rpt" "$SCH" >/dev/null
 "$K" sch export netlist -o "$OUT/netlist.net" "$SCH" >/dev/null
 "$K" sch export pdf -o "$OUT/schematic.pdf" "$SCH" >/dev/null
+# Tracked BOM: specified part and hidden ALT…/SOURCING fields side by side (S5.h, D26).
+# Grouped by Value and DNP so a DNP part never shares a row with fitted ones (R11 vs R12/R13/R17/R19).
+BOM=docs/design-review/bom.csv
+"$K" sch export bom -o "$BOM" \
+  --fields 'Reference,Value,Footprint,${QUANTITY},${DNP},MANUFACTURER,LCSC,SOURCING,ALT1 MPN,ALT1 MFR,ALT1 LCSC,ALT2 MPN,ALT2 MFR,ALT2 LCSC,ALT NOTE' \
+  --labels 'Refs,Value (MPN),Footprint,Qty,DNP,Mfr,LCSC,Sourcing,Alt1 MPN,Alt1 Mfr,Alt1 LCSC,Alt2 MPN,Alt2 Mfr,Alt2 LCSC,Alt note' \
+  --group-by 'Value,${DNP}' "$SCH" >/dev/null
 
 for f in erc.rpt netlist.net schematic.pdf; do
   [ -s "$OUT/$f" ] || { echo "check: $OUT/$f missing or empty" >&2; exit 2; }
 done
+[ -s "$BOM" ] || { echo "check: $BOM missing or empty" >&2; exit 2; }
 
 echo "ERC:      $(grep -o 'ERC messages: .*' "$OUT/erc.rpt")"
 echo "PDF:      $OUT/schematic.pdf ($(( $(wc -c < "$OUT/schematic.pdf") / 1024 )) KB)"
+echo "BOM:      $BOM ($(( $(wc -l < "$BOM") - 1 )) rows)"
 set +e
 mid_out=$(python3 tools/midwire.py); mid=$?
 echo "${mid_out##*$'\n'}"

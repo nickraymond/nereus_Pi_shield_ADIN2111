@@ -19,6 +19,37 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.h — BOM alternates as hidden fields + tracked BOM
+
+**Branch:** sprint/5h-bom-fields
+**Files touched:** six sheet files (fields only); tools/check.sh; docs/design-review/bom.csv (new); bom_alternates,
+bom_lifecycle, sofar_brief, changelog, DESIGN, TRACKER, viewer
+**ERC:** 27 / 504 (unchanged)  ·  **Net diff:** 208 new hidden fields, nothing else — intended
+**Done:**
+- Executed `bom_alternates.md` as planned: 8 fields on each of the 24 flagged passives, `SOURCING` on 15 critical refs
+  (U1 on both units). Nick: Sofar's listed parts stay the primary column, alternates beside them; that is the layout
+- Structural compare against HEAD: every existing property unchanged and in order, every new field hidden
+**Broke/surprised us:**
+- `--group-by Value` alone merged R11 (DNP) with the fitted R12/R13/R17/R19 and marked all five DNP; caught in a
+  scratch export before editing, now grouped by Value + `${DNP}`
+- J1's Footprint property was indented 4 tabs (import leftover, like JP1) and tripped `set_properties`' guard; the
+  first run had already written two sheets, so I restored them and reran with that line re-indented
+- ERC reports differ between runs on the *same* file: `multiple_net_names` cites whichever copy of a repeated label
+  KiCad picks. Compare ERC with coordinates stripped
+- `Mfr`/`LCSC` columns are mostly blank: only 30 of 291 symbols have `MANUFACTURER`, 5 have `LCSC` (S6 harmonisation)
+- QE round 1: **APPROVED WITH NITS** (undeclared note-text tweaks, TP/FID/MTG rows in bom.csv → S6, viewer label), fixed
+- Nick: at most 3 alternates per part (ours ≤ 2); R8's 7 Sofar fields stay as Sofar's data, its ALT NOTE no longer cites them
+- Nick's first look: the fields existed but KiCad shows new fields only once their columns are enabled, and his enabled
+  columns landed after Footprint/Datasheet. Added the view "Sofar review (alternates)" to the `.kicad_pro` (preset + the
+  dialog's opening view); `kicad-cli --preset` export = bom.csv cell for cell. Closing KiCad had rewritten the `.kicad_pro`
+  with all 186 imported field names; discarded, the preset written on the committed file
+- Nick's look: fields present; KiCad 9 (macOS) draws the fields-table header blank with these columns, though its Export
+  has the headers and equals bom.csv cell for cell, so bom.csv is the review table. KiCad's close-time .kicad_pro rewrite discarded
+- Nick asked for a **Planned part** column (+ a why note) as the single diff for Sofar → S5.i, decisions recorded in TRACKER
+**Next:** merge #20; S5.i (planned parts); then S6
+
+---
+
 ## 2026-10-06 — Session handoff — S5.h planned, ready for a new session
 
 **Branch:** sprint/5h-bom-alternates (handoff docs only)
