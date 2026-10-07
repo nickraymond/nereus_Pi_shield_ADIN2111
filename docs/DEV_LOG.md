@@ -19,6 +19,27 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S6.b — ERC clean or justified (overnight run, bite 2 of 5)
+
+**Branch:** sprint/6b-erc
+**Files touched:** .kicad_pro (text variables, exclusions); 7 sheet title blocks; tools/ercexclude.py (+ test), check.sh;
+erc_justifications.csv (new); DESIGN (D28), changelog, TRACKER, viewer
+**ERC:** **0** / 504 (was 27 / 504)  ·  **Net diff:** title-block revs + text variables — intended
+**Done:**
+- S6.a QE APPROVED WITH NITS, merged (PR #22); report started `docs/design-review/qe/S6.md`
+- Title block from Nick: rev AA, PCB-000001-AA, name = file name
+- KiCad 9 exclusion key format taken from the 9.0 source (sch_marker.cpp SerializeToString) and confirmed empirically
+  on a scratch copy: only the variant with the sheet path in both path slots is accepted
+- Reasons sourced: FID/MTG have no net on the mote copper; U3 VOUT is passive-typed; switch/bootstrap and inductor nets
+**Broke/surprised us:**
+- kicad-cli JSON positions are in 100 mm units (229.87 mm prints 2.2987)
+- `--severity-exclusions` still omits excluded items from the JSON in 9.0.6, so the tool runs ERC on a copy with the
+  exclusions cleared
+- Exclusion keys carry the item's position: S6.d moves must be followed by `ercexclude.py --write` (check.sh catches it)
+**Next:** QE review; then S6.c (footprint attributes, library only)
+
+---
+
 ## 2026-10-06 — Sprint S6.a — BOM hygiene (overnight run, bite 1 of 5)
 
 **Branch:** sprint/6a-bom-hygiene

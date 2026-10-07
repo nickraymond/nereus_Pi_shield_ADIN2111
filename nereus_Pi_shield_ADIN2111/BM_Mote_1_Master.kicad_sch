@@ -6,7 +6,7 @@
 	(paper "A2")
 	(title_block
 		(title "Top-Level")
-		(rev "=ProjectRevision")
+		(rev "AA")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:1V8_BAR"

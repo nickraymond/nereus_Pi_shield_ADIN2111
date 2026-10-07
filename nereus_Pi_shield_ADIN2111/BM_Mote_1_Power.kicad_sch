@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "Power")
-		(rev "=ProjectRevision")
+		(rev "AA")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND"

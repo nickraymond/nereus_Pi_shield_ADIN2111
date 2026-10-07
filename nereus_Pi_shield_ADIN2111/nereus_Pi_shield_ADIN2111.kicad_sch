@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "Cover Page")
-		(rev "=ProjectRevision")
+		(rev "AA")
 	)
 	(lib_symbols)
 	(text "${#}"

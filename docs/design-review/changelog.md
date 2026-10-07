@@ -2,6 +2,20 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.b — ERC clean or justified (2026-10-06, branch `sprint/6b-erc`)
+
+| Change | Where |
+|---|---|
+| Title block rev `=ProjectRevision` (Altium placeholder) → `AA` | all 7 sheets (`title_block`) |
+| Text variables `PCBPARTNAME` = nereus_Pi_shield_ADIN2111, `PCBPARTNUMBER` = PCB-000001-AA, `PROJECTREVISION` = AA (Nick) | `.kicad_pro` `text_variables` |
+| 18 ERC exclusions, comment = reason (FID1–6, MTG1–4, #PWR34, U5/U10 SW+CB, U6 SW/VIN/VOS) | `.kicad_pro` `erc.erc_exclusions`, from `docs/design-review/erc_justifications.csv` |
+| New `tools/ercexclude.py` (+ `test_ercexclude.py`): regenerates / checks the exclusions; `check.sh` runs the check | tools |
+
+**Verified:** ERC 531 / 27 / 504 → **504 / 0 / 504**; the 504 warnings item-for-item unchanged. Netlist: the 7 revs and 3
+text variables only; nets identical. netcheck 51/51; midwire 0. A deliberately stale exclusion makes `check.sh` exit 1
+with ERC 1 error. Title blocks render "Rev: AA" and PCB-000001-AA on every sheet (SVG export). Still showing:
+"=ProjectAuthor" (needs a name from Nick).
+
 ## S6.a — BOM hygiene (2026-10-06, branch `sprint/6a-bom-hygiene`)
 
 Six sheet files (root untouched); flags and one field only. No connection, value or footprint changed.

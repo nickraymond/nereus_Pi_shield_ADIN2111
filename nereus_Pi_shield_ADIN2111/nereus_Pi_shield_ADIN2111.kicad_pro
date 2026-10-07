@@ -226,7 +226,80 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "pin_not_connected|2298700|3238500|63b235cc-7b80-4d92-a67a-d180d0bdc57f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|2451100|3238500|1ccc35f6-8fc7-4372-8a5e-1a4bf361615f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|2601400|3240420|e923028a-7287-44f5-88db-4fb16a92b3e1|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|2753800|3240420|bb03ba81-ccb0-41b8-8b81-facf98d9787d|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|2906200|3240420|32b94466-90ac-404e-a31f-36c60edb0f49|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|3058600|3240420|4c5e77ce-775f-433d-9d12-b7d5d5e2ca48|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+      ],
+      [
+        "pin_not_connected|3162300|3289300|d9beae47-09f3-4022-b3f7-ad8bab9f1793|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it"
+      ],
+      [
+        "pin_not_connected|3289300|3289300|6e5f369c-b405-4f7c-b0a9-8c5af6cc0c35|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it"
+      ],
+      [
+        "pin_not_connected|3416300|3289300|32f133c6-060e-40c7-a685-891c4892cad1|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it"
+      ],
+      [
+        "pin_not_connected|3543300|3289300|10a79fd1-7418-493e-a6b2-bd6dc3907a2b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
+        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it"
+      ],
+      [
+        "power_pin_not_driven|1689100|1293622|45409598-abd9-46c1-8c5c-5d41f582d48f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+      ],
+      [
+        "power_pin_not_driven|1689100|1344422|f5a4b2fd-14f3-4b99-8342-728781a12762|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+      ],
+      [
+        "power_pin_not_driven|1689100|2055622|1f6aa00b-d332-4ee4-9f03-345b013f7e7b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+      ],
+      [
+        "power_pin_not_driven|1689100|2106422|aba19838-229f-4459-83a1-c31485ca40dc|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+      ],
+      [
+        "power_pin_not_driven|2781300|1763522|03f18759-49d3-4152-b8e8-d9dfcd8d8e24|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "TPS62840 VIN on 3V3, which U5 drives through inductor L3 (passive pins), so ERC sees no power output"
+      ],
+      [
+        "power_pin_not_driven|3111500|1763522|18be0493-d9f1-435c-a081-6edbcf32dae2|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "TPS62840 switch node: driven by the regulator itself; the net holds only L4. The imported symbol types the pin power input"
+      ],
+      [
+        "power_pin_not_driven|3111500|1839722|d467e5d4-94aa-41a9-afa2-41b5071ab410|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "TPS62840 VOS senses its own 1V8 output, driven through inductor L4 (passive pins), so ERC sees no power output"
+      ],
+      [
+        "power_pin_not_driven|3581400|1981200|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
+        "ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -847,6 +920,9 @@
     "SPICEMODELCACHE": "",
     "SPICEMODELCACHEWPQKGAKU": "<root>\r\n  <DocumentId>WPQKGAKU</DocumentId>\r\n  <CacheFrame Number=\"0\">\r\n    <Model Name=\"umk107bj105_a-t\" Kind=\"CKT\">\r\n      <Text>* UMK107BJ105_A-T     SPICE MODEL  ( General Type )\r\n*--------------------------------------------------------------------------------------------------------\r\n* Model Generated by TAIYO YUDEN Corporation (http://www.ty-top.com)\r\n* Version 1.0\r\n* TAIYO YUDEN Control No. 170508_130520\r\n* Copyright(c) 2012 TAIYO YUDEN CO.,LTD. All Rights Reserved.\r\n*--------------------------------------------------------------------------------------------------------\r\n*\r\n* Products Name : Multilayer Ceramic Capacitors\r\n*\r\n* Characteristics :\r\n*     Capacitance : 1 uF , Rated Voltage : 50V , TCC : X5R\r\n*     Case Size : 1.6 x 0.8 / 0.063 x 0.031 [mm/inch] , Thickness : 0.8 / 0.031 [mm/inch]\r\n*     (Conditions: Temperature = 25 degC , DC Bias Current/Voltage = 0A / 0V)\r\n*\r\n* Frequency Range : 40Hz - 3GHz\r\n*\r\n* External Node Assignments :\r\n*\r\n*  1  o---¦ ¦---o  2\r\n*\r\n*--------------------------------------------------------------------------------------------------------\r\n.SubCkt UMK107BJ105_A-T 1 2\r\n****************************\r\nC0 1 110 0.79929u\r\nCm 1 101 0.13681u\r\nC1 101 102 0.26224u\r\nRc1 101 102 5.8806k\r\nC2 102 103 0.057839u\r\nRc2 102 103 469.42\r\nC3 103 110 0.014568u\r\nRc3 103 110 14.853\r\nC2m 1 301 0.13283u\r\nC21 301 302 1.2593u\r\nRc21 301 302 6.3079k\r\nC22 302 303 1.1189u\r\nRc22 302 303 6.9405k\r\nC23 303 304 1.1421u\r\nRc23 303 304 6.4848k\r\nC24 304 305 0.36861u\r\nRc24 304 305 785\r\nC25 305 306 0.39327u\r\nRc25 305 306 637.41\r\nC26 306 307 0.27451u\r\nRc26 306 307 19.365\r\nC27 307 308 0.15295u\r\nRc27 307 308 23.239\r\nC28 308 309 0.17569u\r\nRc28 308 309 17.788\r\nC29 309 110 1420.6p\r\nRc29 309 110 1.9725\r\nRp0 1 110 500Meg\r\nL0 110 120 0.24088n\r\nLm 120 130 0.1369n\r\nL1 120 121 0.1842n\r\nRL1 121 130 0.29804\r\nL2 120 122 0.40657n\r\nRL2 122 130 0.57395\r\nL3 120 123 0.85773n\r\nRL3 123 130 0.82282\r\nCR 120 124 0.11463u\r\nLR 124 125 0.25983n\r\nRR 125 130 52.447m\r\nCL 130 140 1.4637p\r\nLL 130 140 0.23986n\r\nRL 130 140 33.985\r\nRs 140 2 6.8539m\r\n****************************\r\n.ends UMK107BJ105_A-T</Text>\r\n    </Model>\r\n  </CacheFrame>\r\n</root>",
     "VERSIONCONTROL_PROJFOLDERREVNUMBER": "",
-    "VERSIONCONTROL_REVNUMBER": ""
+    "VERSIONCONTROL_REVNUMBER": "",
+    "PCBPARTNAME": "nereus_Pi_shield_ADIN2111",
+    "PCBPARTNUMBER": "PCB-000001-AA",
+    "PROJECTREVISION": "AA"
   }
 }

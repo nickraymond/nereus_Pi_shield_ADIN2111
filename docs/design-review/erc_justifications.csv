@@ -1,0 +1,8 @@
+type,item,reason
+pin_not_connected,^Symbol FID\d+ Hidden pin,"Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
+pin_not_connected,^Symbol MTG\d+ Pin,"M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it"
+power_pin_not_driven,^Symbol #PWR34 Hidden pin,"ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
+power_pin_not_driven,^Symbol U(5|10) Pin [26] \[(CB|SW),"LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+power_pin_not_driven,^Symbol U6 Pin B2 \[SW,"TPS62840 switch node: driven by the regulator itself; the net holds only L4. The imported symbol types the pin power input"
+power_pin_not_driven,^Symbol U6 Pin B1 \[VIN,"TPS62840 VIN on 3V3, which U5 drives through inductor L3 (passive pins), so ERC sees no power output"
+power_pin_not_driven,^Symbol U6 Pin A2 \[VOS,"TPS62840 VOS senses its own 1V8 output, driven through inductor L4 (passive pins), so ERC sees no power output"
