@@ -279,11 +279,19 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       (2 dangling-end warnings) left as Sofar drew them
 - [x] S6.d: QE review (S6 session): **APPROVED WITH NITS** in round 1 (rendered and checked as minor), nits fixed —
       `docs/design-review/qe/S6.md`; merged (PR #25)
-- [ ] Net check: kept nets match the copper; every new net listed
-- [ ] Schematic PDF (all sheets)
-- [ ] Change log of every edit
-- [ ] Open questions and proposed values, with datasheet citations
-- [ ] Pin map, power budget, BOM changes (note: the Mfr column mixes Sofar's spellings with the lifecycle table's, QE S6.a N1)
+- [x] S6.e Net check: kept nets match the copper (51/51); every new net listed — `netcheck.md` "Schematic nets with new parts"
+      (new section in `tools/netcheck.py`, + test)
+- [x] S6.e Schematic PDF (all sheets, rev AA): `docs/design-review/schematic.pdf` (reviewed snapshot; check.sh keeps writing `out/`)
+- [x] S6.e Change log of every edit: `docs/design-review/changelog.md` (S1–S6)
+- [x] S6.e Open questions and proposed values, with datasheet citations: package README (Sofar Q2/Q6/Q7 + the planned parts;
+      C56/C57 DC bias and U10 input caps from SPEC; Nick's layout/release items)
+- [x] S6.e Pin map, power budget, BOM changes: linked from the package README (DESIGN pin map, `power_budget.md`, `bom.csv` +
+      lifecycle + alternates); README notes the Mfr column mixes Sofar's spellings with the lifecycle table's (QE S6.a N1)
+- [x] S6.e Stale import data (SPEC open question): the five CRCW1210 0 Ω jumpers R11/R12/R13/R17/R19 had the Description
+      "RES SMD 205K OHM 1% 1/2W 1992" → "RES SMD 0 OHM JUMPER 1210"
+- [x] S6.e Package index: `docs/design-review/README.md` (status, reading order, open questions, how to regenerate)
+- [ ] S6.e: QE review (S6 session)
+- [ ] S6: Nick's demo — open `docs/design-review/README.md`; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
       library only, pads verified (`fpextract --verify` 0 problems). `tools/fpattrs.py`; record `docs/design-review/footprints.md`.
@@ -295,6 +303,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
 - [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.e: open `docs/design-review/README.md` (status, reading order, open questions) and `schematic.pdf`; `tools/check.sh` →
+495/0/495, ercexclude 18/0/0/0, midwire 0, netcheck 51/51 with the new-nets table in `netcheck.md`, exit 0.
 S6.d: `tools/check.sh` → `ERC messages: 495  Errors 0  Warnings 495`, ercexclude 18/0/0/0, netcheck 51/51, midwire 0, exit 0;
 netlist identical to S6.c; PDF: Top-Level (I²C pull-ups on J1, notes) and ADIN sheet (LED columns).
 S6.c: `$PY tools/fpattrs.py nereus_Pi_shield_ADIN2111/mote.pretty` → every line "type kept; courtyard kept"; `$PY tools/fpextract.py

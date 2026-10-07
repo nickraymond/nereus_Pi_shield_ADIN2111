@@ -2,7 +2,7 @@
 """Unit tests for netcheck.py on tiny hand-written fixtures. Run: python3 tools/test_netcheck.py"""
 import unittest
 
-from netcheck import compare, netlist_connectivity, pcb_connectivity, read_exclusions
+from netcheck import compare, netlist_connectivity, pcb_connectivity, read_exclusions, render
 
 PCB = """(kicad_pcb
   (footprint "R" (property "Reference" "R1")
@@ -67,6 +67,19 @@ class NetcheckTest(unittest.TestCase):
         r = run(netlist(("A", ["R1.1", "R2.1", "TP1.1", "TP1.2"]), ("B", ["R1.2"])))
         self.assertEqual(r["pins_not_in_copper"], ["TP1.2"])
         self.assertEqual(r["pads_not_in_schematic"], ["R2.2"])
+
+    def test_new_nets_listed(self):
+        r = run(netlist(("A", ["R1.1", "R2.1", "TP1.1", "R7.1"]), ("B", ["R1.2", "R2.2"]), ("N", ["R7.2", "C9.1"])))
+        self.assertEqual(r["new_nets"], {"A": ["R1.1", "R2.1", "R7.1", "TP1.1"], "N": ["C9.1", "R7.2"]})
+        self.assertNotIn("B", r["new_nets"])     # only kept parts: covered by the copper match
+
+    def test_new_nets_render_collapses_unconnected(self):
+        r = run(netlist(("A", ["R1.1", "R2.1", "TP1.1"]), ("B", ["R1.2", "R2.2"]), ("N", ["R7.2", "C9.1"]),
+                        ("unconnected-(J1-Pad7)", ["J1.7"]), ("unconnected-(J1-Pad8)", ["J1.8"])))
+        text, ok = render(r, "pcb", "net")
+        self.assertIn("| `N` | C9.1, R7.2 |", text)
+        self.assertIn("| *2 unconnected-pin nets* | J1.7, J1.8 |", text)
+        self.assertNotIn("unconnected-(J1-Pad7)`", text)
 
 
 if __name__ == "__main__":

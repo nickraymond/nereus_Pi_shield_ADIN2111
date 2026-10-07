@@ -131,6 +131,9 @@ def compare(pcb_nets, pcb_no_net, sch_nets, excluded=()):
         "pins_not_in_copper": sorted(set(sch_of) - all_pcb),
         "pads_not_in_schematic": sorted(set(pcb_of) - set(sch_of)),
         "only_pcb": sorted(pcb_refs - sch_refs), "only_sch": sorted(sch_refs - pcb_refs),
+        # every schematic net that touches a new part, with all its pins: the shield's additions to review
+        "new_nets": {name: sorted(nodes) for name, nodes in sch_nets.items()
+                     if any(ref_of(n) in sch_refs - pcb_refs for n in nodes)},
         "excluded": sorted(set(excluded) & (pcb_refs | sch_refs)),
         "excluded_missing": sorted(set(excluded) - (pcb_refs | sch_refs)),
     }
@@ -192,6 +195,19 @@ def render(r, pcb_path, netlist_path, reasons=None):
                        ("Parts only in schematic (new)", "only_sch")):
         if r[key]:
             out += [f"## {title}", "", ", ".join(sorted(r[key], key=natural)), ""]
+    if r.get("new_nets"):
+        out += ["## Schematic nets with new parts", "",
+                "Every schematic net that includes a pin of a part not on the mote board, with all its pins "
+                "(pins of kept parts on these nets are also checked against the copper above).", "",
+                "| Net | Pins |", "|---|---|"]
+        loose = sorted((n for n in r["new_nets"] if n.startswith("unconnected-")), key=natural)
+        for name in sorted(r["new_nets"], key=natural):
+            if name not in loose:
+                out.append(f"| `{name}` | {', '.join(sorted(r['new_nets'][name], key=natural))} |")
+        if loose:
+            pins = sorted({n for name in loose for n in r["new_nets"][name]}, key=natural)
+            out.append(f"| *{len(loose)} unconnected-pin nets* | {', '.join(pins)} |")
+        out.append("")
     return "\n".join(out), ok
 
 

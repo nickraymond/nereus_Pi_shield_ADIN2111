@@ -6394,7 +6394,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 205K OHM 1% 1/2W 1992"
+		(property "Description" "RES SMD 0 OHM JUMPER 1210"
 			(at 256.54 103.9622 0)
 			(effects
 				(font
@@ -8907,7 +8907,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 205K OHM 1% 1/2W 1992"
+		(property "Description" "RES SMD 0 OHM JUMPER 1210"
 			(at 256.54 73.4822 0)
 			(effects
 				(font
@@ -9280,7 +9280,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 205K OHM 1% 1/2W 1992"
+		(property "Description" "RES SMD 0 OHM JUMPER 1210"
 			(at 256.54 208.1022 0)
 			(effects
 				(font
@@ -12922,7 +12922,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 205K OHM 1% 1/2W 1992"
+		(property "Description" "RES SMD 0 OHM JUMPER 1210"
 			(at 256.54 238.5822 0)
 			(effects
 				(font
