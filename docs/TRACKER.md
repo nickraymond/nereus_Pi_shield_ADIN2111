@@ -192,7 +192,13 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed; **APPROVED** in round 2 — `docs/design-review/qe/S5.md`
 - [x] S5.h: Symbol Fields Table view "Sofar review (alternates)" in the `.kicad_pro`, opened by default; matches `bom.csv` cell for
       cell (Nick's first look: new fields are hidden columns until enabled); QE **APPROVED** in round 3
-- [ ] S5.h: Nick's KiCad look (Tools → Edit Symbol Fields); S5 is then complete → S6
+- [x] S5.h: Nick's KiCad look: fields and values present; KiCad 9 on macOS draws the Symbol Fields Table header row blank with these
+      columns shown (its Export has the headers and equals `bom.csv` cell for cell), so `bom.csv` is the review table (PR #20)
+- [ ] S5.i **(next — approved by Nick)**: **Planned part** fields `PLANNED MPN/MFR/LCSC` + `PLANNED NOTE` (why) on every BOM part, right
+      after Sofar's `Value` in the view and `bom.csv`, so Sofar reviews one diff column (D27). Nick: Value stays Sofar's part; the
+      first build buys planned parts **after Sofar's review**; ALT1/ALT2 stay as backups after Planned. Picks: 10 changed lines
+      (R34, R20/R39, R21 group, C31, C17/C26, C21, C16 group, C19/C27, R14/R18, D1 → Vishay second source), R8 after a land-pattern
+      check, the rest as specified. Then QE and Nick's look; S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC

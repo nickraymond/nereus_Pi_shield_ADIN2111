@@ -43,7 +43,10 @@ bom_lifecycle, sofar_brief, changelog, DESIGN, TRACKER, viewer
   columns landed after Footprint/Datasheet. Added the view "Sofar review (alternates)" to the `.kicad_pro` (preset + the
   dialog's opening view); `kicad-cli --preset` export = bom.csv cell for cell. Closing KiCad had rewritten the `.kicad_pro`
   with all 186 imported field names; discarded, the preset written on the committed file
-**Next:** Nick's KiCad look; then S6
+- Nick's look: fields present; KiCad 9 (macOS) draws the fields-table header blank with these columns, though its Export
+  has the headers and equals bom.csv cell for cell, so bom.csv is the review table. KiCad's close-time .kicad_pro rewrite discarded
+- Nick asked for a **Planned part** column (+ a why note) as the single diff for Sofar → S5.i, decisions recorded in TRACKER
+**Next:** merge #20; S5.i (planned parts); then S6
 
 ---
 
