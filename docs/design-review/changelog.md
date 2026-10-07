@@ -2,6 +2,17 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.f — Author + BOM PDF (2026-10-07, branch `sprint/6f-author`)
+
+| Change | Where |
+|---|---|
+| Text variable `AUTHOR` "=ProjectAuthor" (Altium placeholder) → "Nick Buemond" (Nick): every title block | `.kicad_pro` |
+| `docs/design-review/bom.pdf`: review PDF of `bom.csv` (A3 landscape; changed lines highlighted) | `tools/bompdf.py` + `tools/html2pdf.js` (AppKit print to PDF via osascript) |
+| `docs/design-review/schematic.pdf` re-exported (title blocks show the author) | docs |
+
+**Verified:** netlist identical; ERC 495/0/495; ercexclude 18/0/0/0; netcheck 51/51; midwire 0; all 7 title blocks render
+"Nick Buemond" (SVG export).
+
 ## S6.e — Review package (2026-10-06, branch `sprint/6e-review-package`)
 
 | Change | Where |
@@ -56,7 +67,7 @@ Library `mote.pretty` (`Vault`) only, D29; no schematic or pad change. 43 footpr
 **Verified:** ERC 531 / 27 / 504 → **504 / 0 / 504**; the 504 warnings item-for-item unchanged. Netlist: the 7 revs and 3
 text variables only; nets identical. netcheck 51/51; midwire 0. A deliberately stale exclusion makes `check.sh` exit 1
 with ERC 1 error. Title blocks render "Rev: AA" and PCB-000001-AA on every sheet (SVG export). Still showing:
-"=ProjectAuthor" (needs a name from Nick).
+"=ProjectAuthor" (needs a name from Nick; set to Nick Buemond in S6.f).
 
 ## S6.a — BOM hygiene (2026-10-06, branch `sprint/6a-bom-hygiene`)
 

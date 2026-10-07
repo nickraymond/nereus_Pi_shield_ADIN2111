@@ -19,6 +19,22 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-07 — Sprint S6.f — Author + BOM PDF
+
+**Branch:** sprint/6f-author
+**Files touched:** .kicad_pro (AUTHOR); bom.pdf + schematic.pdf; tools/bompdf.py, tools/html2pdf.js; README, TRACKER, viewer,
+changelog
+**ERC:** 0 / 495 (unchanged)  ·  **Net diff:** none
+**Done:**
+- Nick: author is Nick Buemond; he wants the KiCad project, the changes and a BOM PDF to review
+- BOM PDF from bom.csv, one row per line, changed lines highlighted
+**Broke/surprised us:**
+- No HTML/RTF → PDF filter on macOS (cupsfilter); AppKit's print operation via JavaScript for Automation works, and
+  needs absolute column widths (percentages are ignored)
+**Next:** QE review; Nick's review of the package and the KiCad project; S6 complete
+
+---
+
 ## 2026-10-06 — Sprint S6.e — Review package (overnight run, bite 5 of 5)
 
 **Branch:** sprint/6e-review-package
