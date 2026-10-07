@@ -19,6 +19,28 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.i — Planned part per BOM line (D27)
+
+**Branch:** sprint/5i-planned-parts
+**Files touched:** six sheet files (fields only); .kicad_pro (view); tools/check.sh; bom.csv; DESIGN (D27), bom_alternates,
+bom_lifecycle, sofar_brief, changelog, TRACKER, viewer
+**ERC:** 27 / 504 (unchanged)  ·  **Net diff:** 428 new PLANNED fields + 19 SOURCING values — intended
+**Done:**
+- S5.h merged (PR #20, `1acef25`) after Nick's look; KiCad's close-time .kicad_pro rewrite discarded first
+- Nick: one "planned part" column, with the why, as the single diff for Sofar. Decisions: Value stays Sofar's; first build
+  buys planned parts after Sofar's review; ALT1/ALT2 stay as backups
+- 10 changed lines from the S5.h alternates; every other part planned as specified with its S5.e LCSC number
+- R8: compared ROHM PMR03 (b 0.35 mm) and KOA UR73D1J (b 0.55 mm) against R8's pads; no ROHM land pattern → kept
+- check.sh now exports bom.csv from the KiCad preset (one definition); unknown preset fails loudly with a restore hint
+**Broke/surprised us:**
+- Five more parts (U11, R41, C56–C58) had the 4-tab Footprint line; the guard stopped after one sheet, restored, re-run
+  with the same whitespace normalisation as J1
+- No LCSC listing for D1's Vishay second source; TDK KT000N vs K125AB: same spec per LCSC, thickness not confirmed
+- QE round 1: **APPROVED WITH NITS** (F1 two notes overstated stock; N1 TDK claim; N2 D26 → D27; N3 "tier-1"), fixed
+**Next:** merged on Nick's instruction; S6.a plan (BOM hygiene), with a fresh S6 QE session
+
+---
+
 ## 2026-10-06 — Sprint S5.h — BOM alternates as hidden fields + tracked BOM
 
 **Branch:** sprint/5h-bom-fields

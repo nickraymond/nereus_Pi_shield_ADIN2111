@@ -4650,6 +4650,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-071K5L"
+			(at 121.92 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 121.92 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114759"
+			(at 121.92 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 121.92 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "06bd95ad-d377-4771-aec3-b7e9fe5d9010")
 		)
@@ -4916,6 +4952,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "ADIN2111BCPZ"
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Analog Devices"
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
 			(at 259.08 203.0222 0)
 			(effects
 				(font
@@ -5352,6 +5424,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 226.06 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 226.06 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 226.06 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 226.06 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "803fe54f-b2c6-453b-bc6a-761b7704c871")
 		)
@@ -5780,6 +5888,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "AP22913CN4-7"
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Diodes Inc."
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2150198"
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "A1"
 			(uuid "b5f510ec-e624-4f13-914e-a030e9401b1d")
 		)
@@ -6197,6 +6341,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 276.86 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 276.86 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 276.86 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 276.86 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ed09bf76-e330-4fba-b042-29387c3d7b35")
 		)
@@ -6553,6 +6733,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CC0402KRX5R6BB684"
+			(at 91.44 88.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 91.44 88.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C113784"
+			(at 91.44 88.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 91.44 88.7222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6975,6 +7191,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "ERJ-2RKF4701X"
+			(at 347.98 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Panasonic"
+			(at 347.98 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C400631"
+			(at 347.98 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 347.98 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -7524,6 +7776,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "ERJ-2RKF4701X"
+			(at 261.62 91.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Panasonic"
+			(at 261.62 91.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C400631"
+			(at 261.62 91.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 261.62 91.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d21ffe6b-6fc4-4be3-9302-9b8c20fca3db")
 		)
@@ -7997,6 +8285,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 226.06 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 226.06 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 226.06 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 226.06 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a3d20a8c-1f97-44a8-b6ae-7c0b3f568ba2")
 		)
@@ -8139,6 +8463,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "AP22913CN4-7"
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Diodes Inc."
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2150198"
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
 			(at 177.8 197.9422 0)
 			(effects
 				(font
@@ -8522,6 +8882,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CC0402JRNPO9BN150"
+			(at 254 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 254 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C106997"
+			(at 254 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 254 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2dd03d5d-b729-4aaa-a83c-ed5d2d763c08")
 		)
@@ -8602,6 +8998,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "ADIN2111BCPZ"
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Analog Devices"
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
 			(at 205.74 98.8822 0)
 			(effects
 				(font
@@ -9120,6 +9552,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CC0402JRNPO9BN150"
+			(at 287.02 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 287.02 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C106997"
+			(at 287.02 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 287.02 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "303756eb-a380-45a3-9629-a19fd0e8e4c4")
 		)
@@ -9218,6 +9686,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 87"
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "ABM11W-25.0000MHZ-6-K1Z-T3"
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Abracon"
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
 			(at 259.08 131.9022 0)
 			(effects
 				(font
@@ -9653,6 +10157,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "ERJ-2RKF4701X"
+			(at 266.7 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Panasonic"
+			(at 266.7 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C400631"
+			(at 266.7 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 266.7 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "cbb2344b-94bc-4068-9f5d-b4d15e4031a9")
 		)
@@ -9929,6 +10469,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A105KP5NNNC"
+			(at 292.1 68.4022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 292.1 68.4022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C14445"
+			(at 292.1 68.4022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 292.1 68.4022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10278,6 +10854,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 304.8 65.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 304.8 65.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 304.8 65.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 304.8 65.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10637,6 +11249,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "ERJ-2RKF4701X"
+			(at 347.98 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Panasonic"
+			(at 347.98 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C400631"
+			(at 347.98 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 347.98 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -11105,6 +11753,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A105KP5NNNC"
+			(at 264.16 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 264.16 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C14445"
+			(at 264.16 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 264.16 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "131da1ff-f2de-42a4-a5c9-df5bf5c05da1")
 		)
@@ -11389,6 +12073,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 215.9 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 215.9 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 215.9 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 215.9 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -11738,6 +12458,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 215.9 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 215.9 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 215.9 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 215.9 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -12100,6 +12856,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "ERJ-2RKF4701X"
+			(at 254 119.2022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Panasonic"
+			(at 254 119.2022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C400631"
+			(at 254 119.2022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 254 119.2022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2f6809cc-7da3-4d14-a002-b29c5810aefe")
 		)
@@ -12459,6 +13251,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CC0402KRX5R6BB684"
+			(at 78.74 86.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 78.74 86.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C113784"
+			(at 78.74 86.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 78.74 86.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0aace685-2872-4029-8b42-e1cc624f0b7d")
 		)
@@ -12808,6 +13636,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 193.04 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 193.04 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 193.04 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 193.04 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7d6dd1ca-4e84-4b30-a87b-77ea682ba84d")
 		)
@@ -13092,6 +13956,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 205.74 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 205.74 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 205.74 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 205.74 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -13462,6 +14362,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-071K5L"
+			(at 320.04 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 320.04 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114759"
+			(at 320.04 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 320.04 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "199711c3-9c19-477c-ac8f-e809cc00803b")
 		)
@@ -13539,6 +14475,42 @@
 			)
 		)
 		(property "LCSC" "C2286"
+			(at 322.58 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "KT-0603R"
+			(at 322.58 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Hubei KENTO"
+			(at 322.58 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2286"
+			(at 322.58 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
 			(at 322.58 181.61 0)
 			(effects
 				(font
@@ -13656,6 +14628,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-071K5L"
+			(at 337.82 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 337.82 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114759"
+			(at 337.82 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 337.82 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d7d2ff23-cb7f-4471-ae66-4b0b67be33a6")
 		)
@@ -13733,6 +14741,42 @@
 			)
 		)
 		(property "LCSC" "C2289"
+			(at 340.36 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "KT-0603YG"
+			(at 340.36 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Hubei KENTO"
+			(at 340.36 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2289"
+			(at 340.36 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
 			(at 340.36 181.61 0)
 			(effects
 				(font
@@ -13915,6 +14959,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-071K5L"
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114759"
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 386.08 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3fba5397-ad61-48d5-861a-574e8dcd42d9")
 		)
@@ -13992,6 +15072,42 @@
 			)
 		)
 		(property "LCSC" "C2289"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "KT-0603YG"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Hubei KENTO"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2289"
+			(at 388.62 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
 			(at 388.62 181.61 0)
 			(effects
 				(font

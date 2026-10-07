@@ -19,6 +19,7 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
 | 7 | Load-switch control links | R10 0 Ω (STM32 pin 19 → SW_ON) and R9 0 Ω (mezzanine → same net), TP19 | R9 and R10 removed; TP19 kept, tied to SW_EN; Pi GPIO16 is the only controller (D22) | One controller; fewer parts to place |
 | 8 | Payload power out | VBUS_OUT through mezzanine P1 pins 14/16/18 | **J5 JST GH 2-pin** (SM02B-GHS-TB): pin 1 VBUS_OUT, pin 2 GND; 1.0 A per contact, 50 V (D23) | The mezzanine is gone; the payload needs its own connector |
 | 9 | ADIN status LEDs | None | **D8 red** (ADIN powered), **D9 / D10 yellow-green** (port 1 / port 2 link/activity on ADIN pins 21 / 48, active low; your R3 / R5 stay as their pull-ups, so the 1.0 V p-p straps are unchanged), each via 1.5 kΩ from ADIN_VDDIO through **JP2**, a bridged link that is cut to disable them (D25) | Bench visibility of PHY power and per-port link; a few mW, off with the ADIN |
+| 10 | BOM: planned parts | Your specified parts | 10 lines planned as LCSC-stocked equivalents for JLC assembly; the rest unchanged (D27): R34, R20/R39, R21 group, C31, C17/C26, C21, C16 group, C19/C27, R14/R18, D1 → your Vishay second source. Table and reasons: `bom.csv` (Planned note), `bom_alternates.md` | Your exact parts aren't stocked at LCSC; for your review, not yet adopted |
 
 **Notes for your review**
 
@@ -26,6 +27,10 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
   is limited to ≤ 1 A continuous by U10's temperature (D15).
 - Open questions for you: `docs/SOFAR_QUESTIONS.md` (Q2 R11 on production motes,
   Q4 mezzanine-side load-switch control).
+- **Planned parts: the one column to review** (D27). Each BOM line now has a `Planned MPN/Mfr/LCSC` and a
+  `Planned note` (why) right after your part in `docs/design-review/bom.csv` and in KiCad's Symbol Fields view
+  "Sofar review (planned parts)". Where Planned equals your part, nothing changes. Ten lines differ (row 10 above).
+  The first build uses the planned parts only after your review. Your part stays the schematic `Value` until then.
 - **BOM alternates are proposals for your review, not substitutions** (D26). Every part you specified is still the
   part on the schematic (`Value`) and in the BOM's first column. Where LCSC doesn't stock it, we recorded up to two
   LCSC alternates as hidden `ALT…` fields with a note, and a `SOURCING` field saying how the first build buys it (your

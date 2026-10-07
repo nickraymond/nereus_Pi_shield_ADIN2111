@@ -2,6 +2,24 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S5.i — Planned part per BOM line (2026-10-06, branch `sprint/5i-planned-parts`)
+
+Six sheet files (root sheet untouched); fields only (D27). No connection, value or footprint changed.
+
+| Change | Refs |
+|---|---|
+| + `PLANNED MPN`, `PLANNED MFR`, `PLANNED LCSC`, `PLANNED NOTE` (hidden) | all 106 purchased parts (U1 on both units); not TP/FID/MTG or JP1/JP2 |
+| `SOURCING` → "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing" | the 19 parts on the 9 changed passive lines |
+| `Footprint` property line re-indented 4 → 2 tabs (whitespace only) | U11, R41, C56, C57, C58 (S4/S5 leftovers; `set_properties` refuses a symbol with an unparsed property) |
+| `.kicad_pro`: view renamed "Sofar review (planned parts)": Refs, Qty, Value (MPN), Mfr, **Planned MPN/Mfr/LCSC, Planned note**, DNP, Sourcing, Alt1/Alt2, Alt note, Footprint (the specified part's LCSC column dropped: Planned LCSC replaces it) | `bom_presets` + `bom_settings` |
+| `tools/check.sh` exports `bom.csv` with `--preset "Sofar review (planned parts)"` (one definition for the view and the file; fails with a restore hint if KiCad dropped the preset) | — |
+
+**Verified:** 428 fields added (107 blocks × 4); a structural compare against `main` finds every other existing
+property unchanged and in order, nothing outside symbol blocks changed, every new field hidden. Netlist: the only removed
+lines are the 19 old `SOURCING` values; all other lines added are the new fields. ERC 531 / 27 / 504, items identical
+with locations stripped; netcheck 51/51; midwire 0. `bom.csv` (54 rows) reproducible; 11 rows where Planned ≠ Value
+(the 10 changes + J1 TBD).
+
 ## S5.h — BOM alternates as hidden fields (2026-10-06, branch `sprint/5h-bom-fields`)
 
 Six sheet files (the root `nereus_Pi_shield_ADIN2111.kicad_sch` untouched); fields only (D26, `docs/design-review/bom_alternates.md`). No connection, value or

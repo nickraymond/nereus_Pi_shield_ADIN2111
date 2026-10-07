@@ -3534,6 +3534,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "GRJ155R60J106ME11D"
+			(at 336.55 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 336.55 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C469527"
+			(at 336.55 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 336.55 182.7022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "edef43bf-be35-44ae-8d0e-f565819ab3aa")
 		)
@@ -3610,6 +3646,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "TPS62840YBGR"
+			(at 278.13 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Texas Instruments"
+			(at 278.13 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C2071139"
+			(at 278.13 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 278.13 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -3909,6 +3981,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 177.8 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 177.8 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 177.8 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 177.8 129.3622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -4373,7 +4481,43 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL10A226MQ8NRNC"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C59461"
+			(at 205.74 145.8722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "Same spec, 22 µF ±20 % 6.3 V X5R 0603; specified TDK out of stock at LCSC (and DK until 2027-01)"
 			(at 205.74 145.8722 0)
 			(effects
 				(font
@@ -4595,6 +4739,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "DFE201612E-2R2M=P2"
+			(at 313.69 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 313.69 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C337893"
+			(at 313.69 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 313.69 176.3522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0003c5d8-3686-47e3-835b-5edc4ddebda1")
 		)
@@ -4674,6 +4854,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "PA5432.822NLT"
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Pulse (YAGEO group)"
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 187.96 134.4422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
 			(at 187.96 134.4422 0)
 			(effects
 				(font
@@ -4857,6 +5073,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "LMR51430YDDCR"
+			(at 128.27 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Texas Instruments"
+			(at 128.27 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C5210749"
+			(at 128.27 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 128.27 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -5344,7 +5596,43 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "RTT021824FTH"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "RALEC"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C166520"
+			(at 74.93 150.9522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "Only stocked LCSC match: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Vishay part has no LCSC listing"
 			(at 74.93 150.9522 0)
 			(effects
 				(font
@@ -5459,6 +5747,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "RC0402FR-07200KL"
+			(at 72.39 163.6522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 72.39 163.6522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114763"
+			(at 72.39 163.6522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 72.39 163.6522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -5778,6 +6102,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "GRM155R60J475ME87D"
+			(at 256.54 183.9722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 256.54 183.9722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C76996"
+			(at 256.54 183.9722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 256.54 183.9722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -6245,7 +6605,43 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "0402WGF1003TCE"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "UNI-ROYAL"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C25741"
+			(at 232.41 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
 			(at 232.41 136.9822 0)
 			(effects
 				(font
@@ -6705,6 +7101,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-0722K1L"
+			(at 232.41 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 232.41 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C163478"
+			(at 232.41 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 232.41 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "51030ac4-b2d9-4447-8d8a-c25f2d8b06f2")
 		)
@@ -7147,6 +7579,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "GRM188R72A104KA35D"
+			(at 95.25 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 95.25 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C77058"
+			(at 95.25 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 95.25 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "55ca3e9e-2912-46a1-9e83-869550790b3e")
 		)
@@ -7361,6 +7829,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "UMK107BBJ225KA-T"
+			(at 102.87 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Taiyo Yuden"
+			(at 102.87 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C268016"
+			(at 102.87 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+			(at 102.87 133.1722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -7837,6 +8341,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 177.8 205.5622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1cd7082a-77fd-4fc2-9092-15ca8145ca16")
 		)
@@ -7880,7 +8420,7 @@
 				(hide yes)
 			)
 		)
-				(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 205.74 222.0722 0)
 			(effects
 				(font
@@ -7972,6 +8512,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "GRM21BR61C226ME44L"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C86817"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 205.74 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -8186,6 +8762,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "PA5432.822NLT"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Pulse (YAGEO group)"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 187.96 210.6422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e200f5f1-3ec5-4bc0-8460-caf20a1c9542")
 		)
@@ -8361,6 +8973,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "LMR51430YDDCR"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Texas Instruments"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C5210749"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 128.27 208.1022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -8848,7 +9496,43 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "RTT021824FTH"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "RALEC"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C166520"
+			(at 74.93 227.1522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "Only stocked LCSC match: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Vishay part has no LCSC listing"
 			(at 74.93 227.1522 0)
 			(effects
 				(font
@@ -8963,6 +9647,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "RC0402FR-07200KL"
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C114763"
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 72.39 239.8522 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -9430,7 +10150,43 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "0402WGF1003TCE"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "UNI-ROYAL"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C25741"
+			(at 232.41 213.1822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
 			(at 232.41 213.1822 0)
 			(effects
 				(font
@@ -9890,6 +10646,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402FR-0713K7L"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C274888"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 232.41 241.1222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "33355113-8dfd-48f8-a83d-a52010eb81ca")
 		)
@@ -10208,6 +11000,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "GRM188R72A104KA35D"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C77058"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 95.25 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "8652ae05-f279-4c6c-8247-c205d1fcc3c5")
 		)
@@ -10425,6 +11253,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "UMK107BBJ225KA-T"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Taiyo Yuden"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C268016"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+			(at 102.87 209.3722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "610babf5-3cb8-447f-8cb4-f980e8815ad6")
 		)
@@ -10530,7 +11394,7 @@
 				(hide yes)
 			)
 		)
-				(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 241.3 222.0722 0)
 			(effects
 				(font
@@ -10622,6 +11486,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "GRM21BR61C226ME44L"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C86817"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 241.3 222.0722 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10730,7 +11630,7 @@
 				(hide yes)
 			)
 		)
-				(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 254 218.2622 0)
 			(effects
 				(font
@@ -10815,6 +11715,42 @@
 			)
 		)
 		(property "DATASHEET URL" "https://pim.murata.com/en-us/pim/details/?partNum=GRM155R61A475MEAA%23"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "GRM155R61A475MEAAD"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Murata"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C335105"
+			(at 254 218.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
 			(at 254 218.2622 0)
 			(effects
 				(font
