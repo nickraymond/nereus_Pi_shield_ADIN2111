@@ -204,7 +204,7 @@ const S = [
   ["S5.e: QE approved; your review of bom_lifecycle.md", `<p>Your review OK; PR #18 merged. QE APPROVED WITH NITS (round 2), fixed. Read docs/design-review/bom_lifecycle.md: the decisions table and the sourcing policy.</p>`, "nick", 1],
   ["Sourcing policy (D26)", `<p>Your call: critical parts (ADIN, load switches, inductors, crystal, diodes, inserts, J5) via JLC global sourcing; passives keep the specified part with LCSC alternates as hidden ALT fields for Sofar's design review (S5.h). Substitutes only after Sofar weighs in and a constraint is amended.</p>`, "nick", 1],
   ["S5.h: BOM alternates (fields only)", `<p>Hidden ALT1/ALT2 MPN/MFR/LCSC + ALT NOTE + SOURCING fields on the 24 flagged passives, SOURCING on the critical parts. <code>tools/check.sh</code> writes <code>docs/design-review/bom.csv</code>: Sofar's specified part in the first column, alternates beside it, grouped by value and DNP. Schematic connections unchanged.</p>`, null, 1],
-  ["S5.h: QE approved; your KiCad look", `<p>QE APPROVED in round 2 (round 1 nits fixed). Your look: Tools → Edit Symbol Fields opens on the view "Sofar review (alternates)" (also under View presets): your part, then the alternates, the same as bom.csv.</p>`, "nick"],
+  ["S5.h: QE approved; your KiCad look", `<p>QE APPROVED (round 3, the fields-table view). Your look: Tools → Edit Symbol Fields opens on the view "Sofar review (alternates)" (also under View presets): your part, then the alternates, the same as bom.csv.</p>`, "nick"],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
 <tr><td>22</td><td>25</td><td>ADIN_INT</td></tr>
