@@ -276,8 +276,9 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       pins and labels; "Set for 1Vp-p comms." note no longer overlaps the SWPD note; bus note 3 lines (was wrapping to 5);
       dead 3V3 stub and 7 dangling ADIN lead-ins removed (warnings 504 → 495). Netlist identical. **Not done** (more than
       minor): moving J1 so every interconnect sits on the right of the Top-Level sheet; Sofar's PoDL PHY1_N/PHY2_N wire ends
-      (2 dangling-end warnings) left as he drew them
-- [ ] S6.d: QE review (S6 session)
+      (2 dangling-end warnings) left as Sofar drew them
+- [x] S6.d: QE review (S6 session): **APPROVED WITH NITS** in round 1 (rendered and checked as minor), nits fixed —
+      `docs/design-review/qe/S6.md`; merged (PR #25)
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit

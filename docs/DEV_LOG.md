@@ -35,7 +35,8 @@ changelog, TRACKER, viewer
 - Sofar's ADIN_VDDIO bar symbol points down at rotation 0 (opposite to KiCad's stock symbols); field angle 90 keeps text
   horizontal on a 270° symbol; Sofar's resistors show a RESISTANCE field (Value hidden)
 - Moving #PWR34 made its exclusion stale exactly as designed: check.sh failed until `ercexclude.py --write`
-**Next:** QE review; then S6.e (review package)
+- QE APPROVED WITH NITS after rendering base vs head; redundant TP8 junction removed
+**Next:** S6.e (review package)
 
 ---
 
