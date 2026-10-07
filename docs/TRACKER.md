@@ -265,8 +265,7 @@ justified (title block: name = file name, rev AA, part number PCB-000001-AA), S6
 only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no overhaul), S6.e review package. Fresh S6 QE session.*
 - [x] S6.b ERC clean (D28): **0 errors** / 504 warnings. Title block set (PCBPARTNAME = file name, PCBPARTNUMBER = PCB-000001-AA,
       rev AA); 18 errors excluded with reasons from `docs/design-review/erc_justifications.csv` via `tools/ercexclude.py`
-      (`check.sh` fails if an exclusion goes stale). Open (Nick): the title blocks still show the Altium placeholder
-      "=ProjectAuthor" (text variable AUTHOR) — needs an author name
+      (`check.sh` fails if an exclusion goes stale). Author: Nick Buemond (set in S6.f)
 - [x] S6.b: QE review (S6 session): round 1 CHANGES REQUESTED (tool exited 0 on unjustified errors), fixed; **APPROVED WITH NITS**
       in round 2, nits fixed — `docs/design-review/qe/S6.md`; merged (PR #23)
 - [x] S6.d stale note: "Processor + onboard logic runs off 3V3, and ADIN AVDD off 1V8." → "Shield logic runs off 3V3; ADIN
@@ -291,7 +290,11 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       "RES SMD 205K OHM 1% 1/2W 1992" → "RES SMD 0 OHM JUMPER 1210"
 - [x] S6.e Package index: `docs/design-review/README.md` (status, reading order, open questions, how to regenerate)
 - [x] S6.e: QE review (S6 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S6.md`; merged (PR #26)
-- [ ] S6: Nick's demo — open `docs/design-review/README.md`; S6 is then complete
+- [x] S6.f (Nick, 2026-10-07): title-block author = Nick Buemond (text variable AUTHOR, was the Altium placeholder
+      "=ProjectAuthor"); review PDF of the BOM `docs/design-review/bom.pdf` (`tools/bompdf.py`, + `tools/html2pdf.js`);
+      `schematic.pdf` re-exported
+- [ ] S6.f: QE review (S6 session)
+- [ ] S6: Nick's demo — open `docs/design-review/README.md`, `schematic.pdf`, `bom.pdf` and the project in KiCad; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
       library only, pads verified (`fpextract --verify` 0 problems). `tools/fpattrs.py`; record `docs/design-review/footprints.md`.

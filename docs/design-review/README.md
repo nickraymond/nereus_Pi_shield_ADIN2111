@@ -25,7 +25,7 @@ path kept as Sofar designed them (DESIGN D12). **Package assembled:** 2026-10-06
 | 4 | Connectivity check: kept nets vs the mote's copper, and every new net with its pins | `netcheck.md` |
 | 5 | Pi header pin map; ADIN power-up order and back-power cases | `../DESIGN.md` → "Pi header pin map", "ADIN power and boot" |
 | 6 | Power budget: bus power, 5 V converter, Pi supply, payload port | `power_budget.md` |
-| 7 | BOM: `bom.csv` (Value = Sofar's part, Planned = what we'd build with, Planned note = why; Alt = backups); lifecycle and stock check; alternates and the planned-part table | `bom.csv`, `bom_lifecycle.md`, `bom_alternates.md` |
+| 7 | BOM: `bom.pdf` to read (one row per line: Sofar's part, planned part and why, backups, sourcing; changed lines highlighted); `bom.csv` is the data (Value = Sofar's part, Planned = what we'd build with); lifecycle and stock check; alternates and the planned-part table | `bom.pdf`, `bom.csv`, `bom_lifecycle.md`, `bom_alternates.md` |
 | 8 | Footprint types and courtyards (source of each) | `footprints.md` |
 | 9 | ERC exclusions and their reasons | `erc_justifications.csv` |
 | 10 | Decision log (D1–D29) | `../DESIGN.md` → "Decision log" |
@@ -63,7 +63,6 @@ our lifecycle table ("Yageo", "Würth Elektronik"), because Sofar's fields were 
 
 **For Nick (layout and release):**
 - J1's socket part number (height, once the board spacing is known).
-- The title blocks still show the Altium placeholder "=ProjectAuthor" (text variable `AUTHOR`): needs a name.
 - pcbnew → Tools → Update Footprints from Library, to pick up the S6.c types and courtyards (check its keep-text options).
 - Grounding of the mounting holes MTG1–4 (no net, as on the mote).
 - Not done in the tidy (more than minor): moving J1 so every interconnect sits on the right of the Top-Level sheet.
@@ -81,7 +80,7 @@ ERC, netlist, PDF (`out/`), BOM (`bom.csv`), ERC exclusions check, mid-wire chec
 Expected: `ERC messages: 495  Errors 0  Warnings 495`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
 missing exclusions`, `midwire: 0`, `netcheck: 51/51 … 0 opens, 0 shorts`, exit 0.
 
-`schematic.pdf` here is the reviewed snapshot:
+`schematic.pdf` and `bom.pdf` here are reviewed snapshots (`python3 tools/bompdf.py` rebuilds `bom.pdf` from `bom.csv`, macOS):
 
 ```bash
 /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli sch export pdf -o docs/design-review/schematic.pdf nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch
