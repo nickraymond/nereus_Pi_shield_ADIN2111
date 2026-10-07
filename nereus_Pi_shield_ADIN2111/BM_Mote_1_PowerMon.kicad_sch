@@ -2170,7 +2170,7 @@
 				(hide yes)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: power-path current sense. Sofar's own 7 listed alternates (fields MANUFACTURERPARTNUMBER1-7) not found at LCSC; check land pattern"
+		(property "ALT NOTE" "Sofar review: power-path current sense; check land pattern"
 			(at 175.26 157.3022 0)
 			(effects
 				(font

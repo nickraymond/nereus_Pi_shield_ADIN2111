@@ -37,7 +37,9 @@ bom_lifecycle, sofar_brief, changelog, DESIGN, TRACKER, viewer
 - ERC reports differ between runs on the *same* file: `multiple_net_names` cites whichever copy of a repeated label
   KiCad picks. Compare ERC with coordinates stripped
 - `Mfr`/`LCSC` columns are mostly blank: only 30 of 291 symbols have `MANUFACTURER`, 5 have `LCSC` (S6 harmonisation)
-**Next:** QE review (standing S5 session); Nick's KiCad look; then S6
+- QE round 1: **APPROVED WITH NITS** (undeclared note-text tweaks, TP/FID/MTG rows in bom.csv → S6, viewer label), fixed
+- Nick: at most 3 alternates per part (ours ≤ 2); R8's 7 Sofar fields stay as Sofar's data, its ALT NOTE no longer cites them
+**Next:** Nick's KiCad look; then S6
 
 ---
 

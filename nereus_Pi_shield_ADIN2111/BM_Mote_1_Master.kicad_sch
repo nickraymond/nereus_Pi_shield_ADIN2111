@@ -14104,7 +14104,7 @@
 				(hide yes)
 			)
 		)
-		(property "SOURCING" "Part not chosen: 2x20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
+		(property "SOURCING" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
 			(at 121.92 88.9 0)
 			(effects
 				(font

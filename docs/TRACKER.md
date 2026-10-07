@@ -189,7 +189,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       `SOURCING` on the critical parts (U1–U3, L3/L6, Y1, D1–D3, MP1–MP4, J5, J1); `tools/check.sh` writes the tracked
       `docs/design-review/bom.csv`: Sofar's specified part first (`Value (MPN)`), alternates beside it (Nick). Grouped by
       Value and DNP (R11 kept apart from R12/R13/R17/R19). Values: `docs/design-review/bom_alternates.md`
-- [ ] S5.h: QE review (standing S5 session)
+- [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [ ] S5.h: Nick's KiCad look (Tools → Edit Symbol Fields); S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
@@ -262,6 +262,8 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 - [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
       courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
       (QE S4.d N3; Nick's layout or a schematic/library pass)
+- [ ] BOM for a JLC order: `bom.csv` also lists the 16 test points, FID1–6 and MTG1–4 (`in_bom yes` since the import; QE S5.h
+      N2). Set `in_bom no` on them or filter the export
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
 
 ---

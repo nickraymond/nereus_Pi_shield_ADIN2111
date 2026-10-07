@@ -14,6 +14,10 @@ footprint changed. Every new field is hidden, at the symbol origin.
 | J1 `Footprint` property line re-indented 4 → 2 tabs | whitespace only (import leftover, like JP1 in S5.f); `set_properties` refuses a symbol with an unparsed property |
 | `tools/check.sh` exports `docs/design-review/bom.csv` (tracked) | `Value (MPN)` = the specified part, then Mfr, LCSC, Sourcing, Alt1/Alt2 MPN/Mfr/LCSC, Alt note; grouped by Value and DNP |
 
+Field text follows `bom_alternates.md` except: C22/C23 `ALT NOTE` leaves out the plan's "(DK 78,606)" (stock figures drift; it stays in
+the plan); R8 `ALT NOTE` is "Sofar review: power-path current sense; check land pattern" (Nick: at most 3 alternates per part; R8's
+7 Sofar fields `MANUFACTURERPARTNUMBER1–7` stay untouched, outside bom.csv).
+
 **Verified:** 208 fields added (24 × 8 + 16 SOURCING blocks); a structural compare against `HEAD` finds every existing
 property of every symbol unchanged and in order, nothing outside symbol blocks changed, and every new field hidden.
 Netlist diff: 0 lines removed; all 414 added lines are the new fields (component `property` + libpart `field`). ERC

@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-06 · Now: S5.h in review</strong> <strong>S5.h done, PR open:</strong> hidden ALT1/ALT2 + ALT NOTE + SOURCING fields on the 24 flagged passives, SOURCING on the critical parts, and a tracked BOM (docs/design-review/bom.csv) with Sofar's specified part first and the alternates beside it. No connection changed (ERC 27/504, netcheck 51/51). <strong>Next:</strong> QE review, your KiCad look, then S6, the design-review package.</p>
+    <p><strong>Updated 2026-10-06 · Now: S5.h in review</strong> <strong>S5.h done, PR open:</strong> hidden ALT1/ALT2 + ALT NOTE + SOURCING fields on the 24 flagged passives, SOURCING on the critical parts, and a tracked BOM (docs/design-review/bom.csv) with Sofar's specified part first and the alternates beside it. No connection changed (ERC 27/504, netcheck 51/51). QE APPROVED WITH NITS, fixed. Alternates capped at 3 per part (ours ≤ 2). <strong>Next:</strong> your KiCad look, then S6, the design-review package.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -204,7 +204,7 @@ const S = [
   ["S5.e: QE approved; your review of bom_lifecycle.md", `<p>Your review OK; PR #18 merged. QE APPROVED WITH NITS (round 2), fixed. Read docs/design-review/bom_lifecycle.md: the decisions table and the sourcing policy.</p>`, "nick", 1],
   ["Sourcing policy (D26)", `<p>Your call: critical parts (ADIN, load switches, inductors, crystal, diodes, inserts, J5) via JLC global sourcing; passives keep the specified part with LCSC alternates as hidden ALT fields for Sofar's design review (S5.h). Substitutes only after Sofar weighs in and a constraint is amended.</p>`, "nick", 1],
   ["S5.h: BOM alternates (fields only)", `<p>Hidden ALT1/ALT2 MPN/MFR/LCSC + ALT NOTE + SOURCING fields on the 24 flagged passives, SOURCING on the critical parts. <code>tools/check.sh</code> writes <code>docs/design-review/bom.csv</code>: Sofar's specified part in the first column, alternates beside it, grouped by value and DNP. Schematic connections unchanged.</p>`, null, 1],
-  ["S5.h: QE approved; your KiCad look", `<p>QE review in the standing S5 session, then your look: Tools → Edit Symbol Fields shows the new columns.</p>`, "nick"],
+  ["S5.h: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 1), nits fixed. Your look: Tools → Edit Symbol Fields shows the new columns.</p>`, "nick"],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
 <tr><td>22</td><td>25</td><td>ADIN_INT</td></tr>
@@ -270,6 +270,7 @@ const S = [
   items:[
   ["First DRC after F8: expect ≈ 58 \"doesn't match library\" warnings", `<p>Graphics-only differences from the Altium import (Fab/User-layer text and outlines vary between instances); pads verified identical (D19). Don't run "Update Footprints from Library" on kept parts.</p>`],
   ["Set footprint types (SMD/THT) and courtyards before fab outputs", `<p>The import left them unspecified/missing; an SMD-only position file would drop parts.</p>`],
+  ["BOM ready for a JLC order", `<p>bom.csv also lists the 16 test points, fiducials and mounting holes (in BOM since the import). Take them out of the BOM, or filter the export (QE S5.h).</p>`],
   ["First F8: re-link only", `<p>Tick re-link by reference; untick "Delete footprints with no symbols." Expect no Add/Remove lines.</p>`],
   ["Second F8: remove deleted parts, add new ones", `<p>Tick "Delete footprints with no symbols."</p>`],
   ["Clean up leftover tracks and vias", ``],
