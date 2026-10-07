@@ -177,8 +177,17 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       — **closed by D18**: TPS26621 needs C_OUT ≥ 0.01 µF, current-limits a start into a short, fast-trips at 1.6 A
 - [x] S5.a: QE review (fresh S5 session): **APPROVED WITH NITS** in round 2, nit fixed — `docs/design-review/qe/S5.md`
 - [x] S5.a: Nick's KiCad look (PR #11 merged, `10d64d0`)
-- [ ] S5.e (last in S5): lifecycle check of every BOM part (not just U9) before the S6 package; include stock (J5's C189893 showed out of
-      stock on LCSC 2026-10-06, QE S5.d F1)
+- [x] S5.e (last in S5): lifecycle + LCSC stock check of all 50 BOM parts for a 20-board build → `docs/design-review/bom_lifecycle.md`.
+      29 OK; flagged: D1 SMA6F33A (ST) obsolete (Sofar's second source Vishay SMA6F33A-M3/H), J1 no part number (height
+      open), U2/U3 low stock, 6 out of stock, 12 with no LCSC listing found. All flagged parts except J1 are Active at Digi-Key
+- [x] S5.e: QE review (standing S5 session): round 1 CHANGES REQUESTED (F1: constraints 7/8), fixed; **APPROVED WITH NITS** in
+      round 2, fixed — `docs/design-review/qe/S5.md`
+- [ ] S5.e: Nick's review of bom_lifecycle.md
+- [x] Sourcing policy (Nick, D26): critical parts via JLC global sourcing; passives keep the specified part with LCSC
+      `ALT…` field proposals for Sofar's design review (S5.h); constraint amendments only after Sofar weighs in
+- [ ] S5.h: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged passives, `SOURCING` on the
+      critical parts; BOM CSV export with alternates side by side (Nick approved; after S5.e merges)
+- [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
 - [x] S5.c: ADIN_PWR **R43 100 kΩ** pull-down (AP22913 has none, DS41203); ADIN_RST none (internal pull-up,
@@ -220,7 +229,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       ADIN_VDDIO (Nick: option a). Open: visible after potting?
 - [x] S5.f: QE review (standing S5 session): round 1 **APPROVED WITH NITS**, nits fixed; round 2 (port-2 LED D10) **APPROVED**
       — `docs/design-review/qe/S5.md`
-- [ ] S5.f: Nick's KiCad look
+- [x] S5.f: Nick's KiCad look (PR #17 merged, `e62d974`)
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
 S5.d: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), netcheck 51/51, midwire 0, exit 0; netlist: VBUS_OUT + J5.1,

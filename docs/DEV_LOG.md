@@ -19,6 +19,24 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S5.e — BOM lifecycle + stock check (all parts, 20 boards)
+
+**Branch:** sprint/5e-bom-lifecycle
+**Files touched:** docs/design-review/bom_lifecycle.md (new); DESIGN, SPEC, SOFAR_QUESTIONS (Q7), TRACKER, viewer
+**ERC:** 27 / 504 (unchanged)  ·  **Net diff:** none (docs only)
+**Done:**
+- S5.f closed: Nick's look OK, PR #17 merged (`e62d974`); S5.e run last with every part on the schematic (Nick)
+- 50 unique parts / 105 placements; four read-only research agents in parallel; Nick set the build to 20 boards mid-run
+- Spot-checks: SMA6F33A obsolete (Digi-Key), LMR51430YDDCR stock (LCSC), second-source fields in the netlist
+- Found Sofar's own second sources in the part fields: D1 (Vishay SMA6F33A-M3/H, ST SMA6F33AY), R8 (7 alternates)
+**Broke/surprised us:**
+- 21 of 50 flagged, but only D1 for lifecycle: the rest is LCSC not stocking Sofar's exact parts (all Active at DK)
+- UrchinCam's 2×20 header (Amphenol 95157-440LF) is a male SMD header, not a usable socket for J1
+- LCSC search can't be read automatically: "no listing found" is not proof; Nick to confirm the key ones in a browser
+**Next:** QE review; Nick's review + sourcing decisions; then S6
+
+---
+
 ## 2026-10-06 — Sprint S5.f — ADIN status LEDs
 
 **Branch:** sprint/5f-adin-leds
