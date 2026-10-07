@@ -189,7 +189,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       `SOURCING` on the critical parts (U1–U3, L3/L6, Y1, D1–D3, MP1–MP4, J5, J1); `tools/check.sh` writes the tracked
       `docs/design-review/bom.csv`: Sofar's specified part first (`Value (MPN)`), alternates beside it (Nick). Grouped by
       Value and DNP (R11 kept apart from R12/R13/R17/R19). Values: `docs/design-review/bom_alternates.md`
-- [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
+- [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed; **APPROVED** in round 2 — `docs/design-review/qe/S5.md`
 - [ ] S5.h: Nick's KiCad look (Tools → Edit Symbol Fields); S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
