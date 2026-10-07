@@ -90,8 +90,9 @@ resistors). If the ADIN is ever switched off at runtime, drive CS, RST, SCK and 
 | Pi off, shield on | R26/R27 4.7 kΩ into GPIO2/3; R35 100 kΩ into GPIO20 | ≈ 0.6 mA / line; ≈ 33 µA | accepted (small); only with JP1 cut |
 | Pi on, shield off | the Pi's 1.8 kΩ I²C pull-ups into U4 (INA232) | — | exists without R26/R27; only with JP1 cut |
 
-**Sheet layout rule (Nick, 2026-10-06):** all board interconnects (PoDL inserts MP1–MP4, payload connector J5, any
-future connector) live on the right side of the Top-Level sheet.
+**Sheet layout rule (Nick, 2026-10-06; revised 2026-10-07):** a connector is drawn beside the circuit that drives it,
+wired to it: J5 (payload power) sits against the Load Switch block on the VBUS_OUT wire. Placement on the right of the
+Top-Level sheet (PoDL inserts MP1–MP4) matters less than that.
 
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
@@ -181,7 +182,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-06 | S6.c | 0 / 504 | 51/51 (unchanged; library only) | 43 Vault footprints: type + F.CrtYd added (D29); `fpextract --verify` 0 problems |
 | 2026-10-06 | S6.d | 0 / 495 | 51/51; netlist identical (nets and pins) | Minor tidy: positions, text, notes, 9 dangling wire ends removed (warnings −9, no new items); #PWR34's exclusion key regenerated (reason unchanged) |
 | 2026-10-06 | S6.e | 0 / 495 | 51/51; netlist identical except 5 Description values | Review package: README, schematic.pdf, new-nets table in netcheck.md; jumper descriptions fixed |
-| 2026-10-07 | S6.g | 0 / 492 | 51/51; identical pin partition; 7 nets renamed (D30) | Presentation (Nick's list): blocks spaced with headers, title blocks, cover page; −3 warnings (2 off-grid wires of the old I²C runs, the SW_ON/SW_EN duplicate name); 8 exclusion keys regenerated (moved parts), reasons unchanged |
+| 2026-10-07 | S6.g | 0 / 494 | 51/51; identical pin partition; 7 nets renamed (D30) | Presentation (Nick's list): blocks spaced with headers, title blocks, cover page; −3 warnings (2 off-grid wires of the old I²C runs, the SW_ON/SW_EN duplicate name), then +2 off-grid for the jogged stub on U1's off-grid pin 48 (QE N1 fix); 8 exclusion keys regenerated (moved parts), reasons unchanged |
 
 **ERC errors after S6.b: 0** (D28). The 9 title-block `unresolved_variable` errors are fixed (text variables
 `PCBPARTNAME` = nereus_Pi_shield_ADIN2111, `PCBPARTNUMBER` = PCB-000001-AA, `PROJECTREVISION` = AA; title-block rev AA on

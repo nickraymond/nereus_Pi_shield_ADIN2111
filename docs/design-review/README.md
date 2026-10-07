@@ -8,7 +8,7 @@ path kept as Sofar designed them (DESIGN D12). **Package assembled:** 2026-10-06
 
 | Check | Result | Where |
 |---|---|---|
-| ERC | **0 errors**, 492 warnings (cosmetic import leftovers: 479 off-grid, 11 duplicate net names, 2 dangling wire ends on Sofar's PoDL sheet). 18 errors excluded, each with its reason | `erc_justifications.csv`, DESIGN "ERC / net-check results" |
+| ERC | **0 errors**, 494 warnings (cosmetic import leftovers: 481 off-grid, 11 duplicate net names, 2 dangling wire ends on Sofar's PoDL sheet). 18 errors excluded, each with its reason | `erc_justifications.csv`, DESIGN "ERC / net-check results" |
 | Connectivity vs the mote's copper | **51/51** copper nets match; 0 opens, 0 shorts. Every net touching a new part is listed | `netcheck.md` |
 | BOM | 51 lines; Sofar's part, our planned part (with the reason) and backups side by side | `bom.csv` |
 | Footprints | all 43 `Vault` footprints have a type and a courtyard; pads identical to the mote board | `footprints.md` |
@@ -85,7 +85,7 @@ tools/check.sh
 ```
 
 ERC, netlist, PDF (`out/`), BOM (`bom.csv`), ERC exclusions check, mid-wire check and the net check (`netcheck.md`).
-Expected: `ERC messages: 492  Errors 0  Warnings 492`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
+Expected: `ERC messages: 494  Errors 0  Warnings 494`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
 missing exclusions`, `midwire: 0`, `netcheck: 51/51 … 0 opens, 0 shorts`, exit 0.
 
 `schematic.pdf` and `bom.pdf` here are reviewed snapshots, not rebuilt by `check.sh`: rebuild them after any schematic or

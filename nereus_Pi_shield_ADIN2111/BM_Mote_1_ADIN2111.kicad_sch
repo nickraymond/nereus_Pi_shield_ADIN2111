@@ -3826,16 +3826,6 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 106.5022) (xy 256.54 106.5022)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1597fe23-185f-416c-bd6e-51ad9e9a1660")
-	)
-	(wire
-		(pts
 			(xy 294.64 185.42) (xy 294.64 190.5)
 		)
 		(stroke
@@ -3893,6 +3883,36 @@
 			(type default)
 		)
 		(uuid "53f86671-cf7e-48e4-98a5-48040a059086")
+	)
+	(wire
+		(pts
+			(xy 251.46 106.5022) (xy 254 106.5022)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65c3d355-cf2d-4018-a122-e645c5c96725")
+	)
+	(wire
+		(pts
+			(xy 254 106.5022) (xy 254 109.0422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f48f0e14-f3db-4dd0-8018-a87e5a8bdafc")
+	)
+	(wire
+		(pts
+			(xy 254 109.0422) (xy 256.54 109.0422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e84cc803-87c5-44f4-969c-1e5e36896d42")
 	)
 	(label "ADIN_CLK25_REF"
 		(at 121.92 78.5622 0)
@@ -4005,7 +4025,7 @@
 		(uuid "c2396a92-1a77-4a41-8ddd-022e9975b2cb")
 	)
 	(label "~{ADIN_P2_LED1}"
-		(at 256.54 106.5022 0)
+		(at 256.54 109.0422 0)
 		(effects
 			(font
 				(size 1.27 1.27)

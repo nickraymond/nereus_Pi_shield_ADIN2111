@@ -6728,7 +6728,7 @@
 	)
 	(text "Payload power out: J5, JST GH 1.25 mm (D23).\nPin 1 VBUS_OUT: 16-32 V bus, switched by U11,\n~0.73 A limit. Pin 2 GND.\nMate the cable before potting."
 		(exclude_from_sim no)
-		(at 459.74 203.2 0)
+		(at 76.2 226.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6822,10 +6822,10 @@
 		)
 		(uuid "ab918f8d-1247-4cfb-b398-b6f32370fa32")
 	)
-	(text_box "Optional bypass for VBUS switch"
+	(text_box "R11 (0 Ω, DNP): bypass for payload switch U11\nWhen open (as built): payload on only when the Pi sets PAYLOAD_EN;\nU11 limits it to ~0.73 A and flags faults on PAYLOAD_FAULT (active low).\nWhen fitted: payload always on at bus voltage (VBUS);\nno switching, no current limit, no fault flag."
 		(exclude_from_sim no)
-		(at 189.23 179.07 0)
-		(size -22.86 7.62)
+		(at 198.12 165.1 0)
+		(size -78.74 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -7778,23 +7778,23 @@
 	)
 	(wire
 		(pts
-			(xy 469.9 185.42) (xy 492.76 185.42)
+			(xy 106.68 205.74) (xy 114.3 205.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "88b1db53-88ea-48c0-ab10-9d3ba83469fb")
+		(uuid "11a640af-14fd-40b1-bf8b-90ddcc23c3c5")
 	)
 	(wire
 		(pts
-			(xy 480.06 187.96) (xy 492.76 187.96)
+			(xy 106.68 208.28) (xy 111.76 208.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0551d25e-e7ae-4750-aa1c-9ec5a5fa7586")
+		(uuid "7c53d990-1a00-4bf6-ac72-a1a167bdc292")
 	)
 	(label "BM2_P"
 		(at 454.66 121.92 0)
@@ -16261,7 +16261,8 @@
 	)
 	(symbol
 		(lib_id "nereus:SM02B-GHS")
-		(at 497.84 186.69 0)
+		(at 101.6 207.01 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16269,7 +16270,7 @@
 		(dnp no)
 		(uuid "4438bd76-a20f-415b-b0f8-735de9c274a1")
 		(property "Reference" "J5"
-			(at 497.84 182.88 0)
+			(at 101.6 201.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16277,7 +16278,7 @@
 			)
 		)
 		(property "Value" "SM02B-GHS-TB"
-			(at 497.84 191.77 0)
+			(at 101.6 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16285,7 +16286,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16294,7 +16295,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16303,7 +16304,7 @@
 			)
 		)
 		(property "Description" "JST GH 1.25 mm 2-pin SMD right-angle header, 1.0 A per contact (AWG #26), 50 V: payload power out, pin 1 VBUS_OUT, pin 2 GND (D23)"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16312,7 +16313,7 @@
 			)
 		)
 		(property "MANUFACTURER" "JST"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16321,7 +16322,7 @@
 			)
 		)
 		(property "LCSC" "C189893"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16330,7 +16331,7 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); LCSC C189893 out of stock, DK 10,839"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16339,7 +16340,7 @@
 			)
 		)
 		(property "PLANNED MPN" "SM02B-GHS-TB"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16348,7 +16349,7 @@
 			)
 		)
 		(property "PLANNED MFR" "JST"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16357,7 +16358,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C189893"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16366,7 +16367,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; LCSC listing out of stock (2026-10-06): JLC global sourcing"
-			(at 497.84 186.69 0)
+			(at 101.6 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16390,73 +16391,8 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:VBUS_OUT_BAR")
-		(at 469.9 185.42 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8242f85e-e3ca-4101-a402-9088d47f20e7")
-		(property "Reference" "#PWR80"
-			(at 469.9 181.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VBUS_OUT"
-			(at 469.9 181.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 469.9 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 469.9 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 469.9 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin ""
-			(uuid "ae4f9772-2add-48e7-8d90-88f75358a4e9")
-		)
-		(instances
-			(project ""
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR80")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 480.06 187.96 0)
+		(at 111.76 208.28 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16464,7 +16400,7 @@
 		(dnp no)
 		(uuid "b204ab58-e56d-48ff-9eaf-ea2b6b8e79da")
 		(property "Reference" "#PWR81"
-			(at 480.06 184.15 0)
+			(at 111.76 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16473,7 +16409,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 480.06 195.58 0)
+			(at 111.76 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16481,7 +16417,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 480.06 187.96 0)
+			(at 111.76 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16490,7 +16426,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 480.06 187.96 0)
+			(at 111.76 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16499,7 +16435,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 480.06 187.96 0)
+			(at 111.76 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17020,5 +16956,53 @@
 				)
 			)
 		)
+	)
+	(junction
+		(at 114.3 205.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4a2a2337-b363-45f3-b7c0-2200fe194625")
+	)
+	(text_box "RASPBERRY PI - 40-PIN HEADER"
+		(exclude_from_sim no)
+		(at 191.77 140.97 0)
+		(size -91.44 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width -0.0001)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 3.048 3.048)
+			)
+			(justify left top)
+		)
+		(uuid "91e02cc3-7532-44f1-a024-a8aaba615bc7")
+	)
+	(text_box "LOAD SWITCH - PAYLOAD POWER"
+		(exclude_from_sim no)
+		(at 233.68 228.6 0)
+		(size -86.36 5.08)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width -0.0001)
+			(type default)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 3.048 3.048)
+			)
+			(justify left top)
+		)
+		(uuid "167181dd-9d21-4e24-90a5-b1cea16c6f67")
 	)
 )

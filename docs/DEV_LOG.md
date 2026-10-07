@@ -24,7 +24,7 @@ what broke, what's next.*
 **Branch:** sprint/6g-presentation
 **Files touched:** all 7 sheets; .kicad_pro (exclusion keys); schematic.pdf; DESIGN (D30), changelog, README, sofar_brief,
 TRACKER, viewer
-**ERC:** 0 / 492 (was 0 / 495)  ·  **Net diff:** identical pin partition, 7 nets renamed — intended
+**ERC:** 0 / 494 (was 0 / 495)  ·  **Net diff:** identical pin partition, 7 nets renamed — intended
 **Done:**
 - Nick's KiCad look (S6.f) produced an 8-item list; he discarded his own KiCad edits and asked for them fresh
 - Asked: what ADIN_PWR/R43 do (Pi GPIO23 → U2/U3 ON; R43 keeps the ADIN off while the Pi boots or is absent, D21);
@@ -36,7 +36,10 @@ TRACKER, viewer
   nets at once. A text insert landed at the top of a sub-sheet (no sheet_instances block): KiCad loaded an empty sheet;
   inserts now go before the file's closing bracket
 - KiCad JSON/SVG: the cover's 2 render images were ~8 MB of the file
-**Next:** QE review; Nick's look in KiCad; then S6 complete
+- QE round 1 APPROVED WITH NITS (P2_LED1 overbar vs pin 47's wire; 1V8 header on its wire; licence note → Sofar Q8 drafted)
+- Nick, after his KiCad look: J5 wired beside the Load Switch (connector with its switch beats "interconnects on the right");
+  R11 note as an open / fitted summary; headers for J1 and the Load Switch; Power sheet title removed
+**Next:** QE round 2; Nick's look in KiCad; then S6 complete
 
 ---
 
