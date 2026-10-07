@@ -14,6 +14,8 @@ footprint changed. Every new field is hidden, at the symbol origin.
 | J1 `Footprint` property line re-indented 4 → 2 tabs | whitespace only (import leftover, like JP1 in S5.f); `set_properties` refuses a symbol with an unparsed property |
 | `tools/check.sh` exports `docs/design-review/bom.csv` (tracked) | `Value (MPN)` = the specified part, then Mfr, LCSC, Sourcing, Alt1/Alt2 MPN/Mfr/LCSC, Alt note; grouped by Value and DNP |
 
+| `.kicad_pro`: Symbol Fields Table view **"Sofar review (alternates)"** (`bom_presets`), also the view the dialog opens with (`bom_settings`, was "Default Editing") | Refs, Qty, Value (MPN), Mfr, LCSC, DNP, Sourcing, Alt1/Alt2 MPN/Mfr/LCSC, Alt note, Footprint; grouped by Value + DNP; BOM-excluded parts (JP1/JP2) hidden. `kicad-cli sch export bom --preset "Sofar review (alternates)"` gives the same 54 groups as `bom.csv`, every cell equal. Added after Nick's look: new fields need their columns switched on, and the ones he enabled landed after the wide Footprint/Datasheet columns |
+
 Field text follows `bom_alternates.md` except: C22/C23 `ALT NOTE` leaves out the plan's "(DK 78,606)" (stock figures drift; it stays in
 the plan); R8 `ALT NOTE` is "Sofar review: power-path current sense; check land pattern" (Nick: at most 3 alternates per part; R8's
 7 Sofar fields `MANUFACTURERPARTNUMBER1–7` stay untouched, outside bom.csv).

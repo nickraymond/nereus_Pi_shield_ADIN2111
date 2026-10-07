@@ -190,6 +190,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       `docs/design-review/bom.csv`: Sofar's specified part first (`Value (MPN)`), alternates beside it (Nick). Grouped by
       Value and DNP (R11 kept apart from R12/R13/R17/R19). Values: `docs/design-review/bom_alternates.md`
 - [x] S5.h: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed; **APPROVED** in round 2 — `docs/design-review/qe/S5.md`
+- [x] S5.h: Symbol Fields Table view "Sofar review (alternates)" in the `.kicad_pro`, opened by default; matches `bom.csv` cell for
+      cell (Nick's first look: new fields are hidden columns until enabled)
 - [ ] S5.h: Nick's KiCad look (Tools → Edit Symbol Fields); S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),

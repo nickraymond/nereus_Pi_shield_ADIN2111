@@ -39,6 +39,10 @@ bom_lifecycle, sofar_brief, changelog, DESIGN, TRACKER, viewer
 - `Mfr`/`LCSC` columns are mostly blank: only 30 of 291 symbols have `MANUFACTURER`, 5 have `LCSC` (S6 harmonisation)
 - QE round 1: **APPROVED WITH NITS** (undeclared note-text tweaks, TP/FID/MTG rows in bom.csv → S6, viewer label), fixed
 - Nick: at most 3 alternates per part (ours ≤ 2); R8's 7 Sofar fields stay as Sofar's data, its ALT NOTE no longer cites them
+- Nick's first look: the fields existed but KiCad shows new fields only once their columns are enabled, and his enabled
+  columns landed after Footprint/Datasheet. Added the view "Sofar review (alternates)" to the `.kicad_pro` (preset + the
+  dialog's opening view); `kicad-cli --preset` export = bom.csv cell for cell. Closing KiCad had rewritten the `.kicad_pro`
+  with all 186 imported field names; discarded, the preset written on the committed file
 **Next:** Nick's KiCad look; then S6
 
 ---
