@@ -54,6 +54,7 @@
 			(justify mirror)
 		)
 	)
+	(attr smd)
 	(fp_circle
 		(center 0 0)
 		(end 0.209269 2.992692)
@@ -259,6 +260,46 @@
 				)
 			)
 		)
+	)
+	(fp_line
+		(start -3.9 -3.9)
+		(end 3.9 -3.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "1cba4053-beb8-4fdd-ad14-f16e6e68b99a")
+	)
+	(fp_line
+		(start 3.9 -3.9)
+		(end 3.9 3.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "192a5f48-c194-4319-9649-f477c44721f8")
+	)
+	(fp_line
+		(start 3.9 3.9)
+		(end -3.9 3.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d55fcb5d-53d5-4a88-a046-8cb8a4d4c26f")
+	)
+	(fp_line
+		(start -3.9 3.9)
+		(end -3.9 -3.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b2df3f8b-7ad5-4503-ae94-e820c1a0b455")
 	)
 	(pad "" np_thru_hole circle
 		(at 0 0 180)

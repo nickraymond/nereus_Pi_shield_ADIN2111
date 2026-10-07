@@ -53,6 +53,7 @@
 			)
 		)
 	)
+	(attr smd exclude_from_bom)
 	(fp_line
 		(start -1.125 0)
 		(end 0 0)
@@ -92,6 +93,46 @@
 		)
 		(layer "User.13")
 		(uuid "051420c1-f376-4acb-9f59-c0761a1e7a2c")
+	)
+	(fp_line
+		(start -1.125 -1.125)
+		(end 1.125 -1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9566a9b5-dd2e-44f6-b7be-00a05ebd2681")
+	)
+	(fp_line
+		(start 1.125 -1.125)
+		(end 1.125 1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5b782b1f-f280-414e-a099-b8dcf69d66f8")
+	)
+	(fp_line
+		(start 1.125 1.125)
+		(end -1.125 1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "31ffb954-9bf9-4da3-a1be-13b1d4f5b0d0")
+	)
+	(fp_line
+		(start -1.125 1.125)
+		(end -1.125 -1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "3abd7288-db51-4935-90ea-3770bbf59e70")
 	)
 	(pad "0" smd circle
 		(at 0 0 180)
