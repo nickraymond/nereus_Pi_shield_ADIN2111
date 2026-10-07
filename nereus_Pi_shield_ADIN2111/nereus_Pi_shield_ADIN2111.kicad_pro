@@ -268,36 +268,36 @@
         "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it; grounding the holes stays Nick's board decision"
       ],
       [
-        "power_pin_not_driven|1689100|1293622|45409598-abd9-46c1-8c5c-5d41f582d48f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|1689100|2157222|1f6aa00b-d332-4ee4-9f03-345b013f7e7b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
       ],
       [
-        "power_pin_not_driven|1689100|1344422|f5a4b2fd-14f3-4b99-8342-728781a12762|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|1689100|2208022|aba19838-229f-4459-83a1-c31485ca40dc|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
       ],
       [
-        "power_pin_not_driven|1689100|2055622|1f6aa00b-d332-4ee4-9f03-345b013f7e7b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|1689100|785622|45409598-abd9-46c1-8c5c-5d41f582d48f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
       ],
       [
-        "power_pin_not_driven|1689100|2106422|aba19838-229f-4459-83a1-c31485ca40dc|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|1689100|836422|f5a4b2fd-14f3-4b99-8342-728781a12762|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
       ],
       [
-        "power_pin_not_driven|2781300|1763522|03f18759-49d3-4152-b8e8-d9dfcd8d8e24|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|2781300|1560322|03f18759-49d3-4152-b8e8-d9dfcd8d8e24|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "TPS62840 VIN on 3V3, which U5 drives through inductor L3 (passive pins), so ERC sees no power output"
       ],
       [
-        "power_pin_not_driven|3111500|1763522|18be0493-d9f1-435c-a081-6edbcf32dae2|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|2946400|2260600|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
+        "ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
+      ],
+      [
+        "power_pin_not_driven|3111500|1560322|18be0493-d9f1-435c-a081-6edbcf32dae2|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "TPS62840 switch node: driven by the regulator itself; the net holds only L4. The imported symbol types the pin power input"
       ],
       [
-        "power_pin_not_driven|3111500|1839722|d467e5d4-94aa-41a9-afa2-41b5071ab410|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
+        "power_pin_not_driven|3111500|1636522|d467e5d4-94aa-41a9-afa2-41b5071ab410|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
         "TPS62840 VOS senses its own 1V8 output, driven through inductor L4 (passive pins), so ERC sees no power output"
-      ],
-      [
-        "power_pin_not_driven|3581400|2006600|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
-        "ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
       ]
     ],
     "meta": {

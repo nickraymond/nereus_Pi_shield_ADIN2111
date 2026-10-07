@@ -8,7 +8,7 @@ path kept as Sofar designed them (DESIGN D12). **Package assembled:** 2026-10-06
 
 | Check | Result | Where |
 |---|---|---|
-| ERC | **0 errors**, 495 warnings (cosmetic import leftovers: 481 off-grid, 12 duplicate net names, 2 dangling wire ends on Sofar's PoDL sheet). 18 errors excluded, each with its reason | `erc_justifications.csv`, DESIGN "ERC / net-check results" |
+| ERC | **0 errors**, 494 warnings (cosmetic import leftovers: 481 off-grid, 11 duplicate net names, 2 dangling wire ends on Sofar's PoDL sheet). 18 errors excluded, each with its reason | `erc_justifications.csv`, DESIGN "ERC / net-check results" |
 | Connectivity vs the mote's copper | **51/51** copper nets match; 0 opens, 0 shorts. Every net touching a new part is listed | `netcheck.md` |
 | BOM | 51 lines; Sofar's part, our planned part (with the reason) and backups side by side | `bom.csv` |
 | Footprints | all 43 `Vault` footprints have a type and a courtyard; pads identical to the mote board | `footprints.md` |
@@ -23,7 +23,7 @@ path kept as Sofar designed them (DESIGN D12). **Package assembled:** 2026-10-06
 | 2 | The schematic, all sheets (rev AA) | `schematic.pdf` |
 | 3 | Every schematic edit, sprint by sprint | `changelog.md` |
 | 4 | Connectivity check: kept nets vs the mote's copper, and every new net with its pins | `netcheck.md` |
-| 5 | Pi header pin map; ADIN power-up order and back-power cases | `../DESIGN.md` → "Pi header pin map", "ADIN power and boot" |
+| 5 | Pi header pin map (`~{…}` = active low, drawn with an overbar, D30); ADIN power-up order and back-power cases | `../DESIGN.md` → "Pi header pin map", "ADIN power and boot" |
 | 6 | Power budget: bus power, 5 V converter, Pi supply, payload port | `power_budget.md` |
 | 7 | BOM: `bom.pdf` to read (one row per line: Sofar's part, planned part and why, backups, sourcing; changed lines highlighted); `bom.csv` is the data (Value = Sofar's part, Planned = what we'd build with); lifecycle and stock check; alternates and the planned-part table | `bom.pdf`, `bom.csv`, `bom_lifecycle.md`, `bom_alternates.md` |
 | 8 | Footprint types and courtyards (source of each) | `footprints.md` |
@@ -85,7 +85,7 @@ tools/check.sh
 ```
 
 ERC, netlist, PDF (`out/`), BOM (`bom.csv`), ERC exclusions check, mid-wire check and the net check (`netcheck.md`).
-Expected: `ERC messages: 495  Errors 0  Warnings 495`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
+Expected: `ERC messages: 494  Errors 0  Warnings 494`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
 missing exclusions`, `midwire: 0`, `netcheck: 51/51 … 0 opens, 0 shorts`, exit 0.
 
 `schematic.pdf` and `bom.pdf` here are reviewed snapshots, not rebuilt by `check.sh`: rebuild them after any schematic or

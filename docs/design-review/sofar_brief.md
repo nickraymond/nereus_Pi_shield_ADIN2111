@@ -37,6 +37,10 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
   exact part, through JLC global sourcing). Side by side in `docs/design-review/bom.csv`; reasoning and stock in
   `bom_alternates.md` and `bom_lifecycle.md`. The PoDL/power-path ones (R8, R15/R16, C22/C23, C17/C21/C26, PoDL
   front end) are marked "Sofar review": we won't adopt any of them without you.
+- **Signal names** (D30): active-low labels carry an overbar (~{ADIN_RST}, ~{ADIN_INT}, ~{ADIN_CS}); the payload
+  switch's control and fault lines are PAYLOAD_EN and ~{PAYLOAD_FAULT} (your SW_ON / SW_FLAGB). Connections unchanged.
+- **Cover page:** your mote renders, sheet index image and revision row are replaced (renders TBD after our layout); your
+  licence notice and CC BY-ND logo stay.
 - Import housekeeping, not design changes: the five 0 Ω CRCW1210 jumpers (R11, R12, R13, R17, R19) carried the
   Description "RES SMD 205K OHM 1% 1/2W 1992" from the import; it now reads "RES SMD 0 OHM JUMPER 1210" (same part).
 - Import housekeeping, not design changes: Altium-import connectivity repairs (21

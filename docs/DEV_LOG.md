@@ -19,6 +19,31 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-07 — Sprint S6.g — Presentation clean-up (Nick's list)
+
+**Branch:** sprint/6g-presentation
+**Files touched:** all 7 sheets; .kicad_pro (exclusion keys); schematic.pdf; DESIGN (D30), changelog, README, sofar_brief,
+TRACKER, viewer
+**ERC:** 0 / 494 (was 0 / 495)  ·  **Net diff:** identical pin partition, 7 nets renamed — intended
+**Done:**
+- Nick's KiCad look (S6.f) produced an 8-item list; he discarded his own KiCad edits and asked for them fresh
+- Asked: what ADIN_PWR/R43 do (Pi GPIO23 → U2/U3 ON; R43 keeps the ADIN off while the Pi boots or is absent, D21);
+  active-high/low marking → KiCad overbar; names PAYLOAD_EN / ~{PAYLOAD_FAULT}, ~{ADIN_CS}; no signal table for now
+- New helpers (scratch): move_block / move_where (shift items wholly in a region; stretch wires only along their axis,
+  else refuse), label renames, title blocks, text/rect adders
+**Broke/surprised us:**
+- My label-rename pattern first matched nothing while the sheet-pin rename did: the pin-partition check caught the split
+  nets at once. A text insert landed at the top of a sub-sheet (no sheet_instances block): KiCad loaded an empty sheet;
+  inserts now go before the file's closing bracket
+- KiCad JSON/SVG: the cover's 2 render images were ~8 MB of the file
+- QE round 1 APPROVED WITH NITS (P2_LED1 overbar vs pin 47's wire; 1V8 header on its wire; licence note → Sofar Q8 drafted)
+- Nick, after his KiCad look: J5 wired beside the Load Switch (connector with its switch beats "interconnects on the right");
+  R11 note as an open / fitted summary; headers for J1 and the Load Switch; Power sheet title removed
+- QE round 2 APPROVED WITH NITS: ~{PAYLOAD_FAULT}'s overbar touched the PAYLOAD_EN wire; jogged like ~{ADIN_P2_LED1}
+**Next:** Nick's look in KiCad; merge #28; then S6 complete
+
+---
+
 ## 2026-10-07 — Sprint S6.f — Author + BOM PDF
 
 **Branch:** sprint/6f-author

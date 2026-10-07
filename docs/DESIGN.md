@@ -19,17 +19,17 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 
 ## Key designs
 
-**Pi header pin map** *(as built, S5.b: each signal pin has a short stub and a same-name label on the Top-Level sheet; every other GPIO pin has a no-connect flag)*
+**Pi header pin map** *(names since S6.g, D30: `~{…}` = active low, drawn with an overbar; as built, S5.b: each signal pin has a short stub and a same-name label on the Top-Level sheet; every other GPIO pin has a no-connect flag)*
 
 | Pi pin | GPIO | Signal |
 |---|---|---|
-| 19 / 21 / 23 / 24 | 10 / 9 / 11 / 8 | ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS |
-| 22 | 25 | ADIN_INT |
-| 18 | 24 | ADIN_RST (no external pull: ADIN internal pull-up; the Pi must drive GPIO24 low to hold reset, see boot order) |
-| 16 | 23 | ADIN_PWR (**R43 100 kΩ pull-down**: ADIN off unless the Pi drives it high, D21) |
+| 19 / 21 / 23 / 24 | 10 / 9 / 11 / 8 | ADIN_MOSI / ADIN_MISO / ADIN_SCK / **~{ADIN_CS}** (SPI chip select, active low; was ADIN_NSS) |
+| 22 | 25 | **~{ADIN_INT}** (interrupt, active low) |
+| 18 | 24 | **~{ADIN_RST}** (reset, active low; no external pull: ADIN internal pull-up; the Pi must drive GPIO24 low to hold reset, see boot order) |
+| 16 | 23 | ADIN_PWR (active high; **R43 100 kΩ pull-down**, beside the ADIN block's HW_EN pin since S6.g: ADIN off unless the Pi drives it high, D21) |
 | 3 / 5 | 2 / 3 | I2C1_SDA / I2C1_SCL (**R27/R26 4.7 kΩ to shield 3V3**, plus the Pi's own 1.8 kΩ to Pi 3V3, D20) |
-| 36 | 16 | SW_EN (**high = payload on**; R42 pull-down keeps it off, D18); TP19 test pad on this net (R10 removed, D22) |
-| 38 | 20 | SW_FLAGB (U11 FLT, open drain, R35 pull-up) |
+| 36 | 16 | **PAYLOAD_EN** (was SW_EN; **high = payload on**; R42 pull-down keeps it off, D18); TP19 test pad on this net (R10 removed, D22) |
+| 38 | 20 | **~{PAYLOAD_FAULT}** (was SW_FLAGB; U11 FLT, open drain, R35 pull-up: low = fault) |
 | 2 / 4 | — | `PI_5V`, joined to `5V_PI` by JP1 (bridged link; cut to isolate, D14) |
 | 6, 9, 14, 20, 25, 30, 34, 39 | — | GND |
 | 1, 17 | — | **unconnected** (Pi 3.3 V) |
@@ -90,8 +90,9 @@ resistors). If the ADIN is ever switched off at runtime, drive CS, RST, SCK and 
 | Pi off, shield on | R26/R27 4.7 kΩ into GPIO2/3; R35 100 kΩ into GPIO20 | ≈ 0.6 mA / line; ≈ 33 µA | accepted (small); only with JP1 cut |
 | Pi on, shield off | the Pi's 1.8 kΩ I²C pull-ups into U4 (INA232) | — | exists without R26/R27; only with JP1 cut |
 
-**Sheet layout rule (Nick, 2026-10-06):** all board interconnects (PoDL inserts MP1–MP4, payload connector J5, any
-future connector) live on the right side of the Top-Level sheet.
+**Sheet layout rule (Nick, 2026-10-06; revised 2026-10-07):** a connector is drawn beside the circuit that drives it,
+wired to it: J5 (payload power) sits against the Load Switch block on the VBUS_OUT wire. Placement on the right of the
+Top-Level sheet (PoDL inserts MP1–MP4) matters less than that.
 
 **Label rules:** labels copied with a block get a new prefix (`3V3_*` → `5V_*`);
 two local labels with the same name silently join their nets.
@@ -152,6 +153,7 @@ two local labels with the same name silently join their nets.
 | D27 | 2026-10-06 | **Planned part per BOM line** (S5.i). Every purchased part carries hidden `PLANNED MPN/MFR/LCSC` + `PLANNED NOTE` (why): the part we intend to build with at JLC, beside Sofar's specified part (`Value`, unchanged), so Sofar reviews one diff column. 10 lines change (R34, R20/R39, R21/R35/R37/R43, C31, C17/C26, C21, C16/C18/C24/C25, C19/C27, R14/R18 to LCSC-stocked equivalents; D1 to Sofar's listed Vishay second source); J1 TBD; everything else planned as specified, with its LCSC number. R8 stays as specified: ROHM PMR03's 0.35 mm electrodes fit the UR73D1J pads (0.55 mm electrodes) but ROHM gives no land pattern and the pads reach 0.35 mm under its body. The **first build buys the planned parts after Sofar's review** (amends D26's "exact until approved"); ALT1/ALT2 stay as backups. View "Sofar review (planned parts)" = `bom.csv` | Nick: a single column for Sofar to check the diff, with the why; "your chance to replace the part with what we should use" |
 | D28 | 2026-10-06 | **ERC clean by fix or justified exclusion** (S6.b). Title block: name = file name, rev AA, part number PCB-000001-AA (text variables + title-block rev). The 18 remaining errors (FID/MTG pins with no net on the mote board; regulator switch/bootstrap pins and inductor-fed rails the imported symbols type as power input; ADIN_VDDIO driven by U3's passive-typed VOUT) are KiCad ERC exclusions whose comment is the reason. Exclusion keys include the item's position, so `tools/ercexclude.py` regenerates them from `erc_justifications.csv` and `check.sh` fails if they go stale | Nick: S6 "ERC clean, or every remaining item justified"; Sofar's symbols and sheets left as they are (no PWR_FLAGs or pin-type edits) |
 | D29 | 2026-10-06 | **Footprint type + courtyard for fab** (S6.c). All 43 `Vault` footprints get a type (KiCad stock conventions: `smd`; fiducial `smd exclude_from_bom`; test pad / mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd rectangle taken from Sofar's own outline where one exists (8 courtyard rectangles, 31 outer outlines on the Altium mechanical/User layers), else pads ∪ silk ∪ fab + 0.25 mm (4). Text inserts only; pads verified against the mote board. Board pick-up is Nick's (Update Footprints from Library). Record: `docs/design-review/footprints.md` | QE S4.d N3: JLC's SMD-only position file would drop untyped parts; no courtyard = no overlap DRC. Reuse Sofar's outlines before computing |
+| D30 | 2026-10-07 | **Signal names show polarity** (S6.g). KiCad's overbar (`~{…}`) marks every active-low label: ~{ADIN_RST}, ~{ADIN_INT}, ~{ADIN_CS} (was ADIN_NSS), ~{ADIN_P1_LED1}, ~{ADIN_P2_LED1}. The payload switch's signals are named for what they do: SW_EN → **PAYLOAD_EN** (active high), SW_FLAGB → **~{PAYLOAD_FAULT}** (Load Switch sheet labels, hierarchical labels and sheet pins too; its internal SW_ON label joins PAYLOAD_EN). ADIN_PWR stays (active high). Pin connections unchanged | Nick: show active high / low on the schematic for debugging; "SW" clashed with the buck converters' SW (switch-node) pins; NSS/FLAGB already meant "not", so a bar on top would say it twice |
 
 ## ERC / net-check results
 
@@ -180,6 +182,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-06 | S6.c | 0 / 504 | 51/51 (unchanged; library only) | 43 Vault footprints: type + F.CrtYd added (D29); `fpextract --verify` 0 problems |
 | 2026-10-06 | S6.d | 0 / 495 | 51/51; netlist identical (nets and pins) | Minor tidy: positions, text, notes, 9 dangling wire ends removed (warnings −9, no new items); #PWR34's exclusion key regenerated (reason unchanged) |
 | 2026-10-06 | S6.e | 0 / 495 | 51/51; netlist identical except 5 Description values | Review package: README, schematic.pdf, new-nets table in netcheck.md; jumper descriptions fixed |
+| 2026-10-07 | S6.g | 0 / 494 | 51/51; identical pin partition; 7 nets renamed (D30) | Presentation (Nick's list): blocks spaced with headers, title blocks, cover page; −3 warnings (2 off-grid wires of the old I²C runs, the SW_ON/SW_EN duplicate name), then +2 off-grid for the jogged stub on U1's off-grid pin 48 (QE N1 fix); 8 exclusion keys regenerated (moved parts), reasons unchanged |
 
 **ERC errors after S6.b: 0** (D28). The 9 title-block `unresolved_variable` errors are fixed (text variables
 `PCBPARTNAME` = nereus_Pi_shield_ADIN2111, `PCBPARTNUMBER` = PCB-000001-AA, `PROJECTREVISION` = AA; title-block rev AA on
