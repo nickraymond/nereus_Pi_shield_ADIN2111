@@ -273,14 +273,14 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit
 - [ ] Open questions and proposed values, with datasheet citations
-- [ ] Pin map, power budget, BOM changes
+- [ ] Pin map, power budget, BOM changes (note: the Mfr column mixes Sofar's spellings with the lifecycle table's, QE S6.a N1)
 - [ ] Footprint attributes: the Altium import left every footprint's type unspecified (no SMD/THT `attr`) and no
       courtyards (they're on User layers). Set them before fab outputs, or JLC's SMD-only position file drops parts
       (QE S4.d N3; Nick's layout or a schematic/library pass)
 - [x] S6.a BOM for a JLC order: TP×16, FID1–6, MTG1–4 → `in_bom no` (bare copper / holes; QE S5.h N2); `MANUFACTURER` filled on
       the 75 BOM parts that had none (from `bom_lifecycle.md`; J1 open), Sofar's other maker fields untouched; LCSC field
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
-- [ ] S6.a: QE review (S6 session)
+- [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
 S6.a: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: … (51 rows)`; no TP/FID/MTG
 row; `Mfr` blank only on J1.
