@@ -10,7 +10,8 @@ docs/design-review/erc_justifications.csv (columns: type, item, reason; `item` i
 regex on kicad-cli's item description, e.g. "^Symbol FID\\d+ Hidden pin").
 
   python3 tools/ercexclude.py           check: every ERC error is justified and the
-                                        .kicad_pro exclusions are current (exit 1 if not)
+                                        .kicad_pro exclusions are current (exit 1 if not:
+                                        an unjustified error, a stale or a missing exclusion)
   python3 tools/ercexclude.py --write   rewrite the .kicad_pro exclusions from the table
 
 Runs ERC on a temporary copy with the exclusions cleared; never touches the schematic.
@@ -53,21 +54,26 @@ def key(vtype, item, sheet_path):
 
 
 def errors(erc_json):
-    """(type, first item, sheet uuid path) for every error-severity violation."""
+    """(type, items, sheet uuid path) for every error-severity violation."""
     out = []
     for sheet in erc_json["sheets"]:
         for v in sheet["violations"]:
             if v["severity"] == "error":
-                out.append((v["type"], v["items"][0], sheet["uuid_path"]))
+                out.append((v["type"], v["items"], sheet["uuid_path"]))
     return out
 
 
 def justify(errs, rules):
     """Return ({key: reason}, [unjustified error descriptions])."""
     found, missing = {}, []
-    for vtype, item, path in errs:
+    for vtype, items, path in errs:
+        item = items[0]
         reason = next((r for t, rx, r in rules if t == vtype and rx.search(item["description"])), None)
-        if reason is None:
+        if len(items) > 1:
+            # Two-item errors carry a second uuid and sheet path whose key form isn't confirmed here:
+            # exclude those in KiCad's ERC dialog by hand rather than write a key that never matches.
+            missing.append(f"{vtype}: {item['description']} (+{len(items) - 1} item: exclude in KiCad by hand)")
+        elif reason is None:
             missing.append(f"{vtype}: {item['description']}")
         else:
             found[key(vtype, item, path)] = reason
@@ -108,7 +114,7 @@ def main(argv):
         print(f"  unjustified  {m}")
     if stale or absent:
         print("  exclusions out of date (an item moved?): run python3 tools/ercexclude.py --write")
-    return 1 if (stale or absent) else 0
+    return 1 if (missing or stale or absent) else 0
 
 
 if __name__ == "__main__":

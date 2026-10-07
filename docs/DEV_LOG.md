@@ -36,7 +36,9 @@ erc_justifications.csv (new); DESIGN (D28), changelog, TRACKER, viewer
 - `--severity-exclusions` still omits excluded items from the JSON in 9.0.6, so the tool runs ERC on a copy with the
   exclusions cleared
 - Exclusion keys carry the item's position: S6.d moves must be followed by `ercexclude.py --write` (check.sh catches it)
-**Next:** QE review; then S6.c (footprint attributes, library only)
+- QE round 1 CHANGES REQUESTED (read from its transcript: its send was queued, never delivered): F1 the tool exited 0 on
+  unjustified errors; F2 MTG grounding stays Nick's; N1 two-item errors. Fixed
+**Next:** QE round 2; then S6.c (footprint attributes, library only)
 
 ---
 

@@ -27,15 +27,21 @@ class TestErcExclude(unittest.TestCase):
         js = {"sheets": [{"uuid_path": PATH, "violations": [
             {"severity": "error", "type": "pin_not_connected", "items": [ITEM]},
             {"severity": "warning", "type": "endpoint_off_grid", "items": [ITEM]}]}]}
-        self.assertEqual(errors(js), [("pin_not_connected", ITEM, PATH)])
+        self.assertEqual(errors(js), [("pin_not_connected", [ITEM], PATH)])
 
     def test_justify(self):
         rules = [("pin_not_connected", re.compile(r"^Symbol FID\d+ Hidden pin"), "fiducial")]
         other = dict(ITEM, description="Symbol J9 Pin 1 [1, Passive, Line]")
-        found, missing = justify([("pin_not_connected", ITEM, PATH), ("pin_not_connected", other, PATH),
-                                  ("power_pin_not_driven", ITEM, PATH)], rules)
+        found, missing = justify([("pin_not_connected", [ITEM], PATH), ("pin_not_connected", [other], PATH),
+                                  ("power_pin_not_driven", [ITEM], PATH)], rules)
         self.assertEqual(list(found.values()), ["fiducial"])
         self.assertEqual(len(missing), 2)      # wrong ref; wrong type
+
+    def test_two_item_error_not_keyed(self):
+        rules = [("pin_not_connected", re.compile(r"^Symbol FID\d+ Hidden pin"), "fiducial")]
+        found, missing = justify([("pin_not_connected", [ITEM, ITEM], PATH)], rules)
+        self.assertEqual(found, {})
+        self.assertIn("by hand", missing[0])
 
 
 if __name__ == "__main__":
