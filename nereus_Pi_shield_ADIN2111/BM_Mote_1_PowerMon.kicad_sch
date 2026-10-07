@@ -1274,6 +1274,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "INA232AIDDFR"
+			(at 208.28 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Texas Instruments"
+			(at 208.28 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C5447660"
+			(at 208.28 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 208.28 152.2222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d69a15e0-4e3a-4925-9916-f2b241d1089a")
 		)
@@ -1576,6 +1612,42 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "CL05A104KA5NNNC"
+			(at 187.96 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 187.96 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C100072"
+			(at 187.96 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 187.96 164.9222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -1937,6 +2009,42 @@
 				(hide yes)
 			)
 		)
+		(property "PLANNED MPN" "RC0402JR-0710KL"
+			(at 241.3 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "Yageo"
+			(at 241.3 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" "C60489"
+			(at 241.3 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 241.3 139.5222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2863dbb3-87c4-405d-a1d8-35890351afef")
 		)
@@ -2180,6 +2288,42 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MPN" "UR73D1JTTD10L0F"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED MFR" "KOA Speer"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED LCSC" ""
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PLANNED NOTE" "As specified (Sofar review), JLC global sourcing: no LCSC listing. ROHM PMR03 (ALT1) electrodes (b 0.35 mm, datasheet Rev.PMR03-IA-012E) sit inside these pads, which were drawn for the UR73D1J's 0.55 mm electrodes and reach 0.35 mm under the PMR03 body; ROHM gives no land pattern, so not adopted"
 			(at 175.26 157.3022 0)
 			(effects
 				(font

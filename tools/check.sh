@@ -21,13 +21,12 @@ mkdir -p "$OUT"
 "$K" sch erc --severity-all -o "$OUT/erc.rpt" "$SCH" >/dev/null
 "$K" sch export netlist -o "$OUT/netlist.net" "$SCH" >/dev/null
 "$K" sch export pdf -o "$OUT/schematic.pdf" "$SCH" >/dev/null
-# Tracked BOM: specified part and hidden ALT…/SOURCING fields side by side (S5.h, D26).
-# Grouped by Value and DNP so a DNP part never shares a row with fitted ones (R11 vs R12/R13/R17/R19).
+# Tracked BOM = the project's Symbol Fields Table view "Sofar review (planned parts)" (.kicad_pro bom_presets):
+# Sofar's specified part, the planned part + why, sourcing, backups (S5.h/S5.i, D26/D27). Grouped by Value and DNP,
+# BOM-excluded parts left out. One definition, so KiCad's view and bom.csv can't drift apart.
 BOM=docs/design-review/bom.csv
-"$K" sch export bom -o "$BOM" \
-  --fields 'Reference,Value,Footprint,${QUANTITY},${DNP},MANUFACTURER,LCSC,SOURCING,ALT1 MPN,ALT1 MFR,ALT1 LCSC,ALT2 MPN,ALT2 MFR,ALT2 LCSC,ALT NOTE' \
-  --labels 'Refs,Value (MPN),Footprint,Qty,DNP,Mfr,LCSC,Sourcing,Alt1 MPN,Alt1 Mfr,Alt1 LCSC,Alt2 MPN,Alt2 Mfr,Alt2 LCSC,Alt note' \
-  --group-by 'Value,${DNP}' "$SCH" >/dev/null
+"$K" sch export bom -o "$BOM" --preset "Sofar review (planned parts)" "$SCH" >/dev/null || {
+  echo "check: BOM preset missing from $PROJ/$PROJ.kicad_pro; restore it with: git checkout -- $PROJ/$PROJ.kicad_pro" >&2; exit 2; }
 
 for f in erc.rpt netlist.net schematic.pdf; do
   [ -s "$OUT/$f" ] || { echo "check: $OUT/$f missing or empty" >&2; exit 2; }

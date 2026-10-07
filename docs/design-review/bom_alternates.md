@@ -11,6 +11,29 @@ R12/R13/R17/R19 and marked all five DNP. Result: `docs/design-review/bom.csv`; c
 **Cap (Nick, 2026-10-06; D26):** at most 3 alternates per part, the best by match and availability. This plan uses at most 2. Sofar's own
 listed alternates (R8's `MANUFACTURERPARTNUMBER1–7`, D1's second sources) stay in their original fields, outside `bom.csv`.
 
+## Planned parts (S5.i, D27)
+
+The part we intend to build with, per BOM line, in hidden `PLANNED MPN/MFR/LCSC` + `PLANNED NOTE` fields. Unchanged
+lines are planned as specified with their LCSC number (from `bom_lifecycle.md`); J1 is TBD. Changed lines:
+
+| Refs | Your part | Planned part (LCSC) | Why |
+|---|---|---|---|
+| R34 | RC0402FR-079K09L | YAGEO AC0402FR-079K09L (C227284) | same YAGEO thick-film family; ours (D18) |
+| R20, R39 | CRCW04021M82FKED | RALEC RTT021824FTH (C166520) | only stocked 1.82 MΩ ±1 % match |
+| R21, R35, R37, R43 | RMCF0402FT100K | UNI-ROYAL 0402WGF1003TCE (C25741) | JLC Basic; AEC-Q200 not stated |
+| C31 | C1608X5R0J226M080AC | Samsung CL10A226MQ8NRNC (C59461) | same spec; yours out of stock |
+| C17, C26 | C2012X7S2A105K125AB | TDK C2012X7S2A105KT000N (C342785) | TDK's other catalog number, same spec |
+| C21 | CL32B106KBJNNNE | Taiyo Yuden UMK325AB7106KM-T (C386167) | same spec, tier-1 maker |
+| C16, C18, C24, C25 | 08051C474KAT2A | YAGEO CC0805KKX7R0BB474 (C596323) | same spec, stock for 80 |
+| C19, C27 | C0805C102MDRACTU | KEMET C0805C102KDRACTU (C2167549) | same series, ±10 % (tighter) |
+| R14, R18 | RR0510P-101-D | YAGEO RT0402BRD07100RL (C705627) | ±0.1 % ±25 ppm thin film (tighter) |
+| D1 | SMA6F33A (ST, obsolete) | Vishay SMA6F33A-M3/H (global sourcing) | your listed second source (Q7) |
+
+Kept as specified (Sofar review): **R8** — ROHM PMR03EZPFU10L0 (ALT1) electrodes b = 0.35 ± 0.15 mm (ROHM datasheet
+Rev.PMR03-IA-012E) sit inside R8's pads (1.1 × 1.1 mm at ±0.65 mm), which were drawn for the UR73D1J 10 mΩ's
+0.55 ± 0.1 mm electrodes (KOA UR73 catalog); ROHM gives no land pattern, and the pads reach 0.35 mm under its body, so
+not adopted. **C22/C23** no potting-safe like-for-like part; **R15/R16** no alternate with a stated pulse rating.
+
 ## What to do
 
 1. **On each flagged passive**, add these hidden symbol fields with `schedit.set_properties` (it adds missing fields

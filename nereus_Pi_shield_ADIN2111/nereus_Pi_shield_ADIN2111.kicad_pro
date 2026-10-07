@@ -557,8 +557,26 @@
           },
           {
             "group_by": false,
-            "label": "LCSC",
-            "name": "LCSC",
+            "label": "Planned MPN",
+            "name": "PLANNED MPN",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Planned Mfr",
+            "name": "PLANNED MFR",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Planned LCSC",
+            "name": "PLANNED LCSC",
+            "show": true
+          },
+          {
+            "group_by": false,
+            "label": "Planned note",
+            "name": "PLANNED NOTE",
             "show": true
           },
           {
@@ -625,7 +643,7 @@
         "filter_string": "",
         "group_symbols": true,
         "include_excluded_from_bom": false,
-        "name": "Sofar review (alternates)",
+        "name": "Sofar review (planned parts)",
         "sort_asc": true,
         "sort_field": "Reference"
       }
@@ -659,8 +677,26 @@
         },
         {
           "group_by": false,
-          "label": "LCSC",
-          "name": "LCSC",
+          "label": "Planned MPN",
+          "name": "PLANNED MPN",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Planned Mfr",
+          "name": "PLANNED MFR",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Planned LCSC",
+          "name": "PLANNED LCSC",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Planned note",
+          "name": "PLANNED NOTE",
           "show": true
         },
         {
@@ -727,7 +763,7 @@
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": false,
-      "name": "Sofar review (alternates)",
+      "name": "Sofar review (planned parts)",
       "sort_asc": true,
       "sort_field": "Reference"
     },
