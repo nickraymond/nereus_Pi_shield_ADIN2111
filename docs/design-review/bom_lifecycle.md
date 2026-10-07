@@ -33,30 +33,40 @@ LCSC listing, when it has no real part number, or when it is not Active.
 | **No LCSC listing found** | 12: U1, MP1–MP4, L3/L6, Y1, D2/D3, R34, C16/C18/C24/C25, C19/C27, R14/R18, R15/R16, R8, R20/R39 |
 
 **Every flagged part except J1 is Active and in stock at Digi-Key or Mouser.** The issue is JLC/LCSC availability, not
-lifecycle (apart from D1). For each flagged part there are three ways out, and choosing between them is Nick's call:
+lifecycle (apart from D1).
 
-1. **JLC Global Sourcing:** JLC buys the exact part from Digi-Key/Mouser. Keeps Sofar's vetted part; adds cost and lead
-   time.
-2. **Consigned parts:** Nick buys and ships them to JLC. Same effect, more handling.
-3. **An LCSC equivalent:** a schematic change (value-for-value, cited) and a Sofar brief row.
+**Constraints (SPEC hard constraints 7 and 8):** every Sofar part stays exactly as specified. Buying the exact part
+(JLC global sourcing or consigned) keeps both constraints. Substituting any Sofar part would need Nick to amend
+constraint 8, and constraint 7 as well for power-path parts (D1–D3, R8, R15/R16, C22/C23, L1/L2 …). Only these may
+change without an amendment:
+- Sofar's own listed alternates (D1, R8).
+- The parts we sourced ourselves (J1, J5, R34, the LEDs, …).
 
-## Decisions needed (proposed, not applied)
+**Sourcing policy (Nick, 2026-10-06; DESIGN D26):**
+- **Critical parts:** buy the exact part through **JLC global sourcing**. This covers U1, U2/U3, L3/L6, Y1, D1–D3,
+  MP1–MP4 and J5.
+- **Passives:** the specified part stays on the schematic. Pin-compatible, generic, LCSC-stocked alternates are recorded
+  as hidden `ALT…` fields next to it (S5.h), as **proposals for Sofar's design review**.
+- Adopting any alternate for a Sofar part is a later decision, made with Sofar, that needs a constraint amendment. The
+  bespoke PoDL/power-path parts (R8, R15/R16, C22/C23) are flagged "Sofar review".
+
+## Decisions needed (proposed, not applied; rows marked † need a constraint amendment)
 
 | Part (refs) | Problem | Suggested route | Why |
 |---|---|---|---|
 | J1 Pi socket | no part number | choose height later (Nick); candidates ZHOURI C2977589 / Megastar C7499354, both 8.5 mm | open until the board-to-board spacing is known |
 | D1 SMA6F33A (bus TVS) | ST part obsolete | Sofar's second source **Vishay SMA6F33A-M3/H** (same DO-221AC, 600 W, 33 V; Vishay datasheet 89458) via global sourcing | already Sofar-approved in the part fields |
 | U1 ADIN2111BCPZ | no LCSC listing | global sourcing or consign (DK 120) | no equivalent part |
-| MP1–MP4 Würth 78614015360 | no LCSC listing | global sourcing or consign (DK 7,835) | the LCSC insert found needs a footprint change |
+| MP1–MP4 Würth 78614015360 | no LCSC listing | JLC global sourcing (DK 7,835) | the LCSC insert found needs a footprint change; JLC lists taller Würth M3 inserts (3.0 / 4.0 mm) if a taller insert were acceptable |
 | L3/L6 PA5432.822NLT | no LCSC listing | global sourcing or consign | vetted power-path inductor; XAL6060 is not a confirmed drop-in |
-| Y1 ABM11W 25 MHz | no LCSC listing | global sourcing or consign (DK 87) | alternates need a crystal-spec check against the ADIN2111 |
+| Y1 ABM11W 25 MHz | no LCSC listing | JLC global sourcing (DK 87) | LCSC same-family crystals aren't drop-ins (one −20…+70 °C vs −40…+125 °C, one 8 pF load); others need an ADIN2111 crystal-spec check |
 | C22/C23 EEEFT1H470AP | out of stock | global sourcing (DK 78,606) | a newly sourced replacement must be potting-safe, so not another electrolytic |
-| U2/U3 AP22913CN4-7 | 30 in stock, need 40 | LCSC 30 + DK balance | no drop-in |
+| U2/U3 AP22913CN4-7 | 30 in stock, need 40 | JLC global sourcing for all 40 (simplest), or LCSC 30 + DK balance | no drop-in |
 | J5 SM02B-GHS-TB | out of stock | global sourcing (DK 10,839) | GH lookalikes' land patterns unchecked |
-| R15/R16 CRCW08057R50FKEAHP | no LCSC listing | global sourcing | pulse-proof PoDL damping part; equivalent's pulse rating unverified |
-| D2/D3 RB058LAM-60TFTR | no LCSC listing | RB088LAM-60TFTR (same family/package, higher current) or global sourcing | |
-| R8 UR73D1JTTD10L0F | no LCSC listing | one of Sofar's 7 listed alternates if JLC has it, else ROHM/Vishay 10 mΩ 0603 (land pattern check) | Sofar-approved list exists |
-| Commodity R/C: R34, R20/R39, R14/R18, R21/R35/R37/R43, C16/C18/C24/C25, C19/C27, C17/C26, C21, C31 | no listing / out of stock | LCSC equivalents of equal or better spec (table) | value-for-value; R21 group's UNI-ROYAL part is JLC Basic |
+| R15/R16 CRCW08057R50FKEAHP | no LCSC listing | global sourcing (Sofar review) | pulse-proof PoDL damping part; Yageo SR0805 alternate† has unverified pulse rating and ±200 vs ±100 ppm/°C |
+| D2/D3 RB058LAM-60TFTR | no LCSC listing | **JLC global sourcing** (policy). Alternate for review†: RB088LAM-60TFTR (same family/package, higher current) | constraint 7 (power path) |
+| R8 UR73D1JTTD10L0F | no LCSC listing | one of Sofar's 7 listed alternates (no amendment needed; none found at LCSC) or global sourcing; ROHM/Vishay 10 mΩ 0603 for review† (Sofar review) | Sofar-approved list exists |
+| Commodity R/C: R34, R20/R39, R14/R18, R21/R35/R37/R43, C16/C18/C24/C25, C19/C27, C17/C26, C21, C31 | no listing / out of stock | specified parts stay; LCSC alternates recorded as `ALT…` fields (S5.h) for Sofar review† (R34 is ours: no amendment) | value-for-value; R21 group's UNI-ROYAL part is JLC Basic |
 
 **Watch items (no action now):**
 - L1/L2 SRF1260-101M: LCSC 137 (thin margin). Bourns PCN IC25029 changes assembly only, not EOL.

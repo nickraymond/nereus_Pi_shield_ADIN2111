@@ -180,10 +180,13 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.e (last in S5): lifecycle + LCSC stock check of all 50 BOM parts for a 20-board build → `docs/design-review/bom_lifecycle.md`.
       29 OK; flagged: D1 SMA6F33A (ST) obsolete (Sofar's second source Vishay SMA6F33A-M3/H), J1 no part number (height
       open), U2/U3 low stock, 6 out of stock, 12 with no LCSC listing found. All flagged parts except J1 are Active at Digi-Key
-- [ ] S5.e: QE review (standing S5 session)
+- [ ] S5.e: QE review (standing S5 session) — round 1 CHANGES REQUESTED (F1: constraints 7/8), fixed; round 2 pending
 - [ ] S5.e: Nick's review of bom_lifecycle.md
-- [ ] Sourcing decisions per flagged part (Nick): JLC global sourcing / consigned / LCSC equivalent (schematic change,
-      cited) — table in bom_lifecycle.md; J1 socket when the board spacing is known
+- [x] Sourcing policy (Nick, D26): critical parts via JLC global sourcing; passives keep the specified part with LCSC
+      `ALT…` field proposals for Sofar's design review (S5.h); constraint amendments only after Sofar weighs in
+- [ ] S5.h: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged passives, `SOURCING` on the
+      critical parts; BOM CSV export with alternates side by side (Nick approved; after S5.e merges)
+- [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
 - [x] S5.c: ADIN_PWR **R43 100 kΩ** pull-down (AP22913 has none, DS41203); ADIN_RST none (internal pull-up,

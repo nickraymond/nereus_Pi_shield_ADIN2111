@@ -202,7 +202,8 @@ const S = [
   ["S5.a: QE approved; your KiCad look", `<p>QE APPROVED WITH NITS (round 2); your look OK; PR #11 merged.</p>`, "nick", 1],
   ["S5.e: lifecycle + stock check of every BOM part (20 boards)", `<p>50 parts in docs/design-review/bom_lifecycle.md. 29 OK. Flagged: D1 TVS obsolete (ST; Sofar's Vishay second source exists, Sofar Q7), J1 has no part number (height open), U2/U3 low stock, 6 out of stock, 12 with no LCSC listing found. Every flagged part except J1 is Active at Digi-Key, so it's a JLC sourcing question.</p>`, null, 1],
   ["S5.e: QE review; your review of bom_lifecycle.md", ``, "nick"],
-  ["Sourcing decisions per flagged part", `<p>Your call per part: JLC global sourcing, consigned parts, or an LCSC equivalent (schematic change). Table in bom_lifecycle.md.</p>`, "nick"],
+  ["Sourcing policy (D26)", `<p>Your call: critical parts (ADIN, load switches, inductors, crystal, diodes, inserts, J5) via JLC global sourcing; passives keep the specified part with LCSC alternates as hidden ALT fields for Sofar's design review (S5.h). Substitutes only after Sofar weighs in and a constraint is amended.</p>`, "nick", 1],
+  ["S5.h: BOM alternates (fields only)", `<p>Hidden ALT1/ALT2 MPN/MFR/LCSC + ALT NOTE fields on the flagged passives, SOURCING on the critical parts, and a BOM CSV with alternates side by side. Schematic connections unchanged.</p>`],
   ["Pin map", `<div class="tbl"><table><tr><th>Pi pin</th><th>GPIO</th><th>Signal</th></tr>
 <tr><td>19 / 21 / 23 / 24</td><td>10 / 9 / 11 / 8</td><td>ADIN_MOSI / ADIN_MISO / ADIN_SCK / ADIN_NSS</td></tr>
 <tr><td>22</td><td>25</td><td>ADIN_INT</td></tr>
