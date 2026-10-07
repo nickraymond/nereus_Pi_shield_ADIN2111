@@ -72,6 +72,14 @@ our lifecycle table ("Yageo", "Würth Elektronik"), because Sofar's fields were 
 
 ## Regenerate
 
+Every command below runs **from the repository root** (the folder holding `tools/` and `nereus_Pi_shield_ADIN2111/`).
+From anywhere else kicad-cli answers "Schematic file does not exist or is not accessible". Change into your checkout
+first, for example:
+
+```bash
+cd ~/Documents/GitHub/nereus_Pi_shield_ADIN2111
+```
+
 ```bash
 tools/check.sh
 ```
@@ -80,7 +88,13 @@ ERC, netlist, PDF (`out/`), BOM (`bom.csv`), ERC exclusions check, mid-wire chec
 Expected: `ERC messages: 495  Errors 0  Warnings 495`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
 missing exclusions`, `midwire: 0`, `netcheck: 51/51 … 0 opens, 0 shorts`, exit 0.
 
-`schematic.pdf` and `bom.pdf` here are reviewed snapshots (`python3 tools/bompdf.py` rebuilds `bom.pdf` from `bom.csv`, macOS):
+`schematic.pdf` and `bom.pdf` here are reviewed snapshots, not rebuilt by `check.sh`: rebuild them after any schematic or
+BOM change (`bom.pdf`'s header carries the build date).
+
+```bash
+python3 tools/bompdf.py
+```
+
 
 ```bash
 /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli sch export pdf -o docs/design-review/schematic.pdf nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch

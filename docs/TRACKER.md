@@ -56,7 +56,7 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py`, `python3 tools/test_ercexclude.py` and `python3 tools/test_fpattrs.py`. ERC tables: `python3 tools/ercsum.py --items`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py`, `python3 tools/test_ercexclude.py`, `python3 tools/test_fpattrs.py` and `python3 tools/test_bompdf.py`. ERC tables: `python3 tools/ercsum.py --items`.
 ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate from `docs/design-review/erc_justifications.csv`).
 
 ### Project layout
@@ -65,7 +65,7 @@ ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate fr
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py, bompdf.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -293,7 +293,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
 - [x] S6.f (Nick, 2026-10-07): title-block author = Nick Buemond (text variable AUTHOR, was the Altium placeholder
       "=ProjectAuthor"); review PDF of the BOM `docs/design-review/bom.pdf` (`tools/bompdf.py`, + `tools/html2pdf.js`);
       `schematic.pdf` re-exported
-- [ ] S6.f: QE review (S6 session)
+- [x] S6.f: QE review (S6 session): **APPROVED WITH NITS**, fixed (bompdf test; README: snapshots rebuilt by hand; commands run
+      from the repo root) — `docs/design-review/qe/S6.md`; merged (PR #27)
 - [ ] S6: Nick's demo — open `docs/design-review/README.md`, `schematic.pdf`, `bom.pdf` and the project in KiCad; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
