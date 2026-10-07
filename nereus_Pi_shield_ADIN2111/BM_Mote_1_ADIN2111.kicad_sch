@@ -4284,7 +4284,7 @@
 		(at 185.42 200.4822 0)
 		(unit 0)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "00ce8866-0c64-4971-8467-87077db095c4")
@@ -4996,6 +4996,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Analog Devices"
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d2da7905-f313-46e2-a78d-65b665223ea1")
 		)
@@ -5460,6 +5469,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Samsung"
+			(at 226.06 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "803fe54f-b2c6-453b-bc6a-761b7704c871")
 		)
@@ -5480,7 +5498,7 @@
 		(at 185.42 230.9622 0)
 		(unit 0)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "47c17314-59fb-4bb4-80ba-81ebe51304d1")
@@ -5916,6 +5934,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Diodes Inc."
 			(at 177.8 228.4222 0)
 			(effects
 				(font
@@ -6369,6 +6396,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 276.86 70.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 276.86 70.9422 0)
 			(effects
 				(font
@@ -7230,6 +7266,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Panasonic"
+			(at 347.98 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d6451d95-fe11-42a2-8fa4-1ae145ece409")
 		)
@@ -7812,6 +7857,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Panasonic"
+			(at 261.62 91.2622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d21ffe6b-6fc4-4be3-9302-9b8c20fca3db")
 		)
@@ -8321,6 +8375,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Samsung"
+			(at 226.06 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a3d20a8c-1f97-44a8-b6ae-7c0b3f568ba2")
 		)
@@ -8499,6 +8562,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Diodes Inc."
 			(at 177.8 197.9422 0)
 			(effects
 				(font
@@ -8918,6 +8990,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Yageo"
+			(at 254 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2dd03d5d-b729-4aaa-a83c-ed5d2d763c08")
 		)
@@ -9034,6 +9115,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Analog Devices"
 			(at 205.74 98.8822 0)
 			(effects
 				(font
@@ -9588,6 +9678,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Yageo"
+			(at 287.02 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "303756eb-a380-45a3-9629-a19fd0e8e4c4")
 		)
@@ -9722,6 +9821,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Abracon"
 			(at 259.08 131.9022 0)
 			(effects
 				(font
@@ -10193,6 +10301,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Panasonic"
+			(at 266.7 103.9622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "cbb2344b-94bc-4068-9f5d-b4d15e4031a9")
 		)
@@ -10500,6 +10617,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 292.1 68.4022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 292.1 68.4022 0)
 			(effects
 				(font
@@ -10885,6 +11011,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 304.8 65.8622 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 304.8 65.8622 0)
 			(effects
 				(font
@@ -11280,6 +11415,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 347.98 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Panasonic"
 			(at 347.98 190.5 0)
 			(effects
 				(font
@@ -11789,6 +11933,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Samsung"
+			(at 264.16 73.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "131da1ff-f2de-42a4-a5c9-df5bf5c05da1")
 		)
@@ -12104,6 +12257,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 215.9 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 215.9 228.4222 0)
 			(effects
 				(font
@@ -12489,6 +12651,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 215.9 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 215.9 200.4822 0)
 			(effects
 				(font
@@ -12884,6 +13055,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 254 119.2022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Panasonic"
 			(at 254 119.2022 0)
 			(effects
 				(font
@@ -13672,6 +13852,15 @@
 				(hide yes)
 			)
 		)
+		(property "MANUFACTURER" "Samsung"
+			(at 193.04 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7d6dd1ca-4e84-4b30-a87b-77ea682ba84d")
 		)
@@ -13987,6 +14176,15 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+			(at 205.74 200.4822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
 			(at 205.74 200.4822 0)
 			(effects
 				(font

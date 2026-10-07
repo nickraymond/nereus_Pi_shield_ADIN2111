@@ -173,6 +173,7 @@ two local labels with the same name silently join their nets.
 | 2026-10-06 | S5.e | 27 / 504 | unchanged (docs only) | Lifecycle + stock check of all 50 BOM parts (20 boards) → `docs/design-review/bom_lifecycle.md`; sourcing decisions open |
 | 2026-10-06 | S5.h | 27 / 504 | 51/51, 0 opens, 0 shorts; netlist identical except 208 new hidden fields | BOM alternates (D26): `ALT…` + `SOURCING` fields on 24 flagged passives, `SOURCING` on the critical parts; tracked `bom.csv` from `tools/check.sh`. ERC items identical (only `multiple_net_names` cites a different copy of a repeated label; KiCad varies it run to run) |
 | 2026-10-06 | S5.i | 27 / 504 | 51/51, 0 opens, 0 shorts; netlist identical except 428 new PLANNED fields and 19 SOURCING values | Planned parts (D27). ERC items identical with locations stripped |
+| 2026-10-06 | S6.a | 27 / 504 | 51/51; netlist + 26 exclude_from_bom markers + MANUFACTURER fields only | BOM hygiene: TP/FID/MTG out of the BOM; Mfr filled; bom.csv 51 rows |
 
 **Remaining ERC errors after S5.b (27), and who resolves each** (counted with
 `python3 tools/ercsum.py --items`; the S1 version of this table undercounted

@@ -55,6 +55,8 @@ change without an amendment:
   on the 24 flagged passives, and `SOURCING` is set on those and on every critical part. `tools/check.sh` exports them
   to the tracked `docs/design-review/bom.csv`: Sofar's specified part stays in the `Value (MPN)` column, alternates sit
   beside it. Values and their LCSC check: `docs/design-review/bom_alternates.md`. In KiCad: Tools → Edit Symbol Fields.
+- **Done in S6.a:** test points, fiducials and mounting holes are out of the BOM (`in_bom no`), and `MANUFACTURER` is
+  filled from this table on the 75 BOM parts that had none (J1 open). `bom.csv` now lists only purchased parts (51 rows).
 - **Done in S5.i (D27):** every purchased part has a planned part (`PLANNED MPN/MFR/LCSC` + `PLANNED NOTE`) right after
   the specified part: 10 lines change, the rest are planned as specified. The first build buys the planned parts after
   Sofar's review (amends the first-build rule above).
