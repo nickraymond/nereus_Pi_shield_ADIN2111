@@ -56,7 +56,8 @@ tools/check.sh
 This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
 go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
 is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
-`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py` and `python3 tools/test_fpextract.py`. ERC tables: `python3 tools/ercsum.py --items`.
+`python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py` and `python3 tools/test_ercexclude.py`. ERC tables: `python3 tools/ercsum.py --items`.
+ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate from `docs/design-review/erc_justifications.csv`).
 
 ### Project layout
 
@@ -64,7 +65,7 @@ is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py (+ tests)
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py (+ tests)
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -262,8 +263,12 @@ netlist: ADIN_INT/MISO/MOSI/NSS/PWR/RST/SCK, I2C1_SDA/SCL, SW_EN, SW_FLAGB each 
 *Bites (Nick, 2026-10-06; run overnight, each QE-approved and merged before the next): S6.a BOM hygiene, S6.b ERC clean or
 justified (title block: name = file name, rev AA, part number PCB-000001-AA), S6.c footprint attributes + courtyards (library
 only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no overhaul), S6.e review package. Fresh S6 QE session.*
-- [ ] ERC clean, or every remaining item justified (incl. FID1–6 hidden NC pins, the
-      regulator switch-node/rail power pins, #PWR34 ADIN_VDDIO)
+- [x] S6.b ERC clean (D28): **0 errors** / 504 warnings. Title block set (PCBPARTNAME = file name, PCBPARTNUMBER = PCB-000001-AA,
+      rev AA); 18 errors excluded with reasons from `docs/design-review/erc_justifications.csv` via `tools/ercexclude.py`
+      (`check.sh` fails if an exclusion goes stale). Open (Nick): the title blocks still show the Altium placeholder
+      "=ProjectAuthor" (text variable AUTHOR) — needs an author name
+- [x] S6.b: QE review (S6 session): round 1 CHANGES REQUESTED (tool exited 0 on unjustified errors), fixed; **APPROVED WITH NITS**
+      in round 2, nits fixed — `docs/design-review/qe/S6.md`; merged (PR #23)
 - [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
       note was updated in S5.d)
 - [ ] Schematic tidy, after all technical work (Nick, 2026-10-06): R26/R27 drawn onto J1's I²C stubs instead of floating
@@ -282,6 +287,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
 - [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.b: `tools/check.sh` → `ERC messages: 504  Errors 0  Warnings 504`, `ercexclude: 18 errors justified, 0 unjustified, 0 stale / 0
+missing exclusions`, netcheck 51/51, midwire 0, exit 0; PDF title blocks read "Rev: AA" and PCB-000001-AA.
 S6.a: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: … (51 rows)`; no TP/FID/MTG
 row; `Mfr` blank only on J1.
 
