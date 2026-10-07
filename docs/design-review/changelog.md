@@ -21,6 +21,7 @@ Positions, text, graphics and label names only (D30); pin connections identical 
 | — | Power | sheet title "Buck Converters - 3V3, 1V8, 5V" removed: the three converter headers replace it (Nick) |
 | — | Top-Level | headers in the style of the other blocks (Nick): "RASPBERRY PI - 40-PIN HEADER" under J1, "LOAD SWITCH - PAYLOAD POWER" under the Load Switch block |
 | — | ADIN, Power | QE nits: ~{ADIN_P2_LED1} label dropped 2.54 mm on a jogged stub (its overbar touched pin 47's wire); 1V8 header 2.54 mm right (it sat on the feed wire) |
+| — | Top-Level | QE round-2 nit: ~{PAYLOAD_FAULT} label dropped 2.54 mm on a jogged stub (its overbar touched the PAYLOAD_EN wire) |
 | — | .kicad_pro | 8 ERC exclusion keys regenerated (U5/U10/U6 and #PWR34 moved); the 18 reasons unchanged |
 
 **Verified:** same pin partition (109 nets), 7 renamed as above; ERC 495 → 492 → **494**/0 errors (−2 off-grid wires of the

@@ -39,7 +39,8 @@ TRACKER, viewer
 - QE round 1 APPROVED WITH NITS (P2_LED1 overbar vs pin 47's wire; 1V8 header on its wire; licence note → Sofar Q8 drafted)
 - Nick, after his KiCad look: J5 wired beside the Load Switch (connector with its switch beats "interconnects on the right");
   R11 note as an open / fitted summary; headers for J1 and the Load Switch; Power sheet title removed
-**Next:** QE round 2; Nick's look in KiCad; then S6 complete
+- QE round 2 APPROVED WITH NITS: ~{PAYLOAD_FAULT}'s overbar touched the PAYLOAD_EN wire; jogged like ~{ADIN_P2_LED1}
+**Next:** Nick's look in KiCad; merge #28; then S6 complete
 
 ---
 

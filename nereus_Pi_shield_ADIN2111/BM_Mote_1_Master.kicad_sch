@@ -7618,16 +7618,6 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 215.9) (xy 187.96 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "780d9f52-a3a3-4331-857d-4668dc4dc04c")
-	)
-	(wire
-		(pts
 			(xy 200.66 175.26) (xy 210.82 175.26)
 		)
 		(stroke
@@ -7795,6 +7785,36 @@
 			(type default)
 		)
 		(uuid "7c53d990-1a00-4bf6-ac72-a1a167bdc292")
+	)
+	(wire
+		(pts
+			(xy 185.42 215.9) (xy 187.96 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9262a0b-ecea-4b71-91e6-2e2a1a1bc90f")
+	)
+	(wire
+		(pts
+			(xy 187.96 215.9) (xy 187.96 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ee1a0dc-5b1c-400b-978d-ae2d74d56bb4")
+	)
+	(wire
+		(pts
+			(xy 187.96 218.44) (xy 190.5 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7fdc641-8fe2-40b2-ac1d-0545fb809d48")
 	)
 	(label "BM2_P"
 		(at 454.66 121.92 0)
@@ -8117,7 +8137,7 @@
 		(uuid "e5c3cc09-a90a-4849-8ed1-a2f5c4169a65")
 	)
 	(label "~{PAYLOAD_FAULT}"
-		(at 187.96 215.9 0)
+		(at 190.5 218.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
