@@ -14,7 +14,9 @@ regex on kicad-cli's item description, e.g. "^Symbol FID\\d+ Hidden pin").
                                         an unjustified error, a stale or a missing exclusion)
   python3 tools/ercexclude.py --write   rewrite the .kicad_pro exclusions from the table
 
-Runs ERC on a temporary copy with the exclusions cleared; never touches the schematic.
+Runs ERC on a temporary copy with the tool's own exclusions cleared; never touches the schematic.
+Hand-made exclusions (e.g. a two-item error, which this tool doesn't key) are kept if their comment starts
+with "manual:": --write leaves them in place, and ERC runs with them applied.
 Python standard library only.
 """
 import csv
@@ -80,12 +82,19 @@ def justify(errs, rules):
     return found, missing
 
 
+MANUAL = "manual:"
+
+
+def is_manual(entry):
+    return isinstance(entry, list) and len(entry) > 1 and str(entry[1]).lower().startswith(MANUAL)
+
+
 def run_erc():
     with tempfile.TemporaryDirectory() as tmp:
         dst = Path(tmp) / PROJ
         shutil.copytree(ROOT / PROJ, dst, ignore=shutil.ignore_patterns("~*.lck", "*-backups"))
         pro = json.loads((dst / PRO.name).read_text())
-        pro["erc"]["erc_exclusions"] = []
+        pro["erc"]["erc_exclusions"] = [e for e in pro["erc"]["erc_exclusions"] if is_manual(e)]
         (dst / PRO.name).write_text(json.dumps(pro, indent=2, ensure_ascii=False) + "\n")
         out = Path(tmp) / "erc.json"
         r = subprocess.run([KICAD, "sch", "erc", "--format", "json", "--severity-all", "-o", str(out),
@@ -100,16 +109,17 @@ def main(argv):
     rules = load_rules(TABLE)
     found, missing = justify(errors(run_erc()), rules)
     pro = json.loads(PRO.read_text())
+    manual = [e for e in pro["erc"]["erc_exclusions"] if is_manual(e)]
     current = {e[0] if isinstance(e, list) else e: (e[1] if isinstance(e, list) else "")
-               for e in pro["erc"]["erc_exclusions"]}
+               for e in pro["erc"]["erc_exclusions"] if not is_manual(e)}
     if write:
-        pro["erc"]["erc_exclusions"] = [[k, found[k]] for k in sorted(found)]
+        pro["erc"]["erc_exclusions"] = [[k, found[k]] for k in sorted(found)] + manual
         PRO.write_text(json.dumps(pro, indent=2, ensure_ascii=False) + "\n")
         current = found
     stale = sorted(set(current) - set(found))
     absent = sorted(set(found) - set(current))
     print(f"ercexclude: {len(found)} errors justified, {len(missing)} unjustified, "
-          f"{len(stale)} stale / {len(absent)} missing exclusions")
+          f"{len(stale)} stale / {len(absent)} missing exclusions" + (f", {len(manual)} manual kept" if manual else ""))
     for m in missing:
         print(f"  unjustified  {m}")
     if stale or absent:

@@ -267,7 +267,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       rev AA); 18 errors excluded with reasons from `docs/design-review/erc_justifications.csv` via `tools/ercexclude.py`
       (`check.sh` fails if an exclusion goes stale). Open (Nick): the title blocks still show the Altium placeholder
       "=ProjectAuthor" (text variable AUTHOR) — needs an author name
-- [ ] S6.b: QE review (S6 session)
+- [x] S6.b: QE review (S6 session): round 1 CHANGES REQUESTED (tool exited 0 on unjustified errors), fixed; **APPROVED WITH NITS**
+      in round 2, nits fixed — `docs/design-review/qe/S6.md`; merged (PR #23)
 - [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
       note was updated in S5.d)
 - [ ] Schematic tidy, after all technical work (Nick, 2026-10-06): R26/R27 drawn onto J1's I²C stubs instead of floating

@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from ercexclude import NIL, errors, iu, justify, key  # noqa: E402
+from ercexclude import NIL, errors, is_manual, iu, justify, key  # noqa: E402
 
 ITEM = {"description": "Symbol FID1 Hidden pin 0 [NC, Passive, Line]",
         "pos": {"x": 2.2987, "y": 3.2385}, "uuid": "63b235cc-7b80-4d92-a67a-d180d0bdc57f"}
@@ -36,6 +36,12 @@ class TestErcExclude(unittest.TestCase):
                                   ("power_pin_not_driven", [ITEM], PATH)], rules)
         self.assertEqual(list(found.values()), ["fiducial"])
         self.assertEqual(len(missing), 2)      # wrong ref; wrong type
+
+    def test_manual_entries(self):
+        self.assertTrue(is_manual(["k", "manual: two-item error, reviewed"]))
+        self.assertTrue(is_manual(["k", "Manual: x"]))
+        self.assertFalse(is_manual(["k", "fiducial"]))
+        self.assertFalse(is_manual("k"))
 
     def test_two_item_error_not_keyed(self):
         rules = [("pin_not_connected", re.compile(r"^Symbol FID\d+ Hidden pin"), "fiducial")]
