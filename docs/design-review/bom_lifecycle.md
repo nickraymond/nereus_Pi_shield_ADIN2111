@@ -49,6 +49,8 @@ change without an amendment:
   as hidden `ALT…` fields next to it (S5.h), as **proposals for Sofar's design review**.
 - Adopting any alternate for a Sofar part is a later decision, made with Sofar, that needs a constraint amendment. The
   bespoke PoDL/power-path parts (R8, R15/R16, C22/C23) are flagged "Sofar review".
+- **First build:** every flagged passive is also bought exact through JLC global sourcing (or consigned) until an
+  alternate is approved, so the 20-board order can be placed.
 
 ## Decisions needed (proposed, not applied; rows marked † need a constraint amendment)
 
