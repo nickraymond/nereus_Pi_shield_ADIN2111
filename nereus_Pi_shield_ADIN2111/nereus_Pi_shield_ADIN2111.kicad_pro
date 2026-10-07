@@ -296,7 +296,7 @@
         "TPS62840 VOS senses its own 1V8 output, driven through inductor L4 (passive pins), so ERC sees no power output"
       ],
       [
-        "power_pin_not_driven|3581400|1981200|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
+        "power_pin_not_driven|3581400|2006600|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
         "ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
       ]
     ],

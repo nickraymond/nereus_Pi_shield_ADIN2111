@@ -6799,10 +6799,10 @@
 		)
 		(uuid "c3de17c1-5863-41c3-8829-1d6a065415d0")
 	)
-	(text_box "Processor + onboard logic runs off 3V3, and ADIN AVDD off 1V8."
+	(text_box "Shield logic runs off 3V3; ADIN AVDD runs off 1V8."
 		(exclude_from_sim no)
 		(at 353.06 78.74 0)
-		(size -33.02 12.7)
+		(size -33.02 7.62)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -6866,7 +6866,7 @@
 	(text_box "Bristlemouth bus:\nM3 threaded inserts\nMP1-MP4"
 		(exclude_from_sim no)
 		(at 481.33 133.35 0)
-		(size -29.21 19.05)
+		(size -29.21 8.89)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width -0.0001)
@@ -6878,7 +6878,7 @@
 		)
 		(effects
 			(font
-				(size 2.286 2.286)
+				(size 1.27 1.27)
 			)
 			(justify left top)
 		)
@@ -6949,12 +6949,6 @@
 		(uuid "dfdd3ae1-952d-402e-817d-ab61b3081436")
 	)
 	(junction
-		(at 198.12 101.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "42027eac-909f-4d57-9d81-88beafcde3fe")
-	)
-	(junction
 		(at 134.62 205.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6971,12 +6965,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ee18c7d0-533b-430e-b607-955fb2856351")
-	)
-	(junction
-		(at 292.1 119.38)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ab2763a1-18e9-409e-ac05-feb2c4eee153")
 	)
 	(junction
 		(at 304.8 187.96)
@@ -7132,16 +7120,6 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 104.14) (xy 198.12 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "183e84ca-3364-471a-a25a-800c9f366aa1")
-	)
-	(wire
-		(pts
 			(xy 447.04 121.92) (xy 472.44 121.92)
 		)
 		(stroke
@@ -7292,26 +7270,6 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 111.76) (xy 309.88 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56e29727-187f-4978-aade-70549d2271dc")
-	)
-	(wire
-		(pts
-			(xy 269.24 119.38) (xy 292.1 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "58ed913c-1e49-4856-9e87-c427e13c9ed6")
-	)
-	(wire
-		(pts
 			(xy 292.1 119.38) (xy 309.88 119.38)
 		)
 		(stroke
@@ -7392,16 +7350,6 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 121.92) (xy 309.88 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67c37e20-7654-42dc-91fa-6049d9908f5d")
-	)
-	(wire
-		(pts
 			(xy 193.04 205.74) (xy 187.96 205.74)
 		)
 		(stroke
@@ -7422,16 +7370,6 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 109.22) (xy 309.88 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b3dfb06-aeb4-4972-b3c3-2d600820c8da")
-	)
-	(wire
-		(pts
 			(xy 278.13 149.86) (xy 378.46 149.86)
 		)
 		(stroke
@@ -7449,16 +7387,6 @@
 			(type default)
 		)
 		(uuid "82860d10-a0e2-4b51-8355-90fde22da5d5")
-	)
-	(wire
-		(pts
-			(xy 198.12 101.6) (xy 218.44 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "84779471-2566-4718-9556-dec3d137347a")
 	)
 	(wire
 		(pts
@@ -7532,16 +7460,6 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 104.14) (xy 198.12 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6891f14-ca98-41f0-907a-c998bb2b2e38")
-	)
-	(wire
-		(pts
 			(xy 383.54 132.08) (xy 396.24 132.08)
 		)
 		(stroke
@@ -7549,16 +7467,6 @@
 			(type default)
 		)
 		(uuid "ad2f2854-36bf-4e62-95ba-9c83196cc912")
-	)
-	(wire
-		(pts
-			(xy 269.24 106.68) (xy 309.88 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b36faa14-abc7-48c2-b82a-f0bc11597c09")
 	)
 	(wire
 		(pts
@@ -7682,16 +7590,6 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 124.46) (xy 309.88 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f65ec24c-351b-4e9a-bb03-f8d8ca44074c")
-	)
-	(wire
-		(pts
 			(xy 375.92 147.32) (xy 375.92 134.62)
 		)
 		(stroke
@@ -7709,16 +7607,6 @@
 			(type default)
 		)
 		(uuid "fd186a27-95f8-4ed1-a6ee-b48558ceedbe")
-	)
-	(wire
-		(pts
-			(xy 269.24 104.14) (xy 309.88 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff13b661-c881-4869-b5c2-58da8e27c884")
 	)
 	(wire
 		(pts
@@ -7932,46 +7820,6 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 60.96) (xy 167.64 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "39760dbb-0abb-4022-9a03-79c52b22ae83")
-	)
-	(wire
-		(pts
-			(xy 177.8 60.96) (xy 182.88 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e45f655c-5ea2-4d48-b64d-d72402edee46")
-	)
-	(wire
-		(pts
-			(xy 152.4 66.04) (xy 167.64 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9cc2a2f-5e86-459f-86ca-abb28539efc6")
-	)
-	(wire
-		(pts
-			(xy 177.8 66.04) (xy 182.88 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcdfa180-b9ce-4ab8-bdd2-a1f1a90cec6b")
-	)
-	(wire
-		(pts
 			(xy 78.74 99.06) (xy 78.74 93.98)
 		)
 		(stroke
@@ -8009,6 +7857,106 @@
 			(type default)
 		)
 		(uuid "b5e28c9f-2a95-45b3-9da4-8bb52174ea0f")
+	)
+	(wire
+		(pts
+			(xy 294.64 104.14) (xy 309.88 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06c1999e-86e3-44ad-8b5f-25a627841268")
+	)
+	(wire
+		(pts
+			(xy 294.64 106.68) (xy 309.88 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cf4e3a88-e61a-49c1-8e49-4aefe7532a28")
+	)
+	(wire
+		(pts
+			(xy 294.64 109.22) (xy 309.88 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fec43205-be6c-4146-86bd-1c18cdb6489e")
+	)
+	(wire
+		(pts
+			(xy 294.64 111.76) (xy 309.88 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42bbc3fb-e59b-47c4-b2f3-c98834910c55")
+	)
+	(wire
+		(pts
+			(xy 294.64 121.92) (xy 309.88 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57a2b8e0-7cb3-40c4-b9d9-9d235384581e")
+	)
+	(wire
+		(pts
+			(xy 294.64 124.46) (xy 309.88 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5ddac9f-dbd4-49a0-86db-cf8786351f45")
+	)
+	(wire
+		(pts
+			(xy 170.18 73.66) (xy 175.26 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfd18aad-8309-4f63-ab9d-f1d1c9834a8e")
+	)
+	(wire
+		(pts
+			(xy 144.78 73.66) (xy 160.02 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cf8586b-24b6-4c73-8e36-15e6b625a5ed")
+	)
+	(wire
+		(pts
+			(xy 170.18 76.2) (xy 175.26 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51009b92-2f04-4b58-8f1b-2ed47f90ff8e")
+	)
+	(wire
+		(pts
+			(xy 144.78 76.2) (xy 160.02 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "000ab734-f1a6-4c89-9e1b-2f6a32cc1189")
 	)
 	(label "BM2_P"
 		(at 454.66 121.92 0)
@@ -8359,26 +8307,6 @@
 			(justify left bottom)
 		)
 		(uuid "763c5a1f-7638-4463-9348-00f65245e059")
-	)
-	(label "I2C1_SDA"
-		(at 152.4 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b9f822d4-d2c7-4761-8d7c-e31e94df9d75")
-	)
-	(label "I2C1_SCL"
-		(at 152.4 66.04 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "adbbf19b-82e7-42b5-820f-5f9bbc81a33d")
 	)
 	(label "ADIN_PWR"
 		(at 78.74 93.98 180)
@@ -9665,68 +9593,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "MP4")
 					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 198.12 101.6 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "47f30a2b-025c-4734-b648-eb58aa76a1cd")
-		(property "Reference" "#PWR06"
-			(at 198.12 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "3V3"
-			(at 198.12 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-				(property "Footprint" ""
-			(at 198.12 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 198.12 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 198.12 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "3163a322-e3e2-4370-a82c-144e9564578c")
-		)
-		(instances
-			(project ""
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR06")
-					(unit 1)
 				)
 			)
 		)
@@ -15128,7 +14994,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_0_RES-2_Altium Content Vault")
-		(at 170.18 60.96 0)
+		(at 162.56 73.66 0)
 		(unit 0)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15136,16 +15002,16 @@
 		(dnp no)
 		(uuid "3dd4ef14-a636-4db5-8e24-1a39bb0fa3fc")
 		(property "Reference" "R27"
-			(at 169.926 60.198 0)
+			(at 161.29 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
 		(property "Value" "ERJ-2RKF4701X"
-			(at 169.926 64.262 0)
+			(at 162.306 76.962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15155,7 +15021,7 @@
 			)
 		)
 		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15164,7 +15030,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15173,7 +15039,7 @@
 			)
 		)
 		(property "Description" "Chip Resistor, 4.7 KOhm, +/- 1%, 0.1 W, -55 to 155 degC, 0402 (1005 Metric), RoHS, Tape and Reel"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15182,7 +15048,7 @@
 			)
 		)
 		(property "HEIGHT" "0.35 mm"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15192,7 +15058,7 @@
 			)
 		)
 		(property "MOUNTING TECHNOLOGY" "Surface Mount"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15202,7 +15068,7 @@
 			)
 		)
 		(property "REACH SVHC" "Yes"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15212,16 +15078,16 @@
 			)
 		)
 		(property "RESISTANCE" "4.7k"
-			(at 170.18 63.5 0)
+			(at 166.37 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
 		(property "MAX OPERATING TEMPERATURE" "155 degC"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15231,7 +15097,7 @@
 			)
 		)
 		(property "COMPONENTLINK1DESCRIPTION" "Manufacturer URL"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15241,7 +15107,7 @@
 			)
 		)
 		(property "COMPONENTLINK2DESCRIPTION" "Datasheet"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15251,7 +15117,7 @@
 			)
 		)
 		(property "PINS" "2"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15261,7 +15127,7 @@
 			)
 		)
 		(property "PACKAGEREFERENCE" "0402"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15271,7 +15137,7 @@
 			)
 		)
 		(property "TOLERANCE" "1%"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15281,7 +15147,7 @@
 			)
 		)
 		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15291,7 +15157,7 @@
 			)
 		)
 		(property "LENGTH" "1 mm"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15301,7 +15167,7 @@
 			)
 		)
 		(property "PACKAGEDESCRIPTION" "2-Pin Surface Mount Device, Body 1 x 0.5 mm"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15311,7 +15177,7 @@
 			)
 		)
 		(property "PARTNUMBER" "ERJ-2RKF4701X"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15321,7 +15187,7 @@
 			)
 		)
 		(property "ROHSCOMPLIANT" "true"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15331,7 +15197,7 @@
 			)
 		)
 		(property "PACKAGE QUANTITY" "1"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15341,7 +15207,7 @@
 			)
 		)
 		(property "RADIATION HARDENING" "No"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15351,7 +15217,7 @@
 			)
 		)
 		(property "DATASHEETVERSION" "04/2015"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15361,7 +15227,7 @@
 			)
 		)
 		(property "WIDTH" "0.5 mm"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15371,7 +15237,7 @@
 			)
 		)
 		(property "CASE CODE (METRIC)" "1005"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15381,7 +15247,7 @@
 			)
 		)
 		(property "VOLTAGE RATING" "50 V"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15391,7 +15257,7 @@
 			)
 		)
 		(property "CAS~{E}/PACKAGE" "0402"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15401,7 +15267,7 @@
 			)
 		)
 		(property "MOUNT" "Surface Mount"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15411,7 +15277,7 @@
 			)
 		)
 		(property "COMPONENTLINK1URL" "http://www.panasonic.com/"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15421,7 +15287,7 @@
 			)
 		)
 		(property "MIN OPERATING TEMPERATURE" "-55 degC"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15431,7 +15297,7 @@
 			)
 		)
 		(property "POWER RATING" "100 mW"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15441,7 +15307,7 @@
 			)
 		)
 		(property "PACKAGING" "Cut Tape"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15451,7 +15317,7 @@
 			)
 		)
 		(property "COMPONENTLINK2URL" "http://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C86.pdf"
-			(at 167.132 60.198 0)
+			(at 159.512 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15461,7 +15327,7 @@
 			)
 		)
 		(property "SHEET" "Top-Level"
-			(at 167.132 66.04 0)
+			(at 159.512 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15471,7 +15337,7 @@
 			)
 		)
 		(property "PLANNED MPN" "ERJ-2RKF4701X"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15480,7 +15346,7 @@
 			)
 		)
 		(property "PLANNED MFR" "Panasonic"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15489,7 +15355,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C400631"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15498,7 +15364,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15507,7 +15373,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
-			(at 170.18 60.96 0)
+			(at 162.56 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15532,7 +15398,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 182.88 60.96 90)
+		(at 175.26 73.66 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15540,7 +15406,7 @@
 		(dnp no)
 		(uuid "67149963-8e4d-4ac9-8b97-69efbab4a45f")
 		(property "Reference" "#PWR77"
-			(at 182.88 57.15 0)
+			(at 175.26 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15549,7 +15415,7 @@
 			)
 		)
 		(property "Value" "3V3"
-			(at 189.23 60.96 90)
+			(at 181.61 73.66 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15557,7 +15423,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 182.88 60.96 0)
+			(at 175.26 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15566,7 +15432,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 182.88 60.96 0)
+			(at 175.26 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15575,7 +15441,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 182.88 60.96 0)
+			(at 175.26 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15597,7 +15463,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_0_RES-2_Altium Content Vault")
-		(at 170.18 66.04 0)
+		(at 162.56 76.2 0)
 		(unit 0)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15605,16 +15471,16 @@
 		(dnp no)
 		(uuid "9579a79d-1787-46f7-a7ff-569f173ba4bc")
 		(property "Reference" "R26"
-			(at 169.926 65.278 0)
+			(at 161.29 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
 		(property "Value" "ERJ-2RKF4701X"
-			(at 169.926 69.342 0)
+			(at 162.306 79.502 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15624,7 +15490,7 @@
 			)
 		)
 		(property "Footprint" "Vault:RESC1005X40X25LL05T05"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15633,7 +15499,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15642,7 +15508,7 @@
 			)
 		)
 		(property "Description" "Chip Resistor, 4.7 KOhm, +/- 1%, 0.1 W, -55 to 155 degC, 0402 (1005 Metric), RoHS, Tape and Reel"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15651,7 +15517,7 @@
 			)
 		)
 		(property "HEIGHT" "0.35 mm"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15661,7 +15527,7 @@
 			)
 		)
 		(property "MOUNTING TECHNOLOGY" "Surface Mount"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15671,7 +15537,7 @@
 			)
 		)
 		(property "REACH SVHC" "Yes"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15681,16 +15547,16 @@
 			)
 		)
 		(property "RESISTANCE" "4.7k"
-			(at 170.18 68.58 0)
+			(at 166.37 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
 		(property "MAX OPERATING TEMPERATURE" "155 degC"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15700,7 +15566,7 @@
 			)
 		)
 		(property "COMPONENTLINK1DESCRIPTION" "Manufacturer URL"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15710,7 +15576,7 @@
 			)
 		)
 		(property "COMPONENTLINK2DESCRIPTION" "Datasheet"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15720,7 +15586,7 @@
 			)
 		)
 		(property "PINS" "2"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15730,7 +15596,7 @@
 			)
 		)
 		(property "PACKAGEREFERENCE" "0402"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15740,7 +15606,7 @@
 			)
 		)
 		(property "TOLERANCE" "1%"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15750,7 +15616,7 @@
 			)
 		)
 		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15760,7 +15626,7 @@
 			)
 		)
 		(property "LENGTH" "1 mm"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15770,7 +15636,7 @@
 			)
 		)
 		(property "PACKAGEDESCRIPTION" "2-Pin Surface Mount Device, Body 1 x 0.5 mm"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15780,7 +15646,7 @@
 			)
 		)
 		(property "PARTNUMBER" "ERJ-2RKF4701X"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15790,7 +15656,7 @@
 			)
 		)
 		(property "ROHSCOMPLIANT" "true"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15800,7 +15666,7 @@
 			)
 		)
 		(property "PACKAGE QUANTITY" "1"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15810,7 +15676,7 @@
 			)
 		)
 		(property "RADIATION HARDENING" "No"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15820,7 +15686,7 @@
 			)
 		)
 		(property "DATASHEETVERSION" "04/2015"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15830,7 +15696,7 @@
 			)
 		)
 		(property "WIDTH" "0.5 mm"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15840,7 +15706,7 @@
 			)
 		)
 		(property "CASE CODE (METRIC)" "1005"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15850,7 +15716,7 @@
 			)
 		)
 		(property "VOLTAGE RATING" "50 V"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15860,7 +15726,7 @@
 			)
 		)
 		(property "CAS~{E}/PACKAGE" "0402"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15870,7 +15736,7 @@
 			)
 		)
 		(property "MOUNT" "Surface Mount"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15880,7 +15746,7 @@
 			)
 		)
 		(property "COMPONENTLINK1URL" "http://www.panasonic.com/"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15890,7 +15756,7 @@
 			)
 		)
 		(property "MIN OPERATING TEMPERATURE" "-55 degC"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15900,7 +15766,7 @@
 			)
 		)
 		(property "POWER RATING" "100 mW"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15910,7 +15776,7 @@
 			)
 		)
 		(property "PACKAGING" "Cut Tape"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15920,7 +15786,7 @@
 			)
 		)
 		(property "COMPONENTLINK2URL" "http://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C86.pdf"
-			(at 167.132 65.278 0)
+			(at 159.512 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15930,7 +15796,7 @@
 			)
 		)
 		(property "SHEET" "Top-Level"
-			(at 167.132 71.12 0)
+			(at 159.512 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15940,7 +15806,7 @@
 			)
 		)
 		(property "PLANNED MPN" "ERJ-2RKF4701X"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15949,7 +15815,7 @@
 			)
 		)
 		(property "PLANNED MFR" "Panasonic"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15958,7 +15824,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C400631"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15967,7 +15833,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15976,7 +15842,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
-			(at 170.18 66.04 0)
+			(at 162.56 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16001,7 +15867,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 182.88 66.04 90)
+		(at 175.26 76.2 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16009,7 +15875,7 @@
 		(dnp no)
 		(uuid "cf121853-5829-43c8-9e76-f63ddc531a89")
 		(property "Reference" "#PWR78"
-			(at 182.88 62.23 0)
+			(at 175.26 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16018,7 +15884,7 @@
 			)
 		)
 		(property "Value" "3V3"
-			(at 189.23 66.04 90)
+			(at 181.61 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16026,7 +15892,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 182.88 66.04 0)
+			(at 175.26 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16035,7 +15901,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 182.88 66.04 0)
+			(at 175.26 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16044,7 +15910,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 182.88 66.04 0)
+			(at 175.26 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
