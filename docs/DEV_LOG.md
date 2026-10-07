@@ -19,6 +19,27 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Session handoff — S5.h planned, ready for a new session
+
+**Branch:** sprint/5h-bom-alternates (handoff docs only)
+**Files touched:** docs/design-review/bom_alternates.md (new); TRACKER, viewer, DEV_LOG
+**ERC:** 27 / 504 (unchanged)  ·  **Net diff:** none
+**Done:**
+- S5.e closed: QE approved (round 2), Nick approved, PR #18 merged (`f5b2279`)
+- S5.h fully specified for the next session: field names, every alternate's MPN/LCSC/stock (checked on lcsc.com
+  today), `SOURCING` values for the critical parts, the BOM export command, and the expected checks
+- Nick asked to wind this session down; the handoff PR merged at his instruction without a QE round (plan only,
+  no design change)
+**State for the next agent:**
+- main is green (ERC 27/504, netcheck 51/51, midwire 0)
+- S5 standing QE session `local_fad7e722-e717-4a71-88c9-020652d9d441`: its sends to the design session get paused after
+  ~10 messages; read its transcript if no report arrives
+- Sofar questions still to send (Nick): Q2, Q6 (PoDL insert contact), Q7 (D1 source)
+- J1's part number waits on the board spacing (Nick)
+**Next:** S5.h, then S6
+
+---
+
 ## 2026-10-06 — Sprint S5.e — BOM lifecycle + stock check (all parts, 20 boards)
 
 **Branch:** sprint/5e-bom-lifecycle
