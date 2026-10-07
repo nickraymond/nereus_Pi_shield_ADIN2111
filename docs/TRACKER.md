@@ -282,8 +282,9 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
       library only, pads verified (`fpextract --verify` 0 problems). `tools/fpattrs.py`; record `docs/design-review/footprints.md`.
-      **Nick (layout):** pcbnew → Tools → Update Footprints from Library to pick them up
-- [ ] S6.c: QE review (S6 session)
+      **Nick (layout):** pcbnew → Tools → Update Footprints from Library to pick them up (its options decide whether text/field
+      positions are kept); U2/U3's courtyard is tight (0.05 mm past the body, Sofar's outline)
+- [x] S6.c: QE review (S6 session): **APPROVED WITH NITS** in round 1, fixed — `docs/design-review/qe/S6.md`; merged (PR #24)
 - [x] S6.a BOM for a JLC order: TP×16, FID1–6, MTG1–4 → `in_bom no` (bare copper / holes; QE S5.h N2); `MANUFACTURER` filled on
       the 75 BOM parts that had none (from `bom_lifecycle.md`; J1 open), Sofar's other maker fields untouched; LCSC field
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1

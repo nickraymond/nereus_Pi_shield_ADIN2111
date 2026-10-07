@@ -34,7 +34,8 @@ changelog, TRACKER, viewer
 - KiCad's writer (FootprintSave) regenerates every uuid and drops default-valued fields (the S5.g `opacity 1`), so the
   change is written as text inserts and re-read with pcbnew; BOX2I.Merge didn't behave through SWIG: plain min/max
 - QE sends from the S6 session get queued, not delivered: read its verdicts from its transcript
-**Next:** QE review; then S6.d (minor schematic tidy)
+- QE APPROVED WITH NITS: footprints.md "Used by" was wrong on 5 rows (regex ran across netlist components), regenerated
+**Next:** S6.d (minor schematic tidy)
 
 ---
 
