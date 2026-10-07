@@ -182,11 +182,13 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       open), U2/U3 low stock, 6 out of stock, 12 with no LCSC listing found. All flagged parts except J1 are Active at Digi-Key
 - [x] S5.e: QE review (standing S5 session): round 1 CHANGES REQUESTED (F1: constraints 7/8), fixed; **APPROVED WITH NITS** in
       round 2, fixed — `docs/design-review/qe/S5.md`
-- [ ] S5.e: Nick's review of bom_lifecycle.md
+- [x] S5.e: Nick's review of bom_lifecycle.md (PR #18 merged, `f5b2279`)
 - [x] Sourcing policy (Nick, D26): critical parts via JLC global sourcing; passives keep the specified part with LCSC
       `ALT…` field proposals for Sofar's design review (S5.h); constraint amendments only after Sofar weighs in
-- [ ] S5.h: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged passives, `SOURCING` on the
-      critical parts; BOM CSV export with alternates side by side (Nick approved; after S5.e merges)
+- [ ] S5.h **(next — ready to execute)**: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged
+      passives, `SOURCING` on the critical parts; BOM CSV export with alternates side by side. Approved by Nick; S5.e merged
+      (`f5b2279`). Steps, field values and the alternates (verified on LCSC 2026-10-06) are in
+      `docs/design-review/bom_alternates.md`. Then QE (standing S5 session) and Nick's look; S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
