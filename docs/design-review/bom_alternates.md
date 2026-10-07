@@ -4,6 +4,10 @@
 lcsc.com product pages on 2026-10-06. Recheck stock before ordering. Nothing here changes a connection: the specified
 parts stay; only hidden fields are added.*
 
+**Executed in S5.h (2026-10-06, branch `sprint/5h-bom-fields`)** as below, with one change to the export: a `${DNP}`
+column and `--group-by 'Value,${DNP}'`, because grouping by Value alone merged R11 (DNP) into the row of the fitted
+R12/R13/R17/R19 and marked all five DNP. Result: `docs/design-review/bom.csv`; changes in `changelog.md`.
+
 ## What to do
 
 1. **On each flagged passive**, add these hidden symbol fields with `schedit.set_properties` (it adds missing fields

@@ -51,6 +51,10 @@ change without an amendment:
   bespoke PoDL/power-path parts (R8, R15/R16, C22/C23) are flagged "Sofar review".
 - **First build:** every flagged passive is also bought exact through JLC global sourcing (or consigned) until an
   alternate is approved, so the 20-board order can be placed.
+- **Done in S5.h:** the alternates are now hidden symbol fields (`ALT1 MPN/MFR/LCSC`, `ALT2 MPN/MFR/LCSC`, `ALT NOTE`)
+  on the 24 flagged passives, and `SOURCING` is set on those and on every critical part. `tools/check.sh` exports them
+  to the tracked `docs/design-review/bom.csv`: Sofar's specified part stays in the `Value (MPN)` column, alternates sit
+  beside it. Values and their LCSC check: `docs/design-review/bom_alternates.md`. In KiCad: Tools → Edit Symbol Fields.
 
 ## Decisions needed (proposed, not applied; rows marked † need a constraint amendment)
 

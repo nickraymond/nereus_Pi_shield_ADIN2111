@@ -3475,6 +3475,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "0402WGF1003TCE"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "UNI-ROYAL"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C25741"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "RC0402FR-07100KL"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "YAGEO"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C60491"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "100 kΩ ±1 % 62.5 mW 50 V ±100 ppm; ALT1 is JLC Basic; AEC-Q200 not stated (Stackpole is)"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 279.4 172.5422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "343fa1ad-8419-431b-b2c4-66511b94e39f")
 		)
@@ -3660,6 +3732,15 @@
 			)
 		)
 		(property "Description" "Rectifier Diode Schottky Si 60V 3A Automotive 2-Pin PMDT-M T/R"
+			(at 292.1 149.6822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
 			(at 292.1 149.6822 0)
 			(effects
 				(font
@@ -4163,6 +4244,78 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MPN" "AC0402FR-079K09L"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "YAGEO"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C227284"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "0402WGF9091TCE"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "UNI-ROYAL"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C11549"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "9.09 kΩ ±1 % 62.5 mW 50 V ±100 ppm thick film; our part (D18), no amendment"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 151.13 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

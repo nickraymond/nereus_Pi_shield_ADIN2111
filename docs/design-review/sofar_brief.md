@@ -26,6 +26,12 @@ The ADIN2111 / PoDL front end, 3.3 V and 1.8 V regulation and the ~20 W power pa
   is limited to ≤ 1 A continuous by U10's temperature (D15).
 - Open questions for you: `docs/SOFAR_QUESTIONS.md` (Q2 R11 on production motes,
   Q4 mezzanine-side load-switch control).
+- **BOM alternates are proposals for your review, not substitutions** (D26). Every part you specified is still the
+  part on the schematic (`Value`) and in the BOM's first column. Where LCSC doesn't stock it, we recorded up to two
+  LCSC alternates as hidden `ALT…` fields with a note, and a `SOURCING` field saying how the first build buys it (your
+  exact part, through JLC global sourcing). Side by side in `docs/design-review/bom.csv`; reasoning and stock in
+  `bom_alternates.md` and `bom_lifecycle.md`. The PoDL/power-path ones (R8, R15/R16, C22/C23, C17/C21/C26, PoDL
+  front end) are marked "Sofar review": we won't adopt any of them without you.
 - Import housekeeping, not design changes: Altium-import connectivity repairs (21
   mid-wire pins split and joined), new reference numbers start above the mote
   board's highest (U10+, C53+, R37+).

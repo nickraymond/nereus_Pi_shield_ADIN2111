@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-05 · Owner/gate: **Nick***
+*Last updated: 2026-10-06 · Owner/gate: **Nick***
 
 ---
 
@@ -185,10 +185,12 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.e: Nick's review of bom_lifecycle.md (PR #18 merged, `f5b2279`)
 - [x] Sourcing policy (Nick, D26): critical parts via JLC global sourcing; passives keep the specified part with LCSC
       `ALT…` field proposals for Sofar's design review (S5.h); constraint amendments only after Sofar weighs in
-- [ ] S5.h **(next — ready to execute)**: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` fields on the flagged
-      passives, `SOURCING` on the critical parts; BOM CSV export with alternates side by side. Approved by Nick; S5.e merged
-      (`f5b2279`). Steps, field values and the alternates (verified on LCSC 2026-10-06) are in
-      `docs/design-review/bom_alternates.md`. Then QE (standing S5 session) and Nick's look; S5 is then complete → S6
+- [x] S5.h: BOM alternates as hidden `ALT1/ALT2 MPN/MFR/LCSC` + `ALT NOTE` + `SOURCING` fields on the 24 flagged passives,
+      `SOURCING` on the critical parts (U1–U3, L3/L6, Y1, D1–D3, MP1–MP4, J5, J1); `tools/check.sh` writes the tracked
+      `docs/design-review/bom.csv`: Sofar's specified part first (`Value (MPN)`), alternates beside it (Nick). Grouped by
+      Value and DNP (R11 kept apart from R12/R13/R17/R19). Values: `docs/design-review/bom_alternates.md`
+- [ ] S5.h: QE review (standing S5 session)
+- [ ] S5.h: Nick's KiCad look (Tools → Edit Symbol Fields); S5 is then complete → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
@@ -234,6 +236,9 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 - [x] S5.f: Nick's KiCad look (PR #17 merged, `e62d974`)
 - [ ] Every new net verified from the exported netlist
 **Demo (Nick):** net diff lists every new net with exactly its intended pins.
+S5.h: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: docs/design-review/bom.csv
+(54 rows)`; netlist identical except the new `ALT…`/`SOURCING` fields; `bom.csv` row R8 shows UR73D1JTTD10L0F then the ROHM and
+Vishay alternates.
 S5.d: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), netcheck 51/51, midwire 0, exit 0; netlist: VBUS_OUT + J5.1,
 GND + J5.2, nothing else.
 S5.c: `tools/check.sh` → ERC 535 / 27 / 508 (unchanged), **netcheck 51/51**, midwire 0, exit 0; netlist: R26 on

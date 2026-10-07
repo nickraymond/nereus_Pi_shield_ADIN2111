@@ -2116,6 +2116,78 @@
 				(hide yes)
 			)
 		)
+		(property "ALT1 MPN" "PMR03EZPFU10L0"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 MFR" "ROHM"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT1 LCSC" "C308571"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MPN" "WSLP0603R0100FEA"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 MFR" "Vishay"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT2 LCSC" "C5334451"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ALT NOTE" "Sofar review: power-path current sense. Sofar's own 7 listed alternates (fields MANUFACTURERPARTNUMBER1-7) not found at LCSC; check land pattern"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+			(at 175.26 157.3022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5f5c7c88-9071-4e72-b965-5338ff2419b0")
 		)

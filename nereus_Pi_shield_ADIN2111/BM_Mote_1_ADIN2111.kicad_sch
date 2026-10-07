@@ -4915,6 +4915,15 @@
 				(hide yes)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+			(at 259.08 203.0222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d2da7905-f313-46e2-a78d-65b665223ea1")
 		)
@@ -5759,6 +5768,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+			(at 177.8 228.4222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -8120,6 +8138,15 @@
 				(hide yes)
 			)
 		)
+		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+			(at 177.8 197.9422 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "A1"
 			(uuid "4732a185-8db8-4eb9-a595-c639f9be0e9e")
 		)
@@ -8571,6 +8598,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+			(at 205.74 98.8822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -9178,6 +9214,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left bottom)
+				(hide yes)
+			)
+		)
+		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 87"
+			(at 259.08 131.9022 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
