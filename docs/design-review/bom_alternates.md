@@ -22,8 +22,8 @@ lines are planned as specified with their LCSC number (from `bom_lifecycle.md`);
 | R20, R39 | CRCW04021M82FKED | RALEC RTT021824FTH (C166520) | only stocked 1.82 MΩ ±1 % match |
 | R21, R35, R37, R43 | RMCF0402FT100K | UNI-ROYAL 0402WGF1003TCE (C25741) | JLC Basic; AEC-Q200 not stated |
 | C31 | C1608X5R0J226M080AC | Samsung CL10A226MQ8NRNC (C59461) | same spec; yours out of stock |
-| C17, C26 | C2012X7S2A105K125AB | TDK C2012X7S2A105KT000N (C342785) | TDK's other catalog number, same spec |
-| C21 | CL32B106KBJNNNE | Taiyo Yuden UMK325AB7106KM-T (C386167) | same spec, tier-1 maker |
+| C17, C26 | C2012X7S2A105K125AB | TDK C2012X7S2A105KT000N (C342785) | TDK C2012 series, same spec per LCSC (thickness not confirmed) |
+| C21 | CL32B106KBJNNNE | Taiyo Yuden UMK325AB7106KM-T (C386167) | same spec, Taiyo Yuden; FH (more stock) kept as backup |
 | C16, C18, C24, C25 | 08051C474KAT2A | YAGEO CC0805KKX7R0BB474 (C596323) | same spec, stock for 80 |
 | C19, C27 | C0805C102MDRACTU | KEMET C0805C102KDRACTU (C2167549) | same series, ±10 % (tighter) |
 | R14, R18 | RR0510P-101-D | YAGEO RT0402BRD07100RL (C705627) | ±0.1 % ±25 ppm thin film (tighter) |
@@ -31,7 +31,9 @@ lines are planned as specified with their LCSC number (from `bom_lifecycle.md`);
 
 Kept as specified (Sofar review): **R8** — ROHM PMR03EZPFU10L0 (ALT1) electrodes b = 0.35 ± 0.15 mm (ROHM datasheet
 Rev.PMR03-IA-012E) sit inside R8's pads (1.1 × 1.1 mm at ±0.65 mm), which were drawn for the UR73D1J 10 mΩ's
-0.55 ± 0.1 mm electrodes (KOA UR73 catalog); ROHM gives no land pattern, and the pads reach 0.35 mm under its body, so
+0.55 ± 0.1 mm electrodes (KOA UR73 catalog, 11/17/24); ROHM gives no land pattern. Sources:
+https://fscdn.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/pmr03-e.pdf and
+https://www.koaspeer.com/pdfs/UR73.pdf (both read 2026-10-06), and the pads reach 0.35 mm under its body, so
 not adopted. **C22/C23** no potting-safe like-for-like part; **R15/R16** no alternate with a stated pulse rating.
 
 ## What to do

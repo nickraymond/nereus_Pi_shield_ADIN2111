@@ -35,8 +35,9 @@ bom_lifecycle, sofar_brief, changelog, TRACKER, viewer
 **Broke/surprised us:**
 - Five more parts (U11, R41, C56–C58) had the 4-tab Footprint line; the guard stopped after one sheet, restored, re-run
   with the same whitespace normalisation as J1
-- No LCSC listing for D1's Vishay second source; "TDK KT000N vs K125AB" is a catalog-number difference, same spec
-**Next:** QE review; Nick's look at bom.csv; then S6
+- No LCSC listing for D1's Vishay second source; TDK KT000N vs K125AB: same spec per LCSC, thickness not confirmed
+- QE round 1: **APPROVED WITH NITS** (F1 two notes overstated stock; N1 TDK claim; N2 D26 → D27; N3 "tier-1"), fixed
+**Next:** merged on Nick's instruction; S6.a plan (BOM hygiene), with a fresh S6 QE session
 
 ---
 

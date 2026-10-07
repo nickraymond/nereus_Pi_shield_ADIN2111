@@ -5532,7 +5532,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (the AVX ALT2 has too few for 80); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
 			(at 60.96 192.8622 0)
 			(effects
 				(font
@@ -7623,7 +7623,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (the AVX ALT2 has too few for 80); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
 			(at 116.84 116.6622 0)
 			(effects
 				(font
@@ -8703,7 +8703,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (the AVX ALT2 has too few for 80); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
 			(at 116.84 228.4222 0)
 			(effects
 				(font
@@ -10782,7 +10782,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "TDK's other catalog number for the same 1 µF ±10 % 100 V X7S 0805 (same C2012X7S2A105K base); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
 			(at 203.2 228.4222 0)
 			(effects
 				(font
@@ -11177,7 +11177,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "10 µF ±10 % 50 V X7R 1210 from a tier-1 maker for the power path (FH ALT1 has more stock, kept as backup); specified Samsung out of stock at LCSC and DK; Sofar review"
+		(property "PLANNED NOTE" "10 µF ±10 % 50 V X7R 1210 from Taiyo Yuden, an established MLCC maker, for the power path (FH ALT1 has more stock, kept as backup); specified Samsung out of stock at LCSC and DK; Sofar review"
 			(at 299.72 142.0622 0)
 			(effects
 				(font
@@ -11622,7 +11622,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (the AVX ALT2 has too few for 80); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
 			(at 60.96 81.1022 0)
 			(effects
 				(font
@@ -12139,7 +12139,7 @@
 				(hide yes)
 			)
 		)
-		(property "PLANNED NOTE" "TDK's other catalog number for the same 1 µF ±10 % 100 V X7S 0805 (same C2012X7S2A105K base); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
 			(at 208.28 93.8022 0)
 			(effects
 				(font

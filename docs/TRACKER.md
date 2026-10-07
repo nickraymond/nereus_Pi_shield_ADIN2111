@@ -167,7 +167,7 @@ no footprint_link_issues; netlist `PI_5V` = J1.2, J1.4, JP1.1 and `5V_PI` = C56.
 TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
 **Result:** S4.a–d each QE-approved and reviewed by Nick; PRs #8, #9, #10, #12 merged (last `9949b37`), 2026-10-05.
 
-### S5 — Pi header wiring, ADIN details, load switch  `[~]`
+### S5 — Pi header wiring, ADIN details, load switch  `[x]` *(J1 part number open: Nick, board spacing)*
 *Bites: S5.a load switch, S5.b Pi header wiring, S5.c pull-ups + ADIN power-up order + back-power analysis, S5.d payload connector, S5.g footprint library fixes, S5.f ADIN status LEDs, then **S5.e BOM lifecycle + stock check last, once every part is on the schematic** (Nick, 2026-10-06).*
 - [x] **R11 → DNP** (D17): as captured, R11 (0 Ω across U9) is fitted and bypasses the load switch (QE S4.c F4)
 - [x] **Replace U9** → U11 TPS26621DRCR (D18; S5.a) (FPF2700MX obsolete: Digi-Key "no longer manufactured", LTB 2023-06-15 per distributor data,
@@ -199,8 +199,8 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       reviews one diff column (D27). Nick: Value stays Sofar's part; first build buys planned parts **after Sofar's review**;
       ALT1/ALT2 stay as backups. 10 lines change (R34, R20/R39, R21 group, C31, C17/C26, C21, C16 group, C19/C27, R14/R18, D1 →
       Vishay second source); R8 stays (ROHM gives no land pattern); J1 TBD; the rest as specified
-- [ ] S5.i: QE review (standing S5 session)
-- [ ] S5.i: Nick's look (`bom.csv`; KiCad's fields view if wanted); S5 is then complete → S6
+- [x] S5.i: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
+- [x] S5.i: merged on Nick's instruction ("if the QE approves, merge"); S5 complete except J1's part number → S6
 - [ ] J1 socket part number (height) — when the board spacing is known (Nick)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
