@@ -269,11 +269,15 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       "=ProjectAuthor" (text variable AUTHOR) — needs an author name
 - [x] S6.b: QE review (S6 session): round 1 CHANGES REQUESTED (tool exited 0 on unjustified errors), fixed; **APPROVED WITH NITS**
       in round 2, nits fixed — `docs/design-review/qe/S6.md`; merged (PR #23)
-- [ ] Remove/update stale sheet notes (e.g. "Processor + onboard logic runs off 3V3…" on Top-Level; the "Molex 2-pin" bus
-      note was updated in S5.d)
-- [ ] Schematic tidy, after all technical work (Nick, 2026-10-06): R26/R27 drawn onto J1's I²C stubs instead of floating
-      with labels; every board interconnect on the right of the Top-Level sheet; widen the bus text box (wraps to 5 lines,
-      QE); general cosmetic layout
+- [x] S6.d stale note: "Processor + onboard logic runs off 3V3, and ADIN AVDD off 1V8." → "Shield logic runs off 3V3; ADIN
+      AVDD runs off 1V8." (the "Molex 2-pin" bus note was updated in S5.d)
+- [x] S6.d minor tidy (Nick: small readability fixes on Sofar's design, no overhaul): R26/R27 on J1's I²C stubs; ADIN status
+      LEDs D8–D10 at an even 17.78 mm pitch with R3/R5 under D9/D10; ADIN_LED_VDD label off the D9 junction; R4/R6 text off
+      pins and labels; "Set for 1Vp-p comms." note no longer overlaps the SWPD note; bus note 3 lines (was wrapping to 5);
+      dead 3V3 stub and 7 dangling ADIN lead-ins removed (warnings 504 → 495). Netlist identical. **Not done** (more than
+      minor): moving J1 so every interconnect sits on the right of the Top-Level sheet; Sofar's PoDL PHY1_N/PHY2_N wire ends
+      (2 dangling-end warnings) left as he drew them
+- [ ] S6.d: QE review (S6 session)
 - [ ] Net check: kept nets match the copper; every new net listed
 - [ ] Schematic PDF (all sheets)
 - [ ] Change log of every edit
@@ -290,6 +294,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
 - [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.d: `tools/check.sh` → `ERC messages: 495  Errors 0  Warnings 495`, ercexclude 18/0/0/0, netcheck 51/51, midwire 0, exit 0;
+netlist identical to S6.c; PDF: Top-Level (I²C pull-ups on J1, notes) and ADIN sheet (LED columns).
 S6.c: `$PY tools/fpattrs.py nereus_Pi_shield_ADIN2111/mote.pretty` → every line "type kept; courtyard kept"; `$PY tools/fpextract.py
 KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb nereus_Pi_shield_ADIN2111/mote.pretty
 docs/design-review/vault_footprints.txt --verify` → 0 problems; `tools/check.sh` unchanged (504/0/504, 51/51).

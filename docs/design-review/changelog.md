@@ -2,6 +2,28 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.d — Minor schematic tidy (2026-10-06, branch `sprint/6d-tidy`)
+
+Nick: small readability fixes on Sofar's design, no overhaul. Positions, text and dead wires only.
+
+| Sheet | Change |
+|---|---|
+| Top-Level | R27 / R26 moved onto J1's I2C1_SDA / I2C1_SCL stubs (wire from the stub label straight into each resistor, then 3V3); their floating copies' labels and wires removed; text on one line above (R27) / below (R26) |
+| Top-Level | dead `3V3` stub removed (#PWR06, 3 wires, 1 junction: no pins on it) |
+| Top-Level | ADIN_MISO/MOSI/SCK/NSS/RST/INT wires start at their labels (were 25 mm dangling lead-ins from x 269.24); dead ADIN_PWR lead-in left of the TP8 junction removed |
+| Top-Level | note "Processor + onboard logic runs off 3V3, and ADIN AVDD off 1V8." → "Shield logic runs off 3V3; ADIN AVDD runs off 1V8." (box 12.7 → 7.62 mm tall) |
+| Top-Level | bus note: Sofar's 3 lines at the J5 note's font size (2.286 → 1.27 mm), box 19.05 → 8.89 mm: no longer wraps to 5 lines |
+| ADIN | D10 + R46 moved to an even 17.78 mm pitch (x 388.62 → 358.14); R3 / R5 rotated vertical under D9 / D10 (pin 1 on the cathode node), ADIN_VDDIO symbols (#PWR49 / #PWR34) below them; R5's separate ADIN_P2_LED1 label + wire removed (R5 now on the node) |
+| ADIN | ADIN_LED_VDD label moved off the D9 junction (x 327.66 → 342.9; wire split moved with it) |
+| ADIN | R4 / R6 text off their pins: R6 in R2's layout; R4 on one line above its wire (the ADIN_P2_LED1 stub label is below) |
+| ADIN | "Set for 1Vp-p comms." note widened 27.94 → 33.02 mm (it wrapped into the SWPD note below) |
+| .kicad_pro | #PWR34's ERC exclusion key regenerated (`ercexclude.py --write`): position 198.12 → 200.66 mm, reason unchanged |
+
+**Verified:** nets identical (all 109, same pins) after every step; ERC 504/0/504 → **495/0/495**: the 9 removed items are
+all `unconnected_wire_endpoint` (the dead stub and lead-ins), no item added; ercexclude 18/0/0/0 (only #PWR34's key
+changed); netcheck 51/51; midwire 0. Each change checked in a rendered SVG. Not done (more than minor): J1 moved to the
+right of the sheet; Sofar's 2 PoDL wire ends.
+
 ## S6.c — Footprint types and courtyards (2026-10-06, branch `sprint/6c-footprints`)
 
 Library `mote.pretty` (`Vault`) only, D29; no schematic or pad change. 43 footprints: one `(attr …)` line and four F.CrtYd

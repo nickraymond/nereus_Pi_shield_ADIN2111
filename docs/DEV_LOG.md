@@ -19,6 +19,26 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-06 — Sprint S6.d — Minor schematic tidy (overnight run, bite 4 of 5)
+
+**Branch:** sprint/6d-tidy
+**Files touched:** BM_Mote_1_Master.kicad_sch, BM_Mote_1_ADIN2111.kicad_sch, .kicad_pro (one exclusion key); DESIGN,
+changelog, TRACKER, viewer
+**ERC:** 0 / 495 (was 0 / 504)  ·  **Net diff:** none (nets and pins identical)
+**Done:**
+- S6.c merged (PR #24) after QE (footprints.md "Used by" fixed)
+- Rendered every sheet (SVG → region crops via Quick Look) and listed only clear readability issues
+- I²C pull-ups onto J1's stubs; LED columns even with pull-ups under their LEDs; overlapping text/notes fixed; stale note
+  updated; dead stub + dangling lead-ins removed
+**Broke/surprised us:**
+- kicad-cli JSON also scales wire lengths by 100: the "0.2 mm" dangling wires were 20–40 mm lead-ins on Top-Level
+- Sofar's ADIN_VDDIO bar symbol points down at rotation 0 (opposite to KiCad's stock symbols); field angle 90 keeps text
+  horizontal on a 270° symbol; Sofar's resistors show a RESISTANCE field (Value hidden)
+- Moving #PWR34 made its exclusion stale exactly as designed: check.sh failed until `ercexclude.py --write`
+**Next:** QE review; then S6.e (review package)
+
+---
+
 ## 2026-10-06 — Sprint S6.c — Footprint types and courtyards (overnight run, bite 3 of 5)
 
 **Branch:** sprint/6c-footprints
