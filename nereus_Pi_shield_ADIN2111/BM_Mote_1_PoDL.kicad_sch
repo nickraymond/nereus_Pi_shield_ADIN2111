@@ -6,7 +6,11 @@
 	(paper "A3")
 	(title_block
 		(title "PoDL (Power over Data Line)")
+		(date "2026-10-07")
 		(rev "AA")
+		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
+		(comment 2 "Author: ${AUTHOR}")
+		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND"
@@ -3232,17 +3236,6 @@
 		)
 		(uuid "0b17b50a-269e-48e9-a2f8-a68297b87d3a")
 	)
-	(text "${REVISION}"
-		(exclude_from_sim no)
-		(at 410.21 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1842be19-6116-4789-9ace-4dd2ed4bd405")
-	)
 	(text "Snubber resistors must be at least 1/2 W, to support hot-plugging."
 		(exclude_from_sim no)
 		(at 284.48 175.0822 0)
@@ -3254,17 +3247,6 @@
 		)
 		(uuid "52fcb5d0-eb19-431b-9af4-e3f0e3a62447")
 	)
-	(text "${#}"
-		(exclude_from_sim no)
-		(at 395.224 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "53c6638c-fc53-4f6d-9fbb-9500f1343a5a")
-	)
 	(text "Port 2"
 		(exclude_from_sim no)
 		(at 208.28 214.4522 0)
@@ -3275,17 +3257,6 @@
 			(justify left bottom)
 		)
 		(uuid "57a77338-4a88-4525-9dd2-29cacfcceb96")
-	)
-	(text "${AUTHOR}"
-		(exclude_from_sim no)
-		(at 401.32 291.9222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5ccbb825-6b38-4e4a-9d1d-2c5dab8e07c8")
 	)
 	(text "Coupling Network - Port 1"
 		(exclude_from_sim no)
@@ -3308,39 +3279,6 @@
 			(justify left bottom)
 		)
 		(uuid "871a0d58-67b4-4239-bc35-58b43ba5e34d")
-	)
-	(text "${PCBPARTNUMBER}"
-		(exclude_from_sim no)
-		(at 356.87 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8ad84e79-aa26-4f0c-964c-3cf1e16050df")
-	)
-	(text "${TITLE}"
-		(exclude_from_sim no)
-		(at 356.108 277.4442 0)
-		(effects
-			(font
-				(size 1.778 1.778)
-			)
-			(justify left bottom)
-		)
-		(uuid "a0ca38d0-0e38-4290-9151-013d5633a346")
-	)
-	(text "${##}"
-		(exclude_from_sim no)
-		(at 400.05 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f04d44d6-fb6b-4bfa-8609-4ddf2de16f5b")
 	)
 	(text_box "Address = 0x41\n(A0 wired to VDD)"
 		(exclude_from_sim no)

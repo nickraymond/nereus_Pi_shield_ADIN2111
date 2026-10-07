@@ -295,6 +295,11 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       `schematic.pdf` re-exported
 - [x] S6.f: QE review (S6 session): **APPROVED WITH NITS**, fixed (bompdf test; README: snapshots rebuilt by hand; commands run
       from the repo root) — `docs/design-review/qe/S6.md`; merged (PR #27)
+- [x] S6.g (Nick's KiCad review list, 2026-10-07): VBUS_OUT beside the Load Switch; short I²C stubs at the PoDL block; R43 beside
+      the ADIN block's HW_EN; J5 spaced; cover renders → TBD box + real sheet index; ADIN and Power sheets spread with headers;
+      title blocks filled, Altium overlays removed, revision table about this board; active-low overbars + PAYLOAD_EN /
+      ~{PAYLOAD_FAULT} names (D30). Connections unchanged. Signal table beside J1: not now (Nick)
+- [ ] S6.g: QE review (S6 session)
 - [ ] S6: Nick's demo — open `docs/design-review/README.md`, `schematic.pdf`, `bom.pdf` and the project in KiCad; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
@@ -307,6 +312,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       harmonisation covered by S5.i's `PLANNED LCSC`. `bom.csv` 54 → 51 rows, Mfr on every row but J1
 - [x] S6.a: QE review (S6 session): **APPROVED WITH NITS** in round 1 — `docs/design-review/qe/S6.md`; merged (PR #22)
 **Demo (Nick):** open `docs/design-review/` → a complete package, ready to review.
+S6.g: `tools/check.sh` → `ERC messages: 492  Errors 0  Warnings 492`, ercexclude 18/0/0/0, midwire 0, netcheck 51/51, exit 0;
+same pin partition as S6.f with 7 nets renamed (D30); schematic.pdf shows the new layout.
 S6.e: open `docs/design-review/README.md` (status, reading order, open questions) and `schematic.pdf`; `tools/check.sh` →
 495/0/495, ercexclude 18/0/0/0, midwire 0, netcheck 51/51 with the new-nets table in `netcheck.md`, exit 0.
 S6.d: `tools/check.sh` → `ERC messages: 495  Errors 0  Warnings 495`, ercexclude 18/0/0/0, netcheck 51/51, midwire 0, exit 0;

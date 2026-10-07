@@ -6,7 +6,11 @@
 	(paper "A3")
 	(title_block
 		(title "Load Switch")
+		(date "2026-10-07")
 		(rev "AA")
+		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
+		(comment 2 "Author: ${AUTHOR}")
+		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:3V3_BAR"
@@ -1891,72 +1895,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "${##}"
-		(exclude_from_sim no)
-		(at 400.05 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1ffb2cc7-e93a-4d75-827d-450149c91e67")
-	)
-	(text "${#}"
-		(exclude_from_sim no)
-		(at 395.224 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2ea3419f-e6a9-478b-8aa8-9c98ddb7422d")
-	)
-	(text "${PCBPARTNUMBER}"
-		(exclude_from_sim no)
-		(at 356.87 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5ade8945-fdd3-42af-aa4b-acaff2f3ba03")
-	)
-	(text "${AUTHOR}"
-		(exclude_from_sim no)
-		(at 401.32 291.9222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7858ea3c-ee31-4d6b-ba3f-9273eb3a6890")
-	)
-	(text "${TITLE}"
-		(exclude_from_sim no)
-		(at 356.108 277.4442 0)
-		(effects
-			(font
-				(size 1.778 1.778)
-			)
-			(justify left bottom)
-		)
-		(uuid "d6f90711-534f-4bcb-9cd9-35039380abd4")
-	)
-	(text "${REVISION}"
-		(exclude_from_sim no)
-		(at 410.21 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d8d41e72-c42f-4461-8e1a-da509d69f254")
-	)
 	(text_box "Load Switch for VBUS"
 		(exclude_from_sim no)
 		(at 240.03 115.3922 0)
@@ -2347,7 +2285,7 @@
 		)
 		(uuid "5d0f09f5-6550-4575-bd3b-e32c7b26a797")
 	)
-	(label "SW_FLAGB"
+	(label "~{PAYLOAD_FAULT}"
 		(at 248.92 172.5422 0)
 		(effects
 			(font
@@ -2367,7 +2305,7 @@
 		)
 		(uuid "acfced89-1738-4434-9099-e914a3f985e2")
 	)
-	(label "SW_ON"
+	(label "PAYLOAD_EN"
 		(at 199.39 154.7622 0)
 		(effects
 			(font
@@ -2377,7 +2315,7 @@
 		)
 		(uuid "cfd62f38-878c-41af-a419-5eaa7a13e430")
 	)
-	(hierarchical_label "SW_FLAGB"
+	(hierarchical_label "~{PAYLOAD_FAULT}"
 		(shape passive)
 		(at 281.94 172.5422 0)
 		(effects
@@ -2388,7 +2326,7 @@
 		)
 		(uuid "29fad309-53f1-45a1-ac51-d2763795a9da")
 	)
-	(hierarchical_label "SW_EN"
+	(hierarchical_label "PAYLOAD_EN"
 		(shape passive)
 		(at 129.54 172.5422 180)
 		(effects

@@ -6,7 +6,11 @@
 	(paper "A3")
 	(title_block
 		(title "Bus Power Monitor")
+		(date "2026-10-07")
 		(rev "AA")
+		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
+		(comment 2 "Author: ${AUTHOR}")
+		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND"
@@ -836,50 +840,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "${#}"
-		(exclude_from_sim no)
-		(at 395.224 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2cb46a81-c80a-45ef-a9b9-3ee23c169efa")
-	)
-	(text "${TITLE}"
-		(exclude_from_sim no)
-		(at 356.108 277.4442 0)
-		(effects
-			(font
-				(size 1.778 1.778)
-			)
-			(justify left bottom)
-		)
-		(uuid "4122b4ad-3f6c-421f-9f54-a573a2c7f704")
-	)
-	(text "${##}"
-		(exclude_from_sim no)
-		(at 400.05 289.3822 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5335851d-f30e-4251-b8c0-46e6403e5546")
-	)
-	(text "${PCBPARTNUMBER}"
-		(exclude_from_sim no)
-		(at 356.87 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "83057f81-528c-4817-a446-efc4800fd453")
-	)
 	(text "I2C Address: 0x41"
 		(exclude_from_sim no)
 		(at 203.2 136.9822 0)
@@ -890,28 +850,6 @@
 			(justify left bottom)
 		)
 		(uuid "982eda7a-6001-44b7-8d0a-1965144e35dc")
-	)
-	(text "${REVISION}"
-		(exclude_from_sim no)
-		(at 410.21 285.5722 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c785d83a-2578-4854-9013-366b9be854e7")
-	)
-	(text "${AUTHOR}"
-		(exclude_from_sim no)
-		(at 401.32 291.9222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "db0c2c76-ee61-4911-9c11-eccf119f8291")
 	)
 	(text_box "Power Monitor"
 		(exclude_from_sim no)

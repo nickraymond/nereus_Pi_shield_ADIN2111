@@ -6,7 +6,11 @@
 	(paper "A2")
 	(title_block
 		(title "Top-Level")
+		(date "2026-10-07")
 		(rev "AA")
+		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
+		(comment 2 "Author: ${AUTHOR}")
+		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
 		(symbol "BM_Mote_000639-AB-altium-import:1V8_BAR"
@@ -6711,72 +6715,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "${PCBPARTNUMBER}"
-		(exclude_from_sim no)
-		(at 493.776 364.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0de3600d-c0ab-41ec-8a84-6b856b37d33e")
-	)
-	(text "${REVISION}"
-		(exclude_from_sim no)
-		(at 547.116 364.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "71766ab8-ffde-4d4d-b673-8bbc07480870")
-	)
-	(text "${AUTHOR}"
-		(exclude_from_sim no)
-		(at 538.226 370.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "746d5dfd-8efc-4c41-a92d-cb3663d5508d")
-	)
-	(text "${#}"
-		(exclude_from_sim no)
-		(at 532.13 368.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9b1d74a8-2913-4005-a348-1ffc4ead0be7")
-	)
-	(text "${TITLE}"
-		(exclude_from_sim no)
-		(at 493.014 356.362 0)
-		(effects
-			(font
-				(size 1.778 1.778)
-			)
-			(justify left bottom)
-		)
-		(uuid "9dd36f5d-fdcb-497a-b51d-067bdab69187")
-	)
-	(text "${##}"
-		(exclude_from_sim no)
-		(at 536.956 368.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e9418398-cacf-454f-8010-174e97cb6b9e")
-	)
 	(text "JP1 bridged as built: the shield powers the Pi (D14).\nBridged: never plug a 5 V source into the Pi's USB (charger, PC, self-powered hub), shield powered or not.\nUSB peripherals powered by the Pi are OK. Pi powered elsewhere (battery pack): cut the bridge before potting;\nrefit a 0R 1210 (CRCW12100000Z0EA) to reconnect."
 		(exclude_from_sim no)
 		(at 106.68 30.48 0)
@@ -6790,7 +6728,7 @@
 	)
 	(text "Payload power out: J5, JST GH 1.25 mm (D23).\nPin 1 VBUS_OUT: 16-32 V bus, switched by U11,\n~0.73 A limit. Pin 2 GND.\nMate the cable before potting."
 		(exclude_from_sim no)
-		(at 454.66 177.8 0)
+		(at 459.74 203.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7160,46 +7098,6 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 134.62) (xy 396.24 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27899c6c-6947-42d7-9523-cb5e86357067")
-	)
-	(wire
-		(pts
-			(xy 378.46 149.86) (xy 378.46 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "33e3d6d8-efd7-4534-b904-ed0a1981fce7")
-	)
-	(wire
-		(pts
-			(xy 281.94 147.32) (xy 375.92 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "407c67eb-c9e9-45d8-8441-fdbdb7d1bb77")
-	)
-	(wire
-		(pts
-			(xy 278.13 149.86) (xy 278.13 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4115d3b4-f0f8-4f24-80cc-8f4806c5da6e")
-	)
-	(wire
-		(pts
 			(xy 172.72 190.5) (xy 187.96 190.5)
 		)
 		(stroke
@@ -7210,16 +7108,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.423 127) (xy 281.94 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "439fa60c-8b6e-454a-a606-45ab641cca9e")
-	)
-	(wire
-		(pts
 			(xy 187.96 190.5) (xy 187.96 205.74)
 		)
 		(stroke
@@ -7227,26 +7115,6 @@
 			(type default)
 		)
 		(uuid "45dc3895-15a1-44e6-a576-fd21d2ed1c26")
-	)
-	(wire
-		(pts
-			(xy 378.46 137.16) (xy 396.24 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4664a5a9-8a92-4f52-a645-218961975402")
-	)
-	(wire
-		(pts
-			(xy 281.94 147.32) (xy 281.94 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4758ef18-82f7-4777-95d4-73efc62f98da")
 	)
 	(wire
 		(pts
@@ -7370,16 +7238,6 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 149.86) (xy 378.46 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e35b93f-0e91-4f69-bc48-3e485666052a")
-	)
-	(wire
-		(pts
 			(xy 200.66 175.26) (xy 200.66 213.36)
 		)
 		(stroke
@@ -7420,16 +7278,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.829 129.54) (xy 278.13 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99e936d8-56ce-4aa8-ae8b-bef6992c105f")
-	)
-	(wire
-		(pts
 			(xy 396.24 114.3) (xy 353.06 114.3)
 		)
 		(stroke
@@ -7447,16 +7295,6 @@
 			(type default)
 		)
 		(uuid "a02aad4e-e0b0-4a62-80e5-b2e9925add55")
-	)
-	(wire
-		(pts
-			(xy 88.9 205.74) (xy 88.9 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a445f3c9-c1d6-496e-8e57-29a04a438f40")
 	)
 	(wire
 		(pts
@@ -7540,16 +7378,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 205.74) (xy 124.46 205.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dad21fe6-06f1-4469-92e3-cdec85090387")
-	)
-	(wire
-		(pts
 			(xy 124.46 205.74) (xy 134.62 205.74)
 		)
 		(stroke
@@ -7557,16 +7385,6 @@
 			(type default)
 		)
 		(uuid "e3755b0c-1495-4bb4-9b5a-dfb4ed6af8b3")
-	)
-	(wire
-		(pts
-			(xy 88.9 119.38) (xy 92.71 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de563e84-1928-454a-9e76-4dcb9fc41b8d")
 	)
 	(wire
 		(pts
@@ -7587,16 +7405,6 @@
 			(type default)
 		)
 		(uuid "8eaee600-2704-4784-8406-a1e770a88747")
-	)
-	(wire
-		(pts
-			(xy 375.92 147.32) (xy 375.92 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd0bc8fb-4ef6-4712-89c5-47005c28cc7d")
 	)
 	(wire
 		(pts
@@ -7820,16 +7628,6 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 99.06) (xy 78.74 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75404c40-d7fc-4244-a3ff-7dc1a97424ce")
-	)
-	(wire
-		(pts
 			(xy 200.66 175.26) (xy 210.82 175.26)
 		)
 		(stroke
@@ -7837,26 +7635,6 @@
 			(type default)
 		)
 		(uuid "9153cbc4-0292-4811-8204-8fe7b4e169bb")
-	)
-	(wire
-		(pts
-			(xy 485.14 160.02) (xy 469.9 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1396a44-73a4-478b-8299-66401b856758")
-	)
-	(wire
-		(pts
-			(xy 485.14 162.56) (xy 474.98 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5e28c9f-2a95-45b3-9da4-8bb52174ea0f")
 	)
 	(wire
 		(pts
@@ -7958,6 +7736,66 @@
 		)
 		(uuid "000ab734-f1a6-4c89-9e1b-2f6a32cc1189")
 	)
+	(wire
+		(pts
+			(xy 114.3 205.74) (xy 124.46 205.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f47d817-d178-4cdc-aff0-4476ed509dec")
+	)
+	(wire
+		(pts
+			(xy 383.54 134.62) (xy 396.24 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9bb3fb9d-31ce-4294-8519-64068f5cbcf5")
+	)
+	(wire
+		(pts
+			(xy 383.54 137.16) (xy 396.24 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b59d64a8-4ef9-43fd-86cc-4442810f1c1e")
+	)
+	(wire
+		(pts
+			(xy 292.1 119.38) (xy 292.1 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f131a18-fa2c-447e-820b-25b78902b068")
+	)
+	(wire
+		(pts
+			(xy 469.9 185.42) (xy 492.76 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88b1db53-88ea-48c0-ab10-9d3ba83469fb")
+	)
+	(wire
+		(pts
+			(xy 480.06 187.96) (xy 492.76 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0551d25e-e7ae-4750-aa1c-9ec5a5fa7586")
+	)
 	(label "BM2_P"
 		(at 454.66 121.92 0)
 		(effects
@@ -8018,16 +7856,6 @@
 		)
 		(uuid "3e2f9d55-5476-416f-aa38-98c4a3db2af8")
 	)
-	(label "I2C1_SCL"
-		(at 162.829 129.54 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4f66f99c-cf4c-4cb7-b35b-220738640aa0")
-	)
 	(label "ADIN_MISO"
 		(at 294.64 104.14 0)
 		(effects
@@ -8048,7 +7876,7 @@
 		)
 		(uuid "76f056c6-f4f4-4c3a-81b0-53b79014ec88")
 	)
-	(label "ADIN_INT"
+	(label "~{ADIN_INT}"
 		(at 294.64 124.46 0)
 		(effects
 			(font
@@ -8098,7 +7926,7 @@
 		)
 		(uuid "9e2de0d2-1b9d-456f-a7fa-996a354e885c")
 	)
-	(label "ADIN_RST"
+	(label "~{ADIN_RST}"
 		(at 294.64 121.92 0)
 		(effects
 			(font
@@ -8118,16 +7946,6 @@
 		)
 		(uuid "ba2dd76c-9d11-4af2-8ee0-4156c6743bcd")
 	)
-	(label "I2C1_SDA"
-		(at 162.423 127 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d1b09d21-a06c-43da-86e0-6049dcd91779")
-	)
 	(label "BM2_DATA_N"
 		(at 373.38 124.46 0)
 		(effects
@@ -8138,7 +7956,7 @@
 		)
 		(uuid "e1a1bc7f-6a7a-4d8a-bb44-a5f2c79f25ac")
 	)
-	(label "ADIN_NSS"
+	(label "~{ADIN_CS}"
 		(at 294.64 111.76 0)
 		(effects
 			(font
@@ -8198,7 +8016,7 @@
 		)
 		(uuid "c6166921-f9f6-45bc-9cd6-5f4f1e6376f8")
 	)
-	(label "ADIN_NSS"
+	(label "~{ADIN_CS}"
 		(at 144.78 93.98 0)
 		(effects
 			(font
@@ -8248,7 +8066,7 @@
 		)
 		(uuid "8c4a84a9-2bcb-4b7c-8ae1-b3e917f293bb")
 	)
-	(label "ADIN_RST"
+	(label "~{ADIN_RST}"
 		(at 99.06 99.06 180)
 		(effects
 			(font
@@ -8258,7 +8076,7 @@
 		)
 		(uuid "bfedad51-218a-4b5f-ab63-4567f581fc2c")
 	)
-	(label "ADIN_INT"
+	(label "~{ADIN_INT}"
 		(at 99.06 101.6 180)
 		(effects
 			(font
@@ -8268,7 +8086,7 @@
 		)
 		(uuid "3c95624f-c8f3-4c2c-a44c-dac565d3952d")
 	)
-	(label "SW_EN"
+	(label "PAYLOAD_EN"
 		(at 99.06 73.66 180)
 		(effects
 			(font
@@ -8278,7 +8096,7 @@
 		)
 		(uuid "b10701c5-acd3-4591-b8ad-6b5b3d75faa0")
 	)
-	(label "SW_FLAGB"
+	(label "~{PAYLOAD_FAULT}"
 		(at 99.06 86.36 180)
 		(effects
 			(font
@@ -8288,7 +8106,7 @@
 		)
 		(uuid "782f0322-c946-4dfb-b183-19587be2475d")
 	)
-	(label "SW_EN"
+	(label "PAYLOAD_EN"
 		(at 200.66 213.36 0)
 		(effects
 			(font
@@ -8298,7 +8116,7 @@
 		)
 		(uuid "e5c3cc09-a90a-4849-8ed1-a2f5c4169a65")
 	)
-	(label "SW_FLAGB"
+	(label "~{PAYLOAD_FAULT}"
 		(at 187.96 215.9 0)
 		(effects
 			(font
@@ -8307,16 +8125,6 @@
 			(justify left bottom)
 		)
 		(uuid "763c5a1f-7638-4463-9348-00f65245e059")
-	)
-	(label "ADIN_PWR"
-		(at 78.74 93.98 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7752de55-c5cc-4a84-a631-9247de21e986")
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_0_Symbol_Sofar Ocean Technologies, Inc.")
@@ -8620,7 +8428,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:VBUS_OUT_BAR")
-		(at 92.71 119.38 180)
+		(at 114.3 205.74 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8628,7 +8436,7 @@
 		(dnp no)
 		(uuid "18191cbd-043f-4da8-9e5d-eb727904ab33")
 		(property "Reference" "#PWR02"
-			(at 92.71 119.38 0)
+			(at 114.3 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8637,7 +8445,7 @@
 			)
 		)
 		(property "Value" "VBUS_OUT"
-			(at 92.71 115.57 0)
+			(at 114.3 201.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8645,7 +8453,7 @@
 			)
 		)
 				(property "Footprint" ""
-			(at 92.71 119.38 0)
+			(at 114.3 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8653,7 +8461,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 119.38 0)
+			(at 114.3 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8661,7 +8469,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 92.71 119.38 0)
+			(at 114.3 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15932,7 +15740,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:POWER_3_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
-		(at 78.74 99.06 0)
+		(at 292.1 127 0)
 		(unit 0)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15940,16 +15748,16 @@
 		(dnp no)
 		(uuid "7ca1f4f1-e64c-4459-9b1f-39667811f35c")
 		(property "Reference" "R43"
-			(at 80.264 105.664 0)
+			(at 290.83 135.255 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify right bottom)
 			)
 		)
 		(property "Value" "RMCF0402FT100K"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15959,7 +15767,7 @@
 			)
 		)
 		(property "Footprint" "Vault:FP-RMCF0402-IPC_C"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15968,7 +15776,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15977,7 +15785,7 @@
 			)
 		)
 		(property "Description" "100kΩ ±1% 0.063W 0402 Thick Film Chip Resistor AEC-Q200 compliant"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15986,7 +15794,7 @@
 			)
 		)
 		(property "MAX POWER DISSIPATION" "63mW"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15996,7 +15804,7 @@
 			)
 		)
 		(property "PACKAGING" "Tape and Reel"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16006,7 +15814,7 @@
 			)
 		)
 		(property "SIZE CODE" "0402"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16016,16 +15824,16 @@
 			)
 		)
 		(property "RESISTANCE" "100kR"
-			(at 80.264 108.204 0)
+			(at 290.83 137.795 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify right bottom)
 			)
 		)
 		(property "RESISTOR TYPE" "Thick Film"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16035,7 +15843,7 @@
 			)
 		)
 		(property "FEATURES" "Automotive AEC-Q200"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16045,7 +15853,7 @@
 			)
 		)
 		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16055,7 +15863,7 @@
 			)
 		)
 		(property "CASE CODE (METRIC)" "1005"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16065,7 +15873,7 @@
 			)
 		)
 		(property "ROHS COMPLIANT" "Yes"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16075,7 +15883,7 @@
 			)
 		)
 		(property "LENGTH" "1mm"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16085,7 +15893,7 @@
 			)
 		)
 		(property "RADIATION HARDENING" "No"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16095,7 +15903,7 @@
 			)
 		)
 		(property "MILITARY STANDARD" "Not"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16105,7 +15913,7 @@
 			)
 		)
 		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16115,7 +15923,7 @@
 			)
 		)
 		(property "DEPTH" "0.5mm"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16125,7 +15933,7 @@
 			)
 		)
 		(property "MAX OPERATING TEMPERATURE" "155°C"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16135,7 +15943,7 @@
 			)
 		)
 		(property "LEAD FREE" "Lead Free"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16145,7 +15953,7 @@
 			)
 		)
 		(property "CASE/PACKAGE" "0402"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16155,7 +15963,7 @@
 			)
 		)
 		(property "TOLERANCE" "1%"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16165,7 +15973,7 @@
 			)
 		)
 		(property "CONSTRUCTION" "Rectangular"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16175,7 +15983,7 @@
 			)
 		)
 		(property "NUMBER OF TERMINATIONS" "2"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16185,7 +15993,7 @@
 			)
 		)
 		(property "MOUNT" "Surface Mount"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16195,7 +16003,7 @@
 			)
 		)
 		(property "MIN OPERATING TEMPERATURE" "-55°C"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16205,7 +16013,7 @@
 			)
 		)
 		(property "WIDTH" "0.02inch"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16215,7 +16023,7 @@
 			)
 		)
 		(property "SERIES" "RMCF"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16225,7 +16033,7 @@
 			)
 		)
 		(property "CONTACT PLATING" "Tin"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16235,7 +16043,7 @@
 			)
 		)
 		(property "POWER RATING" "62.5mW"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16245,7 +16053,7 @@
 			)
 		)
 		(property "HEIGHT" "0.016inch"
-			(at 77.216 98.552 0)
+			(at 290.576 126.492 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16255,7 +16063,7 @@
 			)
 		)
 		(property "ALT1 MPN" "0402WGF1003TCE"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16264,7 +16072,7 @@
 			)
 		)
 		(property "ALT1 MFR" "UNI-ROYAL"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16273,7 +16081,7 @@
 			)
 		)
 		(property "ALT1 LCSC" "C25741"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16282,7 +16090,7 @@
 			)
 		)
 		(property "ALT2 MPN" "RC0402FR-07100KL"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16291,7 +16099,7 @@
 			)
 		)
 		(property "ALT2 MFR" "YAGEO"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16300,7 +16108,7 @@
 			)
 		)
 		(property "ALT2 LCSC" "C60491"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16309,7 +16117,7 @@
 			)
 		)
 		(property "ALT NOTE" "100 kΩ ±1 % 62.5 mW 50 V ±100 ppm; ALT1 is JLC Basic; AEC-Q200 not stated (Stackpole is)"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16318,7 +16126,7 @@
 			)
 		)
 		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16327,7 +16135,7 @@
 			)
 		)
 		(property "PLANNED MPN" "0402WGF1003TCE"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16336,7 +16144,7 @@
 			)
 		)
 		(property "PLANNED MFR" "UNI-ROYAL"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16345,7 +16153,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C25741"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16354,7 +16162,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16363,7 +16171,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Stackpole"
-			(at 78.74 99.06 0)
+			(at 292.1 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16388,7 +16196,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 78.74 116.84 0)
+		(at 292.1 144.78 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16396,7 +16204,7 @@
 		(dnp no)
 		(uuid "5be70892-e193-43f6-af17-86f18ebcc1db")
 		(property "Reference" "#PWR79"
-			(at 78.74 113.03 0)
+			(at 292.1 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16405,7 +16213,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 78.74 124.46 0)
+			(at 292.1 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16413,7 +16221,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 78.74 116.84 0)
+			(at 292.1 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16422,7 +16230,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 116.84 0)
+			(at 292.1 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16431,7 +16239,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 78.74 116.84 0)
+			(at 292.1 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16453,7 +16261,7 @@
 	)
 	(symbol
 		(lib_id "nereus:SM02B-GHS")
-		(at 490.22 161.29 0)
+		(at 497.84 186.69 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16461,7 +16269,7 @@
 		(dnp no)
 		(uuid "4438bd76-a20f-415b-b0f8-735de9c274a1")
 		(property "Reference" "J5"
-			(at 490.22 157.48 0)
+			(at 497.84 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16469,7 +16277,7 @@
 			)
 		)
 		(property "Value" "SM02B-GHS-TB"
-			(at 490.22 166.37 0)
+			(at 497.84 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16477,7 +16285,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16486,7 +16294,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16495,7 +16303,7 @@
 			)
 		)
 		(property "Description" "JST GH 1.25 mm 2-pin SMD right-angle header, 1.0 A per contact (AWG #26), 50 V: payload power out, pin 1 VBUS_OUT, pin 2 GND (D23)"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16504,7 +16312,7 @@
 			)
 		)
 		(property "MANUFACTURER" "JST"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16513,7 +16321,7 @@
 			)
 		)
 		(property "LCSC" "C189893"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16522,7 +16330,7 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (D26); LCSC C189893 out of stock, DK 10,839"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16531,7 +16339,7 @@
 			)
 		)
 		(property "PLANNED MPN" "SM02B-GHS-TB"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16540,7 +16348,7 @@
 			)
 		)
 		(property "PLANNED MFR" "JST"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16549,7 +16357,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C189893"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16558,7 +16366,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; LCSC listing out of stock (2026-10-06): JLC global sourcing"
-			(at 490.22 161.29 0)
+			(at 497.84 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16583,7 +16391,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:VBUS_OUT_BAR")
-		(at 469.9 160.02 180)
+		(at 469.9 185.42 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16591,7 +16399,7 @@
 		(dnp no)
 		(uuid "8242f85e-e3ca-4101-a402-9088d47f20e7")
 		(property "Reference" "#PWR80"
-			(at 469.9 156.21 0)
+			(at 469.9 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16600,7 +16408,7 @@
 			)
 		)
 		(property "Value" "VBUS_OUT"
-			(at 469.9 156.21 0)
+			(at 469.9 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16608,7 +16416,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 469.9 160.02 0)
+			(at 469.9 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16617,7 +16425,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 469.9 160.02 0)
+			(at 469.9 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16626,7 +16434,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 469.9 160.02 0)
+			(at 469.9 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16648,7 +16456,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 474.98 162.56 0)
+		(at 480.06 187.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16656,7 +16464,7 @@
 		(dnp no)
 		(uuid "b204ab58-e56d-48ff-9eaf-ea2b6b8e79da")
 		(property "Reference" "#PWR81"
-			(at 474.98 158.75 0)
+			(at 480.06 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16665,7 +16473,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 474.98 170.18 0)
+			(at 480.06 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16673,7 +16481,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 474.98 162.56 0)
+			(at 480.06 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16682,7 +16490,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 474.98 162.56 0)
+			(at 480.06 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16691,7 +16499,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 474.98 162.56 0)
+			(at 480.06 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17165,7 +16973,7 @@
 				(justify left bottom)
 			)
 		)
-		(pin "SW_FLAGB" passive
+		(pin "~{PAYLOAD_FAULT}" passive
 			(at 185.42 215.9 0)
 			(uuid "ad25b3b7-2100-46a4-9275-aa10bc05fe3c")
 			(effects
@@ -17195,7 +17003,7 @@
 				(justify left)
 			)
 		)
-		(pin "SW_EN" passive
+		(pin "PAYLOAD_EN" passive
 			(at 185.42 213.36 0)
 			(uuid "9e1617cf-ae18-4023-b1d1-8c61ae012bca")
 			(effects

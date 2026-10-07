@@ -34,14 +34,11 @@ Every schematic net that includes a pin of a part with no pins on the mote's cop
 |---|---|
 | `/Top-Level Schematic/5V_PI` | C56.2, C57.2, C58.1, JP1.2, L6.2, R37.1, TP38.1 |
 | `/Top-Level Schematic/ADIN/ADIN_LED_VDD` | JP2.2, R44.2, R45.2, R46.2 |
-| `/Top-Level Schematic/ADIN/ADIN_P1_LED1` | D9.1, R3.1, U1.21 |
-| `/Top-Level Schematic/ADIN/ADIN_P2_LED1` | D10.1, R5.1, U1.48 |
-| `/Top-Level Schematic/ADIN_INT` | J1.22, R1.1, U1.39 |
+| `/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}` | D9.1, R3.1, U1.21 |
+| `/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}` | D10.1, R5.1, U1.48 |
 | `/Top-Level Schematic/ADIN_MISO` | J1.21, U1.43 |
 | `/Top-Level Schematic/ADIN_MOSI` | J1.19, U1.42 |
-| `/Top-Level Schematic/ADIN_NSS` | J1.24, U1.45 |
 | `/Top-Level Schematic/ADIN_PWR` | J1.16, R43.1, TP8.1, U2.B2, U3.B2 |
-| `/Top-Level Schematic/ADIN_RST` | J1.18, U1.20 |
 | `/Top-Level Schematic/ADIN_SCK` | J1.23, U1.44 |
 | `/Top-Level Schematic/BM1_N` | D4.2, L1.2, MP2.1, R13.2, T1.7, TP5.1 |
 | `/Top-Level Schematic/BM1_P` | D4.1, L1.3, MP1.1, R12.1, T1.6, TP3.1 |
@@ -50,12 +47,15 @@ Every schematic net that includes a pin of a part with no pins on the mote's cop
 | `/Top-Level Schematic/I2C1_SCL` | J1.5, R26.1, U4.5 |
 | `/Top-Level Schematic/I2C1_SDA` | J1.3, R27.1, U4.6 |
 | `/Top-Level Schematic/Load Switch/ISET` | R34.2, U11.7 |
+| `/Top-Level Schematic/PAYLOAD_EN` | J1.36, R42.1, TP19.1, U11.4 |
 | `/Top-Level Schematic/PI_5V` | J1.2, J1.4, JP1.1 |
 | `/Top-Level Schematic/Power Regulators/5V_Buck_SW` | C53.1, L6.1, U10.2 |
 | `/Top-Level Schematic/Power Regulators/5V_FB` | R37.2, R38.1, U10.4 |
 | `/Top-Level Schematic/Power Regulators/5V_UVLO` | R39.1, R40.2, U10.5 |
-| `/Top-Level Schematic/SW_EN` | J1.36, R42.1, TP19.1, U11.4 |
-| `/Top-Level Schematic/SW_FLAGB` | J1.38, R35.1, TP35.1, U11.9 |
+| `/Top-Level Schematic/~{ADIN_CS}` | J1.24, U1.45 |
+| `/Top-Level Schematic/~{ADIN_INT}` | J1.22, R1.1, U1.39 |
+| `/Top-Level Schematic/~{ADIN_RST}` | J1.18, U1.20 |
+| `/Top-Level Schematic/~{PAYLOAD_FAULT}` | J1.38, R35.1, TP35.1, U11.9 |
 | `ADIN_VDDIO` | C13.1, C14.1, JP2.1, R1.2, R3.2, R5.2, R6.2, TP2.1, U1.18, U1.46, U3.A1 |
 | `GND` | C1.2, C2.2, C3.2, C4.2, C5.2, C6.2, C7.2, C8.2, C9.2, C10.2, C11.2, C12.2, C13.2, C14.2, C15.1, C17.2, C18.1, C19.1, C20.2, C21.2, C22.1, C23.1, C25.1, C26.2, C27.1, C29.2, C30.2, C31.1, C32.2, C33.2, C49.2, C50.2, C54.2, C55.2, C56.1, C57.1, C58.2, D1.1, D2.2, D3.2, D8.1, J1.6, J1.9, J1.14, J1.20, J1.25, J1.30, J1.34, J1.39, J5.2, L1.4, L2.4, R2.2, R4.2, R13.1, R19.1, R22.1, R23.2, R34.1, R38.2, R40.1, R42.2, R43.2, TP23.1, TP24.1, U1.49, U2.B1, U3.B1, U4.3, U5.1, U6.A1, U6.C2, U10.1, U11.3, U11.5, U11.6, U11.11, Y1.2, Y1.4 |
 | `Net-(D8-A)` | D8.2, R44.1 |

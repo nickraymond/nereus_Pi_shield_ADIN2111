@@ -19,6 +19,27 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-07 — Sprint S6.g — Presentation clean-up (Nick's list)
+
+**Branch:** sprint/6g-presentation
+**Files touched:** all 7 sheets; .kicad_pro (exclusion keys); schematic.pdf; DESIGN (D30), changelog, README, sofar_brief,
+TRACKER, viewer
+**ERC:** 0 / 492 (was 0 / 495)  ·  **Net diff:** identical pin partition, 7 nets renamed — intended
+**Done:**
+- Nick's KiCad look (S6.f) produced an 8-item list; he discarded his own KiCad edits and asked for them fresh
+- Asked: what ADIN_PWR/R43 do (Pi GPIO23 → U2/U3 ON; R43 keeps the ADIN off while the Pi boots or is absent, D21);
+  active-high/low marking → KiCad overbar; names PAYLOAD_EN / ~{PAYLOAD_FAULT}, ~{ADIN_CS}; no signal table for now
+- New helpers (scratch): move_block / move_where (shift items wholly in a region; stretch wires only along their axis,
+  else refuse), label renames, title blocks, text/rect adders
+**Broke/surprised us:**
+- My label-rename pattern first matched nothing while the sheet-pin rename did: the pin-partition check caught the split
+  nets at once. A text insert landed at the top of a sub-sheet (no sheet_instances block): KiCad loaded an empty sheet;
+  inserts now go before the file's closing bracket
+- KiCad JSON/SVG: the cover's 2 render images were ~8 MB of the file
+**Next:** QE review; Nick's look in KiCad; then S6 complete
+
+---
+
 ## 2026-10-07 — Sprint S6.f — Author + BOM PDF
 
 **Branch:** sprint/6f-author

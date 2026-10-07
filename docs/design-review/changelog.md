@@ -2,6 +2,27 @@
 
 *Every edit to the live schematic, newest sprint first. Part of the S6 design-review package.*
 
+## S6.g — Presentation clean-up (Nick's list, 2026-10-07, branch `sprint/6g-presentation`)
+
+Positions, text, graphics and label names only (D30); pin connections identical (checked as a pin partition).
+
+| # | Sheet | Change |
+|---|---|---|
+| 1 | Top-Level | VBUS_OUT symbol beside TP36 / the Load Switch block (was ~85 mm away on a long wire) |
+| 2 | Top-Level | I2C1_SDA/SCL page-long runs to the PoDL block removed; both ends already labelled, short labelled stubs at the PoDL pins |
+| 3 | Top-Level | R43 (ADIN_PWR pull-down) + GND moved beside the ADIN block's HW_EN pin, hanging from TP8's junction; its separate ADIN_PWR label removed |
+| 4 | Top-Level | J5 25 mm lower with longer leads to VBUS_OUT and GND; its note underneath |
+| 5 | Cover | the two mote renders and the old sheet-index image replaced by a grey "Pi shield renders: TBD (after layout)" box and a text index of the 7 real sheets; DIMENSIONS → TBD (cover file 8 MB → 0.4 MB) |
+| 6 | ADIN | U1B + U2/U3 supplies block and the status-LED block moved apart from U1A, each with a header |
+| 7 | Power | 3V3 (U5), 1V8 (U6) and 5V (U10) converters spread out, each with a header; the 1V8 feed wire stretched along its axis |
+| 8 | all | KiCad title block filled on every sheet (date, rev AA, `${PCBPARTNAME} · ${PCBPARTNUMBER}`, author, "Derived from Sofar mote 000639-AB"); the Altium overlay texts (${TITLE}, ${PCBPARTNUMBER}, ${REVISION}, ${AUTHOR}, sheet numbers) that ran off the page removed. Cover revision table kept inside the page: AA · 2026-10-07 · NB · "First release, derived from Sofar mote 000639-AB"; licence note and CC logo moved clear of the title block |
+| 9 | Top-Level, Load, ADIN | names (D30): ADIN_RST/INT → ~{ADIN_RST}/~{ADIN_INT}; ADIN_NSS → ~{ADIN_CS}; SW_EN (+ Load's SW_ON) → PAYLOAD_EN; SW_FLAGB → ~{PAYLOAD_FAULT} (labels, hierarchical labels, sheet pins); ADIN_P1/P2_LED1 → ~{…} |
+| — | .kicad_pro | 8 ERC exclusion keys regenerated (U5/U10/U6 and #PWR34 moved); the 18 reasons unchanged |
+
+**Verified:** same pin partition (109 nets), 7 renamed as above; ERC 495 → **492**/0 errors (−2 off-grid wires of the
+old I²C runs, −1 SW_ON/SW_EN duplicate name; the 1V8 feed wire re-measured); ercexclude 18/0/0/0; netcheck 51/51;
+midwire 0; every sheet rendered and checked.
+
 ## S6.f — Author + BOM PDF (2026-10-07, branch `sprint/6f-author`)
 
 | Change | Where |
