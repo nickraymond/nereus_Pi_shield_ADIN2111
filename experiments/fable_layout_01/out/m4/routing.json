@@ -1,0 +1,1117 @@
+{
+ "planes": {
+  "GND": {
+   "layer": "In2",
+   "slots": [
+    [
+     -7.5,
+     26.2,
+     22.7,
+     26.7
+    ],
+    [
+     -7.5,
+     6.5,
+     22.7,
+     7.0
+    ],
+    [
+     -7.5,
+     39.0,
+     22.7,
+     39.5
+    ],
+    [
+     -7.5,
+     54.0,
+     22.7,
+     54.5
+    ]
+   ],
+   "note": "islands x -7.5..22.7, y 7-26.2 (port 2) and 39.5-54 (port 1), open to the east"
+  },
+  "In4": {
+   "VBUS": "strip x 23.2-38 full height + west half y 26-64.5 (ADIN islands cut it, priority 7)",
+   "P_IN": [
+    11.0,
+    8.0,
+    16.6,
+    25.7
+   ],
+   "VBUS east of P_IN": [
+    16.8,
+    8.0,
+    23.2,
+    26.0
+   ],
+   "3V3": [
+    33.4,
+    8.0,
+    38.0,
+    23.0
+   ],
+   "NoConnect": [
+    [
+     3.5,
+     13.5,
+     9.5,
+     20.0
+    ],
+    [
+     3.5,
+     45.0,
+     9.5,
+     51.5
+    ]
+   ]
+  },
+  "5V_PI": [
+   29.7,
+   7.5,
+   38.0,
+   26.5
+  ]
+ },
+ "manual": [
+  {
+   "net": "BM2_P",
+   "from": "MP3",
+   "path": [
+    [
+     1.5,
+     12.0
+    ],
+    [
+     4.0,
+     12.0
+    ],
+    [
+     10.0,
+     12.49
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM2_N",
+   "from": "MP4",
+   "path": [
+    [
+     1.5,
+     21.4
+    ],
+    [
+     4.0,
+     21.4
+    ],
+    [
+     10.0,
+     21.01
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM1_P",
+   "from": "MP1",
+   "path": [
+    [
+     1.5,
+     43.6
+    ],
+    [
+     4.0,
+     43.6
+    ],
+    [
+     10.0,
+     39.99
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM1_N",
+   "from": "MP2",
+   "path": [
+    [
+     1.5,
+     53.0
+    ],
+    [
+     4.0,
+     53.0
+    ],
+    [
+     10.0,
+     48.5
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "ISET",
+   "path": [
+    [
+     33.9,
+     54.6
+    ],
+    [
+     34.5,
+     54.6
+    ],
+    [
+     34.5,
+     56.2
+    ],
+    [
+     34.575,
+     56.75
+    ]
+   ],
+   "width": 0.15,
+   "layer": "Top",
+   "why": "U11 pin 7 to R34 past pin 6"
+  },
+  {
+   "net": "VBUS",
+   "path": [
+    [
+     31.1,
+     53.1
+    ],
+    [
+     31.1,
+     52.55
+    ]
+   ],
+   "width": 0.15,
+   "layer": "Top",
+   "why": "U11 pin 1 into the VBUS plane north of the pin"
+  }
+ ],
+ "pairs": [
+  {
+   "net": "BM1_DATA_N",
+   "new_mm": 7.9,
+   "total_mm": 7.9,
+   "limit_mm": 9.5,
+   "ok": true
+  },
+  {
+   "net": "BM1_DATA_P",
+   "new_mm": 9.4,
+   "total_mm": 9.4,
+   "limit_mm": 9.5,
+   "ok": true
+  },
+  {
+   "net": "BM2_DATA_P",
+   "new_mm": 21.3,
+   "total_mm": 21.3,
+   "limit_mm": 21.3,
+   "ok": true
+  },
+  {
+   "net": "BM2_DATA_N",
+   "new_mm": 23.4,
+   "total_mm": 23.4,
+   "limit_mm": 21.3,
+   "ok": false
+  }
+ ],
+ "stitch": [
+  {
+   "net": "GND",
+   "via": [
+    33.5,
+    37.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    20.9,
+    61.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    15.6,
+    60.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.7,
+    40.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    30.5,
+    54.1
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.1,
+    55.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    33.3,
+    55.1
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    32.5,
+    54.1
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    35.5,
+    53.9
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    20.7,
+    30.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    35.7,
+    17.7
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.5,
+    12.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    37.3,
+    52.3
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    30.4,
+    27.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    34.9,
+    22.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    33.0,
+    52.3
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    37.0,
+    30.8
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    30.4,
+    13.8
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    36.1,
+    50.6
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    30.6,
+    23.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    30.6,
+    25.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    7.9,
+    36.3
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    18.1,
+    23.3
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    8.2,
+    46.9
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    11.6,
+    25.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    10.4,
+    55.2
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    33.1,
+    55.5
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    10.4,
+    55.2
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    1.1,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -2.3,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -3.3,
+    34.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    1.1,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    9.0,
+    22.3
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -3.9,
+    34.2
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    21.1,
+    48.5
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    1.1,
+    34.6
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -3.4,
+    34.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -3.2,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    1.1,
+    32.1
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -1.6,
+    34.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -0.6,
+    34.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    0.4,
+    34.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -1.5,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    1.1,
+    33.6
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    8.8,
+    29.6
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    19.8,
+    47.0
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    -0.5,
+    30.8
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    5.8,
+    31.2
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    19.4,
+    11.6
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    5.7,
+    31.2
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    8.7,
+    58.5
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    37.7,
+    53.3
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    20.9,
+    57.9
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    29.8,
+    56.8
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    14.5,
+    48.5
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    35.6,
+    55.4
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    9.8,
+    60.8
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    37.0,
+    44.7
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    20.0,
+    18.9
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    21.0,
+    59.5
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    17.4,
+    15.6
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    35.3,
+    33.8
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    33.9,
+    23.5
+   ]
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    14.5,
+    21.0
+   ]
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    16.5,
+    19.6
+   ]
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    16.5,
+    14.8
+   ]
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.5,
+    17.7
+   ]
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.7,
+    21.9
+   ]
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.2,
+    16.8
+   ]
+  },
+  {
+   "net": "3V3",
+   "via": [
+    35.3,
+    16.5
+   ]
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.4,
+    20.2
+   ]
+  },
+  {
+   "net": "5V_PI",
+   "via": [
+    35.3,
+    26.5
+   ]
+  }
+ ],
+ "routed": [
+  {
+   "net": "PI_5V",
+   "class": "pi5v",
+   "length_new_mm": 2.3
+  },
+  {
+   "net": "BM1_P",
+   "class": "signal (data leg)",
+   "length_new_mm": 13.2
+  },
+  {
+   "net": "BM1_N",
+   "class": "signal (data leg)",
+   "length_new_mm": 18.3
+  },
+  {
+   "net": "BM2_P",
+   "class": "signal (data leg)",
+   "length_new_mm": 14.0
+  },
+  {
+   "net": "BM2_N",
+   "class": "signal (data leg)",
+   "length_new_mm": 12.5
+  },
+  {
+   "net": "VBUS_OUT",
+   "class": "payload",
+   "length_new_mm": 27.7
+  },
+  {
+   "net": "PAYLOAD_EN",
+   "class": "signal",
+   "length_new_mm": 17.0
+  },
+  {
+   "net": "~{PAYLOAD_FAULT}",
+   "class": "signal",
+   "length_new_mm": 24.1
+  },
+  {
+   "net": "Net-(U11-UVLO)",
+   "class": "signal",
+   "length_new_mm": 6.5
+  },
+  {
+   "net": "ISET",
+   "class": "signal",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "Net-(C19-Pad2)",
+   "class": "signal",
+   "length_new_mm": 0.8
+  },
+  {
+   "net": "Net-(C25-Pad2)",
+   "class": "signal",
+   "length_new_mm": 0.8
+  },
+  {
+   "net": "Net-(C16-Pad1)",
+   "class": "signal",
+   "length_new_mm": 1.5
+  },
+  {
+   "net": "Net-(C22-A)",
+   "class": "signal",
+   "length_new_mm": 1.4
+  },
+  {
+   "net": "Net-(D9-A)",
+   "class": "signal",
+   "length_new_mm": 2.0
+  },
+  {
+   "net": "Net-(D8-A)",
+   "class": "signal",
+   "length_new_mm": 3.4
+  },
+  {
+   "net": "Net-(D10-A)",
+   "class": "signal",
+   "length_new_mm": 6.3
+  },
+  {
+   "net": "Net-(U4-ALERT)",
+   "class": "signal",
+   "length_new_mm": 0.6
+  },
+  {
+   "net": "ADIN_LED_VDD",
+   "class": "rail",
+   "length_new_mm": 7.2
+  },
+  {
+   "net": "Net-(C23-A)",
+   "class": "signal",
+   "length_new_mm": 14.1
+  },
+  {
+   "net": "I2C1_SCL",
+   "class": "signal",
+   "length_new_mm": 17.4
+  },
+  {
+   "net": "I2C1_SDA",
+   "class": "signal",
+   "length_new_mm": 23.3
+  },
+  {
+   "net": "~{ADIN_P1_LED1}",
+   "class": "signal",
+   "length_new_mm": 16.8
+  },
+  {
+   "net": "1V8",
+   "class": "rail",
+   "length_new_mm": 26.3
+  },
+  {
+   "net": "~{ADIN_P2_LED1}",
+   "class": "signal",
+   "length_new_mm": 34.9
+  },
+  {
+   "net": "~{ADIN_RST}",
+   "class": "signal",
+   "length_new_mm": 24.1
+  },
+  {
+   "net": "ADIN_SCK",
+   "class": "signal",
+   "length_new_mm": 31.7
+  },
+  {
+   "net": "ADIN_MISO",
+   "class": "signal",
+   "length_new_mm": 36.4
+  },
+  {
+   "net": "ADIN_MOSI",
+   "class": "signal",
+   "length_new_mm": 35.7
+  },
+  {
+   "net": "ADIN_PWR",
+   "class": "signal",
+   "length_new_mm": 36.3
+  },
+  {
+   "net": "~{ADIN_INT}",
+   "class": "signal",
+   "length_new_mm": 45.2
+  },
+  {
+   "net": "~{ADIN_CS}",
+   "class": "signal",
+   "length_new_mm": 39.0
+  },
+  {
+   "net": "GND",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "VBUS",
+   "class": "power (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "P_IN",
+   "class": "power (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "3V3",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": null
+  },
+  {
+   "net": "5V_PI",
+   "class": "pi5v (plane leftovers)",
+   "length_new_mm": 2.3
+  },
+  {
+   "net": "ADIN_AVDD",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "ADIN_VDDIO",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 16.4
+  }
+ ],
+ "failed": [
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     21.825,
+     14.87144
+    ],
+    [
+     20.82856,
+     12.725
+    ],
+    [
+     20.77498,
+     13.67565
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     -3.85,
+     37.649999
+    ],
+    [
+     -5.874999,
+     37.924999
+    ],
+    [
+     -5.849999,
+     38.649999
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     19.4,
+     48.9
+    ],
+    [
+     20.7,
+     47.4
+    ],
+    [
+     20.3,
+     47.4
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     17.5,
+     58.13446
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     20.073901,
+     43.4011
+    ],
+    [
+     19.275001,
+     43.55
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     20.1786,
+     11.6964
+    ],
+    [
+     18.75,
+     13.125
+    ]
+   ]
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     36.5,
+     32.9
+    ]
+   ]
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     36.02,
+     30.8
+    ]
+   ]
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "no via spot in the plane within 3 mm",
+   "near": []
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "no via spot in the plane within 3 mm",
+   "near": []
+  },
+  {
+   "net": "ADIN_VDDIO",
+   "why": "no via spot in the plane within 3 mm",
+   "near": [
+    [
+     19.54935,
+     28.5
+    ]
+   ]
+  },
+  {
+   "net": "3V3",
+   "why": "no path",
+   "clusters": 2
+  }
+ ],
+ "notes": [
+  "grid 461x651 cells at 0.1 mm built in 104 s",
+  "BM1_DATA_N: a link routed with the thin class (0.15 mm)",
+  "BM1_DATA_P: a link routed with the thin class (0.15 mm)",
+  "BM2_DATA_P: a link routed with the thin class (0.15 mm)",
+  "BM2_DATA_N: a link routed with the thin class (0.15 mm)",
+  "VBUS_OUT: a link routed with the rail class (0.3 mm)",
+  "0 intra-footprint GND links (0.15 mm)",
+  "25 GND pads pre-stitched (via within 1.2 mm) before the signals",
+  "PAYLOAD_EN: a link routed with the thin class (0.15 mm)",
+  "~{PAYLOAD_FAULT}: a link routed with the thin class (0.15 mm)",
+  "Net-(U11-UVLO): a link routed with the thin class (0.15 mm)",
+  "~{ADIN_P2_LED1}: a link routed with the thin class (0.15 mm)",
+  "ADIN_MOSI: a link routed with the thin class (0.15 mm)",
+  "~{ADIN_CS}: a link routed with the thin class (0.15 mm)",
+  "VBUS: stitched with the rail class",
+  "VBUS: stitched with the rail class",
+  "5V_PI: stitched with the rail class",
+  "5V_PI: a link routed with the power class (0.5 mm)",
+  "5V_PI: a link routed with the power class (0.5 mm)",
+  "5V_PI: a link routed with the power class (0.5 mm)",
+  "total 171 s"
+ ]
+}

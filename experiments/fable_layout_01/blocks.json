@@ -184,14 +184,14 @@
     "TP2"
    ],
    "dst": [
-    -1.7,
+    -1.4,
     32.8
    ],
    "rot": 90,
    "region": [
     [
      148.0,
-     108.0,
+     107.6,
      159.5,
      114.1
     ],
@@ -210,6 +210,13 @@
      120.6
     ]
    ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N",
+    "BM2_DATA_P",
+    "BM2_DATA_N"
+   ],
+   "allowance": "U1 courtyard 1.79 mm from the L1 envelope (0.21 mm into the 2 mm band; its body 2.1 mm clear): Sofar's U1 west-side fan-out needs 0.3 mm more than the brief's 10 mm pocket",
    "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of x 2.99 and both insert keep-outs",
    "src": [
     154.0011,
@@ -245,12 +252,12 @@
     "TP2"
    ],
    "copied": {
-    "track": 280,
+    "track": 267,
     "arc": 0,
-    "via": 54,
+    "via": 50,
     "zone": 2,
     "skipped_net": 0,
-    "clipped": 19
+    "clipped": 15
    }
   },
   {
@@ -278,6 +285,14 @@
      115.0
     ]
    ],
+   "exclude_region": [
+    [
+     165.0,
+     101.9,
+     168.3,
+     105.0
+    ]
+   ],
    "why": "L1 centred in its envelope with the bottom-side parts Sofar put under it; rotated 90 so the bus pads face west toward MP1/MP2 (BM1_P north-west, BM1_N south-west) and VBUS/GND face east",
    "src": [
     165.5011,
@@ -295,12 +310,12 @@
     "D2"
    ],
    "copied": {
-    "track": 50,
+    "track": 48,
     "arc": 0,
     "via": 19,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 4
+    "clipped": 3
    }
   },
   {
@@ -314,7 +329,7 @@
    ],
    "dst": [
     8.7,
-    30.5
+    28.4
    ],
    "rot": 0,
    "region": [
@@ -324,6 +339,10 @@
      165.4,
      119.8
     ]
+   ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N"
    ],
    "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); in the band between the envelopes, data pins facing U1 (west)",
    "src": [
@@ -339,12 +358,12 @@
     "R14"
    ],
    "copied": {
-    "track": 40,
+    "track": 27,
     "arc": 0,
-    "via": 7,
+    "via": 5,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 6
+    "clipped": 4
    }
   },
   {
@@ -355,8 +374,7 @@
     "R17",
     "R19",
     "TP7",
-    "TP13",
-    "C26"
+    "TP13"
    ],
    "dst": [
     12.74,
@@ -369,12 +387,6 @@
      101.5,
      138.3,
      113.0
-    ],
-    [
-     125.0,
-     113.0,
-     131.5,
-     115.0
     ]
    ],
    "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)",
@@ -389,11 +401,10 @@
     "R17",
     "R19",
     "TP7",
-    "TP13",
-    "C26"
+    "TP13"
    ],
    "copied": {
-    "track": 34,
+    "track": 28,
     "arc": 0,
     "via": 18,
     "zone": 0,
@@ -411,8 +422,8 @@
     "R18"
    ],
    "dst": [
-    16.7,
-    30.5
+    16.0,
+    32.3
    ],
    "rot": 180,
    "region": [
@@ -422,6 +433,10 @@
      139.2,
      121.0
     ]
+   ],
+   "exclude_nets": [
+    "BM2_DATA_P",
+    "BM2_DATA_N"
    ],
    "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)",
    "src": [
@@ -437,12 +452,12 @@
     "R18"
    ],
    "copied": {
-    "track": 60,
+    "track": 34,
     "arc": 0,
-    "via": 8,
+    "via": 6,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 7
+    "clipped": 5
    }
   },
   {
@@ -611,18 +626,17 @@
   {
    "name": "SENSE",
    "refs": [
-    "C23",
-    "R8",
     "U4",
+    "R8",
     "R7",
     "C15",
     "TP22"
    ],
    "dst": [
-    33.88,
-    39.3
+    19.8,
+    15.0
    ],
-   "rot": 90,
+   "rot": 0,
    "region": [
     [
      144.4,
@@ -637,34 +651,61 @@
      120.2
     ]
    ],
-   "why": "R8 shunt + INA232 with Sofar's sense routing, and C23 above them; rotated 90 to fit the strip",
+   "why": "R8 shunt + INA232 with Sofar's sense routing (all bottom-side parts) under L2's south-east, 4 mm from L2's P_IN pad as on the mote; J1's pin field leaves no \u2265 0.5 mm path for P_IN into the strip east of J1",
+   "src": [
+    146.3511,
+    115.7036
+   ],
+   "anchor": "U4",
+   "placed": [
+    "U4",
+    "R8",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "copied": {
+    "track": 75,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 14
+   }
+  },
+  {
+   "name": "DAMP3",
+   "refs": [
+    "C23"
+   ],
+   "dst": [
+    33.5,
+    40.0
+   ],
+   "rot": 0,
+   "region": [],
+   "why": "C23 (the sense block's 47 uF damping electrolytic, the block's only top part) alone in the strip; R16 beside U11",
    "src": [
     146.0011,
     116.9036
    ],
    "anchor": "C23",
    "placed": [
-    "C23",
-    "R8",
-    "U4",
-    "R7",
-    "C15",
-    "TP22"
+    "C23"
    ],
    "copied": {
-    "track": 78,
+    "track": 0,
     "arc": 0,
-    "via": 5,
+    "via": 0,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 15
+    "clipped": 0
    }
   },
   {
    "name": "DAMP1",
    "refs": [
     "C21",
-    "R16",
     "C20",
     "TP23"
    ],
@@ -675,13 +716,13 @@
    "rot": 90,
    "region": [
     [
-     149.9,
+     151.9,
      117.5,
      156.5,
      121.2
     ]
    ],
-   "why": "VBUS 10 uF + damping resistor (R16 pairs with C23 in SENSE) in the south-west pocket beside J5",
+   "why": "VBUS 10 uF + its test pad in the south-west pocket beside J5 (R16 moved next to C23's partner U11 row)",
    "src": [
     154.2011,
     119.2036
@@ -689,17 +730,16 @@
    "anchor": "C21",
    "placed": [
     "C21",
-    "R16",
     "C20",
     "TP23"
    ],
    "copied": {
-    "track": 12,
+    "track": 8,
     "arc": 0,
     "via": 0,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 6
+    "clipped": 3
    }
   },
   {
@@ -709,18 +749,18 @@
    ],
    "dst": [
     33.9,
-    47.7
+    48.2
    ],
-   "rot": 90,
+   "rot": 0,
    "region": [
     [
      146.8,
-     99.8,
+     100.4,
      155.8,
      107.0
     ]
    ],
-   "why": "second damping electrolytic in the strip; its resistor R15 could not ride along (it would land under J1 or off the edge)",
+   "why": "second damping electrolytic in the strip, Sofar's orientation (8.8 mm wide: pads 0.5 mm from the edge); its resistor R15 placed beside it",
    "src": [
     151.3011,
     103.6036
@@ -730,7 +770,7 @@
     "C22"
    ],
    "copied": {
-    "track": 38,
+    "track": 36,
     "arc": 0,
     "via": 7,
     "zone": 0,
@@ -800,21 +840,39 @@
    "side": "F"
   },
   "U11": {
-   "x": 31.5,
-   "y": 54.3,
+   "x": 32.5,
+   "y": 54.1,
    "rot": 0,
    "side": "F"
   },
   "C49": {
-   "x": 36.2,
-   "y": 53.5,
-   "rot": 0,
+   "x": 35.5,
+   "y": 54.6,
+   "rot": 90,
    "side": "F"
   },
   "R35": {
-   "x": 36.2,
-   "y": 55.6,
+   "x": 17.5,
+   "y": 58.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "R16": {
+   "x": 37.2,
+   "y": 54.1,
+   "rot": 90,
+   "side": "F"
+  },
+  "R34": {
+   "x": 34.2,
+   "y": 56.75,
    "rot": 0,
+   "side": "F"
+  },
+  "R41": {
+   "x": 31.3,
+   "y": 56.75,
+   "rot": 180,
    "side": "F"
   },
   "JP1": {
@@ -877,33 +935,27 @@
    "rot": 90,
    "side": "B"
   },
-  "R34": {
-   "x": 30.6,
-   "y": 45.3,
-   "rot": 0,
-   "side": "B"
-  },
-  "R41": {
-   "x": 30.7,
-   "y": 43.3,
-   "rot": 0,
-   "side": "B"
-  },
   "R42": {
    "x": 36.9,
-   "y": 52.5,
+   "y": 52.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "C26": {
+   "x": 17.0,
+   "y": 23.3,
    "rot": 0,
    "side": "B"
   },
   "C50": {
-   "x": 36.9,
-   "y": 50.0,
-   "rot": 90,
+   "x": 35.4,
+   "y": 50.6,
+   "rot": 0,
    "side": "B"
   },
   "R15": {
-   "x": 30.5,
-   "y": 49.2,
+   "x": 37.0,
+   "y": 45.5,
    "rot": 90,
    "side": "B"
   },
@@ -920,8 +972,8 @@
    "side": "B"
   },
   "D3": {
-   "x": 31.2,
-   "y": 54.8,
+   "x": 33.0,
+   "y": 54.5,
    "rot": 90,
    "side": "B"
   },

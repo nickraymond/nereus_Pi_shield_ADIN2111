@@ -120,3 +120,39 @@
   36 hole-clearance, 8 mask-bridge, 4 padstack), T1/T2's unnumbered pads (4 clearance, 6 shorting, 10 mask-bridge,
   as on the mote), courtyards 12 (10 Sofar intra-block + 2 MTG/H).
 - Renders: `out/m3/render_top.png`, `render_bottom.png`, `out/m3/layers/*.svg`.
+
+## M4 — planes, routing, zone fill (2026-10-08)
+
+- **Planes** (`tools/m4_route.py planes()`): GND on In2 (0.5 mm from the edge) with one 0.5 mm slot past each
+  inductor on the band side and one on the outer side (port 2: y 6.5–7.0 and 26.2–26.7; port 1: 39.0–39.5 and
+  54.0–54.5, x −7.5…22.7), so each inductor island joins the plane only on its east (far) side; the insert pull-backs
+  (r 4.8, M1) cut both planes. PWR plane In4 split: VBUS (the strip east of J1, the whole west half from y 26 down, and
+  port 2's east x 16.8–23.2), P_IN island under port 2's east half (x 11–16.6, y 8–25.7; R8 straddles the boundary),
+  a 3V3 island at the 3.3 V buck output (x 33.4–38, y 8–23), the copied ADIN_AVDD / ADIN_VDDIO islands (priority 7)
+  and Sofar's two no-net islands (NoConnect_P2 / _P1, 6 × 6.5 mm between each port's inserts and its inductor, Q10).
+  5V_PI is a bottom-side pour x 29.7–38, y 7.5–26.5 from L6's output to JP1 (BRIEF §6 "≥ 1.0 mm or a pour").
+- **Router** (`tools/router.py`, pure Python, no numpy in KiCad's Python): 0.1 mm grid, four routing layers (Top,
+  Internal 1, Internal 2, Bottom), through vias; every existing copper item stamped with its net and dilated per class
+  (strict halos, pre-existing copper inflated by half a cell diagonal so off-grid vias and pads keep their clearance);
+  exact board-edge distance map; A* per cluster pair from the whole copper cluster (copied stubs count), 8-way except
+  the 0.15 mm fan-out class (orthogonal only). Classes (§6): bus 1.0/0.35, power 0.5/0.25, Pi 5 V 1.0/0.25, payload
+  0.6/0.25, rail 0.3/0.15, signal 0.2/0.15, fan-out 0.15/0.15; fallbacks to the next class are logged.
+- **Order:** insert feeds by hand (1.5 mm, Top, ring → inductor bus pad); the ADIN pairs on Top + Internal 1 (inner
+  pin first); two hand-laid 0.15 mm links (U11 pin 7 → R34, U11 pin 1 → a via into the VBUS plane) and U3's 3V3 escape
+  on Internal 2 between Sofar's vias; GND pads given a via within 1.2 mm (except in the ADIN pocket); U11's west-side
+  signals; the rest short-first; then stitching vias from every plane-net cluster into its plane (up to 16 spots
+  tried); plane leftovers by track; zone fill; split pour islands joined and refilled.
+- **Result** (`out/m4/routing.json`, `drc_summary.txt`): 216 open connections → **2**: U3's 3V3 (its hand-laid escape
+  reaches (2.5, 38.0) on Internal 2 but no path continues: the pocket's south exit is shared with the port-2 pair,
+  1V8 and ADIN_PWR) and J1 pins 1/17, which the schematic puts on one no-connect net (`unconnected-(J1-3V3-Pad1)`, the
+  Pi's 3V3: SPEC constraint 4, left open on purpose). 72 stitching vias. ADIN pairs: BM1 7.9 / 9.4 mm (≤ 9.5), BM2
+  21.3 / **23.4** mm (≤ 21.3: N is 2.1 mm over; P/N skew 2.1 mm vs the mote's 3.0). DRC errors are only the known
+  groups (insert contact 92, T1/T2 footprint pads 22, courtyards 12) — see M5 exclusions; blockcheck still 0 missing.
+- **What did not work, kept in the script behind flags:** rip-up rounds (RIPUP_ROUNDS) thrashed; routing the pocket's
+  nets first or stitching before the signals each boxed a different net in. The ADIN pocket (U1 rotated into the
+  10 mm west pocket) has three exits — the one-track lane along the west edge, the strip north of the pins and the
+  strip south of U2/U3 — for ten nets; this is the layout's weak spot (REPORT).
+- Placement changes made for routing (all in `tools/m2_place.py`): T1 at (8.7, 28.4), T2 at (16.0, 32.3), the ADIN
+  block 0.3 mm east (allowance recorded), U11's group 1 mm east with R34/R41 on the top beside it, R35 bottom at
+  (17.5, 58.5), D3/C50 under U11's thermal-pad side, R15 beside C22, R26/R27/TP24/TP20/C56–C58/TP38 in via-free spots.
+- Renders: `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`.

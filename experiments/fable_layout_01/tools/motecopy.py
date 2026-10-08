@@ -87,6 +87,7 @@ class Mote:
             nets = set(block["nets"])
         else:
             nets = {p.GetNetname() for f in fps for p in f.Pads() if p.GetNetname()}
+        nets -= set(block.get("exclude_nets", []))
         anchor = tuple(block["src"])
         radius = block.get("radius")
         rects = []
@@ -96,6 +97,11 @@ class Mote:
             else:
                 rects.append((r, None))
         no_vias = set(block.get("exclude_vias_on", []))
+        excl = block.get("exclude_region", [])
+
+        def excluded(p):
+            x, y = mm(p.x), mm(p.y)
+            return any(r[0] <= x <= r[2] and r[1] <= y <= r[3] for r in excl)
 
         def rect_of(p, layer):
             x, y = mm(p.x), mm(p.y)
@@ -122,6 +128,8 @@ class Mote:
                     copper.append((t, None))
             elif cls == "PCB_TRACK" and "track" in kinds:
                 lay = t.GetLayer()
+                if excl and (excluded(t.GetStart()) or excluded(t.GetEnd())):
+                    continue
                 a, b = rect_of(t.GetStart(), lay), rect_of(t.GetEnd(), lay)
                 if a and b:
                     copper.append((t, None))
