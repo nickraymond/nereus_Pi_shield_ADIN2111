@@ -26,6 +26,7 @@ BLOCK = -1
 # class -> (track width, clearance, via diameter, via drill)
 CLASSES = {
     "bus":    (1.0, 0.35, 0.6, 0.3),
+    "busleg": (0.2, 0.35, 0.45, 0.2),     # the bus nets' 0.2 mm data legs: new bus copper keeps 0.35 from the other leg too (QE R3-F2)
     "power_n": (0.3, 0.25, 0.5, 0.25),    # power-class fallbacks: narrower, the brief's 0.25 clearance kept
     "power_t": (0.2, 0.25, 0.45, 0.2),
     "power":  (0.5, 0.25, 0.6, 0.3),
@@ -322,8 +323,13 @@ class Grid:
         return min(x for x in self.radii if x >= r)
 
     # ---- A* ---------------------------------------------------------------------------------------------------
-    def route(self, net, starts, goals, cls, layers=None, max_nodes=400000, via_cost=12.0, via_ok=True):
-        """starts/goals: {(layer, cx, cy)} sets. Returns a path [(layer, cx, cy), ...] or None."""
+    def route(self, net, starts, goals, cls, layers=None, max_nodes=400000, via_cost=12.0, via_ok=True, soft=()):
+        """starts/goals: {(layer, cx, cy)} sets. Returns a path [(layer, cx, cy), ...] or None.
+        soft: goal cells that may be entered by an orthogonal step without the clearance test — the destination
+        PAD's own copper (a bus leg enters T1/T2 pad 6 although pad 7 sits 0.24 mm away, Sofar's geometry)."""
+        soft_cells = {}
+        for l, cx, cy in soft:
+            soft_cells.setdefault((cx, cy), set()).add(l)
         width, clear, vdia, vdrill = CLASSES[cls]
         rt = self.radius_for(width, clear)
         rv = self.radius_for(vdia, clear)
@@ -373,7 +379,8 @@ class Grid:
                 nx, ny = cx + dx, cy + dy
                 if not (0 <= nx < W and 0 <= ny < H):
                     continue
-                if not self.free(l, nx, ny, rt, net, hwt, xrt):
+                is_soft = not (dx and dy) and (nx, ny) in soft_cells and l in soft_cells[(nx, ny)]
+                if not is_soft and not self.free(l, nx, ny, rt, net, hwt, xrt):
                     continue
                 if dx and dy and not (self.free(l, cx + dx, cy, rt, net, hwt, xrt) and self.free(l, cx, cy + dy, rt, net, hwt, xrt)):
                     continue
@@ -575,6 +582,15 @@ def net_clusters(board, net_name, kinds=("PAD", "PCB_TRACK", "PCB_ARC", "PCB_VIA
     for i, it in enumerate(items):
         groups.setdefault(find(i), []).append(it)
     return list(groups.values())
+
+
+def pad_cells_of(grid, items, layers=None):
+    """Cells of the cluster's PADS only (the soft goals of Grid.route)."""
+    cells = set()
+    for it in items:
+        if it.GetClass() == "PAD" and it.m_Uuid.AsString() not in grid.exclude_ids:
+            cells |= grid.pad_cells(it, layers or ROUTE_LAYERS)
+    return cells
 
 
 def cluster_cells(grid, items, layers=None):

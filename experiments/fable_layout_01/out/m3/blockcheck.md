@@ -6,9 +6,9 @@
 | RING_MP4 | (176.001, 120.004) → (-1.81, 21.4), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
 | RING_MP1 | (176.001, 120.004) → (-1.81, 43.6), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
 | RING_MP2 | (176.001, 120.004) → (-1.81, 53.0), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
-| ADIN | (154.001, 113.004) → (-1.4, 32.8), 90° | 103/103 | 231/267 | 0/0 | 50/50 | 2/2 | 36 | 0 | 188 |
-| P1L | (165.501, 108.754) → (12.74, 44.25), 90° | 16/16 | 37/48 | 0/0 | 11/19 | 0/0 | 19 | 0 | 16 |
-| P1T | (161.601, 117.504) → (8.7, 28.4), 0° | 15/15 | 20/27 | 0/0 | 5/5 | 0/0 | 7 | 0 | 23 |
+| ADIN | (154.001, 113.004) → (-1.4, 32.8), 90° | 103/103 | 234/267 | 0/0 | 50/50 | 2/2 | 33 | 0 | 241 |
+| P1L | (165.501, 108.754) → (12.74, 44.25), 90° | 16/16 | 37/48 | 0/0 | 12/19 | 0/0 | 18 | 0 | 18 |
+| P1T | (161.601, 117.504) → (8.7, 28.4), 0° | 15/15 | 20/27 | 0/0 | 5/5 | 0/0 | 7 | 0 | 40 |
 | P2L | (131.679, 108.279) → (12.74, 16.75), 90° | 12/12 | 22/28 | 0/0 | 12/18 | 0/0 | 12 | 0 | 17 |
 | P2T | (135.501, 117.504) → (16.0, 32.3), 180° | 15/15 | 33/34 | 0/0 | 5/6 | 0/0 | 2 | 0 | 19 |
 | B33 | (140.501, 115.054) → (31.551, 17.704), 0° | 22/22 | 84/88 | 0/0 | 15/19 | 2/2 | 8 | 0 | 13 |
@@ -19,8 +19,8 @@
 | DAMP2 | (151.301, 103.604) → (33.9, 48.2), 0° | 2/2 | 17/36 | 0/0 | 7/7 | 0/0 | 19 | 0 | 7 |
 | B18 | (144.501, 110.329) → (20.7, 47.2), 90° | 13/13 | 36/43 | 0/0 | 0/0 | 0/0 | 7 | 0 | 20 |
 
-Total missing: 0; trimmed: 130 (copied items KiCad's DRC called dangling, removed; listed below). Tolerance 0.001 mm. 'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).
-Totals matched/expected: pads 242/242, tracks 638/744, arcs 4/4, vias 152/176, zones 6/6; copper items 930.
+Total missing: 0; trimmed: 126 (copied items KiCad's DRC called dangling, removed; listed below). Tolerance 0.001 mm. 'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).
+Totals matched/expected: pads 242/242, tracks 641/744, arcs 4/4, vias 153/176, zones 6/6; copper items 930.
 
 ## ADIN: trimmed (dangling stub removed by tools/dangling.py, see blocks.json)
 - track (-2.025, 38.801)-(-2.025, 38.7) w0.2 6 Bottom Layer 1V8 (clipped)
@@ -53,11 +53,8 @@ Totals matched/expected: pads 242/242, tracks 638/744, arcs 4/4, vias 152/176, z
 - track (-6.218, 33.026)-(-6.804, 32.441) w0.2 Internal 1 /Top-Level Schematic/ADIN_MISO (clipped)
 - track (-3.85, 38.775)-(-4.35, 38.775) w0.5 Top Layer GND
 - track (6.022, 30.839)-(6.196, 30.665) w0.381 Top Layer GND (clipped)
-- track (6.022, 30.839)-(5.836, 30.839) w0.381 Top Layer GND
 - track (-4.376, 38.801)-(-4.35, 38.775) w0.5 Top Layer GND (clipped)
-- track (5.3, 31.375)-(5.836, 30.839) w0.381 Top Layer GND
 - track (5.675, 34.448)-(5.675, 30.925) w0.381 6 Bottom Layer GND
-- track (5.675, 30.925)-(6.196, 30.404) w0.381 6 Bottom Layer GND (clipped)
 - track (-5.875, 38.801)-(-5.875, 37.925) w0.381 Top Layer 3V3 (clipped)
 
 ## P1L: trimmed (dangling stub removed by tools/dangling.py, see blocks.json)
@@ -67,7 +64,6 @@ Totals matched/expected: pads 242/242, tracks 638/744, arcs 4/4, vias 152/176, z
 - track (16.433, 44.125)-(16.433, 44.125) w2.0 Top Layer /Top-Level Schematic/BM1_P
 - track (17.89, 42.668)-(17.89, 39.1) w2.0 Top Layer /Top-Level Schematic/BM1_P
 - track (16.433, 44.125)-(17.89, 42.668) w2.0 Top Layer /Top-Level Schematic/BM1_P
-- via (9.49, 38.65) 0.6/0.3 /Top-Level Schematic/BM1_P
 - track (18.986, 44.1)-(12.257, 44.1) w0.2 Internal 2 /Top-Level Schematic/BM1_P (clipped)
 - track (18.986, 44.45)-(12.165, 44.45) w0.2 Internal 2 /Top-Level Schematic/BM1_N (clipped)
 - track (11.565, 45.05)-(12.165, 44.45) w0.2 Internal 2 /Top-Level Schematic/BM1_N

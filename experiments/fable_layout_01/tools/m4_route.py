@@ -219,7 +219,8 @@ def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane
         order = sorted(range(1, len(clusters)), key=lambda i: geom.dist(ca, router.centroid(clusters[i])))
         joined = False
         fallbacks = {"signal": ("thin",), "rail": ("thin",), "data": ("thin",), "power": ("power_n", "power_t"),
-                     "payload": ("power", "power_n", "power_t", "thin"), "pi5v": ("power", "power_n", "thin"), "bus": ("power",)}
+                     "payload": ("power", "power_n", "power_t", "thin"), "pi5v": ("power", "power_n", "thin"), "bus": ("power",),
+                     "busleg": ("signal",)}      # a leg that finds no lane at 0.35 from its opposite leg falls back to the Default 0.15 (logged, REPORT §6 #17)
         # "thin" (0.15 / 0.15) as the last resort of a power-class net is below the brief's 0.25 clearance: every such
         # link is reported by check_rules.py (REPORT §6 #11)
         for attempt_cls in (cls,) + fallbacks.get(cls, ()):
@@ -228,7 +229,8 @@ def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane
                 t = router.cluster_cells(g, clusters[bi], layers)
                 if not s or not t:
                     continue
-                path = g.route(net, s, t, attempt_cls, layers=layers, max_nodes=max_nodes if attempt_cls == cls else max(max_nodes, 1500000), via_cost=via_cost)
+                path = g.route(net, s, t, attempt_cls, layers=layers, max_nodes=max_nodes if attempt_cls == cls else max(max_nodes, 1500000), via_cost=via_cost,
+                               soft=router.pad_cells_of(g, clusters[bi], layers))
                 if path is None:
                     continue
                 segs, vias, length = g.commit(net_name, path, attempt_cls)
@@ -418,8 +420,8 @@ def main():
     log["routed"].append({"net": "1V8", "class": router.net_class(N("1V8")), "length_new_mm": None if L is None else round(L, 1)})
     # bus data legs (inductor cluster → T1/T2 pins 6/7, 0.2 mm as the mote) and the payload path
     for net in (N("BM1_P"), N("BM1_N"), N("BM2_P"), N("BM2_N")):
-        L = route_net(g, board, net, "signal")
-        log["routed"].append({"net": net.rsplit("/", 1)[-1], "class": "signal (data leg; 0.35 from non-bus copper by the kind map)", "length_new_mm": None if L is None else round(L, 1)})
+        L = route_net(g, board, net, "busleg")
+        log["routed"].append({"net": net.rsplit("/", 1)[-1], "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)", "length_new_mm": None if L is None else round(L, 1)})
     L = route_net(g, board, N("VBUS_OUT"), "payload")
     log["routed"].append({"net": "VBUS_OUT", "class": "payload", "length_new_mm": None if L is None else round(L, 1)})
     # GND pads of one footprint joined; lonely GND pads given their via now; then the signals, then the rest of the stitching

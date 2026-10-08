@@ -1703,64 +1703,6 @@
   },
   {
    "kind": "track",
-   "net": "3V3",
-   "layer": "Internal 2",
-   "start": [
-    -0.3,
-    38.0
-   ],
-   "end": [
-    2.5,
-    38.0
-   ],
-   "width": 0.15,
-   "length": 2.8,
-   "stage": "m4",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "3637a5e9-3e7c-4fb3-b4fa-58c1036276fc",
-   "kept": [
-    [
-     -0.3,
-     38.0
-    ],
-    [
-     1.075,
-     38.0
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.3,
-    31.375
-   ],
-   "end": [
-    5.836,
-    30.839
-   ],
-   "width": 0.381,
-   "length": 0.758,
-   "stage": "m4",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "10f064c9-2eab-4eeb-b789-71bdd86e15f3",
-   "kept": [
-    [
-     5.701,
-     30.974
-    ],
-    [
-     5.836,
-     30.839
-    ]
-   ]
-  },
-  {
-   "kind": "track",
    "net": "GND",
    "layer": "Top Layer",
    "start": [
@@ -2041,40 +1983,11 @@
    "kept": [
     [
      5.675,
-     32.891
+     31.391
     ],
     [
      5.675,
      30.925
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "6 Bottom Layer",
-   "start": [
-    5.675,
-    30.925
-   ],
-   "end": [
-    6.196,
-    30.404
-   ],
-   "width": 0.381,
-   "length": 0.737,
-   "stage": "m4",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "e140a5ab-87ee-46f6-a1c8-b23fdd55fdf4",
-   "kept": [
-    [
-     5.675,
-     30.925
-    ],
-    [
-     5.81,
-     30.79
     ]
    ]
   },
@@ -2239,19 +2152,6 @@
    ],
    "width": 2.0,
    "length": 0.0,
-   "stage": "m4",
-   "round": 1,
-   "action": "removed"
-  },
-  {
-   "kind": "via",
-   "net": "/Top-Level Schematic/BM1_P",
-   "at": [
-    9.49,
-    38.65
-   ],
-   "dia": 0.6,
-   "drill": 0.3,
    "stage": "m4",
    "round": 1,
    "action": "removed"
@@ -2946,7 +2846,7 @@
    "kept": [
     [
      8.542,
-     30.191
+     30.091
     ],
     [
      8.542,
@@ -3348,24 +3248,6 @@
    "net": "GND",
    "layer": "Top Layer",
    "start": [
-    5.701,
-    30.974
-   ],
-   "end": [
-    5.836,
-    30.839
-   ],
-   "width": 0.381,
-   "length": 0.191,
-   "stage": "m4",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
     6.022,
     30.839
    ],
@@ -3447,24 +3329,6 @@
    ],
    "width": 0.2,
    "length": 0.1,
-   "stage": "m4",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "6 Bottom Layer",
-   "start": [
-    5.675,
-    30.925
-   ],
-   "end": [
-    5.81,
-    30.79
-   ],
-   "width": 0.381,
-   "length": 0.19,
    "stage": "m4",
    "round": 2,
    "action": "removed"
@@ -4142,24 +4006,6 @@
   {
    "kind": "track",
    "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    6.022,
-    30.839
-   ],
-   "end": [
-    5.836,
-    30.839
-   ],
-   "width": 0.381,
-   "length": 0.186,
-   "stage": "m4",
-   "round": 3,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
     30.075,
@@ -4198,24 +4044,6 @@
    "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
-    5.675,
-    32.891
-   ],
-   "end": [
-    5.675,
-    30.925
-   ],
-   "width": 0.381,
-   "length": 1.966,
-   "stage": "m4",
-   "round": 3,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "6 Bottom Layer",
-   "start": [
     33.075,
     46.425
    ],
@@ -4228,35 +4056,6 @@
    "stage": "m4",
    "round": 3,
    "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.8,
-    30.8
-   ],
-   "end": [
-    5.5,
-    30.5
-   ],
-   "width": 0.3,
-   "length": 0.424,
-   "stage": "m4",
-   "round": 4,
-   "action": "shortened",
-   "uuid": "3e351945-c973-4d14-a580-1a50f51b41e5",
-   "kept": [
-    [
-     5.606,
-     30.606
-    ],
-    [
-     5.5,
-     30.5
-    ]
-   ]
   },
   {
    "kind": "track",
@@ -4461,19 +4260,6 @@
    "action": "removed"
   },
   {
-   "kind": "via",
-   "net": "GND",
-   "at": [
-    5.7,
-    32.7
-   ],
-   "dia": 0.5,
-   "drill": 0.25,
-   "stage": "m4",
-   "round": 4,
-   "action": "removed"
-  },
-  {
    "kind": "track",
    "net": "VBUS",
    "layer": "6 Bottom Layer",
@@ -4602,8 +4388,8 @@
      27.576
     ],
     [
-     12.036,
-     27.495
+     12.025,
+     27.506
     ]
    ]
   },
@@ -4711,7 +4497,7 @@
    "stage": "m4",
    "round": 5,
    "action": "shortened",
-   "uuid": "bf58af48-c21a-471e-8d8f-daa40e4c48de",
+   "uuid": "c83c7e28-0310-4b40-bda0-5ab7c6dc4302",
    "kept": [
     [
      20.8,
@@ -4722,24 +4508,6 @@
      12.394
     ]
    ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.606,
-    30.606
-   ],
-   "end": [
-    5.5,
-    30.5
-   ],
-   "width": 0.3,
-   "length": 0.15,
-   "stage": "m4",
-   "round": 5,
-   "action": "removed"
   },
   {
    "kind": "track",
@@ -4758,35 +4526,6 @@
    "stage": "m4",
    "round": 5,
    "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.5,
-    30.5
-   ],
-   "end": [
-    5.3,
-    30.5
-   ],
-   "width": 0.3,
-   "length": 0.2,
-   "stage": "m4",
-   "round": 6,
-   "action": "shortened",
-   "uuid": "2056fa80-b232-4bb4-9e2b-857d3e7609f5",
-   "kept": [
-    [
-     5.45,
-     30.5
-    ],
-    [
-     5.3,
-     30.5
-    ]
-   ]
   },
   {
    "kind": "track",
@@ -5091,24 +4830,6 @@
   {
    "kind": "track",
    "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.45,
-    30.5
-   ],
-   "end": [
-    5.3,
-    30.5
-   ],
-   "width": 0.3,
-   "length": 0.15,
-   "stage": "m4",
-   "round": 7,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
     32.708,
@@ -5123,35 +4844,6 @@
    "stage": "m4",
    "round": 7,
    "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.3,
-    30.5
-   ],
-   "end": [
-    5.1,
-    30.3
-   ],
-   "width": 0.3,
-   "length": 0.283,
-   "stage": "m4",
-   "round": 8,
-   "action": "shortened",
-   "uuid": "d0bc86d6-aea2-4731-81c2-b18ec98f0a45",
-   "kept": [
-    [
-     5.206,
-     30.406
-    ],
-    [
-     5.1,
-     30.3
-    ]
-   ]
   },
   {
    "kind": "track",
@@ -5311,24 +5003,6 @@
      29.6
     ]
    ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    5.206,
-    30.406
-   ],
-   "end": [
-    5.1,
-    30.3
-   ],
-   "width": 0.3,
-   "length": 0.15,
-   "stage": "m4",
-   "round": 9,
-   "action": "removed"
   },
   {
    "kind": "track",

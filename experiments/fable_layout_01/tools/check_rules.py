@@ -129,8 +129,8 @@ def main(out_path=None):
             for other, onet, oshape in items_by_layer[l]:
                 if other is t or onet == t.GetNetname() or not onet:
                     continue          # no-net pads: Sofar's insert ring / transformer pads (DRC exclusion table)
-                if cls == "bus" and router.net_class(onet) == "bus":
-                    continue          # bus vs bus (P/N legs of one port) keeps Sofar's spacing; the 0.35 rule is bus vs non-bus
+                if cls == "bus" and router.net_class(onet) == "bus" and other.GetClass() == "PAD" and other.GetParentFootprint().GetReference() in ("T1", "T2"):
+                    continue          # the leg entering T1/T2 pad 6 (or 7) passes the other pad at Sofar's 0.24 mm (declared, REPORT §6 #17)
                 if not bb.Intersects(other.GetBoundingBox()):
                     continue
                 if shape.Collide(oshape, pcbnew.FromMM(need) - 1):

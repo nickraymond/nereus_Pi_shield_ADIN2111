@@ -371,7 +371,7 @@
   {
    "net": "GND",
    "via": [
-    8.4,
+    7.9,
     36.4
    ],
    "pre": true
@@ -624,7 +624,7 @@
    "net": "GND",
    "via": [
     7.9,
-    30.0
+    29.9
    ]
   },
   {
@@ -651,6 +651,20 @@
   {
    "net": "GND",
    "via": [
+    -1.5,
+    27.1
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    2.8,
+    27.1
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
     2.1,
     38.5
    ]
@@ -658,15 +672,22 @@
   {
    "net": "GND",
    "via": [
-    2.9,
-    38.3
+    2.7,
+    38.5
    ]
   },
   {
    "net": "GND",
    "via": [
-    5.0,
-    30.0
+    4.6,
+    31.4
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    5.8,
+    31.2
    ]
   },
   {
@@ -679,8 +700,8 @@
   {
    "net": "GND",
    "via": [
-    5.7,
-    32.7
+    5.2,
+    31.2
    ]
   },
   {
@@ -753,22 +774,22 @@
   },
   {
    "net": "BM1_P",
-   "class": "signal (data leg; 0.35 from non-bus copper by the kind map)",
-   "length_new_mm": 13.5
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 13.6
   },
   {
    "net": "BM1_N",
-   "class": "signal (data leg; 0.35 from non-bus copper by the kind map)",
-   "length_new_mm": 19.6
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 20.2
   },
   {
    "net": "BM2_P",
-   "class": "signal (data leg; 0.35 from non-bus copper by the kind map)",
-   "length_new_mm": 14.0
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 14.5
   },
   {
    "net": "BM2_N",
-   "class": "signal (data leg; 0.35 from non-bus copper by the kind map)",
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
    "length_new_mm": 12.5
   },
   {
@@ -859,7 +880,7 @@
   {
    "net": "~{ADIN_P1_LED1}",
    "class": "signal",
-   "length_new_mm": 17.0
+   "length_new_mm": 17.1
   },
   {
    "net": "~{ADIN_P2_LED1}",
@@ -874,7 +895,7 @@
   {
    "net": "ADIN_SCK",
    "class": "signal",
-   "length_new_mm": 31.9
+   "length_new_mm": 31.3
   },
   {
    "net": "ADIN_MISO",
@@ -884,22 +905,22 @@
   {
    "net": "ADIN_MOSI",
    "class": "signal",
-   "length_new_mm": 34.3
+   "length_new_mm": 35.1
   },
   {
    "net": "ADIN_PWR",
    "class": "signal",
-   "length_new_mm": 38.3
+   "length_new_mm": 38.6
   },
   {
    "net": "~{ADIN_INT}",
    "class": "signal",
-   "length_new_mm": 43.9
+   "length_new_mm": 43.0
   },
   {
    "net": "~{ADIN_CS}",
    "class": "signal",
-   "length_new_mm": 39.6
+   "length_new_mm": 39.8
   },
   {
    "net": "ADIN_AVDD",
@@ -909,12 +930,12 @@
   {
    "net": "ADIN_VDDIO",
    "class": "rail (plane leftovers)",
-   "length_new_mm": 21.2
+   "length_new_mm": 16.9
   },
   {
    "net": "GND",
    "class": "rail (plane leftovers)",
-   "length_new_mm": 1.8
+   "length_new_mm": 0.0
   },
   {
    "net": "VBUS",
@@ -929,7 +950,7 @@
   {
    "net": "3V3",
    "class": "rail (plane leftovers)",
-   "length_new_mm": 79.9
+   "length_new_mm": 79.8
   },
   {
    "net": "5V_PI",
@@ -953,38 +974,8 @@
    "why": "no path to any of the stitching via spots",
    "near": [
     [
-     -1.45,
-     30.12856
-    ]
-   ]
-  },
-  {
-   "net": "GND",
-   "why": "no path to any of the stitching via spots",
-   "near": [
-    [
-     2.762499,
-     29.0875
-    ]
-   ]
-  },
-  {
-   "net": "GND",
-   "why": "no path to any of the stitching via spots",
-   "near": [
-    [
      -4.17144,
      34.35
-    ]
-   ]
-  },
-  {
-   "net": "GND",
-   "why": "no path to any of the stitching via spots",
-   "near": [
-    [
-     1.2,
-     32.1
     ]
    ]
   },
@@ -1137,6 +1128,6 @@
   "5V_PI: a link routed with the power class (0.5 mm)",
   "5V_PI: a link routed with the power class (0.5 mm)",
   "5V_PI: a link routed with the power class (0.5 mm)",
-  "total 382 s"
+  "total 390 s"
  ]
 }
