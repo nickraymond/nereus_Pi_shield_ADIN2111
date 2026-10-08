@@ -58,6 +58,44 @@ def main(heights_path=None):
                                          and abs(mm(v.GetDrillValue()) - 0.254) < 0.001 for v in vias))
         (infos if ok else fails).append(f"{ref} ring: {len(arcs)} arc, {len(vias)} vias on {geom.INSERT_NET[ref]}" + ("" if ok else " (MISMATCH)"))
 
+    # insert pull-back: no copper of another net within r 4.8 of an insert centre on any layer (BRIEF §4; QE S7.b F6).
+    # Tracks, arcs, vias and pads by their shapes; zones by their filled copper.
+    for ref, p in geom.INSERTS.items():
+        net = f"/Top-Level Schematic/{geom.INSERT_NET[ref]}"
+        centre = pcbnew.VECTOR2I(pcbnew.FromMM(p[0]), pcbnew.FromMM(p[1]))
+        hits = []
+        for t in board.GetTracks():
+            if t.GetNetname() == net:
+                continue
+            layers = geom.CU if t.GetClass() == "PCB_VIA" else [t.GetLayer()]
+            for l in layers:
+                d = mm(t.GetEffectiveShape(l).Distance(centre))
+                if d < geom.INSERT_KEEPOUT_R - 1e-6:
+                    hits.append(f"{t.GetClass()[4:].lower()} {t.GetNetname().rsplit('/', 1)[-1]} {board.GetLayerName(l)} {d:.2f}")
+                    break
+        for f in fps.values():
+            for pad in f.Pads():
+                if pad.GetNetname() == net or f.GetReference() == ref:
+                    continue
+                for l in geom.CU:
+                    if pad.IsOnLayer(l) or pad.GetDrillSize().x > 0:
+                        d = mm(pad.GetEffectiveShape(l).Distance(centre))
+                        if d < geom.INSERT_KEEPOUT_R - 1e-6:
+                            hits.append(f"pad {f.GetReference()}.{pad.GetNumber()} {d:.2f}")
+                        break
+        for z in board.Zones():
+            if z.GetIsRuleArea() or z.GetNetname() == net:
+                continue
+            for l in geom.CU:
+                if not z.IsOnLayer(l):
+                    continue
+                fill = z.GetFilledPolysList(l)
+                if fill.OutlineCount():
+                    d = mm(fill.Distance(centre))
+                    if d < geom.INSERT_KEEPOUT_R - 0.01:      # the r 4.8 rule area is a polygon: its chords sit < 0.01 mm inside the circle
+                        hits.append(f"zone {z.GetNetname() or 'no net'} {board.GetLayerName(l)} {d:.2f}")
+        (fails if hits else infos).append(f"{ref} copper pull-back r {geom.INSERT_KEEPOUT_R} (other nets, all layers): " + ("clear" if not hits else "; ".join(hits[:8])))
+
     # keep-outs over placed parts
     heights = {}
     if heights_path:

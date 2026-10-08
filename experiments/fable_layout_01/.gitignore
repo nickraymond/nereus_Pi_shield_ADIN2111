@@ -7,3 +7,6 @@ board/*-backups/
 board/fp-info-cache
 out/*/drc_before.json
 out/*/drc_after.json
+out/m3/snapshot.kicad_pcb
+out/m3/blocks.snapshot.json
+out/*/drc_dangling.json

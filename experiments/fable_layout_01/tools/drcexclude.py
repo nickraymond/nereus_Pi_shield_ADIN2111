@@ -20,7 +20,7 @@ PRO = geom.EXP / "board" / "nereus_Pi_shield_ADIN2111.kicad_pro"
 
 RULES = [
     ("shorting_items", r"of MP[1-4] on", "Sofar's insert contact copied as drawn (BRIEF §3): bus vias land in the insert's net-less ring pad (Sofar Q6)"),
-    ("hole_clearance", r"(NPTH pad of MP[1-4]|of MP[1-4] on)", "Sofar's insert contact copied as drawn: arc and vias 0.23 mm from the 4.4 mm insert hole, as on the mote (Sofar Q6)"),
+    ("hole_clearance", r"(NPTH pad of MP[1-4]|of MP[1-4] on)", "Sofar's insert contact copied as drawn: the ring pad vs the 7 via holes (28), the NPTH vs the ring pad (4) and the arc/vias vs the 4.4 mm hole (4), as on the mote (Sofar Q6)"),
     ("solder_mask_bridge", r"MP[1-4]", "Sofar's insert contact copied as drawn: the ring pad's mask opening spans the bus vias (Sofar Q6)"),
     ("padstack_invalid", r"NPTH pad of MP[1-4]", "Sofar's insert footprint (Altium import): the NPTH pad has no copper size; hole 4.4 mm (DESIGN D19/D24)"),
     ("clearance", r"Pad \[<no net>\] of T[12] on Top Layer \| Pad [34]", "Sofar's transformer footprint: two unnumbered no-net pads overlap pads 3/4 (identical on the mote board)"),

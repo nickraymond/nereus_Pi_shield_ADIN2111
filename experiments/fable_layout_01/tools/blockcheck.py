@@ -38,15 +38,28 @@ def main(out_path=None):
     vias = [t for t in board.GetTracks() if t.GetClass() == "PCB_VIA"]
     zones = [z for z in board.Zones() if not z.GetIsRuleArea()]
     lines = ["# blockcheck — copied blocks vs the mote\n",
-             "| Block | transform (src → dst, rot) | pads | tracks | arcs | vias | zones | missing | extra |", "|---|---|---|---|---|---|---|---|---|"]
+             "| Block | transform (src → dst, rot) | pads | tracks | arcs | vias | zones | trimmed | missing | extra |", "|---|---|---|---|---|---|---|---|---|---|"]
     total_missing = 0
     details = []
+    trimmed = data.get("trimmed", [])       # dangling copied stubs removed by tools/dangling.py (recorded with geometry)
+
+    def was_trimmed(kind, net, a, b=None, layer=None):
+        for r in trimmed:
+            if r["kind"] != kind or r["net"] != net:
+                continue
+            if kind == "via":
+                if close(a, tuple(r["at"])):
+                    return True
+            elif r["layer"] == layer and ((close(a, tuple(r["start"])) and close(b, tuple(r["end"]))) or (close(b, tuple(r["start"])) and close(a, tuple(r["end"])))):
+                return True
+        return False
+    total_trimmed = 0
     for blk in data["blocks"]:
         T = motecopy.transform_of(blk)
         sel = mote.select(blk)
         nmap = mote.block_net_map(blk)
         ref_map = blk.get("ref_map", {})
-        miss, counts = [], {"pads": [0, 0], "tracks": [0, 0], "arcs": [0, 0], "vias": [0, 0], "zones": [0, 0]}
+        miss, trim, counts = [], [], {"pads": [0, 0], "tracks": [0, 0], "arcs": [0, 0], "vias": [0, 0], "zones": [0, 0]}
         # pads
         for f in sel["footprints"]:
             dref = ref_map.get(f.GetReference(), f.GetReference())
@@ -77,6 +90,8 @@ def main(out_path=None):
                 if hit:
                     counts["vias"][0] += 1
                     matched_ids.add(id(hit))
+                elif was_trimmed("via", net, want):
+                    trim.append(f"via {key_pt(want)} {w}/{d} {net}")
                 else:
                     miss.append(f"via {key_pt(want)} {w}/{d} {net}")
             elif cls == "PCB_ARC":
@@ -90,6 +105,8 @@ def main(out_path=None):
                 if hit:
                     counts["arcs"][0] += 1
                     matched_ids.add(id(hit))
+                elif was_trimmed("arc", net, s, e, board.GetLayerName(lay)):
+                    trim.append(f"arc {key_pt(s)}-{key_pt(e)} w{w} {net}")
                 else:
                     miss.append(f"arc {key_pt(s)}-{key_pt(e)} w{w} {net}")
             else:
@@ -105,6 +122,8 @@ def main(out_path=None):
                 if hit:
                     counts["tracks"][0] += 1
                     matched_ids.add(id(hit))
+                elif was_trimmed("track", net, s, e, board.GetLayerName(lay)):
+                    trim.append(f"track {key_pt(s)}-{key_pt(e)} w{w} {board.GetLayerName(lay)} {net}" + (" (clipped)" if rect is not None else ""))
                 else:
                     miss.append(f"track {key_pt(s)}-{key_pt(e)} w{w} {board.GetLayerName(lay)} {net}" + (" (clipped)" if rect is not None else ""))
         for z, rect in sel["zones"]:
@@ -152,13 +171,26 @@ def main(out_path=None):
                 if all(inside(p) for p in pts):
                     extra += 1
         total_missing += len(miss)
+        total_trimmed += len(trim)
         c = counts
         lines.append(f"| {blk['name']} | {tuple(round(v, 3) for v in blk['src'])} → {tuple(blk['dst'])}, {blk.get('rot', 0)}° | "
                      f"{c['pads'][0]}/{c['pads'][1]} | {c['tracks'][0]}/{c['tracks'][1]} | {c['arcs'][0]}/{c['arcs'][1]} | "
-                     f"{c['vias'][0]}/{c['vias'][1]} | {c['zones'][0]}/{c['zones'][1]} | {len(miss)} | {extra} |")
+                     f"{c['vias'][0]}/{c['vias'][1]} | {c['zones'][0]}/{c['zones'][1]} | {len(trim)} | {len(miss)} | {extra} |")
         if miss:
             details.append(f"\n## {blk['name']}: missing\n" + "\n".join(f"- {m}" for m in miss[:40]) + ("\n- …" if len(miss) > 40 else ""))
-    lines.append(f"\nTotal missing: {total_missing}. Tolerance {TOL} mm. 'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).")
+        if trim:
+            details.append(f"\n## {blk['name']}: trimmed (dangling stub removed by tools/dangling.py, see blocks.json)\n" + "\n".join(f"- {m}" for m in trim[:40]) + ("\n- …" if len(trim) > 40 else ""))
+    lines.append(f"\nTotal missing: {total_missing}; trimmed: {total_trimmed} (copied items KiCad's DRC called dangling, removed; listed below). Tolerance {TOL} mm. "
+                 "'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).")
+    tot = {k: [0, 0] for k in ("pads", "tracks", "arcs", "vias", "zones")}
+    for row in lines[3:]:
+        if row.startswith("| ") and "→" in row:
+            cells = [c.strip() for c in row.split("|")[3:8]]
+            for k, c in zip(tot, cells):
+                a, b = c.split("/")
+                tot[k][0] += int(a)
+                tot[k][1] += int(b)
+    lines.append("Totals matched/expected: " + ", ".join(f"{k} {v[0]}/{v[1]}" for k, v in tot.items()) + f"; copper items {sum(v[1] for k, v in tot.items() if k != 'pads')}.")
     text = "\n".join(lines + details)
     if out_path:
         open(out_path, "w").write(text + "\n")

@@ -79,6 +79,7 @@ class Grid:
         self.dil = {r: {l: [0] * (W * H) for l in ALL_LAYERS} for r in self.radii}
         self.disks = {r: disk(r, strict=True) for r in self.radii}
         self.made = {}           # net name -> board items this grid created (for rip-up)
+        self.hole = [0] * (W * H)   # cells where a new via centre would put its drill < 0.25 mm from an existing hole
         self.netcode = {}
         for i in range(board.GetNetInfo().GetNetCount()):
             ni = board.GetNetInfo().GetNetItem(i)
@@ -108,6 +109,18 @@ class Grid:
 
     INFLATE = 0.071     # half a cell diagonal: pre-existing (off-grid) copper is stamped this much larger so that every
                         # boundary point has a stamped cell within reach; the router's own tracks and vias are on-grid
+
+    HOLE_GAP = 0.25     # KiCad's hole-to-hole minimum; a new via's drill is at most 0.3 mm
+    NEW_DRILL = 0.3
+
+    def stamp_hole(self, x, y, drill):
+        """Forbid new via centres closer than drill/2 + 0.15 + 0.25 (+ half a cell) to this hole (same net too)."""
+        cx, cy = cell(x, y)
+        r = int(math.ceil((drill / 2 + self.NEW_DRILL / 2 + self.HOLE_GAP + 0.07) / PITCH))
+        for dx, dy in disk(r, strict=True):
+            X, Y = cx + dx, cy + dy
+            if 0 <= X < W and 0 <= Y < H:
+                self.hole[Y * W + X] = 1
 
     def stamp_disk(self, layers, x, y, radius, net, inflate=0.0):
         radius += inflate
@@ -199,6 +212,7 @@ class Grid:
                 if p.GetDrillSize().x > 0:
                     self.stamp_disk(ALL_LAYERS, mm(p.GetPosition().x), mm(p.GetPosition().y),
                                     mm(max(p.GetDrillSize().x, p.GetDrillSize().y)) / 2 + 0.25, net if net else BLOCK, self.INFLATE)
+                    self.stamp_hole(mm(p.GetPosition().x), mm(p.GetPosition().y), mm(max(p.GetDrillSize().x, p.GetDrillSize().y)))
         # footprint rule areas (the M3 housing holes' keep-outs): nothing of ours goes there
         for f in b.GetFootprints():
             for z in f.Zones():
@@ -218,6 +232,7 @@ class Grid:
             cls = t.GetClass()
             if cls == "PCB_VIA":
                 self.stamp_disk(ALL_LAYERS, mm(t.GetPosition().x), mm(t.GetPosition().y), mm(t.GetWidth(pcbnew.F_Cu)) / 2, net, self.INFLATE)
+                self.stamp_hole(mm(t.GetPosition().x), mm(t.GetPosition().y), mm(t.GetDrillValue()))
             elif cls == "PCB_ARC":
                 poly = pcbnew.SHAPE_POLY_SET()
                 t.TransformShapeToPolygon(poly, t.GetLayer(), 0, MM(0.01), pcbnew.ERROR_INSIDE)
@@ -251,7 +266,7 @@ class Grid:
         return v == 0 or v == net
 
     def via_free(self, cx, cy, r, net, hw_cells=3):
-        if self.edge[cy * W + cx] <= hw_cells:
+        if self.edge[cy * W + cx] <= hw_cells or self.hole[cy * W + cx]:
             return False
         for l in ALL_LAYERS:
             v = self.dil[r][l][cy * W + cx]
@@ -387,6 +402,7 @@ class Grid:
             self.board.Add(v)
             made.append(v)
             self.stamp_disk(ALL_LAYERS, p[0], p[1], vdia / 2, net)
+            self.stamp_hole(p[0], p[1], vdrill)
         return len(segs), len(vias), length
 
     def add_track(self, net_name, a, b, layer, width):
@@ -414,6 +430,7 @@ class Grid:
         self.board.Add(v)
         self.made.setdefault(net_name, []).append(v)
         self.stamp_disk(ALL_LAYERS, p[0], p[1], dia / 2, self.netcode[net_name])
+        self.stamp_hole(p[0], p[1], drill)
         return v
 
     def pad_cells(self, pad, layers_only=None):

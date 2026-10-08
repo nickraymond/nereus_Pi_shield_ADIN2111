@@ -1,0 +1,30 @@
+ERC: ERC messages: 494  Errors 0  Warnings 494
+wrote board/nereus_Pi_shield_ADIN2111.kicad_pcb: 138 footprints, 109 nets
+numbered pads without a schematic node: 2 J5.MP J5.MP
+M1 drawn; ring blocks: [('RING_MP3', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP4', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP1', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP2', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0})]
+M2 placed: 12 blocks (83 parts) + 41 fresh parts
+still parked: []
+ADIN   {'track': 267, 'arc': 0, 'via': 50, 'zone': 2, 'skipped_net': 0, 'clipped': 15}
+P1L    {'track': 48, 'arc': 0, 'via': 19, 'zone': 0, 'skipped_net': 0, 'clipped': 3}
+P1T    {'track': 27, 'arc': 0, 'via': 5, 'zone': 0, 'skipped_net': 0, 'clipped': 4}
+P2L    {'track': 28, 'arc': 0, 'via': 18, 'zone': 0, 'skipped_net': 0, 'clipped': 5}
+P2T    {'track': 34, 'arc': 0, 'via': 6, 'zone': 0, 'skipped_net': 0, 'clipped': 5}
+B33    {'track': 88, 'arc': 0, 'via': 19, 'zone': 2, 'skipped_net': 0, 'clipped': 6}
+B5V    {'track': 88, 'arc': 0, 'via': 19, 'zone': 2, 'skipped_net': 0, 'clipped': 6}
+SENSE  {'track': 75, 'arc': 0, 'via': 5, 'zone': 0, 'skipped_net': 0, 'clipped': 14}
+DAMP3  {'track': 0, 'arc': 0, 'via': 0, 'zone': 0, 'skipped_net': 0, 'clipped': 0}
+DAMP1  {'track': 8, 'arc': 0, 'via': 0, 'zone': 0, 'skipped_net': 0, 'clipped': 3}
+DAMP2  {'track': 36, 'arc': 0, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 4}
+B18    {'track': 43, 'arc': 0, 'via': 0, 'zone': 0, 'skipped_net': 0, 'clipped': 3}
+m3 dangling round 1: removed 69 {'track': 69, 'via': 0, 'arc': 0} (DRC listed 152 dangling items)
+m3 dangling round 2: removed 43 {'track': 43, 'via': 0, 'arc': 0} (DRC listed 126 dangling items)
+m3 dangling round 3: removed 21 {'track': 21, 'via': 0, 'arc': 0} (DRC listed 108 dangling items)
+m3 dangling round 4: removed 14 {'track': 14, 'via': 0, 'arc': 0} (DRC listed 104 dangling items)
+m3 dangling round 5: removed 7 {'track': 7, 'via': 0, 'arc': 0} (DRC listed 98 dangling items)
+m3 dangling round 6: removed 5 {'track': 5, 'via': 0, 'arc': 0} (DRC listed 98 dangling items)
+m3 dangling round 7: removed 3 {'track': 3, 'via': 0, 'arc': 0} (DRC listed 96 dangling items)
+m3 dangling round 8: removed 2 {'track': 2, 'via': 0, 'arc': 0} (DRC listed 96 dangling items)
+m3 dangling round 9: removed 1 {'track': 1, 'via': 0, 'arc': 0} (DRC listed 95 dangling items)
+m3 dangling round 10: removed 1 {'track': 1, 'via': 0, 'arc': 0} (DRC listed 95 dangling items)
+m3 dangling: none left after 10 round(s); DRC lists 94 dangling items (plane-layer copper and vias, joined by the planes in M4)
+check_fixed: 0 failures; 0 parts still parked off-board

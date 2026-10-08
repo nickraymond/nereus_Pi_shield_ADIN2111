@@ -157,6 +157,50 @@
   (17.5, 58.5), D3/C50 under U11's thermal-pad side, R15 beside C22, R26/R27/TP24/TP20/C56–C58/TP38 in via-free spots.
 - Renders: `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`.
 
+## S7.b round 1 — QE findings fixed (2026-10-08)
+
+QE report: `qe/S7b_round1.md` (also posted on PR #30). CHANGES REQUESTED: F1 copper defects among the warnings,
+F2 planes closed between J1's pins by M5's 0.35 mm clearance, F3 stale totals, F4 the 3V3 escape not where the
+report said, F5/F6 undeclared widths and a 1V8 track 4.7 mm from MP1, N1–N5. Every item is addressed in the
+pipeline, not by hand; the board was rebuilt (M0–M3 in one run, then `START=m4` from the M3 snapshot, then a second
+`tools/dangling.py` pass after its last rule was added).
+
+- **F2:** plane zones back to 0.25 mm; the four BM nets get a `bus` netclass (clearance 0.35) in the `.kicad_pro`.
+  Verified: the Python fill and kicad-cli honour it (0.35 mm to BM vias, 0.25 to a 1V8 via); GND and VBUS are each
+  one island and pass between J1's pins (REPORT §4).
+- **F1 / via spacing:** the router keeps a hole map (`Grid.stamp_hole`): no new via centre within drill/2 + 0.15 + 0.25
+  of any existing hole, same net included; `commit` and `add_via` stamp their holes. hole_to_hole 14 → 0,
+  holes_co_located 3 → 0.
+- **F1 / dangling vias:** stitching spots are chosen inside the plane's *filled* copper (deflated 0.15 mm), the
+  "already connected" test against the zone outline (a pad inside joins by its spokes). Only the zones I made count
+  (a copied Top 3V3 pour had been unioned in by net name and made C31 look connected).
+- **F1 / dangling copper:** `tools/dangling.py` after M4: kicad-cli DRC's own track_dangling / via_dangling items are
+  shortened back to the last copper they join or deleted when nothing touches them; one DRC round per process
+  (a second LoadBoard after board.Remove in one process returns dead SWIG proxies); a track flagged again after
+  shortening is deleted; items of a net DRC reports open are kept (the partial route). Tried and rejected: trimming
+  at copy time (M3) — it ate Sofar's chains back to their pads and the router then lost their lanes (ADIN_INT, RST
+  opened); a geometric chain-follow inside a round — it disagreed with KiCad (it would have deleted the ring arcs).
+  Result: 24 vias deleted (20 of Sofar's GND pour-stitching vias, 2 VBUS, 1 5V_PI, 1 BM1_P), 84 segments deleted
+  (15 mm), 110 shortened; all recorded in `blocks.json` "trimmed"; blockcheck reports them as *trimmed* (139 copied
+  items), not missing.
+- **F4:** the 3V3 escape's via lookup was `< 0.3 mm` from (−5.8, 38.65) and missed Sofar's via at (−5.5, 38.65), so
+  the escape was never laid. Now the router routes it (thin class, Internal 2, 9.0 mm to (2.5, 38.0)) before the
+  pocket's signals, and the plane-leftovers step joins it. **U3's 3V3 is connected; 1 unconnected left (J1's
+  no-connect pair).**
+- **F6:** `check_fixed.py` now proves no other-net copper (tracks, arcs, vias, pads, zone fills, any layer) within
+  r 4.8 of each insert; the 1V8 track in question was one of the trimmed stubs. All four inserts clear.
+- **F3 / F5 / N1 / N2 / N3 / N5:** REPORT §1/§3 totals from the fresh blockcheck (incl. the trimmed column and
+  totals line), §6 #10 (payload 0.3 segments, 0.15 VBUS link), #9 (pair layers/vias), #14 (12 thin links, now
+  counted by `check_rules.py`), exclusion wording, inner-plane hole interpretation.
+- **N4:** `m5_finish.py` dropped from `build_all.sh`; `START=` and `NOCLEAN=` added; non-determinism stated in
+  REPORT §8. `tools/drc_summary.py` writes the DRC summaries.
+- Checks on the committed board: DRC 110 errors (same four groups, 0 unjustified), 258 warnings (silk/text only),
+  1 unconnected, 4 parity; blockcheck 0 missing / 139 trimmed / 308 extra; check_fixed 0 failures; pairs
+  9.4 / 7.9 / 21.3 / **23.4** (BM2_DATA_N still 2.1 mm over); rules: 25 narrower fallback segments, 12 thin links,
+  6 class-clearance items (was 3; none a DRC error).
+- Renders regenerated: `out/m4|m5/render_*.png`, `out/m4/layers`, `out/m5/shield_layers`.
+- Nick (mid-run): the threaded inserts stay as they are (bottom, contact arc on top, as the mote).
+
 ## M5 — clean-up, checks, report (2026-10-08)
 
 - `tools/drcexclude.py` → `out/m5/drc_exclusions.md`: every one of the 110 kicad-cli DRC errors has a reason

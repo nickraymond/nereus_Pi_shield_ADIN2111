@@ -85,7 +85,7 @@ def planes(board):
     for s in slots:
         gnd.BooleanSubtract(router_rect(s))
     gnd.Simplify()
-    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, 0.35)
+    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, 0.25)
     log["planes"]["GND"] = {"layer": "In2", "slots": slots, "note": "islands x -7.5..22.7, y 7-26.2 (port 2) and 39.5-54 (port 1), open to the east"}
     # PWR plane In4
     vbus = poly_from_rects([(23.2, 0.5, 38.0, 64.5), (o["x0"], 26.0, 23.2, 64.5), (16.8, 8.0, 23.2, 26.0)])
@@ -96,11 +96,11 @@ def planes(board):
     vbus.Simplify()
     nc2 = poly_from_rects([(3.5, 13.5, 9.5, 20.0)])
     nc1 = poly_from_rects([(3.5, 45.0, 9.5, 51.5)])
-    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0, 0.25, 0.35)
-    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5, 0.25, 0.35)
-    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5, 0.25, 0.35)
-    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6, 0.25, 0.35)
-    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6, 0.25, 0.35)
+    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0, 0.25, 0.25)
+    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5, 0.25, 0.25)
+    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5, 0.25, 0.25)
+    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6, 0.25, 0.25)
+    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6, 0.25, 0.25)
     log["planes"]["In4"] = {"VBUS": "strip x 23.2-38 full height + west half y 26-64.5 (ADIN islands cut it, priority 7)",
                             "P_IN": [11.0, 8.0, 16.6, 25.7], "VBUS east of P_IN": [16.8, 8.0, 23.2, 26.0], "3V3": [33.4, 8.0, 38.0, 23.0],
                             "NoConnect": [[3.5, 13.5, 9.5, 20.0], [3.5, 45.0, 9.5, 51.5]]}
@@ -109,11 +109,28 @@ def planes(board):
     pi5 = poly_from_rects([(29.7, 7.5, 38.0, 26.5)])
     add_zone(board, pcbnew.B_Cu, N("5V_PI"), pi5, "5V_PI pour (B.Cu) L6 -> JP1", 3)
     log["planes"]["5V_PI"] = [29.7, 7.5, 38.0, 26.5]
-    polys = {"GND": (gnd, pcbnew.In2_Cu), "VBUS": (vbus, pcbnew.In4_Cu), N("P_IN"): (p_in, pcbnew.In4_Cu),
-             "3V3": (v3, pcbnew.In4_Cu), N("5V_PI"): (pi5, pcbnew.B_Cu)}
+    # The stitching tests "inside the plane" against the FILLED copper (QE S7.b F1: vias in a sliver or in a cleared
+    # spot around other copper reached no plane), deflated 0.15 mm so the via's copper lands well inside the fill.
+    # The planes sit on In2 / In4 where nothing else is routed, so this fill stays valid while the signals are laid.
+    # polys[net] = (outline, layer, fill): "already connected" is tested against the OUTLINE (a pad inside it joins the
+    # plane through its thermal spokes), via spots against the FILL (deflated 0.15 mm so the via lands in solid copper).
+    pcbnew.ZONE_FILLER(board).Fill(board.Zones())
+    polys = {}
+    wanted = {("GND", pcbnew.In2_Cu), ("VBUS", pcbnew.In4_Cu), (N("P_IN"), pcbnew.In4_Cu), ("3V3", pcbnew.In4_Cu), (N("5V_PI"), pcbnew.B_Cu),
+              (N("ADIN_AVDD"), pcbnew.In4_Cu), (N("ADIN_VDDIO"), pcbnew.In4_Cu)}
     for z in board.Zones():
-        if z.GetNetname() in (N("ADIN_AVDD"), N("ADIN_VDDIO")) and not z.GetIsRuleArea():
-            polys[z.GetNetname()] = (pcbnew.SHAPE_POLY_SET(z.Outline()), pcbnew.In4_Cu)
+        if z.GetIsRuleArea() or not z.GetNetname():
+            continue
+        if (z.GetNetname(), z.GetLayer()) in wanted:       # the planes and islands above (not Sofar's copied Top pours)
+            layer = z.GetLayer()
+            outline = pcbnew.SHAPE_POLY_SET(z.Outline())
+            fill = pcbnew.SHAPE_POLY_SET(z.GetFilledPolysList(layer))
+            fill.Deflate(MM(0.15), pcbnew.CORNER_STRATEGY_ROUND_ALL_CORNERS, MM(0.01))
+            if z.GetNetname() in polys:       # several zones of one net: union
+                polys[z.GetNetname()][0].BooleanAdd(outline)
+                polys[z.GetNetname()][2].BooleanAdd(fill)
+            else:
+                polys[z.GetNetname()] = (outline, layer, fill)
     return polys
 
 
@@ -131,7 +148,7 @@ def bus_feeds(g):
 
 def plane_connected(cluster, plane):
     """A via or through pad inside the plane, or copper on the plane's own layer inside it (bottom pour)."""
-    poly, layer = plane
+    poly, layer = plane[0], plane[1]
     for it in cluster:
         cls = it.GetClass()
         if cls == "PCB_VIA" or (cls == "PAD" and it.GetDrillSize().x > 0):
@@ -148,13 +165,25 @@ def hand_links(g, board):
     """Two links the grid router cannot find (0.15 mm, BRIEF's fan-out width), laid after the pairs:
     U3's 3V3 out of the ADIN pocket on Internal 2, threaded between Sofar's copied vias (≥ 0.15 mm from each, ≥ 4.8 mm
     from MP1), and U11 pin 7 → R34 (ISET) past U11's pin 6."""
-    v3 = next((t for t in board.GetTracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "3V3" and geom.dist(geom.xy(t.GetPosition()), (-5.8, 38.65)) < 0.3), None)
+    # U3's 3V3 leaves the pocket from Sofar's copied via west of U3 (at (-5.5, 38.65); QE S7.b F4: the old lookup
+    # radius missed it, so the escape was never laid). The router finds the lane east to x = 2.5 on Internal 2 while
+    # the pocket is still empty; the plane leftovers step joins it to the 3V3 island later.
+    v3 = next((t for t in board.GetTracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "3V3" and geom.dist(geom.xy(t.GetPosition()), (-5.5, 38.65)) < 0.6), None)
     if v3 is not None:
         a = geom.xy(v3.GetPosition())
-        pts = [a, (-5.45, 38.3), (-4.6, 37.8), (-1.0, 37.8), (-0.8, 38.0), (2.5, 38.0)]
-        for s, e in zip(pts, pts[1:]):
-            g.add_track("3V3", s, e, pcbnew.In3_Cu, 0.15)
-        log["manual"].append({"net": "3V3", "path": pts, "width": 0.15, "layer": "Internal 2", "why": "U3's 3V3 out of the ADIN pocket"})
+        net = g.netcode["3V3"]
+        start = {(pcbnew.In3_Cu,) + router.cell(*a)}
+        goal = {(pcbnew.In3_Cu,) + router.cell(2.5, y) for y in (37.5, 38.0, 38.5)}
+        path = g.route(net, start, goal, "thin", layers=[pcbnew.In3_Cu], max_nodes=200000, via_ok=False)
+        if path is None:
+            path = g.route(net, start, goal, "thin", max_nodes=400000)
+        if path is not None:
+            nt, nv, L = g.commit("3V3", path, "thin")
+            log["manual"].append({"net": "3V3", "from": a, "to": [2.5, 38.0], "width": 0.15, "layer": "Internal 2 (router, thin class)", "length_mm": round(L, 2), "why": "U3's 3V3 out of the ADIN pocket before the pocket's signals"})
+        else:
+            log["failed"].append({"net": "3V3", "why": "no lane out of the pocket for U3's 3V3 escape (hand link)", "near": [a]})
+    else:
+        log["failed"].append({"net": "3V3", "why": "U3's 3V3 via near (-5.5, 38.65) not found", "near": []})
     fps = geom.fp_by_ref(board)
     p7 = next(p for p in fps["U11"].Pads() if p.GetNumber() == "7")
     p2 = next(p for p in fps["R34"].Pads() if p.GetNumber() == "2")
@@ -246,7 +275,7 @@ def gnd_links(g, board):
 
 def prestitch(g, board, plane, max_r=1.2):
     """A via next to every single-pad GND cluster before the signals are routed (≤ 1.2 mm away, inside the plane)."""
-    poly, layer = plane
+    poly, layer, fill = plane
     net = g.netcode["GND"]
     width, clear, vdia, vdrill = router.CLASSES["rail"]
     rv = g.radius_for(vdia, clear)
@@ -258,7 +287,7 @@ def prestitch(g, board, plane, max_r=1.2):
         p = geom.xy(pad.GetPosition())
         if p[0] < 7.0 and 25.0 < p[1] < 40.0:
             continue          # the ADIN pocket: U1's SPI escapes need every free cell there; stitched after the signals
-        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=poly, count=4):
+        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=fill, count=4):
             cx, cy = router.cell(*spot)
             goals = {(l, cx, cy) for l in router.ROUTE_LAYERS}
             path = g.route(net, g.pad_cells(pad), goals, "thin", max_nodes=20000)
@@ -277,7 +306,7 @@ def stitch(g, board, polys):
     for net_name, plane in polys.items():
         if net_name not in g.netcode:
             continue
-        poly = plane[0]
+        fill = plane[2]
         net = g.netcode[net_name]
         cls0 = router.net_class(net_name)
         for cluster in router.net_clusters(board, net_name):
@@ -294,7 +323,7 @@ def stitch(g, board, polys):
                 width, clear, vdia, vdrill = router.CLASSES[cls]
                 rv = g.radius_for(vdia, clear)
                 for p in pts:
-                    for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=poly, count=12):
+                    for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=fill, count=12):
                         spots.append((geom.dist(sp, p), sp))
                 if spots:
                     break
@@ -344,7 +373,7 @@ def main():
     for net, limit in PAIR_LIMITS.items():
         L = route_net(g, board, net, "data", layers=[pcbnew.F_Cu, pcbnew.In1_Cu], via_cost=4.0, max_nodes=1500000)
         total = sum(mm(t.GetLength()) for t in board.GetTracks() if t.GetNetname() == net and t.GetClass() != "PCB_VIA")
-        log["pairs"].append({"net": net.rsplit("/", 1)[-1], "new_mm": None if L is None else round(L, 2), "total_mm": round(total, 2), "limit_mm": limit, "ok": total <= limit})
+        log["pairs"].append({"net": net.rsplit("/", 1)[-1], "new_mm": None if L is None else round(L, 2), "total_mm": round(total, 2), "limit_mm": limit, "ok": L is not None and total <= limit})
     if HAND_LINKS:
         hand_links(g, board)
     # bus data legs (inductor cluster → T1/T2 pins 6/7, 0.2 mm as the mote) and the payload path
