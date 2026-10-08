@@ -157,6 +157,45 @@
   (17.5, 58.5), D3/C50 under U11's thermal-pad side, R15 beside C22, R26/R27/TP24/TP20/C56–C58/TP38 in via-free spots.
 - Renders: `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`.
 
+## S7.b round 2 — QE R2-F1 (Kelvin sense) and R2-F2 (bus rule) fixed (2026-10-08)
+
+QE report: `qe/S7b_round2.md` (posted on PR #30). Round-1 items all verified; two new MAJORs, both real.
+
+- **R2-F1 Kelvin sense.** On the mote, U4.1–R8.2 (P_IN) and U4.2–R8.1 (VBUS) are dedicated 0.2032 mm Bottom traces
+  that detour west to mote x 143.68, outside SENSE's region (x ≥ 144.4); the copy clipped them and the cleanup then
+  trimmed the halves, so U4 sensed the planes. Fix: a third SENSE region rect [143.6, 115.2, 144.4, 118.5] on Bottom
+  only (nothing else of the block's nets is in it; on the shield it lands at x 17.05–17.85 where P2L has no Bottom
+  copper); the Kelvin traces and U4 pads 1/2 are `Grid.exclude_ids` (no route starts or ends on them, no stitching via
+  beside them); `check_rules.py` gains a pad-to-pad track-only connectivity check (both yes). blockcheck's SENSE row:
+  tracks 77 expected (was 75).
+- **R2-F2 bus clearance.** The netclass had no priority, so KiCad ignored it — the §4 claim was false (my probe had
+  measured a refilled scratch copy, not the committed fill). Tried first: priority 0 with clearance 0.35 → 76 extra
+  errors, 20 of them Sofar's own P/N legs (0.2 apart) and T1/T2 pads 6/7 (0.24), plus 41 of my routes at 0.15–0.33.
+  Chosen: `board/nereus_Pi_shield_ADIN2111.kicad_dru` with one rule, bus nets 0.35 from non-bus nets; the netclass
+  (priority 0, clearance 0.15) only names the nets. Verified on a scratch copy of 0903d87: the Python fill gives
+  0.351 to a BM via / 0.251 to a 1V8 via, kicad-cli DRC with the rule flagged 41 copper items (none zones).
+  Router: a first attempt stamped all bus copper 0.2 mm larger — it also kept P from N and three bus legs failed
+  (T pads 6/7 cannot be left at 0.35 from each other). Replaced by a kind map (`Grid.dilk`: bits bus / power-class /
+  other, radii 4–10 cells): non-bus routes keep 0.35 from bus copper and 0.25 from power-class copper, bus routes
+  keep 0.35 from non-bus copper; power-class fallbacks (`power_n` 0.3, `power_t` 0.2) keep 0.25, `thin` stays the
+  declared last resort. Grid build 112 → 264 s.
+- **1V8:** with the rule there is no lane from the 1.8 V buck (B18) to U2 in the ADIN pocket at 0.35 from the port-1
+  leg vias (tried: routing it first; still no path). It is routed right after the hand links with a last resort that
+  keeps the Default 0.15 from bus copper (`route_net(..., bus_exempt_ok=True)`, `Grid.bus_exempt`): one DRC error,
+  1V8 vs the copied BM1_P leg via at (11.94, 43.88) on Internal 2, in the exclusion table with this reason
+  (REPORT §6 #16).
+- **VBUS at U11** (C49.1 ↔ R16.2) was boxed in by the signals once they kept 0.25 from power copper: every plane
+  net's lonely pads are now pre-stitched before the signals (GND 25, VBUS 7, 3V3 4, P_IN 1 vias).
+- `check_rules.py`: bus-vs-bus exempt from the 0.35 check (the rule is bus vs non-bus); power-class and bus
+  clearance on vias too. `drcexclude.py`: rules for T1/T2 pads 6/7 (unused now: bus-bus is 0.15) and the 1V8 item.
+- Result (board from M0–M3 + `START=m4` after the last edit): DRC 111 errors (110 Sofar + 1 declared), 258 warnings
+  (silk/text/padstack/lib), 0 copper-defect warnings, 1 unconnected (J1 by design), 4 parity; blockcheck 0 missing /
+  130 trimmed; check_fixed 0 failures (inserts clear); pairs 9.4 / 7.9 / 21.3 / 23.4; rules: 10 narrower segments,
+  13 thin links, 1 clearance item (VBUS_OUT past U11 pad 9), Kelvin both links yes.
+- R2-F3 / R2-N1: §1 reworded (matched except the trimmed stubs; totals tidy).
+- Nick had KiCad open on the worktree during a rebuild; closed without saving on request (the pipeline writes the
+  board file).
+
 ## S7.b round 1 — QE findings fixed (2026-10-08)
 
 QE report: `qe/S7b_round1.md` (also posted on PR #30). CHANGES REQUESTED: F1 copper defects among the warnings,

@@ -200,7 +200,7 @@ def hand_links(g, board):
     log["manual"].append({"net": "VBUS", "path": [a, (a[0], 52.55)], "width": 0.15, "layer": "Top", "why": "U11 pin 1 into the VBUS plane north of the pin"})
 
 
-def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane_poly=None, via_cost=12.0):
+def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane_poly=None, via_cost=12.0, bus_exempt_ok=False):
     """Join the net's clusters by tracks: nearest pairs first, other pairings on failure, the brief's 0.15 mm
     fan-out class as a last resort. Clusters already on the net's plane count as one."""
     cls = cls or router.net_class(net_name)
@@ -218,8 +218,10 @@ def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane
         ca = router.centroid(a)
         order = sorted(range(1, len(clusters)), key=lambda i: geom.dist(ca, router.centroid(clusters[i])))
         joined = False
-        fallbacks = {"signal": ("thin",), "rail": ("thin",), "data": ("thin",), "power": ("rail", "thin"),
-                     "payload": ("power", "rail", "thin"), "pi5v": ("power", "rail"), "bus": ("power",)}
+        fallbacks = {"signal": ("thin",), "rail": ("thin",), "data": ("thin",), "power": ("power_n", "power_t"),
+                     "payload": ("power", "power_n", "power_t", "thin"), "pi5v": ("power", "power_n", "thin"), "bus": ("power",)}
+        # "thin" (0.15 / 0.15) as the last resort of a power-class net is below the brief's 0.25 clearance: every such
+        # link is reported by check_rules.py (REPORT §6 #11)
         for attempt_cls in (cls,) + fallbacks.get(cls, ()):
             s = router.cluster_cells(g, a, layers)
             for bi in order[:3]:
@@ -239,6 +241,16 @@ def route_net(g, board, net_name, cls=None, layers=None, max_nodes=400000, plane
                 break
             if joined:
                 break
+        if not joined and bus_exempt_ok and not g.bus_exempt:
+            g.bus_exempt = True
+            try:
+                L = route_net(g, board, net_name, cls, layers, max_nodes, plane_poly, via_cost, bus_exempt_ok=False)
+            finally:
+                g.bus_exempt = False
+            if L is not None:
+                log["notes"].append(f"{net_name.rsplit('/', 1)[-1]}: routed at the Default 0.15 mm from bus copper (no lane at 0.35; DRC exclusion with reason, REPORT §6)")
+                return total + L
+            return None
         if not joined:
             log["failed"].append({"net": net_name, "why": "no path", "clusters": len(clusters)})
             return None
@@ -273,32 +285,40 @@ def gnd_links(g, board):
     log["notes"].append(f"{n} intra-footprint GND links (0.15 mm)")
 
 
-def prestitch(g, board, plane, max_r=1.2):
-    """A via next to every single-pad GND cluster before the signals are routed (≤ 1.2 mm away, inside the plane)."""
+def prestitch(g, board, plane, max_r=1.2, net_name="GND"):
+    """A via next to every single-pad cluster of a plane net before the signals are routed (≤ 1.2 mm away, inside
+    the plane's filled copper). GND uses the rail via (0.5/0.25), the power nets their class via."""
     poly, layer, fill = plane
-    net = g.netcode["GND"]
-    width, clear, vdia, vdrill = router.CLASSES["rail"]
+    net = g.netcode[net_name]
+    pcls = "rail" if net_name == "GND" else router.net_class(net_name)
+    width, clear, vdia, vdrill = router.CLASSES[pcls]
     rv = g.radius_for(vdia, clear)
     n = 0
-    for cluster in router.net_clusters(board, "GND"):
+    for cluster in router.net_clusters(board, net_name):
         if plane_connected(cluster, plane) or len(cluster) != 1 or cluster[0].GetClass() != "PAD":
             continue
         pad = cluster[0]
         p = geom.xy(pad.GetPosition())
         if p[0] < 7.0 and 25.0 < p[1] < 40.0:
             continue          # the ADIN pocket: U1's SPI escapes need every free cell there; stitched after the signals
-        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=fill, count=4):
+        if pad.m_Uuid.AsString() in g.exclude_ids:
+            continue
+        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=fill, count=4, xr=g.xradii(net, vdia, clear)):
             cx, cy = router.cell(*spot)
             goals = {(l, cx, cy) for l in router.ROUTE_LAYERS}
-            path = g.route(net, g.pad_cells(pad), goals, "thin", max_nodes=20000)
+            path = None
+            for tcls in ((pcls, "power_n", "power_t") if pcls != "rail" else ("thin",)):
+                path = g.route(net, g.pad_cells(pad), goals, tcls, max_nodes=20000)
+                if path is not None:
+                    break
             if path is None:
                 continue
-            g.commit("GND", path, "thin")
-            g.add_via("GND", spot, vdia, vdrill)
-            log["stitch"].append({"net": "GND", "via": [round(spot[0], 2), round(spot[1], 2)], "pre": True})
+            g.commit(net_name, path, tcls)
+            g.add_via(net_name, spot, vdia, vdrill)
+            log["stitch"].append({"net": net_name.rsplit("/", 1)[-1], "via": [round(spot[0], 2), round(spot[1], 2)], "pre": True})
             n += 1
             break
-    log["notes"].append(f"{n} GND pads pre-stitched (via within {max_r} mm) before the signals")
+    log["notes"].append(f"{n} {net_name.rsplit('/', 1)[-1]} pads pre-stitched (via within {max_r} mm) before the signals")
 
 
 def stitch(g, board, polys):
@@ -314,16 +334,18 @@ def stitch(g, board, polys):
                 continue
             pts = []
             for it in cluster:
+                if it.m_Uuid.AsString() in g.exclude_ids:
+                    continue
                 if it.GetClass() == "PAD":
                     pts.append(geom.xy(it.GetPosition()))
                 elif it.GetClass() == "PCB_TRACK":
                     pts.append(geom.xy(it.GetEnd()))
             spots, cls = [], cls0
-            for cls in (cls0, "rail", "thin") if cls0 in ("power", "pi5v", "payload", "bus") else (cls0, "thin"):
+            for cls in (cls0, "power_n", "power_t", "thin") if cls0 in ("power", "pi5v", "payload", "bus") else (cls0, "thin"):
                 width, clear, vdia, vdrill = router.CLASSES[cls]
                 rv = g.radius_for(vdia, clear)
                 for p in pts:
-                    for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=fill, count=12):
+                    for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=fill, count=12, xr=g.xradii(net, vdia, clear)):
                         spots.append((geom.dist(sp, p), sp))
                 if spots:
                     break
@@ -336,7 +358,7 @@ def stitch(g, board, polys):
                 cx, cy = router.cell(*spot)
                 goals = {(l, cx, cy) for l in router.ROUTE_LAYERS}
                 path = None
-                for pcls in (cls, "rail", "thin") if cls in ("power", "pi5v", "payload", "bus") else (cls, "thin"):
+                for pcls in (cls, "power_n", "power_t", "thin") if cls in ("power", "pi5v", "payload", "bus") else (cls, "thin"):
                     path = g.route(net, router.cluster_cells(g, cluster), goals, pcls, max_nodes=200000)
                     if path is not None:
                         break
@@ -365,6 +387,20 @@ def main():
     polys = planes(board)
     g = router.Grid(board)
     log["notes"].append(f"grid {router.W}x{router.H} cells at {router.PITCH} mm built in {time.time() - t0:.0f} s")
+    # The Kelvin sense traces (U4.1-R8.2 on P_IN, U4.2-R8.1 on VBUS, Sofar's 0.2032 mm Bottom tracks, copied whole) and
+    # U4's two sense pads: no route starts or ends on them, no stitching via lands beside them (QE S7.b R2-F1)
+    fps0 = geom.fp_by_ref(board)
+    for p in fps0["U4"].Pads():
+        if p.GetNumber() in ("1", "2"):
+            g.exclude_ids.add(p.m_Uuid.AsString())
+    u4 = geom.xy(fps0["U4"].GetPosition())
+    nk = 0
+    for t in board.GetTracks():
+        if (t.GetClass() == "PCB_TRACK" and t.GetLayer() == pcbnew.B_Cu and abs(mm(t.GetWidth()) - 0.2032) < 0.001
+                and t.GetNetname() in ("VBUS", N("P_IN")) and geom.dist(geom.xy(t.GetStart()), u4) < 7.5 and geom.dist(geom.xy(t.GetEnd()), u4) < 7.5):
+            g.exclude_ids.add(t.m_Uuid.AsString())
+            nk += 1
+    log["notes"].append(f"Kelvin sense traces protected: {nk} tracks + U4 pads 1/2 excluded from routing starts/ends and stitching")
     bus_feeds(g)
     # PI_5V: JP1 → J1 pins 2/4 (5V_PI itself is the bottom pour + stitching vias)
     L = route_net(g, board, N("PI_5V"), "pi5v")
@@ -376,15 +412,22 @@ def main():
         log["pairs"].append({"net": net.rsplit("/", 1)[-1], "new_mm": None if L is None else round(L, 2), "total_mm": round(total, 2), "limit_mm": limit, "ok": L is not None and total <= limit})
     if HAND_LINKS:
         hand_links(g, board)
+    # 1V8 from the 1.8 V buck (B18, beside J1) to U2 in the ADIN pocket: its lane crosses the port-1 leg area, so it
+    # goes before the legs; last resort: the Default 0.15 mm from bus copper (declared, DRC exclusion with reason)
+    L = route_net(g, board, N("1V8"), bus_exempt_ok=True)
+    log["routed"].append({"net": "1V8", "class": router.net_class(N("1V8")), "length_new_mm": None if L is None else round(L, 1)})
     # bus data legs (inductor cluster → T1/T2 pins 6/7, 0.2 mm as the mote) and the payload path
     for net in (N("BM1_P"), N("BM1_N"), N("BM2_P"), N("BM2_N")):
         L = route_net(g, board, net, "signal")
-        log["routed"].append({"net": net.rsplit("/", 1)[-1], "class": "signal (data leg)", "length_new_mm": None if L is None else round(L, 1)})
+        log["routed"].append({"net": net.rsplit("/", 1)[-1], "class": "signal (data leg; 0.35 from non-bus copper by the kind map)", "length_new_mm": None if L is None else round(L, 1)})
     L = route_net(g, board, N("VBUS_OUT"), "payload")
     log["routed"].append({"net": "VBUS_OUT", "class": "payload", "length_new_mm": None if L is None else round(L, 1)})
     # GND pads of one footprint joined; lonely GND pads given their via now; then the signals, then the rest of the stitching
     gnd_links(g, board)
     prestitch(g, board, polys["GND"])
+    for pn in ("VBUS", N("P_IN"), "3V3", N("5V_PI")):
+        if pn in polys and pn in g.netcode:
+            prestitch(g, board, polys[pn], net_name=pn)
     done = set(PAIR_LIMITS) | {N(s) for s in ("5V_PI", "PI_5V", "VBUS_OUT", "BM1_P", "BM1_N", "BM2_P", "BM2_N")}
     nets = []
     for i in range(board.GetNetInfo().GetNetCount()):
@@ -393,6 +436,7 @@ def main():
             nets.append(ni.GetNetname())
     # the ADIN pocket has few exits (the west-edge lane, the north and south strips, under U1): its nets go first,
     # then U11's west-side pins, which share one 1.9 mm corridor beside J1's pin tails
+    # 1V8 first: its only lane from the 1.8 V buck (B18) to U1 runs between L1's bus copper (0.35 mm rule) and J1
     for short in ("PAYLOAD_EN", "~{PAYLOAD_FAULT}", "Net-(U11-UVLO)", "ISET"):
         net = N(short)
         if net in nets or net in polys:
@@ -476,7 +520,7 @@ def main():
         islands.sort(key=len, reverse=True)
         for isl in islands[1:]:
             path = None
-            for pcls in ("pi5v", "power", "rail"):
+            for pcls in ("pi5v", "power", "power_n"):
                 path = g.route(net, isl, islands[0], pcls, max_nodes=600000)
                 if path:
                     g.commit(z.GetNetname(), path, pcls)

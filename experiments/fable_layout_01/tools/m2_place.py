@@ -60,9 +60,11 @@ BLOCKS = [
      "why": "5 V buck = U5's cell copied again with its parts mapped by function (D13); C56/C57/C58/TP38 placed beside it"},
     {"name": "SENSE", "refs": ["U4", "R8", "R7", "C15", "TP22"],
      "dst": [19.8, 15.0], "rot": 0,
-     "region": [[144.4, 112.4, 148.0, 120.2], [148.0, 114.2, 149.0, 120.2]],
+     "region": [[144.4, 112.4, 148.0, 120.2], [148.0, 114.2, 149.0, 120.2],
+                {"rect": [143.6, 115.2, 144.4, 118.5], "layers": ["B.Cu"]}],
      "why": "R8 shunt + INA232 with Sofar's sense routing (all bottom-side parts) under L2's south-east, 4 mm from L2's "
-            "P_IN pad as on the mote; J1's pin field leaves no ≥ 0.5 mm path for P_IN into the strip east of J1"},
+            "P_IN pad as on the mote; J1's pin field leaves no ≥ 0.5 mm path for P_IN into the strip east of J1. The third "
+            "rect (Bottom only) holds the west detour of the two Kelvin traces U4.1-R8.2 / U4.2-R8.1 (QE S7.b R2-F1)"},
     {"name": "DAMP3", "refs": ["C23"],
      "dst": [33.5, 40.0], "rot": 0,
      "region": [],

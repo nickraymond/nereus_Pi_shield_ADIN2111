@@ -116,6 +116,8 @@ def main(out_path=None):
     worst = {}
     for t in new:
         cls = cls_of(t)
+        if router.net_class(t.GetNetname()) == "bus":
+            cls = "bus"           # every item of a bus net carries the 0.35 netclass clearance (QE S7.b R2-F2)
         need = LIMITS.get(cls, (0.2, 0.15))[1]
         if cls in ("signal", "rail", "data"):
             continue          # 0.15: the Default netclass, checked by DRC itself
@@ -127,6 +129,8 @@ def main(out_path=None):
             for other, onet, oshape in items_by_layer[l]:
                 if other is t or onet == t.GetNetname() or not onet:
                     continue          # no-net pads: Sofar's insert ring / transformer pads (DRC exclusion table)
+                if cls == "bus" and router.net_class(onet) == "bus":
+                    continue          # bus vs bus (P/N legs of one port) keeps Sofar's spacing; the 0.35 rule is bus vs non-bus
                 if not bb.Intersects(other.GetBoundingBox()):
                     continue
                 if shape.Collide(oshape, pcbnew.FromMM(need) - 1):
@@ -145,6 +149,20 @@ def main(out_path=None):
         vias = sum(1 for t in board.GetTracks() if t.GetNetname() == name and t.GetClass() == "PCB_VIA")
         layers = sorted({board.GetLayerName(t.GetLayer()) for t in board.GetTracks() if t.GetNetname() == name and t.GetClass() != "PCB_VIA"})
         pairs[short] = (round(L, 2), limit, vias, layers, L <= limit)
+    # 4. Kelvin sense: U4.1 ↔ R8.2 (P_IN) and U4.2 ↔ R8.1 (VBUS) joined by tracks alone (no via, no plane), as the mote
+    fps = geom.fp_by_ref(board)
+    kelvin = []
+    for u4n, r8n in (("1", "2"), ("2", "1")):
+        pu = next(p for p in fps["U4"].Pads() if p.GetNumber() == u4n)
+        pr = next(p for p in fps["R8"].Pads() if p.GetNumber() == r8n)
+        same = False
+        for c in router.net_clusters(board, pu.GetNetname(), kinds=("PAD", "PCB_TRACK", "PCB_ARC")):
+            ids = {it.m_Uuid.AsString() for it in c}
+            if pu.m_Uuid.AsString() in ids:
+                same = pr.m_Uuid.AsString() in ids
+                L = sum(mm(it.GetLength()) for it in c if it.GetClass() == "PCB_TRACK")
+                break
+        kelvin.append((f"U4.{u4n} ↔ R8.{r8n} ({pu.GetNetname().rsplit('/', 1)[-1]})", same, round(L, 2) if same else None))
     lines = ["# New routing vs BRIEF §6 (M5)\n",
              f"Copied copper (blockcheck-matched): {len(copied)} items; new: {len(new)} tracks/vias (board total {len(list(board.GetTracks()))}).\n",
              "## Widths of new tracks", "| class | width | segments |", "|---|---|---|"]
@@ -161,11 +179,15 @@ def main(out_path=None):
     for k, (L, lim, v, ls, ok) in pairs.items():
         same = v == 2 and ls == ["Internal 1", "Top Layer"]
         lines.append(f"| {k} | {L} | {lim} | {v} | {', '.join(ls)} | {'yes' if ok else 'NO'} | {'yes' if same else 'no (declared: fewer vias / one layer is no electrical loss)'} |")
+    lines += ["\n## Kelvin sense (R8 shunt ↔ U4 INA232): pad-to-pad by tracks only (no via, no plane), as the mote",
+              "| link | track path | tracks in that cluster mm |", "|---|---|---|"]
+    for name, same, L in kelvin:
+        lines.append(f"| {name} | {'yes' if same else 'NO'} | {L if same else '—'} |")
     text = "\n".join(lines)
     if out_path:
         open(out_path, "w").write(text + "\n")
     print(text)
-    return 1 if (width_fail or clr_fail or not all(p[4] for p in pairs.values())) else 0
+    return 1 if (width_fail or clr_fail or not all(p[4] for p in pairs.values()) or not all(k[1] for k in kelvin)) else 0
 
 
 if __name__ == "__main__":

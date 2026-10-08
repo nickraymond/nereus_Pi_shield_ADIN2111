@@ -23,6 +23,8 @@ RULES = [
     ("hole_clearance", r"(NPTH pad of MP[1-4]|of MP[1-4] on)", "Sofar's insert contact copied as drawn: the ring pad vs the 7 via holes (28), the NPTH vs the ring pad (4) and the arc/vias vs the 4.4 mm hole (4), as on the mote (Sofar Q6)"),
     ("solder_mask_bridge", r"MP[1-4]", "Sofar's insert contact copied as drawn: the ring pad's mask opening spans the bus vias (Sofar Q6)"),
     ("padstack_invalid", r"NPTH pad of MP[1-4]", "Sofar's insert footprint (Altium import): the NPTH pad has no copper size; hole 4.4 mm (DESIGN D19/D24)"),
+    ("clearance", r"\[1V8\].*\[/Top-Level Schematic/BM1_[PN]\]|\[/Top-Level Schematic/BM1_[PN]\].*\[1V8\]", "1V8's only lane from the 1.8 V buck to U2 passes the port-1 bus legs at the Default 0.15 mm, not the bus rule's 0.35 (REPORT §6; the legs, not the feeds)"),
+    ("clearance", r"Pad [67] \[/Top-Level Schematic/BM[12]_[PN]\] of T[12] on Top Layer \| Pad [67] \[/Top-Level Schematic/BM[12]_[PN]\] of T[12]", "Sofar's transformer footprint: pads 6 and 7 (the bus data legs) are 0.24 mm apart; the bus netclass asks 0.35 (identical on the mote)"),
     ("clearance", r"Pad \[<no net>\] of T[12] on Top Layer \| Pad [34]", "Sofar's transformer footprint: two unnumbered no-net pads overlap pads 3/4 (identical on the mote board)"),
     ("clearance", r"Via \[Net-\(C(16|24)-Pad[12]\)\].*Pad \[<no net>\] of T[12]|Pad \[<no net>\] of T[12].*Via \[Net-\(C(16|24)-Pad[12]\)\]", "Sofar's transformer footprint: the copied vias of pads 3/4's nets sit beside the unnumbered no-net pads, as on the mote"),
     ("shorting_items", r"Pad \[<no net>\] of T[12]|of T[12] on Top Layer", "Sofar's transformer footprint: tracks to pads 3/4 cross the unnumbered no-net pads, as on the mote"),

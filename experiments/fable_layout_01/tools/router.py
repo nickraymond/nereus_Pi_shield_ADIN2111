@@ -26,6 +26,8 @@ BLOCK = -1
 # class -> (track width, clearance, via diameter, via drill)
 CLASSES = {
     "bus":    (1.0, 0.35, 0.6, 0.3),
+    "power_n": (0.3, 0.25, 0.5, 0.25),    # power-class fallbacks: narrower, the brief's 0.25 clearance kept
+    "power_t": (0.2, 0.25, 0.45, 0.2),
     "power":  (0.5, 0.25, 0.6, 0.3),
     "pi5v":   (1.0, 0.25, 0.6, 0.3),
     "payload": (0.6, 0.25, 0.5, 0.25),
@@ -77,14 +79,25 @@ class Grid:
         self.occ = {l: [0] * (W * H) for l in ALL_LAYERS}
         self.radii = [3, 4, 5, 6, 7, 10]  # cells: thin, signal track, small via, power track / 0.5 via, power via, bus
         self.dil = {r: {l: [0] * (W * H) for l in ALL_LAYERS} for r in self.radii}
-        self.disks = {r: disk(r, strict=True) for r in self.radii}
+        # Cross-class clearance (QE S7.b R2-F2): the brief's clearance is a property of BOTH items. dilk[r][layer] holds a
+        # bitmask of the kinds of copper within r cells: 1 = bus-net copper, 2 = power-class copper (power / pi5v /
+        # payload nets), 4 = anything that is not a bus net. A non-bus route keeps bit 1 clear within its 0.35 mm
+        # radius and bit 2 within its 0.25 mm radius; a bus route keeps bit 4 clear within its 0.35 mm radius.
+        self.kradii = [4, 5, 6, 7, 8, 9, 10]
+        self.dilk = {r: {l: [0] * (W * H) for l in ALL_LAYERS} for r in self.kradii}
+        self.disks = {r: disk(r, strict=True) for r in sorted(set(self.radii) | set(self.kradii))}
         self.made = {}           # net name -> board items this grid created (for rip-up)
         self.hole = [0] * (W * H)   # cells where a new via centre would put its drill < 0.25 mm from an existing hole
+        self.exclude_ids = set()    # uuids of items no route may start from or end on (the Kelvin sense traces)
+        self.bus_exempt = False     # last resort for one net: keep the Default 0.15 from bus copper (declared + excluded)
         self.netcode = {}
         for i in range(board.GetNetInfo().GetNetCount()):
             ni = board.GetNetInfo().GetNetItem(i)
             if ni:
                 self.netcode[ni.GetNetname()] = ni.GetNetCode()
+        self.bus_codes = {code for name, code in self.netcode.items() if net_class(name) == "bus"}
+        self.kind = {code: (1 if net_class(name) == "bus" else (2 | 4 if net_class(name) in ("power", "pi5v", "payload") else 4))
+                     for name, code in self.netcode.items()}
         self._stamp_board()
 
     # ---- stamping ---------------------------------------------------------------------------------------------
@@ -106,6 +119,13 @@ class Grid:
                             d[j] = net
                         elif d[j] != net:
                             d[j] = BLOCK
+            bit = self.kind.get(net, 4)
+            for r in self.kradii:
+                d = self.dilk[r][layer]
+                for dx, dy in self.disks[r]:
+                    x, y = cx + dx, cy + dy
+                    if 0 <= x < W and 0 <= y < H:
+                        d[y * W + x] |= bit
 
     INFLATE = 0.071     # half a cell diagonal: pre-existing (off-grid) copper is stamped this much larger so that every
                         # boundary point has a stamped cell within reach; the router's own tracks and vias are on-grid
@@ -258,20 +278,42 @@ class Grid:
             self.stamp_disk([pcbnew.F_Cu, pcbnew.B_Cu], x, y, 3.5, BLOCK)
 
     # ---- queries ----------------------------------------------------------------------------------------------
-    def free(self, layer, cx, cy, r, net, hw_cells=2):
+    def kradius(self, width, clearance):
+        r = int(math.ceil((width / 2 + clearance + 0.07) / PITCH))
+        return min(x for x in self.kradii if x >= r)
+
+    def xradii(self, net, width, clearance):
+        """[(bit, radius)] the cross-class checks for a new item of this net / width / class clearance."""
+        if net in self.bus_codes:
+            return [(4, self.kradius(width, 0.35))]
+        out = [] if self.bus_exempt else [(1, self.kradius(width, 0.35))]
+        if clearance < 0.25:
+            out.append((2, self.kradius(width, 0.25)))
+        return out
+
+    def free(self, layer, cx, cy, r, net, hw_cells=2, xr=()):
         i = cy * W + cx
         if self.edge[i] <= hw_cells:          # copper would reach within the edge clearance
             return False
         v = self.dil[r][layer][i]
-        return v == 0 or v == net
+        if not (v == 0 or v == net):
+            return False
+        for bit, rk in xr:
+            if self.dilk[rk][layer][i] & bit:
+                return False
+        return True
 
-    def via_free(self, cx, cy, r, net, hw_cells=3):
+    def via_free(self, cx, cy, r, net, hw_cells=3, xr=()):
         if self.edge[cy * W + cx] <= hw_cells or self.hole[cy * W + cx]:
             return False
+        i = cy * W + cx
         for l in ALL_LAYERS:
-            v = self.dil[r][l][cy * W + cx]
+            v = self.dil[r][l][i]
             if v != 0 and v != net:
                 return False
+            for bit, rk in xr:
+                if self.dilk[rk][l][i] & bit:
+                    return False
         return True
 
     def radius_for(self, width, clearance):
@@ -287,6 +329,8 @@ class Grid:
         rv = self.radius_for(vdia, clear)
         hwt = int(math.ceil(width / 2 / PITCH))
         hwv = int(math.ceil(vdia / 2 / PITCH))
+        xrt = self.xradii(net, width, clear)
+        xrv = self.xradii(net, vdia, clear)
         layers = layers or ROUTE_LAYERS
         goal_cells = {}
         for l, cx, cy in goals:
@@ -329,9 +373,9 @@ class Grid:
                 nx, ny = cx + dx, cy + dy
                 if not (0 <= nx < W and 0 <= ny < H):
                     continue
-                if not self.free(l, nx, ny, rt, net, hwt):
+                if not self.free(l, nx, ny, rt, net, hwt, xrt):
                     continue
-                if dx and dy and not (self.free(l, cx + dx, cy, rt, net, hwt) and self.free(l, cx, cy + dy, rt, net, hwt)):
+                if dx and dy and not (self.free(l, cx + dx, cy, rt, net, hwt, xrt) and self.free(l, cx, cy + dy, rt, net, hwt, xrt)):
                     continue
                 nxt = (l, nx, ny)
                 ng = g + c
@@ -339,7 +383,7 @@ class Grid:
                     best[nxt] = ng
                     parent[nxt] = cur
                     heapq.heappush(open_heap, (ng + h(nx, ny), ng, nxt))
-            if via_ok and self.via_free(cx, cy, rv, net, hwv):
+            if via_ok and self.via_free(cx, cy, rv, net, hwv, xrv):
                 for l2 in layers:
                     if l2 == l:
                         continue
@@ -452,7 +496,7 @@ class Grid:
                         out.add((l, cx, cy))
         return out
 
-    def find_via_spots(self, net, near, r_cells, max_r=2.0, inside=None, count=6):
+    def find_via_spots(self, net, near, r_cells, max_r=2.0, inside=None, count=6, xr=()):
         """Up to `count` cells nearest to `near` (mm) where a via of dilation radius r_cells fits for `net`,
         optionally inside a polygon; spaced ≥ 0.5 mm apart so they are real alternatives."""
         cx0, cy0 = cell(*near)
@@ -463,7 +507,7 @@ class Grid:
                 cx, cy = cx0 + dx, cy0 + dy
                 if not (0 <= cx < W and 0 <= cy < H):
                     continue
-                if not self.via_free(cx, cy, r_cells, net, 3):
+                if not self.via_free(cx, cy, r_cells, net, 3, xr):
                     continue
                 if inside is not None and not inside.Contains(V(*pos(cx, cy))):
                     continue
@@ -478,8 +522,8 @@ class Grid:
                 break
         return out
 
-    def find_via_spot(self, net, near, r_cells, max_r=2.0, inside=None):
-        s = self.find_via_spots(net, near, r_cells, max_r, inside, 1)
+    def find_via_spot(self, net, near, r_cells, max_r=2.0, inside=None, xr=()):
+        s = self.find_via_spots(net, near, r_cells, max_r, inside, 1, xr)
         return s[0] if s else None
 
 
@@ -501,15 +545,15 @@ def touches(a, b):
     return a.GetEffectiveShape(l).Collide(b.GetEffectiveShape(l), 0)
 
 
-def net_clusters(board, net_name):
+def net_clusters(board, net_name, kinds=("PAD", "PCB_TRACK", "PCB_ARC", "PCB_VIA")):
     """Group a net's pads, tracks, arcs and vias into connected clusters (lists of items) by touching geometry."""
     items = []
     for f in board.GetFootprints():
         for p in f.Pads():
-            if p.GetNetname() == net_name:
+            if p.GetNetname() == net_name and "PAD" in kinds:
                 items.append(p)
     for t in board.GetTracks():
-        if t.GetNetname() == net_name:
+        if t.GetNetname() == net_name and t.GetClass() in kinds:
             items.append(t)
     parent = list(range(len(items)))
 
@@ -538,6 +582,8 @@ def cluster_cells(grid, items, layers=None):
     cells = set()
     layers = layers or ROUTE_LAYERS
     for it in items:
+        if it.m_Uuid.AsString() in grid.exclude_ids:
+            continue
         cls = it.GetClass()
         if cls == "PAD":
             cells |= grid.pad_cells(it, layers)

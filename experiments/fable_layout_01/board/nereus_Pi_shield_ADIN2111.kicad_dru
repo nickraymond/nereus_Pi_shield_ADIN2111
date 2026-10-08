@@ -1,0 +1,7 @@
+(version 1)
+# BRIEF §6 bus class: the insert-feed nets keep 0.35 mm from every other net (planes, tracks, vias, pads).
+# Between the P and N legs of one port Sofar's own 0.2 mm spacing is kept (the legs are copied as drawn), so the
+# rule is bus vs non-bus only. The `bus` netclass itself (clearance 0.15, priority 0) only names the nets.
+(rule "bus nets 0.35 mm from other nets"
+  (condition "A.NetClass == 'bus' && B.NetClass != 'bus'")
+  (constraint clearance (min 0.35mm)))
