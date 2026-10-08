@@ -7,13 +7,13 @@ check outputs in `out/`, not typed in. Board frame: KiCad coordinates = the brie
 ## 1. Result in one paragraph
 
 The board is built, placed and routed: 138 footprints, every §3 position within 0.001 mm, every copied block
-reproduced on the mote's geometry to within 0.001 mm (blockcheck: pads 242/242, tracks 641/744, arcs 4/4, vias 153/176, zones 6/6; copper items 930.; **0 missing**; matched except
+reproduced on the mote's geometry to within 0.001 mm (blockcheck: pads 242/242, tracks 641/744, arcs 4/4, vias 153/176, zones 6/6; copper items 930; **0 missing**; matched except
 126 copied items trimmed after routing because KiCad's DRC called them dangling, listed in `out/m3/blockcheck.md`;
 414 "extra" items = new routing inside the block regions), planes filled, 216 open connections brought down to **1**:
 J1's pins 1/17, which the schematic puts on one no-connect net and which must stay open (SPEC constraint 4). The R8
 shunt's Kelvin sense traces to U4 are copied whole and proven pad-to-pad by tracks alone (QE R2-F1). kicad-cli DRC
 reports **111 errors: 110 in the table of Sofar-copied features below** (insert contact, transformer footprint,
-courtyards) **and 1 declared item of the new copper** (1V8 at the Default 0.15 mm from a port-1 bus-leg via, §6
+courtyards) **and 1 declared item of the new copper** (1V8 0.225 mm from a port-1 bus-leg via, routed under the Default 0.15 mm rule, §6
 #16), and **0 copper-defect warnings** (no dangling track or via, no hole-to-hole or co-located holes). The bus
 nets' 0.35 mm clearance is a board design rule that kicad-cli enforces (§4; QE R2-F2). 3 of the 4 ADIN pairs are
 within the mote's length, port 2's N is 2.1 mm over. The pass criteria of BRIEF §8 are scored in §9. The honest
@@ -122,7 +122,7 @@ segments deleted (14 mm, clipped stubs and the router's own tails), 90 shortened
 
 | Item | Count | Status |
 |---|---|---|
-| errors | 111 | 110 Sofar-copied features in the exclusion table below + 1 declared item of the new copper (1V8 vs the BM1_P leg via at (11.94, 43.88), 0.15 mm on Internal 2; §6 #16) |
+| errors | 111 | 110 Sofar-copied features in the exclusion table below + 1 declared item of the new copper (1V8 vs the BM1_P leg via at (11.94, 43.88), 0.225 mm on Internal 2, routed under the Default 0.15 mm rule; §6 #16) |
 | unconnected | 1 | J1 pins 1/17 on one no-connect net (must stay open, SPEC 4) |
 | schematic parity | 4 | MP1–MP4 "no pad for pin 1": Sofar's insert footprint has no numbered pad (Q6) |
 | courtyard overlaps | 12 | in the table |
@@ -169,7 +169,7 @@ kicad-cli DRC: 111 errors, 111 with a reason above, 0 without; 1 unconnected, 4 
 | 13 | The U1 fan-out's copied vias in the mote's DNC pads are kept as Sofar drew them | fidelity |
 | 14 | 13 links routed whole at 0.15 mm (the fan-out width) instead of their 0.2 mm class (QE N2): 3V3 9.2 mm; ADIN_MOSI 35.1 mm; ADIN_PWR 4.3 mm; BM1_DATA_N 7.9 mm; BM1_DATA_P 9.4 mm; BM2_DATA_N 23.4 mm; BM2_DATA_P 21.3 mm; ISET 2.8 mm; Net-(U11-UVLO) 5.1 mm; PAYLOAD_EN 4.9 mm; ~{ADIN_CS} 39.8 mm; ~{ADIN_P2_LED1} 34.9 mm; ~{PAYLOAD_FAULT} 16.0 mm | the thin class was the only one that found a path (the ADIN pocket, U11's west side, the pairs per #9) |
 | 15 | 126 copied copper items trimmed after routing (§3: clipped stubs, Sofar's pour-stitching vias) | KiCad's DRC calls them dangling here; every one is listed in `out/m3/blockcheck.md` and `blocks.json` |
-| 16 | 1V8 (buck B18 → U2) passes the port-1 bus-leg via at (11.94, 43.88) at the Default 0.15 mm on Internal 2, not the bus rule's 0.35: 1 DRC error, in the exclusion table with this reason | at 0.35 there is no lane from the 1.8 V buck to the ADIN pocket (the router tried 0.35 first; the leg vias, not the feeds, are what it passes) |
+| 16 | 1V8 (buck B18 → U2) passes the port-1 bus-leg via at (11.94, 43.88) at 0.225 mm on Internal 2 (routed under the Default 0.15 mm rule), not the bus rule's 0.35: 1 DRC error, in the exclusion table with this reason | at 0.35 there is no lane from the 1.8 V buck to the ADIN pocket (the router tried 0.35 first; the leg vias, not the feeds, are what it passes) |
 | 17 | The bus rule is bus vs non-bus (§4): Sofar's copied P/N legs and T1/T2's pads 6/7 (0.24 mm apart) keep Sofar's spacing. New bus copper keeps 0.35 mm from the opposite leg as well (the `busleg` class, QE R3-F2), except the last 0.1 mm of a leg entering T1/T2 pad 6 or 7, which passes the neighbouring pad at Sofar's spacing (`check_rules.py` exempts only those pads) | the brief's bus class describes the insert feeds; Sofar's leg geometry is copied as drawn; a leg has to reach its pad |
 
 ## 7. Open after M5
@@ -206,7 +206,7 @@ was added (LOG, S7.b round 1).
 | 2 | §3 positions ±0.05; J1 pin 1 at (25.23, 8.37) from the top | **Pass** (`check_fixed.py`: every position within 0.001; pins 1/2/39/40 proven) |
 | 3 | §4 keep-outs, 2 mm around both envelopes, bottom ≤ 3 mm | **Pass with one allowance**: U1 1.79 mm (recorded); bottom parts ≤ 1.5 mm; holes clear (parts); inserts: no other-net copper within r 4.8 on any layer (`check_fixed.py`, QE F6) |
 | 4 | blockcheck 100 % | **Pass with trimming declared**: 0 missing on every block; 126 copied items trimmed after routing (listed); 414 extra = new routing in the block regions (`out/m3/blockcheck.md`) |
-| 5 | §6 widths on new routing; pairs no longer than the mote's; R8 sense identical; rings identical | **Partial**: feeds 1.5 mm, payload 0.6 (3 segments 0.5), pairs 3/4 within (BM2 N +2.1 mm), 10 fallback segments narrower than their class, 13 thin links, 1 clearance item (table 6), 1V8 at 0.15 from a bus-leg via (#16); R8/U4 Kelvin links pad-to-pad by tracks alone (U4.1 ↔ R8.2 (P_IN) yes, U4.2 ↔ R8.1 (VBUS) yes); rings 100 % |
+| 5 | §6 widths on new routing; pairs no longer than the mote's; R8 sense identical; rings identical | **Partial**: feeds 1.5 mm, payload 0.6 (3 segments 0.5), pairs 3/4 within (BM2 N +2.1 mm), 10 fallback segments narrower than their class, 13 thin links, 1 clearance item (table 6), 1V8 at 0.225 from a bus-leg via (#16); R8/U4 Kelvin links pad-to-pad by tracks alone (U4.1 ↔ R8.2 (P_IN) yes, U4.2 ↔ R8.1 (VBUS) yes); rings 100 % |
 | 6 | R35 on the bottom (south-west), R34/R41 on the top beside U11, R15 beside C22, C26 moved out of port 2 | fresh placements, moved to free U11's pins and the strip's bottom |
 | 7 | LEDs in a column at the band's east end (x 21.5), not on the west wall | the pocket holds U1 (brief: "the LEDs move") |
 | 8 | ADIN pair BM2_DATA_N 23.4 mm vs the mote's 21.3 (BM2_DATA_P 21.3, BM1 7.9 / 9.4 within) | the pair leaves U1's south pins and reaches T2 around U1's south-east; P took the inner lane |
@@ -217,7 +217,7 @@ was added (LOG, S7.b round 1).
 | 13 | The U1 fan-out's copied vias in the mote's DNC pads are kept as Sofar drew them | fidelity |
 | 14 | 13 links routed whole at 0.15 mm (the fan-out width) instead of their 0.2 mm class (QE N2): 3V3 9.2 mm; ADIN_MOSI 35.1 mm; ADIN_PWR 4.3 mm; BM1_DATA_N 7.9 mm; BM1_DATA_P 9.4 mm; BM2_DATA_N 23.4 mm; BM2_DATA_P 21.3 mm; ISET 2.8 mm; Net-(U11-UVLO) 5.1 mm; PAYLOAD_EN 4.9 mm; ~{ADIN_CS} 39.8 mm; ~{ADIN_P2_LED1} 34.9 mm; ~{PAYLOAD_FAULT} 16.0 mm | the thin class was the only one that found a path (the ADIN pocket, U11's west side, the pairs per #9) |
 | 15 | 126 copied copper items trimmed after routing (§3: clipped stubs, Sofar's pour-stitching vias) | KiCad's DRC calls them dangling here; every one is listed in `out/m3/blockcheck.md` and `blocks.json` |
-| 16 | 1V8 (buck B18 → U2) passes the port-1 bus-leg via at (11.94, 43.88) at the Default 0.15 mm on Internal 2, not the bus rule's 0.35: 1 DRC error, in the exclusion table with this reason | at 0.35 there is no lane from the 1.8 V buck to the ADIN pocket (the router tried 0.35 first; the leg vias, not the feeds, are what it passes) |
+| 16 | 1V8 (buck B18 → U2) passes the port-1 bus-leg via at (11.94, 43.88) at 0.225 mm on Internal 2 (routed under the Default 0.15 mm rule), not the bus rule's 0.35: 1 DRC error, in the exclusion table with this reason | at 0.35 there is no lane from the 1.8 V buck to the ADIN pocket (the router tried 0.35 first; the leg vias, not the feeds, are what it passes) |
 | 17 | The bus rule is bus vs non-bus (§4): Sofar's copied P/N legs and T1/T2's pads 6/7 (0.24 mm apart) keep Sofar's spacing. New bus copper keeps 0.35 mm from the opposite leg as well (the `busleg` class, QE R3-F2), except the last 0.1 mm of a leg entering T1/T2 pad 6 or 7, which passes the neighbouring pad at Sofar's spacing (`check_rules.py` exempts only those pads) | the brief's bus class describes the insert feeds; Sofar's leg geometry is copied as drawn; a leg has to reach its pad |
 
 ## 10. Questions
