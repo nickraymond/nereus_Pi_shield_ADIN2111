@@ -17,8 +17,8 @@ import geom
 from geom import mm
 
 TOL = 0.05
-# recorded deviations from BRIEF §4 (REPORT.md): ref -> (accepted gap, reason)
-ALLOWANCES = {"U1": (1.75, "ADIN block 0.3 mm east of the brief's pocket so Sofar's U1 west-side fan-out stays 0.5 mm from the edge; U1's body is 2.1 mm from the envelope")}
+# recorded deviations from BRIEF §4 (REPORT.md): ref -> (accepted gap, reason). None in experiment 1.a (01 had U1 at 1.75).
+ALLOWANCES = {}
 
 
 def main(heights_path=None):

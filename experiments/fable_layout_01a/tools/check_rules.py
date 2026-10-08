@@ -91,9 +91,9 @@ def main(out_path=None):
         key = (cls, round(w, 3))
         width_rows[key] = width_rows.get(key, 0) + 1
         wmin = LIMITS.get(cls, (0.2, 0.15))[0]
-        if w + 1e-6 < wmin and not (w + 1e-6 >= FANOUT_OK and cls in ("signal", "rail", "data")):
+        if w + 1e-6 < wmin and w + 1e-6 < FANOUT_OK:
             width_fail.append((cls, t.GetNetname().rsplit("/", 1)[-1], w))
-        elif w + 1e-6 < wmin:
+        elif w + 1e-6 < wmin:          # 0.15 mm: the pad-field escape allowance of every class, ≤ 2 mm per net (counted below)
             k = t.GetNetname().rsplit("/", 1)[-1]
             thin_len[k] = thin_len.get(k, 0.0) + mm(t.GetLength())
     # QE S7.b N2: 0.15 mm is a fan-out allowance, not a routing width. A net with more than 2 mm of 0.15 mm new track

@@ -18,8 +18,8 @@ from geom import V
 BLOCKS = [
     {"name": "ADIN", "refs": ["U1", "U2", "U3", "Y1", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11",
                               "C12", "C13", "C14", "R1", "R2", "R3", "R4", "R5", "R6", "TP1", "TP2"],
-     "dst": [-1.7, 32.8], "rot": 90,
-     "region": [[148.0, 107.9, 159.5, 114.1], [149.1, 114.1, 159.5, 120.6]],
+     "dst": [-1.7, 32.5], "rot": 90,
+     "region": [[148.2, 107.9, 159.5, 114.1], [149.1, 114.1, 159.5, 119.7]],
      "zone_region": [[148.0, 107.9, 159.5, 120.6]],
      "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N", "BM2_DATA_P", "BM2_DATA_N"],
           "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's "
@@ -37,14 +37,14 @@ BLOCKS = [
             "in the band between the envelopes, data pins facing U1 (west)"},
     {"name": "P2L", "refs": ["L2", "D5", "R17", "R19", "TP7", "TP13"],
      "dst": [12.74, 16.75], "rot": 90,
-     "region": [[125.0, 101.5, 138.3, 113.0]],
+     "region": [[125.0, 101.5, 138.3, 112.7]],
      "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)"},
     {"name": "P2T", "refs": ["T2", "C24", "C25", "C27", "R18"],
-     "dst": [13.3, 32.5], "rot": 180,
+     "dst": [13.7, 32.5], "rot": 180,
      "region": [[133.0, 113.1, 139.2, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
      "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)"},
     {"name": "B33", "refs": ["U5", "C30", "L3", "C28", "C29", "R20", "R21", "R22", "R23"],
-     "dst": [31.551, 33.94], "rot": 0,
+     "dst": [31.551, 34.44], "rot": 0,
      "region": [{"rect": [138.2, 104.6, 146.4, 112.9], "layers": ["F.Cu", "In1.Cu", "In3.Cu"]},
                 {"rect": [138.2, 112.9, 144.3, 119.0], "layers": ["F.Cu", "B.Cu", "In1.Cu", "In3.Cu"]}],
      "clip_zone_nets": ["3V3"],
@@ -65,7 +65,7 @@ BLOCKS = [
             "P_IN pad as on the mote; J1's pin field leaves no ≥ 0.5 mm path for P_IN into the strip east of J1. The third "
             "rect (Bottom only) holds the west detour of the two Kelvin traces U4.1-R8.2 / U4.2-R8.1 (QE S7.b R2-F1)"},
     {"name": "DAMP3", "refs": ["C23"],
-     "dst": [33.5, 40.45], "rot": 90,
+     "dst": [33.5, 40.95], "rot": 90,
      "region": [],
      "why": "C23 (the sense block's 47 uF damping electrolytic, the block's only top part) alone in the strip; R16 beside U11"},
     {"name": "DAMP1", "refs": ["C21", "C20", "TP23"],
@@ -73,7 +73,7 @@ BLOCKS = [
      "region": [[151.9, 117.5, 156.5, 121.2]],
      "why": "VBUS 10 uF + its test pad in the south-west pocket beside J5 (R16 moved next to C23's partner U11 row)"},
     {"name": "DAMP2", "refs": ["C22"],
-     "dst": [33.5, 48.1], "rot": 0,
+     "dst": [33.5, 48.6], "rot": 0,
      "region": [[146.8, 100.4, 155.8, 107.0]],
      "why": "second damping electrolytic in the strip, Sofar's orientation (8.8 mm wide: pads 0.5 mm from the edge); its resistor R15 placed beside it"},
     {"name": "B18", "refs": ["U6", "L4", "C32", "C33", "TP21"],
@@ -87,15 +87,15 @@ BLOCKS = [
 FRESH = {
     # strip, top (north -> south): JP1, 5 V cell (block), 3.3 V cell (block) + C31, C23, C22 (blocks), U11 cell
     "JP1": (32.05, 9.45, 0, "F"),
-    "C31": (36.6, 33.94, 0, "F"),
-    "U11": (32.5, 54.1, -90, "F"), "C49": (35.7, 54.1, 90, "F"), "R34": (29.6, 55.3, 90, "F"),
+    "C31": (36.6, 34.44, 0, "F"),
+    "U11": (32.5, 54.35, -90, "F"), "C49": (35.7, 54.35, 90, "F"), "R34": (29.6, 55.6, 90, "F"),
     # strip, bottom
-    "C56": (31.6, 12.5, 0, "B"), "C57": (31.6, 14.7, 0, "B"), "C58": (35.0, 14.0, 0, "B"), "TP38": (37.0, 14.0, 0, "B"),
+    "C56": (31.6, 12.5, 0, "B"), "C57": (31.6, 14.7, 0, "B"), "C58": (36.6, 14.0, 0, "B"), "TP38": (36.6, 16.3, 0, "B"),
     "TP20": (37.0, 8.8, 0, "B"), "TP24": (34.6, 9.0, 0, "B"),
     "R26": (36.6, 21.5, 0, "B"), "R27": (36.6, 23.1, 0, "B"),
-    "R15": (37.0, 45.5, 90, "B"),
+    "R15": (37.0, 45.5, 90, "B"), "R16": (37.0, 42.5, 90, "B"),
     "D3": (33.0, 53.9, 90, "B"), "R35": (30.6, 52.3, 90, "B"), "R41": (36.0, 52.3, 0, "B"), "R42": (36.0, 53.6, 0, "B"),
-    "C50": (36.4, 55.5, 0, "B"), "TP35": (36.6, 48.5, 0, "B"), "TP19": (30.6, 48.6, 0, "B"),
+    "C50": (36.4, 55.5, 0, "B"), "TP35": (36.6, 48.5, 0, "B"), "TP19": (30.6, 43.3, 0, "B"),
     # north edge: status LEDs west -> east D10 (port 2), D8 (power), D9 (port 1), top; JP2 and R44-R46 under them, bottom
     "D10": (11.6, 1.4, 0, "F"), "D8": (15.0, 1.4, 0, "F"), "D9": (18.4, 1.4, 0, "F"),
     "JP2": (15.0, 4.3, 0, "B"), "R46": (10.8, 4.2, 90, "B"), "R44": (18.0, 4.2, 90, "B"), "R45": (19.4, 4.2, 90, "B"),
@@ -104,7 +104,7 @@ FRESH = {
     # band / P2 leftovers, bottom
     "C26": (17.0, 23.3, 0, "B"),
     # south pockets
-    "D1": (20.9, 59.0, 90, "F"), "R16": (6.3, 56.0, 90, "F"), "R11": (21.0, 58.0, 90, "B"), "TP36": (19.5, 62.3, 0, "B"),
+    "D1": (20.9, 59.0, 90, "F"), "R11": (21.0, 58.0, 90, "B"), "TP36": (19.5, 62.3, 0, "B"),
     # fiducials
     "FID4": (8.0, 2.5, 0, "F"), "FID3": (21.5, 2.5, 0, "F"), "FID5": (15.0, 56.0, 0, "F"),
     "FID2": (8.0, 2.5, 0, "B"), "FID1": (21.5, 2.5, 0, "B"), "FID6": (15.0, 56.0, 0, "B"),
@@ -136,7 +136,8 @@ def main():
     place_fresh(board)
     geom.save(board)
     prev = json.load(open(geom.EXP / "blocks.json"))
-    json.dump({"frame": prev["frame"], "blocks": prev["blocks"] + out,
+    rings = [b for b in prev["blocks"] if b["name"].startswith("RING_")]      # M1's ring blocks stay; a rerun (START=m2) replaces the rest
+    json.dump({"frame": prev["frame"], "blocks": rings + out,
                "fresh": {r: {"x": v[0], "y": v[1], "rot": v[2], "side": v[3]} for r, v in FRESH.items()}},
               open(geom.EXP / "blocks.json", "w"), indent=1)
     placed = {r for b in out for r in b["placed"]} | set(FRESH)

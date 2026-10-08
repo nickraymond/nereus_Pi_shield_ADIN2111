@@ -1,0 +1,676 @@
+{
+ "planes": {},
+ "manual": [
+  {
+   "net": "BM2_P",
+   "from": "MP3",
+   "path": [
+    [
+     1.5,
+     12.0
+    ],
+    [
+     4.0,
+     12.0
+    ],
+    [
+     10.0,
+     12.49
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM2_N",
+   "from": "MP4",
+   "path": [
+    [
+     1.5,
+     21.4
+    ],
+    [
+     4.0,
+     21.4
+    ],
+    [
+     10.0,
+     21.01
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM1_P",
+   "from": "MP1",
+   "path": [
+    [
+     1.5,
+     43.6
+    ],
+    [
+     4.0,
+     43.6
+    ],
+    [
+     10.0,
+     39.99
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  },
+  {
+   "net": "BM1_N",
+   "from": "MP2",
+   "path": [
+    [
+     1.5,
+     53.0
+    ],
+    [
+     4.0,
+     53.0
+    ],
+    [
+     10.0,
+     48.5
+    ]
+   ],
+   "width": 1.5,
+   "layer": "Top"
+  }
+ ],
+ "pairs": [
+  {
+   "net": "BM1_DATA_P",
+   "port": 1,
+   "total_mm": 10.7,
+   "limit_mm": 9.5,
+   "vias": 2,
+   "ok": false,
+   "parity": 1
+  },
+  {
+   "net": "BM1_DATA_N",
+   "port": 1,
+   "total_mm": 8.59,
+   "limit_mm": 9.5,
+   "vias": 2,
+   "ok": true,
+   "parity": 1
+  },
+  {
+   "net": "BM2_DATA_P",
+   "port": 2,
+   "total_mm": 18.24,
+   "limit_mm": 21.3,
+   "vias": 2,
+   "ok": true,
+   "parity": 1
+  },
+  {
+   "net": "BM2_DATA_N",
+   "port": 2,
+   "total_mm": 18.88,
+   "limit_mm": 21.3,
+   "vias": 2,
+   "ok": true,
+   "parity": 1
+  }
+ ],
+ "stitch": [
+  {
+   "net": "GND",
+   "via": [
+    35.7,
+    34.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    20.9,
+    61.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.7,
+    40.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.2,
+    1.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    36.3,
+    53.6
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    29.6,
+    56.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.0,
+    41.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.5,
+    12.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.4,
+    53.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.4,
+    55.8
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    15.6,
+    60.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    34.7,
+    9.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    20.9,
+    57.8
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    14.5,
+    48.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    34.8,
+    54.6
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    21.0,
+    59.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    36.0,
+    42.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    37.0,
+    44.7
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    35.5,
+    51.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    9.8,
+    60.8
+   ],
+   "pre": true
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    14.5,
+    21.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.5,
+    34.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "3V3",
+   "via": [
+    37.0,
+    24.2
+   ],
+   "pre": true
+  },
+  {
+   "net": "5V_Buck_SW",
+   "via": [
+    32.4,
+    16.9
+   ]
+  },
+  {
+   "net": "3V3_Buck_SW",
+   "via": [
+    33.5,
+    31.2
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    8.9,
+    56.3
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    32.5,
+    54.4
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    35.1,
+    13.3
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    8.8,
+    58.6
+   ]
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    20.0,
+    18.9
+   ]
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    16.4,
+    18.4
+   ]
+  },
+  {
+   "net": "5V_PI",
+   "via": [
+    31.8,
+    21.0
+   ],
+   "zone": "5V_PI pour (B.Cu) under JP1 / L6 / U10"
+  }
+ ],
+ "routed": [
+  {
+   "net": "BM1_P",
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 13.5
+  },
+  {
+   "net": "BM1_N",
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 21.4
+  },
+  {
+   "net": "BM2_P",
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 17.3
+  },
+  {
+   "net": "BM2_N",
+   "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
+   "length_new_mm": 11.0
+  },
+  {
+   "net": "5V_PI",
+   "class": "pi5v",
+   "length_new_mm": 2.2
+  },
+  {
+   "net": "PI_5V",
+   "class": "pi5v",
+   "length_new_mm": 2.3
+  },
+  {
+   "net": "ISET",
+   "class": "signal",
+   "length_new_mm": 2.9
+  },
+  {
+   "net": "Net-(U11-UVLO)",
+   "class": "signal",
+   "length_new_mm": 4.0
+  },
+  {
+   "net": "~{PAYLOAD_FAULT}",
+   "class": "signal",
+   "length_new_mm": 16.7
+  },
+  {
+   "net": "PAYLOAD_EN",
+   "class": "signal",
+   "length_new_mm": 15.2
+  },
+  {
+   "net": "VBUS_OUT",
+   "class": "payload",
+   "length_new_mm": 22.9
+  },
+  {
+   "net": "~{ADIN_INT}",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": null
+  },
+  {
+   "net": "ADIN_MOSI",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 32.6
+  },
+  {
+   "net": "ADIN_MISO",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 37.1
+  },
+  {
+   "net": "ADIN_SCK",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 31.9
+  },
+  {
+   "net": "~{ADIN_CS}",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 38.5
+  },
+  {
+   "net": "~{ADIN_RST}",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 27.8
+  },
+  {
+   "net": "3V3",
+   "class": "rail (plane + pocket)",
+   "length_new_mm": 96.7
+  },
+  {
+   "net": "1V8",
+   "class": "rail",
+   "length_new_mm": 27.6
+  },
+  {
+   "net": "ADIN_PWR",
+   "class": "signal (pocket corridor)",
+   "length_new_mm": 44.8
+  },
+  {
+   "net": "~{ADIN_P2_LED1}",
+   "class": "signal (LED, north)",
+   "length_new_mm": 42.8
+  },
+  {
+   "net": "~{ADIN_P1_LED1}",
+   "class": "signal (LED, north)",
+   "length_new_mm": 35.4
+  },
+  {
+   "net": "ADIN_VDDIO",
+   "class": "rail (island + LED block)",
+   "length_new_mm": 30.9
+  },
+  {
+   "net": "ADIN_LED_VDD",
+   "class": "rail (LED block)",
+   "length_new_mm": 6.8
+  },
+  {
+   "net": "I2C1_SDA",
+   "class": "signal",
+   "length_new_mm": 24.5
+  },
+  {
+   "net": "I2C1_SCL",
+   "class": "signal",
+   "length_new_mm": 17.4
+  },
+  {
+   "net": "Net-(C19-Pad2)",
+   "class": "signal",
+   "length_new_mm": 0.8
+  },
+  {
+   "net": "Net-(C16-Pad1)",
+   "class": "signal",
+   "length_new_mm": 1.4
+  },
+  {
+   "net": "Net-(C25-Pad2)",
+   "class": "signal",
+   "length_new_mm": 1.3
+  },
+  {
+   "net": "Net-(C22-A)",
+   "class": "signal",
+   "length_new_mm": 1.8
+  },
+  {
+   "net": "Net-(C23-A)",
+   "class": "signal",
+   "length_new_mm": 1.3
+  },
+  {
+   "net": "Net-(D9-A)",
+   "class": "signal",
+   "length_new_mm": 2.7
+  },
+  {
+   "net": "Net-(U4-ALERT)",
+   "class": "signal",
+   "length_new_mm": 3.4
+  },
+  {
+   "net": "Net-(D10-A)",
+   "class": "signal",
+   "length_new_mm": 3.1
+  },
+  {
+   "net": "Net-(D8-A)",
+   "class": "signal",
+   "length_new_mm": 3.4
+  },
+  {
+   "net": "5V_PI",
+   "class": "pi5v (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "3V3",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "5V_Buck_SW",
+   "class": "signal (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "3V3_Buck_SW",
+   "class": "signal (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "GND",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "VBUS",
+   "class": "power (plane leftovers)",
+   "length_new_mm": null
+  },
+  {
+   "net": "ADIN_VDDIO",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "ADIN_AVDD",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "P_IN",
+   "class": "power (plane leftovers)",
+   "length_new_mm": 0.0
+  }
+ ],
+ "failed": [
+  {
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "why": "no path at the class width / clearance",
+   "class": "signal",
+   "open_links": 1,
+   "clusters": [
+    [
+     "U1.39"
+    ],
+    [
+     "J1.22",
+     "R1.1"
+    ]
+   ]
+  },
+  {
+   "net": "VBUS",
+   "why": "no path to any of the stitching via spots",
+   "near": [
+    [
+     33.5,
+     52.95
+    ]
+   ]
+  },
+  {
+   "net": "VBUS",
+   "why": "no path at the class width / clearance",
+   "class": "power",
+   "open_links": 1,
+   "clusters": [
+    [
+     "C17.1",
+     "C20.1",
+     "C21.1",
+     "C29.1"
+    ],
+    [
+     "U11.1"
+    ]
+   ]
+  },
+  {
+   "net": "GND",
+   "why": "zone island on 6 Bottom Layer near (37.1, 13.9) has no via and none fits"
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "pour islands could not be joined at the class width"
+  },
+  {
+   "net": "/Top-Level Schematic/5V_PI",
+   "why": "pour islands could not be joined at the class width"
+  }
+ ],
+ "notes": [
+  "grid 461x651 cells at 0.1 mm built in 17 s",
+  "Kelvin sense traces protected: 20 tracks + U4 pads 1/2 excluded from routing starts/ends and stitching",
+  "pair port 1: parity 1, swap figures at [((1.3000000000000007, 27.3), -1)]",
+  "pair port 1: {'/Top-Level Schematic/BM1_DATA_P': (18, 2, 10.701526242414781), '/Top-Level Schematic/BM1_DATA_N': (17, 2, 8.592538014584703)}",
+  "pair port 2: parity 1, swap figures at [((9.5, 34.0), 1)]",
+  "pair port 2: {'/Top-Level Schematic/BM2_DATA_P': (52, 2, 18.237905205123788), '/Top-Level Schematic/BM2_DATA_N': (52, 2, 18.877658000976364)}",
+  "1 intra-footprint GND links (0.15 mm)",
+  "12 GND pads pre-stitched (via within 1.5 mm) before the signals",
+  "8 VBUS pads pre-stitched (via within 1.5 mm) before the signals",
+  "1 P_IN pads pre-stitched (via within 1.5 mm) before the signals",
+  "2 3V3 pads pre-stitched (via within 1.5 mm) before the signals",
+  "0 5V_PI pads pre-stitched (via within 1.5 mm) before the signals",
+  "1 zone-island vias (zone_stitch)",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
+  "total 310 s"
+ ]
+}

@@ -98,6 +98,9 @@ def describe(t, board):
             "length": round(mm(t.GetLength()), 3)}
 
 
+ALL = "--all" in sys.argv       # pre-route trim (stage m3): nothing is routed yet, so the open-net rule would keep everything
+
+
 def one_round(stage, rnd):
     """One DRC + removal pass. Runs in its own process: after board.Remove, a second LoadBoard in the same process
     hands back SWIG proxies whose methods no longer resolve (seen in 9.0.6)."""
@@ -115,7 +118,7 @@ def one_round(stage, rnd):
             if t is None or it["uuid"] in seen:
                 continue
             seen.add(it["uuid"])
-            if t.GetNetname() in open_nets:
+            if t.GetNetname() in open_nets and not ALL:
                 kept_open += 1          # the partial route of an open link stays visible
                 continue
             remove.append(t)
@@ -172,7 +175,7 @@ def one_round(stage, rnd):
 
 def main(stage):
     for rnd in range(1, 41):
-        r = subprocess.run([sys.executable, __file__, stage, "--round", str(rnd)], capture_output=True, text=True)
+        r = subprocess.run([sys.executable, __file__, stage, "--round", str(rnd)] + (["--all"] if ALL else []), capture_output=True, text=True)
         for line in r.stdout.splitlines():
             if "dangling" in line:
                 print(line)
@@ -187,4 +190,4 @@ if __name__ == "__main__":
     if "--round" in sys.argv:
         one_round(sys.argv[1], int(sys.argv[sys.argv.index("--round") + 1]))
     else:
-        main(sys.argv[1] if len(sys.argv) > 1 else "m4")
+        main(sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else "m4")
