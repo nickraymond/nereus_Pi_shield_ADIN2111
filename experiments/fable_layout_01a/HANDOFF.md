@@ -47,3 +47,18 @@ OPTIONS.md, REPORT.md §6–§9 and LOG.md M2; this file is only the practical p
 5. `via_free_exact`: use the class's real via diameter (it derives one from the map radius; R21 pad 2 vs the 3V3 via).
 6. The payload clearance (0.25) for power-class routes in the cross map (`xradii` applies it to signal routes only).
 7. M3 per BRIEF §6.
+
+## QE round 1 (qe/S7b_01a_round1.md, 2026-10-08): CHANGES REQUESTED — do these first
+
+- **F1 (MAJOR):** both pairs are shorted P–N at the transformer pads (BM1_DATA_P's last Top segment runs through T1
+  pad 2; BM2_DATA_N's through T2 pad 1) and `tools/drcexclude.py`'s T1/T2 patterns hid them as Sofar's footprint. So
+  the true split is 111 Sofar + **16** new-copper errors, and REPORT §1/§5/§6/§8 are wrong on this. Fix the emitter's
+  final approach to the pads (`commit_pair`: the last run's offset vertices end at the pads; the opposite pad sits 0.65 mm
+  away and the approach must come from the pads' open side), tighten the exclusion patterns to the no-net pads, add a
+  §6 row, re-run.
+- **F2 (MINOR):** the ADIN region's west clip (mote y 107.9, OPTIONS Q5) dropped Sofar's ~{ADIN_INT} via at mote
+  (156.571, 107.509), so the pre-route trim ate INT's fan-out (14 items). Keep that via (region y ≥ 107.5 is off-board
+  at this position, so re-add it by hand or move the clip), and make `dangling.py` refuse to trim items on a mote
+  pad-to-pad path; correct §6 #3's cause.
+- N1: set the PR base to `experiment/fable-layout-01` (`gh pr edit 31 --base experiment/fable-layout-01`). N2: the unit
+  test is committed now (`tools/test_pair.py`); add the real-path case.
