@@ -20,15 +20,16 @@ COLOURS = {"gnd": "#8b928e", "vbus": "#d2412f", "pin": "#de8519", "3v3": "#2d67d
 
 
 def group(net):
+    net = net.rsplit("/", 1)[-1]          # schematic nets are hierarchical (/Top-Level Schematic/PoDL/.../P_IN)
     if net == "GND":
         return "gnd"
     if net in ("VBUS", "VBUS_OUT"):
         return "vbus"
     if net == "P_IN":
         return "pin"
-    if net.startswith("3V3"):
+    if net == "3V3":
         return "3v3"
-    if net in ("5V_PI", "PI_5V") or net.startswith("5V"):
+    if net in ("5V_PI", "PI_5V"):
         return "pi5v"
     if net in ("1V8", "ADIN_AVDD", "ADIN_VDDIO", "DVDD1_1P1", "DVDD2_1P1", "VDD11"):
         return "rail"

@@ -104,7 +104,7 @@ production (DESIGN D12).
   net-less pads (an SMD ring and the Ø4.4 NPTH); the bus nets reach each insert position through a front F.Cu arc
   on the bus track, C-shaped (~290°, not a closed ring), width 1.2 mm, radius 3.03 mm (copper ≈ 2.4–3.6 mm from centre): MP1 BM1_P, MP2 BM1_N, MP3 BM2_P
   (two arcs), MP4 BM2_N. Seven 0.6 mm vias of the bus net sit on r 3.0 mm under each arc and land inside the bottom ring
-  pad (r 2.2–3.69 mm), so the insert is on the bus net through them; the inner planes stop 4.1–4.8 mm from each insert
+  pad (r 2.2–3.69 mm), so the insert is on the bus net through them; the inner planes stop 3.85 mm (MP2, MP4) to 4.78 mm (MP1, MP3) from each insert
   centre. *(reference .kicad_pcb, read 2026-10-06 (QE S5.g F1); vias and plane pullback measured 2026-10-07 with pcbnew,
   correcting the earlier "no vias within 3.5 mm")* Giving the pad a net in our footprint: Sofar Q6.
 - AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max

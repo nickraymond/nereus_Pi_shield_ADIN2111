@@ -53,8 +53,11 @@ still limited to ≈ 0.73 A by U11.
 corner, x east, y south. The Pi Zero is portrait under the shield: micro-SD at the north end, 40-pin header along the
 east edge, camera connector at the south end.
 
-**Outline: 46 × 65 mm**, x −7.5 … 38.5, y 0 … 65, corner radius 3 mm, plus Nick's north notch for the SD card
-(x 5.84 … 25.66, 1.5 mm deep; from his `User.3 "Outline_PiZero"` shape in the live board file). **Allowed growth:** the
+**Outline: 46 × 65 mm**, x −7.5 … 38.5, y 0 … 65, corner radius 3 mm, plus Nick's north notch for the SD card. Copy the notch exactly from his `User.3 "Outline_PiZero"` shape in the live
+board file (read only), translated by (−194.53, −58.48) into this frame: that centres his 31.5 mm-wide outline on the
+30 mm Pi. It is a fillet–chamfer–fillet cut 1.5 mm deep, ≈ 22.7 mm wide at the edge and 16.3 mm at full depth, spanning
+x ≈ 5.84 … 25.66. Its east end comes ≈ 2.76 mm from H2's centre, inside H2's r 3.0 keep-out: keep Nick's shape (the board
+edge is exempt) and list it for Nick (§11). **Allowed growth:** the
 south edge may move up to 2.0 mm south (46 × 67) if U1 can't be placed otherwise (see §4). Report the final size.
 
 **Stack.** 6 copper layers, 1.6 mm, in the mote's order and roles: L1 top (parts, bus copper, buck pours) · L2 signal ·
@@ -70,7 +73,7 @@ are unknown (Sofar Q11): use a standard 6-layer 1.6 mm build and note it.
 |---|---|---|---|
 | 40-pin **stacking** header | J1 | Pin 1 at (25.23, 8.37), pin 2 at (27.77, 8.37); odd pins in column x 25.23, even in x 27.77, 2.54 mm pitch southward to pins 39/40 at y 56.63 | Socket body on the **bottom** (mates with the Pi's male pins), long tails up through the board. Footprint already `PinSocket_2x20_P2.54mm_Vertical`; place it on B.Cu and prove pin 1 lands at (25.23, 8.37) seen from the top. Source: Raspberry Pi Zero 2 W mechanical drawing (header centred 32.5 mm along the long edge, 3.5 mm in) |
 | Pi standoff holes, M2.5 | H1–H4 (board-only footprints) | (3.5, 3.5), (26.5, 3.5), (3.5, 61.5), (26.5, 61.5) | `MountingHole:MountingHole_2.7mm_M2.5`, footprint attribute "not in schematic". Nothing within r 3.0 mm, both sides |
-| Housing holes, M3 | MTG1–MTG4 | (−3.5, 3.5), (34.5, 3.5), (−3.5, 61.5), (34.5, 61.5) | Keep the mote's `Vault:Hole_M3`. Nothing within r 3.5 mm (screw head / washer), both sides |
+| Housing holes, M3 | MTG1–MTG4 | (−3.5, 3.5), (34.5, 3.5), (−3.5, 61.5), (34.5, 61.5) | Keep the mote's `Vault:Hole_M3`. Nothing within r 3.5 mm (screw head / washer), both sides. Its courtyard (±4.25 mm) and silk (r 4.0) run past the outline at these corners and its Ø6 pad sits exactly 0.5 mm from the north/south edges: clip the silk, and record the courtyard-edge DRC items with that reason |
 | Bus inserts (M3, Sofar's contact) | MP3 = 2+ (BM2_P), MP4 = 2− (BM2_N), MP1 = 1+ (BM1_P), MP2 = 1− (BM1_N) | x −1.81 for all; y 12.0, 21.4, 43.6, 53.0 | Port 2 north, port 1 south, "+" north of "−". Ring copper r 3.69 → 2.0 mm from the west edge and 2.0 mm between the two rings of a pair; 14.8 mm between the ports |
 | PoDL inductors | L2 (port 2), L1 (port 1) | 50 W envelope 15.5 × 15.5 mm at x 4.99–20.49; L2 y 9.0–24.5, L1 y 36.5–52.0 | Fit today's SRF1260 (12.5 mm) centred in its envelope. Keep 2.0 mm clear around each **envelope** (to edges, holes, J1, J5 and every part). The envelope reserves room for the 50 W MSD1514 (15.5 × 15.5 × 14.2 mm, `docs/POWER_PATH.md`) |
 | Payload connector | J5 (Micro-Fit, §1) | Courtyard x 9.67–20.33, front at the south edge | Top side, mating face **south**, between the Pi's south holes |
@@ -83,7 +86,7 @@ are unknown (Sofar Q11): use a standard 6-layer 1.6 mm build and note it.
 ## 4. Keep-outs and the one known squeeze
 
 - **Inserts:** no part and no other-net copper within r 4.8 mm of an insert centre, any layer (the inner planes on the
-  mote stop 4.1–4.8 mm from each insert).
+  mote stop 3.85 mm (MP2, MP4) to 4.78 mm (MP1, MP3) from each insert; 4.8 mm here is the brief's choice).
 - **Edges:** copper 0.5 mm from the board edge; inner planes as the mote.
 - **Camera ribbon:** the Pi's camera connector is under x ≈ 7–23, y ≈ 61.6–65 (scaled from the drawing, not dimensioned);
   nothing on the shield may hang below the bottom-side 3 mm limit there.
@@ -110,27 +113,28 @@ Map mote nets to ours **by pad** (the schematic net on the same ref + pad), not 
 | BUCK3V3 | U5, L3, C28, C29, C30, C31, R20, R21, R22, R23 | Copy with its top-layer pours and the GND patch on inner layer 2 (L4) under it |
 | BUCK1V8 | U6, L4, C32, C33, TP21 | |
 | LOAD | R34, R35, C49, C50, D3, TP35, R11 (DNP) | U9 became U11 (TPS26621, `Package_SON:Texas_DRC0010J`): place and route U11 fresh |
-| **New:** BUCK5V | U10, L6, C53–C58, R37–R40 | A copy of BUCK3V3 (D13): reuse U5's copper pattern for U10's cell where the parts match, and give U10 extra copper and vias for heat (≈ 0.53 W at 1 A, `docs/design-review/power_budget.md` §3) |
+| **New:** BUCK5V | U10, L6, C53–C58, R37–R40, TP38 (5V_PI) | A copy of BUCK3V3 (D13): reuse U5's copper pattern for U10's cell where the parts match, and give U10 extra copper and vias for heat (≈ 0.53 W at 1 A, `docs/design-review/power_budget.md` §3) |
 | **New:** PI | J1, JP1, R26, R27, R43 | J1 position fixed (§3) |
-| Test points | TP8, TP19, TP20, TP24, TP36, TP38 | Next to their nets, bottom side as on the mote |
+| Test points | TP8, TP19, TP20, TP24, TP36 | Next to their nets, bottom side as on the mote |
 | **New:** misc | U11, R41, R42, J5, D8–D10, R44–R46, JP2, FID1–FID6 | |
 
-Mote parts not on the shield (don't place): U7, U8, J3, J4, P1, Y2, L5 and their passives and test points.
+Mote parts not on the shield: anything not in our netlist (for example U7, U8, U9, J3, J4, P1, Y2, L5, D6, D7, R9, R10
+and the processor's passives and test points). Place only what the netlist has.
 
 ## 6. Routing rules
 
 | Class | Nets | Width | Clearance | Notes |
 |---|---|---|---|---|
-| Bus | BM1_P, BM1_N, BM2_P, BM2_N | ≥ 1.0 mm (mote 1.0–2.0) | 0.35 mm | Insert to inductor and transformer, short and wide |
-| Power | VBUS, P_IN | ≥ 0.5 mm + plane | 0.25 mm | As the mote: P_IN on L5 under port 2's side, VBUS band + under port 1 |
+| Bus DC path | BM1_P, BM1_N, BM2_P, BM2_N between insert and inductor | ≥ 1.0 mm (mote 1.0–2.0 there) | 0.35 mm | New routing (the inserts moved), short and wide. The data legs to T1/T2, the TVS legs and the 0.2 mm test-point taps keep the mote's widths (0.2–0.5 mm) |
+| Power | VBUS, P_IN rail copper | ≥ 0.5 mm + plane | 0.25 mm | As the mote: P_IN on L5 under port 2's side, VBUS band + under port 1. R8/U4 sense legs and small decoupling stubs keep the mote's 0.2 mm |
 | Payload | VBUS_OUT | ≥ 0.6 mm (mote) | 0.25 mm | U11 → J5 |
 | Pi 5 V | 5V_PI, PI_5V | ≥ 1.0 mm or a pour | 0.25 mm | U10 → JP1 → J1 pins 2/4; 1 A continuous (D15) |
 | Switch nodes | 3V3_Buck_SW and U10's | as the mote's U5 cell | | Smallest loop; GND patch below |
-| ADIN data pairs | BM1/BM2_DATA_P/N | 0.2 mm | | On L2 over unbroken GND; **no longer than the mote's** (port 1 ≤ 9.5 mm, port 2 ≤ 21.3 mm) |
+| ADIN data pairs | BM1/BM2_DATA_P/N | 0.2 mm | | Layers as the mote (L1 + L2, two vias each) over unbroken GND; **no longer than the mote's** (port 1 ≤ 9.5 mm, port 2 ≤ 21.3 mm) |
 | Signals | everything else | 0.2 mm (0.15 in fan-out) | 0.15 mm | |
 
-These widths and clearances are the brief's defaults, taken from the mote where it shows them. Never go below the mote's
-own sizes; vias 0.45/0.2 mm or larger, through-hole only (as the mote).
+These widths and clearances are the brief's defaults for **new routing**, taken from the mote where it shows them;
+copied block copper keeps Sofar's widths exactly. Never go below the mote's own sizes; vias 0.45/0.2 mm or larger, through-hole only (as the mote).
 
 **Planes (copy Sofar's structure, per Nick):** L3 near-solid GND with a slot past each PoDL inductor that joins the rest
 of the plane only on the far side (as the mote's two slots); L5 split as the mote (P_IN, VBUS, 3V3, ADIN_AVDD and
@@ -160,7 +164,7 @@ Push the branch and open a **draft** PR titled `EXPERIMENT (do not merge): fable
 2. §3 positions within ±0.05 mm; J1 pin 1 proven at (25.23, 8.37) from the top.
 3. §4 keep-outs, 2 mm around both inductor envelopes, bottom parts ≤ 3 mm.
 4. `blockcheck.py`: copied blocks 100 % matched (or each difference explained).
-5. §6 widths; ADIN pairs no longer than the mote's; R8's sense connections identical; insert arcs and via rings identical.
+5. §6 widths on new routing (copied copper is judged by item 4); ADIN pairs no longer than the mote's; R8's sense connections identical; insert arcs and via rings identical.
 6. Renders: every copper layer with `tools/render_layers.py` for the mote and the shield, plus `kicad-cli pcb render`
    top and bottom.
 
@@ -180,6 +184,10 @@ about 4.2 mm east into the room J1 leaves. Confirm against OpenMV's STEP model w
 
 ## 11. Assumptions to confirm (Nick)
 
-- The outline is centred on the Zero east–west as drawn here (west flange 7.5 mm, east 8.5 mm).
+- The outline is centred on the Zero east–west as drawn here (west flange 7.5 mm, east 8.5 mm), and Nick's User.3 notch is
+  placed by centring his 31.5 mm outline on the 30 mm Pi (§2).
+- The notch's east end sits ≈ 2.76 mm from the north-east M2.5 standoff's centre: confirm it clears the standoff and screw.
+- The stacking header is this experiment's assumption; the real J1 part (D6's plain socket or a stacking header) is still
+  Nick's choice.
 - Bottom-side part height ≤ 3 mm; the exact stacking header part is still open (J1 in the BOM).
 - Within each pair "+" is north of "−".
