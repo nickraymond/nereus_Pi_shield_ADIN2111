@@ -152,6 +152,766 @@
     "skipped_net": 0,
     "clipped": 0
    }
+  },
+  {
+   "name": "ADIN",
+   "refs": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ],
+   "dst": [
+    -1.7,
+    32.8
+   ],
+   "rot": 90,
+   "region": [
+    [
+     148.0,
+     108.0,
+     159.5,
+     114.1
+    ],
+    [
+     149.1,
+     114.1,
+     159.5,
+     120.6
+    ]
+   ],
+   "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of x 2.99 and both insert keep-outs",
+   "src": [
+    154.0011,
+    113.0036
+   ],
+   "anchor": "U1",
+   "placed": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ]
+  },
+  {
+   "name": "P1L",
+   "refs": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ],
+   "dst": [
+    12.74,
+    44.25
+   ],
+   "rot": 90,
+   "region": [
+    [
+     158.9,
+     102.0,
+     172.2,
+     115.0
+    ]
+   ],
+   "why": "L1 centred in its envelope with the bottom-side parts Sofar put under it; rotated 90 so the bus pads face west toward MP1/MP2 (BM1_P north-west, BM1_N south-west) and VBUS/GND face east",
+   "src": [
+    165.5011,
+    108.7536
+   ],
+   "anchor": "L1",
+   "placed": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ]
+  },
+  {
+   "name": "P1T",
+   "refs": [
+    "T1",
+    "C16",
+    "C18",
+    "C19",
+    "R14"
+   ],
+   "dst": [
+    7.7,
+    30.5
+   ],
+   "rot": 0,
+   "region": [
+    [
+     158.8,
+     115.2,
+     165.4,
+     119.8
+    ]
+   ],
+   "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); in the band between the envelopes, data pins facing U1 (west)",
+   "src": [
+    161.6011,
+    117.5036
+   ],
+   "anchor": "T1",
+   "placed": [
+    "T1",
+    "C16",
+    "C18",
+    "C19",
+    "R14"
+   ]
+  },
+  {
+   "name": "P2L",
+   "refs": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13",
+    "C26"
+   ],
+   "dst": [
+    12.74,
+    16.75
+   ],
+   "rot": 90,
+   "region": [
+    [
+     125.0,
+     101.5,
+     138.3,
+     113.0
+    ],
+    [
+     125.0,
+     113.0,
+     131.5,
+     115.0
+    ]
+   ],
+   "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)",
+   "src": [
+    131.6792,
+    108.2786
+   ],
+   "anchor": "L2",
+   "placed": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13",
+    "C26"
+   ]
+  },
+  {
+   "name": "P2T",
+   "refs": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ],
+   "dst": [
+    15.7,
+    30.5
+   ],
+   "rot": 180,
+   "region": [
+    [
+     132.4,
+     113.1,
+     139.2,
+     121.0
+    ]
+   ],
+   "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)",
+   "src": [
+    135.5011,
+    117.5036
+   ],
+   "anchor": "T2",
+   "placed": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ]
+  },
+  {
+   "name": "B33",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "dst": [
+    31.551,
+    17.704
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.0,
+      146.95,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In2.Cu",
+      "In3.Cu",
+      "In4.Cu"
+     ]
+    },
+    [
+     138.2,
+     112.9,
+     144.3,
+     118.6
+    ]
+   ],
+   "why": "U5 cell (switch loop U5\u2013C30\u2013L3, bottom-side dividers and caps, top pours, In3 GND patch) in the east strip; the output cap C31 is the only part split off (the cell is 8.55 mm wide with it 9.65: the strip is 8.9)",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ]
+  },
+  {
+   "name": "B5V",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "ref_map": {
+    "U5": "U10",
+    "C30": "C55",
+    "L3": "L6",
+    "C28": "C53",
+    "C29": "C54",
+    "R20": "R39",
+    "R21": "R37",
+    "R22": "R40",
+    "R23": "R38"
+   },
+   "dst": [
+    31.551,
+    32.754
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.0,
+      146.95,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In2.Cu",
+      "In3.Cu",
+      "In4.Cu"
+     ]
+    },
+    [
+     138.2,
+     112.9,
+     144.3,
+     118.6
+    ]
+   ],
+   "why": "5 V buck = U5's cell copied again with its parts mapped by function (D13); C56/C57/C58/TP38 placed beside it",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U10",
+    "C55",
+    "L6",
+    "C53",
+    "C54",
+    "R39",
+    "R37",
+    "R40",
+    "R38"
+   ]
+  },
+  {
+   "name": "SENSE",
+   "refs": [
+    "C23",
+    "R8",
+    "U4",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "dst": [
+    33.88,
+    39.3
+   ],
+   "rot": 90,
+   "region": [
+    [
+     144.4,
+     112.4,
+     148.0,
+     121.4
+    ],
+    [
+     148.0,
+     114.2,
+     149.0,
+     121.4
+    ]
+   ],
+   "why": "R8 shunt + INA232 with Sofar's sense routing, and C23 above them; rotated 90 to fit the strip",
+   "src": [
+    146.0011,
+    116.9036
+   ],
+   "anchor": "C23",
+   "placed": [
+    "C23",
+    "R8",
+    "U4",
+    "R7",
+    "C15",
+    "TP22"
+   ]
+  },
+  {
+   "name": "DAMP1",
+   "refs": [
+    "C21",
+    "R16",
+    "C20",
+    "TP23"
+   ],
+   "dst": [
+    8.9,
+    57.5
+   ],
+   "rot": 90,
+   "region": [
+    [
+     149.9,
+     117.5,
+     156.5,
+     121.2
+    ]
+   ],
+   "why": "VBUS 10 uF + damping resistor (R16 pairs with C23 in SENSE) in the south-west pocket beside J5",
+   "src": [
+    154.2011,
+    119.2036
+   ],
+   "anchor": "C21",
+   "placed": [
+    "C21",
+    "R16",
+    "C20",
+    "TP23"
+   ]
+  },
+  {
+   "name": "DAMP2",
+   "refs": [
+    "C22"
+   ],
+   "dst": [
+    33.9,
+    47.5
+   ],
+   "rot": 90,
+   "region": [
+    [
+     146.8,
+     99.8,
+     155.8,
+     107.4
+    ]
+   ],
+   "why": "second damping electrolytic in the strip; its resistor R15 could not ride along (it would land under J1 or off the edge)",
+   "src": [
+    151.3011,
+    103.6036
+   ],
+   "anchor": "C22",
+   "placed": [
+    "C22"
+   ]
+  },
+  {
+   "name": "B18",
+   "refs": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ],
+   "dst": [
+    19.0,
+    37.6
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      141.8,
+      108.4,
+      148.3,
+      113.2
+     ],
+     "layers": [
+      "B.Cu"
+     ]
+    }
+   ],
+   "exclude_vias_on": [
+    "3V3",
+    "GND"
+   ],
+   "why": "1.8 V buck (all bottom) under the band east of the port-1 inductor, near U2",
+   "src": [
+    144.5011,
+    110.3286
+   ],
+   "anchor": "U6",
+   "placed": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ]
   }
- ]
+ ],
+ "fresh": {
+  "C31": {
+   "x": 34.45,
+   "y": 21.55,
+   "rot": 0,
+   "side": "F"
+  },
+  "U11": {
+   "x": 31.5,
+   "y": 54.1,
+   "rot": 0,
+   "side": "F"
+  },
+  "C49": {
+   "x": 36.2,
+   "y": 53.3,
+   "rot": 0,
+   "side": "F"
+  },
+  "R35": {
+   "x": 36.2,
+   "y": 55.4,
+   "rot": 0,
+   "side": "F"
+  },
+  "JP1": {
+   "x": 32.0,
+   "y": 9.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "R26": {
+   "x": 36.3,
+   "y": 12.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "R27": {
+   "x": 36.3,
+   "y": 14.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP20": {
+   "x": 36.3,
+   "y": 16.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP24": {
+   "x": 36.3,
+   "y": 19.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "C56": {
+   "x": 32.5,
+   "y": 24.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "C57": {
+   "x": 36.3,
+   "y": 24.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "C58": {
+   "x": 36.5,
+   "y": 27.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP38": {
+   "x": 36.5,
+   "y": 29.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "R11": {
+   "x": 33.5,
+   "y": 44.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "R34": {
+   "x": 30.6,
+   "y": 49.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "R41": {
+   "x": 30.6,
+   "y": 47.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "R42": {
+   "x": 36.9,
+   "y": 49.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "C50": {
+   "x": 36.9,
+   "y": 46.8,
+   "rot": 90,
+   "side": "B"
+  },
+  "R15": {
+   "x": 34.2,
+   "y": 51.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP35": {
+   "x": 36.9,
+   "y": 51.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP36": {
+   "x": 34.2,
+   "y": 54.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "D3": {
+   "x": 31.2,
+   "y": 55.0,
+   "rot": 90,
+   "side": "B"
+  },
+  "TP19": {
+   "x": 37.2,
+   "y": 56.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "D10": {
+   "x": 20.3,
+   "y": 28.3,
+   "rot": 0,
+   "side": "F"
+  },
+  "D8": {
+   "x": 20.3,
+   "y": 30.0,
+   "rot": 0,
+   "side": "F"
+  },
+  "D9": {
+   "x": 20.3,
+   "y": 31.7,
+   "rot": 0,
+   "side": "F"
+  },
+  "JP2": {
+   "x": 20.3,
+   "y": 28.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "R46": {
+   "x": 19.6,
+   "y": 32.6,
+   "rot": 90,
+   "side": "B"
+  },
+  "R44": {
+   "x": 21.0,
+   "y": 32.6,
+   "rot": 90,
+   "side": "B"
+  },
+  "R45": {
+   "x": 22.4,
+   "y": 32.6,
+   "rot": 90,
+   "side": "B"
+  },
+  "R43": {
+   "x": 7.5,
+   "y": 36.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP8": {
+   "x": 9.8,
+   "y": 36.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "D1": {
+   "x": 20.9,
+   "y": 59.0,
+   "rot": 90,
+   "side": "F"
+  },
+  "FID4": {
+   "x": 8.0,
+   "y": 2.5,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID3": {
+   "x": 21.5,
+   "y": 2.5,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID5": {
+   "x": 15.0,
+   "y": 56.0,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID2": {
+   "x": 8.0,
+   "y": 2.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID1": {
+   "x": 21.5,
+   "y": 2.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID6": {
+   "x": 15.0,
+   "y": 56.0,
+   "rot": 0,
+   "side": "B"
+  }
+ }
 }

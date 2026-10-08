@@ -57,7 +57,12 @@ def main(heights_path=None):
         (infos if ok else fails).append(f"{ref} ring: {len(arcs)} arc, {len(vias)} vias on {geom.INSERT_NET[ref]}" + ("" if ok else " (MISMATCH)"))
 
     # keep-outs over placed parts
-    heights = json.load(open(heights_path)) if heights_path else {}
+    heights = {}
+    if heights_path:
+        h = json.load(open(heights_path))["by_footprint"]
+        heights = {ref: h.get(str(fp.GetFPID().GetLibItemName())) for ref, fp in fps.items()}
+        heights = {r: v for r, v in heights.items() if v is not None}
+        heights["J1"] = 0.0          # the stacking socket itself (BRIEF §2)
     parked = []
     for ref, fp in fps.items():
         cy = geom.courtyard_bbox(fp)

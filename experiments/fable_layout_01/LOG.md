@@ -64,3 +64,37 @@
   hole, as on the mote; 8 `solder_mask_bridge`) and the 2 MTG/H courtyard overlaps; the rest is the parked grid.
   Parity unchanged (MP1–4 pin 1, Q6).
 - **Renders:** `out/m1/render_top.png`, `render_bottom.png`, `out/m1/layers/*.svg`.
+
+## M2 — all parts placed; blocks rigid, transforms in blocks.json (2026-10-07)
+
+- **Where the brief's blocks could not stay whole** (the fixed items leave three strips: the band between the inductor
+  envelopes, 8.0 mm tall; the strip east of J1, 8.9 mm wide; the west pocket, 10.0 mm wide):
+  - PORT1/PORT2: the transformer cluster sits 9.6 mm from the inductor's centre on the mote, inside the 50 W envelope +
+    2 mm, so each port is two rigid pieces: **P1L/P2L** = inductor + the bottom-side parts Sofar put under it (D4, R12,
+    R13, TP3, TP5 + C17, D2 under L1; D5, R17, R19, TP7, TP13 + C26 under L2) and **P1T/P2T** = T1/T2 with C16, C18,
+    C19, R14 / C24, C25, C27, R18, in the band. The inductor–transformer copper becomes new routing (M4).
+  - BUCK3V3: the U5 cell (U5, C30, L3, the bottom-side C28, C29, R20–R23, its pours and In3 GND patch) is 8.55 mm wide
+    and fits the strip; the output cap **C31** is placed beside it (with C31 the cell is 9.65 mm). **B5V** is the same
+    cell copied again with its parts mapped by function (U10, C55, L6, C53, C54, R39, R37, R40, R38; checked by nets);
+    C56/C57/C58/TP38 placed on the bottom under L6.
+  - SPINE: **SENSE** = R8 + U4 + R7 + C15 + TP22 with C23 above them (Sofar's sense routing stays), rotated 90 in the
+    strip; **DAMP1** = C21 + R16 (+ C20, TP23) in the south-west pocket; **DAMP2** = C22 in the strip with R15 beside it
+    (R15 would have landed under J1 or off the edge); D1 in the south-east pocket; C17/D2 and C26 ride under L1/L2.
+  - ADIN: whole, in the west pocket (option (a)), **rotated 90** so port 1's data pins face north toward T1 (≈ 5 mm) and
+    port 2's face south (T2 reached under the band, ≈ 18 mm); U1's courtyard x −6.3…2.9 stays west of the envelope
+    clearance line (2.99) and ≥ 4.8 mm from both inserts. U2 ends 4.95 mm from MP1 (the tightest spot).
+  - BUCK1V8 (**B18**, all bottom) under the band east of T2; LOAD placed fresh around U11 at the strip's south end.
+- **Interpretation recorded (for Nick):** the 2 mm envelope clearance is applied to top-side parts; bottom-side parts
+  may sit under an inductor as Sofar placed them (the 50 W part is a top-side volume). Without this the port blocks
+  could not be copied at all.
+- Fresh parts: LEDs D10/D8/D9 north→south in a column at the band's east end (x 20.3) with JP2 and R44–R46 under them;
+  JP1 on the bottom beside J1 pins 2/4 (no room on top: cut before stacking); R26/R27, TP20, TP24 bottom east of J1;
+  D1 (SE pocket), fiducials FID3/4/5 top and FID1/2/6 bottom at (8, 2.5), (21.5, 2.5), (15, 56).
+- Heights: `heights.json` (datasheet maxima per footprint; J1 exempt as the stacking socket). Every bottom part ≤ 1.5 mm.
+- Checks: `check_fixed.py --heights` 0 failures (positions, keep-outs, envelope clearance, heights); DRC
+  `out/m2/drc_summary.txt`: **courtyard overlaps 12** = the 2 MTG/H pairs (M1) + **10 pairs inside Sofar's own blocks**
+  (U4/C15, U4/R7, TP22/R8, TP5/R13, R12/D2, C10/TP1, C4/C12, TP21/U6, U5/C30, U10/C55): Sofar's placement with the
+  courtyards S6.c added; copying rigidly keeps them (to exclude with that reason). 4 clearance errors are T1/T2's
+  unnumbered footprint pads lying on pads 3/4 (Sofar's footprint, as on the mote). Default netclass clearance set to the
+  brief's 0.15 mm for signals (§6); larger classes are enforced on new routing by script (M4).
+- Renders: `out/m2/render_top.png`, `render_bottom.png`.
