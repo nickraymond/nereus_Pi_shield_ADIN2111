@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-06 · Owner/gate: **Nick***
+*Last updated: 2026-10-07 · Owner/gate: **Nick***
 
 ---
 
@@ -42,10 +42,11 @@
    **Every deliberate change from Sofar's mote goes in `docs/design-review/sofar_brief.md`**
    (one row: mote vs shield vs why), shipped with the board files.
 7. **Facts carry sources; unknowns get flagged, not guessed.**
-8. **KiCad files:** never write a `.kicad_pcb`. Reference designs and
+8. **KiCad files:** never write a `.kicad_pcb` (exception: a layout experiment's own board in `experiments/<name>/`, D31). Reference designs and
    `Archive/` are read-only. After every `.kicad_sch` text edit, kicad-cli must
    load the schematic and ERC must run, or the edit is not done.
-9. **The board is Nick's.** Answer layout and routing questions; don't act on them.
+9. **The board is Nick's.** Answer layout and routing questions; don't act on them, except inside an approved layout
+   experiment (`experiments/`, D31), which is never merged.
 
 ### Check command
 
@@ -66,6 +67,7 @@ docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
 nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
 tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py, bompdf.py (+ tests)
+experiments/                  layout experiments (D31): briefs on main; each run on its own branch, never merged
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
 pi-shield-checklist.html      shared visual view of this tracker (agents keep it in sync)
@@ -300,7 +302,8 @@ only), S6.d minor schematic tidy (Sofar's design: overlaps, uniform spacing, no 
       an open / fitted summary; headers for J1 and the Load Switch block; cover renders → TBD box + real sheet index; ADIN and Power sheets spread with headers;
       title blocks filled, Altium overlays removed, revision table about this board; active-low overbars + PAYLOAD_EN /
       ~{PAYLOAD_FAULT} names (D30). Connections unchanged. Signal table beside J1: not now (Nick)
-- [ ] S6.g: QE review (S6 session)
+- [x] S6.g: QE review (S6 session): **APPROVED WITH NITS** (round 2), nit fixed, **APPROVED** (round 3) —
+      `docs/design-review/qe/S6.md`; merged (PR #28)
 - [ ] S6: Nick's demo — open `docs/design-review/README.md`, `schematic.pdf`, `bom.pdf` and the project in KiCad; S6 is then complete
 - [x] S6.c Footprint attributes (D29): all 43 `Vault` footprints now have a type (`smd`; fiducial `smd exclude_from_bom`; test pad /
       mounting hole `exclude_from_pos_files exclude_from_bom`) and an F.CrtYd courtyard (39 from Sofar's own outlines, 4 computed);
@@ -326,6 +329,25 @@ S6.b: `tools/check.sh` → `ERC messages: 504  Errors 0  Warnings 504`, `ercexcl
 missing exclusions`, netcheck 51/51, midwire 0, exit 0; PDF title blocks read "Rev: AA" and PCB-000001-AA.
 S6.a: `tools/check.sh` → ERC 531 / 27 / 504 (unchanged), netcheck 51/51, midwire 0, exit 0, `BOM: … (51 rows)`; no TP/FID/MTG
 row; `Mfr` blank only on J1.
+
+### S7 — Layout experiment (agent port of the mote layout)  `[~]`
+*Nick, 2026-10-07: see how well a Fable session (high effort) can carry Sofar's proven copper onto the shield, block by
+block. Scoped exception to rules 8/9 (D31): the run writes only its own board in `experiments/fable_layout_01/`, on
+`experiment/fable-layout-01`, never merged.*
+- [x] S7.a Mechanical envelope (Nick, 2026-10-07): 46 × 65 mm (south may grow ≤ 2 mm), Pi Zero portrait (SD north,
+      header east, camera south); 40-pin **stacking** header; 4 bus inserts down the west wall (port 2 north, port 1
+      south; 2 mm between rings, 2 mm from the edge); PoDL inductor envelopes sized for 50 W (15.5 mm, 2 mm clear); Micro-Fit
+      3.0 payload connector on the south edge facing south (experiment only); 4 M3 housing holes + the Pi's 4 M2.5 holes;
+      LEDs green/red/green between the insert pairs; bottom parts ≤ 3 mm; copy Sofar's open items as drawn
+- [x] S7.a Brief `experiments/fable_layout_01/BRIEF.md` + kickoff prompt `KICKOFF.md` + layer renderer
+      `tools/render_layers.py`; Sofar layout questions Q9–Q12 (Q6 reworded); SPEC insert-contact fact corrected
+- [x] S7.a: QE review (S7 session): round 1 CHANGES REQUESTED (bus/power widths vs copied copper; plane pullback 3.85 mm;
+      notch mapping; renderer net names; D6 vs D31), fixed; round 2 **APPROVED WITH NITS**, nits fixed; round 3 **APPROVED** (plain
+      outline, QE agent file D31 exception) — `docs/design-review/qe/S7.md`. Waiting on Nick's read of the brief, then merge
+- [ ] S7.b Nick starts the Fable session (KICKOFF.md); review its REPORT.md, renders and draft PR
+**Demo (Nick):** read `experiments/fable_layout_01/BRIEF.md`; `$PY experiments/fable_layout_01/tools/render_layers.py
+KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb /tmp/mote_layers` → six SVGs (top, in1–in4,
+bot) that match the walkthrough's layer views.
 
 ---
 

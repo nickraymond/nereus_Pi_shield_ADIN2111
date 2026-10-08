@@ -69,7 +69,8 @@ schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
   error type/item has an owner in DESIGN.md.
 - **Claims:** for each concrete claim (counts, references, pins on nets, parts
   deleted/kept, coordinates, "verified identical"), check it yourself.
-- **Hard constraints (SPEC.md):** no `.kicad_pcb` modified; reference designs and
+- **Hard constraints (SPEC.md):** no `.kicad_pcb` modified (exception: a layout experiment's own board inside
+  `experiments/<name>/`, DESIGN D31; never the live project, the reference designs or `Archive/`); reference designs and
   `Archive/` untouched; Pi 3V3 (J1 pins 1/17) not connected to shield 3V3; part
   values/ratings carry citations; potting rules for newly sourced parts.
 - **Schematic sanity:** new symbols have unique references, footprints where
