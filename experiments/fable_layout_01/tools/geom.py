@@ -77,6 +77,7 @@ def fp_by_ref(board):
 def courtyard_bbox(fp):
     """Courtyard bounding box on the footprint's own side, as (x0, y0, x1, y1) mm; None if it has no courtyard."""
     layer = pcbnew.B_CrtYd if fp.IsFlipped() else pcbnew.F_CrtYd
+    fp.BuildCourtyardCaches()
     poly = fp.GetCourtyard(layer)
     if poly.OutlineCount() == 0:
         return None

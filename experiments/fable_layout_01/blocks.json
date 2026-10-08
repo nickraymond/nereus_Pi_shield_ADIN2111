@@ -1,0 +1,157 @@
+{
+ "frame": "board mm, Pi NW corner = (0,0)",
+ "blocks": [
+  {
+   "name": "RING_MP3",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP3"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    12.0
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP4",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP4"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    21.4
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP1",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP1"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    43.6
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP2",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP2"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    53.0
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  }
+ ]
+}
