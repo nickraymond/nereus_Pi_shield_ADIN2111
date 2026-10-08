@@ -53,11 +53,8 @@ still limited to ≈ 0.73 A by U11.
 corner, x east, y south. The Pi Zero is portrait under the shield: micro-SD at the north end, 40-pin header along the
 east edge, camera connector at the south end.
 
-**Outline: 46 × 65 mm**, x −7.5 … 38.5, y 0 … 65, corner radius 3 mm, plus Nick's north notch for the SD card. Copy the notch exactly from his `User.3 "Outline_PiZero"` shape in the live
-board file (read only), translated by (−194.53, −58.48) into this frame: that centres his 31.5 mm-wide outline on the
-30 mm Pi. It is a fillet–chamfer–fillet cut 1.5 mm deep: x ≈ 4.42 … 27.08 at the edge (≈ 22.7 mm), 7.58 … 23.91 at full depth
-(≈ 16.3 mm). Its east end comes ≈ 2.76 mm from H2's centre, inside H2's r 3.0 keep-out: keep Nick's shape (the board
-edge is exempt) and list it for Nick (§11). **Allowed growth:** the
+**Outline: 46 × 65 mm** rectangle, x −7.5 … 38.5, y 0 … 65, corner radius 3 mm, no cut-outs (Nick, 2026-10-07: no SD
+notch). **Allowed growth:** the
 south edge may move up to 2.0 mm south (46 × 67) if U1 can't be placed otherwise (see §4). Report the final size.
 
 **Stack.** 6 copper layers, 1.6 mm, in the mote's order and roles: L1 top (parts, bus copper, buck pours) · L2 signal ·
@@ -184,9 +181,7 @@ about 4.2 mm east into the room J1 leaves. Confirm against OpenMV's STEP model w
 
 ## 11. Assumptions to confirm (Nick)
 
-- The outline is centred on the Zero east–west as drawn here (west flange 7.5 mm, east 8.5 mm), and Nick's User.3 notch is
-  placed by centring his 31.5 mm outline on the 30 mm Pi (§2).
-- The notch's east end sits ≈ 2.76 mm from the north-east M2.5 standoff's centre: confirm it clears the standoff and screw.
+- The outline is centred on the Zero east–west as drawn here (west flange 7.5 mm, east 8.5 mm).
 - The stacking header is this experiment's assumption; the real J1 part (D6's plain socket or a stacking header) is still
   Nick's choice.
 - Bottom-side part height ≤ 3 mm; the exact stacking header part is still open (J1 in the BOM).
