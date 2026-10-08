@@ -157,6 +157,38 @@
   (17.5, 58.5), D3/C50 under U11's thermal-pad side, R15 beside C22, R26/R27/TP24/TP20/C56–C58/TP38 in via-free spots.
 - Renders: `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`.
 
+## S7.b round 4 — QE APPROVED WITH NITS (2026-10-08)
+
+QE report: `qe/S7b_round4.md` (posted on PR #30). R3-F1 and R3-F2 verified; every claimed number reproduced;
+bus-vs-bus probe at 0.35 lists only Sofar's P1T/P2T geometry. Two nits fixed in REPORT.md: the 1V8 item's measured
+gap is 0.225 mm (it was routed under the Default 0.15 mm rule), and the stray period in §1. The experiment is now
+ready for Nick's KiCad review; never merge (BRIEF). Open for Nick (all declared): BM2_DATA_N +2.1 mm; the 1V8 lane
+past the BM1_P leg via (one DRC error with a reason); bottom parts under the inductor envelopes (#2); U1 1.79 mm
+from the L1 envelope (#3); 10 narrow fallback segments, 13 thin links; the DRC exclusions to apply by hand in KiCad.
+
+## S7.b round 3 — report restored; new bus legs at 0.35 from the opposite leg (2026-10-08)
+
+QE report: `qe/S7b_round3.md` (posted on PR #30). Board fixes of round 2 verified; CHANGES REQUESTED for the report.
+
+- **R3-F1 (MAJOR, report):** my round-2 report script anchored a replacement on the first "| 10 |" in the file,
+  which was the exclusion table's "courtyards_overlap | 10" row, and cut everything up to deviation #12: the tail
+  of §5's exclusion table, the §6 heading and deviations #1–#9 were gone. Restored by splicing: the exclusion table
+  verbatim from `out/m5/drc_exclusions.md`, §6 #1–#9 and #12/#13 from 0903d87's REPORT (round-2 wording), the rest
+  regenerated from the fresh outputs. Two intermediate commits (60e14d6 and the one before) briefly carried a
+  duplicated §7–§9 from the same kind of splice error; 554d934 is clean (headings 1–10 once, rows 1–17). The script
+  now anchors on headings and is idempotent.
+- **R3-F2 (MINOR):** new bus copper now keeps 0.35 mm from the opposite leg too: the data legs use a `busleg`
+  class (0.2 / 0.35); `Grid.route` gains `soft` goal cells — the destination PAD's own cells may be entered by an
+  orthogonal step without the clearance test, because T1/T2 pad 7 sits 0.24 mm from pad 6 and a leg has to reach its
+  pad. A first version exempted every goal cell including diagonal steps and produced one real Default-clearance
+  error (a 3V3 plane-leftover track clipping a GND via at (2.7, 38.5)); restricted to pad cells + orthogonal steps it
+  is gone. `check_rules.py` now checks new bus items against other bus nets at 0.35 as well, exempting only T1/T2's
+  pads. All four legs routed with `busleg` (no fallback used); rules.md: 1 class-clearance item (VBUS_OUT past U11
+  pad 9).
+- Result (M3 snapshot + `START=m4` after the last edit, commit 835f1a8): DRC 111 errors (110 Sofar + 1 declared
+  1V8), 258 warnings, 0 copper-defect warnings, 1 unconnected (J1), 4 parity; blockcheck 0 missing / 126 trimmed /
+  414 extra; check_fixed 0 failures; pairs 9.4 / 7.9 / 21.3 / 23.4; Kelvin both yes; stitch vias 69 (37 pre-stitched).
+
 ## S7.b round 2 — QE R2-F1 (Kelvin sense) and R2-F2 (bus rule) fixed (2026-10-08)
 
 QE report: `qe/S7b_round2.md` (posted on PR #30). Round-1 items all verified; two new MAJORs, both real.
