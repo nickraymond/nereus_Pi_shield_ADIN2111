@@ -1,0 +1,7 @@
+violations: 272 {('items_not_allowed', 'error'): 2, ('clearance', 'error'): 25, ('shorting_items', 'error'): 7, ('hole_clearance', 'error'): 9, ('courtyards_overlap', 'error'): 8, ('padstack_invalid', 'error'): 4, ('invalid_outline', 'error'): 1, ('solder_mask_bridge', 'error'): 38, ('padstack', 'warning'): 38, ('hole_to_hole', 'warning'): 4, ('lib_footprint_mismatch', 'warning'): 4, ('text_height', 'warning'): 112, ('text_thickness', 'warning'): 4, ('silk_over_copper', 'warning'): 11, ('silk_overlap', 'warning'): 3, ('nonmirrored_text_on_back_layer', 'warning'): 2}
+unconnected_items: 257 {('unconnected_items', 'error'): 257}
+schematic_parity: 4 {('net_conflict', 'warning'): 4}
+  parity: No pad found for pin 1 (/Top-Level Schematic/BM1_P) in schematic. | Footprint MP1
+  parity: No pad found for pin 1 (/Top-Level Schematic/BM1_N) in schematic. | Footprint MP2
+  parity: No pad found for pin 1 (/Top-Level Schematic/BM2_P) in schematic. | Footprint MP3
+  parity: No pad found for pin 1 (/Top-Level Schematic/BM2_N) in schematic. | Footprint MP4

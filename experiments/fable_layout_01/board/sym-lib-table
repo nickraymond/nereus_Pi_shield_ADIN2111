@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "BM_Mote_000639-AB-altium-import")(type "KiCad")(uri "${KIPRJMOD}/BM_Mote_000639-AB-altium-import.kicad_sym")(options "")(descr ""))
+  (lib (name "nereus")(type "KiCad")(uri "${KIPRJMOD}/nereus.kicad_sym")(options "")(descr "Project symbols made for the Pi shield"))
+)

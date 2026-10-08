@@ -1,0 +1,7 @@
+# raw check outputs are reproducible; the summaries and renders are tracked
+out/*/drc.json
+out/*/netlist.net
+out/*/erc.rpt
+board/*.kicad_prl
+board/*-backups/
+board/fp-info-cache
