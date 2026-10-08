@@ -220,43 +220,6 @@ was added (LOG, S7.b round 1).
 | 16 | 1V8 (buck B18 → U2) passes the port-1 bus-leg via at (11.94, 43.88) at the Default 0.15 mm on Internal 2, not the bus rule's 0.35: 1 DRC error, in the exclusion table with this reason | at 0.35 there is no lane from the 1.8 V buck to the ADIN pocket (the router tried 0.35 first; the leg vias, not the feeds, are what it passes) |
 | 17 | The bus rule is bus vs non-bus (§4): Sofar's copied P/N legs and T1/T2's pads 6/7 (0.24 mm apart) keep Sofar's spacing. New bus copper keeps 0.35 mm from the opposite leg as well (the `busleg` class, QE R3-F2), except the last 0.1 mm of a leg entering T1/T2 pad 6 or 7, which passes the neighbouring pad at Sofar's spacing (`check_rules.py` exempts only those pads) | the brief's bus class describes the insert feeds; Sofar's leg geometry is copied as drawn; a leg has to reach its pad |
 
-## 7. Open after M5
-
-1. BM2_DATA_N 2.1 mm over the mote's length (deviation 8).
-2. J1 pins 1/17 (Pi 3V3) unconnected by design.
-3. The §6 declarations: narrower fallback links (#10), 1 clearance item (#11), 13 thin links (#14), the 1V8 lane (#16).
-
-(U3's 3V3 feed, open in the first M5, is closed: §4.)
-
-## 8. What was hard, where I guessed, what I would do with more time
-
-Rebuilding: `tools/build_all.sh` reproduces the board DRC-for-DRC but not byte-for-byte (the router's tie-breaking
-depends on Python set order; QE N4). The committed board is the output of one run of M0–M3 and the M4 step from the
-M3 snapshot (`START=m4`), followed by a second pass of `tools/dangling.py` after the "delete on the second flag" rule
-was added (LOG, S7.b round 1).
-
-- Hard: fitting rigid blocks into strips 8–9 mm wide; the ADIN pocket's exits; KiCad's silent re-netting of copper
-  that lands on a pad of another net (blockcheck caught every case); the grid router's conservatism against
-  off-grid copied vias (fixed by inflating pre-existing copper by half a cell diagonal, which then blocks the 0.15 mm
-  threading between U1's 1.27 mm thermal vias).
-- Guessed / interpreted: the envelope clearance for bottom-side parts (deviation 2); the GND slot mapping (§4); the
-  no-net islands' size and place; the stackup; the pull-back applied to copper of other nets only; bottom-part
-  heights from datasheet maxima (`heights.json`).
-- With more time: a pair-aware router (route N and P together); rip-up that targets one lane, not a region (my
-  rip-up rounds thrashed); a 0.05 mm grid near fine-pitch parts; a second look at the ADIN pocket — rotating the
-  block 270° (port-2 pins north) or moving the LEDs' resistors would free the south strip; silk clean-up.
-
-## 9. Pass criteria (BRIEF §8)
-
-| # | Criterion | Result |
-|---|---|---|
-| 1 | DRC: 0 errors, 0 unconnected, 0 parity (exclusions with reasons) | **Partial**: 111 errors, all in the exclusion table with reasons (110 Sofar features + 1 declared 1V8 item; not applied: CLI limitation); 1 unconnected (J1's no-connect pair, by design); 4 parity items (Q6, documented); 0 copper-defect warnings; the bus rule enforced by kicad-cli |
-| 2 | §3 positions ±0.05; J1 pin 1 at (25.23, 8.37) from the top | **Pass** (`check_fixed.py`: every position within 0.001; pins 1/2/39/40 proven) |
-| 3 | §4 keep-outs, 2 mm around both envelopes, bottom ≤ 3 mm | **Pass with one allowance**: U1 1.79 mm (recorded); bottom parts ≤ 1.5 mm; holes clear (parts); inserts: no other-net copper within r 4.8 on any layer (`check_fixed.py`, QE F6) |
-| 4 | blockcheck 100 % | **Pass with trimming declared**: 0 missing on every block; 130 copied items trimmed after routing (listed); 342 extra = new routing in the block regions (`out/m3/blockcheck.md`) |
-| 5 | §6 widths on new routing; pairs no longer than the mote's; R8 sense identical; rings identical | **Partial**: feeds 1.5 mm, payload 0.6 (3 segments 0.5), pairs 3/4 within (BM2 N +2.1 mm), 10 fallback segments narrower than their class, 13 thin links, 1 clearance item (table 6), 1V8 at 0.15 from a bus-leg via (#16); R8/U4 Kelvin links pad-to-pad by tracks alone (U4.1 ↔ R8.2 (P_IN) yes, U4.2 ↔ R8.1 (VBUS) yes); rings 100 % |
-| 6 | Renders: every copper layer for mote and shield, kicad-cli top/bottom | **Pass**: `out/m5/mote_layers/`, `out/m5/shield_layers/`, `out/m5/render_top.png`, `render_bottom.png` |
-
 ## 10. Questions
 
 **For Nick**
