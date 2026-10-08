@@ -55,8 +55,8 @@ east edge, camera connector at the south end.
 
 **Outline: 46 × 65 mm**, x −7.5 … 38.5, y 0 … 65, corner radius 3 mm, plus Nick's north notch for the SD card. Copy the notch exactly from his `User.3 "Outline_PiZero"` shape in the live
 board file (read only), translated by (−194.53, −58.48) into this frame: that centres his 31.5 mm-wide outline on the
-30 mm Pi. It is a fillet–chamfer–fillet cut 1.5 mm deep, ≈ 22.7 mm wide at the edge and 16.3 mm at full depth, spanning
-x ≈ 5.84 … 25.66. Its east end comes ≈ 2.76 mm from H2's centre, inside H2's r 3.0 keep-out: keep Nick's shape (the board
+30 mm Pi. It is a fillet–chamfer–fillet cut 1.5 mm deep: x ≈ 4.42 … 27.08 at the edge (≈ 22.7 mm), 7.58 … 23.91 at full depth
+(≈ 16.3 mm). Its east end comes ≈ 2.76 mm from H2's centre, inside H2's r 3.0 keep-out: keep Nick's shape (the board
 edge is exempt) and list it for Nick (§11). **Allowed growth:** the
 south edge may move up to 2.0 mm south (46 × 67) if U1 can't be placed otherwise (see §4). Report the final size.
 
@@ -125,7 +125,7 @@ and the processor's passives and test points). Place only what the netlist has.
 
 | Class | Nets | Width | Clearance | Notes |
 |---|---|---|---|---|
-| Bus DC path | BM1_P, BM1_N, BM2_P, BM2_N between insert and inductor | ≥ 1.0 mm (mote 1.0–2.0 there) | 0.35 mm | New routing (the inserts moved), short and wide. The data legs to T1/T2, the TVS legs and the 0.2 mm test-point taps keep the mote's widths (0.2–0.5 mm) |
+| Bus DC path | BM1_P, BM1_N, BM2_P, BM2_N between insert and inductor | ≥ 1.0 mm (mote 1.0–2.0 there) | 0.35 mm | New routing (the inserts moved), short and wide. The data legs to T1/T2 (0.2 mm) and the TVS legs to D4/D5 (0.5 mm) keep the mote's widths |
 | Power | VBUS, P_IN rail copper | ≥ 0.5 mm + plane | 0.25 mm | As the mote: P_IN on L5 under port 2's side, VBUS band + under port 1. R8/U4 sense legs and small decoupling stubs keep the mote's 0.2 mm |
 | Payload | VBUS_OUT | ≥ 0.6 mm (mote) | 0.25 mm | U11 → J5 |
 | Pi 5 V | 5V_PI, PI_5V | ≥ 1.0 mm or a pour | 0.25 mm | U10 → JP1 → J1 pins 2/4; 1 A continuous (D15) |

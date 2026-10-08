@@ -341,8 +341,9 @@ block. Scoped exception to rules 8/9 (D31): the run writes only its own board in
       LEDs green/red/green between the insert pairs; bottom parts ≤ 3 mm; copy Sofar's open items as drawn
 - [x] S7.a Brief `experiments/fable_layout_01/BRIEF.md` + kickoff prompt `KICKOFF.md` + layer renderer
       `tools/render_layers.py`; Sofar layout questions Q9–Q12 (Q6 reworded); SPEC insert-contact fact corrected
-- [~] S7.a: QE review (S7 session): round 1 CHANGES REQUESTED (bus/power widths vs copied copper; plane pullback 3.85 mm;
-      notch mapping; renderer net names; D6 vs D31), fixed — `docs/design-review/qe/S7.md`; round 2 pending
+- [x] S7.a: QE review (S7 session): round 1 CHANGES REQUESTED (bus/power widths vs copied copper; plane pullback 3.85 mm;
+      notch mapping; renderer net names; D6 vs D31), fixed; round 2 **APPROVED WITH NITS**, nits fixed —
+      `docs/design-review/qe/S7.md`. Waiting on Nick's read of the brief, then merge
 - [ ] S7.b Nick starts the Fable session (KICKOFF.md); review its REPORT.md, renders and draft PR
 **Demo (Nick):** read `experiments/fable_layout_01/BRIEF.md`; `$PY experiments/fable_layout_01/tools/render_layers.py
 KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb /tmp/mote_layers` → six SVGs (top, in1–in4,
