@@ -16297,7 +16297,7 @@
 				)
 			)
 		)
-		(property "Value" "43650-0200"
+		(property "Value" "SM02B-GHS-TB"
 			(at 101.6 213.36 0)
 			(effects
 				(font
@@ -16305,7 +16305,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43650-0200_1x02_P3.00mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal"
 			(at 101.6 207.01 0)
 			(effects
 				(font
