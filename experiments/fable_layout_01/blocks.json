@@ -202,6 +202,14 @@
      120.6
     ]
    ],
+   "zone_region": [
+    [
+     148.0,
+     107.9,
+     159.5,
+     120.6
+    ]
+   ],
    "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of x 2.99 and both insert keep-outs",
    "src": [
     154.0011,
@@ -235,7 +243,15 @@
     "R6",
     "TP1",
     "TP2"
-   ]
+   ],
+   "copied": {
+    "track": 280,
+    "arc": 0,
+    "via": 54,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 19
+   }
   },
   {
    "name": "P1L",
@@ -277,7 +293,15 @@
     "TP5",
     "C17",
     "D2"
-   ]
+   ],
+   "copied": {
+    "track": 50,
+    "arc": 0,
+    "via": 19,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   }
   },
   {
    "name": "P1T",
@@ -289,7 +313,7 @@
     "R14"
    ],
    "dst": [
-    7.7,
+    8.7,
     30.5
    ],
    "rot": 0,
@@ -313,7 +337,15 @@
     "C18",
     "C19",
     "R14"
-   ]
+   ],
+   "copied": {
+    "track": 40,
+    "arc": 0,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 6
+   }
   },
   {
    "name": "P2L",
@@ -359,7 +391,15 @@
     "TP7",
     "TP13",
     "C26"
-   ]
+   ],
+   "copied": {
+    "track": 34,
+    "arc": 0,
+    "via": 18,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 5
+   }
   },
   {
    "name": "P2T",
@@ -371,13 +411,13 @@
     "R18"
    ],
    "dst": [
-    15.7,
+    16.7,
     30.5
    ],
    "rot": 180,
    "region": [
     [
-     132.4,
+     133.0,
      113.1,
      139.2,
      121.0
@@ -395,7 +435,15 @@
     "C25",
     "C27",
     "R18"
-   ]
+   ],
+   "copied": {
+    "track": 60,
+    "arc": 0,
+    "via": 8,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 7
+   }
   },
   {
    "name": "B33",
@@ -419,24 +467,33 @@
     {
      "rect": [
       138.2,
-      104.0,
-      146.95,
+      104.6,
+      146.4,
       112.9
      ],
      "layers": [
       "F.Cu",
       "In1.Cu",
-      "In2.Cu",
-      "In3.Cu",
-      "In4.Cu"
+      "In3.Cu"
      ]
     },
-    [
-     138.2,
-     112.9,
-     144.3,
-     118.6
-    ]
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
    ],
    "why": "U5 cell (switch loop U5\u2013C30\u2013L3, bottom-side dividers and caps, top pours, In3 GND patch) in the east strip; the output cap C31 is the only part split off (the cell is 8.55 mm wide with it 9.65: the strip is 8.9)",
    "src": [
@@ -454,7 +511,15 @@
     "R21",
     "R22",
     "R23"
-   ]
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   }
   },
   {
    "name": "B5V",
@@ -482,31 +547,40 @@
    },
    "dst": [
     31.551,
-    32.754
+    31.4
    ],
    "rot": 0,
    "region": [
     {
      "rect": [
       138.2,
-      104.0,
-      146.95,
+      104.6,
+      146.4,
       112.9
      ],
      "layers": [
       "F.Cu",
       "In1.Cu",
-      "In2.Cu",
-      "In3.Cu",
-      "In4.Cu"
+      "In3.Cu"
      ]
     },
-    [
-     138.2,
-     112.9,
-     144.3,
-     118.6
-    ]
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
    ],
    "why": "5 V buck = U5's cell copied again with its parts mapped by function (D13); C56/C57/C58/TP38 placed beside it",
    "src": [
@@ -524,7 +598,15 @@
     "R37",
     "R40",
     "R38"
-   ]
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   }
   },
   {
    "name": "SENSE",
@@ -546,13 +628,13 @@
      144.4,
      112.4,
      148.0,
-     121.4
+     120.2
     ],
     [
      148.0,
      114.2,
      149.0,
-     121.4
+     120.2
     ]
    ],
    "why": "R8 shunt + INA232 with Sofar's sense routing, and C23 above them; rotated 90 to fit the strip",
@@ -568,7 +650,15 @@
     "R7",
     "C15",
     "TP22"
-   ]
+   ],
+   "copied": {
+    "track": 78,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 15
+   }
   },
   {
    "name": "DAMP1",
@@ -602,7 +692,15 @@
     "R16",
     "C20",
     "TP23"
-   ]
+   ],
+   "copied": {
+    "track": 12,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 6
+   }
   },
   {
    "name": "DAMP2",
@@ -611,7 +709,7 @@
    ],
    "dst": [
     33.9,
-    47.5
+    47.7
    ],
    "rot": 90,
    "region": [
@@ -619,7 +717,7 @@
      146.8,
      99.8,
      155.8,
-     107.4
+     107.0
     ]
    ],
    "why": "second damping electrolytic in the strip; its resistor R15 could not ride along (it would land under J1 or off the edge)",
@@ -630,7 +728,15 @@
    "anchor": "C22",
    "placed": [
     "C22"
-   ]
+   ],
+   "copied": {
+    "track": 38,
+    "arc": 0,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   }
   },
   {
    "name": "B18",
@@ -642,10 +748,10 @@
     "TP21"
    ],
    "dst": [
-    19.0,
-    37.6
+    20.7,
+    47.2
    ],
-   "rot": 0,
+   "rot": 90,
    "region": [
     {
      "rect": [
@@ -663,7 +769,7 @@
     "3V3",
     "GND"
    ],
-   "why": "1.8 V buck (all bottom) under the band east of the port-1 inductor, near U2",
+   "why": "1.8 V buck (all bottom) east of L1 beside J1, rotated 90 to clear D2/C17 under L1",
    "src": [
     144.5011,
     110.3286
@@ -675,31 +781,39 @@
     "C32",
     "C33",
     "TP21"
-   ]
+   ],
+   "copied": {
+    "track": 43,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   }
   }
  ],
  "fresh": {
   "C31": {
-   "x": 34.45,
-   "y": 21.55,
+   "x": 36.6,
+   "y": 17.7,
    "rot": 0,
    "side": "F"
   },
   "U11": {
    "x": 31.5,
-   "y": 54.1,
+   "y": 54.3,
    "rot": 0,
    "side": "F"
   },
   "C49": {
    "x": 36.2,
-   "y": 53.3,
+   "y": 53.5,
    "rot": 0,
    "side": "F"
   },
   "R35": {
    "x": 36.2,
-   "y": 55.4,
+   "y": 55.6,
    "rot": 0,
    "side": "F"
   },
@@ -710,153 +824,153 @@
    "side": "B"
   },
   "R26": {
-   "x": 36.3,
-   "y": 12.5,
+   "x": 37.0,
+   "y": 20.2,
    "rot": 0,
    "side": "B"
   },
   "R27": {
-   "x": 36.3,
-   "y": 14.3,
+   "x": 37.0,
+   "y": 22.0,
    "rot": 0,
    "side": "B"
   },
   "TP20": {
-   "x": 36.3,
-   "y": 16.6,
+   "x": 37.2,
+   "y": 16.8,
    "rot": 0,
    "side": "B"
   },
   "TP24": {
-   "x": 36.3,
-   "y": 19.0,
+   "x": 34.9,
+   "y": 22.4,
    "rot": 0,
    "side": "B"
   },
   "C56": {
-   "x": 32.5,
-   "y": 24.8,
+   "x": 31.6,
+   "y": 23.0,
    "rot": 0,
    "side": "B"
   },
   "C57": {
-   "x": 36.3,
-   "y": 24.8,
+   "x": 31.6,
+   "y": 25.2,
    "rot": 0,
    "side": "B"
   },
   "C58": {
    "x": 36.5,
-   "y": 27.3,
+   "y": 30.8,
    "rot": 0,
    "side": "B"
   },
   "TP38": {
    "x": 36.5,
-   "y": 29.6,
+   "y": 32.9,
    "rot": 0,
    "side": "B"
   },
   "R11": {
-   "x": 33.5,
-   "y": 44.8,
-   "rot": 0,
+   "x": 21.0,
+   "y": 58.0,
+   "rot": 90,
    "side": "B"
   },
   "R34": {
    "x": 30.6,
-   "y": 49.3,
+   "y": 45.3,
    "rot": 0,
    "side": "B"
   },
   "R41": {
-   "x": 30.6,
-   "y": 47.3,
+   "x": 30.7,
+   "y": 43.3,
    "rot": 0,
    "side": "B"
   },
   "R42": {
    "x": 36.9,
-   "y": 49.3,
+   "y": 52.5,
    "rot": 0,
    "side": "B"
   },
   "C50": {
    "x": 36.9,
-   "y": 46.8,
+   "y": 50.0,
    "rot": 90,
    "side": "B"
   },
   "R15": {
-   "x": 34.2,
-   "y": 51.3,
-   "rot": 0,
+   "x": 30.5,
+   "y": 49.2,
+   "rot": 90,
    "side": "B"
   },
   "TP35": {
    "x": 36.9,
-   "y": 51.6,
+   "y": 54.6,
    "rot": 0,
    "side": "B"
   },
   "TP36": {
-   "x": 34.2,
-   "y": 54.5,
+   "x": 19.5,
+   "y": 62.3,
    "rot": 0,
    "side": "B"
   },
   "D3": {
    "x": 31.2,
-   "y": 55.0,
+   "y": 54.8,
    "rot": 90,
    "side": "B"
   },
   "TP19": {
    "x": 37.2,
-   "y": 56.0,
+   "y": 57.0,
    "rot": 0,
    "side": "B"
   },
   "D10": {
-   "x": 20.3,
+   "x": 21.5,
    "y": 28.3,
    "rot": 0,
    "side": "F"
   },
   "D8": {
-   "x": 20.3,
+   "x": 21.5,
    "y": 30.0,
    "rot": 0,
    "side": "F"
   },
   "D9": {
-   "x": 20.3,
+   "x": 21.5,
    "y": 31.7,
    "rot": 0,
    "side": "F"
   },
   "JP2": {
-   "x": 20.3,
+   "x": 21.0,
    "y": 28.5,
    "rot": 0,
    "side": "B"
   },
   "R46": {
-   "x": 19.6,
-   "y": 32.6,
-   "rot": 90,
+   "x": 21.5,
+   "y": 31.3,
+   "rot": 0,
    "side": "B"
   },
   "R44": {
-   "x": 21.0,
-   "y": 32.6,
-   "rot": 90,
+   "x": 21.5,
+   "y": 32.7,
+   "rot": 0,
    "side": "B"
   },
   "R45": {
-   "x": 22.4,
-   "y": 32.6,
-   "rot": 90,
+   "x": 21.5,
+   "y": 34.1,
+   "rot": 0,
    "side": "B"
   },
   "R43": {

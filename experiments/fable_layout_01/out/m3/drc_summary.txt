@@ -1,0 +1,18 @@
+6 ('clearance', 'error')
+12 ('courtyards_overlap', 'error')
+36 ('hole_clearance', 'error')
+8 ('lib_footprint_mismatch', 'warning')
+2 ('nonmirrored_text_on_back_layer', 'warning')
+38 ('padstack', 'warning')
+4 ('padstack_invalid', 'error')
+34 ('shorting_items', 'error')
+4 ('silk_edge_clearance', 'warning')
+44 ('silk_over_copper', 'warning')
+46 ('silk_overlap', 'warning')
+18 ('solder_mask_bridge', 'error')
+112 ('text_height', 'warning')
+4 ('text_thickness', 'warning')
+81 ('track_dangling', 'warning')
+83 ('via_dangling', 'warning')
+unconnected_items: 216
+schematic_parity: 4

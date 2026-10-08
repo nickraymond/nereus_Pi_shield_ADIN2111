@@ -71,12 +71,14 @@ class Mote:
 
     # ---- selection ------------------------------------------------------------------------------------------
     def select(self, block):
-        """Return the mote items of a block: {"footprints": [...], "copper": [(item, clipped_flag)], "zones": [...]}.
+        """Return the mote items of a block: {"footprints": [...], "copper": [(item, clip_rect)], "zones": [(z, clip_rect)]}.
 
-        Rules: footprints by ref. Copper (tracks / arcs / vias) by kind, inside `region` (rect [x0,y0,x1,y1] mm, or
-        `radius` around the anchor) and on a block net (nets touching the block's pads, unless `nets` is given).
-        Tracks crossing the rect boundary are clipped to it (flag True); arcs and zones crossing it are kept whole
-        unless `clip_zones` is set, in which case the zone outline is intersected with the rect.
+        Footprints by ref. Copper (tracks / arcs / vias) by kind, on a block net (the nets touching the block's pads,
+        unless `nets` is given), inside the block's region: a list of rects [x0, y0, x1, y1] in mote mm, each
+        optionally {"rect": [...], "layers": [...]} to take only those layers there; or `radius` around the anchor.
+        A track with one end inside a rect is clipped to that rect (clip_rect set); arcs are taken whole when fully
+        inside; a zone is taken when its outline overlaps a rect that allows its layer, clipped to that rect unless it
+        lies wholly inside. Vias on `exclude_vias_on` nets are skipped (they belong to a block sharing the area).
         """
         refs = block["refs"]
         fps = [self.mote_fp[r] for r in refs]
@@ -85,17 +87,26 @@ class Mote:
             nets = set(block["nets"])
         else:
             nets = {p.GetNetname() for f in fps for p in f.Pads() if p.GetNetname()}
-            if block.get("no_gnd"):
-                nets.discard("GND")
         anchor = tuple(block["src"])
-        rect = block.get("region")
         radius = block.get("radius")
+        rects = []
+        for r in block.get("region", []):
+            if isinstance(r, dict):
+                rects.append((r["rect"], {self.mote.GetLayerID(n) for n in r["layers"]}))
+            else:
+                rects.append((r, None))
+        no_vias = set(block.get("exclude_vias_on", []))
 
-        def inside(p):
+        def rect_of(p, layer):
             x, y = mm(p.x), mm(p.y)
             if radius is not None:
-                return math.hypot(x - anchor[0], y - anchor[1]) <= radius
-            return rect[0] <= x <= rect[2] and rect[1] <= y <= rect[3]
+                return (None,) if math.hypot(x - anchor[0], y - anchor[1]) <= radius else None
+            for rect, layers in rects:
+                if layers is not None and layer is not None and layer not in layers:
+                    continue
+                if rect[0] <= x <= rect[2] and rect[1] <= y <= rect[3]:
+                    return (rect,)
+            return None
 
         copper = []
         for t in self.mote.GetTracks():
@@ -103,29 +114,47 @@ class Mote:
                 continue
             cls = t.GetClass()
             if cls == "PCB_VIA" and "via" in kinds:
-                if inside(t.GetPosition()):
-                    copper.append((t, False))
+                if t.GetNetname() not in no_vias and rect_of(t.GetPosition(), None):
+                    copper.append((t, None))
             elif cls == "PCB_ARC" and "arc" in kinds:
-                if inside(t.GetStart()) and inside(t.GetEnd()) and inside(t.GetMid()):
-                    copper.append((t, False))
+                lay = t.GetLayer()
+                if rect_of(t.GetStart(), lay) and rect_of(t.GetEnd(), lay) and rect_of(t.GetMid(), lay):
+                    copper.append((t, None))
             elif cls == "PCB_TRACK" and "track" in kinds:
-                a, b = inside(t.GetStart()), inside(t.GetEnd())
+                lay = t.GetLayer()
+                a, b = rect_of(t.GetStart(), lay), rect_of(t.GetEnd(), lay)
                 if a and b:
-                    copper.append((t, False))
-                elif (a or b) and rect is not None:
-                    copper.append((t, True))
+                    copper.append((t, None))
+                elif a or b:
+                    rect = (a or b)[0]
+                    if rect is not None:
+                        copper.append((t, rect))
         zones = []
-        if "zone" in kinds and rect is not None:
+        clip_nets = set(block.get("clip_zone_nets", []))
+        zrects = block.get("zone_region")          # optional zone-only rects (no layer filter) for whole-inside tests
+
+        def zone_inside(q, zl):
+            if zrects:
+                x, y = mm(q.x), mm(q.y)
+                return any(r[0] <= x <= r[2] and r[1] <= y <= r[3] for r in zrects)
+            return rect_of(q, zl)
+        if "zone" in kinds and rects:
             for z in self.mote.Zones():
                 if z.GetIsRuleArea() or z.GetNetname() not in nets:
                     continue
-                bb = z.GetBoundingBox()
-                zr = (mm(bb.GetLeft()), mm(bb.GetTop()), mm(bb.GetRight()), mm(bb.GetBottom()))
-                if not geom.rect_overlap(zr, rect):
-                    continue
-                whole = rect[0] <= zr[0] and rect[1] <= zr[1] and zr[2] <= rect[2] and zr[3] <= rect[3]
-                if whole or block.get("clip_zones"):
-                    zones.append((z, not whole))
+                zl = z.GetLayer()
+                o = z.Outline().Outline(0)
+                pts = [o.CPoint(i) for i in range(o.PointCount())]
+                if pts and all(zone_inside(q, zl) for q in pts):
+                    zones.append((z, None))             # an island pour wholly inside the block: copy whole
+                elif z.GetNetname() in clip_nets:
+                    bb = z.GetBoundingBox()
+                    zr = (mm(bb.GetLeft()), mm(bb.GetTop()), mm(bb.GetRight()), mm(bb.GetBottom()))
+                    for rect, layers in rects:
+                        if (layers is None or zl in layers) and geom.rect_overlap(zr, rect):
+                            zones.append((z, rect))
+                            break
+                # anything else (the big GND / power planes) is M4's: planes are rebuilt on the new geometry
         return {"footprints": fps, "copper": copper, "zones": zones, "nets": sorted(nets)}
 
     # ---- nets -------------------------------------------------------------------------------------------------
@@ -179,9 +208,8 @@ class Mote:
         """Add the block's tracks / arcs / vias / zones to the board, transformed and re-netted. Returns counts."""
         sel = sel or self.select(block)
         nmap = self.block_net_map(block)
-        rect = block.get("region")
         n = {"track": 0, "arc": 0, "via": 0, "zone": 0, "skipped_net": 0, "clipped": 0}
-        for item, clipped in sel["copper"]:
+        for item, rect in sel["copper"]:
             net = nmap.get(item.GetNetname())
             if net is None:
                 n["skipped_net"] += 1
@@ -206,7 +234,7 @@ class Mote:
             else:
                 new = pcbnew.PCB_TRACK(self.board)
                 s, e = item.GetStart(), item.GetEnd()
-                if clipped:
+                if rect is not None:
                     s, e = clip_segment(s, e, rect)
                     n["clipped"] += 1
                 new.SetStart(s)
@@ -217,7 +245,7 @@ class Mote:
             new.SetNet(self.net_item(net))
             T.apply_item(new)
             self.board.Add(new)
-        for z, clipped in sel["zones"]:
+        for z, rect in sel["zones"]:
             net = nmap.get(z.GetNetname())
             if net is None:
                 n["skipped_net"] += 1
@@ -233,11 +261,12 @@ class Mote:
             new.SetPadConnection(z.GetPadConnection())
             new.SetZoneName(z.GetZoneName())
             outline = pcbnew.SHAPE_POLY_SET(z.Outline())
-            if clipped:
+            if rect is not None:
                 outline.BooleanIntersection(rect_poly(rect))
                 outline.Fracture()
                 n["clipped"] += 1
-            new.SetOutline(outline)
+            for i in range(outline.OutlineCount()):       # copy the contours: the zone owns its own outline object
+                new.Outline().AddOutline(outline.Outline(i))
             T.apply_item(new)
             self.board.Add(new)
             n["zone"] += 1

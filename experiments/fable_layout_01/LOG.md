@@ -98,3 +98,25 @@
   unnumbered footprint pads lying on pads 3/4 (Sofar's footprint, as on the mote). Default netclass clearance set to the
   brief's 0.15 mm for signals (§6); larger classes are enforced on new routing by script (M4).
 - Renders: `out/m2/render_top.png`, `render_bottom.png`.
+
+## M3 — block copper copied; blockcheck 100 % (2026-10-07)
+
+- `tools/m3_copy.py` copies every block's tracks, vias and island pours with the block transform through
+  `motecopy.select` (one selection rule shared with the checker): copper on the block's pad nets inside its region
+  rect(s), tracks crossing a rect boundary clipped at it (the stub is where new routing continues), zones only when
+  wholly inside (ADIN_VDDIO / ADIN_AVDD islands under U1; the U5 cell's switch-node pour, its In3 GND patch and the
+  3V3 output pour clipped at the strip edge). The big GND / VBUS / 3V3 / P_IN planes are M4's. Nets mapped by pad.
+- `tools/blockcheck.py` → `out/m3/blockcheck.md`: **1,064 items, 0 missing, 0 extra** within 0.001 mm (pads 385/385,
+  tracks 660/660, arcs 4/4, vias 207/207, zones 6/6). The ring blocks copied in M1 are checked the same way.
+- What the checker caught on the way: KiCad silently re-nets a copied via or track that lands on a pad of another net
+  (it reports the item on the pad's net), so three fresh parts that sat on copied copper (R15, C57, TP24) showed up as
+  "missing" with the wrong net; they were moved to spots proven free against the copied vias. B5V's rows were sat on
+  B33's clipped stubs the same way; the strip stack is B33 7.8–20.25, C31 beside U5, B5V 21.5–33.95, SENSE 35.5–43.0,
+  DAMP2 43.3–52.1, U11 row 52.3–56.3 (y, mm).
+- Regions were tightened so clipped stubs stay ≥ 0.5 mm from the east edge (B33/B5V x ≤ 146.4 mote, SENSE y ≤ 120.2,
+  DAMP2 y ≤ 107.0) and P2T's bus-leg stubs no longer reach the LED column (x ≥ 133.0).
+- B18 rotated 90 east of L1 beside J1 (its 1V8 copper hit D2 under L1); LEDs at x 21.5 with JP2/R44–R46 under them.
+- DRC `out/m3/drc_summary.txt`: unconnected 216 (M4); errors only in the known groups: insert contact (28 shorting,
+  36 hole-clearance, 8 mask-bridge, 4 padstack), T1/T2's unnumbered pads (4 clearance, 6 shorting, 10 mask-bridge,
+  as on the mote), courtyards 12 (10 Sofar intra-block + 2 MTG/H).
+- Renders: `out/m3/render_top.png`, `render_bottom.png`, `out/m3/layers/*.svg`.
