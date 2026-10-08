@@ -156,3 +156,18 @@
   block 0.3 mm east (allowance recorded), U11's group 1 mm east with R34/R41 on the top beside it, R35 bottom at
   (17.5, 58.5), D3/C50 under U11's thermal-pad side, R15 beside C22, R26/R27/TP24/TP20/C56–C58/TP38 in via-free spots.
 - Renders: `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`.
+
+## M5 — clean-up, checks, report (2026-10-08)
+
+- `tools/drcexclude.py` → `out/m5/drc_exclusions.md`: every one of the 110 kicad-cli DRC errors has a reason
+  (Sofar's insert contact 76, Sofar's transformer footprint pads 22, courtyards 12). The keys KiCad stores for
+  exclusions need the marker position, which kicad-cli's JSON report does not give; keys built from the items'
+  positions are ignored (tested, error count unchanged), so the table is for Nick to apply in KiCad's DRC dialog.
+- `tools/check_rules.py` → `out/m5/rules.md`: new copper identified as everything blockcheck does not explain
+  (1,331 of 2,253 tracks/vias); widths per class, the brief's class clearances on bus / power / payload / 5 V copper
+  (3 items below, all ≥ the 0.15 default), pair lengths (3 of 4 within; BM2_DATA_N 23.8 vs 21.3).
+- Planes now keep 0.35 mm (the bus clearance) from everything.
+- Renders: `out/m5/mote_layers/` and `out/m5/shield_layers/` (same `render_layers.py`), `out/m5/render_top.png`,
+  `render_bottom.png`.
+- `REPORT.md` written (BRIEF §9), with the §8 pass/fail table. Open: U3's 3V3 link, BM2_DATA_N +2.5 mm, the J1 3V3
+  no-connect pair (by design).

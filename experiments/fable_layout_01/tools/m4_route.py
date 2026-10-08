@@ -85,7 +85,7 @@ def planes(board):
     for s in slots:
         gnd.BooleanSubtract(router_rect(s))
     gnd.Simplify()
-    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, 0.25)
+    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, 0.35)
     log["planes"]["GND"] = {"layer": "In2", "slots": slots, "note": "islands x -7.5..22.7, y 7-26.2 (port 2) and 39.5-54 (port 1), open to the east"}
     # PWR plane In4
     vbus = poly_from_rects([(23.2, 0.5, 38.0, 64.5), (o["x0"], 26.0, 23.2, 64.5), (16.8, 8.0, 23.2, 26.0)])
@@ -96,11 +96,11 @@ def planes(board):
     vbus.Simplify()
     nc2 = poly_from_rects([(3.5, 13.5, 9.5, 20.0)])
     nc1 = poly_from_rects([(3.5, 45.0, 9.5, 51.5)])
-    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0)
-    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5)
-    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5)
-    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6)
-    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6)
+    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0, 0.25, 0.35)
+    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5, 0.25, 0.35)
+    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5, 0.25, 0.35)
+    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6, 0.25, 0.35)
+    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6, 0.25, 0.35)
     log["planes"]["In4"] = {"VBUS": "strip x 23.2-38 full height + west half y 26-64.5 (ADIN islands cut it, priority 7)",
                             "P_IN": [11.0, 8.0, 16.6, 25.7], "VBUS east of P_IN": [16.8, 8.0, 23.2, 26.0], "3V3": [33.4, 8.0, 38.0, 23.0],
                             "NoConnect": [[3.5, 13.5, 9.5, 20.0], [3.5, 45.0, 9.5, 51.5]]}

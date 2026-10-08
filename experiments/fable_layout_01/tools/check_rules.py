@@ -22,7 +22,7 @@ FANOUT_OK = 0.15
 
 
 def copied_ids(board, mote):
-    """ids of board tracks/arcs/vias that blockcheck's rule explains (same geometry, net, width)."""
+    """uuids of board tracks/arcs/vias that blockcheck's rule explains (same geometry, net, width)."""
     ids = set()
     tracks = [t for t in board.GetTracks()]
     for blk in motecopy.load_blocks()["blocks"]:
@@ -36,12 +36,12 @@ def copied_ids(board, mote):
                 want = T.apply_xy(geom.xy(item.GetPosition()))
                 for t in tracks:
                     if t.GetClass() == "PCB_VIA" and t.GetNetname() == net and geom.dist(want, geom.xy(t.GetPosition())) <= 0.001:
-                        ids.add(id(t))
+                        ids.add(t.m_Uuid.AsString())
             elif cls == "PCB_ARC":
                 m = T.apply_xy(geom.xy(item.GetMid()))
                 for t in tracks:
                     if t.GetClass() == "PCB_ARC" and t.GetNetname() == net and geom.dist(m, geom.xy(t.GetMid())) <= 0.001:
-                        ids.add(id(t))
+                        ids.add(t.m_Uuid.AsString())
             else:
                 s0, e0 = item.GetStart(), item.GetEnd()
                 if rect is not None:
@@ -51,7 +51,7 @@ def copied_ids(board, mote):
                     if t.GetClass() == "PCB_TRACK" and t.GetNetname() == net and t.GetLayer() == item.GetLayer():
                         ts, te = geom.xy(t.GetStart()), geom.xy(t.GetEnd())
                         if (geom.dist(s, ts) <= 0.001 and geom.dist(e, te) <= 0.001) or (geom.dist(e, ts) <= 0.001 and geom.dist(s, te) <= 0.001):
-                            ids.add(id(t))
+                            ids.add(t.m_Uuid.AsString())
     return ids
 
 
@@ -60,13 +60,18 @@ def main(out_path=None):
     mote = motecopy.Mote(board)
     copied = copied_ids(board, mote)
     ring_nets = {"/Top-Level Schematic/" + n for n in geom.INSERT_NET.values()}
-    new = [t for t in board.GetTracks() if id(t) not in copied]
+    new = [t for t in board.GetTracks() if t.m_Uuid.AsString() not in copied]
     # 1. widths of new tracks per class
     width_rows, width_fail = {}, []
+    def cls_of(t):
+        cls = router.net_class(t.GetNetname())
+        if cls == "bus" and (t.GetClass() != "PCB_TRACK" or mm(t.GetWidth()) < 1.0):
+            return "signal"          # the 0.2 mm data / TVS legs of the bus nets (and their vias) keep the mote's sizes (§6)
+        return cls
     for t in new:
         if t.GetClass() != "PCB_TRACK":
             continue
-        cls = router.net_class(t.GetNetname())
+        cls = cls_of(t)
         w = mm(t.GetWidth())
         key = (cls, round(w, 3))
         width_rows[key] = width_rows.get(key, 0) + 1
@@ -89,7 +94,7 @@ def main(out_path=None):
     clr_fail = []
     worst = {}
     for t in new:
-        cls = router.net_class(t.GetNetname())
+        cls = cls_of(t)
         need = LIMITS.get(cls, (0.2, 0.15))[1]
         if cls in ("signal", "rail", "data"):
             continue          # 0.15: the Default netclass, checked by DRC itself
@@ -99,8 +104,8 @@ def main(out_path=None):
             bb = t.GetBoundingBox()
             bb.Inflate(pcbnew.FromMM(need + 0.01))
             for other, onet, oshape in items_by_layer[l]:
-                if other is t or onet == t.GetNetname():
-                    continue
+                if other is t or onet == t.GetNetname() or not onet:
+                    continue          # no-net pads: Sofar's insert ring / transformer pads (DRC exclusion table)
                 if not bb.Intersects(other.GetBoundingBox()):
                     continue
                 if shape.Collide(oshape, pcbnew.FromMM(need) - 1):
@@ -120,7 +125,7 @@ def main(out_path=None):
         layers = sorted({board.GetLayerName(t.GetLayer()) for t in board.GetTracks() if t.GetNetname() == name and t.GetClass() != "PCB_VIA"})
         pairs[short] = (round(L, 2), limit, vias, layers, L <= limit)
     lines = ["# New routing vs BRIEF §6 (M5)\n",
-             f"Copied copper (blockcheck-matched): {len(copied)} items; new: {len(new)} tracks/vias.\n",
+             f"Copied copper (blockcheck-matched): {len(copied)} items; new: {len(new)} tracks/vias (board total {len(list(board.GetTracks()))}).\n",
              "## Widths of new tracks", "| class | width | segments |", "|---|---|---|"]
     for (cls, w), n in sorted(width_rows.items()):
         lines.append(f"| {cls} | {w} | {n} |")

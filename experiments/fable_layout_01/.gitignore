@@ -5,3 +5,5 @@ out/*/erc.rpt
 board/*.kicad_prl
 board/*-backups/
 board/fp-info-cache
+out/*/drc_before.json
+out/*/drc_after.json
