@@ -20,3 +20,18 @@
   copy region clipped; Q6 JP1 on top, LEDs at the north edge with their resistors and JP2 under them; Q7 marker
   positions to be tried in M2.
 - Nothing in `board/` changed (its md5 e6938b5828278a48a50f1042a007e202 is still experiment 01's final board).
+
+## M1 — placement (2026-10-08)
+
+- `tools/m2_place.py` carries the moves of OPTIONS §3 (block transforms) and the fresh positions; `check_fixed.py`'s
+  U1 allowance removed (the ADIN block is 0.3 mm west, its copy region clipped 0.3 mm at mote y 107.9). Pipeline run
+  `HEIGHTS=heights.json tools/build_all.sh m2`: ERC 494 / 0 / 494 (the schematic copy is unchanged), 138 footprints,
+  12 blocks (83 parts) + 41 fresh parts, 0 parked.
+- `check_fixed.py --heights`: **0 failures** (positions, J1 pins from the top, rings, insert pull-backs, keep-outs,
+  envelope clearance 2.0 for every top part incl. U1, bottom heights ≤ 1.5 mm).
+- kicad-cli DRC (`out/m1/drc_summary.txt`): courtyard overlaps **12 = Sofar's 10 intra-block pairs + MTG1/H1 and
+  MTG3/H3** (0 new); the other errors are the insert contact and the parked-no-more leftovers of the empty board
+  (unconnected 261: nothing is routed yet). TP19 moved once more (its courtyard touched D3's) after the M0 trial.
+- Renders: `out/m1/render_top.png`, `render_bottom.png`: U1 in the pocket, T1 and T2 close to it, the LEDs on the
+  north edge with JP2/R44–R46 under them, JP1 top at the strip's north end over L6, C23/C22 rotated in the strip, U11
+  at the strip's south end facing J5, B18 under the band's east end.

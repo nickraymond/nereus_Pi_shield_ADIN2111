@@ -18,12 +18,11 @@ from geom import V
 BLOCKS = [
     {"name": "ADIN", "refs": ["U1", "U2", "U3", "Y1", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11",
                               "C12", "C13", "C14", "R1", "R2", "R3", "R4", "R5", "R6", "TP1", "TP2"],
-     "dst": [-1.4, 32.8], "rot": 90,
-     "region": [[148.0, 107.6, 159.5, 114.1], [149.1, 114.1, 159.5, 120.6]],
+     "dst": [-1.7, 32.8], "rot": 90,
+     "region": [[148.0, 107.9, 159.5, 114.1], [149.1, 114.1, 159.5, 120.6]],
      "zone_region": [[148.0, 107.9, 159.5, 120.6]],
      "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N", "BM2_DATA_P", "BM2_DATA_N"],
-     "allowance": "U1 courtyard 1.79 mm from the L1 envelope (0.21 mm into the 2 mm band; its body 2.1 mm clear): Sofar's U1 west-side fan-out needs 0.3 mm more than the brief's 10 mm pocket",
-     "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's "
+          "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's "
             "data pins face north toward T1 in the band and port 2's face south; U1 clear of x 2.99 and both insert keep-outs"},
     {"name": "P1L", "refs": ["L1", "D4", "R12", "R13", "TP3", "TP5", "C17", "D2"],
      "dst": [12.74, 44.25], "rot": 90,
@@ -32,7 +31,7 @@ BLOCKS = [
      "why": "L1 centred in its envelope with the bottom-side parts Sofar put under it; rotated 90 so the bus pads face "
             "west toward MP1/MP2 (BM1_P north-west, BM1_N south-west) and VBUS/GND face east"},
     {"name": "P1T", "refs": ["T1", "C16", "C18", "C19", "R14"],
-     "dst": [8.7, 28.4], "rot": 0,
+     "dst": [6.7, 28.4], "rot": 0,
      "region": [[158.8, 115.2, 165.4, 119.8]], "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N"],
      "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); "
             "in the band between the envelopes, data pins facing U1 (west)"},
@@ -41,11 +40,11 @@ BLOCKS = [
      "region": [[125.0, 101.5, 138.3, 113.0]],
      "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)"},
     {"name": "P2T", "refs": ["T2", "C24", "C25", "C27", "R18"],
-     "dst": [16.0, 32.3], "rot": 180,
+     "dst": [13.3, 32.5], "rot": 180,
      "region": [[133.0, 113.1, 139.2, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
      "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)"},
     {"name": "B33", "refs": ["U5", "C30", "L3", "C28", "C29", "R20", "R21", "R22", "R23"],
-     "dst": [31.551, 17.704], "rot": 0,
+     "dst": [31.551, 33.94], "rot": 0,
      "region": [{"rect": [138.2, 104.6, 146.4, 112.9], "layers": ["F.Cu", "In1.Cu", "In3.Cu"]},
                 {"rect": [138.2, 112.9, 144.3, 119.0], "layers": ["F.Cu", "B.Cu", "In1.Cu", "In3.Cu"]}],
      "clip_zone_nets": ["3V3"],
@@ -53,7 +52,7 @@ BLOCKS = [
             "the output cap C31 is the only part split off (the cell is 8.55 mm wide with it 9.65: the strip is 8.9)"},
     {"name": "B5V", "refs": ["U5", "C30", "L3", "C28", "C29", "R20", "R21", "R22", "R23"],
      "ref_map": {"U5": "U10", "C30": "C55", "L3": "L6", "C28": "C53", "C29": "C54", "R20": "R39", "R21": "R37", "R22": "R40", "R23": "R38"},
-     "dst": [31.551, 31.4], "rot": 0,
+     "dst": [31.551, 21.24], "rot": 0,
      "region": [{"rect": [138.2, 104.6, 146.4, 112.9], "layers": ["F.Cu", "In1.Cu", "In3.Cu"]},
                 {"rect": [138.2, 112.9, 144.3, 119.0], "layers": ["F.Cu", "B.Cu", "In1.Cu", "In3.Cu"]}],
      "clip_zone_nets": ["3V3"],
@@ -66,7 +65,7 @@ BLOCKS = [
             "P_IN pad as on the mote; J1's pin field leaves no ≥ 0.5 mm path for P_IN into the strip east of J1. The third "
             "rect (Bottom only) holds the west detour of the two Kelvin traces U4.1-R8.2 / U4.2-R8.1 (QE S7.b R2-F1)"},
     {"name": "DAMP3", "refs": ["C23"],
-     "dst": [33.5, 40.0], "rot": 0,
+     "dst": [33.5, 40.45], "rot": 90,
      "region": [],
      "why": "C23 (the sense block's 47 uF damping electrolytic, the block's only top part) alone in the strip; R16 beside U11"},
     {"name": "DAMP1", "refs": ["C21", "C20", "TP23"],
@@ -74,11 +73,11 @@ BLOCKS = [
      "region": [[151.9, 117.5, 156.5, 121.2]],
      "why": "VBUS 10 uF + its test pad in the south-west pocket beside J5 (R16 moved next to C23's partner U11 row)"},
     {"name": "DAMP2", "refs": ["C22"],
-     "dst": [33.9, 48.2], "rot": 0,
+     "dst": [33.5, 48.1], "rot": 0,
      "region": [[146.8, 100.4, 155.8, 107.0]],
      "why": "second damping electrolytic in the strip, Sofar's orientation (8.8 mm wide: pads 0.5 mm from the edge); its resistor R15 placed beside it"},
     {"name": "B18", "refs": ["U6", "L4", "C32", "C33", "TP21"],
-     "dst": [20.7, 47.2], "rot": 90,
+     "dst": [19.0, 31.4], "rot": 90,
      "region": [{"rect": [141.8, 108.4, 148.3, 113.2], "layers": ["B.Cu"]}],
      "exclude_vias_on": ["3V3", "GND"],
      "why": "1.8 V buck (all bottom) east of L1 beside J1, rotated 90 to clear D2/C17 under L1"},
@@ -86,23 +85,26 @@ BLOCKS = [
 
 # ---- fresh placements: ref -> (x, y, rot, side) -------------------------------------------------------------------
 FRESH = {
-    # strip, top: output cap of the 3.3 V cell, the payload switch cell
-    "C31": (36.6, 17.7, 0, "F"),
-    "U11": (32.5, 54.1, 0, "F"), "C49": (35.5, 54.6, 90, "F"), "R35": (17.5, 58.5, 90, "B"), "R16": (37.2, 54.1, 90, "F"),
-    "R34": (34.2, 56.75, 0, "F"), "R41": (31.3, 56.75, 180, "F"),
+    # strip, top (north -> south): JP1, 5 V cell (block), 3.3 V cell (block) + C31, C23, C22 (blocks), U11 cell
+    "JP1": (32.05, 9.45, 0, "F"),
+    "C31": (36.6, 33.94, 0, "F"),
+    "U11": (32.5, 54.1, -90, "F"), "C49": (35.7, 54.1, 90, "F"), "R34": (29.6, 55.3, 90, "F"),
     # strip, bottom
-    "JP1": (32.0, 9.0, 0, "B"), "R26": (37.0, 20.2, 0, "B"), "R27": (37.0, 22.0, 0, "B"),
-    "TP20": (37.2, 16.8, 0, "B"), "TP24": (34.9, 22.4, 0, "B"),
-    "C56": (31.6, 23.0, 0, "B"), "C57": (31.6, 25.2, 0, "B"), "C58": (36.5, 30.8, 0, "B"), "TP38": (36.5, 32.9, 0, "B"),
-    "R11": (21.0, 58.0, 90, "B"), "R42": (36.9, 52.3, 0, "B"), "C26": (17.0, 23.3, 0, "B"),
-    "C50": (35.4, 50.6, 0, "B"), "R15": (37.0, 45.5, 90, "B"), "TP35": (36.9, 54.6, 0, "B"), "TP36": (19.5, 62.3, 0, "B"),
-    "D3": (33.0, 54.5, 90, "B"), "TP19": (37.2, 57.0, 0, "B"),
-    # band, top: status LEDs north -> south D10 (port 2), D8 (power), D9 (port 1); bottom: their resistors and JP2
-    "D10": (21.5, 28.3, 0, "F"), "D8": (21.5, 30.0, 0, "F"), "D9": (21.5, 31.7, 0, "F"),
-    "JP2": (21.0, 28.5, 0, "B"), "R46": (21.5, 31.3, 0, "B"), "R44": (21.5, 32.7, 0, "B"), "R45": (21.5, 34.1, 0, "B"),
+    "C56": (31.6, 12.5, 0, "B"), "C57": (31.6, 14.7, 0, "B"), "C58": (35.0, 14.0, 0, "B"), "TP38": (37.0, 14.0, 0, "B"),
+    "TP20": (37.0, 8.8, 0, "B"), "TP24": (34.6, 9.0, 0, "B"),
+    "R26": (36.6, 21.5, 0, "B"), "R27": (36.6, 23.1, 0, "B"),
+    "R15": (37.0, 45.5, 90, "B"),
+    "D3": (33.0, 53.9, 90, "B"), "R35": (30.6, 52.3, 90, "B"), "R41": (36.0, 52.3, 0, "B"), "R42": (36.0, 53.6, 0, "B"),
+    "C50": (36.4, 55.5, 0, "B"), "TP35": (36.6, 48.5, 0, "B"), "TP19": (30.6, 48.6, 0, "B"),
+    # north edge: status LEDs west -> east D10 (port 2), D8 (power), D9 (port 1), top; JP2 and R44-R46 under them, bottom
+    "D10": (11.6, 1.4, 0, "F"), "D8": (15.0, 1.4, 0, "F"), "D9": (18.4, 1.4, 0, "F"),
+    "JP2": (15.0, 4.3, 0, "B"), "R46": (10.8, 4.2, 90, "B"), "R44": (18.0, 4.2, 90, "B"), "R45": (19.4, 4.2, 90, "B"),
+    # pocket south, bottom
     "R43": (7.5, 36.3, 0, "B"), "TP8": (9.8, 36.3, 0, "B"),
-    # south pockets, top
-    "D1": (20.9, 59.0, 90, "F"),
+    # band / P2 leftovers, bottom
+    "C26": (17.0, 23.3, 0, "B"),
+    # south pockets
+    "D1": (20.9, 59.0, 90, "F"), "R16": (6.3, 56.0, 90, "F"), "R11": (21.0, 58.0, 90, "B"), "TP36": (19.5, 62.3, 0, "B"),
     # fiducials
     "FID4": (8.0, 2.5, 0, "F"), "FID3": (21.5, 2.5, 0, "F"), "FID5": (15.0, 56.0, 0, "F"),
     "FID2": (8.0, 2.5, 0, "B"), "FID1": (21.5, 2.5, 0, "B"), "FID6": (15.0, 56.0, 0, "B"),
