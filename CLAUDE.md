@@ -39,7 +39,8 @@ runs every check; `docs/design-review/` holds check outputs;
 6. **Fail loudly and usefully.** Errors carry context and a recovery hint;
    partial failure never destroys good data.
 7. **KiCad runtime rules.** KiCad stays closed while an agent edits; checks run
-   through kicad-cli; no agent ever writes a `.kicad_pcb`.
+   through kicad-cli; no agent ever writes a `.kicad_pcb`, except a layout experiment's own board inside
+   `experiments/<name>/` (DESIGN D31), never merged into the live project.
 8. **Hard constraints in SPEC.md are absolute.**
 
 > Never trust a script just because it exits successfully. Trust the artifacts.

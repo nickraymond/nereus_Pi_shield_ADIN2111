@@ -103,8 +103,10 @@ production (DESIGN D12).
 - PoDL bus contact on the mote: threaded inserts MP1–MP4 (Würth 78614015360) sit on B.Cu with unnumbered,
   net-less pads (an SMD ring and the Ø4.4 NPTH); the bus nets reach each insert position through a front F.Cu arc
   on the bus track, C-shaped (~290°, not a closed ring), width 1.2 mm, radius 3.03 mm (copper ≈ 2.4–3.6 mm from centre): MP1 BM1_P, MP2 BM1_N, MP3 BM2_P
-  (two arcs), MP4 BM2_N; no vias within 3.5 mm. *(reference .kicad_pcb, read 2026-10-06; QE S5.g F1)* Why, and how a
-  new layout should copy it: Sofar Q6.
+  (two arcs), MP4 BM2_N. Seven 0.6 mm vias of the bus net sit on r 3.0 mm under each arc and land inside the bottom ring
+  pad (r 2.2–3.69 mm), so the insert is on the bus net through them; the inner planes stop 4.1–4.8 mm from each insert
+  centre. *(reference .kicad_pcb, read 2026-10-06 (QE S5.g F1); vias and plane pullback measured 2026-10-07 with pcbnew,
+  correcting the earlier "no vias within 3.5 mm")* Giving the pad a net in our footprint: Sofar Q6.
 - AP22913 (U2, U3): ON active high, no internal pull-down; ON input leakage ≤ 1 µA; V_IH 1.1 V min; V_IL 0.4 V max
   (V_IN 1.4–3.6 V) / 0.6 V (3.6–5.5 V); output discharge when off; reverse-current blocking always active; R_ON
   56 mΩ typ at 3.3 V (X1-WLB0909-4 = "CN4": 0.9 × 0.9 mm, 0.5 mm ball pitch; top view A1 VOUT (pin-1 dot) and A2 VIN
@@ -143,6 +145,8 @@ production (DESIGN D12).
 
 1. Agents never write any `.kicad_pcb`. Reading it is fine (for net checks
    and footprint extraction). Board, layout and routing belong to Nick.
+   *Exception (Nick, 2026-10-07, D31): a layout experiment writes its own board inside `experiments/<name>/`
+   on its own branch; it never touches the live project, the reference designs or `Archive/`, and is never merged.*
 2. KiCad stays closed while an agent edits project files. The agent confirms
    this with Nick before its first edit of each session.
 3. Every net the design keeps must match the mote's copper, proven by a
@@ -176,7 +180,7 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 ## Non-goals (this project)
 
-- Board outline, placement, routing, fabrication outputs (Nick)
+- Board outline, placement, routing, fabrication outputs (Nick); layout experiments in `experiments/` excepted (D31)
 - Firmware or Pi software, beyond documenting the ADIN power-up order
 - A 50 W power path on this board (deferred to a later revision, DESIGN D12)
 - A 100 W variant; a Bristlemouth power-delivery protocol

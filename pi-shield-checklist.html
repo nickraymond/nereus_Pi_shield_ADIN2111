@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-07 · Now: S6 ready for your review</strong> S6.a–S6.e merged overnight, each QE-approved: BOM hygiene, ERC clean (0 errors), footprint types and courtyards, minor tidy, review package. S6.f adds the author and a BOM PDF. <strong>Next:</strong> your look at docs/design-review/README.md, schematic.pdf, bom.pdf and the project in KiCad.</p>
+    <p><strong>Updated 2026-10-07 · Now: S7 layout experiment brief</strong> S6.g merged (QE approved). S7.a: the brief for a Fable session to port Sofar's mote copper onto the shield (46 × 65 mm, inserts on the west wall, 50 W inductor room, Micro-Fit payload, M3 housing holes) and Sofar layout questions Q9–Q12. <strong>Next:</strong> QE review of S7.a, then you start the Fable session; your S6 demo is still open.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -245,14 +245,29 @@ const S = [
   ["S6.g: your schematic clean-up list", `<p>VBUS_OUT beside the Load Switch; short I²C stubs at the PoDL block; R43 beside the ADIN block's HW_EN; J5 drawn against the Load Switch it's fed from; the R11 note says what open vs fitted does; cover renders → TBD box with the real sheet index; ADIN and Power sheets spread out with headers; title blocks filled (author, part number, rev) with the overflowing Altium texts removed; active-low names with an overbar and PAYLOAD_EN / PAYLOAD_FAULT (D30). Connections unchanged.</p>`, null, 1],
   ["S6: your demo", `<p>Open docs/design-review/README.md, schematic.pdf, bom.pdf and the project in KiCad. Then S6 is complete.</p>`, "nick"],
 ]},
+{ t:"S7 — Layout experiment (Fable)", o:"agent", w:"Claude Code", c:"--sch",
+  intro:"An agent ports Sofar's proven copper onto the shield, block by block, in experiments/fable_layout_01/ on its own branch. Never merged.",
+  items:[
+  ["S7.a: mechanical envelope", `<p>46 × 65 mm (south may grow 2 mm); Pi Zero portrait under the shield; stacking header; bus inserts down the west wall with 2 mm between rings; inductor room for 50 W parts; Micro-Fit payload connector facing south (experiment only); 4 M3 housing holes; LEDs between the insert pairs (D31).</p>`, null, 1],
+  ["S7.a: the brief + kickoff prompt", `<p>experiments/fable_layout_01/BRIEF.md and KICKOFF.md, plus a layer renderer for before/after views. Sofar layout questions Q9–Q12 added, Q6 reworded; SPEC's insert-contact fact corrected (seven vias, not none).</p>`, null, 1],
+  ["S7.a: QE review", ``],
+  ["S7.b: start the Fable session", `<p>Paste KICKOFF.md into a new session (Fable 5.1, high effort). Review its REPORT.md, renders and draft PR.</p>`, "nick"]
+]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
-  intro:"Send Q2 and Q4 when ready (Q3 answered from the datasheet); Q1 and Q5 are deferred with the 50 W spin. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  intro:"Send Q2 and Q6–Q12 when ready (Q3 answered from the datasheet; Q4 is context only); Q1 and Q5 are deferred with the 50 W spin. The layout questions (Q6, Q9–Q12) have a page with a copper render for each. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
   items:[
   ["Q1 Fuse / e-fuse on the through-power path? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
   ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
   ["Q3 What current limit does R34 set on the FPF2700? (answered, don't send)", `<p>From the datasheet you found: ≈ 0.74 A typical, 0.59–0.89 A.</p>`, null, 1],
   ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
-  ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`]
+  ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`],
+  ["Q6 Insert pad: may we give it the bus net?", `<p>Reworded 2026-10-07: the bus reaches each insert through seven vias in its ring pad.</p>`],
+  ["Q7 D1 source now that ST's SMA6F33A is obsolete?", ``],
+  ["Q8 Licence for sharing the derived shield files?", ``],
+  ["Q9 R12, R13, R17, R19 fitted in production?", `<p>They sit across the PoDL inductor windings.</p>`],
+  ["Q10 Ground-plane slots and power-plane islands: why?", ``],
+  ["Q11 Stackup and fab?", ``],
+  ["Q12 Layout rules when moving a block?", ``]
 ]},
 { t:"Review and decide", o:"nick", w:"You", c:"--prj",
   items:[

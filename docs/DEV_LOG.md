@@ -19,6 +19,28 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-07 — Sprint S7.a — Layout experiment brief (Fable port of the mote layout)
+
+**Branch:** sprint/7a-layout-experiment-brief
+**Files touched:** experiments/fable_layout_01/ (BRIEF, KICKOFF, tools/render_layers.py); CLAUDE.md, SPEC (constraint 1,
+insert-contact fact, non-goals), TRACKER (rules 8/9, S6.g QE done, S7), DESIGN D31, SOFAR_QUESTIONS (Q6 reworded, Q9–Q12),
+viewer
+**ERC:** 0 / 494 (no schematic change)  ·  **Net diff:** none
+**Done:**
+- Read Sofar's board layer by layer (pcbnew, read only): stack, block placement, routing by net class; published a
+  walkthrough page and a Sofar layout-questions page (one copper render per question; Notion text + PNGs for Nick)
+- Nick's envelope for the shield, worked out with scale drawings: inserts on the west wall, 50 W inductor room, Micro-Fit
+  payload facing south, M3 housing holes, 46 × 65 mm; OpenMV N6 overlay (later variant, staggered 4.2 mm east)
+- Area check against Sofar's density: fits overall; U1's 9.12 mm courtyard doesn't fit the 8 mm band between the
+  inductors, so the brief offers the west pocket or 2 mm of growth
+**Broke/surprised us:**
+- R12/R13/R17/R19 (fitted) sit across L1/L2's windings (Bourns pinout 1–3, 2–4): asked Sofar (Q9)
+- SPEC said "no vias within 3.5 mm" of the inserts; there are seven at r 3.0 mm inside the ring pad. Corrected
+- Four inserts in a row along the south edge don't fit a 31.5 mm board (copper Ø7.4 each); moved to the west wall
+**Next:** QE review of S7.a; then Nick starts the Fable session
+
+---
+
 ## 2026-10-07 — Sprint S6.g — Presentation clean-up (Nick's list)
 
 **Branch:** sprint/6g-presentation
