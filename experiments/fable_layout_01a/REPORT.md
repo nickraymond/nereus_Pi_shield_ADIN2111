@@ -14,7 +14,9 @@ The placement of OPTIONS §3 holds (one block definition changed: the P2T region
 footprints, every §3 position within 0.001 mm, U1's courtyard 2.09 mm from the L1 envelope, 0 new courtyard overlaps,
 the LEDs on the north edge, JP1 on top at the strip's north end, U11 facing its loads, B18 under the band's east end.
 Every copied block matches the mote to 0.001 mm (blockcheck: **0 missing**, 127 copied items trimmed as dangling and
-listed; 0 of the mote's pad-to-pad paths cut). The routing is complete and at the brief's widths and clearances: **0
+listed; 0 of the mote's pad-to-pad paths cut among the copied items — three of Sofar's GND pad links lie outside the
+block regions and are made by the GND pours instead of his tracks: C29.2–C30.2 in B33 and in B5V, C21.2 in DAMP1; QE
+round 2 N1). The routing is complete and at the brief's widths and clearances: **0
 open links but J1's no-connect pair, 0 new segments below their class width, 0 links at 0.15 mm beyond a pad field, 0
 class-clearance items**, the Kelvin links pad-to-pad by tracks, **all four ADIN pair legs within the mote's length**
 (9.46 / 8.80 / 17.98 / 18.62 mm vs 9.5 / 9.5 / 21.3 / 21.3) as coupled pairs with the mote's geometry, checked on the
@@ -97,6 +99,7 @@ Fresh parts as OPTIONS §3 with these corrections after the M0 trial: JP1 (32.35
 | 2 | Q7 exclusion keys | not attempted | the table (`out/m5/drc_exclusions.md`) is for Nick to apply in KiCad; every one of the 111 has a reason |
 | 3 | M3 DFM sweep, `DFM.md`, JLCPCB stackup | not started | session 2 stopped at M2's bar for QE round 2 and Nick's own design review (his instruction, 2026-10-08) |
 | 4 | U2.B2 (ADIN_PWR) fan-out | no via spot within 1.7 mm in the allowed corner | the ball is routed (normally, after the pairs); only the "fan-out first" reservation failed for it |
+| 5 | BM1_DATA_P's margin | 9.46 mm vs the 9.5 mm limit: 0.04 mm | the pins' P via must sit 1.43 mm out (the AVDD via and pin 29 leave no nearer spot) and T1 cannot move west (C16 vs C8); a rerun is not byte-identical, so a rebuild could land over the limit by a few hundredths (QE round 2 N2). The pair's legs are 0.1 mm-grid staircases on the 45° runs (N3), left for M3 |
 
 Declared deviations carried from 01 that still hold: the 2 mm envelope clearance applied to top-side parts (bottom parts
 under the inductors as Sofar placed them, OPTIONS Q4); J5 stays the JST GH; Sofar's T1/T2 pads 6/7 at 0.24 mm; the
