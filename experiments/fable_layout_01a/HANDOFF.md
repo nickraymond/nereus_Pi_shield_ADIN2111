@@ -11,8 +11,9 @@ LOG.md "M2, session 2"; this file is only the practical part.*
 - M2 and M3 at their bar (REPORT.md §1, §6): DRC 109 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 68
   warnings, rules 0 / 0 / 0, pairs 9.39 / 8.77 / 20.19 / 20.87, DFM 30 / 31 (the small pads of U6 / U2 / U3 / U11 declared), 0 new
   vias in solder pads. Declared: REPORT §9. QE round 3 CHANGES REQUESTED (fixed), round 4 APPROVED WITH NITS (fixed).
-- Session 2.b closed with the OPTIONS addendum (A1–A5: the frame, the inserts, centre vs pocket in numbers, the jumpers, Nick's
-  questions), DFM.md, the review pages (`out/review/`, `out/before_after/`) and QE round 3 requested.
+- Session 2.b closed with the OPTIONS addendum (A1–A6), DFM.md, the review pages (`out/review/`, `out/before_after/`; published
+  as the artifact https://claude.ai/artifact/8RuEpJyDHQBx8BE6XTskSG, `tools/publish_pages.py` packages them), QE round 4
+  APPROVED WITH NITS (fixed) and PR #31 re-targeted at main for Nick's review and merge.
 - Next for the centre placement (`VARIANT=centre`, kept in `m2_place.py`): a pair emitter that enters the transformer pads from
   the body side through a staggered via pair (REPORT §10).
 
