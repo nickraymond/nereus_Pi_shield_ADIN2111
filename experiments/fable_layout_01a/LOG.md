@@ -167,3 +167,26 @@ Sofar Q6); 254 warnings, none a copper defect (0 track_dangling / via_dangling);
 (none fits; it carries no pad and KiCad's island removal may drop it); Q7 (DRC exclusion keys) still a reviewed table;
 M3 (DFM) not started. Renders `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`; region views for the
 design review in `out/review/` (`tools/review_views.py`: the mote's copper under each block's transform beside ours).
+
+## Session 2.b, step 1 — JLCPCB limits fetched and encoded; DRC on session 2's board (2026-10-08)
+
+Session 2.b (Fable 5.1) started from 287468b (session 2's final board b22752f, md5 de2e14fb…) on a fresh checkout; a
+baseline rebuild from M0 in a scratch copy reproduced session 2's result (pairs 9.46 / 8.80 / 17.98 / 18.62, exit 0) before
+anything was touched. Nick's order of work (LESSONS §4): the fab's rules first, then the board.
+
+- **Fetched, not typed:** JLCPCB's PCB capabilities page, the controlled-impedance stackup page (read in the browser; the
+  JLC06161H-3313 rows transcribed in order), the assembly capabilities page and JLCPCB's fiducial article, all read
+  2026-10-08 and cited per row in `DFM.md` (URL + date). Where a figure is not on JLCPCB's pages (courtyards, copper
+  balance, pours, thermal relief, test points) the row says so and the brief's own figure or a design choice stands.
+- **Encoded:** `tools/dfm.py rules` writes the limits into `board/*.kicad_pro` (design_settings.rules: min_clearance 0.09,
+  min_through_hole_diameter 0.2, solder_mask_min_width 0.1, mask expansion 0 (1:1), min_silk_clearance 0.15, min_text_height
+  1.0, min_text_thickness 0.15; the brief's / the mote's stricter values stay for track width 0.15, via 0.45 / ring 0.1,
+  hole-to-hole 0.25, hole clearance 0.25, edge 0.5) and into `board/*.kicad_dru` (PTH annular ring 0.15, pad hole to pad hole
+  0.45, PTH hole to copper 0.28 outer / 0.3 inner). Limits DRC cannot express (same-net gaps, silk line widths, fiducial
+  distances, test-point gaps, via-in-pad, copper balance, the stackup text) are measured by `tools/dfm.py check`, which
+  writes `DFM.md` (one row per item: limit, source, enforced-by, measured worst case with where, pass/fail, what changed).
+- **DRC on the board as it is:** 118 errors = session 2's 111 + 7 new (the M3 housing holes' pads 0.25 mm from the inner
+  planes; JLC asks 0.3), 358 warnings (254 + 104 silk/text), 1 unconnected, 4 parity. Table 22 pass / 9 fail (DFM.md
+  History). Nothing on the board changed (md5 unchanged); the fixes go into the M1–M3 scripts in the steps that follow.
+- The scratch copy's `tools/` path layout: `geom.MOTE` resolves two directories up, so a scratch copy must sit two levels
+  below a directory holding (a link to) `KiCAD_reference_designs/`.

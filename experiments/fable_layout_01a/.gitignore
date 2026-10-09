@@ -12,3 +12,4 @@ out/m3/blocks.snapshot.json
 out/*/drc_dangling.json
 out/m1/snapshot.kicad_pcb
 out/m1/blocks.snapshot.json
+out/*/drc_dfm.json

@@ -5,3 +5,19 @@
 (rule "bus nets 0.35 mm from other nets"
   (condition "A.NetClass == 'bus' && B.NetClass != 'bus'")
   (constraint clearance (min 0.35mm)))
+
+# JLCPCB limits (tools/dfm.py, read 2026-10-08 from https://jlcpcb.com/capabilities/pcb-capabilities) that the board-wide design rules cannot express
+(rule "JLC PTH annular ring: multilayer 1 oz absolute minimum 0.15 mm (0.20 recommended)"
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'")
+  (constraint annular_width (min 0.15mm)))
+(rule "JLC pad hole to pad hole 0.45 mm"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad'")
+  (constraint hole_to_hole (min 0.45mm)))
+(rule "JLC PTH hole to copper, outer layers 0.28 mm"
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'")
+  (layer outer)
+  (constraint hole_clearance (min 0.28mm)))
+(rule "JLC PTH hole to copper, inner layers 0.3 mm"
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'")
+  (layer inner)
+  (constraint hole_clearance (min 0.3mm)))
