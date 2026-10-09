@@ -1,24 +1,24 @@
 # HANDOFF — layout experiment 1.a, for the session that continues it
 
-*Updated 2026-10-08 by session 2 (M2 brought to its bar; QE round 2 requested from the standing S7 QE session, which
+*Updated 2026-10-08 by session 2.b (the 49 × 68 board, M3 done, QE round 3 requested from the standing S7 QE session, which
 sends its report to the design session named in the request). Start with CLAUDE.md, BRIEF.md, OPTIONS.md, REPORT.md and
 LOG.md "M2, session 2"; this file is only the practical part.*
 
 ## State
 
 - Branch `experiment/fable-layout-01a`, PR #31 (draft, never merge), base `experiment/fable-layout-01`. Board md5
-  **de2e14fbc50999fffc3058edefb7c374**.
-- M2 at its bar (REPORT.md §5–§8): DRC 111 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 0
-  dangling, rules clean, pairs 9.46 / 8.80 / 17.98 / 18.62 mm. Declared: the bottom GND island near (37.1, 13.9), Q7 as
-  a table, M3 not started.
-- Session 2 closed at b22752f + the review pages (`out/review/`, `out/before_after/`) and `LESSONS.md`. Nick's
-  decisions (2026-10-08, LESSONS §3): DFM rules first, board 49 × 68, inserts 1–2 mm toward the west wall, SPI on a
-  reserved Internal 2 lane (no length matching needed), 45° runs as single segments. The 2.b kickoff prompt is in
-  KICKOFF.md.
+  **f33491bc576a45f1a6c9f3d160e82dc1** (session 2.b, 49 × 68, `VARIANT=pocket`).
+- M2 and M3 at their bar (REPORT.md §1, §6): DRC 109 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 70
+  warnings, rules 0 / 0 / 0, pairs 9.39 / 8.77 / 19.93 / 20.61, DFM 30 / 31 (U6's DSBGA pads declared). Declared: REPORT §9.
+- Session 2.b closed with the OPTIONS addendum (A1–A5: the frame, the inserts, centre vs pocket in numbers, the jumpers, Nick's
+  questions), DFM.md, the review pages (`out/review/`, `out/before_after/`) and QE round 3 requested.
+- Next for the centre placement (`VARIANT=centre`, kept in `m2_place.py`): a pair emitter that enters the transformer pads from
+  the body side through a staggered via pair (REPORT §10).
 
 ## How to run
 
-- Full rebuild `HEIGHTS=heights.json tools/build_all.sh m4` (≈ 9 min). `START=m4 …` reruns the routing from
+- Full rebuild `HEIGHTS=heights.json tools/build_all.sh m4` (≈ 7 min; `VARIANT=pocket` is the default, `centre` the other
+  placement, `J5WEST=1` Nick's J5-west / L1-south option). Trials on a scratch copy: `SCRATCH=<dir> tools/trial.sh <name> <variant> m2|m4`. `START=m4 …` reruns the routing from
   `out/m3/snapshot.kicad_pcb` (git-ignored: the first run on a fresh checkout must be from m0). `START=m2` restarts from
   `out/m1/snapshot.kicad_pcb`. **Never run a milestone script on the board as left by a later step.** Anything in
   `m4_route.make_planes` (pours, patches) is created in the M3 step: a change there needs `START=m2`, not `START=m4`

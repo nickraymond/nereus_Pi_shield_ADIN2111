@@ -3,7 +3,7 @@
 proven by pads); everything else is placed fresh. Records every block transform in blocks.json (M3 copies the copper
 with the same definitions). Applied by tools/build_all.sh after m1_fixed.py.
 
-Session 2.b: two placements, chosen by VARIANT=centre (default) or VARIANT=pocket (OPTIONS.md addendum, LESSONS §3):
+Session 2.b: two placements, chosen by VARIANT=pocket (default, the built one) or VARIANT=centre (OPTIONS.md addendum A3, LESSONS §3):
   centre  U1 in the middle of the 11 mm band between the inductor envelopes, rotated 270° (port-2 pins north toward
           T2 and L2, port-1 pins south toward T1 and L1, SPI pins east toward J1); the ADIN block's bottom parts under
           the band; the 1.8 V buck in the west pocket U1 leaves behind.
@@ -22,7 +22,7 @@ import geom
 import motecopy
 from geom import V
 
-VARIANT = os.environ.get("VARIANT", "centre")
+VARIANT = os.environ.get("VARIANT", "pocket")       # the built placement (OPTIONS addendum A3); "centre" is kept for the next router step
 S = geom.GROWTH["south"]            # 3.0: the port-1 side and the south band move with L1's envelope
 SB = S + geom.L1_EXTRA              # the south band's parts: 1.5 more when L1 is 1.5 further south (J5WEST=1)
 
@@ -130,9 +130,14 @@ VARIANTS = {
          "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N", "BM2_DATA_P", "BM2_DATA_N"],
          "why": "session 2's placement 3 mm west with the edge: whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 "
                 "so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of both insert keep-outs"},
-        {"name": "P1T", "refs": P1T_REFS, "dst": [3.7, 29.65], "rot": 0,
+        {"name": "P1T", "refs": P1T_REFS, "dst": [3.7, 29.45], "rot": 0,
          "region": [[158.8, 115.2, 165.4, 119.8]], "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N"],
-         "why": "T1 cluster in the band beside U1 exactly as session 2 relative to U1 (trial 2 had it 0.25 mm off: C16's track met C8's pad)"},
+         "why": "T1 cluster in the band beside U1 as session 2 relative to U1 but 0.2 mm north (trial 3 at session 2's relation gave "
+                "BM1_DATA_P 9.59 against the 9.5 limit: the pads sit 0.2 above the pins' exit stub now; trial 2 at 0.25 mm south had "
+                "C16's track meet C8's pad). C19 / R14 stay in this cluster here (P1C is the centre variant's split)"},
+        {"name": "P1C", "refs": P1C_REFS, "dst": [3.7 + 2.25, 29.45 - 3.4], "rot": 0,
+         "region": [],
+         "why": "C19 / R14 at their mote spot relative to T1 (the split is only needed by the centre variant)"},
         {"name": "P2T", "refs": P2T_REFS, "dst": [10.7, 33.75], "rot": 180,
          "region": [[133.0, 113.1, 138.6, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
          "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins), as session 2"},

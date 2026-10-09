@@ -1,146 +1,157 @@
-# REPORT — layout experiment 1.a (fit everything at the proper widths by moving blocks)
+# REPORT — layout experiment 1.a (fit everything at the proper widths by moving blocks, then a JLCPCB DFM sweep)
 
-*Branch `experiment/fable-layout-01a`, 2026-10-08. Never merge. Session 1 ran M0–M2 and stopped on Nick's
-instruction with M2 short of its bar (QE round 1: CHANGES REQUESTED, `qe/S7b_01a_round1.md`); session 2 took the QE's
-findings and the rest of the shortfall and brought **M2 to its bar**. **M3 (the JLCPCB DFM sweep) is not started** and
-M4's report is this file as it stands. Everything here was produced by the scripts in `tools/` (`tools/build_all.sh`
-rebuilds the board from the schematic; `START=m4` reruns the routing from the M3 snapshot); the numbers are read from
-the check outputs in `out/m4/` and `out/m5/`, not typed in. Board frame: KiCad coordinates = the brief's frame (Pi NW
-corner (0, 0), mm). The session-2 record is LOG.md "M2, session 2".*
+*Branch `experiment/fable-layout-01a`, 2026-10-08. Never merge. Session 1 ran M0–M2 and stopped on Nick's instruction; session 2
+brought **M2 to its bar** (QE round 2: APPROVED WITH NITS, `qe/S7b_01a_round2.md`); **session 2.b** (this report) did Nick's
+wind-down list (LESSONS §3/§4) in order: JLCPCB's limits fetched and encoded first (**M3**, `DFM.md`), the board grown to
+**49 × 68**, the inserts moved, U1 in the centre of the band tried against U1 in the pocket through M2 on scratch copies (OPTIONS
+addendum), the router made to emit 45° runs as single segments with a pair-length margin, the SPI routed first on a reserved
+Internal 2 lane, the cut jumpers on top at the north edge, then a rebuild from M0 with every check, the renders and the review
+pages. Everything here was produced by the scripts in `tools/` (`tools/build_all.sh`, `VARIANT=pocket` by default); the numbers
+are read from `out/m4/summary.json` and the check outputs in `out/m4/`, `out/m5/`, not typed in. Board frame: KiCad coordinates =
+the brief's frame (Pi NW corner (0, 0), mm). The session-2.b record is LOG.md "Session 2.b"; the design review is
+`out/review/index.html`, the before / after page `out/before_after/index.html`.*
 
 ## 1. Result in one paragraph
 
-The placement of OPTIONS §3 holds (one block definition changed: the P2T region is clipped at mote x 138.6, §3): 138
-footprints, every §3 position within 0.001 mm, U1's courtyard 2.09 mm from the L1 envelope, 0 new courtyard overlaps,
-the LEDs on the north edge, JP1 on top at the strip's north end, U11 facing its loads, B18 under the band's east end.
-Every copied block matches the mote to 0.001 mm (blockcheck: **0 missing**, 127 copied items trimmed as dangling and
-listed; 0 of the mote's pad-to-pad paths cut among the copied items — three of Sofar's GND pad links lie outside the
-block regions and are made by the GND pours instead of his tracks: C29.2–C30.2 in B33 and in B5V, C21.2 in DAMP1; QE
-round 2 N1). The routing is complete and at the brief's widths and clearances: **0
-open links but J1's no-connect pair, 0 new segments below their class width, 0 links at 0.15 mm beyond a pad field, 0
-class-clearance items**, the Kelvin links pad-to-pad by tracks, **all four ADIN pair legs within the mote's length**
-(9.46 / 8.80 / 17.98 / 18.62 mm vs 9.5 / 9.5 / 21.3 / 21.3) as coupled pairs with the mote's geometry, checked on the
-board for P–N clearance (0.15 mm). DRC: **111 errors, all Sofar-copied features with a reason each, 0 of new copper**;
-0 copper-defect warnings. What remains is declared in §6: one bottom GND pour island without a via, Q7 (exclusion
-keys) as a table, and M3 not started.
+The board is **49 × 68 mm** (x −10.5 … 38.5, y 0 … 68; the width went west, the height south into the band between the inductor
+envelopes, which is 11 mm now), the inserts 1.5 mm nearer the west wall, the port-1 side 2.5–3 mm south. **U1 stays in the west
+pocket** (3 mm taller than before): the centre of the band, Nick's preferred answer, was tried first in eight routed trials and
+cannot meet the pairs' bar with this pair emitter (§3, OPTIONS addendum A3: 9.7–10.0 mm for port 1 at the rotation that faces
+the SPI toward J1; 19–47 mm at the mote's own rotation, where the swap figure finds no straight run). The routing is complete at
+the brief's widths and clearances: **0 open links but J1's no-connect pair, 0 new segments below their class width, 0 links at
+0.15 mm beyond a pad field, 0 class-clearance items**, the Kelvin links pad-to-pad by tracks, **all four pair legs within the
+mote's length (9.39 / 8.77 / 19.93 / 20.61 mm vs 9.5 / 9.5 / 21.3 / 21.3)**, checked on the board for P–N clearance (0.15 mm), their
+45° runs single segments (**15 / 15 / 18 / 18 segments per leg**, session 2: 25 / 40). The SPI goes from U1 straight east to J1 on
+its Internal 2 lane, routed first: **34 / 35 / 40 / 41 mm** of new track (session 2: 66.5 / 67.6 down the west edge). DRC: **109
+errors, all Sofar-copied features with a reason each, 0 of new copper; 70 warnings**, none a copper defect. **DFM: 30 of 31 rows
+pass** against JLCPCB's published limits, the one fail declared (Sofar's 0.23 mm DSBGA pads on U6). 138 footprints, every §3
+position within 0.001 mm, `check_fixed.py` 0 failures, blockcheck 0 missing / 127 trimmed (listed), 0 of Sofar's pad-to-pad paths
+cut. Board md5 in HANDOFF.md.
 
-*The first version of this report (session 1, commit 293dc11) said 115 Sofar + 12 new DRC errors; QE round 1 found
-both pairs shorted P–N at the transformer pads and hidden by `tools/drcexclude.py`'s T1/T2 patterns: the true split
-was 111 + 16 (the 11 swap-figure items, the 3V3 via vs R21.2, the 2 shorts, their 2 mask bridges). Fixed in session 2.*
+## 2. Final board size and stack
 
-## 2. Final board size
+**49 × 68 mm** (Nick, 2026-10-08: 3 mm wider, 3 mm taller; supersedes the brief's 2 mm south allowance), r 3 corners. Six copper
+layers in the mote's order with **JLCPCB's JLC06161H-3313 stackup** written into the board (DFM.md row 21: outer 1 oz, inner
+0.5 oz, 3313 / 0.55 core / 2116 / 0.55 core / 3313, 1.538 mm of material, 1.6 mm nominal). Where the 3 + 3 mm went and why:
+OPTIONS addendum A1 (the first trial with the width on the east gained nothing in the strip and failed on the west).
 
-**46 × 65 mm, unchanged** (x −7.5 … 38.5, y 0 … 65, r 3 corners). No growth was needed. Stack: 6 copper layers in the
-mote's order, 01's generic 1.6 mm build (M3 is to replace it with JLCPCB's stackup; not done).
+## 3. Block moves (OPTIONS §3 + addendum, as built; `VARIANT=pocket`)
 
-## 3. Block moves (OPTIONS §3, as built)
-
-| Block | 01: dst, rot | 1.a: dst, rot | Why |
+| Block | session 2: dst, rot | 2.b: dst, rot | Why |
 |---|---|---|---|
-| ADIN | (−1.4, 32.8), 90° | **(−1.7, 32.5), 90°**; region clipped at mote y 107.9 (west), x 148.2 (south), y 119.7 (east) | Q5 (2.0 mm restored); the south exit 0.3 mm wider; a 1V8 stub and a GND stub that collided with T1's C16 dropped. The west clip also dropped Sofar's ~{ADIN_INT} via (it lands inside the edge clearance): re-added by hand at (−6.75, 30.25), §4 |
-| P1T (T1) | (8.7, 28.4), 0° | **(6.7, 28.4), 0°** | Q1; stops at the ADIN block's C8. (Session 2 tried 7.0 while the pair's approach was 1.4 mm; the 0.9 mm approach clears the crystal's via from 6.7) |
-| P2T (T2) | (16.0, 32.3), 180° | **(13.7, 32.5), 180°**; region's east edge mote x 139.2 → **138.6** (session 2) | Q1; stops at P1T's C18 / its via. The clip drops Sofar's GND pour-stitching via at mote (138.751, 116.854), which serves the U5 cell's R23 on the mote and landed 0.4 mm in front of T2's data pads after the 180° rotation |
-| P2L | unchanged | region clipped at mote y 112.7 | its BM2_P leg stub was 0.31 mm from SENSE's via |
-| B5V | (31.551, 31.4) | **(31.551, 21.24)** | Q3/Q6: under JP1 |
-| B33 | (31.551, 17.704) | **(31.551, 34.44)** | swapped with B5V |
-| DAMP3 (C23) | (33.5, 40.0), 0° | **(33.5, 40.95), 90°** | rotated to 8.8 wide × 7.4 tall |
-| DAMP2 (C22) | (33.9, 48.2) | **(33.5, 48.6)** | follows the stack |
-| B18 | (20.7, 47.2), 90° | **(19.0, 31.4), 90°** | Q2 |
-| P1L, SENSE, DAMP1, rings | unchanged | unchanged | |
-
-Fresh parts as OPTIONS §3 with these corrections after the M0 trial: JP1 (32.35, 9.45) top; U11 (32.5, 54.35) rot
-−90 top, C49 (35.7, 54.35), R34 (29.6, 55.6) rot 90; R16 is C23's resistor, not C21's, so it sits under C23 at
-(37.0, 42.5) bottom; TP19 (30.6, 43.3), C58 (36.6, 14.0), TP38 (36.6, 16.3) bottom.
+| frame | 46 × 65, x −7.5 … 38.5 | **49 × 68, x −10.5 … 38.5, y 0 … 68** | A1 |
+| MP3 / MP4 / MP1 / MP2 (rings) | x −1.81; y 12.0 / 21.4 / 43.6 / 53.0 | **x −6.31; y 12.0 / 21.4 / 46.1 / 55.5** | 1.5 mm nearer the wall (A2); port 1 2.5 mm south (3 put MP2 2.91 mm from H3's keep-out) |
+| MTG1–4 | (−3.5, 3.5) (34.5, 3.5) (−3.5, 61.5) (34.5, 61.5) | **(−6.5, 3.5) (34.5, 3.5) (−6.5, 64.5) (34.5, 64.5)** | with the corners; the MTG/H courtyard overlaps are gone |
+| L1 envelope / P1L | y 36.5–52.0; L1 (12.74, 44.25) | **y 39.5–55.0; L1 (12.74, 47.25)** | 3 mm south: the band y 26.5 … 37.5 |
+| ADIN | (−1.7, 32.5), 90° | **(−4.7, 33.75), 90°** | 3 mm west with the edge, centred in the taller pocket (26.2 … 41.3); region clipped at mote y 107.9 as session 2; the ~{ADIN_INT} hand via follows (−5.05, −2.25 from U1) |
+| P1T (T1, C16, C18) | (6.7, 28.4) | **(3.7, 29.45)** | session 2's relation to U1 but 0.2 mm north: at the exact relation BM1_DATA_P came out 9.59 (trial 3) |
+| P1C (C19, R14) | in P1T | **(5.95, 26.05)** | the mote's spot relative to T1, as its own rigid piece (the split exists for the centre variant) |
+| P2T | (13.7, 32.5), 180° | **(10.7, 33.75), 180°** | session 2's relation to U1 |
+| B18 | (19.0, 31.4), 90° | **(19.0, 32.9), 90°** | with U1's latitude |
+| DAMP1 / D1 / R11 / TP36 / FID5 / FID6 / J5 | y 57.5 / 59.0 / 58.0 / 62.3 / 55.6 / 55.6 / 61.8 | **+3.0 mm** | with the south band |
+| JP1 | (32.05, 9.45) top, strip's north end | **(20.4, 2.2) top, north band** | Nick: on top at an edge, no tall part beside (A4) |
+| JP2 | (15.0, 4.3) bottom under the LEDs | **(12.5, 5.2) top, north band** | same |
+| D10 / D8 / D9 | (11.6 / 15.0 / 18.4, 1.4) | **(8.1 / 11.5 / 14.9, 1.4)** | room for JP1 at the band's east end |
+| R46 / R44 / R45 | (10.8 / 18.0 / 19.4, 4.2) bottom | **(8.1 / 11.5 / 14.9, 3.0) bottom** | under their LEDs |
+| FID3 / FID4 (top), FID1 / FID2 (bottom) | (21.5 / 8.0, 2.5) | **(17.0, 5.3) / (7.8, 5.0)** | JLCPCB: pad edge ≥ 3.35 mm from the edge (DFM row 26) |
+| R43 / TP8 | (7.5 / 9.8, 36.3) bottom | **(4.5 / 6.8, 37.8) bottom** | with the pocket |
+| B5V, B33, DAMP3, DAMP2, SENSE, P2L, U11 cell, C56–C58, TP20/24/38, R26/R27, R15/R16, C26, the Pi holes, J1 | unchanged | unchanged | |
 
 ## 4. Planes and routing
 
-- Planes as 01 (GND In2 with the two inductor slots, the PWR plane In4 split), the 3V3 island moved with the 3.3 V
-  cell to x 33.4–38, y 24–38; the 5V_PI pour on the bottom x 29.7–38, y 7.5–24 (solid connections) **plus a 5V_PI
-  patch on Internal 2 over the same rectangle** (session 2: the bottom pour's islands, cut by the dividers R37–R40,
-  each get a via into the patch, as the mote carries the buck's output on a plane island); a bottom-side GND pour over
-  the whole board as the mote's bottom layer, solid pad connections as Sofar's pours; the fiducials' mask apertures cut
-  out of it.
-- Bus feeds by hand (1.5 mm, Top), the bus legs at 0.2 mm / 0.35 from everything incl. the opposite leg, the bus rule
-  in `.kicad_dru` unchanged.
-- **Pairs** (session 2, `router.route_pair` / `commit_pair`, LOG §1): two 0.2 mm tracks, 0.2 mm gap, on Top +
-  Internal 1, one swap figure each (the pin and pad order demand it), the layer changes at the ends as Sofar's mote
-  makes them: port 1 leaves U1's pins by two vias straight out of the pins (staggered 1.0 / 1.48 mm: two 0.45 vias do
-  not fit side by side at the 0.5 mm pin pitch) and reaches T1 on Top; port 2 leaves on Top and gets its via pair
-  beside T2's approach. The approach to the pads is a straight lane along the pads' entry direction, the pair spreading
-  to the pads' 0.65 mm pitch over 0.2 mm, finished at the pad edge. Every emitted pair is checked on the board (one
-  cluster per net, P–N ≥ 0.15 on every shared layer) before it is kept. **BM1 9.46 / 8.80 mm (limit 9.5), BM2 17.98 /
-  18.62 mm (limit 21.3)**; 01: 9.4 / 7.9 / 21.3 / 23.4.
-- **~{ADIN_INT}**: Sofar's own fan-out, whole: U1.39 → the Top lead-out → a hand via at (−6.75, 30.25) (QE round 1 F2:
-  the mote's via lands 0.08 mm inside the edge, inside the 0.5 mm edge clearance) → the Bottom lead-out → R1.1; the
-  via is proven on the board (edge 0.525 mm, 0.207 mm from other-net copper). Copied items on a mote pad-to-pad path
-  are now never trimmed (`blocks.json` "protected"; 0 of them dangling here).
-- **Fan-out first**: U2 / U3's non-GND balls get their vias before the pairs (`m4_route.fanout`): 1V8 at (−2.9, 38.6),
-  3V3 at (−4.4, 37.4); U2's ADIN_PWR ball found no spot within 1.7 mm and was routed normally. The vias sit in the
-  pocket exit's south-west corner so the port-2 pair's lane (y 37.4–38.3) stays free.
-- Corridors (OPTIONS §2.3) held: SPI + ~{CS} on Internal 2 under U1 to J1, ~{RST} from U1's east side, the LED nets
-  north, ADIN_VDDIO to the LED block, 5V_PI on top from L6 to JP1, PI_5V to J1 pins 2/4, VBUS_OUT on Internal 2 to J5
-  (0.6 mm), VBUS pre-stitched at U11 pin 1 before U11's signals, 3V3 / 1V8 / ADIN_PWR into the pocket on Internal 2
-  (the bottom costs 2.0 for them, so U2's layer stays free for its balls).
+- Planes as session 2, parametrised by the frame: the GND plane's slots around each inductor island follow the envelopes
+  (port 1's are 3 mm south), the VBUS / P_IN / 3V3 islands and the 5V_PI pour and patch reach the new edges, the inner planes
+  keep **0.3 mm** from holes (JLCPCB's inner PTH-to-copper, DFM row 12; was 0.25: 7 DRC items at the M3 housing holes), the outer
+  pours drop islands that hold no via (the bottom GND island under C58 / TP38 of session 2 is gone). Bus feeds 1.5 mm on Top from
+  3.31 mm east of each insert centre to its inductor pad (3.0 put the track's round end 0.05 mm from the Ø4.4 hole, DFM row 13).
+- **Order** (Nick, LESSONS §3/§4): the **SPI first** (SCK, MOSI, MISO, ~{CS}; Internal 2 at cost 1.0, Internal 1 at 1.5, Top only
+  for the pin escape, Bottom forbidden), then the regulators' fan-out vias (anywhere but the pairs' exit lanes), the pairs, the
+  bus legs, the 5 V links, the load switch, the pocket's other nets (~{INT}, ~{RST}, 3V3, 1V8, ADIN_PWR), the LED nets, the rest,
+  stitching, zone vias. New track: SPI 34.2 / 35.1 / 40.4 / 41.0; ~{INT} 40.1; ~{RST} 29.1; 1V8 28.5; ADIN_PWR 40.1; PI_5V 11.2; the LED
+  nets 42.3 / 37.0; VBUS_OUT 23.3; I²C 24.5 / 17.4 mm. 36 stitching vias, 278 vias in all.
+- **Pairs** as session 2 (coupled, Top + Internal 1, the mote's geometry, checked on the board) plus: every candidate's 45° runs
+  are straightened (`Grid.straighten`: a staircase sub-run becomes one orthogonal + one 45° segment when the new cells are free on
+  the A*'s own maps; the figures' runs stay), and `PAIR_MARGIN` 0.3 mm prefers a candidate under the limit by that much (QE N2).
+  Port 1: two vias straight out of the pins (1.0 / 1.53 mm), Internal 1, one swap, Top into T1; port 2: Top, one swap, Top.
+  **9.39 / 8.77 / 19.93 / 20.61 mm**; the blank-board tests (18) and the real-board test pass (`tools/test_pair.py`: "ALL OK",
+  min clearance to other nets 0.175).
+- **The 5 V path** (JP1 in the north band): L6 → JP1 across J1's north end on an inner layer, JP1 → J1 pins 2 / 4; 5V_PI ≈ 22 mm +
+  PI_5V 11.2 mm of 1.0 mm track (≈ 35 mV at 1 A, OPTIONS A4).
 
 ## 5. DRC summary (kicad-cli, `--schematic-parity --severity-all`, `out/m4/drc_summary.txt`)
 
 | Item | Count | Status |
 |---|---|---|
-| errors | **111** | **all** Sofar-copied features in the exclusion table (`out/m5/drc_exclusions.md`): insert contact 76 (shorting 28, hole clearance 36, mask 8, padstack 4), transformer footprint 22 (clearance 6, shorting 6, mask 10), courtyards 12 (10 inside copied blocks, 2 MTG/H), the P1L BM1_N stub vs Sofar's GND via 1; **0 of new copper** |
+| errors | **109** | **all** Sofar-copied features in the exclusion table (`out/m5/drc_exclusions.md`): insert contact 76 (shorting 28, hole clearance 36, mask 8, padstack 4), transformer footprint 22 (clearance 6, shorting 6, mask 10), courtyards 10 (Sofar's intra-block pairs; the 2 MTG/H pairs of session 2 are gone), the P1L BM1_N stub vs Sofar's GND via 1; **0 of new copper, 0 without a reason** |
 | unconnected | **1** | J1 pins 1/17 (by design, SPEC 4) |
 | schematic parity | 4 | MP1–MP4 "no pad for pin 1" (Sofar Q6) |
-| warnings | 254 | silk / text / padstack / lib mismatch from the imported footprints; **0 track_dangling, 0 via_dangling**, 0 hole_to_hole, 0 holes_co_located, 0 starved_thermal |
+| warnings | **70** | lib_footprint_mismatch 28 (the silk edits of `tools/dfm_fix.py` make the placed footprints differ from the library: expected), padstack 38 (Sofar's imported footprints), nonmirrored_text_on_back_layer 2 (Sofar's U5 / U10 pin-1 marks), silk_overlap 2 (Sofar's rigid-block silk); **0 track_dangling, 0 via_dangling, 0 silk_over_copper, 0 text_height / text_thickness** (session 2: 254 warnings, 112 of them text_height) |
 
-## 6. Declared items against BRIEF 1.a §5 / §7 M2 (for Nick)
-
-| # | Item | Numbers | Why |
-|---|---|---|---|
-| 1 | Bottom GND pour island with no via | one island near (37.1, 13.9), under C58 / TP38 | no via of the GND class fits in it over the plane; it carries no pad, so KiCad's island removal may drop it on a refill; harmless, to be confirmed in KiCad |
-| 2 | Q7 exclusion keys | not attempted | the table (`out/m5/drc_exclusions.md`) is for Nick to apply in KiCad; every one of the 111 has a reason |
-| 3 | M3 DFM sweep, `DFM.md`, JLCPCB stackup | not started | session 2 stopped at M2's bar for QE round 2 and Nick's own design review (his instruction, 2026-10-08) |
-| 4 | U2.B2 (ADIN_PWR) fan-out | no via spot within 1.7 mm in the allowed corner | the ball is routed (normally, after the pairs); only the "fan-out first" reservation failed for it |
-| 5 | BM1_DATA_P's margin | 9.46 mm vs the 9.5 mm limit: 0.04 mm | the pins' P via must sit 1.43 mm out (the AVDD via and pin 29 leave no nearer spot) and T1 cannot move west (C16 vs C8); a rerun is not byte-identical, so a rebuild could land over the limit by a few hundredths (QE round 2 N2). The pair's legs are 0.1 mm-grid staircases on the 45° runs (N3), left for M3 |
-
-Declared deviations carried from 01 that still hold: the 2 mm envelope clearance applied to top-side parts (bottom parts
-under the inductors as Sofar placed them, OPTIONS Q4); J5 stays the JST GH; Sofar's T1/T2 pads 6/7 at 0.24 mm; the
-insert contact as drawn; Sofar's 2.0 mm BM1_N stub 0.31 mm from Sofar's GND via (the bottom pour keeps the via that 01
-trimmed). New block-copy changes in session 2: the P2T region clip (§3) and the ~{ADIN_INT} hand via (§4).
-
-## 7. What the tactic bought (vs experiment 01's final table and session 1)
-
-| Measure | 01 | 1.a session 1 (293dc11) | **1.a session 2** |
-|---|---|---|---|
-| open links (besides J1's pair) | 0 | 3 | **0** |
-| new segments below class width | 10 | 0 | **0** |
-| links at 0.15 mm beyond a pad field | 13 | 0 | **0** |
-| class-clearance items (new copper) | 1 | 6 | **0** |
-| DRC errors of new copper | 1 (declared 1V8) | 16 (incl. 2 P–N shorts) | **0** |
-| pairs (mm) | 9.4 / 7.9 / 21.3 / **23.4** | 10.7 / 8.59 / 18.24 / 18.88 (shorted) | **9.46 / 8.80 / 17.98 / 18.62** |
-| pairs P–N clearance checked on the board | no | no | **yes, 0.15** |
-| mote pad-to-pad paths cut by the copy | ? | 1 (~{ADIN_INT}) | **0** |
-| U1 to the L1 envelope | 1.79 (allowance) | 2.09 | 2.09 |
-| bottom parts under the envelopes | yes (declared) | yes (declared) | yes (declared) |
-| JP1 | bottom | top | top |
-| LEDs | band's east end | north edge | north edge |
-| grid build | 268 s | 19 s | 17 s |
-| full routing run | 390 s | ≈ 300 s | ≈ 330 s |
-
-## 8. Pass criteria of BRIEF 01 §8, re-scored (BRIEF 1.a §8)
+## 6. Pass criteria of BRIEF 1.a §5 and §7 M2 / M3
 
 | # | Criterion | Result |
 |---|---|---|
-| 1 | DRC: 0 errors, 0 unconnected, 0 parity (exclusions with reasons) | **Pass with the table**: 111 errors, 111 with reasons (all Sofar-copied features); 1 unconnected (J1's no-connect pair, by design); 4 parity (Q6) |
-| 2 | §3 positions ±0.05; J1 pin 1 at (25.23, 8.37) from the top | **Pass** (`check_fixed.py` 0 failures) |
-| 3 | §4 keep-outs, 2 mm around both envelopes, bottom ≤ 3 mm | **Pass** (no allowance; inserts' copper pull-back clear) |
-| 4 | blockcheck 100 % | **Pass with trimming declared**: 0 missing, 127 trimmed (dead-end lead-outs, listed), 0 mote pad-to-pad paths cut |
-| 5 | §6 widths on new routing; pairs no longer than the mote's; R8 sense identical; rings identical | **Pass**: 0 below class, 0 thin links, 0 clearance items; 4 of 4 pairs within, P–N 0.15; Kelvin yes / yes; rings 100 % |
-| 6 | Renders | **Pass**: `out/m4/render_*.png`, `out/m4/layers/*.svg`, region views `out/review/` |
+| 1 | DRC: 0 errors of new copper, 0 unconnected but J1's pair, exclusions with reasons | **Pass with the table**: 109 errors, 109 with reasons (all Sofar's); 1 unconnected (by design); 4 parity (Q6) |
+| 2 | §3 positions ±0.05; J1 pin 1 at (25.23, 8.37) from the top | **Pass** (`check_fixed.py` 0 failures, no allowance) |
+| 3 | §4 keep-outs, 2 mm around both envelopes, bottom ≤ 3 mm | **Pass** |
+| 4 | blockcheck 100 % | **Pass with trimming declared**: 0 missing, 127 trimmed (dead-end lead-outs, listed), 0 of Sofar's pad-to-pad paths cut |
+| 5 | §5 widths on new routing; pairs no longer than the mote's; R8 sense by track; rings identical | **Pass**: 0 below class, 0 thin links, 0 clearance items; 4 of 4 pairs within, P–N 0.15; Kelvin yes / yes; rings 100 % |
+| 6 | M3: every `DFM.md` row pass or fail with a reason; §5 still holds | **30 pass, 1 fail with a reason** (row 29: U6's DSBGA pads 0.23 vs 0.25, Sofar's footprint; Nick's call); §5 holds (row 5 of this table is on the M3 board) |
+| 7 | Renders | **Pass**: `out/m4/render_*.png`, `out/m4/layers/*.svg`, `out/review/`, `out/before_after/` |
 
-## 9. What I would do next (in order)
+## 7. What the tactic bought (vs experiment 01, session 1 and session 2)
 
-1. QE round 2 of this state; Nick's design review (`tools/review_views.py` output, the mote's copper beside ours per
-   region).
-2. M3: the JLCPCB DFM sweep per BRIEF §6 (limits fetched and cited in `DFM.md`, encoded in the design rules, the
-   stackup, outer-layer pours — the bottom one exists — and the silk clean-up: 254 warnings are mostly silk / text).
-3. The bottom GND island (§6 #1): confirm KiCad drops it, or give the pour an island-removal setting.
-4. Q7 once more (marker positions from a pcbnew-saved copy).
+| Measure | 01 | 1.a session 2 (b22752f) | **1.a session 2.b** |
+|---|---|---|---|
+| board | 46 × 65 | 46 × 65 | **49 × 68** |
+| open links (besides J1's pair) | 0 | 0 | **0** |
+| new segments below class / thin links / clearance items | 10 / 13 / 1 | 0 / 0 / 0 | **0 / 0 / 0** |
+| DRC errors of new copper / without a reason | 1 | 0 / 0 | **0 / 0** |
+| DRC warnings | 258 | 254 | **70** |
+| pairs (mm) | 9.4 / 7.9 / 21.3 / **23.4** | 9.46 / 8.80 / 17.98 / 18.62 | **9.39 / 8.77 / 19.93 / 20.61** |
+| pair legs, segments | ? | 25 / 25 / 40 / 40 (staircases) | **15 / 15 / 18 / 18** |
+| SPI new track (SCK / MOSI / MISO / ~CS) | 32–48 | — / — / 66.5 / 67.6 (west-edge detour) | **34.2 / 35.1 / 40.4 / 41.0**, Internal 2 lane, first |
+| JP1 / JP2 | bottom / bottom | top (strip, beside L6) / bottom | **top / top, north edge, nothing tall beside** |
+| JLCPCB limits in the design rules; DFM table | no | no | **yes: 31 rows, 30 pass** |
+| stackup | generic | generic | **JLC06161H-3313** |
+| silk at JLC's legend limits | no | no | **yes** (59 lines, 128 references; 38 hidden, listed in `out/m2/dfm_fix.json`) |
+| fiducials ≥ 3.35 mm from the edge | — | 2.12 | **≥ 3.35** |
+| U1 | pocket | pocket | pocket (**centre tried, 8 trials: OPTIONS A3**) |
+| grid build / routing run | 268 s / 390 s | 17 s / ≈ 330 s | 17 s / 184 s |
+
+## 8. The DFM table (`DFM.md`, summary)
+
+31 rows, each with JLCPCB's limit quoted, its URL and the date read (2026-10-08), how it is enforced (`.kicad_pro` design rules,
+`.kicad_dru` rules, or `tools/dfm.py`'s own measurement where DRC cannot express it), the board's measured worst case with where,
+pass / fail, and what 2.b changed. **30 pass.** The fail: row 29, min SMD pad 0.25 — U6's TPS62840 DSBGA footprint (Sofar's) has
+0.23 mm pads at 0.4 mm pitch; a footprint change is Nick's. Declared within passing rows: the 10 courtyard overlaps and 6 test-point
+overlaps inside Sofar's copied blocks; one same-net gap (Sofar's bus leg at T1 pad 6, 0.066 mm); Sofar's thermal-pad vias (via-in-
+pad row); the 0.75 mm fiducial copper (JLC says ≈ 1.0 is common; mask 2.25 ≥ 2×). Not done: a top-side GND pour (judged: the pairs'
+and the bus feeds' clearances come first; the bottom pour and the two planes carry the GND; copper balance Top 25 % / Bottom 77 %
+is reported, JLC reviews balance at order time), impedance (no published figure to meet: the 10BASE-T1L MDI pairs are 0.2 / 0.2 mm
+over the In2 GND plane 0.665 mm below Top on this stackup; to be checked in JLC's calculator if Nick wants a number).
+
+## 9. Declared items (for Nick)
+
+| # | Item | Numbers | Why |
+|---|---|---|---|
+| 1 | U1 in the pocket, not the centre | centre trials: port 1 9.69 / 10.04 / fail / fail / 21.7 mm; port 2 13.2 / 13.8 / fail / 39.7 / 46.9 | OPTIONS A3: the pair emitter needs 2 mm of straight run for its swap figure; the next step is a body-side pad entry (Sofar's figure) |
+| 2 | BM1_DATA_P's margin | 9.39 vs 9.5: 0.11 (the 0.3 mm margin rule found no candidate with more) | a rerun is not byte-identical |
+| 3 | 38 references hidden | listed in `out/m2/dfm_fix.json` (0402 / 0603 passives, test points, U3, Y1, the LEDs D8–D10) | no clear spot for a 1.0 mm text within 1.5 mm of their courtyard |
+| 4 | U2.B2 / U3.A2 fan-out | no via spot within 1.7 mm; routed afterwards (connected) | as session 2 |
+| 5 | Q7 (exclusion keys) | not attempted | the table is for Nick to apply in KiCad |
+| 6 | DFM row 29 | 0.23 mm pads (U6) | Sofar's footprint |
+| 7 | The 5 V path | ≈ 33 mm of 1.0 mm track, ≈ 35 mV at 1 A | the jumpers at the north edge (Nick) |
+
+Carried from session 2: the 2 mm envelope clearance applied to top-side parts (bottom parts under the inductors as Sofar placed
+them, OPTIONS Q4); J5 stays the JST GH; Sofar's T1/T2 pads 6/7 at 0.24 mm; the insert contact as drawn; Sofar's 2.0 mm BM1_N stub
+0.31 mm from Sofar's GND via; three of Sofar's GND pad links made by the pours (QE round 2 N1).
+
+## 10. What I would do next (in order)
+
+1. QE round 3 of this state; Nick's design review (`out/review/index.html`, `out/before_after/index.html`).
+2. The centre placement (`VARIANT=centre`): a pair emitter that enters the transformer pads from the body side through a staggered
+   via pair (the swap happens in the layer change, no straight run needed), then rerun trial 5's placement; the SPI would be 10–14 mm.
+3. Nick's J5-west / L1-south variant (`J5WEST=1`, OPTIONS A3) once the centre routes.
+4. A top GND pour with stitching, measured against the pairs' P–N and the bus feeds; JLC's impedance calculator for the pairs.
+5. Q7 once more (marker positions from a pcbnew-saved copy).

@@ -24,7 +24,7 @@ import os
 # region keeps Sofar's own via (mote y 107.509 is inside the full region's west edge 107.5)
 # centre (U1 at rot 0, the full region): no hand via, Sofar's ~{ADIN_INT} via is copied; pocket (rot 90, region clipped at
 # mote y 107.9 for the board edge): the via at the clip line's stub ends, (-5.05, -2.25) from U1 (session 2: (-6.75, 30.25) for U1 at (-1.7, 32.5))
-HAND_VIAS = [] if os.environ.get("VARIANT", "centre") == "centre" else [
+HAND_VIAS = [] if os.environ.get("VARIANT", "pocket") == "centre" else [
     {"block": "ADIN", "net": "/Top-Level Schematic/~{ADIN_INT}", "mote_via": [156.571, 107.509], "rel_u1": [-5.05, -2.25], "dia": 0.45, "drill": 0.2,
      "joins": "Sofar's ~{ADIN_INT} fan-out: the Top lead-out from U1.39 (ends at (-6.804, 30.3)) and the Bottom lead-out to R1.1 "
               "(ends at (-6.804, 30.2)), both clipped at the ADIN region's west edge (mote y 107.9, OPTIONS Q5)",

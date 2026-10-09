@@ -379,6 +379,17 @@ def route_pairs(g, board):
                 variants.append((f"In1, vias at {L_near} / {L_far:.2f} mm from the pins ({far_net.rsplit('/', 1)[-1]} far)", {(I1,) + c3},
                                  router.Grid.lane_cells(pin_mid, (S3[0] - 0.15 * dir_out[0], S3[1] - 0.15 * dir_out[1]), 0.9),
                                  router.Grid.straight_cells(I1, S2, S3)[:-1], sv))
+        # session 2.b (trial 8): a START SWAP. The pair leaves the pins straight (0.5 mm stub + 0.3 mm), makes its one swap
+        # figure right there in the open (centre 1.7 mm out, ±0.9 along, swing ±0.6 beside; the neighbouring pins' pads end
+        # 0.45 mm out), runs 1.2 mm straight on Internal 1 and only then hands over to the A*, which must place no figure
+        # (parity 0). With the mote's compact U1 / T geometry (the pads 2–4 mm away at 45–60°) the mid-route swap figure
+        # found its 2 mm of straight run only behind the pads (trials 5–7); here it has it by construction.
+        for side in (1, -1):
+            c0 = (S[0] + 1.2 * dir_out[0], S[1] + 1.2 * dir_out[1])
+            c1 = (c0[0] + 1.2 * dir_out[0], c0[1] + 1.2 * dir_out[1])
+            pre = router.Grid.straight_cells(F, S, c0) + [(I1,) + router.cell(*c0)] + router.Grid.straight_cells(I1, c0, c1)[1:]
+            variants.append((f"start swap (side {side})", {pre[-1]}, router.Grid.lane_cells(pin_mid, (c1[0] - 0.15 * dir_out[0], c1[1] - 0.15 * dir_out[1]), 0.9),
+                             pre[:-1], None, {router.cell(*c0): side}))
         # the approach: with an end via pair (at A = B − splay, beside the approach) the A* goal A' is 0.3 mm before A on
         # either layer; without one (the vias would not fit) the goal is A itself, on Top
         A = (pad_mid[0] - (PAIR_PAD_RUN + router.PAD_SPLAY) * dir_in[0], pad_mid[1] - (PAIR_PAD_RUN + router.PAD_SPLAY) * dir_in[1])
@@ -406,13 +417,19 @@ def route_pairs(g, board):
         # the swap figure makes the far track longer: try each start variant and swing side, shortest first, and keep
         # the first whose copper passes the board check
         cands = []
-        for label, starts, lane_start, prefix, sv in variants:
+        for variant in variants:
+            label, starts, lane_start, prefix, sv = variant[:5]
+            pre_swaps = variant[5] if len(variant) > 5 else {}
+            need = (parity + len(pre_swaps)) % 2
             for sides in ((1,), (-1,)):
-                path, swaps = g.route_pair(net, starts, goals, parity, layers=[F, I1], max_nodes=1500000, via_cost=8.0, sides=sides, forbid=lane_end | lane_start)
+                path, swaps = g.route_pair(net, starts, goals, need, layers=[F, I1], max_nodes=1500000, via_cost=8.0, sides=sides, forbid=lane_end | lane_start)
                 if path is None:
                     continue
+                swaps = {**pre_swaps, **swaps}
                 Lp = (len(prefix) + len(path)) * router.PITCH + (0.5 if swaps else 0.0) + (0.0 if path[-1][0] == F else 0.3) + (0.0 if sv is None else 1.2)
                 cands.append((Lp, f"{label}, swing {sides[0]}", prefix + path, swaps, sv))
+                if pre_swaps:
+                    break          # the A* places no figure here: the swing side is the prefix's
         if not cands:
             log["failed"].append({"net": pn, "why": f"pair port {port}: no path for the virtual track (parity {parity})"})
             log["pairs"].append({"port": port, "ok": False})

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Rebuild the experiment board from the schematic: M0 netlist + board, then each milestone script in order.
-# VARIANT=centre|pocket picks the placement (tools/m2_place.py, session 2.b); default centre.
+# VARIANT=centre|pocket picks the placement (tools/m2_place.py, session 2.b); default pocket (OPTIONS addendum A3).
 # Every step is a plain script; rerunning the pipeline is the only way the board changes (no hand edits, KiCad closed).
 #   tools/build_all.sh [m0…m4]        stop after this milestone
 #   START=m4 tools/build_all.sh       rerun the routing alone from the M3 snapshot (out/m3/snapshot.kicad_pcb)

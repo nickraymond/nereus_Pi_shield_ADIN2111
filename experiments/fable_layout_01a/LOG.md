@@ -221,3 +221,26 @@ every trial runs on a scratch copy via `tools/trial.sh`, two levels under a dire
   T1 at the mote's relative spot) failed both pairs on the swap figure's 2 mm straight run (the emitter cannot make the
   U-turn the A* found behind the pads); trial 7 (T1 / T2 1 mm further from U1, C19 / R14 split off T1's cluster, the
   half-plane behind the pads forbidden) is running, together with Nick's J5-west / L1-south variant (`J5WEST=1`).
+
+## Session 2.b, steps 2–5 — the board rebuilt at 49 × 68 (2026-10-08)
+
+Board md5 **f33491bc576a45f1a6c9f3d160e82dc1** (rebuilt from M0 with `VARIANT=pocket`, then once more from the M1 snapshot after the silk fix's last
+change; the second run reproduced the first's pairs and DRC exactly). Full record of the trials in OPTIONS.md addendum A3 and the
+step-2 entry above; the result in REPORT.md.
+
+- **Step 2 (frame, inserts, OPTIONS addendum):** 49 × 68 with the width west and the height south (A1), inserts at x −6.31 (A2), U1
+  in the centre tried in eight routed trials against the pocket in four (A3): the pocket is built (pairs 9.39 / 8.77 / 19.93 /
+  20.61; the centre's port 1 9.7–10.0 or no pair). Both cut jumpers on top in the north band (A4); Nick's strip question (A5) and his
+  J5-west / L1-south idea (A3, `J5WEST=1`, tried on the centre placement) answered in numbers.
+- **Step 3 (router):** `Grid.straighten` in `route` and `route_pair`; `PAIR_MARGIN` 0.3; the pair A* may not enter the half-plane
+  behind the transformer pads (trial 5's U-turn); a start-swap variant exists (the figure at the pins' exit; it connected the
+  centre's pairs but around the block). Pair legs 15 / 15 / 18 / 18 segments (were 25 / 25 / 40 / 40).
+- **Step 4 (corridors):** the SPI first on Internal 2 (34–41 mm, no edge), then the fan-out vias (anywhere but the pairs' exit
+  lanes), the pairs, the rest; `~{ADIN_INT}` and `~{ADIN_RST}` after the pairs as before.
+- **Step 5 (rebuild and checks):** `check_fixed` 0 failures; blockcheck 0 missing / 127 trimmed; `check_rules` 0 / 0 / 0, 4 of 4
+  pairs within, Kelvin yes / yes; DRC 109 / 70 / 1 / 4, `drcexclude` 109 with reasons, 0 without; `test_pair` 18 + real board ALL OK;
+  `dfm.py check` 30 pass / 1 fail; renders `out/m4/`; `tools/review_views.py` → `out/review/` (regions for the pocket layout);
+  `tools/ba_data.py` + `tools/before_after.py` → `out/before_after/` (before = b22752f, after = this board: 79 footprints moved,
+  19 nets changed by ≥ 2 mm); `tools/summary.py` → `out/m4/summary.json` (the numbers every page and the report quote).
+- New tools this session: `dfm.py`, `dfm_fix.py`, `trial.sh`, `ba_data.py`, `summary.py`; `build_all.sh` runs `dfm_fix.py` and a
+  DRC after placement and takes `VARIANT`.

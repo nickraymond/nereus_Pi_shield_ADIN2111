@@ -39,8 +39,9 @@ def main():
                   "clearance_items": int(re.search(r"Violations of the class clearance[^:]*: (\d+)", rules).group(1)),
                   "kelvin": re.findall(r"\| (U4\.\d ↔ R8\.\d[^|]*)\| (yes|NO) \|", rules)}
     bc = (OUT / "blockcheck.md").read_text()
-    S["blockcheck"] = {"missing": int(re.search(r"(\d+) missing", bc).group(1)) if re.search(r"(\d+) missing", bc) else None,
-                       "trimmed": int(re.search(r"(\d+) trimmed", bc).group(1)) if re.search(r"(\d+) trimmed", bc) else None}
+    mm_ = re.search(r"Total missing: (\d+)", bc)
+    tr_ = re.search(r"Total missing: \d+; trimmed: (\d+)", bc)
+    S["blockcheck"] = {"missing": int(mm_.group(1)) if mm_ else None, "trimmed": int(tr_.group(1)) if tr_ else None}
     if (OUT / "dfm.json").exists():
         d = json.load(open(OUT / "dfm.json"))
         S["dfm"] = {k: v[2] for k, v in d.items() if isinstance(v, list) and len(v) == 3 and isinstance(v[2], bool)}

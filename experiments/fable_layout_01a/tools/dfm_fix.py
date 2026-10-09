@@ -42,6 +42,14 @@ def main():
             for side, cu in (("F", pcbnew.F_Cu), ("B", pcbnew.B_Cu)):
                 if p.IsOnLayer(cu) or p.GetDrillSize().x > 0:
                     obst[side].append(p.GetEffectiveShape(cu))
+                    try:                    # a pad with its own mask margin (the fiducials: 0.75 copper, 2.25 aperture) bares that much copper-free
+                        m = p.GetLocalSolderMaskMargin()
+                        m = m.value() if hasattr(m, "value") else m
+                    except Exception:
+                        m = None
+                    if m and m > 0:
+                        sz = p.GetSize(cu)
+                        obst[side].append(pcbnew.SHAPE_CIRCLE(p.GetPosition(), max(sz.x, sz.y) // 2 + int(m)))
         for g in f.GraphicalItems():
             if g.GetClass() == "PCB_SHAPE" and g.GetLayer() in (pcbnew.F_Mask, pcbnew.B_Mask):
                 obst["F" if g.GetLayer() == pcbnew.F_Mask else "B"].append(g.GetEffectiveShape(g.GetLayer()))
@@ -102,7 +110,8 @@ def main():
 
         def clear(x, y):
             t.SetPosition(V(x, y))
-            s = t.GetEffectiveShape(t.GetLayer())
+            bb = t.GetBoundingBox()           # DRC's silk overlap test is by the text's box, not its glyphs
+            s = pcbnew.SHAPE_RECT(bb.GetPosition(), bb.GetWidth(), bb.GetHeight())
             if any(s.Collide(o, MM(PAD_CLR)) for o in obst[side]):
                 return False
             if any(s.Collide(o, MM(0.1)) for o in placed_refs[side]):
@@ -130,7 +139,8 @@ def main():
             rep["refs_hidden"].append(f.GetReference())
         else:
             t.SetPosition(V(*found))
-            placed_refs[side].append(t.GetEffectiveShape(t.GetLayer()))
+            bb = t.GetBoundingBox()
+            placed_refs[side].append(pcbnew.SHAPE_RECT(bb.GetPosition(), bb.GetWidth(), bb.GetHeight()))
             if geom.dist(found, own) > 0.01:
                 rep["refs_moved"].append(f.GetReference())
     geom.save(board)

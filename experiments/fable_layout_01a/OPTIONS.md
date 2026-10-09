@@ -212,3 +212,94 @@ the fixes listed in LOG M1); 138 footprints placed, 0 parked.
 Open links 0 but J1's pair; segments below class 0; thin links beyond a pad field 0; class-clearance items 0; pairs
 ≈ 8.4 / 8.9 / 19 / 19 mm (limits 9.5 / 9.5 / 21.3 / 21.3); DRC errors = Sofar's copied features only; 0 copper-defect
 warnings. If a net cannot be routed at its class width, it is reported open with the reason, not narrowed.
+
+---
+
+# Addendum — session 2.b (2026-10-08): the 49 × 68 frame, the inserts, U1 in the centre vs the pocket, the jumpers
+
+*Written after the trials, as M0 was (BRIEF §3, §7). Every number below is from a scratch trial run through M2 (`tools/trial.sh`,
+logs `trial.sh … .log`, boards never in `board/`) or from the mote with pcbnew. Frame: Pi NW corner (0, 0), x east, y south.*
+
+## A1. Where the extra 3 + 3 mm went (Nick: 3 mm wider, 3 mm taller; LESSONS §3)
+
+| Growth | Where | Why |
+|---|---|---|
+| +3 mm width | **West**: x0 −7.5 → −10.5; the inserts and MTG1 / MTG3 move with the edge; J1, the Pi holes and the strip east of J1 stay | The first trial put it on the east (x1 41.5): the strip gained 3 mm its parts did not need (nothing in it moved), while on the west the T2 cluster's bottom cap C25 sat inside MP4's r 4.8 keep-out and T1's C19 against J1's socket courtyard at the same time. On the west the band between the port-2 keep-out and J1's socket gains the 3 mm for the T2 – U1 – T1 chain, and the pocket is 13 mm wide |
+| +3 mm height | **South**: y1 65 → 68; L1's envelope, J5 and the south band 3 mm south; the port-1 inserts 2.5 mm south; J1, H1–H4 and the north band stay | The band between the envelope clearances grows from 8.0 to **11.0 mm (y 26.5 … 37.5)**, exactly where J1's SPI pins are (y 31.2 … 36.3). Growing north instead would have moved the LEDs' edge and the port-2 side for no gain. MP1 / MP2 move 2.5, not 3: at 3 MP2's courtyard came within 2.91 mm of the Pi's H3 standoff keep-out (r 3.0) |
+
+## A2. Inserts 1.5 mm nearer the west wall (Nick: 1–2 mm)
+
+The mote's corner inserts sit 3.5 mm from its edge (MP1 / MP3 measured: 3.525), with their Ø7.4 ring copper on the outline.
+JLCPCB's copper-to-edge figure is **0.2 mm** (routed edges, DFM.md row 15, read 2026-10-08); the brief keeps **0.5 mm** (BRIEF 1.a
+§6: "the brief's 0.5 mm stays"). With 0.5 the ring (outer radius 3.69) can come to **4.19 mm** from the edge: centre x = −10.5 + 0.5 +
+3.69 = **−6.31**, a **1.5 mm** shift from session 2's 5.69 (x −1.81 on the old edge). 2 mm would need the 0.5 relaxed to 0 at the rings
+(as the mote) — declined, the brief's rule stands. What it buys: 1.5 mm more between the keep-out circles (r 4.8) and the band's
+parts; the pocket x −10 … −1.5. Sofar's 4.8 mm keep-out is unchanged. The bus feeds start 3.31 mm from the insert centre (DFM row 13).
+
+## A3. U1 in the centre of the band vs U1 in the pocket — the trials
+
+Both placements were run through M2 (placement, copper copy, planes, routing) on scratch copies with the same scripts; the centre
+in eight trials (placement and router changes between them), the pocket in four. The table is the last routed trial of each.
+
+| Measure | **Pocket** (trial 9 → final, see REPORT; trial 3 numbers here) | **Centre, best routed** (trial 4: U1 rot 270; trial 8: U1 rot 0) |
+|---|---|---|
+| U1 | (−4.7, 33.75) rot 90 in the west pocket (x −10 … −1.5, y 26.2 … 41.3): port-1 pins north toward T1, port-2 south, SPI west | (11.8, 31.15): rot 270 (SPI pins east toward J1; trials 2–4) / rot 0 (the mote's: SPI north, port 1 east, port 2 west; trials 5–8) |
+| T1 / T2 | (3.7, 29.45) / (10.7, 33.75) in the band beside U1, session 2's relation | T1 south-east (18.6 … 20.4, 35.6), T2 at the band's north edge (rot 270) or south-west (rot 0) |
+| Pairs mm (limits 9.5 / 9.5 / 21.3 / 21.3) | **9.59 / 8.97 / 19.93 / 20.61** (P 0.09 over → T1 0.2 mm north in trial 9) | rot 270: 9.40 / **10.04** / 13.17 / 13.81; rot 0: **21.72 / 18.97 / 46.88 / 47.52** (connected, far over) |
+| SPI new track mm (SCK / MOSI / MISO / ~CS) | 34.2 / 35.1 / 40.4 / 41.0 — on Internal 2 under U1 straight east to J1, **no edge detour** (session 2: 66.5 / 67.6 down the west edge) | 13.5 / 11.2 / 10.2 / 14.4 (rot 270); 17.4 / 14.0 / 17.1 / 24.6 (rot 0) |
+| Open links besides J1's pair | 0 | 2 (rot 270: 3V3 at U3's ball, the GND island); 1 (rot 0: C19's net) |
+| DRC errors (Sofar's with reasons / without) | 113 (113 / 0) | 109 (rot 270), 119 (rot 0) |
+| Rules: below class / thin / clearance | 0 / 0 / 0 | 0 / 0 / 0 |
+| Pair legs, segments | 15 / 15 / 18 / 18 (session 2: 25 / 40 staircases) | 18 / 18 / 25 / 24 |
+
+**What the centre trials showed, in numbers.** The ADIN's port pins are on two opposite edges of a 7 mm QFN, each port's pair at
+the middle of its edge; each transformer's data pads must be entered along a straight lane 1.4 mm long, and one P–N swap is needed
+per port (the pin and pad order demand it, as on the mote). In the band the transformers can only stand at the band's south edge
+(their courtyards 3.7 tall, U1's 9.3 in 11.0), so from the pins to the pads is a 2–7 mm Z at 45–60°:
+- rot 270 (SPI facing J1): the port-1 pins sit on U1's south-**west** (x 9.05 / 9.55 for U1 at 10.8) while T1 is bounded by J1's socket
+  on the east (its bottom cap C19 ≤ x 23.43 → T1 ≤ 19.1): the pair runs 7 mm sideways, **9.69–10.04 mm** in three trials against
+  9.5; Sofar's processor-side fan-out vias (1.9–2.5 mm past the pads) land on T1's data pads unless clipped, and clipping them
+  left MISO, VDDIO, 3V3 and two strap nets with no fan-out room of their own (trial 3).
+- rot 0 (the mote's): the mote's own port-1 geometry (T1 at +7.6, +4.5), but Sofar routes it with vias at the pins and vias behind
+  the pads, entering from the transformer's body side; our emitter enters along the lane and needs 2.0 mm of straight run for
+  the swap figure, which the Z does not have — it found it behind the pads and U-turned (every candidate failed the board check,
+  trials 5–6), or, with the half-plane behind the pads forbidden and the swap moved to the pins' exit (trial 8), it connected both
+  pairs around the ADIN block's own fan-out vias at **21.7 / 19.0 / 46.9 / 47.5 mm**.
+- The SPI, which the centre was meant to shorten, is 10–25 mm there against 34–41 in the pocket; in the pocket it no longer
+  detours (the lane is reserved first), so the 25 mm the centre would save is on a net that does not need it (LESSONS §5).
+
+**Decision: the pocket** (the only placement that meets the bar in these trials), recorded as Nick asked: the centre is preferred
+and was tried first; it cannot meet the pairs' bar with this emitter. What it would take: a pair emitter that enters the pads
+from the body side through a staggered via pair (Sofar's figure: the swap happens in the layer change, no 2 mm straight run), or
+a hand-routed port-1 pair. That is one router feature, not a placement problem, and the centre's other numbers (SPI 10–14 mm,
+port 2 11–14 mm, 0 clearance items) are good. The `VARIANT=centre` placement stays in `m2_place.py` for that next step.
+
+**Nick's J5-west / L1-south idea (2026-10-08, mid-run):** tried as `J5WEST=1` on the centre placement (J5 on the west wall in the
+pocket, mating face west, L1's envelope 1.5 mm further south — the most the Pi's H3 / H4 keep-outs allow — so the band is 12.5 mm;
+C21 / D1 / the fiducials 1.5 mm south with it). The band height is not what limits the centre (the Z geometry is), the pairs failed
+the same way (trials 6–7), and VBUS_OUT grows from 23 to **56 mm** of 0.6 mm track (≈ 75 mΩ, 55 mV at 0.73 A). With U1 in the
+pocket the idea does not apply (J5 would take U1's place). Kept as an option for the centre, not built.
+
+## A4. The cut jumpers JP1 / JP2 on top, at an edge, no tall part beside them (Nick)
+
+Both in the **north band** (x 6.5 … 23.5 between the Pi's standoff keep-outs, y 0.5 … 7.0 under L2's envelope clearance), where only
+the LEDs are: JP1 (5 V to the Pi) at (20.4, 2.2) at the band's east end, JP2 (the LED supply) at (12.5, 5.2) behind the LEDs; FID3 /
+FID4 moved to y 5.0 / 5.3 (DFM row 26). Alternatives: JP1 at the strip's north end beside L6 (session 2): a tall inductor beside it;
+JP1 / JP2 in the west pocket: 40 + 30 mm of 1.0 mm track for the 5 V (OPTIONS Q3 b) and U1 is there. Cost of the north band:
+- **JP1**: PI_5V from J1 pins 2 / 4 ≈ 11 mm (was 2.8), 5V_PI from L6's output pad ≈ 22 mm of 1.0 mm track across J1's north end on
+  an inner layer (0.5 oz) ≈ 25 mΩ, plus PI_5V ≈ 10 mΩ: **≈ 35 mV at 1 A** against the Pi's 5 V ± 5 %; session 2's 8 mm path was ≈ 6 mV.
+- **JP2**: ADIN_VDDIO from U1 ≈ 30 mm of 0.2 mm rail to the north band, ADIN_LED_VDD 5.7 mm local to the LED block; the LED
+  currents are 2 mA each, the drop is nothing.
+Exact routed lengths of both are in REPORT.md §4 (from `out/m4/routing.json`).
+
+## A5. Nick's question: the tall square parts east of the header, and moving them west of it
+
+They are the two buck inductors **L6** (5 V for the Pi) and **L3** (3.3 V), Pulse PA5432.822NLT, 6.9 × 7.1 mm courtyards; the two
+47 µF electrolytics **C22 / C23** (Panasonic EEEFT1H470AP, 8.8 × 7.4 courtyards); their bucks U10 / U5, the load switch U11, C31,
+C49, R34 and JP1 (moved north in 2.b). Together ≈ **220 mm²** of top courtyard plus the bucks' loops (Sofar's copper, copied rigidly).
+West of the header the top side has: the band (now U1 + T1 + T2, full), the west pocket (10 × 15 mm = 150 mm²: one buck cell of
+8.6 × 13 fits, the second cell and two 8.8 mm cans do not; it also holds the 1.8 V buck on the bottom), the north band (17 × 6.5,
+LEDs + jumpers + fiducials) and the south band (17 × 4.5 + J5). Everything else west of J1 is the two 50 W inductor envelopes +
+2 mm. So moving all of it west needs either ≈ 9 mm more width on the west (a 58 mm board) or the cans on the bottom, which the
+3 mm bottom limit forbids (the Pi is there). Moving only the 3.3 V cell (L3, U5, C30 + C31) into the pocket is possible if U1 stays
+in the band — i.e. only in the centre layout, which does not route yet (A3). Recorded for Nick; not acted on.

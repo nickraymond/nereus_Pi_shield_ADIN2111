@@ -1,1 +1,173 @@
-[["GND", 108.7, 54.1, 78, 71, "6 Bo,Inte,Top ", "6 Bo,Top "], ["ADIN_MISO", 38.5, 66.5, 1, 1, "Inte,Top ", "Inte,Top "], ["~{ADIN_CS}", 39.8, 67.6, 2, 6, "Inte,Top ", "Inte,Top "], ["ADIN_PWR", 45.9, 43.0, 2, 10, "6 Bo,Inte", "6 Bo,Inte"], ["~{ADIN_INT}", 38.0, 40.6, 1, 1, "6 Bo,Inte,Top ", "6 Bo,Inte,Top "], ["1V8", 37.5, 37.0, 3, 4, "6 Bo,Inte", "6 Bo,Inte"], ["3V3", 112.7, 112.3, 20, 21, "6 Bo,Inte,Top ", "6 Bo,Inte,Top "], ["VBUS", 28.9, 28.9, 17, 18, "6 Bo,Top ", "6 Bo,Top "]]
+[
+ [
+  "1V8",
+  36.7,
+  39.3,
+  4,
+  3,
+  "Bottom, Internal 1, Internal 2",
+  "Bottom, Internal 1, Internal 2"
+ ],
+ [
+  "3V3",
+  111.4,
+  116.1,
+  21,
+  21,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ],
+ [
+  "5V_PI",
+  9.1,
+  22.2,
+  5,
+  8,
+  "Bottom, Internal 1, Top",
+  "Bottom, Internal 1, Top"
+ ],
+ [
+  "ADIN_LED_VDD",
+  6.6,
+  5.6,
+  0,
+  2,
+  "Bottom",
+  "Bottom, Top"
+ ],
+ [
+  "ADIN_MISO",
+  65.5,
+  41.7,
+  1,
+  3,
+  "Internal 1, Internal 2, Top",
+  "Internal 1, Internal 2, Top"
+ ],
+ [
+  "ADIN_MOSI",
+  32.9,
+  36.1,
+  2,
+  1,
+  "Internal 1, Internal 2, Top",
+  "Internal 1, Internal 2, Top"
+ ],
+ [
+  "ADIN_PWR",
+  42.6,
+  41.7,
+  10,
+  13,
+  "Bottom, Internal 1, Internal 2",
+  "Bottom, Internal 1, Internal 2"
+ ],
+ [
+  "ADIN_SCK",
+  32.2,
+  35.1,
+  3,
+  1,
+  "Internal 1, Internal 2, Top",
+  "Internal 1, Internal 2, Top"
+ ],
+ [
+  "BM1_N",
+  57.6,
+  64.9,
+  12,
+  12,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ],
+ [
+  "BM1_P",
+  42.8,
+  50.1,
+  11,
+  10,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ],
+ [
+  "BM2_DATA_N",
+  18.2,
+  20.7,
+  2,
+  2,
+  "Internal 1, Top",
+  "Internal 1, Top"
+ ],
+ [
+  "BM2_DATA_P",
+  17.5,
+  20.0,
+  2,
+  2,
+  "Internal 1, Top",
+  "Internal 1, Top"
+ ],
+ [
+  "BM2_N",
+  38.1,
+  45.2,
+  12,
+  12,
+  "Bottom, Internal 1, Top",
+  "Bottom, Internal 1, Top"
+ ],
+ [
+  "BM2_P",
+  51.0,
+  57.7,
+  12,
+  12,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ],
+ [
+  "PI_5V",
+  2.3,
+  11.2,
+  0,
+  1,
+  "Top",
+  "Internal 2, Top"
+ ],
+ [
+  "~{ADIN_CS}",
+  65.2,
+  42.3,
+  6,
+  2,
+  "Internal 1, Internal 2, Top",
+  "Internal 1, Internal 2, Top"
+ ],
+ [
+  "~{ADIN_INT}",
+  39.7,
+  44.7,
+  1,
+  1,
+  "Bottom, Internal 2, Top",
+  "Bottom, Internal 2, Top"
+ ],
+ [
+  "~{ADIN_P1_LED1}",
+  33.4,
+  39.2,
+  4,
+  3,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ],
+ [
+  "~{ADIN_P2_LED1}",
+  40.9,
+  44.0,
+  3,
+  3,
+  "Bottom, Internal 1, Internal 2, Top",
+  "Bottom, Internal 1, Internal 2, Top"
+ ]
+]

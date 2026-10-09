@@ -86,7 +86,37 @@ LIMITS = {
 
 # what session 2.b changed per row (DFM.md's last column); "—" = nothing yet
 CHANGES = {
+    "trace_outer": "nothing: the brief's class widths (0.2 signal, 0.15 only in a pad field) stand",
+    "trace_inner": "nothing",
+    "space": "min_clearance 0.09 written (JLC); the netclass 0.15 and the bus rule 0.35 govern",
+    "same_net": "measured (parallel runs of one net 0.03–0.25 mm apart); Sofar's bus leg at T1 pad 6 is the one item, declared",
+    "via_drill": "min_through_hole_diameter 0.2 written (JLC's preferred figure)",
+    "via_dia": "nothing: 0.45 stands",
+    "via_ring": "nothing: 0.1 stands",
+    "pth_ring": ".kicad_dru rule added (0.15)",
+    "h2h_via": "nothing: 0.25 stands",
+    "h2h_pad": ".kicad_dru rule added (0.45, pad vs pad)",
+    "hole_cu_via": "nothing: 0.25 stands",
+    "hole_cu_pth": ".kicad_dru rules added (0.28 outer / 0.3 inner); the inner planes' clearance 0.25 → 0.3 (the M3 housing holes' pads were 7 DRC items)",
+    "hole_cu_npth": "the bus feeds start 3.31 mm from the insert centre (a 3.0 start put the 1.5 mm track's round end 0.05 mm from the Ø4.4 hole)",
+    "npth": "measured",
+    "edge": "nothing: the brief's 0.5 stands (the inserts' rings sit on it after the 1.5 mm shift; JLC's 0.2 would allow 1.8 mm)",
+    "mask_dam": "solder_mask_min_width 0.1 and expansion 0 (1:1) written",
+    "silk_line": "tools/dfm_fix.py after placement: every silk line thinner than 0.15 set to 0.15; lines over pads removed",
+    "silk_text": "tools/dfm_fix.py: references 1.0 / 0.15 and moved to a clear spot (or hidden and listed); footprint silk texts 0.15 thick; min_text_height 1.0 / thickness 0.15 written",
+    "silk_pad": "tools/dfm_fix.py: lines over pads removed, references kept 0.15 from pads and off other silk; min_silk_clearance 0.15 written",
+    "courtyard": "nothing to change: the 10 overlaps are Sofar's inside copied blocks (the two MTG/H overlaps are gone: the housing holes moved with the corners)",
     "stackup": "M1 writes JLC06161H-3313 into the board's stackup (was 01's generic 0.21 / 0.38 build)",
+    "copper_wt": "stackup row: outer 1 oz, inner 0.5 oz; the bus / power copper is on the outer layers and the planes",
+    "balance": "measured; a top GND pour was NOT added (see DFM.md notes: the pairs and the bus feeds keep their clearances, the bottom pour and the planes carry the GND)",
+    "pours": "outer pours drop islands that hold no via (island removal 'always'); the bottom pour as the mote's",
+    "thermal": "as the mote: outer pours solid, inner planes thermal relief (KiCad's 0.254 spokes); the bus feeds and the inductor pads are tracks",
+    "fiducial": "FID3 / FID4 (top) and FID1 / FID2 (bottom) moved to y 5.0 / 5.3 in the north band (pad edge ≥ 3.35 from the edge); FID5 / FID6 with the south band",
+    "testpoints": "measured; the 6 overlaps are Sofar's inside copied blocks (declared)",
+    "bom_cpl": "note only",
+    "smd_pad": "declared: U6's TPS62840 DSBGA footprint (Sofar's) has 0.23 mm pads at 0.4 mm pitch against JLC's 0.25; a footprint change is Nick's",
+    "via_in_pad": "none added; Sofar's thermal-pad vias under U1 (16) and the others are the mote's",
+    "board": "49 × 68 (Nick, 2026-10-08)",
 }
 
 PREAMBLE = ("*Step 1 of session 2.b (LESSONS §4): the limits were fetched and encoded before any board edit, and this table was first run on "
@@ -106,6 +136,11 @@ HISTORY = """
   2.12 mm from the edge against JLC's 3.35, min SMD pad 0.23 mm (U6.A1, Sofar's DSBGA footprint; JLC 0.25). Three measurement
   defects found and fixed on this first run (a closed outline chain 'collides' with everything inside it; a via touching a pad is
   not a via in the pad; non-adjacent legs of one polyline are not two runs), recorded here so the numbers above are the honest ones.
+- **2026-10-08, step 5 (the rebuilt 49 × 68 board, VARIANT=pocket):** the table above. **30 pass, 1 fail** (row 29, Sofar's DSBGA
+  pads on U6, declared). DRC 109 errors (all Sofar's, with reasons), 70 warnings (28 lib_footprint_mismatch from the silk edits,
+  38 padstack, 2 nonmirrored pin-1 marks, 2 silk_overlap inside Sofar's blocks), 1 unconnected, 4 parity. What changed per row is
+  in the last column; the silk fix's record is `out/m2/dfm_fix.json` (59 lines widened, 42 lines over pads removed, 128 references
+  resized, 85 moved, 38 hidden). Not done, judged and recorded in REPORT.md §8: a top GND pour, an impedance figure.
 """
 
 
