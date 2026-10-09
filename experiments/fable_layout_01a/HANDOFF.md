@@ -11,8 +11,10 @@ LOG.md "M2, session 2"; this file is only the practical part.*
 - M2 at its bar (REPORT.md §5–§8): DRC 111 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 0
   dangling, rules clean, pairs 9.46 / 8.80 / 17.98 / 18.62 mm. Declared: the bottom GND island near (37.1, 13.9), Q7 as
   a table, M3 not started.
-- Nick (2026-10-08): after QE approval, a design review with mote-vs-board images per fixed area, then his own review
-  before M3 (`tools/review_views.py` → `out/review/`).
+- Session 2 closed at b22752f + the review pages (`out/review/`, `out/before_after/`) and `LESSONS.md`. Nick's
+  decisions (2026-10-08, LESSONS §3): DFM rules first, board 49 × 68, inserts 1–2 mm toward the west wall, SPI on a
+  reserved Internal 2 lane (no length matching needed), 45° runs as single segments. The 2.b kickoff prompt is in
+  KICKOFF.md.
 
 ## How to run
 
@@ -45,8 +47,9 @@ LOG.md "M2, session 2"; this file is only the practical part.*
   others.
 - kicad-cli DRC's JSON gives item positions, not marker positions (Q7).
 
-## Next
+## Next (session 2.b, in this order: LESSONS §4)
 
-1. QE round 2 verdict → fix / resend; then the design review for Nick (region views in `out/review/`, mote beside ours).
-2. M3 per BRIEF §6 (DFM: fetch JLCPCB's limits, cite them in `DFM.md`, encode in the design rules, silk clean-up, the
-   stackup). 3. The GND island (REPORT §6 #1). 4. Q7.
+1. JLCPCB limits fetched, cited in `DFM.md`, encoded in the design rules; DRC on the current board.
+2. Board 49 × 68, inserts west; fixed items and keep-outs re-derived and proven.
+3. Router: single-segment 45° runs; pair margins. 4. Reserved SPI lane under U1 to J1, fan-out, pairs, the rest.
+5. Rebuild from M1, checks, renders, review + before/after pages, REPORT with the DFM table, QE round 3.

@@ -56,3 +56,48 @@ request so the report comes to you), save each report in qe/, fix and resend unt
 verdict, the PR link and the pass/fail table. Give me a one-line status after every rebuild, and stop to report if
 a milestone stalls after three rebuilds.
 ```
+
+## Session 2.b — DFM first, then the board grows and the routing is cleaned up (2026-10-08)
+
+Session 2 brought M2 to its bar (QE round 2 APPROVED WITH NITS) and stopped for Nick's review. Nick's decisions are in
+`LESSONS.md` §3. Start a new Claude Code session (Fable 5.1, high effort) and paste:
+
+```
+Layout experiment 1.a, session 2.b. Read CLAUDE.md, then experiments/fable_layout_01a/BRIEF.md in full (your spec;
+its hard rules override anything else), LESSONS.md (Nick's decisions in §3 and the order of work in §4), HANDOFF.md,
+REPORT.md, LOG.md "M2, session 2", qe/S7b_01a_round2.md, and look at out/before_after/index.html and
+out/review/index.html. Check out experiment/fable-layout-01a (origin, last commit of session 2; never merge; PR #31 is
+the draft PR, base experiment/fable-layout-01) and work only inside experiments/fable_layout_01a/. KiCad is closed;
+use KiCad 9's bundled Python (pcbnew) and kicad-cli; the pipeline is tools/build_all.sh (first run from m0 on a fresh
+checkout; START=m2 after any placement, pour or copy change; START=m4 only for routing-only changes). Never run a
+milestone script on a board left by a later step.
+
+Order of work, committing after each with renders and a LOG.md entry:
+1. DFM rules first (BRIEF §6): fetch every JLCPCB limit from their published capabilities and 6-layer stackup pages
+   during the run, cite URL and date per row in DFM.md, encode each in .kicad_pro / .kicad_dru (or a script where DRC
+   cannot), run DRC on the board as it is and report what the real rules say about it. No board edit before this.
+2. Board 49 x 68 mm (3 mm wider, 3 mm taller; Nick 2026-10-08, supersedes the brief's 2 mm south allowance): move the
+   frame, the fixed items and the keep-outs (geom.py, m1_fixed.py, check_fixed.py), and record where the extra width
+   and height go (OPTIONS.md addendum). Move the threaded inserts 1-2 mm toward the west wall: the mote's corner
+   inserts sit 3.5 mm centre-to-edge with the ring copper at the outline; decide the shift from JLCPCB's edge figure
+   and the brief's 0.5 mm, state what it buys, keep Sofar's 4.8 mm keep-out. Then an OPTIONS addendum, as M0 did:
+   U1 in the CENTRE of the widened band between the inductor envelopes (Nick: "the ADIN should be in the middle of
+   the board"; it fits once the band is ~11 mm) versus U1 in the west pocket, each tried through M2 on a scratch copy,
+   with pair lengths, SPI lengths, courtyards and the exits' occupancy side by side; recommend one, record why, and
+   proceed with it (LESSONS section 3).
+3. Router clean-up: 45 degree runs as single segments (merge collinear steps in Grid.polyline and commit_pair), no
+   back-and-forth; keep every pair under the mote's length with margin (BM1_DATA_P had 0.04 mm).
+4. Corridors reserved before routing: SPI (SCK, MOSI, MISO, ~{CS}) on a reserved Internal 2 lane straight from U1 to
+   J1's SPI pins, routed first, never along the west edge (SPI is critical; length matching is not required, LESSONS
+   §5); then the fan-out vias, the pairs, the rest.
+5. Rebuild from M1, all checks (check_fixed, blockcheck, check_rules, drc_summary, drcexclude, test_pair), renders,
+   tools/review_views.py and tools/before_after.py (before = session 2's final board b22752f), REPORT.md per BRIEF §8
+   with the DFM table, the draft PR updated.
+
+I will not answer questions mid-run; decide, record, continue. Stop and write REPORT.md if a hard rule would break.
+After every rebuild give me a one-line status and regenerate the before/after page; stop to report if a milestone
+stalls after three rebuilds. When M3 is at its bar, send QE round 3 to the standing S7 QE session ("QE review S7.a
+layout experiment brief (PR #29)"; docs/PROMPTS.md section 5; name your session in the request), save the report in
+qe/, fix and resend until it approves, then publish the design review (mote vs board per region, before vs after) and
+stop for my review.
+```
