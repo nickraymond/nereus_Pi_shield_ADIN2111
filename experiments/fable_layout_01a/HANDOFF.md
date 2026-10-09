@@ -1,64 +1,52 @@
 # HANDOFF — layout experiment 1.a, for the session that continues it
 
-*Written 2026-10-08 by the session that ran M0–M2 (stopped on Nick's instruction after ~2 h; QE round 1 of PR #31 was
-requested from the standing S7 QE session, which sends its report to the design session named in the request — a fresh
-session should ask Nick to point the QE at it, or read the report Nick relays). Start with CLAUDE.md, BRIEF.md,
-OPTIONS.md, REPORT.md §6–§9 and LOG.md M2; this file is only the practical part.*
+*Updated 2026-10-08 by session 2 (M2 brought to its bar; QE round 2 requested from the standing S7 QE session, which
+sends its report to the design session named in the request). Start with CLAUDE.md, BRIEF.md, OPTIONS.md, REPORT.md and
+LOG.md "M2, session 2"; this file is only the practical part.*
 
 ## State
 
-- Branch `experiment/fable-layout-01a`, PR #31 (draft, never merge), last commit = M2. Board md5 f70595e5438bf4d6df0c6e6ee80deebd.
-- M2's shortfall is REPORT.md §6 (3 open links, port-1 pair P 10.7 mm > 9.5, 12 DRC errors of new copper, 6
-  class-clearance items, 1 dangling zone via). M3 (DFM) not started; Q7 not attempted.
+- Branch `experiment/fable-layout-01a`, PR #31 (draft, never merge), base `experiment/fable-layout-01`. Board md5
+  **de2e14fbc50999fffc3058edefb7c374**.
+- M2 at its bar (REPORT.md §5–§8): DRC 111 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 0
+  dangling, rules clean, pairs 9.46 / 8.80 / 17.98 / 18.62 mm. Declared: the bottom GND island near (37.1, 13.9), Q7 as
+  a table, M3 not started.
+- Nick (2026-10-08): after QE approval, a design review with mote-vs-board images per fixed area, then his own review
+  before M3 (`tools/review_views.py` → `out/review/`).
 
 ## How to run
 
-- Full rebuild `HEIGHTS=heights.json tools/build_all.sh m4` (≈ 6 min). `START=m4 …` reruns the routing from
+- Full rebuild `HEIGHTS=heights.json tools/build_all.sh m4` (≈ 9 min). `START=m4 …` reruns the routing from
   `out/m3/snapshot.kicad_pcb` (git-ignored: the first run on a fresh checkout must be from m0). `START=m2` restarts from
-  `out/m1/snapshot.kicad_pcb`. **Never run a milestone script on the board as left by a later step** — the restarts exist
-  because that doubled the copper once.
-- Checks: `tools/check_fixed.py --heights heights.json`, `tools/blockcheck.py`, `tools/check_rules.py out/m4/rules.md`,
-  `tools/drc_summary.py m4`, `tools/drcexclude.py` (writes `out/m5/drc_exclusions.md`), `tools/test_pair.py` (the pair
-  emitter's unit test, 7 cases, all OK at this commit).
-- Routing takes ≈ 5 min; the grid builds in 19 s. `out/m4/routing.json` has "failed" with the open links and their
-  cluster pads, and "notes".
+  `out/m1/snapshot.kicad_pcb`. **Never run a milestone script on the board as left by a later step.** Anything in
+  `m4_route.make_planes` (pours, patches) is created in the M3 step: a change there needs `START=m2`, not `START=m4`
+  (session 2 lost a rebuild to that).
+- Checks: `tools/check_fixed.py --heights heights.json`, `tools/blockcheck.py out/m4/blockcheck.md`,
+  `tools/check_rules.py out/m4/rules.md`, `tools/drc_summary.py m4`, `tools/drcexclude.py` (writes
+  `out/m5/drc_exclusions.md`), `tools/test_pair.py` (18 blank-board cases + the real-board case on the M3 snapshot, ≈ 90 s;
+  `--quick` skips the real board). Renders: `kicad-cli pcb render --side top|bottom`, `tools/render_layers.py`,
+  `tools/review_views.py out/review`.
+- Routing ≈ 5.5 min; the grid builds in 17 s. `out/m4/routing.json` has "failed", "notes" (every pair candidate with its
+  board-check result), "stitch" (incl. the fan-out vias).
 
 ## Pitfalls met (cost real time)
 
-- `geom.load()` / `geom.save()` bind their default path at import: a scratch harness that overrides `geom.BOARD` after
-  importing still loads AND SAVES the live `board/…kicad_pcb`. Use `pcbnew.LoadBoard(path)` / `SaveBoard(path, …)`
-  explicitly in any harness.
-- A second `pcbnew.LoadBoard` in one process returns dead SWIG proxies (01's finding); one board per process.
+- `geom.load()` / `geom.save()` bind their default path at import; use `pcbnew.LoadBoard(path)` in a harness.
+- A second `pcbnew.LoadBoard` in one process returns dead SWIG proxies; one board per process.
+- `SHAPE::GetClearance` returns 0 against an arc shape in 9.0.6 (`Collide` works; `test_pair.py` uses a polygon).
+- The cell maps carry a 0.07 mm margin and a 0.3 mm assumed drill: fixed geometry (the pairs' pin stubs and vias) is
+  checked exactly (`seg_free_exact`, `hole_free_exact`, `via_free_exact` with the class's real sizes) or it is rejected
+  although it clears by 0.2 mm.
+- The pair A*: the only mid-route figure that is safe is the swap; a mid-route straight via pair is still allowed but
+  tends to fail the board check (the candidates are all checked and the failed ones removed, so it cannot ship a
+  short). Keep the ends on fixed via pairs (pins / pads' approach).
+- The pocket's south exit (x −4 … 3, y 37.4 … 38.8) is the tightest place on the board: the port-2 pair (Top / In1),
+  U2's fan-out vias and the In3 corridors for 3V3 / 1V8 / ADIN_PWR / ~{CS} all cross it. Anything new there moves the
+  others.
 - kicad-cli DRC's JSON gives item positions, not marker positions (Q7).
-- The router's maps are net-coded; two nets near one cell read BLOCK. The pairs are routed with `Grid(merge=…)` so
-  P and N are one net to the grid.
 
-## Next fixes, in order (REPORT §6 / §9)
+## Next
 
-1. Port-1 pair: dump the real path (out/m4/routing.json "pair port 1" note has the swap cell and side; the path can be
-   re-created by running `route_pairs` alone on the M3 snapshot in a harness) into `tools/test_pair.py`, find the case
-   the emitter gets wrong (candidates: the entry run after a turn; the straight via pair at (0.23, 27.2) 0.9 mm before the
-   swap at (1.1, 27.0) — GAP in `route_pair` counts cells after a macro's exit), fix, rerun `START=m4`.
-2. ~{ADIN_INT}: hand via at (−6.75, 30.3) + a 0.2 mm Top track along Sofar's old path from pin 39's escape, before the
-   pocket's nets (see the probe in LOG M2).
-3. VBUS at U11.1: pre-stitch it (power class via within 1.5 mm) before U11's row signals.
-4. 5V_PI: one via inside both the copied Top output pour and the bottom pour (zone_stitch skips islands that already hold
-   a via of the net; add "and that via reaches another layer's copper").
-5. `via_free_exact`: use the class's real via diameter (it derives one from the map radius; R21 pad 2 vs the 3V3 via).
-6. The payload clearance (0.25) for power-class routes in the cross map (`xradii` applies it to signal routes only).
-7. M3 per BRIEF §6.
-
-## QE round 1 (qe/S7b_01a_round1.md, 2026-10-08): CHANGES REQUESTED — do these first
-
-- **F1 (MAJOR):** both pairs are shorted P–N at the transformer pads (BM1_DATA_P's last Top segment runs through T1
-  pad 2; BM2_DATA_N's through T2 pad 1) and `tools/drcexclude.py`'s T1/T2 patterns hid them as Sofar's footprint. So
-  the true split is 111 Sofar + **16** new-copper errors, and REPORT §1/§5/§6/§8 are wrong on this. Fix the emitter's
-  final approach to the pads (`commit_pair`: the last run's offset vertices end at the pads; the opposite pad sits 0.65 mm
-  away and the approach must come from the pads' open side), tighten the exclusion patterns to the no-net pads, add a
-  §6 row, re-run.
-- **F2 (MINOR):** the ADIN region's west clip (mote y 107.9, OPTIONS Q5) dropped Sofar's ~{ADIN_INT} via at mote
-  (156.571, 107.509), so the pre-route trim ate INT's fan-out (14 items). Keep that via (region y ≥ 107.5 is off-board
-  at this position, so re-add it by hand or move the clip), and make `dangling.py` refuse to trim items on a mote
-  pad-to-pad path; correct §6 #3's cause.
-- N1: set the PR base to `experiment/fable-layout-01` (`gh pr edit 31 --base experiment/fable-layout-01`). N2: the unit
-  test is committed now (`tools/test_pair.py`); add the real-path case.
+1. QE round 2 verdict → fix / resend; then the design review for Nick (region views in `out/review/`, mote beside ours).
+2. M3 per BRIEF §6 (DFM: fetch JLCPCB's limits, cite them in `DFM.md`, encode in the design rules, silk clean-up, the
+   stackup). 3. The GND island (REPORT §6 #1). 4. Q7.

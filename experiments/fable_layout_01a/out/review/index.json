@@ -1,0 +1,226 @@
+[
+ {
+  "region": "port1_pair",
+  "rect": [
+   -3.5,
+   25.0,
+   9.0,
+   32.0
+  ],
+  "block": "ADIN",
+  "caption": "Port-1 data pair: U1 pins 27/28 (north edge of U1) to T1 pads 1/2; the mote's U1 and T1 sit elsewhere, so the mote view shows only the ADIN block's copper placed as here",
+  "views": [
+   {
+    "layer": "top",
+    "board": "port1_pair_top_board.svg",
+    "mote": "port1_pair_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "port1_pair_in1_board.svg",
+    "mote": "port1_pair_in1_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "port1_pair_bot_board.svg",
+    "mote": "port1_pair_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "port2_pair",
+  "rect": [
+   -4.0,
+   33.0,
+   14.0,
+   40.0
+  ],
+  "block": "ADIN",
+  "caption": "Port-2 data pair: U1 pins 4/5 (south edge) through the pocket's south exit to T2 pads 1/2",
+  "views": [
+   {
+    "layer": "top",
+    "board": "port2_pair_top_board.svg",
+    "mote": "port2_pair_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "port2_pair_in1_board.svg",
+    "mote": "port2_pair_in1_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "port2_pair_bot_board.svg",
+    "mote": "port2_pair_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "int_fanout",
+  "rect": [
+   -7.5,
+   28.0,
+   -3.0,
+   33.0
+  ],
+  "block": "ADIN",
+  "caption": "~{ADIN_INT} fan-out at the board's west edge: U1.39 \u2192 via \u2192 R1.1 (QE round 1 F2)",
+  "views": [
+   {
+    "layer": "top",
+    "board": "int_fanout_top_board.svg",
+    "mote": "int_fanout_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "int_fanout_bot_board.svg",
+    "mote": "int_fanout_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "u2_u3_pocket_exit",
+  "rect": [
+   -7.0,
+   35.0,
+   5.0,
+   40.0
+  ],
+  "block": "ADIN",
+  "caption": "The pocket's south exit: U2 / U3 (1.8 V and 3.3 V switches, bottom) with their fan-out vias, the port-2 pair above, 3V3 / 1V8 / ADIN_PWR leaving east",
+  "views": [
+   {
+    "layer": "top",
+    "board": "u2_u3_pocket_exit_top_board.svg",
+    "mote": "u2_u3_pocket_exit_top_mote.svg"
+   },
+   {
+    "layer": "in3",
+    "board": "u2_u3_pocket_exit_in3_board.svg",
+    "mote": "u2_u3_pocket_exit_in3_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "u2_u3_pocket_exit_bot_board.svg",
+    "mote": "u2_u3_pocket_exit_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "t1_cluster",
+  "rect": [
+   2.5,
+   23.5,
+   11.5,
+   31.5
+  ],
+  "block": "P1T",
+  "caption": "T1 cluster (P1T block) and the bus legs to L1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "t1_cluster_top_board.svg",
+    "mote": "t1_cluster_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "t1_cluster_bot_board.svg",
+    "mote": "t1_cluster_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "t2_cluster",
+  "rect": [
+   9.0,
+   29.0,
+   18.0,
+   36.5
+  ],
+  "block": "P2T",
+  "caption": "T2 cluster (P2T block): the region clip at mote x 138.6 dropped the GND via that sat in front of the data pads",
+  "views": [
+   {
+    "layer": "top",
+    "board": "t2_cluster_top_board.svg",
+    "mote": "t2_cluster_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "t2_cluster_bot_board.svg",
+    "mote": "t2_cluster_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "u11_payload",
+  "rect": [
+   27.0,
+   49.0,
+   38.5,
+   59.0
+  ],
+  "block": null,
+  "caption": "Load switch U11 at the strip's south end: VBUS in (pre-stitched via), VBUS_OUT to J5 (0.6 mm), its signals to J1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "u11_payload_top_board.svg"
+   },
+   {
+    "layer": "in3",
+    "board": "u11_payload_in3_board.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "u11_payload_bot_board.svg"
+   }
+  ]
+ },
+ {
+  "region": "pi5v_strip_north",
+  "rect": [
+   28.5,
+   6.0,
+   38.5,
+   25.0
+  ],
+  "block": "B5V",
+  "caption": "5 V cell under JP1 at the strip's north end: the bottom 5V_PI pour under the output caps and the divider tap",
+  "views": [
+   {
+    "layer": "top",
+    "board": "pi5v_strip_north_top_board.svg",
+    "mote": "pi5v_strip_north_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "pi5v_strip_north_bot_board.svg",
+    "mote": "pi5v_strip_north_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "insert_mp1",
+  "rect": [
+   -7.5,
+   38.0,
+   12.0,
+   56.0
+  ],
+  "block": "P1L",
+  "caption": "Port-1 inductor L1 with the insert rings MP1 / MP2 and the bus feeds; the P1L block's copper",
+  "views": [
+   {
+    "layer": "top",
+    "board": "insert_mp1_top_board.svg",
+    "mote": "insert_mp1_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "insert_mp1_in1_board.svg",
+    "mote": "insert_mp1_in1_mote.svg"
+   }
+  ]
+ }
+]

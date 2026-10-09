@@ -77,3 +77,93 @@ shortfall in numbers (REPORT.md §9); M3 (the JLCPCB DFM sweep) was not started.
   not be joined at 1.0 mm).
 - Not done: M3 DFM sweep, `DFM.md`, Q7 (the exclusion keys); the 01 renders of the mote for comparison are in
   `../fable_layout_01/out/m5/mote_layers/`.
+
+## M2, session 2 — QE round 1 fixes and the rest of the shortfall (2026-10-08)
+
+Session 2 (Fable 5.1) picked up PR #31 at 0aec75c after QE round 1 (`qe/S7b_01a_round1.md`, CHANGES REQUESTED). The
+board was rebuilt from M0 on a fresh checkout (the M3 snapshot is git-ignored), then from the M1 snapshot after every
+placement or copy change and from the M3 snapshot after every routing change: 5 routing rebuilds in all. Board frame as
+before. Everything below is in `tools/`; the final board's md5 is in HANDOFF.md.
+
+### 1. QE F1 (MAJOR): both ADIN pairs shorted P–N at the transformer pads
+
+- **Cause, measured on the committed board:** `router.commit_pair` ended a pair by running each track from the path's
+  last offset vertex straight to its pad centre. The port-1 path arrived at T1 diagonally, so BM1_DATA_P's last Top
+  segment (2.217, 27.5)→(4.317, 29.6) crossed T1 pad 2 (BM1_DATA_N, 0.65 mm pitch, 1.2 × 0.41 pads); port 2 likewise
+  (BM2_DATA_N through T2 pad 1). `drcexclude.py`'s shorting / mask patterns `of T[12] on Top Layer` matched any item
+  touching a T pad, so the 4 errors were filed as Sofar's footprint. Re-classified with the tightened patterns, the
+  committed 293dc11 board is **111 Sofar + 16 new** (the 11 swap-figure items, the 3V3 via vs R21.2, the 2 shorts and
+  their 2 mask bridges); REPORT.md §1/§5/§6/§8 corrected accordingly (a new §6 row 0).
+- **The second defect behind the swap figure:** the A* kept a spacing counter in its state so the next figure could not
+  overlap the last; a cell could be revisited with another counter value, so the path looped back over its own vias
+  (the 11 errors). Both are gone: a layer change is now a macro with straight runs on both sides (`STRAIGHT_RUN` /
+  `SWAP_RUN`), the first steps after a figure continue straight (`EXIT_STRAIGHT`) and may not turn back past 90°, the
+  pads' approach is a straight lane along the pads' entry direction (the pair spreads from ±0.2 to the pads' pitch over
+  `PAD_SPLAY` 0.2 mm, finished at the pad edge), the lane and the pins' stub are forbidden cells for the A*, and every
+  emitted pair is **checked on the board** (`m4_route.pair_check`: one cluster per net, P–N ≥ 0.15 on every shared
+  layer) before it is kept; candidates (two swing sides × two start variants) are all emitted, measured and taken off
+  again, and the one with the shortest longer net is kept.
+- **Where the vias go, as Sofar's mote:** the only figure the A* places on the way is the swap; the layer changes at the
+  ends are fixed geometry. Port 1 starts with two vias straight out of U1's pins (staggered along the exit direction,
+  1.0 / 1.48 mm, because two 0.45 vias do not fit side by side at the 0.5 mm pin pitch, and the AVDD via at (−0.95,
+  28.0) and pin 29 leave the P via no spot nearer than 1.43 mm) and arrives at T1 on Top; port 2 starts on Top and
+  gets its via pair beside T2's approach (port 1's would land in the crystal Y1's bottom pad). Each fixed piece is
+  checked exactly with pcbnew shapes (`seg_free_exact`, the hole-to-hole with the real 0.2 drill) because the cell
+  maps' 0.07 mm margin rejected spots that clear by 0.2.
+- **Placement:** the P2T region's east edge moved from mote x 139.2 to 138.6: Sofar's GND pour-stitching via at mote
+  (138.751, 116.854) serves R23 of the U5 cell on the mote and landed 0.4 mm in front of T2's data pads after the 180°
+  rotation, where it blocked the approach. T1 was tried 0.3 mm east (7.0) while the approach was 1.4 mm long and ran
+  into Y1's via; with the 0.9 mm approach it clears from 6.7, so the M1 position stands.
+- **Unit test:** `tools/test_pair.py` has 18 blank-board cases (the opposite pad modelled as copper of its net, so a
+  crossing fails) and the real-board case (`route_pairs` on the M3 snapshot, both ports, checked for continuity, P–N,
+  0.15 / 0.35 to every other net and the mote's lengths). It found, in order: the swap-figure loop, a via pair at a
+  bend, the pins' vias in the AVDD via, the approach vertex folding back, and the first stagger's lengths.
+- **Result:** pairs **9.46 / 8.80 / 17.98 / 18.62 mm** (limits 9.5 / 9.5 / 21.3 / 21.3), P–N 0.15 mm, 0.175 mm to
+  every other net, no T-pad item in DRC but Sofar's own.
+
+### 2. QE F2 (MINOR): the ADIN region clip cut Sofar's ~{ADIN_INT} fan-out
+
+- Sofar's via at mote (156.571, 107.509) transforms to (−7.19, 29.93): 0.08 mm inside the board edge, inside the 0.5 mm
+  edge clearance, so no region could keep it. `m3_copy.HAND_VIAS` re-adds it by hand at **(−6.75, 30.25)** (0.45/0.2),
+  where both clipped lead-outs (Top to (−6.804, 30.3), Bottom to (−6.804, 30.2)) lie under it; the script proves it on
+  the board: edge 0.525 mm, joins Top + Bottom, 0.207 mm from other-net copper (blocks.json "hand"). INT then needs no
+  routing at all: U1.39 → Sofar's Top lead-out → the via → Sofar's Bottom lead-out → R1.1, as the mote.
+- `motecopy.Mote.pad_paths` lists every copied item that is a bridge between pads of its block on the mote (pads +
+  tracks + vias joined by touching geometry, pours not counted); `m3_copy.py` records their board geometry in
+  blocks.json "protected" (ADIN 113, P1T 12, B33/B5V 26 each, SENSE 27, B18 21 …), and `dangling.py` refuses to trim a
+  protected item: a dangling one would be a cut pad-to-pad path and is listed loudly in "protected_dangling" (**0** on
+  this board). `dangling.py` also retries a round once when its child process dies (seen once: exit 1 after the work was
+  saved).
+
+### 3. The rest of REPORT §6
+
+- **VBUS at U11 pin 1:** U11's VBUS ball is pre-stitched to the plane before U11's own signals take the row.
+- **The 3V3 via 0.14 mm from R21 pad 2:** `via_free` / `via_free_exact` take the class's real via diameter and
+  clearance (the map radius implied a diameter 0.03 mm under 0.45); the hole-to-hole test uses the real drill.
+- **5V_PI:** the bottom pour reaches under the 5 V cell again (y 7.5–24), and a 5V_PI patch on Internal 2 covers the
+  same rectangle, as the mote carries the buck's output on a plane island (3V3 on In4): every bottom-pour island (the
+  dividers R37–R40 cut it) gets a via into the patch; `zone_stitch` only places a via where the net has copper on
+  another layer (the dangling 5V_PI via of 293dc11), and the island-join only joins islands that hold no via and
+  starts from cells that are free for the track (one GND join started 0.1 mm from a 1V8 track).
+- **U2 / U3 fan-out first:** the first routing rebuild of this session left U2's 1V8 and ADIN_PWR balls sealed on the
+  bottom (U3's fan-out vias west, the 3V3 track south, the port-2 pair above) with no via spot. `m4_route.fanout` now
+  gives the regulators' non-GND balls their vias before the pairs, on the ball's own layer, in the pocket exit's
+  south-west corner (x < −2.8, y > 38.5) so the pair's lane along y 37.4–38.3 stays free (the first two placements, due
+  south of U2 and then a Top-layer fan-out across the lane, blocked port 2). U2.B2 found no spot within 1.7 mm and was
+  routed normally afterwards. The 3V3 / 1V8 / ADIN_PWR corridors cost 2.0 on the bottom so they stay off U2's layer.
+- **Escapes** (`router.escapes`) now scan past the pad's own copper (Sofar's 0.1 mm stub at U2's balls ended every
+  escape) and are given only to pads narrower than 0.35 mm (`FINE_PAD`): test points and 0603s start their class-width
+  track themselves (with escapes for every pad, 8 nets exceeded the 2 mm fan-out allowance).
+- **The pair length check** of the real-board test compares arcs by polygon collision: `SHAPE::GetClearance` returns 0
+  for an arc in 9.0.6.
+
+### Result (`out/m4/`, `out/m5/drc_exclusions.md`)
+
+check_fixed 0 failures; blockcheck 0 missing / 127 trimmed; pairs 9.46 / 8.80 / 17.98 / 18.62 mm; rules: 0 segments
+below class, 0 thin links beyond a pad field, 0 class-clearance items, Kelvin yes / yes; DRC **111 errors = 111
+Sofar-copied features with reasons, 0 of new copper**; **1 unconnected = J1's no-connect pair**; 4 parity (MP1–4 pin 1,
+Sofar Q6); 254 warnings, none a copper defect (0 track_dangling / via_dangling); 35 stitching vias + 2 fan-out vias +
+1 zone-island via. Open for the record: the bottom GND pour island near (37.1, 13.9) under C58 / TP38 holds no via
+(none fits; it carries no pad and KiCad's island removal may drop it); Q7 (DRC exclusion keys) still a reviewed table;
+M3 (DFM) not started. Renders `out/m4/render_top.png`, `render_bottom.png`, `out/m4/layers/*.svg`; region views for the
+design review in `out/review/` (`tools/review_views.py`: the mote's copper under each block's transform beside ours).

@@ -257,7 +257,8 @@
     "zone": 2,
     "skipped_net": 0,
     "clipped": 14
-   }
+   },
+   "protected": 113
   },
   {
    "name": "P1L",
@@ -315,7 +316,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 3
-   }
+   },
+   "protected": 2
   },
   {
    "name": "P1T",
@@ -343,7 +345,7 @@
     "BM1_DATA_P",
     "BM1_DATA_N"
    ],
-   "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); in the band between the envelopes, data pins facing U1 (west)",
+   "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); in the band between the envelopes, data pins facing U1 (west). Session 2: tried at 7.0 (0.3 mm east) while the pair's straight approach was 1.4 mm long and ran into the ADIN block's crystal via at (2.9, 29.775); the approach is 0.9 mm now and clears it from 6.7, so the M1 position stands",
    "src": [
     161.6011,
     117.5036
@@ -363,7 +365,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 4
-   }
+   },
+   "protected": 12
   },
   {
    "name": "P2L",
@@ -409,7 +412,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 5
-   }
+   },
+   "protected": 4
   },
   {
    "name": "P2T",
@@ -429,7 +433,7 @@
     [
      133.0,
      113.1,
-     139.2,
+     138.6,
      121.0
     ]
    ],
@@ -437,7 +441,7 @@
     "BM2_DATA_P",
     "BM2_DATA_N"
    ],
-   "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)",
+   "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins). Region east edge 139.2 -> 138.6 (session 2): Sofar's GND pour-stitching via at mote (138.751, 116.854) serves the U5 cell's R23 on the mote and lands 0.4 mm in front of T2's data pads after the 180 rotation, where it blocked the pair's approach (the bottom pour is stitched by this board's own vias)",
    "src": [
     135.5011,
     117.5036
@@ -451,13 +455,14 @@
     "R18"
    ],
    "copied": {
-    "track": 34,
+    "track": 33,
     "arc": 0,
-    "via": 6,
+    "via": 5,
     "zone": 0,
     "skipped_net": 0,
-    "clipped": 5
-   }
+    "clipped": 4
+   },
+   "protected": 9
   },
   {
    "name": "B33",
@@ -533,7 +538,8 @@
     "zone": 2,
     "skipped_net": 0,
     "clipped": 6
-   }
+   },
+   "protected": 26
   },
   {
    "name": "B5V",
@@ -620,7 +626,8 @@
     "zone": 2,
     "skipped_net": 0,
     "clipped": 6
-   }
+   },
+   "protected": 26
   },
   {
    "name": "SENSE",
@@ -681,7 +688,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 10
-   }
+   },
+   "protected": 27
   },
   {
    "name": "DAMP3",
@@ -710,7 +718,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 0
-   }
+   },
+   "protected": 0
   },
   {
    "name": "DAMP1",
@@ -750,7 +759,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 3
-   }
+   },
+   "protected": 1
   },
   {
    "name": "DAMP2",
@@ -786,7 +796,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 4
-   }
+   },
+   "protected": 0
   },
   {
    "name": "B18",
@@ -839,7 +850,8 @@
     "zone": 0,
     "skipped_net": 0,
     "clipped": 3
-   }
+   },
+   "protected": 21
   }
  ],
  "fresh": {
@@ -1090,6 +1102,3216 @@
    "side": "B"
   }
  },
+ "protected": [
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    31.75
+   ],
+   "end": [
+    -6.2,
+    31.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "at": [
+    -6.2,
+    31.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.414,
+    31.75
+   ],
+   "end": [
+    -6.2,
+    31.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.264,
+    31.9
+   ],
+   "end": [
+    -5.414,
+    31.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.8,
+    31.9
+   ],
+   "end": [
+    -5.264,
+    31.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "layer": "Top Layer",
+   "start": [
+    -6.025,
+    35.244
+   ],
+   "end": [
+    -5.556,
+    34.775
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "at": [
+    -6.025,
+    35.244
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.621,
+    35.196
+   ],
+   "end": [
+    -5.977,
+    35.196
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "Top Layer",
+   "start": [
+    2.45,
+    31.25
+   ],
+   "end": [
+    1.7,
+    31.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "at": [
+    2.45,
+    31.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.7,
+    31.6
+   ],
+   "end": [
+    3.35,
+    31.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.35,
+    31.25
+   ],
+   "end": [
+    2.45,
+    31.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "Top Layer",
+   "start": [
+    2.247,
+    32.252
+   ],
+   "end": [
+    1.702,
+    32.252
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "Top Layer",
+   "start": [
+    2.508,
+    32.512
+   ],
+   "end": [
+    2.247,
+    32.252
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "at": [
+    2.513,
+    32.512
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.365,
+    32.465
+   ],
+   "end": [
+    1.7,
+    31.8
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "layer": "Top Layer",
+   "start": [
+    -5.815,
+    35.806
+   ],
+   "end": [
+    -5.4,
+    35.391
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "at": [
+    -5.815,
+    35.806
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.197,
+    35.853
+   ],
+   "end": [
+    -5.768,
+    35.853
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "Top Layer",
+   "start": [
+    2.258,
+    30.225
+   ],
+   "end": [
+    1.725,
+    30.225
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "Top Layer",
+   "start": [
+    2.502,
+    30.106
+   ],
+   "end": [
+    2.832,
+    29.775
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "at": [
+    2.9,
+    29.775
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.4,
+    29.275
+   ],
+   "end": [
+    3.4,
+    29.075
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.965,
+    28.787
+   ],
+   "end": [
+    3.687,
+    28.787
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.9,
+    29.775
+   ],
+   "end": [
+    3.4,
+    29.275
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    29.75
+   ],
+   "end": [
+    1.7,
+    29.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    29.75
+   ],
+   "end": [
+    2.4,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    28.9
+   ],
+   "end": [
+    1.6,
+    28.1
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    29.6
+   ],
+   "end": [
+    2.4,
+    28.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-XTAL_O)",
+   "at": [
+    1.6,
+    28.1
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    28.1
+   ],
+   "end": [
+    1.887,
+    27.812
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    28.1
+   ],
+   "end": [
+    0.952,
+    28.1
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.462,
+    27.812
+   ],
+   "end": [
+    1.887,
+    27.812
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_7)",
+   "layer": "Top Layer",
+   "start": [
+    -2.95,
+    29.1
+   ],
+   "end": [
+    -2.95,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_7)",
+   "at": [
+    -2.95,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_7)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.723,
+    28.899
+   ],
+   "end": [
+    -2.723,
+    28.577
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "Top Layer",
+   "start": [
+    -2.45,
+    29.1
+   ],
+   "end": [
+    -2.45,
+    28.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_6)",
+   "at": [
+    -2.45,
+    28.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.0,
+    28.45
+   ],
+   "end": [
+    -2.45,
+    28.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.0,
+    28.821
+   ],
+   "end": [
+    -2.0,
+    28.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "Top Layer",
+   "start": [
+    0.4,
+    36.9
+   ],
+   "end": [
+    0.05,
+    36.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "Top Layer",
+   "start": [
+    0.05,
+    36.55
+   ],
+   "end": [
+    0.05,
+    35.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_3)",
+   "at": [
+    0.4,
+    36.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.204,
+    36.704
+   ],
+   "end": [
+    0.204,
+    36.133
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "Top Layer",
+   "start": [
+    -0.45,
+    36.65
+   ],
+   "end": [
+    -0.45,
+    35.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_2)",
+   "at": [
+    -0.45,
+    36.65
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.8,
+    36.5
+   ],
+   "end": [
+    -0.8,
+    36.129
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.65,
+    36.65
+   ],
+   "end": [
+    -0.8,
+    36.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.2,
+    34.725
+   ],
+   "end": [
+    1.725,
+    34.725
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    34.275
+   ],
+   "end": [
+    1.725,
+    34.275
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.2,
+    34.725
+   ],
+   "end": [
+    2.45,
+    34.475
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "at": [
+    2.45,
+    34.475
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.422,
+    34.447
+   ],
+   "end": [
+    1.947,
+    34.447
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.65,
+    30.25
+   ],
+   "end": [
+    -6.009,
+    29.892
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -6.009,
+    29.892
+   ],
+   "end": [
+    -6.367,
+    29.534
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    29.75
+   ],
+   "end": [
+    -5.867,
+    29.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    30.25
+   ],
+   "end": [
+    -5.65,
+    30.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "at": [
+    -6.367,
+    29.475
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.594,
+    29.339
+   ],
+   "end": [
+    -6.231,
+    29.339
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    -4.785,
+    36.929
+   ],
+   "end": [
+    -4.785,
+    36.51
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    2.337,
+    30.75
+   ],
+   "end": [
+    1.7,
+    30.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    -4.785,
+    36.51
+   ],
+   "end": [
+    -4.475,
+    36.2
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "at": [
+    -4.833,
+    36.977
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "at": [
+    2.503,
+    30.652
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    0.5,
+    35.5
+   ],
+   "end": [
+    1.4,
+    34.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    -4.833,
+    36.977
+   ],
+   "end": [
+    -3.356,
+    35.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    1.4,
+    31.3
+   ],
+   "end": [
+    2.0,
+    30.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    2.455,
+    30.7
+   ],
+   "end": [
+    2.0,
+    30.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    0.5,
+    35.5
+   ],
+   "end": [
+    -3.356,
+    35.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    1.4,
+    34.6
+   ],
+   "end": [
+    1.4,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "Top Layer",
+   "start": [
+    2.427,
+    33.099
+   ],
+   "end": [
+    2.104,
+    32.775
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "Top Layer",
+   "start": [
+    -5.113,
+    34.238
+   ],
+   "end": [
+    -5.821,
+    34.238
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "ADIN_VDDIO",
+   "at": [
+    2.475,
+    33.275
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "ADIN_VDDIO",
+   "at": [
+    -5.833,
+    34.225
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.274,
+    34.096
+   ],
+   "end": [
+    -5.685,
+    34.096
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    32.5
+   ],
+   "end": [
+    0.4,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.4,
+    32.5
+   ],
+   "end": [
+    -3.9,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.1,
+    33.0
+   ],
+   "end": [
+    1.6,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.229,
+    34.05
+   ],
+   "end": [
+    -5.229,
+    33.129
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.229,
+    33.129
+   ],
+   "end": [
+    -4.8,
+    32.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.386,
+    36.36
+   ],
+   "end": [
+    -4.386,
+    35.91
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.15,
+    36.85
+   ],
+   "end": [
+    -4.47,
+    36.53
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -3.95,
+    29.1
+   ],
+   "end": [
+    -3.95,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.225,
+    35.25
+   ],
+   "end": [
+    1.7,
+    35.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.702,
+    36.825
+   ],
+   "end": [
+    -1.45,
+    36.572
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.267,
+    36.667
+   ],
+   "end": [
+    1.05,
+    36.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    36.122
+   ],
+   "end": [
+    2.4,
+    35.425
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.45,
+    29.1
+   ],
+   "end": [
+    -1.45,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.45,
+    36.572
+   ],
+   "end": [
+    -1.45,
+    35.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.855,
+    36.667
+   ],
+   "end": [
+    1.267,
+    36.667
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.95,
+    36.577
+   ],
+   "end": [
+    -1.95,
+    35.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -4.45,
+    29.1
+   ],
+   "end": [
+    -4.45,
+    28.474
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    35.425
+   ],
+   "end": [
+    2.225,
+    35.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -3.95,
+    28.35
+   ],
+   "end": [
+    -4.326,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.702,
+    36.825
+   ],
+   "end": [
+    -1.95,
+    36.577
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -0.95,
+    29.1
+   ],
+   "end": [
+    -0.95,
+    28.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.05,
+    36.45
+   ],
+   "end": [
+    1.05,
+    35.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.855,
+    36.667
+   ],
+   "end": [
+    2.4,
+    36.122
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -0.95,
+    28.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    1.855,
+    36.667
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -1.45,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -3.95,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -1.702,
+    36.825
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -3.5,
+    28.8
+   ],
+   "end": [
+    -3.95,
+    28.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.831,
+    36.619
+   ],
+   "end": [
+    1.903,
+    36.619
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.829,
+    36.64
+   ],
+   "end": [
+    1.829,
+    35.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -1.808,
+    36.719
+   ],
+   "end": [
+    -1.808,
+    36.12
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.9,
+    28.72
+   ],
+   "end": [
+    -1.256,
+    28.216
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -1.65,
+    37.55
+   ],
+   "end": [
+    -1.65,
+    36.877
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    -3.6,
+    30.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.9,
+    35.3
+   ],
+   "end": [
+    0.9,
+    34.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.996,
+    27.806
+   ],
+   "end": [
+    3.744,
+    27.806
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -3.61,
+    30.6
+   ],
+   "end": [
+    -4.35,
+    29.86
+   ]
+  },
+  {
+   "block": "P1L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "6 Bottom Layer",
+   "start": [
+    10.165,
+    45.25
+   ],
+   "end": [
+    9.265,
+    44.35
+   ]
+  },
+  {
+   "block": "P1L",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    13.64,
+    42.4
+   ],
+   "end": [
+    13.64,
+    39.474
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C18-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    9.295,
+    29.705
+   ],
+   "end": [
+    9.65,
+    29.35
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C18-Pad2)",
+   "at": [
+    9.65,
+    29.35
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C18-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.05,
+    29.35
+   ],
+   "end": [
+    9.65,
+    29.35
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    5.126,
+    27.035
+   ],
+   "end": [
+    5.126,
+    26.285
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C16-Pad2)",
+   "at": [
+    5.126,
+    26.285
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.56,
+    26.285
+   ],
+   "end": [
+    8.113,
+    26.838
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    5.126,
+    26.285
+   ],
+   "end": [
+    7.56,
+    26.285
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    8.113,
+    27.213
+   ],
+   "end": [
+    8.113,
+    26.838
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "Top Layer",
+   "start": [
+    4.318,
+    27.053
+   ],
+   "end": [
+    4.318,
+    26.303
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C16-Pad1)",
+   "at": [
+    4.318,
+    26.303
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    5.315,
+    27.3
+   ],
+   "end": [
+    6.2,
+    27.3
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.318,
+    26.303
+   ],
+   "end": [
+    5.315,
+    27.3
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    9.06,
+    15.629
+   ],
+   "end": [
+    10.413,
+    14.276
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.961,
+    16.728
+   ],
+   "end": [
+    9.06,
+    15.629
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.515,
+    18.328
+   ],
+   "end": [
+    7.515,
+    17.201
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "6 Bottom Layer",
+   "start": [
+    11.813,
+    20.826
+   ],
+   "end": [
+    11.813,
+    19.068
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C27-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    14.25,
+    32.15
+   ],
+   "end": [
+    12.552,
+    32.15
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    12.688,
+    31.112
+   ],
+   "end": [
+    12.149,
+    31.112
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "via",
+   "net": "Net-(C24-Pad2)",
+   "at": [
+    12.75,
+    31.05
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    12.75,
+    30.1
+   ],
+   "end": [
+    12.75,
+    31.05
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "Top Layer",
+   "start": [
+    11.284,
+    31.12
+   ],
+   "end": [
+    10.77,
+    31.12
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "via",
+   "net": "Net-(C24-Pad1)",
+   "at": [
+    10.7,
+    31.05
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    11.648,
+    32.148
+   ],
+   "end": [
+    10.777,
+    31.277
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    10.7,
+    30.15
+   ],
+   "end": [
+    10.7,
+    31.05
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    14.0,
+    33.9
+   ],
+   "end": [
+    14.0,
+    35.85
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "Net-(U5-CB)",
+   "layer": "Top Layer",
+   "start": [
+    32.529,
+    35.79
+   ],
+   "end": [
+    33.151,
+    35.79
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "Net-(U5-CB)",
+   "at": [
+    33.151,
+    35.79
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "Net-(U5-CB)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.701,
+    35.24
+   ],
+   "end": [
+    33.094,
+    35.633
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    36.552
+   ],
+   "end": [
+    31.563,
+    35.83
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    36.552
+   ],
+   "end": [
+    32.851,
+    37.84
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "at": [
+    32.851,
+    37.84
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    31.726,
+    37.04
+   ],
+   "end": [
+    32.449,
+    37.763
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.928,
+    37.763
+   ],
+   "end": [
+    32.928,
+    37.138
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.449,
+    37.763
+   ],
+   "end": [
+    32.774,
+    37.763
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "Top Layer",
+   "start": [
+    29.827,
+    35.416
+   ],
+   "end": [
+    30.422,
+    35.416
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "at": [
+    29.801,
+    35.39
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.209,
+    35.09
+   ],
+   "end": [
+    30.622,
+    35.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.801,
+    35.061
+   ],
+   "end": [
+    30.801,
+    34.056
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.909,
+    35.39
+   ],
+   "end": [
+    30.209,
+    35.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    31.828
+   ],
+   "end": [
+    31.551,
+    30.99
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.582,
+    33.897
+   ],
+   "end": [
+    33.582,
+    32.911
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    32.426,
+    30.115
+   ],
+   "end": [
+    33.501,
+    31.19
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.501,
+    32.83
+   ],
+   "end": [
+    33.501,
+    31.19
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    33.062
+   ],
+   "end": [
+    31.551,
+    31.828
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "at": [
+    33.601,
+    33.916
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.107,
+    34.41
+   ],
+   "end": [
+    33.601,
+    33.916
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.681,
+    34.41
+   ],
+   "end": [
+    33.107,
+    34.41
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    30.351,
+    32.59
+   ],
+   "end": [
+    30.351,
+    31.965
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    29.965,
+    33.076
+   ],
+   "end": [
+    30.587,
+    33.076
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    29.951,
+    33.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.951,
+    33.063
+   ],
+   "end": [
+    29.951,
+    32.44
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "Net-(U10-CB)",
+   "layer": "Top Layer",
+   "start": [
+    32.529,
+    22.59
+   ],
+   "end": [
+    33.151,
+    22.59
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "Net-(U10-CB)",
+   "at": [
+    33.151,
+    22.59
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "Net-(U10-CB)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.701,
+    22.04
+   ],
+   "end": [
+    33.094,
+    22.433
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    23.352
+   ],
+   "end": [
+    31.563,
+    22.63
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    23.352
+   ],
+   "end": [
+    32.851,
+    24.64
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "at": [
+    32.851,
+    24.64
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    31.726,
+    23.84
+   ],
+   "end": [
+    32.449,
+    24.563
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.928,
+    24.563
+   ],
+   "end": [
+    32.928,
+    23.938
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.449,
+    24.563
+   ],
+   "end": [
+    32.774,
+    24.563
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "Top Layer",
+   "start": [
+    29.827,
+    22.216
+   ],
+   "end": [
+    30.422,
+    22.216
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "at": [
+    29.801,
+    22.19
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.209,
+    21.89
+   ],
+   "end": [
+    30.622,
+    21.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.801,
+    21.861
+   ],
+   "end": [
+    30.801,
+    20.856
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.909,
+    22.19
+   ],
+   "end": [
+    30.209,
+    21.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    18.628
+   ],
+   "end": [
+    31.551,
+    17.79
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.582,
+    20.697
+   ],
+   "end": [
+    33.582,
+    19.711
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    32.426,
+    16.915
+   ],
+   "end": [
+    33.501,
+    17.99
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.501,
+    19.63
+   ],
+   "end": [
+    33.501,
+    17.99
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    19.862
+   ],
+   "end": [
+    31.551,
+    18.628
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "at": [
+    33.601,
+    20.716
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.107,
+    21.21
+   ],
+   "end": [
+    33.601,
+    20.716
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.681,
+    21.21
+   ],
+   "end": [
+    33.107,
+    21.21
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    30.351,
+    19.39
+   ],
+   "end": [
+    30.351,
+    18.765
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    29.965,
+    19.876
+   ],
+   "end": [
+    30.587,
+    19.876
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    29.951,
+    19.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.951,
+    19.863
+   ],
+   "end": [
+    29.951,
+    19.24
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.923,
+    17.469
+   ],
+   "end": [
+    18.544,
+    17.469
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    16.677
+   ],
+   "end": [
+    17.131,
+    15.568
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.925,
+    14.589
+   ],
+   "end": [
+    18.925,
+    13.776
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.758,
+    14.756
+   ],
+   "end": [
+    18.925,
+    14.589
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    15.568
+   ],
+   "end": [
+    17.943,
+    14.756
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.943,
+    14.756
+   ],
+   "end": [
+    18.758,
+    14.756
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.544,
+    17.469
+   ],
+   "end": [
+    18.725,
+    17.65
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.725,
+    17.975
+   ],
+   "end": [
+    18.725,
+    17.65
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    16.677
+   ],
+   "end": [
+    17.923,
+    17.469
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.076,
+    17.1
+   ],
+   "end": [
+    19.05,
+    17.1
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    16.524
+   ],
+   "end": [
+    18.076,
+    17.1
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.375,
+    14.661
+   ],
+   "end": [
+    19.375,
+    13.776
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    16.524
+   ],
+   "end": [
+    17.5,
+    15.721
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.911,
+    15.125
+   ],
+   "end": [
+    19.375,
+    14.661
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.425,
+    17.975
+   ],
+   "end": [
+    19.425,
+    17.475
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.096,
+    15.125
+   ],
+   "end": [
+    18.911,
+    15.125
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.05,
+    17.1
+   ],
+   "end": [
+    19.425,
+    17.475
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    15.721
+   ],
+   "end": [
+    18.096,
+    15.125
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.087,
+    13.638
+   ],
+   "end": [
+    20.087,
+    12.763
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.1,
+    15.25
+   ],
+   "end": [
+    21.479,
+    14.871
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.475,
+    16.324
+   ],
+   "end": [
+    19.475,
+    15.6
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.825,
+    15.25
+   ],
+   "end": [
+    21.1,
+    15.25
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.475,
+    15.6
+   ],
+   "end": [
+    19.825,
+    15.25
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.812,
+    13.638
+   ],
+   "end": [
+    20.812,
+    12.763
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.775,
+    13.959
+   ],
+   "end": [
+    21.172,
+    14.356
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.22,
+    14.613
+   ],
+   "end": [
+    21.479,
+    14.871
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.479,
+    14.871
+   ],
+   "end": [
+    21.8,
+    14.871
+   ]
+  },
+  {
+   "block": "DAMP1",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.775,
+    59.348
+   ],
+   "end": [
+    9.775,
+    55.825
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    31.2
+   ],
+   "end": [
+    19.0,
+    30.825
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    30.825
+   ],
+   "end": [
+    18.675,
+    30.5
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.425,
+    30.5
+   ],
+   "end": [
+    18.112,
+    30.187
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.112,
+    30.187
+   ],
+   "end": [
+    18.112,
+    29.312
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.675,
+    30.5
+   ],
+   "end": [
+    18.425,
+    30.5
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.4,
+    31.2
+   ],
+   "end": [
+    19.4,
+    29.35
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.362,
+    28.459
+   ],
+   "end": [
+    20.959,
+    28.459
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.775,
+    28.35
+   ],
+   "end": [
+    19.9,
+    28.35
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.45,
+    32.225
+   ],
+   "end": [
+    21.45,
+    28.547
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.625,
+    33.05
+   ],
+   "end": [
+    21.45,
+    32.225
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.872,
+    31.6
+   ],
+   "end": [
+    19.4,
+    31.6
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.872,
+    31.6
+   ],
+   "end": [
+    20.025,
+    31.447
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.65,
+    29.85
+   ],
+   "end": [
+    20.65,
+    29.425
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.067,
+    32.9
+   ],
+   "end": [
+    18.775,
+    32.9
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.025,
+    30.475
+   ],
+   "end": [
+    20.625,
+    29.875
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.394,
+    32.681
+   ],
+   "end": [
+    19.394,
+    31.606
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.067,
+    32.9
+   ],
+   "end": [
+    19.267,
+    32.7
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.025,
+    31.447
+   ],
+   "end": [
+    20.025,
+    30.475
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    31.6
+   ],
+   "end": [
+    18.6,
+    31.6
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    32.5
+   ],
+   "end": [
+    18.6,
+    31.6
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    33.1
+   ],
+   "end": [
+    17.7,
+    32.5
+   ]
+  }
+ ],
+ "hand": [
+  {
+   "block": "ADIN",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "mote_via": [
+    156.571,
+    107.509
+   ],
+   "at": [
+    -6.75,
+    30.25
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "joins": "Sofar's ~{ADIN_INT} fan-out: the Top lead-out from U1.39 (ends at (-6.804, 30.3)) and the Bottom lead-out to R1.1 (ends at (-6.804, 30.2)), both clipped at the ADIN region's west edge (mote y 107.9, OPTIONS Q5)",
+   "why": "on the mote the via joins the two; transformed it lands at (-7.19, 29.93), 0.08 mm inside the board edge and inside the 0.5 mm edge clearance (BRIEF \u00a72), so the region could not keep it; 0.44 mm further east both clipped stub ends lie under a 0.45 mm via that keeps 0.53 mm from the edge",
+   "edge_mm": 0.525,
+   "joins_layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ],
+   "min_other_net_clearance_mm": 0.207
+  }
+ ],
  "trimmed": [
   {
    "kind": "track",
@@ -1108,7 +4330,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "c5223502-c82f-4e72-b75c-c31ddaa2de36",
+   "uuid": "0b57d7db-5934-4ef8-9bb6-87873edd9ab7",
    "kept": [
     [
      33.126,
@@ -1137,7 +4359,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "51771d41-2b76-4e04-b7f9-d75701b6544c",
+   "uuid": "cd7b4db0-be69-47f7-ac09-3e5c88aacd9b",
    "kept": [
     [
      -6.518,
@@ -1166,7 +4388,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "b0ae5a23-d3a6-4f1d-a264-38477153c13f",
+   "uuid": "36086481-cfda-43c4-9fb3-8a5e57e5198e",
    "kept": [
     [
      -6.675,
@@ -1195,7 +4417,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "a12acba3-7280-460c-b922-558d774d7d3f",
+   "uuid": "c9325f30-1ecd-433b-a0ac-2b1f209b75e7",
    "kept": [
     [
      -1.07,
@@ -1204,35 +4426,6 @@
     [
      -1.141,
      38.05
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/ADIN_PWR",
-   "layer": "Internal 1",
-   "start": [
-    -5.733,
-    28.896
-   ],
-   "end": [
-    -6.804,
-    28.896
-   ],
-   "width": 0.2032,
-   "length": 1.07,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "944c0ba8-3a01-4f97-b685-4c83587b8642",
-   "kept": [
-    [
-     -5.733,
-     28.896
-    ],
-    [
-     -5.835,
-     28.896
     ]
    ]
   },
@@ -1253,7 +4446,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "d5448d74-f299-41c3-8a44-0afa16331422",
+   "uuid": "35fa4d85-7d5d-43f1-9ae5-4d5120a37f60",
    "kept": [
     [
      -1.003,
@@ -1262,6 +4455,35 @@
     [
      -1.075,
      37.325
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.733,
+    28.896
+   ],
+   "end": [
+    -6.804,
+    28.896
+   ],
+   "width": 0.2032,
+   "length": 1.07,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "c1eb0be5-6031-4bc2-8d87-761256eab529",
+   "kept": [
+    [
+     -5.733,
+     28.896
+    ],
+    [
+     -5.835,
+     28.896
     ]
    ]
   },
@@ -1282,7 +4504,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "51ef50a7-aea4-4189-aae2-c507ada306aa",
+   "uuid": "43b6c363-34e3-4f2e-9801-4d596b147d8d",
    "kept": [
     [
      -6.725,
@@ -1311,7 +4533,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0932beac-c2d2-476f-84c9-35b6b56560ad",
+   "uuid": "5f35fdf6-9f09-4c6c-a108-0e595452429f",
    "kept": [
     [
      12.265,
@@ -1340,7 +4562,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0e7875ef-462c-44ba-baf2-d6beec435439",
+   "uuid": "6a4875fd-2942-46de-86f1-1ddd7331d0f9",
    "kept": [
     [
      10.4,
@@ -1369,7 +4591,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "8174e37d-13ad-4f0e-bb04-cf6d9a8b754a",
+   "uuid": "c6618117-f211-44f5-826f-81f726833192",
    "kept": [
     [
      12.357,
@@ -1398,7 +4620,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "93453e13-e762-473e-add5-64ad1a417dc9",
+   "uuid": "f9f1b101-63d1-4a6c-a8a3-72674c6916d6",
    "kept": [
     [
      10.35,
@@ -1427,7 +4649,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "65a99c5e-351a-482d-ae98-fee1e7da8ff1",
+   "uuid": "c43eb67a-2ee2-4550-9a5b-e8b2563bd388",
    "kept": [
     [
      10.506,
@@ -1456,7 +4678,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "97df6617-c578-4af7-8efd-e1a81d676a5c",
+   "uuid": "6bb7e750-c2e3-4a8c-b7ac-a3456ee54d3d",
    "kept": [
     [
      12.065,
@@ -1485,7 +4707,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "a5fc1cf6-a7e8-4862-8dd0-054deb41fa87",
+   "uuid": "1dcaf90b-7dbe-443b-946b-af8a38afad36",
    "kept": [
     [
      16.847,
@@ -1514,7 +4736,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "2a802e47-05ac-493a-b20a-c23fc7589b0f",
+   "uuid": "5752f810-1fbf-48e4-945b-7bcdc1519cf2",
    "kept": [
     [
      11.921,
@@ -1543,7 +4765,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "c26afee4-a8dc-49d4-827f-5c8cddabdb05",
+   "uuid": "3b0df416-d4e9-493e-8f48-ad7cb51b8b24",
    "kept": [
     [
      22.037,
@@ -1572,7 +4794,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "61121fb7-4df4-4e4d-a83a-6746b177155b",
+   "uuid": "ef4095c0-0bb2-4035-8de3-b66011d310e4",
    "kept": [
     [
      22.337,
@@ -1601,7 +4823,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "72c539dc-c4a6-401a-a235-2a1410df5895",
+   "uuid": "1eef4110-d6c6-46e5-a683-ae59e064c76d",
    "kept": [
     [
      16.567,
@@ -1630,7 +4852,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "5a364ed2-46c8-4c19-a761-0b5744a9487e",
+   "uuid": "b70d6349-7326-4516-85f3-ba4db03271ce",
    "kept": [
     [
      -6.418,
@@ -1639,64 +4861,6 @@
     [
      -6.518,
      33.9
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "Top Layer",
-   "start": [
-    -6.3,
-    30.3
-   ],
-   "end": [
-    -6.804,
-    30.3
-   ],
-   "width": 0.2032,
-   "length": 0.504,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "42d22114-e1f3-46fe-9e20-d8dec176bcc9",
-   "kept": [
-    [
-     -6.3,
-     30.3
-    ],
-    [
-     -6.402,
-     30.3
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -6.225,
-    30.2
-   ],
-   "end": [
-    -6.804,
-    30.2
-   ],
-   "width": 0.2032,
-   "length": 0.579,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "3881712a-ce55-4a51-8cf8-618655f05508",
-   "kept": [
-    [
-     -6.225,
-     30.2
-    ],
-    [
-     -6.327,
-     30.2
     ]
    ]
   },
@@ -1717,7 +4881,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "5c37cf8c-6091-47ef-a4a2-ee814f468c36",
+   "uuid": "c5b0e10a-ed82-41b6-abe1-60c4fd870784",
    "kept": [
     [
      -5.156,
@@ -1726,35 +4890,6 @@
     [
      -5.256,
      28.544
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "1V8",
-   "layer": "6 Bottom Layer",
-   "start": [
-    21.05,
-    27.8
-   ],
-   "end": [
-    21.249,
-    27.601
-   ],
-   "width": 0.2,
-   "length": 0.281,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "53869360-4dce-49fc-9767-ea51154e9770",
-   "kept": [
-    [
-     21.05,
-     27.8
-    ],
-    [
-     21.121,
-     27.729
     ]
    ]
   },
@@ -1775,7 +4910,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "ac172569-185c-4ddc-90f4-d625cbe78990",
+   "uuid": "407bbf10-49e9-4efe-a3ba-4b01d469503f",
    "kept": [
     [
      -2.046,
@@ -1789,30 +4924,30 @@
   },
   {
    "kind": "track",
-   "net": "3V3",
+   "net": "1V8",
    "layer": "6 Bottom Layer",
    "start": [
-    18.225,
-    27.75
+    21.05,
+    27.8
    ],
    "end": [
-    17.575,
-    27.75
+    21.249,
+    27.601
    ],
    "width": 0.2,
-   "length": 0.65,
+   "length": 0.281,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0892a897-7f89-487a-988f-ff9edbb9dd90",
+   "uuid": "c3443dcc-15b1-4078-bdb8-cfb31f539ee1",
    "kept": [
     [
-     18.225,
-     27.75
+     21.05,
+     27.8
     ],
     [
-     18.125,
-     27.75
+     21.121,
+     27.729
     ]
    ]
   },
@@ -1833,7 +4968,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0eefed42-272c-4077-9443-8a15529a233b",
+   "uuid": "c71ece0c-cd80-42a8-94af-1c5704161098",
    "kept": [
     [
      18.225,
@@ -1842,6 +4977,35 @@
     [
      18.296,
      27.679
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    27.75
+   ],
+   "end": [
+    17.575,
+    27.75
+   ],
+   "width": 0.2,
+   "length": 0.65,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "d1ba5568-9beb-461e-a902-d8c1c8f022bc",
+   "kept": [
+    [
+     18.225,
+     27.75
+    ],
+    [
+     18.125,
+     27.75
     ]
    ]
   },
@@ -1862,7 +5026,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "a165ac81-10dd-47a7-9144-a63c8d917af1",
+   "uuid": "f19c531e-2679-41d2-82d7-1c25a3ff8bad",
    "kept": [
     [
      -4.221,
@@ -1891,7 +5055,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "5e74ae99-9d0c-4ac7-b8c5-9824ec8c6fda",
+   "uuid": "76e7d39f-6cda-4dd3-8115-119d4eccf95f",
    "kept": [
     [
      18.65,
@@ -1920,7 +5084,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "8d09a6de-e9d1-4bd2-9f69-4f36763aa48e",
+   "uuid": "7e483836-be02-46aa-adc6-f48f26130922",
    "kept": [
     [
      18.75,
@@ -1949,7 +5113,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "b786157b-e528-491e-a5be-813cf1a9e2a2",
+   "uuid": "ff50fc56-45cb-48af-9089-1ced5920a414",
    "kept": [
     [
      33.126,
@@ -1958,64 +5122,6 @@
     [
      33.226,
      33.215
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    37.051,
-    19.086
-   ],
-   "end": [
-    37.051,
-    18.192
-   ],
-   "width": 0.5,
-   "length": 0.894,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "3a28fba5-c42a-41dc-b11f-6803fb51623b",
-   "kept": [
-    [
-     37.051,
-     18.442
-    ],
-    [
-     37.051,
-     18.192
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    10.408,
-    55.453
-   ],
-   "end": [
-    10.408,
-    55.201
-   ],
-   "width": 0.381,
-   "length": 0.252,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "aecd90bd-3aa9-4ba0-98a0-079407bb8257",
-   "kept": [
-    [
-     10.408,
-     55.453
-    ],
-    [
-     10.408,
-     55.262
     ]
    ]
   },
@@ -2036,7 +5142,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "c2147e36-85a2-42a1-81c4-54d1e91282b5",
+   "uuid": "81c8573f-50ca-4a34-a4dd-b3a39f8dba7d",
    "kept": [
     [
      37.051,
@@ -2045,6 +5151,35 @@
     [
      37.051,
      31.392
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    19.086
+   ],
+   "end": [
+    37.051,
+    18.192
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "aed24c6f-3d5f-43ef-8ea9-aa23f654f821",
+   "kept": [
+    [
+     37.051,
+     18.442
+    ],
+    [
+     37.051,
+     18.192
     ]
    ]
   },
@@ -2065,7 +5200,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "f4af331d-9db1-4335-a1f6-0b399158902b",
+   "uuid": "d66d05f0-918e-4994-9047-0cae187c7283",
    "kept": [
     [
      30.0,
@@ -2074,6 +5209,35 @@
     [
      30.0,
      45.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    55.453
+   ],
+   "end": [
+    10.408,
+    55.201
+   ],
+   "width": 0.381,
+   "length": 0.252,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "ed78b958-7458-48fa-bffd-964e5f54de8d",
+   "kept": [
+    [
+     10.408,
+     55.453
+    ],
+    [
+     10.408,
+     55.262
     ]
    ]
   },
@@ -2094,7 +5258,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "bf5e94e7-8136-4b22-932b-e876b4d897be",
+   "uuid": "e9130dab-741a-49ee-a291-9f84bb1240db",
    "kept": [
     [
      22.0,
@@ -2103,35 +5267,6 @@
     [
      22.072,
      16.003
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
-    36.614
-   ],
-   "end": [
-    35.35,
-    36.863
-   ],
-   "width": 0.2032,
-   "length": 0.352,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "124cb41c-0c17-431e-936e-ab78ef33ac65",
-   "kept": [
-    [
-     35.101,
-     36.614
-    ],
-    [
-     35.173,
-     36.686
     ]
    ]
   },
@@ -2152,7 +5287,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "5c60882d-5088-4bb5-a1df-5d43a1b6ccb1",
+   "uuid": "2db08512-a41f-4ab9-b7d4-b1de085e93f1",
    "kept": [
     [
      35.101,
@@ -2181,7 +5316,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "80cbd4b3-d283-4e65-8f4f-f42239d5f092",
+   "uuid": "6562fd24-01ba-4754-a871-d1484783d240",
    "kept": [
     [
      35.101,
@@ -2210,7 +5345,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "d86d1a78-a480-4d2e-bafb-732e807c4398",
+   "uuid": "ddfce179-de62-46e7-9dd6-1b3ee3840fe6",
    "kept": [
     [
      35.101,
@@ -2224,21 +5359,32 @@
   },
   {
    "kind": "track",
-   "net": "/Top-Level Schematic/BM1_P",
-   "layer": "Top Layer",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
    "start": [
-    18.642,
-    38.425
+    35.101,
+    36.614
    ],
    "end": [
-    18.986,
-    38.081
+    35.35,
+    36.863
    ],
-   "width": 1.5,
-   "length": 0.487,
+   "width": 0.2032,
+   "length": 0.352,
    "stage": "m3",
    "round": 1,
-   "action": "removed"
+   "action": "shortened",
+   "uuid": "e4cdb1b4-e2f1-4161-862b-9d8e32869307",
+   "kept": [
+    [
+     35.101,
+     36.614
+    ],
+    [
+     35.173,
+     36.686
+    ]
+   ]
   },
   {
    "kind": "track",
@@ -2259,14 +5405,19 @@
    "action": "removed"
   },
   {
-   "kind": "via",
+   "kind": "track",
    "net": "/Top-Level Schematic/BM1_P",
-   "at": [
-    9.49,
-    38.65
+   "layer": "Top Layer",
+   "start": [
+    18.642,
+    38.425
    ],
-   "dia": 0.6,
-   "drill": 0.3,
+   "end": [
+    18.986,
+    38.081
+   ],
+   "width": 1.5,
+   "length": 0.487,
    "stage": "m3",
    "round": 1,
    "action": "removed"
@@ -2299,6 +5450,19 @@
   },
   {
    "kind": "via",
+   "net": "/Top-Level Schematic/BM1_P",
+   "at": [
+    9.49,
+    38.65
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
    "net": "/Top-Level Schematic/BM2_N",
    "at": [
     10.415,
@@ -2315,7 +5479,7 @@
    "net": "/Top-Level Schematic/BM2_N",
    "at": [
     11.115,
-    17.628
+    18.369
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -2328,7 +5492,7 @@
    "net": "/Top-Level Schematic/BM2_N",
    "at": [
     11.115,
-    18.369
+    17.628
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -2408,24 +5572,6 @@
    "net": "GND",
    "layer": "Top Layer",
    "start": [
-    31.95,
-    45.55
-   ],
-   "end": [
-    32.104,
-    45.396
-   ],
-   "width": 0.6,
-   "length": 0.217,
-   "stage": "m3",
-   "round": 1,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
     19.45,
     13.7
    ],
@@ -2435,6 +5581,24 @@
    ],
    "width": 0.5,
    "length": 2.004,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    31.95,
+    45.55
+   ],
+   "end": [
+    32.104,
+    45.396
+   ],
+   "width": 0.6,
+   "length": 0.217,
    "stage": "m3",
    "round": 1,
    "action": "removed"
@@ -2493,7 +5657,7 @@
    "net": "VBUS",
    "at": [
     15.89,
-    49.65
+    48.9
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -2506,7 +5670,7 @@
    "net": "VBUS",
    "at": [
     15.89,
-    48.9
+    49.65
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -2531,7 +5695,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "9b5f4e8f-6fc8-46de-abca-09992c8aee59",
+   "uuid": "42ad0c11-2687-4868-879a-b52000b87e83",
    "kept": [
     [
      9.265,
@@ -2560,7 +5724,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "b39666f2-2a37-463e-85df-c7be92e6a4bd",
+   "uuid": "84162d24-23c8-44b0-9edf-c85b3cb055e3",
    "kept": [
     [
      11.894,
@@ -2589,7 +5753,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "65aaa7d1-dbac-4658-8ac2-2ab6801b7896",
+   "uuid": "53fdcdf6-b168-4551-8a2d-956b3a9dc658",
    "kept": [
     [
      17.7,
@@ -2618,7 +5782,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "68a88cc3-5bfb-4afe-8e99-4d3bab6993cd",
+   "uuid": "32e8ba6d-03ff-4d6f-bd34-0a13de7412a7",
    "kept": [
     [
      31.95,
@@ -2647,7 +5811,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "f39112b3-03e2-4b45-8458-af93b76a1acf",
+   "uuid": "8e83ea7d-77ee-4257-a045-0f1bf0cd7acb",
    "kept": [
     [
      16.19,
@@ -2676,7 +5840,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "47c46642-9d2e-4d7f-a8f2-379c118eb4b9",
+   "uuid": "f72fb14f-e9e9-4ae8-aab8-98a66bf48c78",
    "kept": [
     [
      21.8,
@@ -2747,12 +5911,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -5.733,
-    28.896
+    -1.003,
+    37.397
    ],
    "end": [
-    -5.835,
-    28.896
+    -1.075,
+    37.325
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -2765,12 +5929,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -1.003,
-    37.397
+    -5.733,
+    28.896
    ],
    "end": [
-    -1.075,
-    37.325
+    -5.835,
+    28.896
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -3050,42 +6214,6 @@
   },
   {
    "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "Top Layer",
-   "start": [
-    -6.3,
-    30.3
-   ],
-   "end": [
-    -6.402,
-    30.3
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -6.225,
-    30.2
-   ],
-   "end": [
-    -6.327,
-    30.2
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
@@ -3095,24 +6223,6 @@
    "end": [
     -5.256,
     28.544
-   ],
-   "width": 0.2,
-   "length": 0.1,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "1V8",
-   "layer": "6 Bottom Layer",
-   "start": [
-    21.05,
-    27.8
-   ],
-   "end": [
-    21.121,
-    27.729
    ],
    "width": 0.2,
    "length": 0.1,
@@ -3140,15 +6250,15 @@
   },
   {
    "kind": "track",
-   "net": "3V3",
+   "net": "1V8",
    "layer": "6 Bottom Layer",
    "start": [
-    18.225,
-    27.75
+    21.05,
+    27.8
    ],
    "end": [
-    18.125,
-    27.75
+    21.121,
+    27.729
    ],
    "width": 0.2,
    "length": 0.1,
@@ -3167,6 +6277,24 @@
    "end": [
     18.296,
     27.679
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    27.75
+   ],
+   "end": [
+    18.125,
+    27.75
    ],
    "width": 0.2,
    "length": 0.1,
@@ -3233,24 +6361,6 @@
    "net": "GND",
    "layer": "Top Layer",
    "start": [
-    10.408,
-    55.453
-   ],
-   "end": [
-    10.408,
-    55.262
-   ],
-   "width": 0.381,
-   "length": 0.191,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
     30.0,
     45.85
    ],
@@ -3266,6 +6376,24 @@
   },
   {
    "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    55.453
+   ],
+   "end": [
+    10.408,
+    55.262
+   ],
+   "width": 0.381,
+   "length": 0.191,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
    "net": "Net-(U4-ALERT)",
    "layer": "Internal 1",
    "start": [
@@ -3275,24 +6403,6 @@
    "end": [
     22.072,
     16.003
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
-    36.614
-   ],
-   "end": [
-    35.173,
-    36.686
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -3356,6 +6466,24 @@
   },
   {
    "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    36.614
+   ],
+   "end": [
+    35.173,
+    36.686
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
    "net": "/Top-Level Schematic/5V_PI",
    "layer": "Internal 1",
    "start": [
@@ -3371,7 +6499,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "3a7c807f-35a9-4ac6-bbac-28cc5e6f2378",
+   "uuid": "b60ccebc-443a-4225-82e5-14639b649096",
    "kept": [
     [
      32.635,
@@ -3400,7 +6528,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "eed169c1-fce1-4f9a-a148-c460a5709fa1",
+   "uuid": "7987d4a6-8728-42a7-87ad-e04d1b3ca6b0",
    "kept": [
     [
      -6.675,
@@ -3429,7 +6557,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "2495ea33-29e5-4c0f-997e-3d8e984f4450",
+   "uuid": "3315f660-8cdd-421e-ae88-77457bb16d67",
    "kept": [
     [
      -1.075,
@@ -3458,7 +6586,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "29478e9f-e463-4253-a034-a413363f6e72",
+   "uuid": "7ca2f86a-0d0d-4c20-a257-481bb55f3433",
    "kept": [
     [
      -5.0,
@@ -3487,7 +6615,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "69fdfe9d-0741-4c34-ad74-587610d9dda6",
+   "uuid": "27ff2e41-47c7-453f-ab6d-1a6393ba7427",
    "kept": [
     [
      -5.85,
@@ -3496,35 +6624,6 @@
     [
      -5.95,
      33.25
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_N",
-   "layer": "Internal 2",
-   "start": [
-    9.8,
-    26.9
-   ],
-   "end": [
-    10.4,
-    26.3
-   ],
-   "width": 0.2,
-   "length": 0.849,
-   "stage": "m3",
-   "round": 3,
-   "action": "shortened",
-   "uuid": "15febac1-cb53-4add-910e-f24f71aa670e",
-   "kept": [
-    [
-     9.8,
-     26.9
-    ],
-    [
-     9.871,
-     26.829
     ]
    ]
   },
@@ -3545,7 +6644,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "2c02bbe6-cb8d-453f-987b-c8464ac5bfd4",
+   "uuid": "4257f537-f182-43c9-9234-c0b2d7fd579e",
    "kept": [
     [
      11.565,
@@ -3554,6 +6653,35 @@
     [
      11.636,
      44.979
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    9.8,
+    26.9
+   ],
+   "end": [
+    10.4,
+    26.3
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "db8f791b-29aa-469e-b298-de422a41d8a9",
+   "kept": [
+    [
+     9.8,
+     26.9
+    ],
+    [
+     9.871,
+     26.829
     ]
    ]
   },
@@ -3574,7 +6702,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "0e0bd8de-2e3b-42cd-857d-88e9768c4a30",
+   "uuid": "78317bdc-2a36-4d20-a9ce-14ff11fcf811",
    "kept": [
     [
      17.89,
@@ -3603,7 +6731,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "79889cce-db1a-4d3e-baf4-4ae29e47a6a7",
+   "uuid": "434529ce-ed2c-4888-8085-5045539f6419",
    "kept": [
     [
      10.35,
@@ -3632,7 +6760,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "7155ad1e-2d2f-415e-afb3-4c3d1d6f35cb",
+   "uuid": "70b02bf3-582c-442c-a8ed-69dad1bdb38e",
    "kept": [
     [
      13.915,
@@ -3661,7 +6789,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "e0bdc6f2-460d-4a01-b9d4-fb81bf964df0",
+   "uuid": "ed3877fb-cfcc-4eb7-9c6b-66dc4fc8711b",
    "kept": [
     [
      11.629,
@@ -3690,7 +6818,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "79234f0f-46b4-4ead-921a-d1d34348a480",
+   "uuid": "b0feea48-60c1-4117-9244-19dabbe99775",
    "kept": [
     [
      22.037,
@@ -3719,7 +6847,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "60a072e1-b284-49aa-bea7-b5e0898709a7",
+   "uuid": "8fe704a0-dc01-46ff-831c-6a864ebaecd4",
    "kept": [
     [
      22.337,
@@ -3728,64 +6856,6 @@
     [
      22.337,
      15.027
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "Top Layer",
-   "start": [
-    -5.85,
-    30.75
-   ],
-   "end": [
-    -6.3,
-    30.3
-   ],
-   "width": 0.2032,
-   "length": 0.636,
-   "stage": "m3",
-   "round": 3,
-   "action": "shortened",
-   "uuid": "d2b54235-19a5-463d-b568-a3c215274a39",
-   "kept": [
-    [
-     -5.85,
-     30.75
-    ],
-    [
-     -5.922,
-     30.678
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -6.225,
-    30.2
-   ],
-   "end": [
-    -6.075,
-    30.05
-   ],
-   "width": 0.2032,
-   "length": 0.212,
-   "stage": "m3",
-   "round": 3,
-   "action": "shortened",
-   "uuid": "923b0d78-876d-48ab-88d4-a07abeb8aec0",
-   "kept": [
-    [
-     -6.147,
-     30.122
-    ],
-    [
-     -6.075,
-     30.05
     ]
    ]
   },
@@ -3806,7 +6876,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "b0611e38-c34c-4cb1-80b5-a4426260f484",
+   "uuid": "c40b08e5-70ed-444d-adea-faeb6d7a0b16",
    "kept": [
     [
      -4.711,
@@ -3835,7 +6905,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "8595cdb4-ae38-430a-bd82-93dab092b155",
+   "uuid": "82aba364-6f25-49cd-bdd0-0f34ce922eb3",
    "kept": [
     [
      -1.65,
@@ -3864,7 +6934,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "b4527a22-1ba7-453a-8170-bf36e1662b48",
+   "uuid": "a66c6ef4-eaaa-4934-bfef-1baf08ebbc72",
    "kept": [
     [
      21.05,
@@ -3893,7 +6963,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "53dbfc62-8a66-462a-b77e-7666746abd3a",
+   "uuid": "c253add4-6025-4d53-b00d-486a895ec818",
    "kept": [
     [
      32.635,
@@ -3922,7 +6992,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "e7424620-3ed4-464d-9408-0a0c0b89ac26",
+   "uuid": "4bb3f459-7d9e-4c1d-ac24-23eb1b21aa2a",
    "kept": [
     [
      29.45,
@@ -3951,7 +7021,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "5ac82b1c-0937-4e8b-bbd8-6872962b17f7",
+   "uuid": "e2f1248b-e875-40f8-bc72-73a89b9fd2f8",
    "kept": [
     [
      18.317,
@@ -4070,7 +7140,7 @@
    "stage": "m3",
    "round": 4,
    "action": "shortened",
-   "uuid": "dff0f7e9-af51-43e3-8e04-f3ec2218c5aa",
+   "uuid": "62f7d5b0-3085-453d-a820-772b020f772e",
    "kept": [
     [
      9.265,
@@ -4246,42 +7316,6 @@
   },
   {
    "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "Top Layer",
-   "start": [
-    -5.85,
-    30.75
-   ],
-   "end": [
-    -5.922,
-    30.678
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 4,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -6.147,
-    30.122
-   ],
-   "end": [
-    -6.075,
-    30.05
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 4,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
@@ -4351,7 +7385,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "ae735e80-7f86-46d7-a616-6a13d9e68693",
+   "uuid": "ab39eab4-5455-40b1-872b-e522ce26c7d1",
    "kept": [
     [
      29.674,
@@ -4380,7 +7414,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "b8d7e2f7-b66f-4aa7-889d-65a9920b918b",
+   "uuid": "544647ae-80b8-4fc6-b152-8ab47659b967",
    "kept": [
     [
      -6.372,
@@ -4409,7 +7443,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "057904b9-a81e-49d1-ad43-9f80ddb0760c",
+   "uuid": "20590a50-1861-4c8a-b487-f6ffb093eb44",
    "kept": [
     [
      -1.378,
@@ -4438,7 +7472,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "8adb1eff-c24a-4cd5-857b-a9ee025e61f3",
+   "uuid": "c7123c8d-cc35-49b8-a57e-971ddffbd88f",
    "kept": [
     [
      -5.0,
@@ -4467,7 +7501,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "f0d12e43-0f6a-447a-900e-1fcf3cdb58a3",
+   "uuid": "5cda4158-d70d-4b48-bade-a3ac503581e1",
    "kept": [
     [
      16.433,
@@ -4496,7 +7530,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "d409063e-0b85-4f94-a541-9851c8c98c35",
+   "uuid": "e9cb623c-fa69-428a-8df9-eaa25488e307",
    "kept": [
     [
      9.955,
@@ -4525,7 +7559,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "22ce246d-eaf2-4d03-972b-e43a6448aad8",
+   "uuid": "2f9af66a-c8af-4bc2-ae2d-1ea36e5ca831",
    "kept": [
     [
      12.71,
@@ -4554,7 +7588,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "f655df0b-ddf4-4143-974c-35cc7f8715dd",
+   "uuid": "51c907c2-8f3c-4a45-9a72-1f5e84564c48",
    "kept": [
     [
      21.85,
@@ -4583,7 +7617,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "431c10c6-918c-4b99-8a7b-09bf37e82ac8",
+   "uuid": "bf3e93b2-3ba7-4549-a165-6fb1f726864e",
    "kept": [
     [
      22.15,
@@ -4592,64 +7626,6 @@
     [
      22.203,
      15.236
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "Top Layer",
-   "start": [
-    -5.1,
-    30.75
-   ],
-   "end": [
-    -5.85,
-    30.75
-   ],
-   "width": 0.2032,
-   "length": 0.75,
-   "stage": "m3",
-   "round": 5,
-   "action": "shortened",
-   "uuid": "d12eb2fb-4559-4190-b012-b9474a0b5621",
-   "kept": [
-    [
-     -5.1,
-     30.75
-    ],
-    [
-     -5.202,
-     30.75
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -5.053,
-    30.05
-   ],
-   "end": [
-    -6.075,
-    30.05
-   ],
-   "width": 0.2032,
-   "length": 1.022,
-   "stage": "m3",
-   "round": 5,
-   "action": "shortened",
-   "uuid": "7cc72ee2-5332-4302-8892-b53af21ba836",
-   "kept": [
-    [
-     -5.053,
-     30.05
-    ],
-    [
-     -5.155,
-     30.05
     ]
    ]
   },
@@ -4670,7 +7646,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "0376dc65-9ad0-4386-86a3-3081e789f17c",
+   "uuid": "39e3cb75-ac51-4c34-96ab-0b3c62771df4",
    "kept": [
     [
      -4.4,
@@ -4699,7 +7675,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "99dc5f66-fc65-4ff4-b18f-90b49bb69dd5",
+   "uuid": "ff17a442-ae31-40f2-9475-38641963f739",
    "kept": [
     [
      29.674,
@@ -4839,24 +7815,6 @@
   },
   {
    "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -5.053,
-    30.05
-   ],
-   "end": [
-    -5.155,
-    30.05
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 6,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
@@ -4890,7 +7848,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "bf6d819a-3fa0-46aa-b5a1-32a9cdf34e6f",
+   "uuid": "ccd065c9-77ba-49c8-9a80-a74fef2d71f5",
    "kept": [
     [
      -5.85,
@@ -4919,7 +7877,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "2a2964dc-6aaa-4a51-833b-b8979828da50",
+   "uuid": "4de757ac-23dc-4c98-a00f-5f37ed38d6ef",
    "kept": [
     [
      -3.073,
@@ -4948,7 +7906,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "faedcaa3-1cae-4b9f-a424-058956b9d6e4",
+   "uuid": "a87b9081-40c9-4542-a008-d42d1431ffe1",
    "kept": [
     [
      -5.425,
@@ -4977,7 +7935,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "7fadc989-6c88-41e4-a803-ff3ef37bc850",
+   "uuid": "6626e482-4bc9-470f-b141-7dda9ff75851",
    "kept": [
     [
      21.85,
@@ -5006,7 +7964,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "1b9a306f-de0d-46ba-84f0-cde68860afb4",
+   "uuid": "78dc9e88-f95f-4837-933a-1c09f433116e",
    "kept": [
     [
      22.15,
@@ -5015,35 +7973,6 @@
     [
      22.15,
      16.672
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -4.774,
-    30.329
-   ],
-   "end": [
-    -5.053,
-    30.05
-   ],
-   "width": 0.2032,
-   "length": 0.394,
-   "stage": "m3",
-   "round": 7,
-   "action": "shortened",
-   "uuid": "a0408df1-4d4c-40ce-9b46-40c111d7999f",
-   "kept": [
-    [
-     -4.774,
-     30.329
-    ],
-    [
-     -4.846,
-     30.257
     ]
    ]
   },
@@ -5064,7 +7993,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "570f1e3d-c809-4371-baf8-fdef14b4551a",
+   "uuid": "7897319c-0ebc-4088-8b88-9e904992d5cc",
    "kept": [
     [
      1.7,
@@ -5124,7 +8053,7 @@
    "stage": "m3",
    "round": 8,
    "action": "shortened",
-   "uuid": "b161cdb2-49af-4104-819f-632b928d24ef",
+   "uuid": "71ac69f5-3175-43f0-959f-5c0bb7f0dbb3",
    "kept": [
     [
      11.416,
@@ -5241,24 +8170,6 @@
   },
   {
    "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -4.774,
-    30.329
-   ],
-   "end": [
-    -4.846,
-    30.257
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 8,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
@@ -5292,7 +8203,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "0b7b01a7-b9ee-42c0-b3fb-69ea0c577bcc",
+   "uuid": "2f0035ba-5e31-4c96-82ac-62d67e66ad66",
    "kept": [
     [
      -5.425,
@@ -5321,7 +8232,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "ad0f32d9-f224-47aa-9dbc-55ed7c1a6b4e",
+   "uuid": "3c058771-9dde-4500-a351-e6e8cb981740",
    "kept": [
     [
      -3.7,
@@ -5350,7 +8261,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "61c070e6-8b5f-4b49-8461-7dd20e4ea1e4",
+   "uuid": "0449f2ab-e7ef-423f-ac4a-5f7f2e86a1cb",
    "kept": [
     [
      12.057,
@@ -5379,7 +8290,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "75f4dcdd-63b6-4113-ba77-68f39b891c4f",
+   "uuid": "88edc412-9a11-4def-928a-116c6f32a4d7",
    "kept": [
     [
      12.128,
@@ -5408,7 +8319,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "5ed914a4-f532-413f-bcde-f5896f7193c2",
+   "uuid": "29e27565-3f36-40dc-9098-1a12cebb8b48",
    "kept": [
     [
      21.575,
@@ -5437,7 +8348,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "cd73d92f-b98c-47b3-b04c-0eb23308210e",
+   "uuid": "f9f121ed-8beb-40ed-94aa-0e56f02f9d45",
    "kept": [
     [
      21.772,
@@ -5446,35 +8357,6 @@
     [
      21.825,
      17.072
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -4.774,
-    30.701
-   ],
-   "end": [
-    -4.774,
-    30.329
-   ],
-   "width": 0.2032,
-   "length": 0.372,
-   "stage": "m3",
-   "round": 9,
-   "action": "shortened",
-   "uuid": "eb96366c-04b8-422e-94b0-610f23306313",
-   "kept": [
-    [
-     -4.774,
-     30.701
-    ],
-    [
-     -4.774,
-     30.599
     ]
    ]
   },
@@ -5495,7 +8377,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "9b04823d-8017-4c39-a416-f013f9555406",
+   "uuid": "d1e7cd1a-3bca-4902-88b7-dfa71ceab6b2",
    "kept": [
     [
      2.129,
@@ -5686,7 +8568,7 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "19117c23-4c2c-409d-8d00-9d61c6dee936",
+   "uuid": "31bb9ae7-0093-4698-8a31-d11066ac9a3e",
    "kept": [
     [
      -4.95,
@@ -5715,7 +8597,7 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "6c19ea6e-de1c-4fa0-b0e4-dde729ce8b7f",
+   "uuid": "3d3f533f-973d-49a5-9d48-69b886b14de5",
    "kept": [
     [
      -3.7,
@@ -5744,7 +8626,7 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "2c0d1f8a-3223-4e61-a544-d2e1d383c03b",
+   "uuid": "b9f56d90-3312-4f01-9389-c10afc763b73",
    "kept": [
     [
      21.625,
@@ -5773,7 +8655,7 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "448c94f9-2339-441f-bb3c-916e0129a605",
+   "uuid": "7e864561-6865-4892-925f-d36bcd9a8ec5",
    "kept": [
     [
      3.3,
@@ -5856,7 +8738,7 @@
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "51f45d09-6bbb-484b-b9ca-e03f55865972",
+   "uuid": "3a5c531c-127a-4ab4-ba33-6bf9e68f08d9",
    "kept": [
     [
      -3.956,
@@ -5885,7 +8767,7 @@
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "8a326c1a-6727-40fe-83ad-3d32830a6325",
+   "uuid": "493f18e8-2b96-47a6-bec9-141a84e87872",
    "kept": [
     [
      21.375,
@@ -5914,7 +8796,7 @@
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "ad372ca0-7dca-40ba-b284-548ac2338eb3",
+   "uuid": "0165670d-4856-4d60-b492-c3e4dd89332c",
    "kept": [
     [
      3.8,
@@ -5979,7 +8861,7 @@
    "stage": "m3",
    "round": 15,
    "action": "shortened",
-   "uuid": "82c3856a-a90b-404f-a2aa-034458840660",
+   "uuid": "23ba980c-f614-469f-a9ec-d23475dc1426",
    "kept": [
     [
      -3.719,
@@ -6008,7 +8890,7 @@
    "stage": "m3",
    "round": 15,
    "action": "shortened",
-   "uuid": "487199e1-d30b-40d0-805d-960084f4fdc2",
+   "uuid": "4a2d202a-e1c5-4def-8e2e-9ee9b62d47a5",
    "kept": [
     [
      3.8,
@@ -6055,7 +8937,7 @@
    "stage": "m3",
    "round": 17,
    "action": "shortened",
-   "uuid": "c320ddba-7858-4d9a-ab5e-8ab32bb07b69",
+   "uuid": "cb571957-ef00-49f8-bb09-44de30261513",
    "kept": [
     [
      2.524,
@@ -6093,5 +8975,6 @@
    "round": 1,
    "action": "removed"
   }
- ]
+ ],
+ "protected_dangling": []
 }

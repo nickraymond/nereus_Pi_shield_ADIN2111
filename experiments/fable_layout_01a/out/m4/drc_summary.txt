@@ -1,23 +1,18 @@
-12 ('clearance', 'error')
+7 ('clearance', 'error')
 12 ('courtyards_overlap', 'error')
 36 ('hole_clearance', 'error')
 8 ('lib_footprint_mismatch', 'warning')
 2 ('nonmirrored_text_on_back_layer', 'warning')
 38 ('padstack', 'warning')
 4 ('padstack_invalid', 'error')
-42 ('shorting_items', 'error')
+34 ('shorting_items', 'error')
 8 ('silk_edge_clearance', 'warning')
 41 ('silk_over_copper', 'warning')
 41 ('silk_overlap', 'warning')
-20 ('solder_mask_bridge', 'error')
+18 ('solder_mask_bridge', 'error')
 112 ('text_height', 'warning')
 4 ('text_thickness', 'warning')
-1 ('tracks_crossing', 'error')
-1 ('via_dangling', 'warning')
-unconnected_items: 4
+unconnected_items: 1
 schematic_parity: 4
-errors: 127  warnings: 255
-open: Zone '5V_PI pour (B.Cu) under JP1 / L6 / U10' [/Top-Level Schematic/5V | Zone [/Top-Level Schematic/5V_PI] on Top Layer, priority 1
-open: Track [/Top-Level Schematic/~{ADIN_INT}] on 6 Bottom Layer, length 0.2 | Pad 39 [/Top-Level Schematic/~{ADIN_INT}] of U1 on Top Layer
-open: Pad 1 [VBUS] of U11 on Top Layer | Pad 1 [VBUS] of R41 on 6 Bottom Layer
+errors: 111  warnings: 254
 open: PTH pad 1 [unconnected-(J1-3V3-Pad1)] of J1 | PTH pad 17 [unconnected-(J1-3V3-Pad1)] of J1

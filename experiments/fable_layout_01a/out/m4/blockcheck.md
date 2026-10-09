@@ -6,21 +6,21 @@
 | RING_MP4 | (176.001, 120.004) → (-1.81, 21.4), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
 | RING_MP1 | (176.001, 120.004) → (-1.81, 43.6), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
 | RING_MP2 | (176.001, 120.004) → (-1.81, 53.0), 0° | 0/0 | 0/0 | 1/1 | 7/7 | 0/0 | 0 | 0 | 0 |
-| ADIN | (154.001, 113.004) → (-1.7, 32.5), 90° | 103/103 | 207/252 | 0/0 | 47/47 | 2/2 | 45 | 0 | 137 |
+| ADIN | (154.001, 113.004) → (-1.7, 32.5), 90° | 103/103 | 215/252 | 0/0 | 47/47 | 2/2 | 37 | 0 | 90 |
 | P1L | (165.501, 108.754) → (12.74, 44.25), 90° | 16/16 | 33/48 | 0/0 | 13/19 | 0/0 | 21 | 0 | 16 |
-| P1T | (161.601, 117.504) → (6.7, 28.4), 0° | 15/15 | 22/27 | 0/0 | 5/5 | 0/0 | 5 | 0 | 12 |
-| P2L | (131.679, 108.279) → (12.74, 16.75), 90° | 12/12 | 16/28 | 0/0 | 14/18 | 0/0 | 16 | 0 | 23 |
-| P2T | (135.501, 117.504) → (13.7, 32.5), 180° | 15/15 | 32/34 | 0/0 | 6/6 | 0/0 | 2 | 0 | 25 |
-| B33 | (140.501, 115.054) → (31.551, 34.44), 0° | 22/22 | 81/88 | 0/0 | 19/19 | 2/2 | 7 | 0 | 26 |
-| B5V | (140.501, 115.054) → (31.551, 21.24), 0° | 22/22 | 81/88 | 0/0 | 18/19 | 2/2 | 8 | 0 | 51 |
+| P1T | (161.601, 117.504) → (6.7, 28.4), 0° | 15/15 | 22/27 | 0/0 | 5/5 | 0/0 | 5 | 0 | 13 |
+| P2L | (131.679, 108.279) → (12.74, 16.75), 90° | 12/12 | 16/28 | 0/0 | 14/18 | 0/0 | 16 | 0 | 13 |
+| P2T | (135.501, 117.504) → (13.7, 32.5), 180° | 15/15 | 31/33 | 0/0 | 5/5 | 0/0 | 2 | 0 | 34 |
+| B33 | (140.501, 115.054) → (31.551, 34.44), 0° | 22/22 | 81/88 | 0/0 | 19/19 | 2/2 | 7 | 0 | 25 |
+| B5V | (140.501, 115.054) → (31.551, 21.24), 0° | 22/22 | 81/88 | 0/0 | 18/19 | 2/2 | 8 | 0 | 17 |
 | SENSE | (146.351, 115.704) → (19.8, 15.0), 0° | 15/15 | 58/77 | 0/0 | 4/5 | 0/0 | 20 | 0 | 19 |
 | DAMP3 | (146.001, 116.904) → (33.5, 40.95), 90° | 2/2 | 0/0 | 0/0 | 0/0 | 0/0 | 0 | 0 | 0 |
 | DAMP1 | (154.201, 119.204) → (8.9, 57.5), 90° | 5/5 | 7/8 | 0/0 | 0/0 | 0/0 | 1 | 0 | 2 |
 | DAMP2 | (151.301, 103.604) → (33.5, 48.6), 0° | 2/2 | 32/36 | 0/0 | 7/7 | 0/0 | 4 | 0 | 3 |
-| B18 | (144.501, 110.329) → (19.0, 31.4), 90° | 13/13 | 37/43 | 0/0 | 0/0 | 0/0 | 6 | 0 | 7 |
+| B18 | (144.501, 110.329) → (19.0, 31.4), 90° | 13/13 | 37/43 | 0/0 | 0/0 | 0/0 | 6 | 0 | 6 |
 
-Total missing: 0; trimmed: 135 (copied items KiCad's DRC called dangling, removed; listed below). Tolerance 0.001 mm. 'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).
-Totals matched/expected: pads 242/242, tracks 606/729, arcs 4/4, vias 161/173, zones 6/6; copper items 912.
+Total missing: 0; trimmed: 127 (copied items KiCad's DRC called dangling, removed; listed below). Tolerance 0.001 mm. 'extra' = board copper on the block's nets inside its region not explained by the mote (new routing or a mistake).
+Totals matched/expected: pads 242/242, tracks 613/728, arcs 4/4, vias 160/172, zones 6/6; copper items 910.
 
 ## ADIN: trimmed (dangling stub removed by tools/dangling.py, see blocks.json)
 - track (-1.65, 38.05)-(-1.975, 38.05) w0.2 6 Bottom Layer 1V8
@@ -58,12 +58,8 @@ Totals matched/expected: pads 242/242, tracks 606/729, arcs 4/4, vias 161/173, z
 - track (-5.85, 32.25)-(-6.372, 32.25) w0.2 Internal 1 /Top-Level Schematic/ADIN_MOSI
 - track (-6.675, 31.947)-(-6.675, 31.579) w0.2 Internal 1 /Top-Level Schematic/ADIN_MOSI
 - track (-6.518, 32.726)-(-6.804, 32.441) w0.2 Internal 1 /Top-Level Schematic/ADIN_MISO (clipped)
-- track (-5.85, 30.75)-(-6.3, 30.3) w0.2032 Top Layer /Top-Level Schematic/~{ADIN_INT}
-- track (-5.1, 30.75)-(-5.85, 30.75) w0.2032 Top Layer /Top-Level Schematic/~{ADIN_INT}
-- track (-6.3, 30.3)-(-6.804, 30.3) w0.2032 Top Layer /Top-Level Schematic/~{ADIN_INT} (clipped)
-- track (-4.774, 30.329)-(-5.053, 30.05) w0.2032 6 Bottom Layer /Top-Level Schematic/~{ADIN_INT}
-- track (-4.774, 30.701)-(-4.774, 30.329) w0.2032 6 Bottom Layer /Top-Level Schematic/~{ADIN_INT}
-- …
+- track (-6.175, 38.301)-(-6.175, 37.625) w0.381 Top Layer 3V3 (clipped)
+- track (-5.101, 38.301)-(-4.15, 37.35) w0.2 6 Bottom Layer 3V3 (clipped)
 
 ## P1L: trimmed (dangling stub removed by tools/dangling.py, see blocks.json)
 - track (18.642, 38.425)-(18.986, 38.081) w1.5 Top Layer /Top-Level Schematic/BM1_P (clipped)

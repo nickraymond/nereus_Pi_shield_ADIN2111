@@ -86,16 +86,16 @@
   {
    "net": "BM1_DATA_P",
    "port": 1,
-   "total_mm": 10.7,
+   "total_mm": 9.46,
    "limit_mm": 9.5,
    "vias": 2,
-   "ok": false,
+   "ok": true,
    "parity": 1
   },
   {
    "net": "BM1_DATA_N",
    "port": 1,
-   "total_mm": 8.59,
+   "total_mm": 8.8,
    "limit_mm": 9.5,
    "vias": 2,
    "ok": true,
@@ -104,7 +104,7 @@
   {
    "net": "BM2_DATA_P",
    "port": 2,
-   "total_mm": 18.24,
+   "total_mm": 17.98,
    "limit_mm": 21.3,
    "vias": 2,
    "ok": true,
@@ -113,7 +113,7 @@
   {
    "net": "BM2_DATA_N",
    "port": 2,
-   "total_mm": 18.88,
+   "total_mm": 18.62,
    "limit_mm": 21.3,
    "vias": 2,
    "ok": true,
@@ -122,18 +122,58 @@
  ],
  "stitch": [
   {
-   "net": "GND",
+   "net": "1V8",
    "via": [
-    35.7,
-    34.4
+    -2.9,
+    38.6
+   ],
+   "fanout": "U2.A2"
+  },
+  {
+   "net": "3V3",
+   "via": [
+    -4.4,
+    37.4
+   ],
+   "fanout": "U3.A2"
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    33.9,
+    53.0
    ],
    "pre": true
   },
   {
    "net": "GND",
    "via": [
-    20.9,
-    61.2
+    31.0,
+    41.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    15.6,
+    60.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    29.6,
+    56.0
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    36.3,
+    53.6
    ],
    "pre": true
   },
@@ -156,38 +196,6 @@
   {
    "net": "GND",
    "via": [
-    36.3,
-    53.6
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
-    29.6,
-    56.0
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
-    31.0,
-    41.0
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
-    14.5,
-    12.5
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
     31.4,
     53.0
    ],
@@ -204,8 +212,24 @@
   {
    "net": "GND",
    "via": [
-    15.6,
-    60.0
+    35.7,
+    34.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    14.5,
+    12.5
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    20.9,
+    61.2
    ],
    "pre": true
   },
@@ -220,8 +244,8 @@
   {
    "net": "VBUS",
    "via": [
-    20.9,
-    57.8
+    34.8,
+    54.6
    ],
    "pre": true
   },
@@ -236,24 +260,16 @@
   {
    "net": "VBUS",
    "via": [
-    34.8,
-    54.6
+    20.9,
+    57.8
    ],
    "pre": true
   },
   {
    "net": "VBUS",
    "via": [
-    21.0,
-    59.5
-   ],
-   "pre": true
-  },
-  {
-   "net": "VBUS",
-   "via": [
-    36.0,
-    42.4
+    37.0,
+    42.3
    ],
    "pre": true
   },
@@ -268,16 +284,24 @@
   {
    "net": "VBUS",
    "via": [
-    35.5,
-    51.2
+    9.8,
+    60.8
    ],
    "pre": true
   },
   {
    "net": "VBUS",
    "via": [
-    9.8,
-    60.8
+    34.7,
+    52.9
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    21.0,
+    59.5
    ],
    "pre": true
   },
@@ -306,13 +330,6 @@
    "pre": true
   },
   {
-   "net": "5V_Buck_SW",
-   "via": [
-    32.4,
-    16.9
-   ]
-  },
-  {
    "net": "3V3_Buck_SW",
    "via": [
     33.5,
@@ -320,10 +337,10 @@
    ]
   },
   {
-   "net": "GND",
+   "net": "5V_Buck_SW",
    "via": [
-    8.9,
-    56.3
+    32.4,
+    16.9
    ]
   },
   {
@@ -331,6 +348,13 @@
    "via": [
     32.5,
     54.4
+   ]
+  },
+  {
+   "net": "GND",
+   "via": [
+    8.9,
+    56.3
    ]
   },
   {
@@ -404,7 +428,7 @@
   {
    "net": "ISET",
    "class": "signal",
-   "length_new_mm": 2.9
+   "length_new_mm": 3.1
   },
   {
    "net": "Net-(U11-UVLO)",
@@ -419,37 +443,37 @@
   {
    "net": "PAYLOAD_EN",
    "class": "signal",
-   "length_new_mm": 15.2
+   "length_new_mm": 15.6
   },
   {
    "net": "VBUS_OUT",
    "class": "payload",
-   "length_new_mm": 22.9
+   "length_new_mm": 23.4
   },
   {
    "net": "~{ADIN_INT}",
    "class": "signal (pocket corridor)",
-   "length_new_mm": null
+   "length_new_mm": 35.9
   },
   {
    "net": "ADIN_MOSI",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 32.6
+   "length_new_mm": 32.5
   },
   {
    "net": "ADIN_MISO",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 37.1
+   "length_new_mm": 65.0
   },
   {
    "net": "ADIN_SCK",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 31.9
+   "length_new_mm": 31.4
   },
   {
    "net": "~{ADIN_CS}",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 38.5
+   "length_new_mm": 66.2
   },
   {
    "net": "~{ADIN_RST}",
@@ -459,17 +483,17 @@
   {
    "net": "3V3",
    "class": "rail (plane + pocket)",
-   "length_new_mm": 96.7
+   "length_new_mm": 96.0
   },
   {
    "net": "1V8",
    "class": "rail",
-   "length_new_mm": 27.6
+   "length_new_mm": 25.5
   },
   {
    "net": "ADIN_PWR",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 44.8
+   "length_new_mm": 41.9
   },
   {
    "net": "~{ADIN_P2_LED1}",
@@ -514,7 +538,7 @@
   {
    "net": "Net-(C25-Pad2)",
    "class": "signal",
-   "length_new_mm": 1.3
+   "length_new_mm": 1.4
   },
   {
    "net": "Net-(C22-A)",
@@ -524,7 +548,7 @@
   {
    "net": "Net-(C23-A)",
    "class": "signal",
-   "length_new_mm": 1.3
+   "length_new_mm": 1.4
   },
   {
    "net": "Net-(D9-A)",
@@ -552,6 +576,11 @@
    "length_new_mm": 0.0
   },
   {
+   "net": "3V3_Buck_SW",
+   "class": "signal (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
    "net": "3V3",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
@@ -562,27 +591,22 @@
    "length_new_mm": 0.0
   },
   {
-   "net": "3V3_Buck_SW",
-   "class": "signal (plane leftovers)",
+   "net": "GND",
+   "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
-   "net": "GND",
+   "net": "ADIN_AVDD",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
    "net": "VBUS",
    "class": "power (plane leftovers)",
-   "length_new_mm": null
-  },
-  {
-   "net": "ADIN_VDDIO",
-   "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
-   "net": "ADIN_AVDD",
+   "net": "ADIN_VDDIO",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
@@ -594,67 +618,30 @@
  ],
  "failed": [
   {
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "why": "no path at the class width / clearance",
-   "class": "signal",
-   "open_links": 1,
-   "clusters": [
-    [
-     "U1.39"
-    ],
-    [
-     "J1.22",
-     "R1.1"
-    ]
-   ]
-  },
-  {
-   "net": "VBUS",
-   "why": "no path to any of the stitching via spots",
-   "near": [
-    [
-     33.5,
-     52.95
-    ]
-   ]
-  },
-  {
-   "net": "VBUS",
-   "why": "no path at the class width / clearance",
-   "class": "power",
-   "open_links": 1,
-   "clusters": [
-    [
-     "C17.1",
-     "C20.1",
-     "C21.1",
-     "C29.1"
-    ],
-    [
-     "U11.1"
-    ]
-   ]
-  },
-  {
    "net": "GND",
-   "why": "zone island on 6 Bottom Layer near (37.1, 13.9) has no via and none fits"
-  },
-  {
-   "net": "/Top-Level Schematic/5V_PI",
-   "why": "pour islands could not be joined at the class width"
-  },
-  {
-   "net": "/Top-Level Schematic/5V_PI",
-   "why": "pour islands could not be joined at the class width"
+   "why": "zone island on 6 Bottom Layer near (37.1, 13.9) has no via and none fits over the net's copper on another layer"
   }
  ],
  "notes": [
   "grid 461x651 cells at 0.1 mm built in 17 s",
   "Kelvin sense traces protected: 20 tracks + U4 pads 1/2 excluded from routing starts/ends and stitching",
-  "pair port 1: parity 1, swap figures at [((1.3000000000000007, 27.3), -1)]",
-  "pair port 1: {'/Top-Level Schematic/BM1_DATA_P': (18, 2, 10.701526242414781), '/Top-Level Schematic/BM1_DATA_N': (17, 2, 8.592538014584703)}",
-  "pair port 2: parity 1, swap figures at [((9.5, 34.0), 1)]",
-  "pair port 2: {'/Top-Level Schematic/BM2_DATA_P': (52, 2, 18.237905205123788), '/Top-Level Schematic/BM2_DATA_N': (52, 2, 18.877658000976364)}",
+  "fan-out: no via spot within 1.7 mm of U2.B2 (ADIN_PWR)",
+  "2 regulator balls fanned out to vias before the pairs (U2, U3)",
+  "pair port 1: start variants ['Top', 'In1, vias at 1.0 / 1.48 mm from the pins (BM1_DATA_P far)']; via pair at the pads' approach does not fit",
+  "pair port 1: candidate Top, swing 1: passes the board check, P 10.10 / N 9.11 mm, min P-N clearance 0.150",
+  "pair port 1: candidate Top, swing -1 FAILED the board check (['VIA BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-0.20, 26.98): 0.000 mm', 'VIA BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-0.20, 26.98): 0.000 mm', 'TRACK BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-0.20, 27.10): 0.000 mm']); 44 items removed",
+  "pair port 1: candidate In1, vias at 1.0 / 1.48 mm from the pins (BM1_DATA_P far), swing 1: passes the board check, P 9.84 / N 8.95 mm, min P-N clearance 0.150",
+  "pair port 1: candidate In1, vias at 1.0 / 1.48 mm from the pins (BM1_DATA_P far), swing -1: passes the board check, P 9.46 / N 8.80 mm, min P-N clearance 0.150",
+  "pair port 1: parity 1, In1, vias at 1.0 / 1.48 mm from the pins (BM1_DATA_P far), swing -1, starts on Internal 1, ends on Top Layer, swap figures at [((0.9000000000000004, 26.900000000000002), -1)]; board check ok, min P-N clearance 0.150 mm",
+  "pair port 1: {'/Top-Level Schematic/BM1_DATA_P': (25, 2, 9.455750165312118), '/Top-Level Schematic/BM1_DATA_N': (25, 2, 8.802514034939087)}",
+  "pair port 2: start variants ['Top', 'In1, vias at 0.8 / 1.13 mm from the pins (BM2_DATA_P far)']; via pair at the pads' approach fits",
+  "pair port 2: candidate Top, swing 1: passes the board check, P 17.98 / N 18.62 mm, min P-N clearance 0.150",
+  "pair port 2: candidate Top, swing -1: passes the board check, P 17.98 / N 18.62 mm, min P-N clearance 0.150",
+  "pair port 2: candidate In1, vias at 0.8 / 1.13 mm from the pins (BM2_DATA_P far), swing 1: passes the board check, P 18.31 / N 19.11 mm, min P-N clearance 0.149",
+  "pair port 2: candidate In1, vias at 0.8 / 1.13 mm from the pins (BM2_DATA_P far), swing -1: passes the board check, P 18.31 / N 19.11 mm, min P-N clearance 0.149",
+  "pair port 2: parity 1, Top, swing 1, starts on Top Layer, ends on Internal 1, swap figures at [((9.600000000000001, 33.5), 1)]; board check ok, min P-N clearance 0.150 mm",
+  "pair port 2: {'/Top-Level Schematic/BM2_DATA_P': (40, 2, 17.975847829108424), '/Top-Level Schematic/BM2_DATA_N': (40, 2, 18.61993597124897)}",
+  "1 VBUS pads pre-stitched (via within 1.5 mm) before the signals (U11 only)",
   "1 intra-footprint GND links (0.15 mm)",
   "12 GND pads pre-stitched (via within 1.5 mm) before the signals",
   "8 VBUS pads pre-stitched (via within 1.5 mm) before the signals",
@@ -662,15 +649,6 @@
   "2 3V3 pads pre-stitched (via within 1.5 mm) before the signals",
   "0 5V_PI pads pre-stitched (via within 1.5 mm) before the signals",
   "1 zone-island vias (zone_stitch)",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "GND pour (B.Cu), as the mote's bottom layer: islands joined with a rail track",
-  "total 310 s"
+  "total 214 s"
  ]
 }
