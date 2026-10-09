@@ -841,12 +841,12 @@
  "copper": {
   "Top Layer": {
    "segments": 381,
-   "length_mm": 321.3
+   "length_mm": 321.5
   },
   "vias": 265,
   "6 Bottom Layer": {
    "segments": 504,
-   "length_mm": 268.1
+   "length_mm": 268.3
   },
   "Internal 1": {
    "segments": 134,
@@ -869,7 +869,7 @@
    ]
   },
   "ADIN_AVDD": {
-   "mm": 16.4,
+   "mm": 16.2,
    "vias": 5,
    "layers": [
     "6 Bottom Layer",
@@ -965,7 +965,7 @@
    ]
   },
   "BM1_DATA_N": {
-   "mm": 8.8,
+   "mm": 8.9,
    "vias": 2,
    "layers": [
     "Internal 1",
@@ -991,7 +991,7 @@
    ]
   },
   "BM1_P": {
-   "mm": 49.5,
+   "mm": 49.6,
    "vias": 10,
    "layers": [
     "6 Bottom Layer",
@@ -1060,7 +1060,7 @@
    ]
   },
   "PAYLOAD_EN": {
-   "mm": 17.9,
+   "mm": 17.8,
    "vias": 1,
    "layers": [
     "6 Bottom Layer",
@@ -1158,7 +1158,7 @@
    ]
   },
   "~{PAYLOAD_FAULT}": {
-   "mm": 16.5,
+   "mm": 16.6,
    "vias": 0,
    "layers": [
     "6 Bottom Layer",
@@ -1175,7 +1175,7 @@
    ]
   },
   "3V3": {
-   "mm": 113.9,
+   "mm": 113.8,
    "vias": 16,
    "layers": [
     "6 Bottom Layer",
@@ -1185,7 +1185,7 @@
    ]
   },
   "ADIN_VDDIO": {
-   "mm": 50.9,
+   "mm": 50.8,
    "vias": 6,
    "layers": [
     "6 Bottom Layer",
@@ -1195,7 +1195,7 @@
    ]
   },
   "GND": {
-   "mm": 57.7,
+   "mm": 57.3,
    "vias": 71,
    "layers": [
     "6 Bottom Layer",
@@ -1266,7 +1266,7 @@
    ]
   },
   "Net-(C25-Pad2)": {
-   "mm": 2.2,
+   "mm": 2.1,
    "vias": 1,
    "layers": [
     "6 Bottom Layer",
@@ -1313,7 +1313,7 @@
    ]
   },
   "Net-(U1A-CEXT_3)": {
-   "mm": 2.1,
+   "mm": 2.2,
    "vias": 1,
    "layers": [
     "6 Bottom Layer",
@@ -1394,14 +1394,14 @@
    ]
   },
   "Net-(U6-SW)": {
-   "mm": 2.6,
+   "mm": 2.7,
    "vias": 0,
    "layers": [
     "6 Bottom Layer"
    ]
   },
   "Net-(U10-CB)": {
-   "mm": 1.5,
+   "mm": 1.4,
    "vias": 1,
    "layers": [
     "6 Bottom Layer",

@@ -262,3 +262,21 @@ Nick, from the first rebuild's renders (mid-run, recorded in OPTIONS A6): the ke
 board md5 **3a4dbf328b93efb1f5d06ab63fe45648**; pairs 9.39 / 8.77 / 20.19 / 20.87 (15 / 15 / 24 / 24 segments), SPI 31.3 / 32.2 / 37.5 / 39.1, rules 0 / 0 / 0 (6
 small-pad stubs listed), DRC 109 (109 with reasons) / 68 / 1 / 4, blockcheck 0 / 128, test_pair ALL OK, DFM 30 / 1, 37 references
 hidden. Pages and the summary regenerated; QE round 4 requested.
+
+
+## Session 2.b, QE round 4 — APPROVED WITH NITS, nits fixed (2026-10-08)
+
+QE round 4 (`qe/S7b_01a_round4.md`, on b34293d): F1 / F2 of round 3 verified fixed on the committed board and on a from-m0
+rebuild; every number reproduces but the warning count. N1: 70 on a clean copy vs the pipeline's 68 — the 2 are
+nonmirrored_text_on_back_layer for the stock SOT-23-THIN footprint's '*' text on B.Fab under U5 / U10 (top parts), which the
+worktree's `.kicad_prl` hid from DRC → `tools/dfm_fix.py` now mirrors every back-layer footprint text (55 on this board), and the
+DRC summary is run last, on the saved file; a clean-copy DRC gives 68 as well. N2: DFM row 30's exemption class is "large power
+pads > 4 mm²" (L1 / L2 / C23 / U11's exposed pad), listed, with JLC's plugged-via option noted. N3: U11.1's 0.3 mm stub is the IN
+pin's payload current, declared (REPORT §9 #3b). N4: DESIGN D31 vs the 20 W keep-out is Nick's decision outside this folder
+(REPORT §9 #3e, OPTIONS A6). Rebuilt from the M1 snapshot: board md5 **23e5e8f939e6bf5e0c6b609e6c7ee14d**; pairs 9.39 / 8.77 / 20.19 / 20.87, rules
+0 / 0 / 0, DRC 109 (109 with reasons) / 68 / 1 / 4, blockcheck 0 / 128, test_pair ALL OK, DFM 30 / 1. Pages and the summary
+regenerated; the design review published for Nick (out/review, out/before_after).
+
+Nick (mid-run): "once you have something that passes, write the PR so I can review and merge; the files stay in the experiments
+folder" → PR #31 re-targeted at main and marked ready for review (the board stays in `experiments/fable_layout_01a/`; nothing
+in the live project changes).

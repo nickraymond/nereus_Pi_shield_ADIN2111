@@ -115,7 +115,7 @@ CHANGES = {
     "testpoints": "measured; the 6 overlaps are Sofar's inside copied blocks (declared)",
     "bom_cpl": "note only",
     "smd_pad": "declared per footprint (QE round 3 F2): U6 TPS62840 DSBGA 0.23 (Sofar's), U2 / U3 AP22913 WLCSP 0.235 (Sofar's), U11 Texas_DRC0010J 0.24 (KiCad stock, this design's part); a footprint change is Nick's per part",
-    "via_in_pad": "QE round 3 F1: the router may no longer put a via where its copper touches an SMD solder pad (router.Grid.padvia; test pads and thermal pads excepted), the row is measured against the mote's copied vias, and fails on any new via in a solder pad (03b2adb had 64)",
+    "via_in_pad": "QE round 3 F1: the router may no longer put a via where its copper touches an SMD solder pad (router.Grid.padvia; test pads and pads > 4 mm² excepted), the row is measured against the mote's copied vias, and fails on any new via in a solder pad (03b2adb had 64); the vias in the large pads (L1 / L2 / C23 / U11.11) are listed (QE round 4 N2)",
     "board": "49 × 68 (Nick, 2026-10-08)",
 }
 
@@ -147,6 +147,11 @@ HISTORY = """
   pads excepted), and plane-net links from pads narrower than 1.0 mm run at 0.2 mm (BRIEF §6). Rebuilt from M0 with Nick's two
   mid-run decisions (the 20 W inductors' courtyards + 2 mm as the keep-out; U1 3 mm further from the west edge): **30 pass, 1 fail**
   (row 29), 0 new vias in solder pads, DRC 109 / 68 / 1 / 4.
+- **2026-10-08, QE round 4 (b34293d): APPROVED WITH NITS.** N1: the QE's kicad-cli counted 70 warnings on a clean copy (2
+  nonmirrored_text_on_back_layer: the stock SOT-23-THIN's '*' on B.Fab under U5 / U10), the worktree's 68 came from the local
+  settings file hiding that layer → tools/dfm_fix.py mirrors every back-layer footprint text (55), and the DRC summary runs last
+  on the saved file: 68 on the worktree and on a clean copy. N2: row 30 calls the > 4 mm² class "large power pads" and lists them.
+  N3 / N4 in REPORT §9. Final board: 30 pass, 1 fail (row 29), 0 new vias in solder pads.
 """
 
 
@@ -432,14 +437,17 @@ def measure(board, stage):
                 if p.IsOnLayer(l) and p.GetEffectiveShape(l).Collide(v.GetEffectiveShape(l), 0):
                     f = p.GetParentFootprint()
                     pb = p.GetBoundingBox()
-                    kind = "sofar" if v.m_Uuid.AsString() in copied else ("testpad" if f.GetReference().startswith("TP") else ("thermal" if mm(pb.GetWidth()) * mm(pb.GetHeight()) > 4.0 else "NEW"))
+                    kind = "sofar" if v.m_Uuid.AsString() in copied else ("testpad" if f.GetReference().startswith("TP") else ("large" if mm(pb.GetWidth()) * mm(pb.GetHeight()) > 4.0 else "NEW"))
                     vip.append((ref_of(p), kind))
                     if kind == "NEW":
                         vip_new.append(ref_of(p))
                     break
     kinds = collections.Counter(k for _, k in vip)
-    R["via_in_pad"] = (len(vip_new), f"{len(vip)} vias touching an SMD pad: Sofar's {kinds.get('sofar', 0)}, in test pads {kinds.get('testpad', 0)}, in thermal pads {kinds.get('thermal', 0)}, "
-                       f"**new vias in solder pads {len(vip_new)}**" + (f" ({', '.join(sorted(set(vip_new)))})" if vip_new else ""), len(vip_new) == 0)
+    large = sorted({r for r, k in vip if k == "large"})
+    R["via_in_pad"] = (len(vip_new), f"{len(vip)} vias touching an SMD pad: Sofar's {kinds.get('sofar', 0)}, in test pads {kinds.get('testpad', 0)}, in large power pads > 4 mm² "
+                       f"{kinds.get('large', 0)} ({', '.join(large)}: the inductors' and the electrolytic's solder pads and U11's exposed pad; QE round 4 N2 — these wick less but are "
+                       f"new; JLC's 'plugged vias: filled with soldermask' option (capabilities page) would close them), **new vias in solder pads {len(vip_new)}**"
+                       + (f" ({', '.join(sorted(set(vip_new)))})" if vip_new else ""), len(vip_new) == 0)
     # silk
     thin, texts = [], []
     for f in board.GetFootprints():

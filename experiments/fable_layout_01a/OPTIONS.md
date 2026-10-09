@@ -317,3 +317,5 @@ in the band — i.e. only in the centre layout, which does not route yet (A3). R
    U1's latitude. A bonus: Sofar's ~{ADIN_INT} via (mote y 107.509) lands 2.8 mm inside the board, so the ADIN region is the
    mote's full one and the hand via of sessions 2 / 2.b is gone.
 Both rebuilt from M0 together with the QE round-3 fixes (no via in a solder pad; the small-pad 0.2 mm stubs of plane nets).
+Note for Nick (QE round 4 N4): DESIGN D31 still names the 50 W envelope as the real layout's target; whether the 20 W keep-out
+carries over is a decision outside this experiment's folder.

@@ -58,6 +58,9 @@ def main():
     for f in fps:
         side = "B" if f.IsFlipped() else "F"
         for g in list(f.GraphicalItems()):
+            if g.GetClass() == "PCB_TEXT" and g.IsVisible() and pcbnew.IsBackLayer(g.GetLayer()) != g.IsMirrored():
+                g.SetMirrored(pcbnew.IsBackLayer(g.GetLayer()))          # a back-layer text reads mirrored (QE round 4 N1: the stock
+                rep["texts_mirrored"] = rep.get("texts_mirrored", 0) + 1  # SOT-23-THIN's '*' on B.Fab under U5 / U10, DRC nonmirrored_text)
             if g.GetClass() == "PCB_TEXT" and g.GetLayer() in (pcbnew.F_SilkS, pcbnew.B_SilkS) and g.IsVisible():
                 if mm(g.GetTextThickness()) < TEXT_T:
                     g.SetTextThickness(MM(TEXT_T))

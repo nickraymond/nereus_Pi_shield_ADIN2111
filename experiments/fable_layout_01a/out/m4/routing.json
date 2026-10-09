@@ -373,13 +373,6 @@
    ]
   },
   {
-   "net": "P_IN",
-   "via": [
-    16.4,
-    18.4
-   ]
-  },
-  {
    "net": "VBUS",
    "via": [
     10.8,
@@ -391,6 +384,13 @@
    "via": [
     21.4,
     19.4
+   ]
+  },
+  {
+   "net": "P_IN",
+   "via": [
+    16.4,
+    18.4
    ]
   },
   {
@@ -579,6 +579,11 @@
    "length_new_mm": 6.6
   },
   {
+   "net": "3V3",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
    "net": "5V_Buck_SW",
    "class": "signal (plane leftovers)",
    "length_new_mm": 0.0
@@ -586,11 +591,6 @@
   {
    "net": "5V_PI",
    "class": "pi5v (plane leftovers)",
-   "length_new_mm": 0.0
-  },
-  {
-   "net": "3V3",
-   "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
@@ -604,13 +604,13 @@
    "length_new_mm": 0.0
   },
   {
-   "net": "P_IN",
-   "class": "power (plane leftovers)",
+   "net": "ADIN_AVDD",
+   "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
-   "net": "ADIN_AVDD",
-   "class": "rail (plane leftovers)",
+   "net": "VBUS",
+   "class": "power (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
@@ -619,7 +619,7 @@
    "length_new_mm": 0.0
   },
   {
-   "net": "VBUS",
+   "net": "P_IN",
    "class": "power (plane leftovers)",
    "length_new_mm": 0.0
   }
@@ -662,6 +662,6 @@
   "2 3V3 pads pre-stitched (via within 1.5 mm) before the signals",
   "0 5V_PI pads pre-stitched (via within 1.5 mm) before the signals",
   "1 zone-island vias (zone_stitch)",
-  "total 218 s"
+  "total 220 s"
  ]
 }

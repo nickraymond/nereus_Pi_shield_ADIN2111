@@ -1,7 +1,8 @@
 # REPORT — layout experiment 1.a (fit everything at the proper widths by moving blocks, then a JLCPCB DFM sweep)
 
-*Branch `experiment/fable-layout-01a`, 2026-10-08. Never merge. QE: round 1 CHANGES REQUESTED, round 2 APPROVED WITH NITS, round 3
-CHANGES REQUESTED (fixed below), round 4 requested. Session 1 ran M0–M2 and stopped on Nick's instruction; session 2
+*Branch `experiment/fable-layout-01a`, 2026-10-08. The board never goes into the live project (D31); the folder is what Nick merges
+to track the record. QE: round 1 CHANGES REQUESTED, round 2 APPROVED WITH NITS, round 3 CHANGES REQUESTED (fixed), round 4
+**APPROVED WITH NITS** (`qe/S7b_01a_round4.md`, nits fixed). Session 1 ran M0–M2 and stopped on Nick's instruction; session 2
 brought **M2 to its bar** (QE round 2: APPROVED WITH NITS, `qe/S7b_01a_round2.md`); **session 2.b** (this report) did Nick's
 wind-down list (LESSONS §3/§4) in order: JLCPCB's limits fetched and encoded first (**M3**, `DFM.md`), the board grown to
 **49 × 68**, the inserts moved, U1 in the centre of the band tried against U1 in the pocket through M2 on scratch copies (OPTIONS
@@ -26,11 +27,14 @@ mote's length (9.39 / 8.77 / 19.93 / 20.61 mm vs 9.5 / 9.5 / 21.3 / 21.3)**, che
 to J1 on its Internal 2 lane, routed first: **31 / 32 / 38 / 39 mm** of new track (session 2: 66.5 / 67.6 down the west edge). DRC:
 **109 errors, all Sofar-copied features with a reason each, 0 of new copper; 68 warnings**, none a copper defect. **DFM: 30 of 31
 rows pass** against JLCPCB's published limits, the one fail declared (the 0.23–0.24 mm pads of U6, U2, U3 and U11, per footprint).
-**No new via sits in a solder pad** (QE round 3 F1: the router forbids it; DFM row 30 is measured). After the first rebuild Nick
+**No new via sits in a solder pad** (QE round 3 F1: the router forbids it; DFM row 30 is measured; 7 new vias in the inductors' and
+C23's large pads are listed, QE round 4 N2). After the first rebuild Nick
 asked for two more changes from the renders (OPTIONS A6): the fitted **20 W inductors' courtyards + 2 mm are the keep-out**, not the
 50 W envelope (the band is 12.9 mm), and **U1 is 3 mm further from the west edge** (8.8 mm; Sofar's ~{ADIN_INT} via is inside the
 board again, no hand via). 138 footprints, every §3 position within 0.001 mm, `check_fixed.py` 0 failures, blockcheck 0 missing /
-128 trimmed (listed), 0 of Sofar's pad-to-pad paths cut. Board md5 3a4dbf328b93efb1f5d06ab63fe45648.
+128 trimmed (listed), 0 of Sofar's pad-to-pad paths cut. Board md5 23e5e8f939e6bf5e0c6b609e6c7ee14d (QE round 4: APPROVED WITH NITS; the nits are fixed
+in this board: the stock SOT-23-THIN's '*' on B.Fab under U5 / U10 is mirrored now, `tools/dfm_fix.py` mirrors every back-layer
+footprint text, and the DRC summary is run last, on the saved file; 68 warnings on a clean copy as well).
 
 ## 2. Final board size and stack
 
@@ -152,7 +156,9 @@ over the In2 GND plane 0.665 mm below Top on this stackup; to be checked in JLC'
 | 1 | U1 in the pocket, not the centre | centre trials: port 1 9.69 / 10.04 / fail / fail / 21.7 mm; port 2 13.2 / 13.8 / fail / 39.7 / 46.9 | OPTIONS A3: the pair emitter needs 2 mm of straight run for its swap figure; the next step is a body-side pad entry (Sofar's figure) |
 | 2 | BM1_DATA_P's margin | 9.39 vs 9.5: 0.11 (the 0.3 mm margin rule found no candidate with more) | a rerun is not byte-identical |
 | 3 | 37 references hidden | listed in `out/m2/dfm_fix.json` (0402 / 0603 passives, test points, U3, U6, Y1, the LEDs D8–D10) | no clear spot for a 1.0 mm text within 1.5 mm of their courtyard |
-| 3b | 6 small-pad 0.2 mm stubs on VBUS | C20.1, C49.1, R15.2, R16.2, R41.1, U11.1: 0.3–0.9 mm each | BRIEF §6's "small decoupling stubs keep the mote's 0.2 mm"; with no via allowed in the pad, a 0.5 mm track from an 0402 pad in the strip's bottom had no room (R41.1 was open) |
+| 3b | 6 small-pad 0.2 mm stubs on VBUS | C20.1, C49.1, R15.2, R16.2, R41.1, U11.1: 0.3–0.9 mm each | BRIEF §6's "small decoupling stubs keep the mote's 0.2 mm"; with no via allowed in the pad, a 0.5 mm track from an 0402 pad in the strip's bottom had no room (R41.1 was open). U11.1 is U11's IN pin (TPS26621): its 0.3 mm stub carries the payload current (≤ ≈ 0.73 A, U11's limit), not a decoupling current (QE round 4 N3): harmless at that length, declared |
+| 3d | 7 new vias in large pads | L1.1 / .3 / .4, L2.1 / .2 / .4, C23.1 (and U11's exposed pad) | pads > 4 mm² are exempt from the no-via-in-pad rule (QE round 4 N2); JLC's plugged-via option would close them, or they move off the pads in a next pass |
+| 3e | DESIGN D31 vs the 20 W keep-out | this experiment keeps the fitted inductor's courtyard + 2 mm (Nick, A6); D31 still names the 50 W envelope for the real layout | Nick's decision outside this folder (QE round 4 N4) |
 | 3c | lib_footprint_mismatch 28 | the silk edits are on the board's footprint copies | a KiCad "Update Footprints from Library" would undo them (QE round 3 N4): do not run it on this experiment board, or move the edits into the experiment's library copies |
 | 4 | U2.B2 / U3.A2 fan-out | no via spot within 1.7 mm; routed afterwards (connected) | as session 2 |
 | 5 | Q7 (exclusion keys) | not attempted | the table is for Nick to apply in KiCad |

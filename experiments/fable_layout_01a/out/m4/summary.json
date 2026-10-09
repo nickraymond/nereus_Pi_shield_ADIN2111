@@ -1,6 +1,6 @@
 {
- "board_md5": "3a4dbf328b93efb1f5d06ab63fe45648",
- "commit": "03b2adb",
+ "board_md5": "23e5e8f939e6bf5e0c6b609e6c7ee14d",
+ "commit": "b34293d",
  "size_mm": [
   49.0,
   68.0
@@ -76,9 +76,9 @@
   "5V_Buck_SW": 0.0,
   "3V3_Buck_SW": 0.0,
   "GND": 0.0,
-  "P_IN": 0.0,
   "ADIN_AVDD": 0.0,
-  "VBUS": 0.0
+  "VBUS": 0.0,
+  "P_IN": 0.0
  },
  "stitch_vias": 36,
  "routing_notes": [
@@ -86,7 +86,7 @@
   "pair port 1: no candidate keeps the 0.3 mm margin under the 9.5 mm limit (best 9.39)",
   "pair port 1: parity 1, In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far), swing -1, starts on Internal 1, ends on Top Layer, swap figures at [((0.9000000000000004, 28.1), -1)]; board check ok, min P-N clearance 0.150 mm",
   "pair port 2: parity 1, Top, swing -1, starts on Top Layer, ends on Top Layer, swap figures at [((9.900000000000002, 34.800000000000004), -1)]; board check ok, min P-N clearance 0.150 mm",
-  "total 218 s"
+  "total 220 s"
  ],
  "drc": {
   "errors": 109,
@@ -341,7 +341,8 @@
    "Y1"
   ],
   "values_hidden": 0,
-  "texts_thickened": 4
+  "texts_thickened": 4,
+  "texts_mirrored": 55
  },
  "pair_segments": {
   "BM1_DATA_N": 15,

@@ -1,7 +1,3 @@
-ERC: ERC messages: 494  Errors 0  Warnings 494
-wrote board/nereus_Pi_shield_ADIN2111.kicad_pcb: 138 footprints, 109 nets
-numbered pads without a schematic node: 2 J5.MP J5.MP
-M1 drawn; ring blocks: [('RING_MP3', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP4', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP1', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0}), ('RING_MP2', {'track': 0, 'arc': 1, 'via': 7, 'zone': 0, 'skipped_net': 0, 'clipped': 0})]
 M2 (pocket) placed: 13 blocks (83 parts) + 41 fresh parts
 still parked: []
 dfm_fix: 59 silk lines widened to 0.15, 42 lines over pads removed (20 footprints), 128 references at 1.0/0.15, 86 moved, 37 hidden: C13 C3 C30 C31 C54 C55 C8 C9 D10 D8 D9 R1 R12 R2 R26 R35 R37 R38 R39 R40 R42 R5 R6 R7 TP1 TP19 TP2 TP20 TP21 TP24 TP35 TP38 TP5 TP8 U3 U6 Y1; 0 silk values hidden

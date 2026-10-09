@@ -36,7 +36,7 @@
  ],
  "h2h_via": [
   0.28309518948453216,
-  "0.283 mm between vias at (21.40, 61.20) / (20.90, 60.90); via\u2013pad 0.640 mm (J1.34)",
+  "0.283 mm between vias at (20.90, 60.90) / (21.40, 61.20); via\u2013pad 0.640 mm (J1.34)",
   true
  ],
  "h2h_pad": [
@@ -99,7 +99,7 @@
  },
  "via_in_pad": [
   0,
-  "34 vias touching an SMD pad: Sofar's 16, in test pads 10, in thermal pads 8, **new vias in solder pads 0**",
+  "34 vias touching an SMD pad: Sofar's 16, in test pads 10, in large power pads > 4 mm\u00b2 8 (C23.1, L1.1, L1.3, L1.4, L2.1, L2.2, L2.4, U11.11: the inductors' and the electrolytic's solder pads and U11's exposed pad; QE round 4 N2 \u2014 these wick less but are new; JLC's 'plugged vias: filled with soldermask' option (capabilities page) would close them), **new vias in solder pads 0**",
   true
  ],
  "silk_line": [
@@ -132,10 +132,16 @@
  ],
  "thermal": [
   0,
-  "Top Layer 5V_PI: solid; Top Layer 3V3: solid; 6 Bottom Layer GND: solid; 6 Bottom Layer 5V_PI: solid; GND Plane GND: thermal; Internal 2 5V_PI: thermal; PWR Plane P_IN: thermal; PWR Plane 3V3: thermal; PWR Plane VBUS: thermal",
+  "Top Layer 3V3: solid; Top Layer 5V_PI: solid; 6 Bottom Layer GND: solid; 6 Bottom Layer 5V_PI: solid; GND Plane GND: thermal; Internal 2 5V_PI: thermal; PWR Plane 3V3: thermal; PWR Plane VBUS: thermal; PWR Plane P_IN: thermal",
   true
  ],
  "zones": [
+  [
+   "Top Layer",
+   "3V3",
+   "solid",
+   ""
+  ],
   [
    "Top Layer",
    "5V_Buck_SW",
@@ -145,12 +151,6 @@
   [
    "Top Layer",
    "5V_PI",
-   "solid",
-   ""
-  ],
-  [
-   "Top Layer",
-   "3V3",
    "solid",
    ""
   ],
@@ -186,12 +186,6 @@
   ],
   [
    "PWR Plane",
-   "P_IN",
-   "thermal",
-   "P_IN island (In4) under port 2 east"
-  ],
-  [
-   "PWR Plane",
    "3V3",
    "thermal",
    "3V3 island (In4) at the 3.3 V buck output"
@@ -204,15 +198,21 @@
   ],
   [
    "PWR Plane",
+   "VBUS",
+   "thermal",
+   "VBUS plane (In4)"
+  ],
+  [
+   "PWR Plane",
    "ADIN_VDDIO",
    "solid",
    ""
   ],
   [
    "PWR Plane",
-   "VBUS",
+   "P_IN",
    "thermal",
-   "VBUS plane (In4)"
+   "P_IN island (In4) under port 2 east"
   ]
  ],
  "fiducial": [

@@ -11,7 +11,7 @@
  [
   "3V3",
   111.4,
-  113.9,
+  113.8,
   21,
   16,
   "Bottom, Internal 1, Internal 2, Top",
@@ -74,7 +74,7 @@
  [
   "ADIN_VDDIO",
   47.4,
-  50.9,
+  50.8,
   10,
   6,
   "Bottom, Internal 1, Internal 2, Top",
@@ -92,7 +92,7 @@
  [
   "BM1_P",
   42.8,
-  49.5,
+  49.6,
   11,
   10,
   "Bottom, Internal 1, Internal 2, Top",
@@ -137,7 +137,7 @@
  [
   "GND",
   53.8,
-  57.7,
+  57.3,
   71,
   71,
   "Bottom, Top",
@@ -155,7 +155,7 @@
  [
   "PAYLOAD_EN",
   15.6,
-  17.9,
+  17.8,
   1,
   1,
   "Bottom, Top",
