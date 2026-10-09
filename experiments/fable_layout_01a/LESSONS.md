@@ -66,8 +66,12 @@ design review (`out/review/index.html`) are the pictures behind this text.*
   the mote (each transformer beside its own inductor, port 1 south, port 2 north), the pairs get shorter and
   symmetric, the SPI runs straight east to J1 with no pocket exit, and the pocket's crowding (§2.4) disappears. The
   cost: the ADIN block's bottom-side parts (U2, U3, Y1, the decoupling) go under the band, where the T1/T2 clusters and
-  B18 sit today, and the 1V8 / 3V3 / PWR corridors re-plan. 2.b evaluates this first, as M0 did, with a trial
-  placement through M2 on a scratch copy: centre vs pocket, numbers side by side, then Nick's call.
+  B18 sit today, and the 1V8 / 3V3 / PWR corridors re-plan. Nick's reasons: central to everything it talks to (both
+  inductors / transformers, the header), and **away from the board edge, where strain and deflection concentrate**:
+  a 48-pin 0.5 mm-pitch QFN is the part on this board most sensitive to flex, and the west pocket puts it between the
+  housing hole, the inserts and the free edge. 2.b evaluates the centre first, as M0 did, with a trial placement
+  through M2 on a scratch copy (centre vs pocket, numbers side by side); the centre is the preferred answer unless
+  the trial shows it cannot meet the bar.
 
 ## 4. What 2.b has to do, in order
 

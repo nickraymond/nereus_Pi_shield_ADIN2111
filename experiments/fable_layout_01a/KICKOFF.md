@@ -81,10 +81,11 @@ Order of work, committing after each with renders and a LOG.md entry:
    and height go (OPTIONS.md addendum). Move the threaded inserts 1-2 mm toward the west wall: the mote's corner
    inserts sit 3.5 mm centre-to-edge with the ring copper at the outline; decide the shift from JLCPCB's edge figure
    and the brief's 0.5 mm, state what it buys, keep Sofar's 4.8 mm keep-out. Then an OPTIONS addendum, as M0 did:
-   U1 in the CENTRE of the widened band between the inductor envelopes (Nick: "the ADIN should be in the middle of
-   the board"; it fits once the band is ~11 mm) versus U1 in the west pocket, each tried through M2 on a scratch copy,
-   with pair lengths, SPI lengths, courtyards and the exits' occupancy side by side; recommend one, record why, and
-   proceed with it (LESSONS section 3).
+   U1 in the CENTRE of the widened band between the inductor envelopes (Nick: the ADIN belongs in the middle, central
+   to the inductors and the header and away from the edge where strain and deflection concentrate; it fits once the
+   band is ~11 mm) versus U1 in the west pocket, each tried through M2 on a scratch copy, with pair lengths, SPI
+   lengths, courtyards and the exits' occupancy side by side. The centre is the preferred answer; keep the pocket only
+   if the trial shows the centre cannot meet the bar, and say why in numbers (LESSONS section 3).
 3. Router clean-up: 45 degree runs as single segments (merge collinear steps in Grid.polyline and commit_pair), no
    back-and-forth; keep every pair under the mote's length with margin (BM1_DATA_P had 0.04 mm).
 4. Corridors reserved before routing: SPI (SCK, MOSI, MISO, ~{CS}) on a reserved Internal 2 lane straight from U1 to
