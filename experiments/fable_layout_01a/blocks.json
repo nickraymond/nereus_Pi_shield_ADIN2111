@@ -626,14 +626,14 @@
     "TP2"
    ],
    "dst": [
-    -4.7,
+    -1.7,
     33.75
    ],
    "rot": 90,
    "region": [
     [
      148.2,
-     107.9,
+     107.5,
      159.5,
      114.1
     ],
@@ -647,7 +647,7 @@
    "zone_region": [
     [
      148.0,
-     107.9,
+     107.5,
      159.5,
      120.6
     ]
@@ -658,7 +658,7 @@
     "BM2_DATA_P",
     "BM2_DATA_N"
    ],
-   "why": "session 2's placement 3 mm west with the edge: whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of both insert keep-outs",
+   "why": "whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south. x -1.7 = session 2's spot on the OLD edge, i.e. 3 mm further from the new west edge (8.8 mm): Nick, 2026-10-08, 'the ADIN is too close to the west edge, move it east'; the insert keep-outs do not reach U1's latitude, so nothing else limits it but T1 / T2 / B18 east of it. The region is the mote's full 107.5 again: Sofar's ~{ADIN_INT} via lands at x -7.2, 2.8 mm inside the edge (no hand via)",
    "src": [
     154.0011,
     113.0036
@@ -693,14 +693,14 @@
     "TP2"
    ],
    "copied": {
-    "track": 252,
+    "track": 256,
     "arc": 0,
-    "via": 47,
+    "via": 48,
     "zone": 2,
     "skipped_net": 0,
-    "clipped": 14
+    "clipped": 13
    },
-   "protected": 113
+   "protected": 124
   },
   {
    "name": "P1T",
@@ -710,7 +710,7 @@
     "C18"
    ],
    "dst": [
-    3.7,
+    6.7,
     29.45
    ],
    "rot": 0,
@@ -754,7 +754,7 @@
     "R14"
    ],
    "dst": [
-    5.95,
+    8.95,
     26.05
    ],
    "rot": 0,
@@ -789,7 +789,7 @@
     "R18"
    ],
    "dst": [
-    10.7,
+    13.7,
     33.75
    ],
    "rot": 180,
@@ -1119,13 +1119,13 @@
    "side": "B"
   },
   "R43": {
-   "x": 4.5,
+   "x": 7.5,
    "y": 37.8,
    "rot": 0,
    "side": "B"
   },
   "TP8": {
-   "x": 6.8,
+   "x": 9.8,
    "y": 37.8,
    "rot": 0,
    "side": "B"
@@ -2292,11 +2292,11 @@
    "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
    "layer": "Top Layer",
    "start": [
-    -8.1,
+    -5.1,
     33.0
    ],
    "end": [
-    -9.2,
+    -6.2,
     33.0
    ]
   },
@@ -2305,7 +2305,7 @@
    "kind": "via",
    "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
    "at": [
-    -9.2,
+    -6.2,
     33.0
    ]
   },
@@ -2315,11 +2315,11 @@
    "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.414,
+    -5.414,
     33.0
    ],
    "end": [
-    -9.2,
+    -6.2,
     33.0
    ]
   },
@@ -2329,11 +2329,11 @@
    "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.264,
+    -5.264,
     33.15
    ],
    "end": [
-    -8.414,
+    -5.414,
     33.0
    ]
   },
@@ -2343,11 +2343,11 @@
    "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
    "layer": "6 Bottom Layer",
    "start": [
-    -7.8,
+    -4.8,
     33.15
    ],
    "end": [
-    -8.264,
+    -5.264,
     33.15
    ]
   },
@@ -2357,11 +2357,11 @@
    "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
    "layer": "Top Layer",
    "start": [
-    -9.025,
+    -6.025,
     36.494
    ],
    "end": [
-    -8.556,
+    -5.556,
     36.025
    ]
   },
@@ -2370,7 +2370,7 @@
    "kind": "via",
    "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
    "at": [
-    -9.025,
+    -6.025,
     36.494
    ]
   },
@@ -2380,11 +2380,11 @@
    "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.621,
+    -5.621,
     36.446
    ],
    "end": [
-    -8.977,
+    -5.977,
     36.446
    ]
   },
@@ -2394,11 +2394,11 @@
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
    "layer": "Top Layer",
    "start": [
-    -0.55,
+    2.45,
     32.5
    ],
    "end": [
-    -1.3,
+    1.7,
     32.5
    ]
   },
@@ -2407,7 +2407,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
    "at": [
-    -0.55,
+    2.45,
     32.5
    ]
   },
@@ -2417,11 +2417,11 @@
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
    "layer": "6 Bottom Layer",
    "start": [
-    0.7,
+    3.7,
     32.85
    ],
    "end": [
-    0.35,
+    3.35,
     32.5
    ]
   },
@@ -2431,11 +2431,11 @@
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
    "layer": "6 Bottom Layer",
    "start": [
-    0.35,
+    3.35,
     32.5
    ],
    "end": [
-    -0.55,
+    2.45,
     32.5
    ]
   },
@@ -2445,11 +2445,11 @@
    "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
    "layer": "Top Layer",
    "start": [
-    -0.753,
+    2.247,
     33.502
    ],
    "end": [
-    -1.298,
+    1.702,
     33.502
    ]
   },
@@ -2459,11 +2459,11 @@
    "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
    "layer": "Top Layer",
    "start": [
-    -0.492,
+    2.508,
     33.762
    ],
    "end": [
-    -0.753,
+    2.247,
     33.502
    ]
   },
@@ -2472,7 +2472,7 @@
    "kind": "via",
    "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
    "at": [
-    -0.487,
+    2.513,
     33.762
    ]
   },
@@ -2482,11 +2482,11 @@
    "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.635,
+    2.365,
     33.715
    ],
    "end": [
-    -1.3,
+    1.7,
     33.05
    ]
   },
@@ -2496,11 +2496,11 @@
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
    "layer": "Top Layer",
    "start": [
-    -8.815,
+    -5.815,
     37.056
    ],
    "end": [
-    -8.4,
+    -5.4,
     36.641
    ]
   },
@@ -2509,7 +2509,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
    "at": [
-    -8.815,
+    -5.815,
     37.056
    ]
   },
@@ -2519,11 +2519,11 @@
    "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.197,
+    -5.197,
     37.103
    ],
    "end": [
-    -8.768,
+    -5.768,
     37.103
    ]
   },
@@ -2533,11 +2533,11 @@
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "layer": "Top Layer",
    "start": [
-    -0.742,
+    2.258,
     31.475
    ],
    "end": [
-    -1.275,
+    1.725,
     31.475
    ]
   },
@@ -2547,11 +2547,11 @@
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "layer": "Top Layer",
    "start": [
-    -0.498,
+    2.502,
     31.356
    ],
    "end": [
-    -0.168,
+    2.832,
     31.025
    ]
   },
@@ -2560,7 +2560,7 @@
    "kind": "via",
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "at": [
-    -0.1,
+    2.9,
     31.025
    ]
   },
@@ -2570,11 +2570,11 @@
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "layer": "6 Bottom Layer",
    "start": [
-    0.4,
+    3.4,
     30.525
    ],
    "end": [
-    0.4,
+    3.4,
     30.325
    ]
   },
@@ -2584,11 +2584,11 @@
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "layer": "6 Bottom Layer",
    "start": [
-    1.965,
+    4.965,
     30.037
    ],
    "end": [
-    0.687,
+    3.687,
     30.037
    ]
   },
@@ -2598,11 +2598,11 @@
    "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.1,
+    2.9,
     31.025
    ],
    "end": [
-    0.4,
+    3.4,
     30.525
    ]
   },
@@ -2612,11 +2612,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "Top Layer",
    "start": [
-    -0.75,
+    2.25,
     31.0
    ],
    "end": [
-    -1.3,
+    1.7,
     31.0
    ]
   },
@@ -2626,11 +2626,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "Top Layer",
    "start": [
-    -0.75,
+    2.25,
     31.0
    ],
    "end": [
-    -0.6,
+    2.4,
     30.85
    ]
   },
@@ -2640,11 +2640,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "Top Layer",
    "start": [
-    -0.6,
+    2.4,
     30.15
    ],
    "end": [
-    -1.4,
+    1.6,
     29.35
    ]
   },
@@ -2654,11 +2654,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "Top Layer",
    "start": [
-    -0.6,
+    2.4,
     30.85
    ],
    "end": [
-    -0.6,
+    2.4,
     30.15
    ]
   },
@@ -2667,7 +2667,7 @@
    "kind": "via",
    "net": "Net-(U1A-XTAL_O)",
    "at": [
-    -1.4,
+    1.6,
     29.35
    ]
   },
@@ -2677,11 +2677,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "6 Bottom Layer",
    "start": [
-    -1.4,
+    1.6,
     29.35
    ],
    "end": [
-    -1.113,
+    1.887,
     29.062
    ]
   },
@@ -2691,11 +2691,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "6 Bottom Layer",
    "start": [
-    -1.4,
+    1.6,
     29.35
    ],
    "end": [
-    -2.048,
+    0.952,
     29.35
    ]
   },
@@ -2705,11 +2705,11 @@
    "net": "Net-(U1A-XTAL_O)",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.538,
+    2.462,
     29.062
    ],
    "end": [
-    -1.113,
+    1.887,
     29.062
    ]
   },
@@ -2719,11 +2719,11 @@
    "net": "Net-(U1A-CEXT_7)",
    "layer": "Top Layer",
    "start": [
-    -5.95,
+    -2.95,
     30.35
    ],
    "end": [
-    -5.95,
+    -2.95,
     29.6
    ]
   },
@@ -2732,7 +2732,7 @@
    "kind": "via",
    "net": "Net-(U1A-CEXT_7)",
    "at": [
-    -5.95,
+    -2.95,
     29.6
    ]
   },
@@ -2742,11 +2742,11 @@
    "net": "Net-(U1A-CEXT_7)",
    "layer": "6 Bottom Layer",
    "start": [
-    -5.723,
+    -2.723,
     30.149
    ],
    "end": [
-    -5.723,
+    -2.723,
     29.827
    ]
   },
@@ -2756,11 +2756,11 @@
    "net": "Net-(U1A-CEXT_6)",
    "layer": "Top Layer",
    "start": [
-    -5.45,
+    -2.45,
     30.35
    ],
    "end": [
-    -5.45,
+    -2.45,
     29.25
    ]
   },
@@ -2769,7 +2769,7 @@
    "kind": "via",
    "net": "Net-(U1A-CEXT_6)",
    "at": [
-    -5.45,
+    -2.45,
     29.25
    ]
   },
@@ -2779,11 +2779,11 @@
    "net": "Net-(U1A-CEXT_6)",
    "layer": "6 Bottom Layer",
    "start": [
-    -5.0,
+    -2.0,
     29.7
    ],
    "end": [
-    -5.45,
+    -2.45,
     29.25
    ]
   },
@@ -2793,11 +2793,11 @@
    "net": "Net-(U1A-CEXT_6)",
    "layer": "6 Bottom Layer",
    "start": [
-    -5.0,
+    -2.0,
     30.071
    ],
    "end": [
-    -5.0,
+    -2.0,
     29.7
    ]
   },
@@ -2807,11 +2807,11 @@
    "net": "Net-(U1A-CEXT_3)",
    "layer": "Top Layer",
    "start": [
-    -2.6,
+    0.4,
     38.15
    ],
    "end": [
-    -2.95,
+    0.05,
     37.8
    ]
   },
@@ -2821,11 +2821,11 @@
    "net": "Net-(U1A-CEXT_3)",
    "layer": "Top Layer",
    "start": [
-    -2.95,
+    0.05,
     37.8
    ],
    "end": [
-    -2.95,
+    0.05,
     37.15
    ]
   },
@@ -2834,7 +2834,7 @@
    "kind": "via",
    "net": "Net-(U1A-CEXT_3)",
    "at": [
-    -2.6,
+    0.4,
     38.15
    ]
   },
@@ -2844,11 +2844,11 @@
    "net": "Net-(U1A-CEXT_3)",
    "layer": "6 Bottom Layer",
    "start": [
-    -2.796,
+    0.204,
     37.954
    ],
    "end": [
-    -2.796,
+    0.204,
     37.383
    ]
   },
@@ -2858,11 +2858,11 @@
    "net": "Net-(U1A-CEXT_2)",
    "layer": "Top Layer",
    "start": [
-    -3.45,
+    -0.45,
     37.9
    ],
    "end": [
-    -3.45,
+    -0.45,
     37.15
    ]
   },
@@ -2871,7 +2871,7 @@
    "kind": "via",
    "net": "Net-(U1A-CEXT_2)",
    "at": [
-    -3.45,
+    -0.45,
     37.9
    ]
   },
@@ -2881,11 +2881,11 @@
    "net": "Net-(U1A-CEXT_2)",
    "layer": "6 Bottom Layer",
    "start": [
-    -3.8,
+    -0.8,
     37.75
    ],
    "end": [
-    -3.8,
+    -0.8,
     37.379
    ]
   },
@@ -2895,11 +2895,11 @@
    "net": "Net-(U1A-CEXT_2)",
    "layer": "6 Bottom Layer",
    "start": [
-    -3.65,
+    -0.65,
     37.9
    ],
    "end": [
-    -3.8,
+    -0.8,
     37.75
    ]
   },
@@ -2909,11 +2909,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
    "layer": "Top Layer",
    "start": [
-    -0.8,
+    2.2,
     35.975
    ],
    "end": [
-    -1.275,
+    1.725,
     35.975
    ]
   },
@@ -2923,11 +2923,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
    "layer": "Top Layer",
    "start": [
-    -0.75,
+    2.25,
     35.525
    ],
    "end": [
-    -1.275,
+    1.725,
     35.525
    ]
   },
@@ -2937,11 +2937,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
    "layer": "Top Layer",
    "start": [
-    -0.8,
+    2.2,
     35.975
    ],
    "end": [
-    -0.55,
+    2.45,
     35.725
    ]
   },
@@ -2950,7 +2950,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
    "at": [
-    -0.55,
+    2.45,
     35.725
    ]
   },
@@ -2960,11 +2960,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.578,
+    2.422,
     35.697
    ],
    "end": [
-    -1.053,
+    1.947,
     35.697
    ]
   },
@@ -2974,11 +2974,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "layer": "Top Layer",
    "start": [
-    -8.65,
+    -5.65,
     31.5
    ],
    "end": [
-    -9.009,
+    -6.009,
     31.142
    ]
   },
@@ -2988,11 +2988,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "layer": "Top Layer",
    "start": [
-    -9.009,
+    -6.009,
     31.142
    ],
    "end": [
-    -9.367,
+    -6.367,
     30.784
    ]
   },
@@ -3002,11 +3002,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "layer": "Top Layer",
    "start": [
-    -8.1,
+    -5.1,
     31.0
    ],
    "end": [
-    -8.867,
+    -5.867,
     31.0
    ]
   },
@@ -3016,11 +3016,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "layer": "Top Layer",
    "start": [
-    -8.1,
+    -5.1,
     31.5
    ],
    "end": [
-    -8.65,
+    -5.65,
     31.5
    ]
   },
@@ -3029,7 +3029,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "at": [
-    -9.367,
+    -6.367,
     30.725
    ]
   },
@@ -3039,11 +3039,11 @@
    "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.594,
+    -5.594,
     30.589
    ],
    "end": [
-    -9.231,
+    -6.231,
     30.589
    ]
   },
@@ -3053,11 +3053,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Top Layer",
    "start": [
-    -7.785,
+    -4.785,
     38.179
    ],
    "end": [
-    -7.785,
+    -4.785,
     37.76
    ]
   },
@@ -3067,11 +3067,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Top Layer",
    "start": [
-    -0.663,
+    2.337,
     32.0
    ],
    "end": [
-    -1.3,
+    1.7,
     32.0
    ]
   },
@@ -3081,11 +3081,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Top Layer",
    "start": [
-    -7.785,
+    -4.785,
     37.76
    ],
    "end": [
-    -7.475,
+    -4.475,
     37.45
    ]
   },
@@ -3094,7 +3094,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "at": [
-    -7.833,
+    -4.833,
     38.227
    ]
   },
@@ -3103,7 +3103,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "at": [
-    -0.497,
+    2.503,
     31.902
    ]
   },
@@ -3113,11 +3113,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -2.5,
+    0.5,
     36.75
    ],
    "end": [
-    -1.6,
+    1.4,
     35.85
    ]
   },
@@ -3127,11 +3127,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -7.833,
+    -4.833,
     38.227
    ],
    "end": [
-    -6.356,
+    -3.356,
     36.75
    ]
   },
@@ -3141,11 +3141,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -1.6,
+    1.4,
     32.55
    ],
    "end": [
-    -1.0,
+    2.0,
     31.95
    ]
   },
@@ -3155,11 +3155,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -0.545,
+    2.455,
     31.95
    ],
    "end": [
-    -1.0,
+    2.0,
     31.95
    ]
   },
@@ -3169,11 +3169,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -2.5,
+    0.5,
     36.75
    ],
    "end": [
-    -6.356,
+    -3.356,
     36.75
    ]
   },
@@ -3183,11 +3183,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
    "layer": "Internal 1",
    "start": [
-    -1.6,
+    1.4,
     35.85
    ],
    "end": [
-    -1.6,
+    1.4,
     32.55
    ]
   },
@@ -3197,11 +3197,11 @@
    "net": "ADIN_VDDIO",
    "layer": "Top Layer",
    "start": [
-    -0.573,
+    2.427,
     34.349
    ],
    "end": [
-    -0.896,
+    2.104,
     34.025
    ]
   },
@@ -3211,11 +3211,11 @@
    "net": "ADIN_VDDIO",
    "layer": "Top Layer",
    "start": [
-    -8.113,
+    -5.113,
     35.488
    ],
    "end": [
-    -8.821,
+    -5.821,
     35.488
    ]
   },
@@ -3224,7 +3224,7 @@
    "kind": "via",
    "net": "ADIN_VDDIO",
    "at": [
-    -0.525,
+    2.475,
     34.525
    ]
   },
@@ -3233,7 +3233,7 @@
    "kind": "via",
    "net": "ADIN_VDDIO",
    "at": [
-    -8.833,
+    -5.833,
     35.475
    ]
   },
@@ -3243,11 +3243,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.274,
+    -5.274,
     35.346
    ],
    "end": [
-    -8.685,
+    -5.685,
     35.346
    ]
   },
@@ -3257,11 +3257,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -1.4,
+    1.6,
     33.75
    ],
    "end": [
-    -2.6,
+    0.4,
     33.75
    ]
   },
@@ -3271,11 +3271,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -2.6,
+    0.4,
     33.75
    ],
    "end": [
-    -6.9,
+    -3.9,
     33.75
    ]
   },
@@ -3285,11 +3285,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.9,
+    2.1,
     34.25
    ],
    "end": [
-    -1.4,
+    1.6,
     33.75
    ]
   },
@@ -3299,11 +3299,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.229,
+    -5.229,
     35.3
    ],
    "end": [
-    -8.229,
+    -5.229,
     34.379
    ]
   },
@@ -3313,11 +3313,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -8.229,
+    -5.229,
     34.379
    ],
    "end": [
-    -7.8,
+    -4.8,
     33.95
    ]
   },
@@ -3327,11 +3327,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -7.386,
+    -4.386,
     37.61
    ],
    "end": [
-    -7.386,
+    -4.386,
     37.16
    ]
   },
@@ -3341,11 +3341,11 @@
    "net": "ADIN_VDDIO",
    "layer": "6 Bottom Layer",
    "start": [
-    -7.15,
+    -4.15,
     38.1
    ],
    "end": [
-    -7.47,
+    -4.47,
     37.78
    ]
   },
@@ -3355,11 +3355,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -6.95,
+    -3.95,
     30.35
    ],
    "end": [
-    -6.95,
+    -3.95,
     29.6
    ]
   },
@@ -3369,11 +3369,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -0.775,
+    2.225,
     36.5
    ],
    "end": [
-    -1.3,
+    1.7,
     36.5
    ]
   },
@@ -3383,11 +3383,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -4.702,
+    -1.702,
     38.075
    ],
    "end": [
-    -4.45,
+    -1.45,
     37.822
    ]
   },
@@ -3397,11 +3397,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -1.733,
+    1.267,
     37.917
    ],
    "end": [
-    -1.95,
+    1.05,
     37.7
    ]
   },
@@ -3411,11 +3411,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -0.6,
+    2.4,
     37.372
    ],
    "end": [
-    -0.6,
+    2.4,
     36.675
    ]
   },
@@ -3425,11 +3425,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -4.45,
+    -1.45,
     30.35
    ],
    "end": [
-    -4.45,
+    -1.45,
     29.6
    ]
   },
@@ -3439,11 +3439,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -4.45,
+    -1.45,
     37.822
    ],
    "end": [
-    -4.45,
+    -1.45,
     37.15
    ]
   },
@@ -3453,11 +3453,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -1.145,
+    1.855,
     37.917
    ],
    "end": [
-    -1.733,
+    1.267,
     37.917
    ]
   },
@@ -3467,11 +3467,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -4.95,
+    -1.95,
     37.827
    ],
    "end": [
-    -4.95,
+    -1.95,
     37.15
    ]
   },
@@ -3481,11 +3481,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -7.45,
+    -4.45,
     30.35
    ],
    "end": [
-    -7.45,
+    -4.45,
     29.724
    ]
   },
@@ -3495,11 +3495,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -0.6,
+    2.4,
     36.675
    ],
    "end": [
-    -0.775,
+    2.225,
     36.5
    ]
   },
@@ -3509,11 +3509,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -6.95,
+    -3.95,
     29.6
    ],
    "end": [
-    -7.326,
+    -4.326,
     29.6
    ]
   },
@@ -3523,11 +3523,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -4.702,
+    -1.702,
     38.075
    ],
    "end": [
-    -4.95,
+    -1.95,
     37.827
    ]
   },
@@ -3537,11 +3537,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -3.95,
+    -0.95,
     30.35
    ],
    "end": [
-    -3.95,
+    -0.95,
     29.25
    ]
   },
@@ -3551,11 +3551,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -1.95,
+    1.05,
     37.7
    ],
    "end": [
-    -1.95,
+    1.05,
     37.15
    ]
   },
@@ -3565,11 +3565,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "Top Layer",
    "start": [
-    -1.145,
+    1.855,
     37.917
    ],
    "end": [
-    -0.6,
+    2.4,
     37.372
    ]
   },
@@ -3578,7 +3578,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "at": [
-    -3.95,
+    -0.95,
     29.25
    ]
   },
@@ -3587,7 +3587,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "at": [
-    -1.145,
+    1.855,
     37.917
    ]
   },
@@ -3596,7 +3596,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "at": [
-    -4.45,
+    -1.45,
     29.6
    ]
   },
@@ -3605,7 +3605,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "at": [
-    -6.95,
+    -3.95,
     29.6
    ]
   },
@@ -3614,7 +3614,7 @@
    "kind": "via",
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "at": [
-    -4.702,
+    -1.702,
     38.075
    ]
   },
@@ -3624,11 +3624,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -6.5,
+    -3.5,
     30.05
    ],
    "end": [
-    -6.95,
+    -3.95,
     29.6
    ]
   },
@@ -3638,11 +3638,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -0.169,
+    2.831,
     37.869
    ],
    "end": [
-    -1.097,
+    1.903,
     37.869
    ]
   },
@@ -3652,11 +3652,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -1.171,
+    1.829,
     37.89
    ],
    "end": [
-    -1.171,
+    1.829,
     36.7
    ]
   },
@@ -3666,11 +3666,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -4.808,
+    -1.808,
     37.969
    ],
    "end": [
-    -4.808,
+    -1.808,
     37.37
    ]
   },
@@ -3680,11 +3680,11 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -3.9,
+    -0.9,
     29.97
    ],
    "end": [
-    -4.256,
+    -1.256,
     29.466
    ]
   },
@@ -3694,12 +3694,161 @@
    "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
    "layer": "6 Bottom Layer",
    "start": [
-    -4.65,
+    -1.65,
     38.8
    ],
    "end": [
-    -4.65,
+    -1.65,
     38.127
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -5.85,
+    32.0
+   ],
+   "end": [
+    -6.3,
+    31.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -6.825,
+    31.55
+   ],
+   "end": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    32.0
+   ],
+   "end": [
+    -5.85,
+    32.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -6.3,
+    31.55
+   ],
+   "end": [
+    -6.825,
+    31.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "at": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.774,
+    31.579
+   ],
+   "end": [
+    -5.053,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.774,
+    31.951
+   ],
+   "end": [
+    -4.774,
+    31.579
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.225,
+    31.45
+   ],
+   "end": [
+    -6.925,
+    31.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.925,
+    31.45
+   ],
+   "end": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.225,
+    31.45
+   ],
+   "end": [
+    -6.075,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.053,
+    31.3
+   ],
+   "end": [
+    -6.075,
+    31.3
    ]
   },
   {
@@ -3707,7 +3856,7 @@
    "kind": "via",
    "net": "GND",
    "at": [
-    -6.6,
+    -3.6,
     31.85
    ]
   },
@@ -3717,11 +3866,11 @@
    "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
-    -2.1,
+    0.9,
     36.55
    ],
    "end": [
-    -2.1,
+    0.9,
     35.6
    ]
   },
@@ -3731,11 +3880,11 @@
    "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
-    1.996,
+    4.996,
     29.056
    ],
    "end": [
-    0.744,
+    3.744,
     29.056
    ]
   },
@@ -3745,11 +3894,11 @@
    "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
-    -6.61,
+    -3.61,
     31.85
    ],
    "end": [
-    -7.35,
+    -4.35,
     31.11
    ]
   },
@@ -3759,11 +3908,11 @@
    "net": "Net-(C18-Pad2)",
    "layer": "Top Layer",
    "start": [
-    6.295,
+    9.295,
     30.755
    ],
    "end": [
-    6.65,
+    9.65,
     30.4
    ]
   },
@@ -3772,7 +3921,7 @@
    "kind": "via",
    "net": "Net-(C18-Pad2)",
    "at": [
-    6.65,
+    9.65,
     30.4
    ]
   },
@@ -3782,11 +3931,11 @@
    "net": "Net-(C18-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    6.05,
+    9.05,
     30.4
    ],
    "end": [
-    6.65,
+    9.65,
     30.4
    ]
   },
@@ -3796,11 +3945,11 @@
    "net": "Net-(C16-Pad2)",
    "layer": "Top Layer",
    "start": [
-    2.126,
+    5.126,
     28.085
    ],
    "end": [
-    2.126,
+    5.126,
     27.335
    ]
   },
@@ -3809,7 +3958,7 @@
    "kind": "via",
    "net": "Net-(C16-Pad2)",
    "at": [
-    2.126,
+    5.126,
     27.335
    ]
   },
@@ -3819,11 +3968,11 @@
    "net": "Net-(C16-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    4.56,
+    7.56,
     27.335
    ],
    "end": [
-    5.113,
+    8.113,
     27.888
    ]
   },
@@ -3833,11 +3982,11 @@
    "net": "Net-(C16-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    2.126,
+    5.126,
     27.335
    ],
    "end": [
-    4.56,
+    7.56,
     27.335
    ]
   },
@@ -3847,11 +3996,11 @@
    "net": "Net-(C16-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    5.113,
+    8.113,
     28.263
    ],
    "end": [
-    5.113,
+    8.113,
     27.888
    ]
   },
@@ -3861,11 +4010,11 @@
    "net": "Net-(C16-Pad1)",
    "layer": "Top Layer",
    "start": [
-    1.318,
+    4.318,
     28.103
    ],
    "end": [
-    1.318,
+    4.318,
     27.353
    ]
   },
@@ -3874,7 +4023,7 @@
    "kind": "via",
    "net": "Net-(C16-Pad1)",
    "at": [
-    1.318,
+    4.318,
     27.353
    ]
   },
@@ -3884,11 +4033,11 @@
    "net": "Net-(C16-Pad1)",
    "layer": "6 Bottom Layer",
    "start": [
-    2.315,
+    5.315,
     28.35
    ],
    "end": [
-    3.2,
+    6.2,
     28.35
    ]
   },
@@ -3898,11 +4047,11 @@
    "net": "Net-(C16-Pad1)",
    "layer": "6 Bottom Layer",
    "start": [
-    1.318,
+    4.318,
     27.353
    ],
    "end": [
-    2.315,
+    5.315,
     28.35
    ]
   },
@@ -3912,11 +4061,11 @@
    "net": "Net-(C27-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    11.25,
+    14.25,
     33.4
    ],
    "end": [
-    9.552,
+    12.552,
     33.4
    ]
   },
@@ -3926,11 +4075,11 @@
    "net": "Net-(C24-Pad2)",
    "layer": "Top Layer",
    "start": [
-    9.688,
+    12.688,
     32.362
    ],
    "end": [
-    9.149,
+    12.149,
     32.362
    ]
   },
@@ -3939,7 +4088,7 @@
    "kind": "via",
    "net": "Net-(C24-Pad2)",
    "at": [
-    9.75,
+    12.75,
     32.3
    ]
   },
@@ -3949,11 +4098,11 @@
    "net": "Net-(C24-Pad2)",
    "layer": "6 Bottom Layer",
    "start": [
-    9.75,
+    12.75,
     31.35
    ],
    "end": [
-    9.75,
+    12.75,
     32.3
    ]
   },
@@ -3963,11 +4112,11 @@
    "net": "Net-(C24-Pad1)",
    "layer": "Top Layer",
    "start": [
-    8.284,
+    11.284,
     32.37
    ],
    "end": [
-    7.77,
+    10.77,
     32.37
    ]
   },
@@ -3976,7 +4125,7 @@
    "kind": "via",
    "net": "Net-(C24-Pad1)",
    "at": [
-    7.7,
+    10.7,
     32.3
    ]
   },
@@ -3986,11 +4135,11 @@
    "net": "Net-(C24-Pad1)",
    "layer": "6 Bottom Layer",
    "start": [
-    8.648,
+    11.648,
     33.398
    ],
    "end": [
-    7.777,
+    10.777,
     32.527
    ]
   },
@@ -4000,11 +4149,11 @@
    "net": "Net-(C24-Pad1)",
    "layer": "6 Bottom Layer",
    "start": [
-    7.7,
+    10.7,
     31.4
    ],
    "end": [
-    7.7,
+    10.7,
     32.3
    ]
   },
@@ -4014,11 +4163,11 @@
    "net": "GND",
    "layer": "6 Bottom Layer",
    "start": [
-    11.0,
+    14.0,
     35.15
    ],
    "end": [
-    11.0,
+    14.0,
     37.1
    ]
   },
@@ -4317,34 +4466,7 @@
    ]
   }
  ],
- "hand": [
-  {
-   "block": "ADIN",
-   "net": "/Top-Level Schematic/~{ADIN_INT}",
-   "mote_via": [
-    156.571,
-    107.509
-   ],
-   "rel_u1": [
-    -5.05,
-    -2.25
-   ],
-   "dia": 0.45,
-   "drill": 0.2,
-   "joins": "Sofar's ~{ADIN_INT} fan-out: the Top lead-out from U1.39 (ends at (-6.804, 30.3)) and the Bottom lead-out to R1.1 (ends at (-6.804, 30.2)), both clipped at the ADIN region's west edge (mote y 107.9, OPTIONS Q5)",
-   "why": "on the mote the via joins the two; transformed it lands at (-7.19, 29.93), 0.08 mm inside the board edge and inside the 0.5 mm edge clearance (BRIEF \u00a72), so the region could not keep it; 0.44 mm further east both clipped stub ends lie under a 0.45 mm via that keeps 0.53 mm from the edge",
-   "at": [
-    -9.75,
-    31.5
-   ],
-   "edge_mm": 0.525,
-   "joins_layers": [
-    "6 Bottom Layer",
-    "Top Layer"
-   ],
-   "min_other_net_clearance_mm": 0.207
-  }
- ],
+ "hand": [],
  "trimmed": [
   {
    "kind": "track",
@@ -4363,7 +4485,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0f826e06-df68-4237-80d9-9900461ac3f7",
+   "uuid": "1b21a22c-0935-4153-99a5-74df325dad21",
    "kept": [
     [
      33.126,
@@ -4380,26 +4502,26 @@
    "net": "/Top-Level Schematic/ADIN_MISO",
    "layer": "Internal 1",
    "start": [
-    -9.518,
+    -6.518,
     33.976
    ],
    "end": [
-    -9.804,
-    33.691
+    -7.204,
+    33.291
    ],
    "width": 0.2,
-   "length": 0.403,
+   "length": 0.969,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "14861535-059e-45b4-af8d-99e5eb9abbc9",
+   "uuid": "38b75ba5-1c57-45a6-8130-f846c72e9b8e",
    "kept": [
     [
-     -9.518,
+     -6.518,
      33.976
     ],
     [
-     -9.589,
+     -6.589,
      33.905
     ]
    ]
@@ -4409,26 +4531,26 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.675,
+    -6.675,
     32.829
    ],
    "end": [
-    -9.804,
-    32.701
+    -7.204,
+    32.301
    ],
    "width": 0.2,
-   "length": 0.182,
+   "length": 0.748,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "d4074bc4-2f52-482c-ab15-565e4b2af48a",
+   "uuid": "33e1d286-6349-4bcc-aaae-79d454e5b261",
    "kept": [
     [
-     -9.675,
+     -6.675,
      32.829
     ],
     [
-     -9.746,
+     -6.746,
      32.759
     ]
    ]
@@ -4438,11 +4560,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "6 Bottom Layer",
    "start": [
-    -3.889,
+    -0.889,
     39.551
    ],
    "end": [
-    -4.141,
+    -1.141,
     39.3
    ],
    "width": 0.2,
@@ -4450,14 +4572,14 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "80b1ce36-3256-497f-99b7-d4971ffb1c4c",
+   "uuid": "415f68cc-4253-4759-8855-517ee98dc3ac",
    "kept": [
     [
-     -4.07,
+     -1.07,
      39.371
     ],
     [
-     -4.141,
+     -1.141,
      39.3
     ]
    ]
@@ -4467,27 +4589,27 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -3.604,
-    39.046
+    -5.733,
+    30.146
    ],
    "end": [
-    -4.075,
-    38.575
+    -7.204,
+    30.146
    ],
    "width": 0.2032,
-   "length": 0.667,
+   "length": 1.47,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "69b6b2a2-1681-4eef-bed8-38a04187d377",
+   "uuid": "a5e83aef-6918-48ac-8b3f-dd7ff869a1e3",
    "kept": [
     [
-     -4.003,
-     38.647
+     -5.733,
+     30.146
     ],
     [
-     -4.075,
-     38.575
+     -5.835,
+     30.146
     ]
    ]
   },
@@ -4496,27 +4618,27 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.733,
-    30.146
+    -0.604,
+    39.046
    ],
    "end": [
-    -9.804,
-    30.146
+    -1.075,
+    38.575
    ],
    "width": 0.2032,
-   "length": 1.07,
+   "length": 0.667,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "8d2c9f04-62c4-49ab-930e-2c17ffe7c89b",
+   "uuid": "f5530ffe-eb1c-426f-8334-95118251fbab",
    "kept": [
     [
-     -8.733,
-     30.146
+     -1.003,
+     38.647
     ],
     [
-     -8.835,
-     30.146
+     -1.075,
+     38.575
     ]
    ]
   },
@@ -4525,56 +4647,27 @@
    "net": "/Top-Level Schematic/ADIN_SCK",
    "layer": "Internal 1",
    "start": [
-    -9.725,
+    -6.725,
     34.5
    ],
    "end": [
-    -9.804,
-    34.421
+    -7.204,
+    34.021
    ],
    "width": 0.2,
-   "length": 0.111,
+   "length": 0.677,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "32ac421f-f066-4eef-81a4-6aeb8a38b40f",
+   "uuid": "ad26f763-7487-4e15-b78a-8d0ce2d4d2dd",
    "kept": [
     [
-     -9.725,
+     -6.725,
      34.5
     ],
     [
-     -9.796,
+     -6.796,
      34.429
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_N",
-   "layer": "Internal 2",
-   "start": [
-    7.4,
-    27.35
-   ],
-   "end": [
-    7.4,
-    27.146
-   ],
-   "width": 0.2,
-   "length": 0.204,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "03fe051d-c0a8-42a0-8927-8ed2cb3c4758",
-   "kept": [
-    [
-     7.4,
-     27.35
-    ],
-    [
-     7.4,
-     27.25
     ]
    ]
   },
@@ -4595,7 +4688,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "04ce8a66-25fb-421e-9c6f-e36bb5f4bd39",
+   "uuid": "0a294015-7953-4d75-95b9-f45eb3bd0d01",
    "kept": [
     [
      12.265,
@@ -4609,14 +4702,43 @@
   },
   {
    "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    10.4,
+    27.35
+   ],
+   "end": [
+    10.4,
+    27.146
+   ],
+   "width": 0.2,
+   "length": 0.204,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e58121cc-1654-4827-b9a0-6be63a8434db",
+   "kept": [
+    [
+     10.4,
+     27.35
+    ],
+    [
+     10.4,
+     27.25
+    ]
+   ]
+  },
+  {
+   "kind": "track",
    "net": "/Top-Level Schematic/BM1_P",
    "layer": "Internal 2",
    "start": [
-    7.35,
+    10.35,
     27.895
    ],
    "end": [
-    7.499,
+    10.499,
     27.746
    ],
    "width": 0.2,
@@ -4624,14 +4746,14 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "2d4509e2-a42c-48c5-8802-07ede60e02e3",
+   "uuid": "49595a74-bf2e-4e53-94a5-bc2ab39352a6",
    "kept": [
     [
-     7.35,
+     10.35,
      27.895
     ],
     [
-     7.421,
+     10.421,
      27.824
     ]
    ]
@@ -4653,7 +4775,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "ffc8aefb-fb62-4832-8e89-9a25c1491763",
+   "uuid": "72f8f27f-9f0b-4afc-9a01-f2ea9ac768fa",
    "kept": [
     [
      12.357,
@@ -4682,7 +4804,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "052aa391-865a-4b53-b93a-e237522cd2ae",
+   "uuid": "3689b3c7-1e97-40e2-81a3-9ebe7b6a6a9c",
    "kept": [
     [
      10.506,
@@ -4711,7 +4833,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "0bb75701-f68a-4ed5-9c57-3b6fb277d4f4",
+   "uuid": "3fb03b5a-aa13-4249-906d-c45a7fea7de9",
    "kept": [
     [
      12.065,
@@ -4740,7 +4862,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "923df319-28d1-41a8-aa64-3fa878e46c0a",
+   "uuid": "390cd98b-4ff9-4b54-9c8e-520116e1ceb1",
    "kept": [
     [
      16.847,
@@ -4769,7 +4891,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "a6cae303-9935-4ab6-9215-d609d9e36709",
+   "uuid": "aceb2df7-8012-4e71-90a0-9adf2403e873",
    "kept": [
     [
      11.921,
@@ -4798,7 +4920,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "f2525dda-03f6-4f39-9a6f-a73c12a79cac",
+   "uuid": "dd5b2c80-44ef-49e2-913c-0322b91e9c1e",
    "kept": [
     [
      22.037,
@@ -4827,7 +4949,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "80e7f1a6-6672-47d3-9531-cabfe6a662f5",
+   "uuid": "0101f5b8-81fe-4440-a044-ea802ba6c5da",
    "kept": [
     [
      22.337,
@@ -4856,7 +4978,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "42b0ff4b-29c8-45ce-a3a5-0a628fb86fe6",
+   "uuid": "7f9c549b-9160-428b-a72c-9b74fbff9c6d",
    "kept": [
     [
      16.567,
@@ -4873,26 +4995,26 @@
    "net": "/Top-Level Schematic/~{ADIN_CS}",
    "layer": "Internal 1",
    "start": [
-    -9.418,
+    -6.418,
     35.15
    ],
    "end": [
-    -9.804,
+    -7.204,
     35.15
    ],
    "width": 0.2,
-   "length": 0.386,
+   "length": 0.786,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "7e5e38d4-59ea-4fee-86b2-737a9be616d5",
+   "uuid": "1399da33-4a84-4d1e-a04f-d8eb7539d4dd",
    "kept": [
     [
-     -9.418,
+     -6.418,
      35.15
     ],
     [
-     -9.518,
+     -6.518,
      35.15
     ]
    ]
@@ -4902,56 +5024,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -8.156,
+    -6.89,
     29.794
    ],
    "end": [
-    -9.804,
-    29.794
+    -7.204,
+    29.48
    ],
    "width": 0.2,
-   "length": 1.648,
+   "length": 0.444,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "6ae9bad4-a9f6-4cec-aa1e-01a8da609a0d",
+   "uuid": "f552ee9d-904a-4c77-a9c7-95f155dbed48",
    "kept": [
     [
-     -8.156,
+     -6.89,
      29.794
     ],
     [
-     -8.256,
-     29.794
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "1V8",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -5.226,
-    39.551
-   ],
-   "end": [
-    -4.975,
-    39.3
-   ],
-   "width": 0.2,
-   "length": 0.355,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "6885e23f-f4c0-4929-9be4-c9c822a1dbd7",
-   "kept": [
-    [
-     -5.046,
-     39.371
-    ],
-    [
-     -4.975,
-     39.3
+     -6.96,
+     29.723
     ]
    ]
   },
@@ -4972,7 +5065,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "e1b44892-ef4e-4f45-b2de-b1c1759ee534",
+   "uuid": "1da4e36f-7473-4818-a357-df5a38bafe71",
    "kept": [
     [
      21.05,
@@ -4981,6 +5074,64 @@
     [
      21.121,
      29.229
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.226,
+    39.551
+   ],
+   "end": [
+    -1.975,
+    39.3
+   ],
+   "width": 0.2,
+   "length": 0.355,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "67a521fa-6bab-481c-bebd-2fa37e525c45",
+   "kept": [
+    [
+     -2.046,
+     39.371
+    ],
+    [
+     -1.975,
+     39.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.101,
+    39.551
+   ],
+   "end": [
+    -4.15,
+    38.6
+   ],
+   "width": 0.2,
+   "length": 1.345,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "16c4fadc-21b6-4dbc-94c5-92d3b95bc347",
+   "kept": [
+    [
+     -4.221,
+     38.671
+    ],
+    [
+     -4.15,
+     38.6
     ]
    ]
   },
@@ -5001,7 +5152,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "1f2466c7-7cbf-4b63-9a24-43acc65f09e5",
+   "uuid": "51b9d93b-b978-494d-8f80-aefac11a1691",
    "kept": [
     [
      18.225,
@@ -5030,7 +5181,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "83eb3f06-51a5-4b18-8fc2-32e740c1e06e",
+   "uuid": "9d62a092-a0e7-4c4e-a175-0e12593820ed",
    "kept": [
     [
      18.225,
@@ -5039,93 +5190,6 @@
     [
      18.296,
      29.179
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "3V3",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -8.101,
-    39.551
-   ],
-   "end": [
-    -7.15,
-    38.6
-   ],
-   "width": 0.2,
-   "length": 1.345,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "bd1adf58-ec56-45c8-b004-f2ba511e7832",
-   "kept": [
-    [
-     -7.221,
-     38.671
-    ],
-    [
-     -7.15,
-     38.6
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "3V3",
-   "layer": "Internal 1",
-   "start": [
-    33.126,
-    33.215
-   ],
-   "end": [
-    35.35,
-    33.215
-   ],
-   "width": 0.2,
-   "length": 2.224,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "2a930d97-73d1-4bf5-bd7f-b80373189a41",
-   "kept": [
-    [
-     33.126,
-     33.215
-    ],
-    [
-     33.226,
-     33.215
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "3V3",
-   "layer": "Internal 1",
-   "start": [
-    18.75,
-    13.125
-   ],
-   "end": [
-    20.179,
-    11.696
-   ],
-   "width": 0.2,
-   "length": 2.02,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "9fa0da67-1f7c-463a-922c-b79ae85a9033",
-   "kept": [
-    [
-     18.75,
-     13.125
-    ],
-    [
-     18.821,
-     13.054
     ]
    ]
   },
@@ -5146,7 +5210,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "bbb9c4cf-a301-44c6-b4a7-cb40d739b945",
+   "uuid": "77e96a06-ca7b-4d65-bcc6-e8603f7d92f7",
    "kept": [
     [
      18.65,
@@ -5160,88 +5224,59 @@
   },
   {
    "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
+   "net": "3V3",
+   "layer": "Internal 1",
    "start": [
-    37.051,
-    19.086
+    18.75,
+    13.125
    ],
    "end": [
-    37.051,
-    18.192
+    20.179,
+    11.696
    ],
-   "width": 0.5,
-   "length": 0.894,
+   "width": 0.2,
+   "length": 2.02,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "03dc14af-d1ad-4050-bcb3-4ded9aed92d4",
+   "uuid": "c65bac41-260a-40e5-81ca-511e32d85807",
    "kept": [
     [
-     37.051,
-     18.442
+     18.75,
+     13.125
     ],
     [
-     37.051,
-     18.192
+     18.821,
+     13.054
     ]
    ]
   },
   {
    "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
+   "net": "3V3",
+   "layer": "Internal 1",
    "start": [
-    10.408,
-    58.453
+    33.126,
+    33.215
    ],
    "end": [
-    10.408,
-    58.201
+    35.35,
+    33.215
    ],
-   "width": 0.381,
-   "length": 0.252,
+   "width": 0.2,
+   "length": 2.224,
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "03f39b01-9abb-4c1b-bc57-bb2b347f7f8d",
+   "uuid": "e0bee075-fe1e-4b60-b144-c617b385ae36",
    "kept": [
     [
-     10.408,
-     58.453
+     33.126,
+     33.215
     ],
     [
-     10.408,
-     58.262
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    30.0,
-    45.85
-   ],
-   "end": [
-    30.0,
-    45.396
-   ],
-   "width": 0.6,
-   "length": 0.454,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "b4893639-f68c-4ece-811d-b6b8681f7394",
-   "kept": [
-    [
-     30.0,
-     45.85
-    ],
-    [
-     30.0,
-     45.55
+     33.226,
+     33.215
     ]
    ]
   },
@@ -5262,7 +5297,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "b55c06aa-a938-4ed4-869f-f5c8ff285b1a",
+   "uuid": "726793c4-b2ca-4cf9-ac14-579a77febbd1",
    "kept": [
     [
      37.051,
@@ -5271,6 +5306,93 @@
     [
      37.051,
      31.392
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    19.086
+   ],
+   "end": [
+    37.051,
+    18.192
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "75c59c7b-77d0-4fa8-9024-7976fc0e0120",
+   "kept": [
+    [
+     37.051,
+     18.442
+    ],
+    [
+     37.051,
+     18.192
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    30.0,
+    45.85
+   ],
+   "end": [
+    30.0,
+    45.396
+   ],
+   "width": 0.6,
+   "length": 0.454,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "bed9fb33-b326-47cf-8114-37787561b074",
+   "kept": [
+    [
+     30.0,
+     45.85
+    ],
+    [
+     30.0,
+     45.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    58.453
+   ],
+   "end": [
+    10.408,
+    58.201
+   ],
+   "width": 0.381,
+   "length": 0.252,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "cbb14b12-64ba-46ef-bdc9-f9ade633d9a9",
+   "kept": [
+    [
+     10.408,
+     58.453
+    ],
+    [
+     10.408,
+     58.262
     ]
    ]
   },
@@ -5291,7 +5413,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "6afad2ae-c73a-495e-a7e3-a922ac6652a6",
+   "uuid": "80a05c64-dbff-4db3-aaf8-f98b56f60ce8",
    "kept": [
     [
      22.0,
@@ -5300,93 +5422,6 @@
     [
      22.072,
      16.003
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
-    23.414
-   ],
-   "end": [
-    35.35,
-    23.663
-   ],
-   "width": 0.2032,
-   "length": 0.352,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "00eb0f57-6884-423a-bf11-179d77556cdb",
-   "kept": [
-    [
-     35.101,
-     23.414
-    ],
-    [
-     35.173,
-     23.486
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
-    36.614
-   ],
-   "end": [
-    35.35,
-    36.863
-   ],
-   "width": 0.2032,
-   "length": 0.352,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "6dab0ceb-46fa-4705-a5a0-7aa07d1272e2",
-   "kept": [
-    [
-     35.101,
-     36.614
-    ],
-    [
-     35.173,
-     36.686
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
-    35.811
-   ],
-   "end": [
-    35.35,
-    35.562
-   ],
-   "width": 0.2032,
-   "length": 0.352,
-   "stage": "m3",
-   "round": 1,
-   "action": "shortened",
-   "uuid": "7e5728ee-183a-457f-9534-e7022474717d",
-   "kept": [
-    [
-     35.101,
-     35.811
-    ],
-    [
-     35.173,
-     35.739
     ]
    ]
   },
@@ -5407,7 +5442,7 @@
    "stage": "m3",
    "round": 1,
    "action": "shortened",
-   "uuid": "ed622439-6d43-4777-85d1-0ed2bfd2bfd6",
+   "uuid": "5873b7d4-f6bf-4e5d-8643-68d271c5da0f",
    "kept": [
     [
      35.101,
@@ -5416,6 +5451,93 @@
     [
      35.173,
      22.539
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    23.414
+   ],
+   "end": [
+    35.35,
+    23.663
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "5b84c2cb-f671-4a41-9f3e-0543826e42a0",
+   "kept": [
+    [
+     35.101,
+     23.414
+    ],
+    [
+     35.173,
+     23.486
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    35.811
+   ],
+   "end": [
+    35.35,
+    35.562
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "5c79b997-03cb-43be-b05f-24b893d8bbec",
+   "kept": [
+    [
+     35.101,
+     35.811
+    ],
+    [
+     35.173,
+     35.739
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    36.614
+   ],
+   "end": [
+    35.35,
+    36.863
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "6967cf26-15d9-43bf-a463-fbed1711bc56",
+   "kept": [
+    [
+     35.101,
+     36.614
+    ],
+    [
+     35.173,
+     36.686
     ]
    ]
   },
@@ -5460,7 +5582,7 @@
    "net": "/Top-Level Schematic/BM1_P",
    "at": [
     9.49,
-    43.15
+    42.4
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -5473,7 +5595,7 @@
    "net": "/Top-Level Schematic/BM1_P",
    "at": [
     9.49,
-    42.4
+    43.15
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -5499,7 +5621,7 @@
    "net": "/Top-Level Schematic/BM2_N",
    "at": [
     11.115,
-    18.369
+    17.628
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -5512,7 +5634,7 @@
    "net": "/Top-Level Schematic/BM2_N",
    "at": [
     11.115,
-    17.628
+    18.369
    ],
    "dia": 0.6,
    "drill": 0.3,
@@ -5538,11 +5660,11 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -7.711,
+    -4.711,
     30.239
    ],
    "end": [
-    -7.711,
+    -4.711,
     30.239
    ],
    "width": 0.2,
@@ -5556,11 +5678,11 @@
    "net": "3V3",
    "layer": "Top Layer",
    "start": [
-    -9.175,
+    -6.175,
     39.551
    ],
    "end": [
-    -9.175,
+    -6.175,
     38.875
    ],
    "width": 0.381,
@@ -5654,11 +5776,11 @@
    "net": "Net-(C25-Pad2)",
    "layer": "Top Layer",
    "start": [
-    13.201,
+    16.201,
     35.701
    ],
    "end": [
-    13.19,
+    16.19,
     35.69
    ],
    "width": 0.2,
@@ -5728,7 +5850,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "f6cf1556-0c3b-4c4e-a1d2-89124982cbf6",
+   "uuid": "a7988210-c62d-461f-916c-bdd3aaebb774",
    "kept": [
     [
      9.265,
@@ -5757,7 +5879,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "27a83d24-4d1b-4cff-8bf6-6b7bdaa0e1a1",
+   "uuid": "5a48977e-11ab-4a27-a97c-ae9ed83e80aa",
    "kept": [
     [
      11.894,
@@ -5786,7 +5908,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "a0d3f803-c9ec-4122-a038-9dc8c7393698",
+   "uuid": "1431f009-d4e9-4aea-a8cb-ccc402556582",
    "kept": [
     [
      17.7,
@@ -5815,7 +5937,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "758481be-1dc5-449f-b631-fc1a3a9e075e",
+   "uuid": "e9262676-27d3-4f3e-bae1-9756b6fce945",
    "kept": [
     [
      31.95,
@@ -5832,11 +5954,11 @@
    "net": "Net-(C25-Pad2)",
    "layer": "Top Layer",
    "start": [
-    13.19,
+    16.19,
     35.205
    ],
    "end": [
-    13.19,
+    16.19,
     35.69
    ],
    "width": 0.2,
@@ -5844,14 +5966,14 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "5855893e-8b45-458e-8e05-ac56f5d2d630",
+   "uuid": "83c6214b-0c86-4827-977b-12c43947a12b",
    "kept": [
     [
-     13.19,
+     16.19,
      35.205
     ],
     [
-     13.19,
+     16.19,
      35.305
     ]
    ]
@@ -5873,7 +5995,7 @@
    "stage": "m3",
    "round": 2,
    "action": "shortened",
-   "uuid": "e5e27a8e-c875-4252-a7b3-4bf9d5d6b636",
+   "uuid": "4838ec9f-ee1c-45b6-a2ef-9ae26e7ca883",
    "kept": [
     [
      21.8,
@@ -5908,11 +6030,11 @@
    "net": "/Top-Level Schematic/ADIN_MISO",
    "layer": "Internal 1",
    "start": [
-    -9.518,
+    -6.518,
     33.976
    ],
    "end": [
-    -9.589,
+    -6.589,
     33.905
    ],
    "width": 0.2,
@@ -5926,11 +6048,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.675,
+    -6.675,
     32.829
    ],
    "end": [
-    -9.746,
+    -6.746,
     32.759
    ],
    "width": 0.2,
@@ -5944,12 +6066,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -4.003,
-    38.647
+    -5.733,
+    30.146
    ],
    "end": [
-    -4.075,
-    38.575
+    -5.835,
+    30.146
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -5962,12 +6084,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.733,
-    30.146
+    -1.003,
+    38.647
    ],
    "end": [
-    -8.835,
-    30.146
+    -1.075,
+    38.575
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -5980,30 +6102,12 @@
    "net": "/Top-Level Schematic/ADIN_SCK",
    "layer": "Internal 1",
    "start": [
-    -9.725,
+    -6.725,
     34.5
    ],
    "end": [
-    -9.796,
+    -6.796,
     34.429
-   ],
-   "width": 0.2,
-   "length": 0.1,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_N",
-   "layer": "Internal 2",
-   "start": [
-    7.4,
-    27.35
-   ],
-   "end": [
-    7.4,
-    27.25
    ],
    "width": 0.2,
    "length": 0.1,
@@ -6022,6 +6126,24 @@
    "end": [
     12.165,
     47.45
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    10.4,
+    27.35
+   ],
+   "end": [
+    10.4,
+    27.25
    ],
    "width": 0.2,
    "length": 0.1,
@@ -6088,11 +6210,11 @@
    "net": "/Top-Level Schematic/BM1_P",
    "layer": "Internal 2",
    "start": [
-    7.35,
+    10.35,
     27.895
    ],
    "end": [
-    7.421,
+    10.421,
     27.824
    ],
    "width": 0.2,
@@ -6232,11 +6354,11 @@
    "net": "/Top-Level Schematic/~{ADIN_CS}",
    "layer": "Internal 1",
    "start": [
-    -9.418,
+    -6.418,
     35.15
    ],
    "end": [
-    -9.518,
+    -6.518,
     35.15
    ],
    "width": 0.2,
@@ -6250,30 +6372,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -8.156,
+    -6.89,
     29.794
    ],
    "end": [
-    -8.256,
-    29.794
-   ],
-   "width": 0.2,
-   "length": 0.1,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "1V8",
-   "layer": "6 Bottom Layer",
-   "start": [
-    -5.046,
-    39.371
-   ],
-   "end": [
-    -4.975,
-    39.3
+    -6.96,
+    29.723
    ],
    "width": 0.2,
    "length": 0.1,
@@ -6292,6 +6396,24 @@
    "end": [
     21.121,
     29.229
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.046,
+    39.371
+   ],
+   "end": [
+    -1.975,
+    39.3
    ],
    "width": 0.2,
    "length": 0.1,
@@ -6340,12 +6462,12 @@
    "net": "3V3",
    "layer": "Internal 1",
    "start": [
-    33.126,
-    33.215
+    18.65,
+    13.125
    ],
    "end": [
-    33.226,
-    33.215
+    18.75,
+    13.125
    ],
    "width": 0.2,
    "length": 0.1,
@@ -6376,33 +6498,15 @@
    "net": "3V3",
    "layer": "Internal 1",
    "start": [
-    18.65,
-    13.125
+    33.126,
+    33.215
    ],
    "end": [
-    18.75,
-    13.125
+    33.226,
+    33.215
    ],
    "width": 0.2,
    "length": 0.1,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "GND",
-   "layer": "Top Layer",
-   "start": [
-    10.408,
-    58.453
-   ],
-   "end": [
-    10.408,
-    58.262
-   ],
-   "width": 0.381,
-   "length": 0.191,
    "stage": "m3",
    "round": 2,
    "action": "removed"
@@ -6427,6 +6531,24 @@
   },
   {
    "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    58.453
+   ],
+   "end": [
+    10.408,
+    58.262
+   ],
+   "width": 0.381,
+   "length": 0.191,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
    "net": "Net-(U4-ALERT)",
    "layer": "Internal 1",
    "start": [
@@ -6436,6 +6558,24 @@
    "end": [
     22.072,
     16.003
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    22.611
+   ],
+   "end": [
+    35.173,
+    22.539
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -6467,24 +6607,6 @@
    "layer": "6 Bottom Layer",
    "start": [
     35.101,
-    36.614
-   ],
-   "end": [
-    35.173,
-    36.686
-   ],
-   "width": 0.2032,
-   "length": 0.102,
-   "stage": "m3",
-   "round": 2,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "VBUS",
-   "layer": "6 Bottom Layer",
-   "start": [
-    35.101,
     35.811
    ],
    "end": [
@@ -6503,11 +6625,11 @@
    "layer": "6 Bottom Layer",
    "start": [
     35.101,
-    22.611
+    36.614
    ],
    "end": [
     35.173,
-    22.539
+    36.686
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -6532,7 +6654,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "23c83c02-47e3-4433-b2b0-1a0ed858fdc7",
+   "uuid": "d68d1260-9674-4363-80ff-8b1f63f2a38d",
    "kept": [
     [
      32.635,
@@ -6549,11 +6671,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.675,
+    -6.675,
     33.197
    ],
    "end": [
-    -9.675,
+    -6.675,
     32.829
    ],
    "width": 0.2,
@@ -6561,14 +6683,14 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "7c234d82-ba1b-4ca6-87dc-abb968d258dc",
+   "uuid": "5a11b180-e500-46a4-91d5-226f98e8a358",
    "kept": [
     [
-     -9.675,
+     -6.675,
      33.197
     ],
     [
-     -9.675,
+     -6.675,
      33.097
     ]
    ]
@@ -6578,27 +6700,27 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -4.075,
-    38.575
+    -5.0,
+    30.879
    ],
    "end": [
-    -4.075,
-    37.55
+    -5.733,
+    30.146
    ],
    "width": 0.2032,
-   "length": 1.025,
+   "length": 1.037,
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "10198079-b36d-4ace-8b58-a24a807a8a19",
+   "uuid": "80c9944c-7a97-463c-bd50-c22091c14fdb",
    "kept": [
     [
-     -4.075,
-     37.652
+     -5.0,
+     30.879
     ],
     [
-     -4.075,
-     37.55
+     -5.072,
+     30.807
     ]
    ]
   },
@@ -6607,27 +6729,27 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.0,
-    30.879
+    -1.075,
+    38.575
    ],
    "end": [
-    -8.733,
-    30.146
+    -1.075,
+    37.55
    ],
    "width": 0.2032,
-   "length": 1.037,
+   "length": 1.025,
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "a0f927cc-3a73-46e2-a1e0-1c5fe4123a9b",
+   "uuid": "86e3bdee-dc16-4062-a59d-c2b3dae6b363",
    "kept": [
     [
-     -8.0,
-     30.879
+     -1.075,
+     37.652
     ],
     [
-     -8.072,
-     30.807
+     -1.075,
+     37.55
     ]
    ]
   },
@@ -6636,11 +6758,11 @@
    "net": "/Top-Level Schematic/ADIN_SCK",
    "layer": "Internal 1",
    "start": [
-    -8.85,
+    -5.85,
     34.5
    ],
    "end": [
-    -9.725,
+    -6.725,
     34.5
    ],
    "width": 0.2,
@@ -6648,44 +6770,15 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "f2d88fc3-edcb-4605-8fdf-e95cba274efb",
+   "uuid": "882a2588-af18-4c32-8285-612b1ff9b4f8",
    "kept": [
     [
-     -8.85,
+     -5.85,
      34.5
     ],
     [
-     -8.95,
+     -5.95,
      34.5
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_N",
-   "layer": "Internal 2",
-   "start": [
-    6.8,
-    27.95
-   ],
-   "end": [
-    7.4,
-    27.35
-   ],
-   "width": 0.2,
-   "length": 0.849,
-   "stage": "m3",
-   "round": 3,
-   "action": "shortened",
-   "uuid": "36bc01b0-3bdc-45fb-869d-cc0952eecd32",
-   "kept": [
-    [
-     6.8,
-     27.95
-    ],
-    [
-     6.871,
-     27.879
     ]
    ]
   },
@@ -6706,7 +6799,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "fc77e069-e7d2-4657-95d9-27038bf496cd",
+   "uuid": "18a67ba1-e25a-4530-a8c9-a2ddf5a6c8db",
    "kept": [
     [
      11.565,
@@ -6715,6 +6808,35 @@
     [
      11.636,
      47.979
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    9.8,
+    27.95
+   ],
+   "end": [
+    10.4,
+    27.35
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "b4758b55-a491-4b96-ad96-66331e971ec9",
+   "kept": [
+    [
+     9.8,
+     27.95
+    ],
+    [
+     9.871,
+     27.879
     ]
    ]
   },
@@ -6735,7 +6857,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "2dd6805f-b8c1-4b53-b7d6-14dcb9ad7192",
+   "uuid": "5a432156-b99b-44de-879b-c945710969b2",
    "kept": [
     [
      17.89,
@@ -6752,11 +6874,11 @@
    "net": "/Top-Level Schematic/BM1_P",
    "layer": "Internal 2",
    "start": [
-    7.35,
+    10.35,
     28.231
    ],
    "end": [
-    7.35,
+    10.35,
     27.895
    ],
    "width": 0.2,
@@ -6764,14 +6886,14 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "d919206c-75cc-4f54-8a09-5317c19fe18b",
+   "uuid": "696bbbd9-0f7f-4ea3-8e2f-50d54236ea87",
    "kept": [
     [
-     7.35,
+     10.35,
      28.231
     ],
     [
-     7.35,
+     10.35,
      28.131
     ]
    ]
@@ -6793,7 +6915,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "7e0ba85b-3d6e-417b-b2e3-a3aabb5a2a84",
+   "uuid": "2016a39e-c6d0-4390-8f9a-9771434536f6",
    "kept": [
     [
      13.915,
@@ -6822,7 +6944,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "f72519ee-773a-49ea-8b87-d27a48b41ec1",
+   "uuid": "5e80de31-c9fe-49ad-9b4c-8186b582c0f7",
    "kept": [
     [
      11.629,
@@ -6851,7 +6973,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "ce04b9ea-684e-435d-b9b4-27330a25dfcb",
+   "uuid": "a7d74ae0-7558-42b9-8a53-666d796a5971",
    "kept": [
     [
      22.037,
@@ -6880,7 +7002,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "3dd50b89-90c3-478b-83f8-0c89470e5367",
+   "uuid": "5f24e693-a254-482c-ace0-4363f356703c",
    "kept": [
     [
      22.337,
@@ -6897,27 +7019,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -7.711,
-    30.239
+    -5.156,
+    29.794
    ],
    "end": [
-    -8.156,
+    -6.89,
     29.794
    ],
    "width": 0.2,
-   "length": 0.629,
+   "length": 1.734,
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "1b7c1ef5-4d46-4543-936c-414f373f94a0",
+   "uuid": "9b0c4cb1-c170-4512-9e56-5f5c9aa683ee",
    "kept": [
     [
-     -7.711,
-     30.239
+     -5.156,
+     29.794
     ],
     [
-     -7.782,
-     30.168
+     -5.256,
+     29.794
     ]
    ]
   },
@@ -6926,11 +7048,11 @@
    "net": "1V8",
    "layer": "6 Bottom Layer",
    "start": [
-    -4.65,
+    -1.65,
     39.3
    ],
    "end": [
-    -4.975,
+    -1.975,
     39.3
    ],
    "width": 0.2,
@@ -6938,14 +7060,14 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "2de753b7-10af-49d6-9662-7f33ca65aca7",
+   "uuid": "d30882c1-5a20-461f-bf5b-71285d67e186",
    "kept": [
     [
-     -4.65,
+     -1.65,
      39.3
     ],
     [
-     -4.75,
+     -1.75,
      39.3
     ]
    ]
@@ -6967,7 +7089,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "67d64f1d-2cbc-4342-b0ae-b8ef1c244848",
+   "uuid": "ff4d9239-fe8a-4f76-aea5-c9aa8f04a15d",
    "kept": [
     [
      21.05,
@@ -6996,7 +7118,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "4a9d5e94-09c0-475d-9858-17a24a24476d",
+   "uuid": "5fb088fb-ed41-4dfc-944c-68fd5423216e",
    "kept": [
     [
      32.635,
@@ -7025,7 +7147,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "f810bdc8-373b-474a-95c2-028319a0fa3f",
+   "uuid": "3bf7c38a-a944-4f18-acd6-1ee88f267326",
    "kept": [
     [
      29.45,
@@ -7054,7 +7176,7 @@
    "stage": "m3",
    "round": 3,
    "action": "shortened",
-   "uuid": "2c18d1da-2281-497a-ad97-9d99720495b5",
+   "uuid": "39010d77-6a5d-4593-9065-576d68bf4f12",
    "kept": [
     [
      18.317,
@@ -7173,7 +7295,7 @@
    "stage": "m3",
    "round": 4,
    "action": "shortened",
-   "uuid": "b811889b-c3f6-45b8-bfac-2fbec11c748e",
+   "uuid": "1f8abee4-77b1-444f-bdd0-27dee4759f3c",
    "kept": [
     [
      9.265,
@@ -7208,11 +7330,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.675,
+    -6.675,
     33.197
    ],
    "end": [
-    -9.675,
+    -6.675,
     33.097
    ],
    "width": 0.2,
@@ -7226,12 +7348,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -4.075,
-    37.652
+    -5.0,
+    30.879
    ],
    "end": [
-    -4.075,
-    37.55
+    -5.072,
+    30.807
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -7244,12 +7366,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.0,
-    30.879
+    -1.075,
+    37.652
    ],
    "end": [
-    -8.072,
-    30.807
+    -1.075,
+    37.55
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -7280,11 +7402,11 @@
    "net": "/Top-Level Schematic/BM1_P",
    "layer": "Internal 2",
    "start": [
-    7.35,
+    10.35,
     28.231
    ],
    "end": [
-    7.35,
+    10.35,
     28.131
    ],
    "width": 0.2,
@@ -7352,12 +7474,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -7.711,
-    30.239
+    -5.156,
+    29.794
    ],
    "end": [
-    -7.782,
-    30.168
+    -5.256,
+    29.794
    ],
    "width": 0.2,
    "length": 0.1,
@@ -7418,7 +7540,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "123e0ed6-45a8-4efb-989f-bdf58305ceeb",
+   "uuid": "638212ad-1a59-4629-8395-998d66095747",
    "kept": [
     [
      29.674,
@@ -7435,11 +7557,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.372,
+    -6.372,
     33.5
    ],
    "end": [
-    -9.675,
+    -6.675,
     33.197
    ],
    "width": 0.2,
@@ -7447,14 +7569,14 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "748156fe-6a3c-48eb-a9df-3af88a817a33",
+   "uuid": "a4142d78-5faa-4af2-aac3-bf2cacf1e079",
    "kept": [
     [
-     -9.372,
+     -6.372,
      33.5
     ],
     [
-     -9.442,
+     -6.442,
      33.429
     ]
    ]
@@ -7464,11 +7586,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -4.075,
+    -1.075,
     37.55
    ],
    "end": [
-    -4.45,
+    -1.45,
     37.175
    ],
    "width": 0.2032,
@@ -7476,14 +7598,14 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "40248367-2daf-4ad4-b742-1dca761702c5",
+   "uuid": "572595a7-98e7-493d-8da5-ea3aebcffb4e",
    "kept": [
     [
-     -4.378,
+     -1.378,
      37.247
     ],
     [
-     -4.45,
+     -1.45,
      37.175
     ]
    ]
@@ -7493,11 +7615,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.0,
+    -5.0,
     37.55
    ],
    "end": [
-    -8.0,
+    -5.0,
     30.879
    ],
    "width": 0.2032,
@@ -7505,14 +7627,14 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "c9c88026-bda6-4967-a6f7-5d36b76bfde3",
+   "uuid": "e7e42e7d-613d-4180-8a0f-6041b27bb127",
    "kept": [
     [
-     -8.0,
+     -5.0,
      37.55
     ],
     [
-     -8.0,
+     -5.0,
      37.448
     ]
    ]
@@ -7534,7 +7656,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "54652371-628a-49bb-8a24-c14a924fe647",
+   "uuid": "2af5672c-62b8-45f4-8ee9-bb89db69f480",
    "kept": [
     [
      16.433,
@@ -7551,11 +7673,11 @@
    "net": "/Top-Level Schematic/BM1_P",
    "layer": "Internal 2",
    "start": [
-    6.955,
+    9.955,
     28.626
    ],
    "end": [
-    7.35,
+    10.35,
     28.231
    ],
    "width": 0.2,
@@ -7563,14 +7685,14 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "9f9a8ca4-9773-4a45-b70b-4f7041ffe93a",
+   "uuid": "eb9f69bf-0ee0-47d3-aefd-eaaa4861eb59",
    "kept": [
     [
-     6.955,
+     9.955,
      28.626
     ],
     [
-     7.025,
+     10.025,
      28.556
     ]
    ]
@@ -7592,7 +7714,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "d1ba4533-c8d9-4971-b91b-bb496ee72d41",
+   "uuid": "507dc379-7608-4c55-8005-9b674dd484e4",
    "kept": [
     [
      12.71,
@@ -7621,7 +7743,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "9f1782f6-e801-4998-ad36-ef8727f489dd",
+   "uuid": "be53d6bd-58d7-432a-b04a-4a9a92113306",
    "kept": [
     [
      21.85,
@@ -7650,7 +7772,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "53b44e43-f5b3-4201-bef5-20bba354e08f",
+   "uuid": "e335dacd-a0c6-40ea-993a-eae323732006",
    "kept": [
     [
      22.15,
@@ -7667,27 +7789,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -7.4,
-    30.55
-   ],
-   "end": [
-    -7.711,
+    -4.711,
     30.239
    ],
+   "end": [
+    -5.156,
+    29.794
+   ],
    "width": 0.2,
-   "length": 0.44,
+   "length": 0.629,
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "9bb56bc0-12eb-4d15-8cf0-dd184714d5c4",
+   "uuid": "dd96b6bc-2656-4da2-94dc-1754baa06607",
    "kept": [
     [
-     -7.4,
-     30.55
+     -4.711,
+     30.239
     ],
     [
-     -7.471,
-     30.479
+     -4.782,
+     30.168
     ]
    ]
   },
@@ -7708,7 +7830,7 @@
    "stage": "m3",
    "round": 5,
    "action": "shortened",
-   "uuid": "34d98c3a-3325-4988-a52b-9230660eff19",
+   "uuid": "4f953c70-608c-4a3e-a4f7-74e642b61ee1",
    "kept": [
     [
      29.674,
@@ -7725,11 +7847,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -9.372,
+    -6.372,
     33.5
    ],
    "end": [
-    -9.442,
+    -6.442,
     33.429
    ],
    "width": 0.2,
@@ -7743,11 +7865,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -4.378,
+    -1.378,
     37.247
    ],
    "end": [
-    -4.45,
+    -1.45,
     37.175
    ],
    "width": 0.2032,
@@ -7761,11 +7883,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.0,
+    -5.0,
     37.55
    ],
    "end": [
-    -8.0,
+    -5.0,
     37.448
    ],
    "width": 0.2032,
@@ -7851,12 +7973,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -7.4,
-    30.55
+    -4.711,
+    30.239
    ],
    "end": [
-    -7.471,
-    30.479
+    -4.782,
+    30.168
    ],
    "width": 0.2,
    "length": 0.1,
@@ -7869,11 +7991,11 @@
    "net": "/Top-Level Schematic/ADIN_MOSI",
    "layer": "Internal 1",
    "start": [
-    -8.85,
+    -5.85,
     33.5
    ],
    "end": [
-    -9.372,
+    -6.372,
     33.5
    ],
    "width": 0.2,
@@ -7881,14 +8003,14 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "1659dbb2-c476-4041-b693-f4fb5b67ec7b",
+   "uuid": "334f953c-9c13-4fff-94a2-b2cd297a2aa8",
    "kept": [
     [
-     -8.85,
+     -5.85,
      33.5
     ],
     [
-     -8.95,
+     -5.95,
      33.5
     ]
    ]
@@ -7898,40 +8020,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.425,
-    37.975
-   ],
-   "end": [
-    -8.0,
-    37.55
-   ],
-   "width": 0.2032,
-   "length": 0.601,
-   "stage": "m3",
-   "round": 7,
-   "action": "shortened",
-   "uuid": "237fe003-4a93-4c95-b8f0-c7de42bc3bf5",
-   "kept": [
-    [
-     -8.425,
-     37.975
-    ],
-    [
-     -8.353,
-     37.903
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/ADIN_PWR",
-   "layer": "Internal 1",
-   "start": [
-    -4.45,
+    -1.45,
     37.175
    ],
    "end": [
-    -6.175,
+    -3.175,
     37.175
    ],
    "width": 0.2032,
@@ -7939,15 +8032,44 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "f46b297b-6a2e-4330-a0f9-9bac965a6551",
+   "uuid": "50612e0c-4eaf-40bb-b9e7-c6a5d63b0273",
    "kept": [
     [
-     -6.073,
+     -3.073,
      37.175
     ],
     [
-     -6.175,
+     -3.175,
      37.175
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.425,
+    37.975
+   ],
+   "end": [
+    -5.0,
+    37.55
+   ],
+   "width": 0.2032,
+   "length": 0.601,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "da1ce00b-d586-4f5f-89ec-23189c58c7a9",
+   "kept": [
+    [
+     -5.425,
+     37.975
+    ],
+    [
+     -5.353,
+     37.903
     ]
    ]
   },
@@ -7968,7 +8090,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "73d590df-03f0-41d3-b1de-a740ab157891",
+   "uuid": "ba5749bc-7300-4fdf-8df2-f5bf9344e304",
    "kept": [
     [
      21.85,
@@ -7997,7 +8119,7 @@
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "e4b254eb-a917-495a-a3e6-aa18167cf390",
+   "uuid": "12723a8e-5b0a-4935-b442-58fefe03f836",
    "kept": [
     [
      22.15,
@@ -8014,27 +8136,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -1.3,
+    -4.4,
     30.55
    ],
    "end": [
-    -7.4,
-    30.55
+    -4.711,
+    30.239
    ],
    "width": 0.2,
-   "length": 6.1,
+   "length": 0.44,
    "stage": "m3",
    "round": 7,
    "action": "shortened",
-   "uuid": "1d6bbc4c-1056-4b25-b9a2-9af3141f2789",
+   "uuid": "2b23d7bb-0b91-4ca6-9607-dc555f1a9f44",
    "kept": [
     [
-     -1.3,
+     -4.4,
      30.55
     ],
     [
-     -1.4,
-     30.55
+     -4.471,
+     30.479
     ]
    ]
   },
@@ -8086,7 +8208,7 @@
    "stage": "m3",
    "round": 8,
    "action": "shortened",
-   "uuid": "a8750f03-5345-444d-8998-8640c1191539",
+   "uuid": "fb136b0e-9bef-442c-a3a6-0a9138cf30c4",
    "kept": [
     [
      11.416,
@@ -8103,12 +8225,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.425,
-    37.975
+    -3.073,
+    37.175
    ],
    "end": [
-    -8.353,
-    37.903
+    -3.175,
+    37.175
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -8121,12 +8243,12 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.073,
-    37.175
+    -5.425,
+    37.975
    ],
    "end": [
-    -6.175,
-    37.175
+    -5.353,
+    37.903
    ],
    "width": 0.2032,
    "length": 0.102,
@@ -8206,12 +8328,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -1.3,
+    -4.4,
     30.55
    ],
    "end": [
-    -1.4,
-    30.55
+    -4.471,
+    30.479
    ],
    "width": 0.2,
    "length": 0.1,
@@ -8224,11 +8346,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.425,
+    -5.425,
     38.5
    ],
    "end": [
-    -8.425,
+    -5.425,
     37.975
    ],
    "width": 0.2032,
@@ -8236,14 +8358,14 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "6688a2c7-740b-4e49-a64e-7ee45db62d49",
+   "uuid": "3a6935e8-41b2-4682-af6d-6dce5bf723e9",
    "kept": [
     [
-     -8.425,
+     -5.425,
      38.5
     ],
     [
-     -8.425,
+     -5.425,
      38.398
     ]
    ]
@@ -8253,11 +8375,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.7,
+    -3.7,
     37.7
    ],
    "end": [
-    -6.175,
+    -3.175,
     37.175
    ],
    "width": 0.2032,
@@ -8265,44 +8387,15 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "88a711ad-28e9-44ff-8e11-5565cac1f677",
+   "uuid": "b749071d-51a6-4825-8982-a95faf1e11dc",
    "kept": [
     [
-     -6.7,
+     -3.7,
      37.7
     ],
     [
-     -6.628,
+     -3.628,
      37.628
-    ]
-   ]
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_P",
-   "layer": "Internal 2",
-   "start": [
-    12.057,
-    46.9
-   ],
-   "end": [
-    11.94,
-    46.9
-   ],
-   "width": 0.2,
-   "length": 0.117,
-   "stage": "m3",
-   "round": 9,
-   "action": "shortened",
-   "uuid": "66064499-86e9-4a66-a2a5-0484207079b3",
-   "kept": [
-    [
-     12.057,
-     46.9
-    ],
-    [
-     11.957,
-     46.9
     ]
    ]
   },
@@ -8323,7 +8416,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "92d96196-37c9-4219-b015-9e8519c340f8",
+   "uuid": "35dcae76-119e-4213-b084-d3732b5f87ed",
    "kept": [
     [
      12.128,
@@ -8331,6 +8424,35 @@
     ],
     [
      12.057,
+     46.9
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.057,
+    46.9
+   ],
+   "end": [
+    11.94,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.117,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "9da14efd-82fe-4802-830c-38aa41d097d0",
+   "kept": [
+    [
+     12.057,
+     46.9
+    ],
+    [
+     11.957,
      46.9
     ]
    ]
@@ -8352,7 +8474,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "85079bf1-8ffc-4e65-92ac-61d78b9ad951",
+   "uuid": "db2bc189-6ab1-4367-a54b-0cf88ea066fb",
    "kept": [
     [
      21.575,
@@ -8381,7 +8503,7 @@
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "6adcb419-704d-4f79-9ac5-6a59287e2fe4",
+   "uuid": "fd78ef03-eefd-4e1f-bfc0-7dc0d8387ac1",
    "kept": [
     [
      21.772,
@@ -8398,27 +8520,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -1.3,
+    1.7,
     30.55
    ],
    "end": [
-    -0.8,
-    30.05
+    -4.4,
+    30.55
    ],
    "width": 0.2,
-   "length": 0.707,
+   "length": 6.1,
    "stage": "m3",
    "round": 9,
    "action": "shortened",
-   "uuid": "a6c2f86b-e5cd-4b55-9028-33e1a56fc66d",
+   "uuid": "071a77a5-89ea-4831-ae0b-20af16da41df",
    "kept": [
     [
-     -0.871,
-     30.121
+     1.7,
+     30.55
     ],
     [
-     -0.8,
-     30.05
+     1.6,
+     30.55
     ]
    ]
   },
@@ -8463,11 +8585,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -8.425,
+    -5.425,
     38.5
    ],
    "end": [
-    -8.425,
+    -5.425,
     38.398
    ],
    "width": 0.2032,
@@ -8481,33 +8603,15 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.7,
+    -3.7,
     37.7
    ],
    "end": [
-    -6.628,
+    -3.628,
     37.628
    ],
    "width": 0.2032,
    "length": 0.102,
-   "stage": "m3",
-   "round": 10,
-   "action": "removed"
-  },
-  {
-   "kind": "track",
-   "net": "/Top-Level Schematic/BM1_P",
-   "layer": "Internal 2",
-   "start": [
-    12.057,
-    46.9
-   ],
-   "end": [
-    11.957,
-    46.9
-   ],
-   "width": 0.2,
-   "length": 0.1,
    "stage": "m3",
    "round": 10,
    "action": "removed"
@@ -8522,6 +8626,24 @@
    ],
    "end": [
     12.057,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.057,
+    46.9
+   ],
+   "end": [
+    11.957,
     46.9
    ],
    "width": 0.2,
@@ -8571,12 +8693,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -0.871,
-    30.121
+    1.7,
+    30.55
    ],
    "end": [
-    -0.8,
-    30.05
+    1.6,
+    30.55
    ],
    "width": 0.2,
    "length": 0.1,
@@ -8589,11 +8711,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -7.95,
+    -4.95,
     38.975
    ],
    "end": [
-    -8.425,
+    -5.425,
     38.5
    ],
    "width": 0.2032,
@@ -8601,14 +8723,14 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "1a4bc462-4d85-4359-8b07-47533da9d9c0",
+   "uuid": "ae06f1ae-d7c3-4529-9196-81a0b2adae4a",
    "kept": [
     [
-     -7.95,
+     -4.95,
      38.975
     ],
     [
-     -8.022,
+     -5.022,
      38.903
     ]
    ]
@@ -8618,11 +8740,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.7,
+    -3.7,
     39.245
    ],
    "end": [
-    -6.7,
+    -3.7,
     37.7
    ],
    "width": 0.2032,
@@ -8630,14 +8752,14 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "8240db36-c63d-4b4d-89ae-46d50b7625cb",
+   "uuid": "e4dc1d02-dab7-4897-9337-65ec367a7683",
    "kept": [
     [
-     -6.7,
+     -3.7,
      39.245
     ],
     [
-     -6.7,
+     -3.7,
      39.11
     ]
    ]
@@ -8659,7 +8781,7 @@
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "2bfa8921-6f21-42f1-9604-ef813664a3af",
+   "uuid": "5b8b38fd-af0c-446c-a3a1-0b62cdefe6b0",
    "kept": [
     [
      21.625,
@@ -8676,26 +8798,26 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.3,
-    30.05
+    1.7,
+    30.55
    ],
    "end": [
-    -0.8,
+    2.2,
     30.05
    ],
    "width": 0.2,
-   "length": 1.1,
+   "length": 0.707,
    "stage": "m3",
    "round": 11,
    "action": "shortened",
-   "uuid": "c19118ca-af89-4650-afd7-293260eaface",
+   "uuid": "b4081572-b138-4e73-9ff6-f191f77e5614",
    "kept": [
     [
-     0.3,
-     30.05
+     2.129,
+     30.121
     ],
     [
-     0.2,
+     2.2,
      30.05
     ]
    ]
@@ -8705,11 +8827,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -7.95,
+    -4.95,
     38.975
    ],
    "end": [
-    -8.022,
+    -5.022,
     38.903
    ],
    "width": 0.2032,
@@ -8741,11 +8863,11 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.3,
-    30.05
+    2.129,
+    30.121
    ],
    "end": [
-    0.2,
+    2.2,
     30.05
    ],
    "width": 0.2,
@@ -8759,11 +8881,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.956,
+    -3.956,
     38.975
    ],
    "end": [
-    -7.95,
+    -4.95,
     38.975
    ],
    "width": 0.2032,
@@ -8771,14 +8893,14 @@
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "16b95796-b614-4d89-bf24-d0fe3a76c03c",
+   "uuid": "b70a8659-6d74-467e-90cb-201f994951af",
    "kept": [
     [
-     -6.956,
+     -3.956,
      38.975
     ],
     [
-     -7.058,
+     -4.058,
      38.975
     ]
    ]
@@ -8800,7 +8922,7 @@
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "b0d39a49-46ea-4a4c-90c4-04df5df540cc",
+   "uuid": "60630a7a-777a-4cef-9874-afb4e15e6d7c",
    "kept": [
     [
      21.375,
@@ -8817,27 +8939,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.8,
-    30.55
+    3.3,
+    30.05
    ],
    "end": [
-    0.3,
+    2.2,
     30.05
    ],
    "width": 0.2,
-   "length": 0.707,
+   "length": 1.1,
    "stage": "m3",
    "round": 13,
    "action": "shortened",
-   "uuid": "44cbbaa3-a387-484d-bdc5-a05df9357c5d",
+   "uuid": "697b1cf9-b582-49fd-9d3e-02fd756729cf",
    "kept": [
     [
-     0.8,
-     30.55
+     3.3,
+     30.05
     ],
     [
-     0.729,
-     30.479
+     3.2,
+     30.05
     ]
    ]
   },
@@ -8846,11 +8968,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.956,
+    -3.956,
     38.975
    ],
    "end": [
-    -7.058,
+    -4.058,
     38.975
    ],
    "width": 0.2032,
@@ -8864,12 +8986,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.8,
-    30.55
+    3.3,
+    30.05
    ],
    "end": [
-    0.729,
-    30.479
+    3.2,
+    30.05
    ],
    "width": 0.2,
    "length": 0.1,
@@ -8882,11 +9004,11 @@
    "net": "/Top-Level Schematic/ADIN_PWR",
    "layer": "Internal 1",
    "start": [
-    -6.719,
+    -3.719,
     39.212
    ],
    "end": [
-    -6.956,
+    -3.956,
     38.975
    ],
    "width": 0.2032,
@@ -8894,14 +9016,14 @@
    "stage": "m3",
    "round": 15,
    "action": "shortened",
-   "uuid": "93c18a3a-5d5c-40f2-882f-d90eb39b732b",
+   "uuid": "b83ae237-19ec-420b-b738-46562cf94a55",
    "kept": [
     [
-     -6.719,
+     -3.719,
      39.212
     ],
     [
-     -6.832,
+     -3.832,
      39.099
     ]
    ]
@@ -8911,27 +9033,27 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.8,
-    31.822
-   ],
-   "end": [
-    0.8,
+    3.8,
     30.55
    ],
+   "end": [
+    3.3,
+    30.05
+   ],
    "width": 0.2,
-   "length": 1.272,
+   "length": 0.707,
    "stage": "m3",
    "round": 15,
    "action": "shortened",
-   "uuid": "ad36da46-6d40-4870-878d-7d9daa16531f",
+   "uuid": "d6c0265d-4d67-4a20-8130-849f5edd4c3d",
    "kept": [
     [
-     0.8,
-     31.822
+     3.8,
+     30.55
     ],
     [
-     0.8,
-     31.722
+     3.729,
+     30.479
     ]
    ]
   },
@@ -8940,12 +9062,12 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    0.8,
-    31.822
+    3.8,
+    30.55
    ],
    "end": [
-    0.8,
-    31.722
+    3.729,
+    30.479
    ],
    "width": 0.2,
    "length": 0.1,
@@ -8958,26 +9080,73 @@
    "net": "/Top-Level Schematic/~{ADIN_RST}",
    "layer": "Internal 1",
    "start": [
-    -0.476,
+    3.8,
+    31.822
+   ],
+   "end": [
+    3.8,
+    30.55
+   ],
+   "width": 0.2,
+   "length": 1.272,
+   "stage": "m3",
+   "round": 17,
+   "action": "shortened",
+   "uuid": "d90aef83-ac4a-48d4-b10f-a412922f1c46",
+   "kept": [
+    [
+     3.8,
+     31.822
+    ],
+    [
+     3.8,
+     31.722
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.8,
+    31.822
+   ],
+   "end": [
+    3.8,
+    31.722
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 18,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.524,
     33.098
    ],
    "end": [
-    0.8,
+    3.8,
     31.822
    ],
    "width": 0.2,
    "length": 1.805,
    "stage": "m3",
-   "round": 17,
+   "round": 19,
    "action": "shortened",
-   "uuid": "ce705d6b-721e-401e-94de-37ffe85a7e12",
+   "uuid": "9291a8e5-4507-47de-9a82-db52997d1384",
    "kept": [
     [
-     -0.476,
+     2.524,
      33.098
     ],
     [
-     -0.406,
+     2.594,
      33.027
     ]
    ]

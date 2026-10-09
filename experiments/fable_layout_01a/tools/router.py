@@ -159,6 +159,7 @@ class Grid:
         self.xrho = {r: 0.1 * r - 0.07 for r in set(self.BRADII) | set(self.PRADII) | set(self.NRADII)}
         self.made = {}           # net name -> board items this grid created
         self.hole = [0] * (W * H)   # cells where a new via centre would put its drill < 0.25 mm from an existing hole
+        self.padvia = [0] * (W * H) # cells where a new via's copper would touch an SMD pad (any net): no via in a pad (QE round 3 F1)
         self.exclude_ids = set()    # uuids of items no route may start from or end on (the Kelvin sense traces)
         self.same = set()           # extra net codes treated as "own net" during one route (a pair's second net)
         self.netcode = {}
@@ -332,7 +333,24 @@ class Grid:
                     j = y * W + x
                     if d < self.edge[j]:
                         self.edge[j] = d
-        # pads
+        # pads; an SMD pad also forbids new via centres within 0.3 + 0.05 mm of its copper (a plain via in a solder pad wicks
+        # solder: JLCPCB DFM row 30), test pads (bare copper, nothing soldered) and thermal pads (> 4 mm², where Sofar puts
+        # vias too) excepted
+        for f in b.GetFootprints():
+            for p in f.Pads():
+                if p.GetDrillSize().x == 0 and not f.GetReference().startswith("TP") and p.GetNetname():
+                    bb = p.GetBoundingBox()
+                    area = mm(bb.GetWidth()) * mm(bb.GetHeight())
+                    if area <= 4.0:
+                        layer = next((l for l in (pcbnew.F_Cu, pcbnew.B_Cu) if p.IsOnLayer(l)), None)
+                        if layer is not None:
+                            poly = p.GetEffectivePolygon(layer, pcbnew.ERROR_INSIDE)
+                            x0, y0, x1, y1 = mm(bb.GetLeft()) - 0.4, mm(bb.GetTop()) - 0.4, mm(bb.GetRight()) + 0.4, mm(bb.GetBottom()) + 0.4
+                            c0, c1 = cell(x0, y0), cell(x1, y1)
+                            for cy in range(max(c0[1], 0), min(c1[1], H - 1) + 1):
+                                for cx in range(max(c0[0], 0), min(c1[0], W - 1) + 1):
+                                    if mm(poly.Distance(V(*pos(cx, cy)))) < 0.3 + 0.05:
+                                        self.padvia[cy * W + cx] = 1
         for f in b.GetFootprints():
             for p in f.Pads():
                 net = self.netcode.get(p.GetNetname(), 0) if p.GetNetname() else BLOCK
@@ -431,6 +449,8 @@ class Grid:
         via sit 0.14 mm from R21's pad). drill: the via's real drill; the hole map assumes NEW_DRILL (0.3) plus the
         cell margin, so a cell it blocks is re-checked exactly with the real drill when it is given."""
         if self.edge[cy * W + cx] <= hw_cells:
+            return False
+        if self.padvia[cy * W + cx]:
             return False
         if self.hole[cy * W + cx] and (drill is None or not self.hole_free_exact(cx, cy, drill)):
             return False

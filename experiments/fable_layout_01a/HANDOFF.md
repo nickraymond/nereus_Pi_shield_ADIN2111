@@ -1,15 +1,16 @@
 # HANDOFF — layout experiment 1.a, for the session that continues it
 
-*Updated 2026-10-08 by session 2.b (the 49 × 68 board, M3 done, QE round 3 requested from the standing S7 QE session, which
+*Updated 2026-10-08 by session 2.b (the 49 × 68 board, M3 done, QE round 4 requested from the standing S7 QE session, which
 sends its report to the design session named in the request). Start with CLAUDE.md, BRIEF.md, OPTIONS.md, REPORT.md and
 LOG.md "M2, session 2"; this file is only the practical part.*
 
 ## State
 
 - Branch `experiment/fable-layout-01a`, PR #31 (draft, never merge), base `experiment/fable-layout-01`. Board md5
-  **f33491bc576a45f1a6c9f3d160e82dc1** (session 2.b, 49 × 68, `VARIANT=pocket`).
-- M2 and M3 at their bar (REPORT.md §1, §6): DRC 109 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 70
-  warnings, rules 0 / 0 / 0, pairs 9.39 / 8.77 / 19.93 / 20.61, DFM 30 / 31 (U6's DSBGA pads declared). Declared: REPORT §9.
+  **3a4dbf328b93efb1f5d06ab63fe45648** (session 2.b, 49 × 68, `VARIANT=pocket`, the 20 W inductor keep-out, U1 at x −1.7).
+- M2 and M3 at their bar (REPORT.md §1, §6): DRC 109 errors all Sofar's with reasons, 1 unconnected (J1's no-connect pair), 68
+  warnings, rules 0 / 0 / 0, pairs 9.39 / 8.77 / 20.19 / 20.87, DFM 30 / 31 (the small pads of U6 / U2 / U3 / U11 declared), 0 new
+  vias in solder pads. Declared: REPORT §9. QE round 3 CHANGES REQUESTED (fixed), round 4 requested.
 - Session 2.b closed with the OPTIONS addendum (A1–A5: the frame, the inserts, centre vs pocket in numbers, the jumpers, Nick's
   questions), DFM.md, the review pages (`out/review/`, `out/before_after/`) and QE round 3 requested.
 - Next for the centre placement (`VARIANT=centre`, kept in `m2_place.py`): a pair emitter that enters the transformer pads from

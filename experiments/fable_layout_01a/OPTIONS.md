@@ -303,3 +303,17 @@ LEDs + jumpers + fiducials) and the south band (17 × 4.5 + J5). Everything else
 2 mm. So moving all of it west needs either ≈ 9 mm more width on the west (a 58 mm board) or the cans on the bottom, which the
 3 mm bottom limit forbids (the Pi is there). Moving only the 3.3 V cell (L3, U5, C30 + C31) into the pocket is possible if U1 stays
 in the band — i.e. only in the centre layout, which does not route yet (A3). Recorded for Nick; not acted on.
+
+## A6. Nick's mid-run decisions after the first rebuild (2026-10-08, from the renders)
+
+1. **"Use the 20 W inductors as the keep-out, not the 50 W design."** The fitted SRF1260's courtyard (13.1 × 13.6 mm, from its
+   footprint) + the brief's 2 mm clearance replaces the 15.5 × 15.5 MSD1514 envelope (BRIEF §3). Centres unchanged. The band
+   between the inductors' clearances grows from 11.0 to **12.9 mm (y 25.55 … 38.45)** and 0.8 mm on each side; the GND plane's
+   island slots follow the inductors (`make_planes`); `check_fixed.py` checks the new rectangles. Recorded in `geom.py` (INDUCTOR_HALF,
+   ENVELOPES) and in BRIEF §3 as superseded.
+2. **"The ADIN is too close to the west edge; move it east a few mm."** The U1 / T1 / T2 group moves 3 mm east: U1 at (−1.7, 33.75)
+   (8.8 mm from the edge, was 5.8), T1 (6.7, 29.45), T2 (13.7, 33.75), R43 / TP8 with them; B18 stays at x 19.0 (J1's socket
+   courtyard at 23.43 bounds it). Nothing else limits the move: the insert keep-outs (r 4.8 around y 21.4 and 46.1) do not reach
+   U1's latitude. A bonus: Sofar's ~{ADIN_INT} via (mote y 107.509) lands 2.8 mm inside the board, so the ADIN region is the
+   mote's full one and the hand via of sessions 2 / 2.b is gone.
+Both rebuilt from M0 together with the QE round-3 fixes (no via in a solder pad; the small-pad 0.2 mm stubs of plane nets).

@@ -48,6 +48,8 @@ Change the scripts as you need; keep every check (`check_fixed.py`, `blockcheck.
 
 As experiment 01 §2: 46 × 65 mm, x −7.5 … 38.5, y 0 … 65, r 3, 6 layers in the mote's order. **Allowed growth:** the
 south edge may move up to 2.0 mm south (46 × 67). Report the final size. Prefer no growth.
+*Superseded 2026-10-08 (Nick, LESSONS.md §3, session 2.b): the board is **49 × 68** (3 mm wider, 3 mm taller); where the growth
+went and why is OPTIONS.md addendum A1 (x −10.5 … 38.5, y 0 … 68).*
 
 ## 3. Open questions from experiment 01 — review them first (M0)
 

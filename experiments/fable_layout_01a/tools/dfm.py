@@ -89,7 +89,7 @@ CHANGES = {
     "trace_outer": "nothing: the brief's class widths (0.2 signal, 0.15 only in a pad field) stand",
     "trace_inner": "nothing",
     "space": "min_clearance 0.09 written (JLC); the netclass 0.15 and the bus rule 0.35 govern",
-    "same_net": "measured (parallel runs of one net 0.03–0.25 mm apart); Sofar's bus leg at T1 pad 6 is the one item, declared",
+    "same_net": "measured (parallel runs of one net 0.03–0.25 mm apart); the count in the row is the board's (session 2's board had 1: Sofar's bus leg at T1 pad 6)",
     "via_drill": "min_through_hole_diameter 0.2 written (JLC's preferred figure)",
     "via_dia": "nothing: 0.45 stands",
     "via_ring": "nothing: 0.1 stands",
@@ -114,8 +114,8 @@ CHANGES = {
     "fiducial": "FID3 / FID4 (top) and FID1 / FID2 (bottom) moved to y 5.0 / 5.3 in the north band (pad edge ≥ 3.35 from the edge); FID5 / FID6 with the south band",
     "testpoints": "measured; the 6 overlaps are Sofar's inside copied blocks (declared)",
     "bom_cpl": "note only",
-    "smd_pad": "declared: U6's TPS62840 DSBGA footprint (Sofar's) has 0.23 mm pads at 0.4 mm pitch against JLC's 0.25; a footprint change is Nick's",
-    "via_in_pad": "none added; Sofar's thermal-pad vias under U1 (16) and the others are the mote's",
+    "smd_pad": "declared per footprint (QE round 3 F2): U6 TPS62840 DSBGA 0.23 (Sofar's), U2 / U3 AP22913 WLCSP 0.235 (Sofar's), U11 Texas_DRC0010J 0.24 (KiCad stock, this design's part); a footprint change is Nick's per part",
+    "via_in_pad": "QE round 3 F1: the router may no longer put a via where its copper touches an SMD solder pad (router.Grid.padvia; test pads and thermal pads excepted), the row is measured against the mote's copied vias, and fails on any new via in a solder pad (03b2adb had 64)",
     "board": "49 × 68 (Nick, 2026-10-08)",
 }
 
@@ -141,6 +141,12 @@ HISTORY = """
   38 padstack, 2 nonmirrored pin-1 marks, 2 silk_overlap inside Sofar's blocks), 1 unconnected, 4 parity. What changed per row is
   in the last column; the silk fix's record is `out/m2/dfm_fix.json` (59 lines widened, 42 lines over pads removed, 128 references
   resized, 85 moved, 38 hidden). Not done, judged and recorded in REPORT.md §8: a top GND pour, an impedance figure.
+- **2026-10-08, QE round 3 (03b2adb) and the rebuild after it:** the QE found row 30 passing on a hard-coded value with 64 new vias
+  in solder pads (F1) and row 29 naming one of four small-pad footprints (F2). Both rows are measured now (row 30 against the mote's
+  copied vias; row 29 per footprint), the router forbids a via wherever its copper would touch an SMD pad (test pads and thermal
+  pads excepted), and plane-net links from pads narrower than 1.0 mm run at 0.2 mm (BRIEF §6). Rebuilt from M0 with Nick's two
+  mid-run decisions (the 20 W inductors' courtyards + 2 mm as the keep-out; U1 3 mm further from the west edge): **30 pass, 1 fail**
+  (row 29), 0 new vias in solder pads, DRC 109 / 68 / 1 / 4.
 """
 
 
@@ -396,24 +402,44 @@ def measure(board, stage):
                 continue
             sn.append((g, a.GetNetname().rsplit("/", 1)[-1], board.GetLayerName(a.GetLayer()), geom.xy(a.GetStart())))
     sn.sort()
-    R["same_net"] = (len(sn), f"{len(sn)} gaps of 0.03–0.25 mm between runs of one net" + (f"; smallest {sn[0][0]:.3f} mm ({sn[0][1]} on {sn[0][2]} at ({sn[0][3][0]:.2f}, {sn[0][3][1]:.2f}))" if sn else ""), len(sn) == 0)
+    R["same_net"] = (len(sn), f"{len(sn)} gap(s) of 0.03–0.25 mm between parallel runs of one net" + (f"; smallest {sn[0][0]:.3f} mm ({sn[0][1]} on {sn[0][2]} at ({sn[0][3][0]:.2f}, {sn[0][3][1]:.2f}))" if sn else ""), len(sn) == 0)
     R["same_net_list"] = [(round(g, 3), n, l, (round(p[0], 2), round(p[1], 2))) for g, n, l, p in sn[:40]]
     # SMD pads
     smd = [p for p in pads if p.GetAttribute() == pcbnew.PAD_ATTRIB_SMD and p.GetNetname() and mm(p.GetSize(pcbnew.F_Cu).x) > 0]
     sp = min((min(mm(p.GetSize(pcbnew.F_Cu).x), mm(p.GetSize(pcbnew.F_Cu).y)), p) for p in smd)
-    R["smd_pad"] = (sp[0], f"{sp[0]:.2f} mm at {ref_of(sp[1])} (netted SMD pads; Sofar's unnumbered no-net T1/T2 pads not counted)", sp[0] >= 0.25)
-    # via in pad: the via's centre inside an SMD pad's copper
-    vip = []
+    small = {}
+    for p in smd:
+        w = min(mm(p.GetSize(pcbnew.F_Cu).x), mm(p.GetSize(pcbnew.F_Cu).y))
+        if w < 0.25:
+            r = p.GetParentFootprint().GetReference()
+            small.setdefault(r, [str(p.GetParentFootprint().GetFPID().GetLibItemName()), 0, w])
+            small[r][1] += 1
+            small[r][2] = min(small[r][2], w)
+    R["smd_pad"] = (sp[0], f"{sp[0]:.2f} mm at {ref_of(sp[1])}; every footprint under 0.25: " + "; ".join(f"{r} ({v[0]}: {v[1]} pads, {v[2]:.3f} mm)" for r, v in sorted(small.items())) +
+                    " (netted SMD pads; Sofar's unnumbered no-net T1/T2 pads not counted)", sp[0] >= 0.25)
+    R["small_pads"] = small
+    # via in pad: a via's copper touching an SMD pad on the pad's own layer (QE round 3 F1). Sofar's own vias (copied, matched by
+    # blockcheck's rule) and vias in test pads or thermal pads (> 4 mm²) are allowed; any other is a fail
+    import motecopy, check_rules
+    copied = check_rules.copied_ids(board, motecopy.Mote(board))
+    vip, vip_new = [], []
     for v in vias:
         vb = bb_of(v)
         for p in smd:
-            if not near(vb, bb_of(p), 0.0):
+            if not near(vb, bb_of(p), 0.1):
                 continue
             for l in outer:
-                if p.IsOnLayer(l) and p.GetEffectivePolygon(l, pcbnew.ERROR_INSIDE).Contains(v.GetPosition()):
-                    vip.append((ref_of(p), where(v)))
+                if p.IsOnLayer(l) and p.GetEffectiveShape(l).Collide(v.GetEffectiveShape(l), 0):
+                    f = p.GetParentFootprint()
+                    pb = p.GetBoundingBox()
+                    kind = "sofar" if v.m_Uuid.AsString() in copied else ("testpad" if f.GetReference().startswith("TP") else ("thermal" if mm(pb.GetWidth()) * mm(pb.GetHeight()) > 4.0 else "NEW"))
+                    vip.append((ref_of(p), kind))
+                    if kind == "NEW":
+                        vip_new.append(ref_of(p))
                     break
-    R["via_in_pad"] = (len(vip), f"{len(vip)} vias with their centre inside an SMD pad: " + ", ".join(f"{r} {n}" for r, n in sorted(collections.Counter(r for r, _ in vip).items())), True)
+    kinds = collections.Counter(k for _, k in vip)
+    R["via_in_pad"] = (len(vip_new), f"{len(vip)} vias touching an SMD pad: Sofar's {kinds.get('sofar', 0)}, in test pads {kinds.get('testpad', 0)}, in thermal pads {kinds.get('thermal', 0)}, "
+                       f"**new vias in solder pads {len(vip_new)}**" + (f" ({', '.join(sorted(set(vip_new)))})" if vip_new else ""), len(vip_new) == 0)
     # silk
     thin, texts = [], []
     for f in board.GetFootprints():

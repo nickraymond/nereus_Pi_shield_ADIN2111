@@ -60,9 +60,14 @@ import os
 # (its 2 mm clearance then touches the Pi's H3 / H4 standoff keep-outs at y 58.5), so the band grows to 12.5 mm.
 J5_WEST = os.environ.get("J5WEST") == "1"
 L1_EXTRA = 1.5 if J5_WEST else 0.0
-ENVELOPES = {"L2": (4.99, 9.0, 20.49, 24.5), "L1": (4.99, 39.5 + L1_EXTRA, 20.49, 55.0 + L1_EXTRA)}   # 50 W inductor envelopes (x0,y0,x1,y1); L1 3 mm south
+# Nick, 2026-10-08 (mid-run, session 2.b): "we should only be using the 20 W rated inductors for this board and not worry about
+# the 50 W design yet" — the keep-out is the fitted SRF1260's own courtyard (13.1 × 13.6, from its footprint) + the brief's 2 mm,
+# not the brief's 15.5 × 15.5 MSD1514 envelope (BRIEF §3 superseded). Centres unchanged: L2 (12.74, 16.75), L1 (12.74, 47.25).
+INDUCTOR_HALF = (6.55, 6.8)
+ENVELOPES = {"L2": (12.74 - INDUCTOR_HALF[0], 16.75 - INDUCTOR_HALF[1], 12.74 + INDUCTOR_HALF[0], 16.75 + INDUCTOR_HALF[1]),
+             "L1": (12.74 - INDUCTOR_HALF[0], 47.25 + L1_EXTRA - INDUCTOR_HALF[1], 12.74 + INDUCTOR_HALF[0], 47.25 + L1_EXTRA + INDUCTOR_HALF[1])}
 ENVELOPE_CLEAR = 2.0
-BAND = (ENVELOPES["L2"][3] + ENVELOPE_CLEAR, ENVELOPES["L1"][1] - ENVELOPE_CLEAR)   # y 26.5 … 37.5 between the envelopes' clearances
+BAND = (ENVELOPES["L2"][3] + ENVELOPE_CLEAR, ENVELOPES["L1"][1] - ENVELOPE_CLEAR)   # y 25.55 … 38.45 (12.9 mm) between the inductors' clearances
 # J5 JST GH SM02B-GHS-TB (Nick, 2026-10-07: keep the schematic's JST part, not the brief's Molex). Stock footprint:
 # origin between the two signal pads (local y -1.85), mechanical tab pads at local y 1.35 (copper to +2.7), housing
 # front (mating face) at local y +2.45, courtyard x ±3.525, y -3.245 … +3.245. Rotation 0 faces south; the origin

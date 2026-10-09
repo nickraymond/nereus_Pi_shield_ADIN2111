@@ -244,3 +244,21 @@ step-2 entry above; the result in REPORT.md.
   19 nets changed by ≥ 2 mm); `tools/summary.py` → `out/m4/summary.json` (the numbers every page and the report quote).
 - New tools this session: `dfm.py`, `dfm_fix.py`, `trial.sh`, `ba_data.py`, `summary.py`; `build_all.sh` runs `dfm_fix.py` and a
   DRC after placement and takes `VARIANT`.
+
+
+## Session 2.b, QE round 3 fixes and Nick's two decisions from the renders (2026-10-08)
+
+QE round 3 (`qe/S7b_01a_round3.md`): CHANGES REQUESTED — F1 MAJOR: DFM row 30 passed on a hard-coded True while 64 new vias (the
+router's stitching and escape vias) sat in SMD solder pads; F2: row 29 named only U6 of four footprints under JLC's 0.25 mm pad;
+N1–N4 nits. Fixed: `router.Grid.padvia` (no new via where its copper would touch an SMD pad; test pads and thermal pads > 4 mm²
+excepted), DFM rows 29 / 30 measured (row 30 against the mote's copied vias: 34 vias touch pads, Sofar's 16 / test pads 10 / thermal
+8, new in solder pads 0), the small-pad 0.2 mm stub rule for plane nets (`m4_route.small_stub_class`, `check_rules.py` counts them
+per pad with the rail clearance: R41.1 was open with a 0.5 mm stub and no via in its pad), BRIEF §2 dated note, the BM1_N stub
+exclusion reason 0.25 mm, row 4's text, the lib_footprint_mismatch note for Nick (REPORT §9).
+
+Nick, from the first rebuild's renders (mid-run, recorded in OPTIONS A6): the keep-out is the fitted 20 W inductor's courtyard +
+2 mm, not the 50 W envelope (`geom.INDUCTOR_HALF`; the band 25.55 … 38.45, 12.9 mm; BRIEF §3 superseded), and U1 goes 3 mm east
+(x −1.7, 8.8 mm from the edge; T1 / T2 / R43 / TP8 with it; the ADIN region is the mote's full one, no hand via). Rebuilt from M0:
+board md5 **3a4dbf328b93efb1f5d06ab63fe45648**; pairs 9.39 / 8.77 / 20.19 / 20.87 (15 / 15 / 24 / 24 segments), SPI 31.3 / 32.2 / 37.5 / 39.1, rules 0 / 0 / 0 (6
+small-pad stubs listed), DRC 109 (109 with reasons) / 68 / 1 / 4, blockcheck 0 / 128, test_pair ALL OK, DFM 30 / 1, 37 references
+hidden. Pages and the summary regenerated; QE round 4 requested.

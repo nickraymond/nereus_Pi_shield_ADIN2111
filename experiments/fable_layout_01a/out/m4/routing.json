@@ -104,7 +104,7 @@
   {
    "net": "BM2_DATA_P",
    "port": 2,
-   "total_mm": 19.93,
+   "total_mm": 20.19,
    "limit_mm": 21.3,
    "vias": 2,
    "ok": true,
@@ -113,7 +113,7 @@
   {
    "net": "BM2_DATA_N",
    "port": 2,
-   "total_mm": 20.61,
+   "total_mm": 20.87,
    "limit_mm": 21.3,
    "vias": 2,
    "ok": true,
@@ -124,7 +124,7 @@
   {
    "net": "1V8",
    "via": [
-    -4.2,
+    -1.2,
     39.9
    ],
    "fanout": "U2.A2"
@@ -132,7 +132,7 @@
   {
    "net": "ADIN_PWR",
    "via": [
-    -3.7,
+    -0.7,
     39.5
    ],
    "fanout": "U2.B2"
@@ -140,7 +140,7 @@
   {
    "net": "3V3",
    "via": [
-    -7.4,
+    -4.4,
     39.3
    ],
    "fanout": "U3.A2"
@@ -148,7 +148,7 @@
   {
    "net": "VBUS",
    "via": [
-    33.9,
+    34.0,
     53.0
    ],
    "pre": true
@@ -164,7 +164,7 @@
   {
    "net": "GND",
    "via": [
-    14.7,
+    14.9,
     43.0
    ],
    "pre": true
@@ -172,23 +172,15 @@
   {
    "net": "GND",
    "via": [
-    29.6,
-    56.0
+    16.3,
+    63.0
    ],
    "pre": true
   },
   {
    "net": "GND",
    "via": [
-    35.7,
-    34.4
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
-    36.3,
+    34.8,
     53.6
    ],
    "pre": true
@@ -196,8 +188,24 @@
   {
    "net": "GND",
    "via": [
-    15.6,
-    63.0
+    9.9,
+    1.4
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.0,
+    53.3
+   ],
+   "pre": true
+  },
+  {
+   "net": "GND",
+   "via": [
+    31.0,
+    55.5
    ],
    "pre": true
   },
@@ -212,32 +220,24 @@
   {
    "net": "GND",
    "via": [
-    10.7,
-    1.4
-   ],
-   "pre": true
-  },
-  {
-   "net": "GND",
-   "via": [
     20.9,
-    64.2
+    65.3
    ],
    "pre": true
   },
   {
    "net": "GND",
    "via": [
-    31.4,
-    53.0
+    35.0,
+    34.4
    ],
    "pre": true
   },
   {
    "net": "GND",
    "via": [
-    31.4,
-    55.8
+    30.2,
+    56.1
    ],
    "pre": true
   },
@@ -260,8 +260,8 @@
   {
    "net": "VBUS",
    "via": [
-    34.8,
-    54.6
+    34.9,
+    54.5
    ],
    "pre": true
   },
@@ -269,22 +269,14 @@
    "net": "VBUS",
    "via": [
     20.9,
-    60.8
+    60.9
    ],
    "pre": true
   },
   {
    "net": "VBUS",
    "via": [
-    37.0,
-    44.7
-   ],
-   "pre": true
-  },
-  {
-   "net": "VBUS",
-   "via": [
-    9.8,
+    10.6,
     63.8
    ],
    "pre": true
@@ -292,8 +284,8 @@
   {
    "net": "VBUS",
    "via": [
-    21.0,
-    62.5
+    21.4,
+    61.2
    ],
    "pre": true
   },
@@ -301,15 +293,23 @@
    "net": "VBUS",
    "via": [
     37.0,
-    42.3
+    42.5
    ],
    "pre": true
   },
   {
    "net": "VBUS",
    "via": [
-    34.7,
-    52.9
+    35.5,
+    51.1
+   ],
+   "pre": true
+  },
+  {
+   "net": "VBUS",
+   "via": [
+    37.0,
+    45.5
    ],
    "pre": true
   },
@@ -324,7 +324,7 @@
   {
    "net": "3V3",
    "via": [
-    37.5,
+    36.7,
     34.4
    ],
    "pre": true
@@ -354,8 +354,8 @@
   {
    "net": "GND",
    "via": [
-    8.9,
-    59.3
+    10.6,
+    58.5
    ]
   },
   {
@@ -382,15 +382,15 @@
   {
    "net": "VBUS",
    "via": [
-    8.8,
-    61.6
+    10.8,
+    62.8
    ]
   },
   {
    "net": "VBUS",
    "via": [
-    20.0,
-    18.9
+    21.4,
+    19.4
    ]
   },
   {
@@ -406,42 +406,42 @@
   {
    "net": "ADIN_SCK",
    "class": "signal (SPI lane, Internal 2, first)",
-   "length_new_mm": 34.2
+   "length_new_mm": 31.3
   },
   {
    "net": "ADIN_MOSI",
    "class": "signal (SPI lane, Internal 2, first)",
-   "length_new_mm": 35.1
+   "length_new_mm": 32.2
   },
   {
    "net": "ADIN_MISO",
    "class": "signal (SPI lane, Internal 2, first)",
-   "length_new_mm": 40.4
+   "length_new_mm": 37.5
   },
   {
    "net": "~{ADIN_CS}",
    "class": "signal (SPI lane, Internal 2, first)",
-   "length_new_mm": 41.0
+   "length_new_mm": 39.1
   },
   {
    "net": "BM1_P",
    "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
-   "length_new_mm": 16.0
+   "length_new_mm": 15.5
   },
   {
    "net": "BM1_N",
    "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
-   "length_new_mm": 23.9
+   "length_new_mm": 24.5
   },
   {
    "net": "BM2_P",
    "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
-   "length_new_mm": 17.4
+   "length_new_mm": 19.2
   },
   {
    "net": "BM2_N",
    "class": "busleg (data leg, 0.2 mm; 0.35 from every other net incl. the opposite leg)",
-   "length_new_mm": 12.3
+   "length_new_mm": 13.9
   },
   {
    "net": "5V_PI",
@@ -461,7 +461,7 @@
   {
    "net": "Net-(U11-UVLO)",
    "class": "signal",
-   "length_new_mm": 4.0
+   "length_new_mm": 4.6
   },
   {
    "net": "~{PAYLOAD_FAULT}",
@@ -471,52 +471,52 @@
   {
    "net": "PAYLOAD_EN",
    "class": "signal",
-   "length_new_mm": 15.6
+   "length_new_mm": 18.0
   },
   {
    "net": "VBUS_OUT",
    "class": "payload",
-   "length_new_mm": 23.3
+   "length_new_mm": 23.2
   },
   {
    "net": "~{ADIN_INT}",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 40.1
+   "length_new_mm": 36.8
   },
   {
    "net": "~{ADIN_RST}",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 29.1
+   "length_new_mm": 26.1
   },
   {
    "net": "3V3",
    "class": "rail (plane + pocket)",
-   "length_new_mm": 99.6
+   "length_new_mm": 96.7
   },
   {
    "net": "1V8",
    "class": "rail",
-   "length_new_mm": 28.5
+   "length_new_mm": 23.8
   },
   {
    "net": "ADIN_PWR",
    "class": "signal (pocket corridor)",
-   "length_new_mm": 40.1
+   "length_new_mm": 40.6
   },
   {
    "net": "~{ADIN_P2_LED1}",
    "class": "signal (LED, north)",
-   "length_new_mm": 42.3
+   "length_new_mm": 40.7
   },
   {
    "net": "~{ADIN_P1_LED1}",
    "class": "signal (LED, north)",
-   "length_new_mm": 37.0
+   "length_new_mm": 35.7
   },
   {
    "net": "ADIN_VDDIO",
    "class": "rail (island + LED block)",
-   "length_new_mm": 31.0
+   "length_new_mm": 32.8
   },
   {
    "net": "ADIN_LED_VDD",
@@ -536,7 +536,7 @@
   {
    "net": "Net-(C19-Pad2)",
    "class": "signal",
-   "length_new_mm": 0.8
+   "length_new_mm": 0.9
   },
   {
    "net": "Net-(C16-Pad1)",
@@ -551,7 +551,7 @@
   {
    "net": "Net-(D8-A)",
    "class": "signal",
-   "length_new_mm": 1.3
+   "length_new_mm": 2.5
   },
   {
    "net": "Net-(D9-A)",
@@ -576,7 +576,7 @@
   {
    "net": "Net-(U4-ALERT)",
    "class": "signal",
-   "length_new_mm": 3.4
+   "length_new_mm": 6.6
   },
   {
    "net": "5V_Buck_SW",
@@ -589,22 +589,17 @@
    "length_new_mm": 0.0
   },
   {
-   "net": "3V3_Buck_SW",
-   "class": "signal (plane leftovers)",
-   "length_new_mm": 0.0
-  },
-  {
    "net": "3V3",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
-   "net": "GND",
-   "class": "rail (plane leftovers)",
+   "net": "3V3_Buck_SW",
+   "class": "signal (plane leftovers)",
    "length_new_mm": 0.0
   },
   {
-   "net": "ADIN_VDDIO",
+   "net": "GND",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
@@ -615,6 +610,11 @@
   },
   {
    "net": "ADIN_AVDD",
+   "class": "rail (plane leftovers)",
+   "length_new_mm": 0.0
+  },
+  {
+   "net": "ADIN_VDDIO",
    "class": "rail (plane leftovers)",
    "length_new_mm": 0.0
   },
@@ -631,29 +631,29 @@
   }
  ],
  "notes": [
-  "ADIN block area (prestitch skipped inside): (-10.3, 27.5, 3.5, 40.6)",
+  "ADIN block area (prestitch skipped inside): (-7.3, 27.5, 6.5, 40.6)",
   "grid 491x681 cells at 0.1 mm built in 17 s",
   "Kelvin sense traces protected: 20 tracks + U4 pads 1/2 excluded from routing starts/ends and stitching",
   "3 regulator balls fanned out to vias before the pairs (U2, U3)",
   "pair port 1: pins out (0, -1), pads in (1, 0)",
   "pair port 1: start variants ['Top', 'In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far)', 'start swap (side 1)', 'start swap (side -1)']; via pair at the pads' approach does not fit",
   "pair port 1: candidate Top, swing 1: passes the board check, P 9.84 / N 8.88 mm, min P-N clearance 0.150",
-  "pair port 1: candidate Top, swing -1 FAILED the board check (['TRACK BM1_DATA_P vs VIA BM1_DATA_N on Top Layer at (-3.30, 28.98): 0.000 mm', 'TRACK BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-3.30, 28.98): 0.000 mm', 'TRACK BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-3.30, 28.98): 0.000 mm']); 40 items removed",
+  "pair port 1: candidate Top, swing -1 FAILED the board check (['TRACK BM1_DATA_P vs VIA BM1_DATA_N on Top Layer at (-0.30, 28.98): 0.000 mm', 'TRACK BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-0.30, 28.98): 0.000 mm', 'TRACK BM1_DATA_P vs TRACK BM1_DATA_N on Top Layer at (-0.30, 28.98): 0.000 mm']); 40 items removed",
   "pair port 1: candidate In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far), swing 1: passes the board check, P 9.73 / N 8.92 mm, min P-N clearance 0.150",
   "pair port 1: candidate In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far), swing -1: passes the board check, P 9.39 / N 8.77 mm, min P-N clearance 0.150",
   "pair port 1: candidate start swap (side 1), swing 1: passes the board check, P 9.62 / N 10.44 mm, min P-N clearance 0.150",
   "pair port 1: candidate start swap (side -1), swing 1: passes the board check, P 9.62 / N 10.44 mm, min P-N clearance 0.150",
   "pair port 1: no candidate keeps the 0.3 mm margin under the 9.5 mm limit (best 9.39)",
-  "pair port 1: parity 1, In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far), swing -1, starts on Internal 1, ends on Top Layer, swap figures at [((-2.0999999999999996, 28.1), -1)]; board check ok, min P-N clearance 0.150 mm",
+  "pair port 1: parity 1, In1, vias at 1.0 / 1.53 mm from the pins (BM1_DATA_P far), swing -1, starts on Internal 1, ends on Top Layer, swap figures at [((0.9000000000000004, 28.1), -1)]; board check ok, min P-N clearance 0.150 mm",
   "pair port 1: {'/Top-Level Schematic/BM1_DATA_P': (15, 2, 9.391191523173443), '/Top-Level Schematic/BM1_DATA_N': (15, 2, 8.768033667460841)}",
   "pair port 2: pins out (0, 1), pads in (1, 0)",
-  "pair port 2: start variants ['Top', 'start swap (side 1)', 'start swap (side -1)']; via pair at the pads' approach fits",
-  "pair port 2: candidate Top, swing 1: passes the board check, P 19.93 / N 20.61 mm, min P-N clearance 0.150",
-  "pair port 2: candidate Top, swing -1: passes the board check, P 19.93 / N 20.61 mm, min P-N clearance 0.150",
-  "pair port 2: candidate start swap (side 1), swing 1: passes the board check, P 20.83 / N 20.18 mm, min P-N clearance 0.150",
-  "pair port 2: candidate start swap (side -1), swing 1: passes the board check, P 20.83 / N 20.18 mm, min P-N clearance 0.150",
-  "pair port 2: parity 1, Top, swing -1, starts on Top Layer, ends on Internal 1, swap figures at [((6.600000000000001, 34.800000000000004), -1)]; board check ok, min P-N clearance 0.150 mm",
-  "pair port 2: {'/Top-Level Schematic/BM2_DATA_P': (18, 2, 19.92879009086249), '/Top-Level Schematic/BM2_DATA_N': (18, 2, 20.61018534831585)}",
+  "pair port 2: start variants ['Top', 'start swap (side 1)', 'start swap (side -1)']; via pair at the pads' approach does not fit",
+  "pair port 2: candidate Top, swing 1: passes the board check, P 20.19 / N 20.87 mm, min P-N clearance 0.150",
+  "pair port 2: candidate Top, swing -1: passes the board check, P 20.19 / N 20.87 mm, min P-N clearance 0.150",
+  "pair port 2: candidate start swap (side 1), swing 1: passes the board check, P 21.08 / N 20.45 mm, min P-N clearance 0.150",
+  "pair port 2: candidate start swap (side -1), swing 1: passes the board check, P 21.08 / N 20.45 mm, min P-N clearance 0.150",
+  "pair port 2: parity 1, Top, swing -1, starts on Top Layer, ends on Top Layer, swap figures at [((9.900000000000002, 34.800000000000004), -1)]; board check ok, min P-N clearance 0.150 mm",
+  "pair port 2: {'/Top-Level Schematic/BM2_DATA_P': (24, 2, 20.18565420835669), '/Top-Level Schematic/BM2_DATA_N': (24, 2, 20.87387159917267)}",
   "1 VBUS pads pre-stitched (via within 1.5 mm) before the signals (U11 only)",
   "1 intra-footprint GND links (0.15 mm)",
   "12 GND pads pre-stitched (via within 1.5 mm) before the signals",
@@ -662,6 +662,6 @@
   "2 3V3 pads pre-stitched (via within 1.5 mm) before the signals",
   "0 5V_PI pads pre-stitched (via within 1.5 mm) before the signals",
   "1 zone-island vias (zone_stitch)",
-  "total 184 s"
+  "total 218 s"
  ]
 }

@@ -1,7 +1,7 @@
 {
  "trace_outer": [
   0.15,
-  "0.150 mm, ADIN_PWR on 6 Bottom Layer at (-4.15, 39.30)",
+  "0.150 mm, ADIN_PWR on 6 Bottom Layer at (-1.15, 39.30)",
   true
  ],
  "trace_inner": [
@@ -11,12 +11,12 @@
  ],
  "via_drill": [
   0.2,
-  "0.200 mm (278 vias; drills {0.2: 136, 0.3: 105, 0.254: 28, 0.25: 9})",
+  "0.200 mm (265 vias; drills {0.3: 99, 0.2: 131, 0.254: 28, 0.25: 7})",
   true
  ],
  "via_dia": [
   0.45,
-  "0.450 mm (diameters {0.45: 136, 0.6: 133, 0.5: 9})",
+  "0.450 mm (diameters {0.6: 127, 0.45: 131, 0.5: 7})",
   true
  ],
  "via_ring": [
@@ -31,12 +31,12 @@
  ],
  "npth": [
   2.7,
-  "2.70 mm at H4.- (8 NPTH: [2.7, 4.4])",
+  "2.70 mm at H2.- (8 NPTH: [2.7, 4.4])",
   true
  ],
  "h2h_via": [
-  0.25990195135927874,
-  "0.260 mm between vias at (33.90, 56.30) / (33.80, 55.80); via\u2013pad 0.640 mm (J1.34)",
+  0.28309518948453216,
+  "0.283 mm between vias at (21.40, 61.20) / (20.90, 60.90); via\u2013pad 0.640 mm (J1.34)",
   true
  ],
  "h2h_pad": [
@@ -46,38 +46,60 @@
  ],
  "hole_cu_via": [
   0.274994,
-  "outer 0.275 (via (-0.50, 31.90) vs via [~{ADIN_P1_LED1}] on Top Layer); inner 0.275 (via (-0.50, 31.90) vs via [~{ADIN_P1_LED1}] on Internal 1)",
+  "outer 0.275 (via (2.50, 31.90) vs via [~{ADIN_P1_LED1}] on Top Layer); inner 0.275 (via (2.50, 31.90) vs via [~{ADIN_P1_LED1}] on Internal 1)",
   true
  ],
  "hole_cu_pth": [
   0.30049799999999993,
-  "outer 0.590 (J1.8 (27.77, 15.99) vs track [I2C1_SDA] on 6 Bottom Layer); inner 0.300 (MTG4.0 (34.50, 64.50) vs zone GND on GND Plane)",
+  "outer 0.578 (J1.19 (25.23, 31.23) vs via [ADIN_PWR] on Top Layer); inner 0.300 (MTG3.0 (-6.50, 64.50) vs zone GND on GND Plane)",
   true
  ],
  "hole_cu_npth": [
   0.23,
-  "outer 0.230 (MP3.- (-6.31, 12.00) vs arc [BM2_P] on Top Layer); inner 0.250 (H4.- (26.50, 61.50) vs zone GND on GND Plane)",
+  "outer 0.230 (MP2.- (-6.31, 55.50) vs arc [BM1_N] on Top Layer); inner 0.250 (H2.- (26.50, 3.50) vs zone GND on GND Plane)",
   true
  ],
  "edge": [
   0.49951171875,
-  "0.500 mm: MTG4.0 [unconnected-(MTG4-Pad0)] at (34.50, 64.50)",
+  "0.500 mm: MTG3.0 [unconnected-(MTG3-Pad0)] at (-6.50, 64.50)",
   true
  ],
  "same_net": [
   0,
-  "0 gaps of 0.03\u20130.25 mm between runs of one net",
+  "0 gap(s) of 0.03\u20130.25 mm between parallel runs of one net",
   true
  ],
  "same_net_list": [],
  "smd_pad": [
   0.23,
-  "0.23 mm at U6.A1 (netted SMD pads; Sofar's unnumbered no-net T1/T2 pads not counted)",
+  "0.23 mm at U6.A1; every footprint under 0.25: U11 (Texas_DRC0010J: 10 pads, 0.240 mm); U2 (AP22913CN4-7-Footprint-1: 4 pads, 0.235 mm); U3 (AP22913CN4-7-Footprint-1: 4 pads, 0.235 mm); U6 (FP-YBG0006-MFG: 6 pads, 0.230 mm) (netted SMD pads; Sofar's unnumbered no-net T1/T2 pads not counted)",
   false
  ],
+ "small_pads": {
+  "U11": [
+   "Texas_DRC0010J",
+   10,
+   0.24
+  ],
+  "U6": [
+   "FP-YBG0006-MFG",
+   6,
+   0.23
+  ],
+  "U2": [
+   "AP22913CN4-7-Footprint-1",
+   4,
+   0.235
+  ],
+  "U3": [
+   "AP22913CN4-7-Footprint-1",
+   4,
+   0.235
+  ]
+ },
  "via_in_pad": [
-  80,
-  "80 vias with their centre inside an SMD pad: C20.1 1, C21.1 1, C21.2 1, C23.1 1, C31.1 1, C31.2 2, C33.1 1, D1.1 1, D10.1 1, D3.1 3, D5.1 1, D5.2 1, D8.1 1, D9.1 1, J5.1 1, J5.2 1, JP2.1 1, JP2.2 1, L1.1 1, L1.3 2, L1.4 1, L2.1 1, L2.2 2, L2.4 1, R11.1 1, R11.2 1, R12.1 1, R15.2 1, R16.1 1, R19.2 1, R26.2 2, R27.2 1, R3.2 1, R34.1 1, R35.2 1, R41.2 1, R42.2 1, R43.1 1, R44.1 1, R45.1 1, R46.1 1, R7.1 1, R7.2 1, R8.1 1, T2.7 1, TP13.1 1, TP20.1 2, TP21.1 1, TP24.1 1, TP36.1 2, TP8.1 2, U1.49 16, U11.11 1, U11.4 1, U11.5 1, U11.6 1",
+  0,
+  "34 vias touching an SMD pad: Sofar's 16, in test pads 10, in thermal pads 8, **new vias in solder pads 0**",
   true
  ],
  "silk_line": [
@@ -92,15 +114,15 @@
  ],
  "balance": [
   0,
-  "Top Layer 24.4 %; Internal 1 9.6 %; GND Plane 79.9 %; Internal 2 14.8 %; PWR Plane 66.8 %; 6 Bottom Layer 81.3 %",
+  "Top Layer 24.3 %; Internal 1 9.6 %; GND Plane 80.5 %; Internal 2 14.6 %; PWR Plane 67.1 %; 6 Bottom Layer 81.3 %",
   true
  ],
  "balance_table": {
-  "Top Layer": 24.4,
+  "Top Layer": 24.3,
   "Internal 1": 9.6,
-  "GND Plane": 79.9,
-  "Internal 2": 14.8,
-  "PWR Plane": 66.8,
+  "GND Plane": 80.5,
+  "Internal 2": 14.6,
+  "PWR Plane": 67.1,
   "6 Bottom Layer": 81.3
  },
  "pours": [
@@ -110,7 +132,7 @@
  ],
  "thermal": [
   0,
-  "Top Layer 5V_PI: solid; Top Layer 3V3: solid; 6 Bottom Layer GND: solid; 6 Bottom Layer 5V_PI: solid; GND Plane GND: thermal; Internal 2 5V_PI: thermal; PWR Plane P_IN: thermal; PWR Plane VBUS: thermal; PWR Plane 3V3: thermal",
+  "Top Layer 5V_PI: solid; Top Layer 3V3: solid; 6 Bottom Layer GND: solid; 6 Bottom Layer 5V_PI: solid; GND Plane GND: thermal; Internal 2 5V_PI: thermal; PWR Plane P_IN: thermal; PWR Plane 3V3: thermal; PWR Plane VBUS: thermal",
   true
  ],
  "zones": [
@@ -128,13 +150,13 @@
   ],
   [
    "Top Layer",
-   "3V3_Buck_SW",
+   "3V3",
    "solid",
    ""
   ],
   [
    "Top Layer",
-   "3V3",
+   "3V3_Buck_SW",
    "solid",
    ""
   ],
@@ -164,15 +186,15 @@
   ],
   [
    "PWR Plane",
-   "ADIN_VDDIO",
-   "solid",
-   ""
-  ],
-  [
-   "PWR Plane",
    "P_IN",
    "thermal",
    "P_IN island (In4) under port 2 east"
+  ],
+  [
+   "PWR Plane",
+   "3V3",
+   "thermal",
+   "3V3 island (In4) at the 3.3 V buck output"
   ],
   [
    "PWR Plane",
@@ -182,15 +204,15 @@
   ],
   [
    "PWR Plane",
-   "VBUS",
-   "thermal",
-   "VBUS plane (In4)"
+   "ADIN_VDDIO",
+   "solid",
+   ""
   ],
   [
    "PWR Plane",
-   "3V3",
+   "VBUS",
    "thermal",
-   "3V3 island (In4) at the 3.3 V buck output"
+   "VBUS plane (In4)"
   ]
  ],
  "fiducial": [
@@ -268,15 +290,10 @@
  ],
  "testpoints": [
   16,
-  "16 test points; 6 courtyard overlaps, 6 of them Sofar's inside a copied block (TP22/R8, TP21/U6, TP2/R3, TP5/R13, TP13/R19, TP1/C10), 0 of this board's placement; smallest gap otherwise 0.04 mm",
+  "16 test points; 6 courtyard overlaps, 6 of them Sofar's inside a copied block (TP21/U6, TP2/R3, TP22/R8, TP5/R13, TP13/R19, TP1/C10), 0 of this board's placement; smallest gap otherwise 0.04 mm",
   true
  ],
  "testpoint_table": [
-  [
-   "TP22",
-   0.0,
-   "R8"
-  ],
   [
    "TP21",
    0.0,
@@ -286,6 +303,11 @@
    "TP2",
    0.0,
    "R3"
+  ],
+  [
+   "TP22",
+   0.0,
+   "R8"
   ],
   [
    "TP5",
@@ -318,14 +340,14 @@
    "R12"
   ],
   [
-   "TP24",
-   0.51,
-   "TP20"
-  ],
-  [
    "TP20",
    0.51,
    "TP24"
+  ],
+  [
+   "TP24",
+   0.51,
+   "TP20"
   ],
   [
    "TP8",

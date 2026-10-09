@@ -82,7 +82,20 @@ def main(out_path=None):
         if cls == "bus" and (t.GetClass() != "PCB_TRACK" or mm(t.GetWidth()) < 1.0):
             return "signal"          # the 0.2 mm data / TVS legs of the bus nets (and their vias) keep the mote's sizes (§6)
         return cls
-    thin_len = {}
+    thin_len, stub_len = {}, {}
+    small_pads = [p for f in board.GetFootprints() for p in f.Pads() if p.GetDrillSize().x == 0 and p.GetNetname() and min(mm(p.GetSize(pcbnew.F_Cu).x), mm(p.GetSize(pcbnew.F_Cu).y)) < 1.0]
+
+    def small_stub(t):
+        """The small pad (narrower than 1.0 mm) a 0.2 mm new segment of a power-class net belongs to, within 2.5 mm on its layer
+        (BRIEF §6 'small decoupling stubs keep the mote's 0.2 mm'; the via may not sit in the pad, DFM row 30), else None."""
+        l = t.GetLayer()
+        best = None
+        for p in small_pads:
+            if p.GetNetname() == t.GetNetname() and p.IsOnLayer(l):
+                d = min(geom.dist(geom.xy(p.GetPosition()), geom.xy(t.GetStart())), geom.dist(geom.xy(p.GetPosition()), geom.xy(t.GetEnd())))
+                if d < 2.5 and (best is None or d < best[0]):
+                    best = (d, p.GetParentFootprint().GetReference() + "." + p.GetNumber())
+        return best[1] if best else None
     for t in new:
         if t.GetClass() != "PCB_TRACK":
             continue
@@ -91,6 +104,10 @@ def main(out_path=None):
         key = (cls, round(w, 3))
         width_rows[key] = width_rows.get(key, 0) + 1
         wmin = LIMITS.get(cls, (0.2, 0.15))[0]
+        if w + 1e-6 < wmin and w + 1e-6 >= 0.2 and cls in ("power", "pi5v", "payload") and small_stub(t):
+            k = t.GetNetname().rsplit("/", 1)[-1] + " stub at " + small_stub(t)
+            stub_len[k] = stub_len.get(k, 0.0) + mm(t.GetLength())
+            continue          # BRIEF §6: a small pad's 0.2 mm stub to its stitching via (≤ 2 mm per pad, counted below)
         if w + 1e-6 < wmin and w + 1e-6 < FANOUT_OK:
             width_fail.append((cls, t.GetNetname().rsplit("/", 1)[-1], w))
         elif w + 1e-6 < wmin:          # 0.15 mm: the pad-field escape allowance of every class, ≤ 2 mm per net (counted below)
@@ -99,6 +116,8 @@ def main(out_path=None):
     # QE S7.b N2: 0.15 mm is a fan-out allowance, not a routing width. A net with more than 2 mm of 0.15 mm new track
     # has a whole link below its class width and is listed as such.
     thin_links = sorted((k, round(v, 1)) for k, v in thin_len.items() if v > 2.0)
+    stub_links = sorted((k, round(v, 1)) for k, v in stub_len.items())
+    thin_links += [(k, v) for k, v in stub_links if v > 2.0]
     # 2. brief clearances: each new track/via vs other-net copper (pads, tracks, vias, filled zones)
     items_by_layer = {l: [] for l in geom.CU}
     for f in board.GetFootprints():
@@ -116,6 +135,10 @@ def main(out_path=None):
     worst = {}
     for t in new:
         cls = cls_of(t)
+        if cls in ("power", "pi5v", "payload") and t.GetClass() == "PCB_TRACK" and abs(mm(t.GetWidth()) - 0.2) < 0.01 and small_stub(t):
+            cls = "rail"          # a small pad's 0.2 mm stub keeps the mote's 0.2 mm and its 0.15 clearance (BRIEF §6), checked by DRC
+        if cls in ("power", "pi5v", "payload") and t.GetClass() == "PCB_VIA" and abs(mm(t.GetWidth(pcbnew.F_Cu)) - 0.45) < 0.01:
+            cls = "rail"          # the stub's own via (the rail class's 0.45 / 0.2; a power-class via is 0.6 / 0.3), likewise
         if router.net_class(t.GetNetname()) == "bus":
             cls = "bus"           # every item of a bus net carries the 0.35 netclass clearance (QE S7.b R2-F2)
         need = LIMITS.get(cls, (0.2, 0.15))[1]
@@ -169,6 +192,8 @@ def main(out_path=None):
     for (cls, w), n in sorted(width_rows.items()):
         lines.append(f"| {cls} | {w} | {n} |")
     lines.append(f"\nBelow the class minimum (not the 0.15 fan-out allowance): {len(width_fail)}" + ("" if not width_fail else " — " + "; ".join(f"{c} {n} {w}" for c, n, w in width_fail[:20])))
+    lines.append(f"\nSmall-pad stubs of power-class nets at 0.2 mm (BRIEF §6 'small decoupling stubs keep the mote's 0.2 mm'; ≤ 2 mm per pad, 0.15 clearance as DRC checks it): {len(stub_links)}"
+                 + ("" if not stub_links else " — " + "; ".join(f"{n} {L} mm" for n, L in stub_links)))
     lines.append(f"\nLinks routed at 0.15 mm beyond a fan-out (> 2 mm of 0.15 mm track on the net; below the 0.2 mm class width, BRIEF §6): {len(thin_links)}"
                  + ("" if not thin_links else " — " + "; ".join(f"{n} {L} mm" for n, L in thin_links)))
     lines += ["\n## Brief clearances on new bus / power / payload / 5 V copper",

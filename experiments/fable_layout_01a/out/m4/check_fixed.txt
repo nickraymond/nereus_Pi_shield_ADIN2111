@@ -21,9 +21,9 @@ ok    MP1 side: bottom (want bottom, as the mote)
 ok    MP2 side: bottom (want bottom, as the mote)
 ok    J5: at (15.000, 64.800), want (15.0, 64.8) (d 0.000)
 ok    J5 rotation 0.0 (want 0.0, face south)
-ok    L2 centred in its envelope: at (12.740, 16.750), want (12.739999999999998, 16.75) (d 0.000)
+ok    L2 centred in its envelope: at (12.740, 16.750), want (12.74, 16.75) (d 0.000)
 ok    L2 side: top
-ok    L1 centred in its envelope: at (12.740, 47.250), want (12.739999999999998, 47.25) (d 0.000)
+ok    L1 centred in its envelope: at (12.740, 47.250), want (12.74, 47.25) (d 0.000)
 ok    L1 side: top
 ok    MP3 ring: 1 arc, 7 vias on BM2_P
 ok    MP4 ring: 1 arc, 7 vias on BM2_N

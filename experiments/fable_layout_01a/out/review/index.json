@@ -2,9 +2,9 @@
  {
   "region": "port1_pair",
   "rect": [
-   -6.5,
+   -3.5,
    25.5,
-   7.5,
+   10.5,
    32.5
   ],
   "block": "ADIN",
@@ -30,9 +30,9 @@
  {
   "region": "port2_pair",
   "rect": [
-   -7.0,
+   -4.0,
    34.0,
-   11.0,
+   14.0,
    41.5
   ],
   "block": "ADIN",
@@ -58,7 +58,7 @@
  {
   "region": "spi_lane",
   "rect": [
-   -10.5,
+   -7.5,
    27.0,
    29.5,
    38.5
@@ -83,13 +83,13 @@
  {
   "region": "int_fanout",
   "rect": [
-   -10.5,
+   -8.5,
    29.0,
-   -5.5,
+   -2.5,
    34.5
   ],
   "block": "ADIN",
-  "caption": "~{ADIN_INT} fan-out at the board's west edge: U1.39 -> the hand via (0.525 mm from the edge) -> R1.1",
+  "caption": "~{ADIN_INT} fan-out west of U1: U1.39 -> Sofar's own via (2.8 mm inside the edge now that U1 is 3 mm east: no hand via) -> R1.1",
   "views": [
    {
     "layer": "top",
@@ -106,9 +106,9 @@
  {
   "region": "u2_u3_pocket_exit",
   "rect": [
-   -10.0,
+   -7.0,
    36.0,
-   3.0,
+   6.0,
    42.0
   ],
   "block": "ADIN",
@@ -134,9 +134,9 @@
  {
   "region": "t1_cluster",
   "rect": [
-   -0.5,
+   2.5,
    24.5,
-   9.0,
+   12.0,
    32.5
   ],
   "block": "P1T",
@@ -157,9 +157,9 @@
  {
   "region": "t2_cluster",
   "rect": [
-   6.0,
+   9.0,
    30.0,
-   15.5,
+   18.5,
    38.0
   ],
   "block": "P2T",

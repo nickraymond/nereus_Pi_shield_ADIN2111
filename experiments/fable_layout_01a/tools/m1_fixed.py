@@ -192,7 +192,7 @@ def draw_envelopes(board):
     for ref, e in geom.ENVELOPES.items():
         add_rect(board, e, pcbnew.Eco1_User, 0.15)
         add_rect(board, (e[0] - c, e[1] - c, e[2] + c, e[3] + c), pcbnew.Eco2_User, 0.1)
-        add_text(board, f"{ref} 50 W envelope 15.5 x 15.5 (+2 mm clear)", ((e[0] + e[2]) / 2, e[1] - 0.9), pcbnew.Eco1_User, 0.8)
+        add_text(board, f"{ref} SRF1260 courtyard 13.1 x 13.6 (20 W; +2 mm clear)", ((e[0] + e[2]) / 2, e[1] - 0.9), pcbnew.Eco1_User, 0.8)
     b = geom.BAND
     add_rect(board, (geom.OUTLINE["x0"] + 0.5, b[0], 23.2, b[1]), pcbnew.Eco2_User, 0.1)
     add_text(board, f"band y {b[0]}..{b[1]} ({b[1] - b[0]:.0f} mm)", (-2.0, b[0] + 0.6), pcbnew.Eco2_User, 0.8)

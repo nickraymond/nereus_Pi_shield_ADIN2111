@@ -124,21 +124,24 @@ VARIANTS = {
                 "under the band, 3V3 comes from the island in the strip"},
     ],
     "pocket": [
-        {"name": "ADIN", "refs": ADIN_REFS, "dst": [-4.7, (26.2 + 41.3) / 2], "rot": 90,
-         "region": [[148.2, 107.9, 159.5, 114.1], [149.1, 114.1, 159.5, 119.7]],
-         "zone_region": [[148.0, 107.9, 159.5, 120.6]],
+        {"name": "ADIN", "refs": ADIN_REFS, "dst": [-1.7, (26.2 + 41.3) / 2], "rot": 90,
+         "region": [[148.2, 107.5, 159.5, 114.1], [149.1, 114.1, 159.5, 119.7]],
+         "zone_region": [[148.0, 107.5, 159.5, 120.6]],
          "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N", "BM2_DATA_P", "BM2_DATA_N"],
-         "why": "session 2's placement 3 mm west with the edge: whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 "
-                "so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of both insert keep-outs"},
-        {"name": "P1T", "refs": P1T_REFS, "dst": [3.7, 29.45], "rot": 0,
+         "why": "whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 so port 1's data pins "
+                "face north toward T1 in the band and port 2's face south. x -1.7 = session 2's spot on the OLD edge, i.e. 3 mm "
+                "further from the new west edge (8.8 mm): Nick, 2026-10-08, 'the ADIN is too close to the west edge, move it east'; "
+                "the insert keep-outs do not reach U1's latitude, so nothing else limits it but T1 / T2 / B18 east of it. The region "
+                "is the mote's full 107.5 again: Sofar's ~{ADIN_INT} via lands at x -7.2, 2.8 mm inside the edge (no hand via)"},
+        {"name": "P1T", "refs": P1T_REFS, "dst": [6.7, 29.45], "rot": 0,
          "region": [[158.8, 115.2, 165.4, 119.8]], "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N"],
          "why": "T1 cluster in the band beside U1 as session 2 relative to U1 but 0.2 mm north (trial 3 at session 2's relation gave "
                 "BM1_DATA_P 9.59 against the 9.5 limit: the pads sit 0.2 above the pins' exit stub now; trial 2 at 0.25 mm south had "
                 "C16's track meet C8's pad). C19 / R14 stay in this cluster here (P1C is the centre variant's split)"},
-        {"name": "P1C", "refs": P1C_REFS, "dst": [3.7 + 2.25, 29.45 - 3.4], "rot": 0,
+        {"name": "P1C", "refs": P1C_REFS, "dst": [6.7 + 2.25, 29.45 - 3.4], "rot": 0,
          "region": [],
          "why": "C19 / R14 at their mote spot relative to T1 (the split is only needed by the centre variant)"},
-        {"name": "P2T", "refs": P2T_REFS, "dst": [10.7, 33.75], "rot": 180,
+        {"name": "P2T", "refs": P2T_REFS, "dst": [13.7, 33.75], "rot": 180,
          "region": [[133.0, 113.1, 138.6, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
          "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins), as session 2"},
         {"name": "B18", "refs": B18_REFS, "dst": [19.0, 32.9], "rot": 90,
@@ -179,7 +182,7 @@ FRESH_COMMON = {
 FRESH_VARIANT = {
     # ADIN_PWR pull-down and its test pad (bottom) near U2 / U3
     "centre": {"R43": (4.0, 30.0, 0, "B"), "TP8": (2.0, 30.0, 0, "B")},
-    "pocket": {"R43": (4.5, 37.8, 0, "B"), "TP8": (6.8, 37.8, 0, "B")},
+    "pocket": {"R43": (7.5, 37.8, 0, "B"), "TP8": (9.8, 37.8, 0, "B")},
 }
 FRESH = {**FRESH_COMMON, **FRESH_VARIANT[VARIANT]}
 

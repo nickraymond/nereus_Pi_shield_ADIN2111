@@ -630,19 +630,36 @@ def gnd_links(g, board):
     log["notes"].append(f"{n} intra-footprint GND links (0.15 mm)")
 
 
+SMALL_PAD = 1.0      # mm: a plane-net pad narrower than this (0402 / 0603 dividers, decoupling) links to its via with a 0.2 mm stub
+
+
+def small_stub_class(pad, pcls):
+    """BRIEF §6: 'R8/U4 sense legs and small decoupling stubs keep the mote's 0.2 mm'. A power-class net's stitching link from a
+    pad narrower than SMALL_PAD runs at the rail class (0.2 mm); since no via may sit in a solder pad any more (QE round 3 F1),
+    a 0.5 mm track from an 0402 pad in the strip's crowded bottom finds no room (R41.1 was open)."""
+    if pcls not in ("power", "pi5v", "payload"):
+        return pcls
+    try:
+        sz = pad.GetSize(pcbnew.F_Cu)
+    except TypeError:
+        sz = pad.GetSize()
+    return "rail" if pad.GetDrillSize().x == 0 and min(mm(sz.x), mm(sz.y)) < SMALL_PAD else pcls
+
+
 def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True, only_ref=None):
     """A via next to every single-pad cluster of a plane net before the signals are routed (≤ 1.2 mm away, inside
     the plane's filled copper), at the net's class width (escapes for fine pads). only_ref: this footprint's pads only."""
     poly, layer, fill = plane[:3]
     net = g.netcode[net_name]
-    pcls = "gnd" if net_name == "GND" else router.net_class(net_name)
-    width, clear, vdia, vdrill = router.CLASSES[pcls]
-    rv = g.radius_for(vdia, clear)
+    pcls0 = "gnd" if net_name == "GND" else router.net_class(net_name)
     n = 0
     for cluster in router.net_clusters(board, net_name):
         if plane_connected(cluster, plane) or len(cluster) != 1 or cluster[0].GetClass() != "PAD":
             continue
         pad = cluster[0]
+        pcls = small_stub_class(pad, pcls0)
+        width, clear, vdia, vdrill = router.CLASSES[pcls]
+        rv = g.radius_for(vdia, clear)
         if only_ref is not None and pad.GetParentFootprint().GetReference() != only_ref:
             continue
         p = geom.xy(pad.GetPosition())
@@ -674,12 +691,16 @@ def stitch(g, board, polys):
         plane[3] = island_table(board, net_name)
         fill = plane[2]
         net = g.netcode[net_name]
-        cls = "gnd" if net_name == "GND" else router.net_class(net_name)
-        width, clear, vdia, vdrill = router.CLASSES[cls]
-        rv = g.radius_for(vdia, clear)
+        cls0 = "gnd" if net_name == "GND" else router.net_class(net_name)
         for cluster in router.net_clusters(board, net_name):
             if plane_connected(cluster, plane):
                 continue
+            cls = cls0
+            pads_ = [it for it in cluster if it.GetClass() == "PAD"]
+            if pads_ and all(small_stub_class(p_, cls0) == "rail" for p_ in pads_):
+                cls = "rail"
+            width, clear, vdia, vdrill = router.CLASSES[cls]
+            rv = g.radius_for(vdia, clear)
             pts = []
             for it in cluster:
                 if it.m_Uuid.AsString() in g.exclude_ids:
