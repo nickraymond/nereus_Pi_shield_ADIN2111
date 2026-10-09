@@ -78,6 +78,12 @@ design review (`out/review/index.html`) are the pictures behind this text.*
   north end between L6 (an inductor) and J1; JP2 is on the bottom under the LEDs. 2.b places both at an edge on top
   and says what their nets' routing costs.
 
+- **A power LED at the payload connector** (Nick): an LED + resistor on VBUS_OUT beside J5 so a user sees when the
+  payload is powered. This is a circuit change (BRIEF rule 4: no schematic edit in the experiment), so it goes to the
+  live project as a schematic task (capture in docs/TRACKER.md from a main-based session; it also needs a sofar_brief
+  row). 2.b only reserves room for an 0603 LED + resistor on the top side next to J5, visible from the payload edge,
+  and notes it in REPORT as an open circuit item.
+
 ## 4. What 2.b has to do, in order
 
 1. Fetch and encode JLCPCB's limits (BRIEF §6 list) into `.kicad_pro` / `.kicad_dru`; `DFM.md` with URL + date per
