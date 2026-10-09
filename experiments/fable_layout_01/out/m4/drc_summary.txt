@@ -1,0 +1,18 @@
+7 ('clearance', 'error')
+12 ('courtyards_overlap', 'error')
+36 ('hole_clearance', 'error')
+8 ('lib_footprint_mismatch', 'warning')
+2 ('nonmirrored_text_on_back_layer', 'warning')
+38 ('padstack', 'warning')
+4 ('padstack_invalid', 'error')
+34 ('shorting_items', 'error')
+4 ('silk_edge_clearance', 'warning')
+46 ('silk_over_copper', 'warning')
+44 ('silk_overlap', 'warning')
+18 ('solder_mask_bridge', 'error')
+112 ('text_height', 'warning')
+4 ('text_thickness', 'warning')
+unconnected_items: 1
+schematic_parity: 4
+errors: 111  warnings: 258
+open: PTH pad 1 [unconnected-(J1-3V3-Pad1)] of J1 | PTH pad 17 [unconnected-(J1-3V3-Pad1)] of J1

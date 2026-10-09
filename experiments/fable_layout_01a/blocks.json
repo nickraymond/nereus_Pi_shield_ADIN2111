@@ -1,0 +1,9182 @@
+{
+ "frame": "board mm, Pi NW corner = (0,0)",
+ "variant": "pocket",
+ "blocks": [
+  {
+   "name": "RING_MP3",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP3"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -6.3100000000000005,
+    12.0
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP4",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP4"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -6.3100000000000005,
+    21.4
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP1",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP1"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -6.3100000000000005,
+    46.1
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP2",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP2"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -6.3100000000000005,
+    55.5
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "P1L",
+   "refs": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ],
+   "dst": [
+    12.74,
+    47.25
+   ],
+   "rot": 90,
+   "region": [
+    [
+     158.9,
+     102.0,
+     172.2,
+     115.0
+    ]
+   ],
+   "exclude_region": [
+    [
+     165.0,
+     101.9,
+     168.3,
+     105.0
+    ]
+   ],
+   "why": "L1 centred in its envelope (3 mm south in 2.b) with the bottom-side parts Sofar put under it; rotated 90 so the bus pads face west toward MP1/MP2 (BM1_P north-west, BM1_N south-west) and VBUS/GND face east",
+   "src": [
+    165.5011,
+    108.7536
+   ],
+   "anchor": "L1",
+   "placed": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ],
+   "copied": {
+    "track": 48,
+    "arc": 0,
+    "via": 19,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   },
+   "protected": 2
+  },
+  {
+   "name": "P2L",
+   "refs": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13"
+   ],
+   "dst": [
+    12.74,
+    16.75
+   ],
+   "rot": 90,
+   "region": [
+    [
+     125.0,
+     101.5,
+     138.3,
+     112.7
+    ]
+   ],
+   "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)",
+   "src": [
+    131.6792,
+    108.2786
+   ],
+   "anchor": "L2",
+   "placed": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13"
+   ],
+   "copied": {
+    "track": 28,
+    "arc": 0,
+    "via": 18,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 5
+   },
+   "protected": 4
+  },
+  {
+   "name": "B33",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "dst": [
+    31.551,
+    34.44
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.6,
+      146.4,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    },
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
+   ],
+   "why": "U5 cell (switch loop U5\u2013C30\u2013L3, bottom-side dividers and caps, top pours, In3 GND patch) in the east strip; the output cap C31 is the only part split off (the cell is 8.55 mm wide with it 9.65: the strip was 8.9, is 11.9 in 2.b)",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   },
+   "protected": 26
+  },
+  {
+   "name": "B5V",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "ref_map": {
+    "U5": "U10",
+    "C30": "C55",
+    "L3": "L6",
+    "C28": "C53",
+    "C29": "C54",
+    "R20": "R39",
+    "R21": "R37",
+    "R22": "R40",
+    "R23": "R38"
+   },
+   "dst": [
+    31.551,
+    21.24
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.6,
+      146.4,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    },
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
+   ],
+   "why": "5 V buck = U5's cell copied again with its parts mapped by function (D13); C56/C57/C58/TP38 placed beside it",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U10",
+    "C55",
+    "L6",
+    "C53",
+    "C54",
+    "R39",
+    "R37",
+    "R40",
+    "R38"
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   },
+   "protected": 26
+  },
+  {
+   "name": "SENSE",
+   "refs": [
+    "U4",
+    "R8",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "dst": [
+    19.8,
+    15.0
+   ],
+   "rot": 0,
+   "region": [
+    [
+     144.4,
+     112.4,
+     148.0,
+     120.2
+    ],
+    [
+     148.0,
+     114.2,
+     149.0,
+     120.2
+    ],
+    {
+     "rect": [
+      143.6,
+      115.2,
+      144.4,
+      118.5
+     ],
+     "layers": [
+      "B.Cu"
+     ]
+    }
+   ],
+   "why": "R8 shunt + INA232 with Sofar's sense routing (all bottom-side parts) under L2's south-east, 4 mm from L2's P_IN pad as on the mote; J1's pin field leaves no \u2265 0.5 mm path for P_IN into the strip east of J1. The third rect (Bottom only) holds the west detour of the two Kelvin traces U4.1-R8.2 / U4.2-R8.1 (QE S7.b R2-F1)",
+   "src": [
+    146.3511,
+    115.7036
+   ],
+   "anchor": "U4",
+   "placed": [
+    "U4",
+    "R8",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "copied": {
+    "track": 77,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 10
+   },
+   "protected": 27
+  },
+  {
+   "name": "DAMP3",
+   "refs": [
+    "C23"
+   ],
+   "dst": [
+    33.5,
+    40.95
+   ],
+   "rot": 90,
+   "region": [],
+   "why": "C23 (the sense block's 47 uF damping electrolytic, the block's only top part) alone in the strip; R16 beside U11",
+   "src": [
+    146.0011,
+    116.9036
+   ],
+   "anchor": "C23",
+   "placed": [
+    "C23"
+   ],
+   "copied": {
+    "track": 0,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   },
+   "protected": 0
+  },
+  {
+   "name": "DAMP1",
+   "refs": [
+    "C21",
+    "C20",
+    "TP23"
+   ],
+   "dst": [
+    8.9,
+    60.5
+   ],
+   "rot": 90,
+   "region": [
+    [
+     151.9,
+     117.5,
+     156.5,
+     121.2
+    ]
+   ],
+   "why": "VBUS 10 uF + its test pad in the south-west pocket beside J5 (3 mm south with the south band in 2.b)",
+   "src": [
+    154.2011,
+    119.2036
+   ],
+   "anchor": "C21",
+   "placed": [
+    "C21",
+    "C20",
+    "TP23"
+   ],
+   "copied": {
+    "track": 8,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   },
+   "protected": 1
+  },
+  {
+   "name": "DAMP2",
+   "refs": [
+    "C22"
+   ],
+   "dst": [
+    33.5,
+    48.6
+   ],
+   "rot": 0,
+   "region": [
+    [
+     146.8,
+     100.4,
+     155.8,
+     107.0
+    ]
+   ],
+   "why": "second damping electrolytic in the strip, Sofar's orientation (8.8 mm wide: pads 0.5 mm from the old edge, 3.5 mm from the new one); its resistor R15 placed beside it",
+   "src": [
+    151.3011,
+    103.6036
+   ],
+   "anchor": "C22",
+   "placed": [
+    "C22"
+   ],
+   "copied": {
+    "track": 36,
+    "arc": 0,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   },
+   "protected": 0
+  },
+  {
+   "name": "ADIN",
+   "refs": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ],
+   "dst": [
+    -1.7,
+    33.75
+   ],
+   "rot": 90,
+   "region": [
+    [
+     148.2,
+     107.5,
+     159.5,
+     114.1
+    ],
+    [
+     149.1,
+     114.1,
+     159.5,
+     119.7
+    ]
+   ],
+   "zone_region": [
+    [
+     148.0,
+     107.5,
+     159.5,
+     120.6
+    ]
+   ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N",
+    "BM2_DATA_P",
+    "BM2_DATA_N"
+   ],
+   "why": "whole ADIN block in the west pocket (15.1 mm tall now that MP1 is 2.5 mm south), rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south. x -1.7 = session 2's spot on the OLD edge, i.e. 3 mm further from the new west edge (8.8 mm): Nick, 2026-10-08, 'the ADIN is too close to the west edge, move it east'; the insert keep-outs do not reach U1's latitude, so nothing else limits it but T1 / T2 / B18 east of it. The region is the mote's full 107.5 again: Sofar's ~{ADIN_INT} via lands at x -7.2, 2.8 mm inside the edge (no hand via)",
+   "src": [
+    154.0011,
+    113.0036
+   ],
+   "anchor": "U1",
+   "placed": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ],
+   "copied": {
+    "track": 256,
+    "arc": 0,
+    "via": 48,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 13
+   },
+   "protected": 124
+  },
+  {
+   "name": "P1T",
+   "refs": [
+    "T1",
+    "C16",
+    "C18"
+   ],
+   "dst": [
+    6.7,
+    29.45
+   ],
+   "rot": 0,
+   "region": [
+    [
+     158.8,
+     115.2,
+     165.4,
+     119.8
+    ]
+   ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N"
+   ],
+   "why": "T1 cluster in the band beside U1 as session 2 relative to U1 but 0.2 mm north (trial 3 at session 2's relation gave BM1_DATA_P 9.59 against the 9.5 limit: the pads sit 0.2 above the pins' exit stub now; trial 2 at 0.25 mm south had C16's track meet C8's pad). C19 / R14 stay in this cluster here (P1C is the centre variant's split)",
+   "src": [
+    161.6011,
+    117.5036
+   ],
+   "anchor": "T1",
+   "placed": [
+    "T1",
+    "C16",
+    "C18"
+   ],
+   "copied": {
+    "track": 27,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   },
+   "protected": 12
+  },
+  {
+   "name": "P1C",
+   "refs": [
+    "C19",
+    "R14"
+   ],
+   "dst": [
+    8.95,
+    26.05
+   ],
+   "rot": 0,
+   "region": [],
+   "why": "C19 / R14 at their mote spot relative to T1 (the split is only needed by the centre variant)",
+   "src": [
+    163.8511,
+    114.1036
+   ],
+   "anchor": "C19",
+   "placed": [
+    "C19",
+    "R14"
+   ],
+   "copied": {
+    "track": 0,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   },
+   "protected": 0
+  },
+  {
+   "name": "P2T",
+   "refs": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ],
+   "dst": [
+    13.7,
+    33.75
+   ],
+   "rot": 180,
+   "region": [
+    [
+     133.0,
+     113.1,
+     138.6,
+     121.0
+    ]
+   ],
+   "exclude_nets": [
+    "BM2_DATA_P",
+    "BM2_DATA_N"
+   ],
+   "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins), as session 2",
+   "src": [
+    135.5011,
+    117.5036
+   ],
+   "anchor": "T2",
+   "placed": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ],
+   "copied": {
+    "track": 33,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   },
+   "protected": 9
+  },
+  {
+   "name": "B18",
+   "refs": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ],
+   "dst": [
+    19.0,
+    32.9
+   ],
+   "rot": 90,
+   "region": [
+    {
+     "rect": [
+      141.8,
+      108.4,
+      148.3,
+      113.2
+     ],
+     "layers": [
+      "B.Cu"
+     ]
+    }
+   ],
+   "exclude_vias_on": [
+    "3V3",
+    "GND"
+   ],
+   "why": "1.8 V buck (all bottom) under the band's east end beside J1, as session 2",
+   "src": [
+    144.5011,
+    110.3286
+   ],
+   "anchor": "U6",
+   "placed": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ],
+   "copied": {
+    "track": 43,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   },
+   "protected": 21
+  }
+ ],
+ "fresh": {
+  "D10": {
+   "x": 8.1,
+   "y": 1.4,
+   "rot": 0,
+   "side": "F"
+  },
+  "D8": {
+   "x": 11.5,
+   "y": 1.4,
+   "rot": 0,
+   "side": "F"
+  },
+  "D9": {
+   "x": 14.9,
+   "y": 1.4,
+   "rot": 0,
+   "side": "F"
+  },
+  "JP1": {
+   "x": 20.4,
+   "y": 2.2,
+   "rot": 0,
+   "side": "F"
+  },
+  "JP2": {
+   "x": 12.5,
+   "y": 5.2,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID4": {
+   "x": 7.8,
+   "y": 5.0,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID3": {
+   "x": 17.0,
+   "y": 5.3,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID2": {
+   "x": 7.8,
+   "y": 5.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID1": {
+   "x": 17.0,
+   "y": 5.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "R46": {
+   "x": 8.1,
+   "y": 3.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "R44": {
+   "x": 11.5,
+   "y": 3.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "R45": {
+   "x": 14.9,
+   "y": 3.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "C31": {
+   "x": 36.6,
+   "y": 34.44,
+   "rot": 0,
+   "side": "F"
+  },
+  "U11": {
+   "x": 32.5,
+   "y": 54.35,
+   "rot": -90,
+   "side": "F"
+  },
+  "C49": {
+   "x": 35.7,
+   "y": 54.35,
+   "rot": 90,
+   "side": "F"
+  },
+  "R34": {
+   "x": 29.6,
+   "y": 55.6,
+   "rot": 90,
+   "side": "F"
+  },
+  "C56": {
+   "x": 31.6,
+   "y": 12.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "C57": {
+   "x": 31.6,
+   "y": 14.7,
+   "rot": 0,
+   "side": "B"
+  },
+  "C58": {
+   "x": 36.6,
+   "y": 14.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP38": {
+   "x": 36.6,
+   "y": 16.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP20": {
+   "x": 37.0,
+   "y": 8.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP24": {
+   "x": 34.6,
+   "y": 9.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "R26": {
+   "x": 36.6,
+   "y": 21.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "R27": {
+   "x": 36.6,
+   "y": 23.1,
+   "rot": 0,
+   "side": "B"
+  },
+  "R15": {
+   "x": 37.0,
+   "y": 45.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "R16": {
+   "x": 37.0,
+   "y": 42.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "D3": {
+   "x": 33.0,
+   "y": 53.9,
+   "rot": 90,
+   "side": "B"
+  },
+  "R35": {
+   "x": 30.6,
+   "y": 52.3,
+   "rot": 90,
+   "side": "B"
+  },
+  "R41": {
+   "x": 36.0,
+   "y": 52.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "R42": {
+   "x": 36.0,
+   "y": 53.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "C50": {
+   "x": 36.4,
+   "y": 55.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP35": {
+   "x": 36.6,
+   "y": 48.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP19": {
+   "x": 30.6,
+   "y": 43.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "C26": {
+   "x": 17.0,
+   "y": 23.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "D1": {
+   "x": 20.9,
+   "y": 62.0,
+   "rot": 90,
+   "side": "F"
+  },
+  "R11": {
+   "x": 21.0,
+   "y": 61.0,
+   "rot": 90,
+   "side": "B"
+  },
+  "TP36": {
+   "x": 19.5,
+   "y": 65.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID5": {
+   "x": 15.0,
+   "y": 58.6,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID6": {
+   "x": 15.0,
+   "y": 58.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "R43": {
+   "x": 7.5,
+   "y": 37.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP8": {
+   "x": 9.8,
+   "y": 37.8,
+   "rot": 0,
+   "side": "B"
+  }
+ },
+ "protected": [
+  {
+   "block": "P1L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "6 Bottom Layer",
+   "start": [
+    10.165,
+    48.25
+   ],
+   "end": [
+    9.265,
+    47.35
+   ]
+  },
+  {
+   "block": "P1L",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    13.64,
+    45.4
+   ],
+   "end": [
+    13.64,
+    42.474
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    9.06,
+    15.629
+   ],
+   "end": [
+    10.413,
+    14.276
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.961,
+    16.728
+   ],
+   "end": [
+    9.06,
+    15.629
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.515,
+    18.328
+   ],
+   "end": [
+    7.515,
+    17.201
+   ]
+  },
+  {
+   "block": "P2L",
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "6 Bottom Layer",
+   "start": [
+    11.813,
+    20.826
+   ],
+   "end": [
+    11.813,
+    19.068
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "Net-(U5-CB)",
+   "layer": "Top Layer",
+   "start": [
+    32.529,
+    35.79
+   ],
+   "end": [
+    33.151,
+    35.79
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "Net-(U5-CB)",
+   "at": [
+    33.151,
+    35.79
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "Net-(U5-CB)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.701,
+    35.24
+   ],
+   "end": [
+    33.094,
+    35.633
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    36.552
+   ],
+   "end": [
+    31.563,
+    35.83
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    36.552
+   ],
+   "end": [
+    32.851,
+    37.84
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "at": [
+    32.851,
+    37.84
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    31.726,
+    37.04
+   ],
+   "end": [
+    32.449,
+    37.763
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.928,
+    37.763
+   ],
+   "end": [
+    32.928,
+    37.138
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.449,
+    37.763
+   ],
+   "end": [
+    32.774,
+    37.763
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "Top Layer",
+   "start": [
+    29.827,
+    35.416
+   ],
+   "end": [
+    30.422,
+    35.416
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "at": [
+    29.801,
+    35.39
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.209,
+    35.09
+   ],
+   "end": [
+    30.622,
+    35.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.801,
+    35.061
+   ],
+   "end": [
+    30.801,
+    34.056
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.909,
+    35.39
+   ],
+   "end": [
+    30.209,
+    35.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    31.828
+   ],
+   "end": [
+    31.551,
+    30.99
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.582,
+    33.897
+   ],
+   "end": [
+    33.582,
+    32.911
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    32.426,
+    30.115
+   ],
+   "end": [
+    33.501,
+    31.19
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.501,
+    32.83
+   ],
+   "end": [
+    33.501,
+    31.19
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    33.062
+   ],
+   "end": [
+    31.551,
+    31.828
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "at": [
+    33.601,
+    33.916
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.107,
+    34.41
+   ],
+   "end": [
+    33.601,
+    33.916
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.681,
+    34.41
+   ],
+   "end": [
+    33.107,
+    34.41
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    30.351,
+    32.59
+   ],
+   "end": [
+    30.351,
+    31.965
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    29.965,
+    33.076
+   ],
+   "end": [
+    30.587,
+    33.076
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    29.951,
+    33.09
+   ]
+  },
+  {
+   "block": "B33",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.951,
+    33.063
+   ],
+   "end": [
+    29.951,
+    32.44
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "Net-(U10-CB)",
+   "layer": "Top Layer",
+   "start": [
+    32.529,
+    22.59
+   ],
+   "end": [
+    33.151,
+    22.59
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "Net-(U10-CB)",
+   "at": [
+    33.151,
+    22.59
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "Net-(U10-CB)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.701,
+    22.04
+   ],
+   "end": [
+    33.094,
+    22.433
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    23.352
+   ],
+   "end": [
+    31.563,
+    22.63
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "Top Layer",
+   "start": [
+    31.563,
+    23.352
+   ],
+   "end": [
+    32.851,
+    24.64
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "at": [
+    32.851,
+    24.64
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    31.726,
+    23.84
+   ],
+   "end": [
+    32.449,
+    24.563
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.928,
+    24.563
+   ],
+   "end": [
+    32.928,
+    23.938
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_UVLO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.449,
+    24.563
+   ],
+   "end": [
+    32.774,
+    24.563
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "Top Layer",
+   "start": [
+    29.827,
+    22.216
+   ],
+   "end": [
+    30.422,
+    22.216
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "at": [
+    29.801,
+    22.19
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.209,
+    21.89
+   ],
+   "end": [
+    30.622,
+    21.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.801,
+    21.861
+   ],
+   "end": [
+    30.801,
+    20.856
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_FB",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.909,
+    22.19
+   ],
+   "end": [
+    30.209,
+    21.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    18.628
+   ],
+   "end": [
+    31.551,
+    17.79
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.582,
+    20.697
+   ],
+   "end": [
+    33.582,
+    19.711
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    32.426,
+    16.915
+   ],
+   "end": [
+    33.501,
+    17.99
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    33.501,
+    19.63
+   ],
+   "end": [
+    33.501,
+    17.99
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "Top Layer",
+   "start": [
+    31.551,
+    19.862
+   ],
+   "end": [
+    31.551,
+    18.628
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "at": [
+    33.601,
+    20.716
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.107,
+    21.21
+   ],
+   "end": [
+    33.601,
+    20.716
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.681,
+    21.21
+   ],
+   "end": [
+    33.107,
+    21.21
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    30.351,
+    19.39
+   ],
+   "end": [
+    30.351,
+    18.765
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "Top Layer",
+   "start": [
+    29.965,
+    19.876
+   ],
+   "end": [
+    30.587,
+    19.876
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    29.951,
+    19.89
+   ]
+  },
+  {
+   "block": "B5V",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.951,
+    19.863
+   ],
+   "end": [
+    29.951,
+    19.24
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.923,
+    17.469
+   ],
+   "end": [
+    18.544,
+    17.469
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    16.677
+   ],
+   "end": [
+    17.131,
+    15.568
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.925,
+    14.589
+   ],
+   "end": [
+    18.925,
+    13.776
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.758,
+    14.756
+   ],
+   "end": [
+    18.925,
+    14.589
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    15.568
+   ],
+   "end": [
+    17.943,
+    14.756
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.943,
+    14.756
+   ],
+   "end": [
+    18.758,
+    14.756
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.544,
+    17.469
+   ],
+   "end": [
+    18.725,
+    17.65
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.725,
+    17.975
+   ],
+   "end": [
+    18.725,
+    17.65
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.131,
+    16.677
+   ],
+   "end": [
+    17.923,
+    17.469
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.076,
+    17.1
+   ],
+   "end": [
+    19.05,
+    17.1
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    16.524
+   ],
+   "end": [
+    18.076,
+    17.1
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.375,
+    14.661
+   ],
+   "end": [
+    19.375,
+    13.776
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    16.524
+   ],
+   "end": [
+    17.5,
+    15.721
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.911,
+    15.125
+   ],
+   "end": [
+    19.375,
+    14.661
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.425,
+    17.975
+   ],
+   "end": [
+    19.425,
+    17.475
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.096,
+    15.125
+   ],
+   "end": [
+    18.911,
+    15.125
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.05,
+    17.1
+   ],
+   "end": [
+    19.425,
+    17.475
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.5,
+    15.721
+   ],
+   "end": [
+    18.096,
+    15.125
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.087,
+    13.638
+   ],
+   "end": [
+    20.087,
+    12.763
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.1,
+    15.25
+   ],
+   "end": [
+    21.479,
+    14.871
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.475,
+    16.324
+   ],
+   "end": [
+    19.475,
+    15.6
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.825,
+    15.25
+   ],
+   "end": [
+    21.1,
+    15.25
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.475,
+    15.6
+   ],
+   "end": [
+    19.825,
+    15.25
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.812,
+    13.638
+   ],
+   "end": [
+    20.812,
+    12.763
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.775,
+    13.959
+   ],
+   "end": [
+    21.172,
+    14.356
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.22,
+    14.613
+   ],
+   "end": [
+    21.479,
+    14.871
+   ]
+  },
+  {
+   "block": "SENSE",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.479,
+    14.871
+   ],
+   "end": [
+    21.8,
+    14.871
+   ]
+  },
+  {
+   "block": "DAMP1",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.775,
+    62.348
+   ],
+   "end": [
+    9.775,
+    58.825
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    33.0
+   ],
+   "end": [
+    -6.2,
+    33.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "at": [
+    -6.2,
+    33.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.414,
+    33.0
+   ],
+   "end": [
+    -6.2,
+    33.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.264,
+    33.15
+   ],
+   "end": [
+    -5.414,
+    33.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-TEST_0{slash}P1_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.8,
+    33.15
+   ],
+   "end": [
+    -5.264,
+    33.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "layer": "Top Layer",
+   "start": [
+    -6.025,
+    36.494
+   ],
+   "end": [
+    -5.556,
+    36.025
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "at": [
+    -6.025,
+    36.494
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.621,
+    36.446
+   ],
+   "end": [
+    -5.977,
+    36.446
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "Top Layer",
+   "start": [
+    2.45,
+    32.5
+   ],
+   "end": [
+    1.7,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "at": [
+    2.45,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.7,
+    32.85
+   ],
+   "end": [
+    3.35,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.35,
+    32.5
+   ],
+   "end": [
+    2.45,
+    32.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "Top Layer",
+   "start": [
+    2.247,
+    33.502
+   ],
+   "end": [
+    1.702,
+    33.502
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "Top Layer",
+   "start": [
+    2.508,
+    33.762
+   ],
+   "end": [
+    2.247,
+    33.502
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "at": [
+    2.513,
+    33.762
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-P1_LED_0{slash}SPI_CFG1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.365,
+    33.715
+   ],
+   "end": [
+    1.7,
+    33.05
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "layer": "Top Layer",
+   "start": [
+    -5.815,
+    37.056
+   ],
+   "end": [
+    -5.4,
+    36.641
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "at": [
+    -5.815,
+    37.056
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.197,
+    37.103
+   ],
+   "end": [
+    -5.768,
+    37.103
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "Top Layer",
+   "start": [
+    2.258,
+    31.475
+   ],
+   "end": [
+    1.725,
+    31.475
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "Top Layer",
+   "start": [
+    2.502,
+    31.356
+   ],
+   "end": [
+    2.832,
+    31.025
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "at": [
+    2.9,
+    31.025
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    3.4,
+    30.525
+   ],
+   "end": [
+    3.4,
+    30.325
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.965,
+    30.037
+   ],
+   "end": [
+    3.687,
+    30.037
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_I{slash}CLK_IN)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.9,
+    31.025
+   ],
+   "end": [
+    3.4,
+    30.525
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    31.0
+   ],
+   "end": [
+    1.7,
+    31.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    31.0
+   ],
+   "end": [
+    2.4,
+    30.85
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    30.15
+   ],
+   "end": [
+    1.6,
+    29.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    30.85
+   ],
+   "end": [
+    2.4,
+    30.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-XTAL_O)",
+   "at": [
+    1.6,
+    29.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    29.35
+   ],
+   "end": [
+    1.887,
+    29.062
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    29.35
+   ],
+   "end": [
+    0.952,
+    29.35
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-XTAL_O)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.462,
+    29.062
+   ],
+   "end": [
+    1.887,
+    29.062
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_7)",
+   "layer": "Top Layer",
+   "start": [
+    -2.95,
+    30.35
+   ],
+   "end": [
+    -2.95,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_7)",
+   "at": [
+    -2.95,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_7)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.723,
+    30.149
+   ],
+   "end": [
+    -2.723,
+    29.827
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "Top Layer",
+   "start": [
+    -2.45,
+    30.35
+   ],
+   "end": [
+    -2.45,
+    29.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_6)",
+   "at": [
+    -2.45,
+    29.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.0,
+    29.7
+   ],
+   "end": [
+    -2.45,
+    29.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_6)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.0,
+    30.071
+   ],
+   "end": [
+    -2.0,
+    29.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "Top Layer",
+   "start": [
+    0.4,
+    38.15
+   ],
+   "end": [
+    0.05,
+    37.8
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "Top Layer",
+   "start": [
+    0.05,
+    37.8
+   ],
+   "end": [
+    0.05,
+    37.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_3)",
+   "at": [
+    0.4,
+    38.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_3)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.204,
+    37.954
+   ],
+   "end": [
+    0.204,
+    37.383
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "Top Layer",
+   "start": [
+    -0.45,
+    37.9
+   ],
+   "end": [
+    -0.45,
+    37.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "Net-(U1A-CEXT_2)",
+   "at": [
+    -0.45,
+    37.9
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.8,
+    37.75
+   ],
+   "end": [
+    -0.8,
+    37.379
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "Net-(U1A-CEXT_2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.65,
+    37.9
+   ],
+   "end": [
+    -0.8,
+    37.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.2,
+    35.975
+   ],
+   "end": [
+    1.725,
+    35.975
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.25,
+    35.525
+   ],
+   "end": [
+    1.725,
+    35.525
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "Top Layer",
+   "start": [
+    2.2,
+    35.975
+   ],
+   "end": [
+    2.45,
+    35.725
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "at": [
+    2.45,
+    35.725
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD2_1P1",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.422,
+    35.697
+   ],
+   "end": [
+    1.947,
+    35.697
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.65,
+    31.5
+   ],
+   "end": [
+    -6.009,
+    31.142
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -6.009,
+    31.142
+   ],
+   "end": [
+    -6.367,
+    30.784
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    31.0
+   ],
+   "end": [
+    -5.867,
+    31.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    31.5
+   ],
+   "end": [
+    -5.65,
+    31.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "at": [
+    -6.367,
+    30.725
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/DVDD1_1P1",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.594,
+    30.589
+   ],
+   "end": [
+    -6.231,
+    30.589
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    -4.785,
+    38.179
+   ],
+   "end": [
+    -4.785,
+    37.76
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    2.337,
+    32.0
+   ],
+   "end": [
+    1.7,
+    32.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Top Layer",
+   "start": [
+    -4.785,
+    37.76
+   ],
+   "end": [
+    -4.475,
+    37.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "at": [
+    -4.833,
+    38.227
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "at": [
+    2.503,
+    31.902
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    0.5,
+    36.75
+   ],
+   "end": [
+    1.4,
+    35.85
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    -4.833,
+    38.227
+   ],
+   "end": [
+    -3.356,
+    36.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    1.4,
+    32.55
+   ],
+   "end": [
+    2.0,
+    31.95
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    2.455,
+    31.95
+   ],
+   "end": [
+    2.0,
+    31.95
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    0.5,
+    36.75
+   ],
+   "end": [
+    -3.356,
+    36.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_CLK25_REF",
+   "layer": "Internal 1",
+   "start": [
+    1.4,
+    35.85
+   ],
+   "end": [
+    1.4,
+    32.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "Top Layer",
+   "start": [
+    2.427,
+    34.349
+   ],
+   "end": [
+    2.104,
+    34.025
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "Top Layer",
+   "start": [
+    -5.113,
+    35.488
+   ],
+   "end": [
+    -5.821,
+    35.488
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "ADIN_VDDIO",
+   "at": [
+    2.475,
+    34.525
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "ADIN_VDDIO",
+   "at": [
+    -5.833,
+    35.475
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.274,
+    35.346
+   ],
+   "end": [
+    -5.685,
+    35.346
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.6,
+    33.75
+   ],
+   "end": [
+    0.4,
+    33.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.4,
+    33.75
+   ],
+   "end": [
+    -3.9,
+    33.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.1,
+    34.25
+   ],
+   "end": [
+    1.6,
+    33.75
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.229,
+    35.3
+   ],
+   "end": [
+    -5.229,
+    34.379
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.229,
+    34.379
+   ],
+   "end": [
+    -4.8,
+    33.95
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.386,
+    37.61
+   ],
+   "end": [
+    -4.386,
+    37.16
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "ADIN_VDDIO",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.15,
+    38.1
+   ],
+   "end": [
+    -4.47,
+    37.78
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -3.95,
+    30.35
+   ],
+   "end": [
+    -3.95,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.225,
+    36.5
+   ],
+   "end": [
+    1.7,
+    36.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.702,
+    38.075
+   ],
+   "end": [
+    -1.45,
+    37.822
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.267,
+    37.917
+   ],
+   "end": [
+    1.05,
+    37.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    37.372
+   ],
+   "end": [
+    2.4,
+    36.675
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.45,
+    30.35
+   ],
+   "end": [
+    -1.45,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.45,
+    37.822
+   ],
+   "end": [
+    -1.45,
+    37.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.855,
+    37.917
+   ],
+   "end": [
+    1.267,
+    37.917
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.95,
+    37.827
+   ],
+   "end": [
+    -1.95,
+    37.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -4.45,
+    30.35
+   ],
+   "end": [
+    -4.45,
+    29.724
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    2.4,
+    36.675
+   ],
+   "end": [
+    2.225,
+    36.5
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -3.95,
+    29.6
+   ],
+   "end": [
+    -4.326,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -1.702,
+    38.075
+   ],
+   "end": [
+    -1.95,
+    37.827
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    -0.95,
+    30.35
+   ],
+   "end": [
+    -0.95,
+    29.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.05,
+    37.7
+   ],
+   "end": [
+    1.05,
+    37.15
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "Top Layer",
+   "start": [
+    1.855,
+    37.917
+   ],
+   "end": [
+    2.4,
+    37.372
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -0.95,
+    29.25
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    1.855,
+    37.917
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -1.45,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -3.95,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "at": [
+    -1.702,
+    38.075
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -3.5,
+    30.05
+   ],
+   "end": [
+    -3.95,
+    29.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    2.831,
+    37.869
+   ],
+   "end": [
+    1.903,
+    37.869
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    1.829,
+    37.89
+   ],
+   "end": [
+    1.829,
+    36.7
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -1.808,
+    37.969
+   ],
+   "end": [
+    -1.808,
+    37.37
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.9,
+    29.97
+   ],
+   "end": [
+    -1.256,
+    29.466
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN/ADIN_AVDD",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -1.65,
+    38.8
+   ],
+   "end": [
+    -1.65,
+    38.127
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -5.85,
+    32.0
+   ],
+   "end": [
+    -6.3,
+    31.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -6.825,
+    31.55
+   ],
+   "end": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -5.1,
+    32.0
+   ],
+   "end": [
+    -5.85,
+    32.0
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "Top Layer",
+   "start": [
+    -6.3,
+    31.55
+   ],
+   "end": [
+    -6.825,
+    31.55
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "at": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.774,
+    31.579
+   ],
+   "end": [
+    -5.053,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -4.774,
+    31.951
+   ],
+   "end": [
+    -4.774,
+    31.579
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.225,
+    31.45
+   ],
+   "end": [
+    -6.925,
+    31.45
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.925,
+    31.45
+   ],
+   "end": [
+    -7.195,
+    31.18
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -6.225,
+    31.45
+   ],
+   "end": [
+    -6.075,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_INT}",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.053,
+    31.3
+   ],
+   "end": [
+    -6.075,
+    31.3
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    -3.6,
+    31.85
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    0.9,
+    36.55
+   ],
+   "end": [
+    0.9,
+    35.6
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.996,
+    29.056
+   ],
+   "end": [
+    3.744,
+    29.056
+   ]
+  },
+  {
+   "block": "ADIN",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -3.61,
+    31.85
+   ],
+   "end": [
+    -4.35,
+    31.11
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C18-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    9.295,
+    30.755
+   ],
+   "end": [
+    9.65,
+    30.4
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C18-Pad2)",
+   "at": [
+    9.65,
+    30.4
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C18-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.05,
+    30.4
+   ],
+   "end": [
+    9.65,
+    30.4
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    5.126,
+    28.085
+   ],
+   "end": [
+    5.126,
+    27.335
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C16-Pad2)",
+   "at": [
+    5.126,
+    27.335
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    7.56,
+    27.335
+   ],
+   "end": [
+    8.113,
+    27.888
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    5.126,
+    27.335
+   ],
+   "end": [
+    7.56,
+    27.335
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    8.113,
+    28.263
+   ],
+   "end": [
+    8.113,
+    27.888
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "Top Layer",
+   "start": [
+    4.318,
+    28.103
+   ],
+   "end": [
+    4.318,
+    27.353
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "via",
+   "net": "Net-(C16-Pad1)",
+   "at": [
+    4.318,
+    27.353
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    5.315,
+    28.35
+   ],
+   "end": [
+    6.2,
+    28.35
+   ]
+  },
+  {
+   "block": "P1T",
+   "kind": "track",
+   "net": "Net-(C16-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    4.318,
+    27.353
+   ],
+   "end": [
+    5.315,
+    28.35
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C27-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    14.25,
+    33.4
+   ],
+   "end": [
+    12.552,
+    33.4
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    12.688,
+    32.362
+   ],
+   "end": [
+    12.149,
+    32.362
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "via",
+   "net": "Net-(C24-Pad2)",
+   "at": [
+    12.75,
+    32.3
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad2)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    12.75,
+    31.35
+   ],
+   "end": [
+    12.75,
+    32.3
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "Top Layer",
+   "start": [
+    11.284,
+    32.37
+   ],
+   "end": [
+    10.77,
+    32.37
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "via",
+   "net": "Net-(C24-Pad1)",
+   "at": [
+    10.7,
+    32.3
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    11.648,
+    33.398
+   ],
+   "end": [
+    10.777,
+    32.527
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "Net-(C24-Pad1)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    10.7,
+    31.4
+   ],
+   "end": [
+    10.7,
+    32.3
+   ]
+  },
+  {
+   "block": "P2T",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    14.0,
+    35.15
+   ],
+   "end": [
+    14.0,
+    37.1
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    32.7
+   ],
+   "end": [
+    19.0,
+    32.325
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    32.325
+   ],
+   "end": [
+    18.675,
+    32.0
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.425,
+    32.0
+   ],
+   "end": [
+    18.112,
+    31.687
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.112,
+    31.687
+   ],
+   "end": [
+    18.112,
+    30.812
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "Net-(U6-SW)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.675,
+    32.0
+   ],
+   "end": [
+    18.425,
+    32.0
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.4,
+    32.7
+   ],
+   "end": [
+    19.4,
+    30.85
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.362,
+    29.959
+   ],
+   "end": [
+    20.959,
+    29.959
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.775,
+    29.85
+   ],
+   "end": [
+    19.9,
+    29.85
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.45,
+    33.725
+   ],
+   "end": [
+    21.45,
+    30.047
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.625,
+    34.55
+   ],
+   "end": [
+    21.45,
+    33.725
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.872,
+    33.1
+   ],
+   "end": [
+    19.4,
+    33.1
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.872,
+    33.1
+   ],
+   "end": [
+    20.025,
+    32.947
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.65,
+    31.35
+   ],
+   "end": [
+    20.65,
+    30.925
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.067,
+    34.4
+   ],
+   "end": [
+    18.775,
+    34.4
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.025,
+    31.975
+   ],
+   "end": [
+    20.625,
+    31.375
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.394,
+    34.181
+   ],
+   "end": [
+    19.394,
+    33.106
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.067,
+    34.4
+   ],
+   "end": [
+    19.267,
+    34.2
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    20.025,
+    32.947
+   ],
+   "end": [
+    20.025,
+    31.975
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.0,
+    33.1
+   ],
+   "end": [
+    18.6,
+    33.1
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    34.0
+   ],
+   "end": [
+    18.6,
+    33.1
+   ]
+  },
+  {
+   "block": "B18",
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    34.6
+   ],
+   "end": [
+    17.7,
+    34.0
+   ]
+  }
+ ],
+ "hand": [],
+ "trimmed": [
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/5V_PI",
+   "layer": "Internal 1",
+   "start": [
+    33.126,
+    20.015
+   ],
+   "end": [
+    35.35,
+    20.015
+   ],
+   "width": 0.2,
+   "length": 2.224,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "d8e68ed0-aa5a-439e-b5b7-9f7b76e34f36",
+   "kept": [
+    [
+     33.126,
+     20.015
+    ],
+    [
+     33.226,
+     20.015
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MISO",
+   "layer": "Internal 1",
+   "start": [
+    -6.518,
+    33.976
+   ],
+   "end": [
+    -7.204,
+    33.291
+   ],
+   "width": 0.2,
+   "length": 0.969,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "a5973ee3-cab0-4ac2-b8c1-bdc732493565",
+   "kept": [
+    [
+     -6.518,
+     33.976
+    ],
+    [
+     -6.589,
+     33.905
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.675,
+    32.829
+   ],
+   "end": [
+    -7.204,
+    32.301
+   ],
+   "width": 0.2,
+   "length": 0.748,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "1177afeb-eeaa-4252-9b9c-5992d1e6912c",
+   "kept": [
+    [
+     -6.675,
+     32.829
+    ],
+    [
+     -6.746,
+     32.759
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -0.889,
+    39.551
+   ],
+   "end": [
+    -1.141,
+    39.3
+   ],
+   "width": 0.2,
+   "length": 0.355,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "16598e22-bda7-4c0b-895f-95332c2ee108",
+   "kept": [
+    [
+     -1.07,
+     39.371
+    ],
+    [
+     -1.141,
+     39.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.733,
+    30.146
+   ],
+   "end": [
+    -7.204,
+    30.146
+   ],
+   "width": 0.2032,
+   "length": 1.47,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "68a36238-ced6-413b-82e3-8951b15f660d",
+   "kept": [
+    [
+     -5.733,
+     30.146
+    ],
+    [
+     -5.835,
+     30.146
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -0.604,
+    39.046
+   ],
+   "end": [
+    -1.075,
+    38.575
+   ],
+   "width": 0.2032,
+   "length": 0.667,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "badcb6bf-0b03-479d-b05c-5c3b32940e3a",
+   "kept": [
+    [
+     -1.003,
+     38.647
+    ],
+    [
+     -1.075,
+     38.575
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -6.725,
+    34.5
+   ],
+   "end": [
+    -7.204,
+    34.021
+   ],
+   "width": 0.2,
+   "length": 0.677,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "250f80ed-d4b7-4611-b553-07c1d6de4e68",
+   "kept": [
+    [
+     -6.725,
+     34.5
+    ],
+    [
+     -6.796,
+     34.429
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    18.986,
+    47.45
+   ],
+   "end": [
+    12.165,
+    47.45
+   ],
+   "width": 0.2,
+   "length": 6.821,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "2d1a9cf2-23bb-41cd-9d8f-9a787e0961f0",
+   "kept": [
+    [
+     12.265,
+     47.45
+    ],
+    [
+     12.165,
+     47.45
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    10.4,
+    27.35
+   ],
+   "end": [
+    10.4,
+    27.146
+   ],
+   "width": 0.2,
+   "length": 0.204,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "33fd1081-2d9d-4f10-8d9e-b09addb05881",
+   "kept": [
+    [
+     10.4,
+     27.35
+    ],
+    [
+     10.4,
+     27.25
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    10.35,
+    27.895
+   ],
+   "end": [
+    10.499,
+    27.746
+   ],
+   "width": 0.2,
+   "length": 0.211,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "419bd4e3-5003-4d74-a69a-ca5f78451784",
+   "kept": [
+    [
+     10.35,
+     27.895
+    ],
+    [
+     10.421,
+     27.824
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    18.986,
+    47.1
+   ],
+   "end": [
+    12.257,
+    47.1
+   ],
+   "width": 0.2,
+   "length": 6.729,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "84f61df4-03c4-4e32-9332-187bbeea882d",
+   "kept": [
+    [
+     12.357,
+     47.1
+    ],
+    [
+     12.257,
+     47.1
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Top Layer",
+   "start": [
+    10.506,
+    18.978
+   ],
+   "end": [
+    5.961,
+    18.978
+   ],
+   "width": 2.0,
+   "length": 4.545,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "6112f050-aff6-41e6-a8ba-4f9ee1788fc0",
+   "kept": [
+    [
+     10.506,
+     18.978
+    ],
+    [
+     9.415,
+     18.978
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    17.161,
+    16.778
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 5.196,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "0ccd2a0e-5cea-4697-aa8c-0c8f22f174d2",
+   "kept": [
+    [
+     12.065,
+     16.778
+    ],
+    [
+     11.965,
+     16.778
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    17.161,
+    17.799
+   ],
+   "end": [
+    16.14,
+    16.778
+   ],
+   "width": 2.0,
+   "length": 1.444,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "a93a0d36-e7bc-4514-af7e-f17c40922255",
+   "kept": [
+    [
+     16.847,
+     17.485
+    ],
+    [
+     16.14,
+     16.778
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    17.161,
+    16.427
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 5.342,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "26b59e8e-2e49-4f4b-b04c-de9aa0e17717",
+   "kept": [
+    [
+     11.921,
+     16.427
+    ],
+    [
+     11.819,
+     16.427
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    13.55
+   ],
+   "end": [
+    22.091,
+    13.496
+   ],
+   "width": 0.15,
+   "length": 0.076,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "9ef2f165-db9b-4a70-b8c8-7536f2eb7c95",
+   "kept": [
+    [
+     22.037,
+     13.55
+    ],
+    [
+     22.09,
+     13.497
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    13.674
+   ],
+   "end": [
+    22.449,
+    13.562
+   ],
+   "width": 0.15,
+   "length": 0.159,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "64b31f5c-199f-4053-8950-8825780f25f0",
+   "kept": [
+    [
+     22.337,
+     13.674
+    ],
+    [
+     22.39,
+     13.621
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.161,
+    20.103
+   ],
+   "end": [
+    16.317,
+    20.103
+   ],
+   "width": 0.5,
+   "length": 0.844,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "f38925ef-8701-4901-8d1f-cd6a6e86a67b",
+   "kept": [
+    [
+     16.567,
+     20.103
+    ],
+    [
+     16.317,
+     20.103
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_CS}",
+   "layer": "Internal 1",
+   "start": [
+    -6.418,
+    35.15
+   ],
+   "end": [
+    -7.204,
+    35.15
+   ],
+   "width": 0.2,
+   "length": 0.786,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e5b52d70-f778-419f-8a65-4b4a8e7d21f5",
+   "kept": [
+    [
+     -6.418,
+     35.15
+    ],
+    [
+     -6.518,
+     35.15
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -6.89,
+    29.794
+   ],
+   "end": [
+    -7.204,
+    29.48
+   ],
+   "width": 0.2,
+   "length": 0.444,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "87942e2d-df66-4982-8540-4f86afe5adce",
+   "kept": [
+    [
+     -6.89,
+     29.794
+    ],
+    [
+     -6.96,
+     29.723
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.226,
+    39.551
+   ],
+   "end": [
+    -1.975,
+    39.3
+   ],
+   "width": 0.2,
+   "length": 0.355,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "1281019a-291e-40c9-af5b-cb097f5ff1b2",
+   "kept": [
+    [
+     -2.046,
+     39.371
+    ],
+    [
+     -1.975,
+     39.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.05,
+    29.3
+   ],
+   "end": [
+    21.249,
+    29.101
+   ],
+   "width": 0.2,
+   "length": 0.281,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "507a2391-7bbf-4b31-835a-bd5fb07dad99",
+   "kept": [
+    [
+     21.05,
+     29.3
+    ],
+    [
+     21.121,
+     29.229
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    29.25
+   ],
+   "end": [
+    17.575,
+    29.25
+   ],
+   "width": 0.2,
+   "length": 0.65,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "5ef88072-d53c-4c73-b930-fcd413b09a10",
+   "kept": [
+    [
+     18.225,
+     29.25
+    ],
+    [
+     18.125,
+     29.25
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -5.101,
+    39.551
+   ],
+   "end": [
+    -4.15,
+    38.6
+   ],
+   "width": 0.2,
+   "length": 1.345,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "7dc806f5-e9e5-43cf-9e1b-945b41274d53",
+   "kept": [
+    [
+     -4.221,
+     38.671
+    ],
+    [
+     -4.15,
+     38.6
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    29.25
+   ],
+   "end": [
+    18.374,
+    29.101
+   ],
+   "width": 0.2,
+   "length": 0.211,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "8e9b2ed8-1ac1-439a-a06b-aabf645e26a6",
+   "kept": [
+    [
+     18.225,
+     29.25
+    ],
+    [
+     18.296,
+     29.179
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    17.849,
+    13.125
+   ],
+   "end": [
+    18.75,
+    13.125
+   ],
+   "width": 0.2,
+   "length": 0.901,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "69bcfe8a-7939-4d8c-b601-aebb21f92800",
+   "kept": [
+    [
+     18.65,
+     13.125
+    ],
+    [
+     18.75,
+     13.125
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    33.126,
+    33.215
+   ],
+   "end": [
+    35.35,
+    33.215
+   ],
+   "width": 0.2,
+   "length": 2.224,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "c2a6b113-995c-4ceb-8fd9-e0a7cc56ebaa",
+   "kept": [
+    [
+     33.126,
+     33.215
+    ],
+    [
+     33.226,
+     33.215
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    18.75,
+    13.125
+   ],
+   "end": [
+    20.179,
+    11.696
+   ],
+   "width": 0.2,
+   "length": 2.02,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e420bc8d-17fb-4de6-a73f-004423ec1de6",
+   "kept": [
+    [
+     18.75,
+     13.125
+    ],
+    [
+     18.821,
+     13.054
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    19.086
+   ],
+   "end": [
+    37.051,
+    18.192
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "14791cbd-8b4c-46df-bacd-95c9b179c286",
+   "kept": [
+    [
+     37.051,
+     18.442
+    ],
+    [
+     37.051,
+     18.192
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    58.453
+   ],
+   "end": [
+    10.408,
+    58.201
+   ],
+   "width": 0.381,
+   "length": 0.252,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "3ae76f8b-a77f-4063-9dd6-1d79a71accca",
+   "kept": [
+    [
+     10.408,
+     58.453
+    ],
+    [
+     10.408,
+     58.262
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    30.0,
+    45.85
+   ],
+   "end": [
+    30.0,
+    45.396
+   ],
+   "width": 0.6,
+   "length": 0.454,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "47aa0c07-56ca-4a54-8d95-75e7dc603d6c",
+   "kept": [
+    [
+     30.0,
+     45.85
+    ],
+    [
+     30.0,
+     45.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    32.286
+   ],
+   "end": [
+    37.051,
+    31.392
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e4ec261a-983b-4fe8-9764-38f9e532da8b",
+   "kept": [
+    [
+     37.051,
+     31.642
+    ],
+    [
+     37.051,
+     31.392
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "Internal 1",
+   "start": [
+    22.0,
+    16.075
+   ],
+   "end": [
+    22.449,
+    15.626
+   ],
+   "width": 0.2032,
+   "length": 0.635,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "3a34bddb-831e-4337-8834-b608ff18c295",
+   "kept": [
+    [
+     22.0,
+     16.075
+    ],
+    [
+     22.072,
+     16.003
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    23.414
+   ],
+   "end": [
+    35.35,
+    23.663
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "070785bd-8930-4402-9cf3-5b0f2d7bd0fb",
+   "kept": [
+    [
+     35.101,
+     23.414
+    ],
+    [
+     35.173,
+     23.486
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    35.811
+   ],
+   "end": [
+    35.35,
+    35.562
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "3af06d47-6a2a-46eb-b872-baf7716c90bd",
+   "kept": [
+    [
+     35.101,
+     35.811
+    ],
+    [
+     35.173,
+     35.739
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    36.614
+   ],
+   "end": [
+    35.35,
+    36.863
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "4b2f5428-ba4c-4d8d-9c6f-c659a8663ad9",
+   "kept": [
+    [
+     35.101,
+     36.614
+    ],
+    [
+     35.173,
+     36.686
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    22.611
+   ],
+   "end": [
+    35.35,
+    22.362
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m3",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "c94ed1e0-0d14-4b16-84ec-1ba2ad348db2",
+   "kept": [
+    [
+     35.101,
+     22.611
+    ],
+    [
+     35.173,
+     22.539
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    18.642,
+    41.425
+   ],
+   "end": [
+    18.986,
+    41.081
+   ],
+   "width": 1.5,
+   "length": 0.487,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    47.125
+   ],
+   "end": [
+    16.433,
+    47.125
+   ],
+   "width": 2.0,
+   "length": 0.0,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM1_P",
+   "at": [
+    9.49,
+    41.65
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM1_P",
+   "at": [
+    9.49,
+    42.4
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM1_P",
+   "at": [
+    9.49,
+    43.15
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM2_N",
+   "at": [
+    11.115,
+    17.628
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM2_N",
+   "at": [
+    10.415,
+    18.378
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM2_N",
+   "at": [
+    11.115,
+    18.369
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.711,
+    30.239
+   ],
+   "end": [
+    -4.711,
+    30.239
+   ],
+   "width": 0.2,
+   "length": 0.0,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Top Layer",
+   "start": [
+    -6.175,
+    39.551
+   ],
+   "end": [
+    -6.175,
+    38.875
+   ],
+   "width": 0.381,
+   "length": 0.676,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "3V3",
+   "at": [
+    21.172,
+    14.382
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.125,
+    34.0
+   ],
+   "end": [
+    17.071,
+    33.946
+   ],
+   "width": 0.2,
+   "length": 0.076,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    31.95,
+    45.55
+   ],
+   "end": [
+    32.104,
+    45.396
+   ],
+   "width": 0.6,
+   "length": 0.217,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    19.45,
+    13.7
+   ],
+   "end": [
+    19.45,
+    11.696
+   ],
+   "width": 0.5,
+   "length": 2.004,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    34.817,
+    20.615
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "Net-(C25-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    16.201,
+    35.701
+   ],
+   "end": [
+    16.19,
+    35.69
+   ],
+   "width": 0.2,
+   "length": 0.016,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    22.446,
+    15.629
+   ],
+   "end": [
+    22.449,
+    15.626
+   ],
+   "width": 0.2032,
+   "length": 0.003,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    15.89,
+    52.65
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    15.89,
+    51.9
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.265,
+    43.375
+   ],
+   "end": [
+    9.49,
+    43.15
+   ],
+   "width": 0.5,
+   "length": 0.318,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "a9fdcb55-1a70-4c90-b308-6af5f89d5daf",
+   "kept": [
+    [
+     9.265,
+     43.375
+    ],
+    [
+     9.442,
+     43.198
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    11.115,
+    17.628
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 1.202,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "7145cf60-8b8e-4d30-97ab-121ba13f768f",
+   "kept": [
+    [
+     11.894,
+     16.849
+    ],
+    [
+     11.965,
+     16.778
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    34.0
+   ],
+   "end": [
+    17.125,
+    34.0
+   ],
+   "width": 0.2,
+   "length": 0.575,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "8985ad48-e839-41db-b5b0-02eaa1de980f",
+   "kept": [
+    [
+     17.7,
+     34.0
+    ],
+    [
+     17.6,
+     34.0
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    31.95,
+    46.3
+   ],
+   "end": [
+    31.95,
+    45.55
+   ],
+   "width": 0.6,
+   "length": 0.75,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "3665a3e3-a956-4e01-adf5-a644d92b5c5c",
+   "kept": [
+    [
+     31.95,
+     46.3
+    ],
+    [
+     31.95,
+     46.0
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "Net-(C25-Pad2)",
+   "layer": "Top Layer",
+   "start": [
+    16.19,
+    35.205
+   ],
+   "end": [
+    16.19,
+    35.69
+   ],
+   "width": 0.2,
+   "length": 0.485,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "bb8d90ee-e451-48a1-95f9-739a9404ea03",
+   "kept": [
+    [
+     16.19,
+     35.205
+    ],
+    [
+     16.19,
+     35.305
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.8,
+    15.629
+   ],
+   "end": [
+    22.446,
+    15.629
+   ],
+   "width": 0.2032,
+   "length": 0.646,
+   "stage": "m3",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "9ea8db30-494e-41eb-a337-9b9b940ba446",
+   "kept": [
+    [
+     21.8,
+     15.629
+    ],
+    [
+     21.927,
+     15.629
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/5V_PI",
+   "layer": "Internal 1",
+   "start": [
+    33.126,
+    20.015
+   ],
+   "end": [
+    33.226,
+    20.015
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MISO",
+   "layer": "Internal 1",
+   "start": [
+    -6.518,
+    33.976
+   ],
+   "end": [
+    -6.589,
+    33.905
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.675,
+    32.829
+   ],
+   "end": [
+    -6.746,
+    32.759
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.733,
+    30.146
+   ],
+   "end": [
+    -5.835,
+    30.146
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.003,
+    38.647
+   ],
+   "end": [
+    -1.075,
+    38.575
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -6.725,
+    34.5
+   ],
+   "end": [
+    -6.796,
+    34.429
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    12.265,
+    47.45
+   ],
+   "end": [
+    12.165,
+    47.45
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    10.4,
+    27.35
+   ],
+   "end": [
+    10.4,
+    27.25
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    42.1
+   ],
+   "end": [
+    18.565,
+    41.425
+   ],
+   "width": 2.0,
+   "length": 0.955,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.676,
+    41.809
+   ],
+   "end": [
+    9.517,
+    41.65
+   ],
+   "width": 0.5,
+   "length": 0.224,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.517,
+    41.65
+   ],
+   "end": [
+    9.49,
+    41.65
+   ],
+   "width": 0.5,
+   "length": 0.027,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    10.35,
+    27.895
+   ],
+   "end": [
+    10.421,
+    27.824
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.357,
+    47.1
+   ],
+   "end": [
+    12.257,
+    47.1
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    12.065,
+    16.778
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    16.847,
+    17.485
+   ],
+   "end": [
+    16.14,
+    16.778
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.921,
+    16.427
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    13.55
+   ],
+   "end": [
+    22.09,
+    13.497
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    13.674
+   ],
+   "end": [
+    22.39,
+    13.621
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    16.567,
+    20.103
+   ],
+   "end": [
+    16.317,
+    20.103
+   ],
+   "width": 0.5,
+   "length": 0.25,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_CS}",
+   "layer": "Internal 1",
+   "start": [
+    -6.418,
+    35.15
+   ],
+   "end": [
+    -6.518,
+    35.15
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -6.89,
+    29.794
+   ],
+   "end": [
+    -6.96,
+    29.723
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.046,
+    39.371
+   ],
+   "end": [
+    -1.975,
+    39.3
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.05,
+    29.3
+   ],
+   "end": [
+    21.121,
+    29.229
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    29.25
+   ],
+   "end": [
+    18.125,
+    29.25
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.225,
+    29.25
+   ],
+   "end": [
+    18.296,
+    29.179
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    18.65,
+    13.125
+   ],
+   "end": [
+    18.75,
+    13.125
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    33.126,
+    33.215
+   ],
+   "end": [
+    33.226,
+    33.215
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    18.75,
+    13.125
+   ],
+   "end": [
+    18.821,
+    13.054
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    10.408,
+    58.453
+   ],
+   "end": [
+    10.408,
+    58.262
+   ],
+   "width": 0.381,
+   "length": 0.191,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    30.0,
+    45.85
+   ],
+   "end": [
+    30.0,
+    45.55
+   ],
+   "width": 0.6,
+   "length": 0.3,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "Internal 1",
+   "start": [
+    22.0,
+    16.075
+   ],
+   "end": [
+    22.072,
+    16.003
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    23.414
+   ],
+   "end": [
+    35.173,
+    23.486
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    35.811
+   ],
+   "end": [
+    35.173,
+    35.739
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    36.614
+   ],
+   "end": [
+    35.173,
+    36.686
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    22.611
+   ],
+   "end": [
+    35.173,
+    22.539
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/5V_PI",
+   "layer": "Internal 1",
+   "start": [
+    32.635,
+    20.506
+   ],
+   "end": [
+    33.126,
+    20.015
+   ],
+   "width": 0.2,
+   "length": 0.694,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "d1418df3-8dd6-4124-842c-6ab502fad2c2",
+   "kept": [
+    [
+     32.635,
+     20.506
+    ],
+    [
+     32.706,
+     20.435
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.675,
+    33.197
+   ],
+   "end": [
+    -6.675,
+    32.829
+   ],
+   "width": 0.2,
+   "length": 0.367,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "ec57e39a-6fe5-4561-b7f9-82e1a930c73e",
+   "kept": [
+    [
+     -6.675,
+     33.197
+    ],
+    [
+     -6.675,
+     33.097
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.075,
+    38.575
+   ],
+   "end": [
+    -1.075,
+    37.55
+   ],
+   "width": 0.2032,
+   "length": 1.025,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "2184ff48-3bc4-4c61-b321-edf38578205e",
+   "kept": [
+    [
+     -1.075,
+     37.652
+    ],
+    [
+     -1.075,
+     37.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.0,
+    30.879
+   ],
+   "end": [
+    -5.733,
+    30.146
+   ],
+   "width": 0.2032,
+   "length": 1.037,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "daa4bdcc-f9aa-4ef5-bb96-9634b23a3573",
+   "kept": [
+    [
+     -5.0,
+     30.879
+    ],
+    [
+     -5.072,
+     30.807
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -5.85,
+    34.5
+   ],
+   "end": [
+    -6.725,
+    34.5
+   ],
+   "width": 0.2,
+   "length": 0.875,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "f4427c91-aecb-428c-9399-222a3644ba0e",
+   "kept": [
+    [
+     -5.85,
+     34.5
+    ],
+    [
+     -5.95,
+     34.5
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    11.565,
+    48.05
+   ],
+   "end": [
+    12.165,
+    47.45
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "009960ef-e091-4b88-bca4-b413858177a5",
+   "kept": [
+    [
+     11.565,
+     48.05
+    ],
+    [
+     11.636,
+     47.979
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    9.8,
+    27.95
+   ],
+   "end": [
+    10.4,
+    27.35
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "928d40ca-6029-424a-a618-0c6727ddddcd",
+   "kept": [
+    [
+     9.8,
+     27.95
+    ],
+    [
+     9.871,
+     27.879
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    45.668
+   ],
+   "end": [
+    17.89,
+    42.1
+   ],
+   "width": 2.0,
+   "length": 3.568,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "3fc311c6-323d-4b3b-8d7d-60fd598fd9c0",
+   "kept": [
+    [
+     17.89,
+     45.668
+    ],
+    [
+     17.89,
+     44.668
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    10.35,
+    28.231
+   ],
+   "end": [
+    10.35,
+    27.895
+   ],
+   "width": 0.2,
+   "length": 0.336,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "7259b381-e1c5-40e1-8355-ffb6b98fa248",
+   "kept": [
+    [
+     10.35,
+     28.231
+    ],
+    [
+     10.35,
+     28.131
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    16.14,
+    16.778
+   ],
+   "end": [
+    12.915,
+    16.778
+   ],
+   "width": 2.0,
+   "length": 3.225,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "0c6e00c3-462f-45ae-93e7-6c27f409a022",
+   "kept": [
+    [
+     13.915,
+     16.778
+    ],
+    [
+     12.915,
+     16.778
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.629,
+    16.617
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 0.269,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "6f8ba703-3aaa-4d7b-a7c7-c565d087db38",
+   "kept": [
+    [
+     11.629,
+     16.617
+    ],
+    [
+     11.701,
+     16.545
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    14.978
+   ],
+   "end": [
+    22.037,
+    13.55
+   ],
+   "width": 0.15,
+   "length": 1.427,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "6b4fa4d8-4cee-4a77-aa99-90878135fb0b",
+   "kept": [
+    [
+     22.037,
+     14.978
+    ],
+    [
+     22.037,
+     14.903
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    15.102
+   ],
+   "end": [
+    22.337,
+    13.674
+   ],
+   "width": 0.15,
+   "length": 1.427,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "82af8b2b-4b1c-4587-99e7-5e2653dd6784",
+   "kept": [
+    [
+     22.337,
+     15.102
+    ],
+    [
+     22.337,
+     15.027
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -5.156,
+    29.794
+   ],
+   "end": [
+    -6.89,
+    29.794
+   ],
+   "width": 0.2,
+   "length": 1.734,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "b2d74593-464e-4822-a211-312d477778cc",
+   "kept": [
+    [
+     -5.156,
+     29.794
+    ],
+    [
+     -5.256,
+     29.794
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    21.05,
+    29.725
+   ],
+   "end": [
+    21.05,
+    29.3
+   ],
+   "width": 0.2,
+   "length": 0.425,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "03df1925-121a-47d3-a66c-4d42d1b029b0",
+   "kept": [
+    [
+     21.05,
+     29.725
+    ],
+    [
+     21.05,
+     29.625
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -1.65,
+    39.3
+   ],
+   "end": [
+    -1.975,
+    39.3
+   ],
+   "width": 0.2,
+   "length": 0.325,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "8617344b-bbc3-494b-bb67-41bc29ce4c83",
+   "kept": [
+    [
+     -1.65,
+     39.3
+    ],
+    [
+     -1.75,
+     39.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    32.635,
+    33.706
+   ],
+   "end": [
+    33.126,
+    33.215
+   ],
+   "width": 0.2,
+   "length": 0.694,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "1f0e06e7-3906-43f6-ac3f-01ec3a73824a",
+   "kept": [
+    [
+     32.635,
+     33.706
+    ],
+    [
+     32.706,
+     33.635
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    29.45,
+    46.4
+   ],
+   "end": [
+    30.0,
+    45.85
+   ],
+   "width": 0.6,
+   "length": 0.778,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "c3376ff2-352e-4ea8-91e6-43a21edb2a45",
+   "kept": [
+    [
+     29.45,
+     46.4
+    ],
+    [
+     29.662,
+     46.188
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "Internal 1",
+   "start": [
+    18.317,
+    16.075
+   ],
+   "end": [
+    22.0,
+    16.075
+   ],
+   "width": 0.2032,
+   "length": 3.683,
+   "stage": "m3",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "4c972f35-94cd-4032-954f-4b41347b85df",
+   "kept": [
+    [
+     18.317,
+     16.075
+    ],
+    [
+     18.418,
+     16.075
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.265,
+    43.375
+   ],
+   "end": [
+    9.442,
+    43.198
+   ],
+   "width": 0.5,
+   "length": 0.25,
+   "stage": "m3",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    11.894,
+    16.849
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.7,
+    34.0
+   ],
+   "end": [
+    17.6,
+    34.0
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    23.414
+   ],
+   "end": [
+    35.101,
+    22.611
+   ],
+   "width": 0.2032,
+   "length": 0.803,
+   "stage": "m3",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    36.614
+   ],
+   "end": [
+    35.101,
+    35.811
+   ],
+   "width": 0.2032,
+   "length": 0.803,
+   "stage": "m3",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "6 Bottom Layer",
+   "start": [
+    9.265,
+    45.15
+   ],
+   "end": [
+    9.265,
+    43.375
+   ],
+   "width": 0.5,
+   "length": 1.775,
+   "stage": "m3",
+   "round": 4,
+   "action": "shortened",
+   "uuid": "ceeaaccd-2d13-47ca-abdd-bccdf36b58f7",
+   "kept": [
+    [
+     9.265,
+     45.15
+    ],
+    [
+     9.265,
+     44.9
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/5V_PI",
+   "layer": "Internal 1",
+   "start": [
+    32.635,
+    20.506
+   ],
+   "end": [
+    32.706,
+    20.435
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.675,
+    33.197
+   ],
+   "end": [
+    -6.675,
+    33.097
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.075,
+    37.652
+   ],
+   "end": [
+    -1.075,
+    37.55
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.0,
+    30.879
+   ],
+   "end": [
+    -5.072,
+    30.807
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    45.668
+   ],
+   "end": [
+    17.89,
+    44.668
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    10.35,
+    28.231
+   ],
+   "end": [
+    10.35,
+    28.131
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    13.915,
+    16.778
+   ],
+   "end": [
+    12.915,
+    16.778
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    14.978
+   ],
+   "end": [
+    22.037,
+    14.903
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    15.102
+   ],
+   "end": [
+    22.337,
+    15.027
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -5.156,
+    29.794
+   ],
+   "end": [
+    -5.256,
+    29.794
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    32.635,
+    33.706
+   ],
+   "end": [
+    32.706,
+    33.635
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "Net-(U4-ALERT)",
+   "layer": "Internal 1",
+   "start": [
+    18.317,
+    16.075
+   ],
+   "end": [
+    18.418,
+    16.075
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/5V_PI",
+   "layer": "Internal 1",
+   "start": [
+    29.674,
+    20.506
+   ],
+   "end": [
+    32.635,
+    20.506
+   ],
+   "width": 0.2,
+   "length": 2.961,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "f351f290-17de-4588-a964-815ac9c14e9c",
+   "kept": [
+    [
+     29.674,
+     20.506
+    ],
+    [
+     29.774,
+     20.506
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.372,
+    33.5
+   ],
+   "end": [
+    -6.675,
+    33.197
+   ],
+   "width": 0.2,
+   "length": 0.429,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "ed3cb88b-5680-471d-a016-08f207bd9ab5",
+   "kept": [
+    [
+     -6.372,
+     33.5
+    ],
+    [
+     -6.442,
+     33.429
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.075,
+    37.55
+   ],
+   "end": [
+    -1.45,
+    37.175
+   ],
+   "width": 0.2032,
+   "length": 0.53,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "0eb14594-5dab-40b3-9353-d375cce1aa35",
+   "kept": [
+    [
+     -1.378,
+     37.247
+    ],
+    [
+     -1.45,
+     37.175
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.0,
+    37.55
+   ],
+   "end": [
+    -5.0,
+    30.879
+   ],
+   "width": 0.2032,
+   "length": 6.671,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "18ab2066-e901-43c4-ad67-eedd503a6891",
+   "kept": [
+    [
+     -5.0,
+     37.55
+    ],
+    [
+     -5.0,
+     37.448
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    47.125
+   ],
+   "end": [
+    17.89,
+    45.668
+   ],
+   "width": 2.0,
+   "length": 2.061,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "b43210f3-6cd3-4058-a29b-6f0f9fd8a442",
+   "kept": [
+    [
+     16.433,
+     47.125
+    ],
+    [
+     17.14,
+     46.418
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    9.955,
+    28.626
+   ],
+   "end": [
+    10.35,
+    28.231
+   ],
+   "width": 0.2,
+   "length": 0.559,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "698625d3-98e5-4462-a115-6005a02d9c6e",
+   "kept": [
+    [
+     9.955,
+     28.626
+    ],
+    [
+     10.025,
+     28.556
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    12.915,
+    16.778
+   ],
+   "end": [
+    11.105,
+    14.968
+   ],
+   "width": 2.0,
+   "length": 2.56,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "103d946e-14ff-4f9d-aa98-d3324bc1e04f",
+   "kept": [
+    [
+     12.71,
+     16.573
+    ],
+    [
+     11.105,
+     14.968
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    15.164
+   ],
+   "end": [
+    22.037,
+    14.978
+   ],
+   "width": 0.15,
+   "length": 0.264,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "8b387e3e-1c3a-497a-9014-ec1fba623465",
+   "kept": [
+    [
+     21.85,
+     15.164
+    ],
+    [
+     21.903,
+     15.111
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    15.289
+   ],
+   "end": [
+    22.337,
+    15.102
+   ],
+   "width": 0.15,
+   "length": 0.264,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "6d28ba81-477f-4a17-946e-b21cddc74f64",
+   "kept": [
+    [
+     22.15,
+     15.289
+    ],
+    [
+     22.203,
+     15.236
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.711,
+    30.239
+   ],
+   "end": [
+    -5.156,
+    29.794
+   ],
+   "width": 0.2,
+   "length": 0.629,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "0b9b014c-0c95-4ed9-8f39-709c3e319e3b",
+   "kept": [
+    [
+     -4.711,
+     30.239
+    ],
+    [
+     -4.782,
+     30.168
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    29.674,
+    33.706
+   ],
+   "end": [
+    32.635,
+    33.706
+   ],
+   "width": 0.2,
+   "length": 2.961,
+   "stage": "m3",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "32bc954f-6d27-4462-bf78-2191e64dd210",
+   "kept": [
+    [
+     29.674,
+     33.706
+    ],
+    [
+     29.774,
+     33.706
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.372,
+    33.5
+   ],
+   "end": [
+    -6.442,
+    33.429
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.378,
+    37.247
+   ],
+   "end": [
+    -1.45,
+    37.175
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.0,
+    37.55
+   ],
+   "end": [
+    -5.0,
+    37.448
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    47.125
+   ],
+   "end": [
+    17.14,
+    46.418
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Top Layer",
+   "start": [
+    12.71,
+    16.573
+   ],
+   "end": [
+    11.105,
+    14.968
+   ],
+   "width": 2.0,
+   "length": 2.269,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    15.164
+   ],
+   "end": [
+    21.903,
+    15.111
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    15.289
+   ],
+   "end": [
+    22.203,
+    15.236
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.711,
+    30.239
+   ],
+   "end": [
+    -4.782,
+    30.168
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -5.85,
+    33.5
+   ],
+   "end": [
+    -6.372,
+    33.5
+   ],
+   "width": 0.2,
+   "length": 0.522,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "313d2b41-07e9-41ab-8acc-4bd83c19327d",
+   "kept": [
+    [
+     -5.85,
+     33.5
+    ],
+    [
+     -5.95,
+     33.5
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.425,
+    37.975
+   ],
+   "end": [
+    -5.0,
+    37.55
+   ],
+   "width": 0.2032,
+   "length": 0.601,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "16156d68-075c-419e-aa7c-28a243375aa9",
+   "kept": [
+    [
+     -5.425,
+     37.975
+    ],
+    [
+     -5.353,
+     37.903
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -1.45,
+    37.175
+   ],
+   "end": [
+    -3.175,
+    37.175
+   ],
+   "width": 0.2032,
+   "length": 1.725,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "bda98338-11c7-454f-8816-0ae47e291595",
+   "kept": [
+    [
+     -3.073,
+     37.175
+    ],
+    [
+     -3.175,
+     37.175
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    16.375
+   ],
+   "end": [
+    21.85,
+    15.164
+   ],
+   "width": 0.15,
+   "length": 1.211,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "dc3560ee-ccc9-42d5-b876-e30f23edfa46",
+   "kept": [
+    [
+     21.85,
+     16.375
+    ],
+    [
+     21.85,
+     16.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    16.747
+   ],
+   "end": [
+    22.15,
+    15.289
+   ],
+   "width": 0.15,
+   "length": 1.458,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "4e976bdc-f54c-4bfa-8e8b-fe124fe24db7",
+   "kept": [
+    [
+     22.15,
+     16.747
+    ],
+    [
+     22.15,
+     16.672
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.4,
+    30.55
+   ],
+   "end": [
+    -4.711,
+    30.239
+   ],
+   "width": 0.2,
+   "length": 0.44,
+   "stage": "m3",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "6673dd98-a976-44b2-bc91-33f6e10c99c8",
+   "kept": [
+    [
+     -4.4,
+     30.55
+    ],
+    [
+     -4.471,
+     30.479
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    47.125
+   ],
+   "end": [
+    13.098,
+    47.125
+   ],
+   "width": 2.0,
+   "length": 3.335,
+   "stage": "m3",
+   "round": 7,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM2_P",
+   "at": [
+    11.34,
+    16.528
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 7,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.416,
+    16.604
+   ],
+   "end": [
+    11.34,
+    16.528
+   ],
+   "width": 0.203,
+   "length": 0.107,
+   "stage": "m3",
+   "round": 8,
+   "action": "shortened",
+   "uuid": "c9f0b837-a898-4750-a723-85fa0a51fa9f",
+   "kept": [
+    [
+     11.416,
+     16.604
+    ],
+    [
+     11.344,
+     16.532
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.425,
+    37.975
+   ],
+   "end": [
+    -5.353,
+    37.903
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.073,
+    37.175
+   ],
+   "end": [
+    -3.175,
+    37.175
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/BM1_P",
+   "at": [
+    11.94,
+    46.875
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.629,
+    16.617
+   ],
+   "end": [
+    11.701,
+    16.545
+   ],
+   "width": 0.203,
+   "length": 0.101,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    16.375
+   ],
+   "end": [
+    21.85,
+    16.3
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    16.747
+   ],
+   "end": [
+    22.15,
+    16.672
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.4,
+    30.55
+   ],
+   "end": [
+    -4.471,
+    30.479
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.7,
+    37.7
+   ],
+   "end": [
+    -3.175,
+    37.175
+   ],
+   "width": 0.2032,
+   "length": 0.742,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "73d13194-eac8-493a-ac20-296e22675eab",
+   "kept": [
+    [
+     -3.7,
+     37.7
+    ],
+    [
+     -3.628,
+     37.628
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.425,
+    38.5
+   ],
+   "end": [
+    -5.425,
+    37.975
+   ],
+   "width": 0.2032,
+   "length": 0.525,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "ea3292cc-5f81-4298-8c07-f57db441c3e6",
+   "kept": [
+    [
+     -5.425,
+     38.5
+    ],
+    [
+     -5.425,
+     38.398
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.057,
+    46.9
+   ],
+   "end": [
+    11.94,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.117,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "34eec53a-dd6c-4d81-b104-128ccff59dc7",
+   "kept": [
+    [
+     12.057,
+     46.9
+    ],
+    [
+     11.957,
+     46.9
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.257,
+    47.1
+   ],
+   "end": [
+    12.057,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.283,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "a254c8da-93e9-4e66-9f4b-a9c722bc6210",
+   "kept": [
+    [
+     12.128,
+     46.971
+    ],
+    [
+     12.057,
+     46.9
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.575,
+    16.65
+   ],
+   "end": [
+    21.85,
+    16.375
+   ],
+   "width": 0.15,
+   "length": 0.389,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "eda5aa45-0846-41c1-b587-0a43c146ea12",
+   "kept": [
+    [
+     21.575,
+     16.65
+    ],
+    [
+     21.628,
+     16.597
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    21.772,
+    17.125
+   ],
+   "end": [
+    22.15,
+    16.747
+   ],
+   "width": 0.15,
+   "length": 0.535,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "6fcdcb48-b319-449e-8c42-c2508e33e9d2",
+   "kept": [
+    [
+     21.772,
+     17.125
+    ],
+    [
+     21.825,
+     17.072
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    1.7,
+    30.55
+   ],
+   "end": [
+    -4.4,
+    30.55
+   ],
+   "width": 0.2,
+   "length": 6.1,
+   "stage": "m3",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "edd39751-1a74-47ae-b9d5-460a331d245b",
+   "kept": [
+    [
+     1.7,
+     30.55
+    ],
+    [
+     1.6,
+     30.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.629,
+    16.617
+   ],
+   "end": [
+    11.616,
+    16.604
+   ],
+   "width": 0.203,
+   "length": 0.018,
+   "stage": "m3",
+   "round": 9,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.416,
+    16.604
+   ],
+   "end": [
+    11.344,
+    16.532
+   ],
+   "width": 0.203,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 9,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.7,
+    37.7
+   ],
+   "end": [
+    -3.628,
+    37.628
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.425,
+    38.5
+   ],
+   "end": [
+    -5.425,
+    38.398
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.057,
+    46.9
+   ],
+   "end": [
+    11.957,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.128,
+    46.971
+   ],
+   "end": [
+    12.057,
+    46.9
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.616,
+    16.604
+   ],
+   "end": [
+    11.416,
+    16.604
+   ],
+   "width": 0.203,
+   "length": 0.2,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    21.772,
+    17.125
+   ],
+   "end": [
+    21.825,
+    17.072
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    1.7,
+    30.55
+   ],
+   "end": [
+    1.6,
+    30.55
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.7,
+    39.245
+   ],
+   "end": [
+    -3.7,
+    37.7
+   ],
+   "width": 0.2032,
+   "length": 1.545,
+   "stage": "m3",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "5fb3e91d-58ec-487c-9cb6-f194b61d95ee",
+   "kept": [
+    [
+     -3.7,
+     39.245
+    ],
+    [
+     -3.7,
+     39.11
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.95,
+    38.975
+   ],
+   "end": [
+    -5.425,
+    38.5
+   ],
+   "width": 0.2032,
+   "length": 0.672,
+   "stage": "m3",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "e44ad68e-f98d-433a-8744-1910499c5d9a",
+   "kept": [
+    [
+     -4.95,
+     38.975
+    ],
+    [
+     -5.022,
+     38.903
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    21.625,
+    17.125
+   ],
+   "end": [
+    21.772,
+    17.125
+   ],
+   "width": 0.15,
+   "length": 0.147,
+   "stage": "m3",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "3e3d279a-9c7d-4176-bdc2-adebd82d748f",
+   "kept": [
+    [
+     21.625,
+     17.125
+    ],
+    [
+     21.7,
+     17.125
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    1.7,
+    30.55
+   ],
+   "end": [
+    2.2,
+    30.05
+   ],
+   "width": 0.2,
+   "length": 0.707,
+   "stage": "m3",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "b437f69a-5bdc-4901-a5ad-149a59d2d86b",
+   "kept": [
+    [
+     2.129,
+     30.121
+    ],
+    [
+     2.2,
+     30.05
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.95,
+    38.975
+   ],
+   "end": [
+    -5.022,
+    38.903
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 12,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    21.625,
+    17.125
+   ],
+   "end": [
+    21.7,
+    17.125
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m3",
+   "round": 12,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.129,
+    30.121
+   ],
+   "end": [
+    2.2,
+    30.05
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 12,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.956,
+    38.975
+   ],
+   "end": [
+    -4.95,
+    38.975
+   ],
+   "width": 0.2032,
+   "length": 0.994,
+   "stage": "m3",
+   "round": 13,
+   "action": "shortened",
+   "uuid": "69eb59cf-ef45-43f8-bc94-a7635d6201cb",
+   "kept": [
+    [
+     -3.956,
+     38.975
+    ],
+    [
+     -4.058,
+     38.975
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    21.375,
+    17.375
+   ],
+   "end": [
+    21.625,
+    17.125
+   ],
+   "width": 0.15,
+   "length": 0.354,
+   "stage": "m3",
+   "round": 13,
+   "action": "shortened",
+   "uuid": "8e010406-95b2-43c6-9707-ddaecc7d3acc",
+   "kept": [
+    [
+     21.375,
+     17.375
+    ],
+    [
+     21.428,
+     17.322
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.3,
+    30.05
+   ],
+   "end": [
+    2.2,
+    30.05
+   ],
+   "width": 0.2,
+   "length": 1.1,
+   "stage": "m3",
+   "round": 13,
+   "action": "shortened",
+   "uuid": "0e12a2bb-4f9c-4ff2-adcf-de74c64989ac",
+   "kept": [
+    [
+     3.3,
+     30.05
+    ],
+    [
+     3.2,
+     30.05
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.956,
+    38.975
+   ],
+   "end": [
+    -4.058,
+    38.975
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m3",
+   "round": 14,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.3,
+    30.05
+   ],
+   "end": [
+    3.2,
+    30.05
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 14,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.719,
+    39.212
+   ],
+   "end": [
+    -3.956,
+    38.975
+   ],
+   "width": 0.2032,
+   "length": 0.335,
+   "stage": "m3",
+   "round": 15,
+   "action": "shortened",
+   "uuid": "5c356738-a3d0-4b66-82df-57d78ea82fb2",
+   "kept": [
+    [
+     -3.719,
+     39.212
+    ],
+    [
+     -3.832,
+     39.099
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.8,
+    30.55
+   ],
+   "end": [
+    3.3,
+    30.05
+   ],
+   "width": 0.2,
+   "length": 0.707,
+   "stage": "m3",
+   "round": 15,
+   "action": "shortened",
+   "uuid": "2413aa08-2288-4546-bcd0-e2a708a7862f",
+   "kept": [
+    [
+     3.8,
+     30.55
+    ],
+    [
+     3.729,
+     30.479
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.8,
+    30.55
+   ],
+   "end": [
+    3.729,
+    30.479
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 16,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.8,
+    31.822
+   ],
+   "end": [
+    3.8,
+    30.55
+   ],
+   "width": 0.2,
+   "length": 1.272,
+   "stage": "m3",
+   "round": 17,
+   "action": "shortened",
+   "uuid": "71c070c5-9bcb-42bb-86c2-8427220e2172",
+   "kept": [
+    [
+     3.8,
+     31.822
+    ],
+    [
+     3.8,
+     31.722
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.8,
+    31.822
+   ],
+   "end": [
+    3.8,
+    31.722
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m3",
+   "round": 18,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.524,
+    33.098
+   ],
+   "end": [
+    3.8,
+    31.822
+   ],
+   "width": 0.2,
+   "length": 1.805,
+   "stage": "m3",
+   "round": 19,
+   "action": "shortened",
+   "uuid": "2f2c5ec8-0f14-4572-ab79-af5173fa7c1b",
+   "kept": [
+    [
+     2.524,
+     33.098
+    ],
+    [
+     2.594,
+     33.027
+    ]
+   ]
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/3V3_Buck_SW",
+   "at": [
+    33.5,
+    31.2
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/Power Regulators/5V_Buck_SW",
+   "at": [
+    31.6,
+    17.8
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  }
+ ],
+ "protected_dangling": []
+}

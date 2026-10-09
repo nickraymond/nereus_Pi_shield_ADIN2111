@@ -1,0 +1,36 @@
+ok    J1 pin 1: (25.230, 8.370), want (25.23, 8.37)
+ok    J1 pin 2: (27.770, 8.370), want (27.77, 8.37)
+ok    J1 pin 39: (25.230, 56.630), want (25.23, 56.63)
+ok    J1 pin 40: (27.770, 56.630), want (27.77, 56.63)
+ok    J1 side: bottom (want bottom)
+ok    H1: at (3.500, 3.500), want (3.5, 3.5) (d 0.000)
+ok    H2: at (26.500, 3.500), want (26.5, 3.5) (d 0.000)
+ok    H3: at (3.500, 61.500), want (3.5, 61.5) (d 0.000)
+ok    H4: at (26.500, 61.500), want (26.5, 61.5) (d 0.000)
+ok    MTG1: at (-6.500, 3.500), want (-6.5, 3.5) (d 0.000)
+ok    MTG2: at (34.500, 3.500), want (34.5, 3.5) (d 0.000)
+ok    MTG3: at (-6.500, 64.500), want (-6.5, 64.5) (d 0.000)
+ok    MTG4: at (34.500, 64.500), want (34.5, 64.5) (d 0.000)
+ok    MP3: at (-6.310, 12.000), want (-6.3100000000000005, 12.0) (d 0.000)
+ok    MP4: at (-6.310, 21.400), want (-6.3100000000000005, 21.4) (d 0.000)
+ok    MP1: at (-6.310, 46.100), want (-6.3100000000000005, 46.1) (d 0.000)
+ok    MP2: at (-6.310, 55.500), want (-6.3100000000000005, 55.5) (d 0.000)
+ok    MP3 side: bottom (want bottom, as the mote)
+ok    MP4 side: bottom (want bottom, as the mote)
+ok    MP1 side: bottom (want bottom, as the mote)
+ok    MP2 side: bottom (want bottom, as the mote)
+ok    J5: at (15.000, 64.800), want (15.0, 64.8) (d 0.000)
+ok    J5 rotation 0.0 (want 0.0, face south)
+ok    L2 centred in its envelope: at (12.740, 16.750), want (12.74, 16.75) (d 0.000)
+ok    L2 side: top
+ok    L1 centred in its envelope: at (12.740, 47.250), want (12.74, 47.25) (d 0.000)
+ok    L1 side: top
+ok    MP3 ring: 1 arc, 7 vias on BM2_P
+ok    MP4 ring: 1 arc, 7 vias on BM2_N
+ok    MP1 ring: 1 arc, 7 vias on BM1_P
+ok    MP2 ring: 1 arc, 7 vias on BM1_N
+ok    MP3 copper pull-back r 4.8 (other nets, all layers): clear
+ok    MP4 copper pull-back r 4.8 (other nets, all layers): clear
+ok    MP1 copper pull-back r 4.8 (other nets, all layers): clear
+ok    MP2 copper pull-back r 4.8 (other nets, all layers): clear
+check_fixed: 0 failures; 0 parts still parked off-board

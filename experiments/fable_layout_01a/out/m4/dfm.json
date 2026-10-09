@@ -1,0 +1,418 @@
+{
+ "trace_outer": [
+  0.15,
+  "0.150 mm, ADIN_PWR on 6 Bottom Layer at (-1.15, 39.30)",
+  true
+ ],
+ "trace_inner": [
+  0.2,
+  "0.200 mm, 5V_PI on Internal 1 at (29.67, 20.51)",
+  true
+ ],
+ "via_drill": [
+  0.2,
+  "0.200 mm (265 vias; drills {0.3: 99, 0.2: 131, 0.254: 28, 0.25: 7})",
+  true
+ ],
+ "via_dia": [
+  0.45,
+  "0.450 mm (diameters {0.6: 127, 0.45: 131, 0.5: 7})",
+  true
+ ],
+ "via_ring": [
+  0.125,
+  "0.125 mm at (29.67, 20.51)",
+  true
+ ],
+ "pth_ring": [
+  0.35,
+  "0.350 mm at J1.1 (44 PTH pads)",
+  true
+ ],
+ "npth": [
+  2.7,
+  "2.70 mm at H2.- (8 NPTH: [2.7, 4.4])",
+  true
+ ],
+ "h2h_via": [
+  0.28309518948453216,
+  "0.283 mm between vias at (20.90, 60.90) / (21.40, 61.20); via\u2013pad 0.640 mm (J1.34)",
+  true
+ ],
+ "h2h_pad": [
+  1.5399999999999991,
+  "1.540 mm between J1.1 and J1.2",
+  true
+ ],
+ "hole_cu_via": [
+  0.274994,
+  "outer 0.275 (via (2.50, 31.90) vs via [~{ADIN_P1_LED1}] on Top Layer); inner 0.275 (via (2.50, 31.90) vs via [~{ADIN_P1_LED1}] on Internal 1)",
+  true
+ ],
+ "hole_cu_pth": [
+  0.30049799999999993,
+  "outer 0.578 (J1.19 (25.23, 31.23) vs via [ADIN_PWR] on Top Layer); inner 0.300 (MTG3.0 (-6.50, 64.50) vs zone GND on GND Plane)",
+  true
+ ],
+ "hole_cu_npth": [
+  0.23,
+  "outer 0.230 (MP2.- (-6.31, 55.50) vs arc [BM1_N] on Top Layer); inner 0.250 (H2.- (26.50, 3.50) vs zone GND on GND Plane)",
+  true
+ ],
+ "edge": [
+  0.49951171875,
+  "0.500 mm: MTG3.0 [unconnected-(MTG3-Pad0)] at (-6.50, 64.50)",
+  true
+ ],
+ "same_net": [
+  0,
+  "0 gap(s) of 0.03\u20130.25 mm between parallel runs of one net",
+  true
+ ],
+ "same_net_list": [],
+ "smd_pad": [
+  0.23,
+  "0.23 mm at U6.A1; every footprint under 0.25: U11 (Texas_DRC0010J: 10 pads, 0.240 mm); U2 (AP22913CN4-7-Footprint-1: 4 pads, 0.235 mm); U3 (AP22913CN4-7-Footprint-1: 4 pads, 0.235 mm); U6 (FP-YBG0006-MFG: 6 pads, 0.230 mm) (netted SMD pads; Sofar's unnumbered no-net T1/T2 pads not counted)",
+  false
+ ],
+ "small_pads": {
+  "U11": [
+   "Texas_DRC0010J",
+   10,
+   0.24
+  ],
+  "U6": [
+   "FP-YBG0006-MFG",
+   6,
+   0.23
+  ],
+  "U2": [
+   "AP22913CN4-7-Footprint-1",
+   4,
+   0.235
+  ],
+  "U3": [
+   "AP22913CN4-7-Footprint-1",
+   4,
+   0.235
+  ]
+ },
+ "via_in_pad": [
+  0,
+  "34 vias touching an SMD pad: Sofar's 16, in test pads 10, in large power pads > 4 mm\u00b2 8 (C23.1, L1.1, L1.3, L1.4, L2.1, L2.2, L2.4, U11.11: the inductors' and the electrolytic's solder pads and U11's exposed pad; QE round 4 N2 \u2014 these wick less but are new; JLC's 'plugged vias: filled with soldermask' option (capabilities page) would close them), **new vias in solder pads 0**",
+  true
+ ],
+ "silk_line": [
+  0,
+  "0 silk lines under 0.15 mm",
+  true
+ ],
+ "silk_text": [
+  0,
+  "0 visible silk texts under 1.0 mm high or 0.15 mm thick; DRC text_height 0, text_thickness 0",
+  true
+ ],
+ "balance": [
+  0,
+  "Top Layer 24.3 %; Internal 1 9.6 %; GND Plane 80.5 %; Internal 2 14.6 %; PWR Plane 67.1 %; 6 Bottom Layer 81.3 %",
+  true
+ ],
+ "balance_table": {
+  "Top Layer": 24.3,
+  "Internal 1": 9.6,
+  "GND Plane": 80.5,
+  "Internal 2": 14.6,
+  "PWR Plane": 67.1,
+  "6 Bottom Layer": 81.3
+ },
+ "pours": [
+  1,
+  "GND pours on outer layers: [('6 Bottom Layer', \"GND pour (B.Cu), as the mote's bottom layer\")]; 71 GND vias on the board",
+  true
+ ],
+ "thermal": [
+  0,
+  "Top Layer 3V3: solid; Top Layer 5V_PI: solid; 6 Bottom Layer GND: solid; 6 Bottom Layer 5V_PI: solid; GND Plane GND: thermal; Internal 2 5V_PI: thermal; PWR Plane 3V3: thermal; PWR Plane VBUS: thermal; PWR Plane P_IN: thermal",
+  true
+ ],
+ "zones": [
+  [
+   "Top Layer",
+   "3V3",
+   "solid",
+   ""
+  ],
+  [
+   "Top Layer",
+   "5V_Buck_SW",
+   "solid",
+   ""
+  ],
+  [
+   "Top Layer",
+   "5V_PI",
+   "solid",
+   ""
+  ],
+  [
+   "Top Layer",
+   "3V3_Buck_SW",
+   "solid",
+   ""
+  ],
+  [
+   "6 Bottom Layer",
+   "GND",
+   "solid",
+   "GND pour (B.Cu), as the mote's bottom layer"
+  ],
+  [
+   "6 Bottom Layer",
+   "5V_PI",
+   "solid",
+   "5V_PI pour (B.Cu) under JP1 / L6 / U10"
+  ],
+  [
+   "GND Plane",
+   "GND",
+   "thermal",
+   "GND plane (In2): island per inductor, slots per th"
+  ],
+  [
+   "Internal 2",
+   "5V_PI",
+   "thermal",
+   "5V_PI patch (In3) under the 5 V cell"
+  ],
+  [
+   "PWR Plane",
+   "3V3",
+   "thermal",
+   "3V3 island (In4) at the 3.3 V buck output"
+  ],
+  [
+   "PWR Plane",
+   "ADIN_AVDD",
+   "solid",
+   ""
+  ],
+  [
+   "PWR Plane",
+   "VBUS",
+   "thermal",
+   "VBUS plane (In4)"
+  ],
+  [
+   "PWR Plane",
+   "ADIN_VDDIO",
+   "solid",
+   ""
+  ],
+  [
+   "PWR Plane",
+   "P_IN",
+   "thermal",
+   "P_IN island (In4) under port 2 east"
+  ]
+ ],
+ "fiducial": [
+  6,
+  "top 3 / bottom 3; copper [0.75] mm, mask [2.25] mm; pad edge to board edge min 4.62 mm (all \u2265 3.35)",
+  true
+ ],
+ "fiducial_table": [
+  [
+   "FID1",
+   "bottom",
+   [
+    17.0,
+    5.3
+   ],
+   0.75,
+   2.25,
+   4.92
+  ],
+  [
+   "FID2",
+   "bottom",
+   [
+    7.8,
+    5.0
+   ],
+   0.75,
+   2.25,
+   4.62
+  ],
+  [
+   "FID3",
+   "top",
+   [
+    17.0,
+    5.3
+   ],
+   0.75,
+   2.25,
+   4.92
+  ],
+  [
+   "FID4",
+   "top",
+   [
+    7.8,
+    5.0
+   ],
+   0.75,
+   2.25,
+   4.62
+  ],
+  [
+   "FID5",
+   "top",
+   [
+    15.0,
+    58.6
+   ],
+   0.75,
+   2.25,
+   9.02
+  ],
+  [
+   "FID6",
+   "bottom",
+   [
+    15.0,
+    58.6
+   ],
+   0.75,
+   2.25,
+   9.02
+  ]
+ ],
+ "testpoints": [
+  16,
+  "16 test points; 6 courtyard overlaps, 6 of them Sofar's inside a copied block (TP21/U6, TP2/R3, TP22/R8, TP5/R13, TP13/R19, TP1/C10), 0 of this board's placement; smallest gap otherwise 0.04 mm",
+  true
+ ],
+ "testpoint_table": [
+  [
+   "TP21",
+   0.0,
+   "U6"
+  ],
+  [
+   "TP2",
+   0.0,
+   "R3"
+  ],
+  [
+   "TP22",
+   0.0,
+   "R8"
+  ],
+  [
+   "TP5",
+   0.0,
+   "R13"
+  ],
+  [
+   "TP13",
+   0.0,
+   "R19"
+  ],
+  [
+   "TP1",
+   0.0,
+   "C10"
+  ],
+  [
+   "TP19",
+   0.04,
+   "J1"
+  ],
+  [
+   "TP7",
+   0.12,
+   "R17"
+  ],
+  [
+   "TP3",
+   0.36,
+   "R12"
+  ],
+  [
+   "TP20",
+   0.51,
+   "TP24"
+  ],
+  [
+   "TP24",
+   0.51,
+   "TP20"
+  ],
+  [
+   "TP8",
+   0.56,
+   "R43"
+  ],
+  [
+   "TP35",
+   0.66,
+   "R15"
+  ],
+  [
+   "TP38",
+   0.85,
+   "C58"
+  ],
+  [
+   "TP36",
+   1.01,
+   "R11"
+  ],
+  [
+   "TP23",
+   1.36,
+   "C20"
+  ]
+ ],
+ "stackup": [
+  1,
+  "board setup: JLC06161H-3313 values present (3313 / 0.55 core / 2116 / 0.0152 inner copper)",
+  true
+ ],
+ "copper_wt": [
+  0,
+  "outer 0.035 mm (1 oz), inner 0.0152 mm (0.5 oz) per the stackup row",
+  true
+ ],
+ "board": [
+  0,
+  "49.1 \u00d7 68.1 mm, thickness 1.60 mm",
+  true
+ ],
+ "bom_cpl": [
+  0,
+  "finest pitch on the board: U1 QFN 0.5 mm, U2/U3 WLCSP 0.5 mm, U11 0.5 mm; KiCad's CPL rotations follow the footprint's own zero, JLC's library may differ per part (checked in their order preview)",
+  true
+ ],
+ "courtyard": [
+  10,
+  "DRC courtyards_overlap: 10",
+  true
+ ],
+ "mask_dam": [
+  18,
+  "DRC solder_mask_bridge: 18 (Sofar's insert ring pads and T1/T2 no-net pads, exclusion table)",
+  true
+ ],
+ "silk_pad": [
+  0,
+  "DRC silk_over_copper 0, silk_overlap 2, silk_edge_clearance 0",
+  true
+ ],
+ "space": [
+  7,
+  "DRC clearance items: 7 (all in the exclusion table: Sofar's T1/T2 pads 6/7 at 0.24, the no-net pads, the BM1_N stub vs Sofar's via)",
+  true
+ ]
+}

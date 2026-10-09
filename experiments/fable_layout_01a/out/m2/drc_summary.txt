@@ -1,0 +1,153 @@
+6 ('clearance', 'error')
+12 ('courtyards_overlap', 'error')
+36 ('hole_clearance', 'error')
+8 ('lib_footprint_mismatch', 'warning')
+2 ('nonmirrored_text_on_back_layer', 'warning')
+38 ('padstack', 'warning')
+4 ('padstack_invalid', 'error')
+34 ('shorting_items', 'error')
+8 ('silk_edge_clearance', 'warning')
+40 ('silk_over_copper', 'warning')
+40 ('silk_overlap', 'warning')
+18 ('solder_mask_bridge', 'error')
+112 ('text_height', 'warning')
+4 ('text_thickness', 'warning')
+unconnected_items: 136
+schematic_parity: 4
+errors: 110  warnings: 252
+open: Pad 2 [/Top-Level Schematic/5V_PI] of C57 on 6 Bottom Layer | Track [/Top-Level Schematic/5V_PI] on 6 Bottom Layer, length 0.0543 mm
+open: Pad 2 [/Top-Level Schematic/5V_PI] of JP1 on Top Layer | Pad 2 [/Top-Level Schematic/5V_PI] of C56 on 6 Bottom Layer
+open: Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of R46 on 6 Bottom Laye | Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of JP2 on 6 Bottom Laye
+open: Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of R44 on 6 Bottom Laye | Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of JP2 on 6 Bottom Laye
+open: Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of R45 on 6 Bottom Laye | Pad 2 [/Top-Level Schematic/ADIN/ADIN_LED_VDD] of R44 on 6 Bottom Laye
+open: Track [/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}] on 6 Bottom Layer, l | Pad 1 [/Top-Level Schematic/ADIN/~{ADIN_P1_LED1}] of D9 on Top Layer
+open: Track [/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}] on Top Layer, length | Pad 1 [/Top-Level Schematic/ADIN/~{ADIN_P2_LED1}] of D10 on Top Layer
+open: PTH pad 21 [/Top-Level Schematic/ADIN_MISO] of J1 | Track [/Top-Level Schematic/ADIN_MISO] on Top Layer, length 1.1000 mm
+open: Track [/Top-Level Schematic/ADIN_MOSI] on Top Layer, length 0.7500 mm | PTH pad 19 [/Top-Level Schematic/ADIN_MOSI] of J1
+open: Track [/Top-Level Schematic/ADIN_PWR] on 6 Bottom Layer, length 0.5276 | Pad B2 [/Top-Level Schematic/ADIN_PWR] of U2 on 6 Bottom Layer
+open: Pad 1 [/Top-Level Schematic/ADIN_PWR] of R43 on 6 Bottom Layer | Track [/Top-Level Schematic/ADIN_PWR] on 6 Bottom Layer, length 0.1000
+open: Pad 1 [/Top-Level Schematic/ADIN_PWR] of TP8 on 6 Bottom Layer | Pad 1 [/Top-Level Schematic/ADIN_PWR] of R43 on 6 Bottom Layer
+open: Pad 1 [/Top-Level Schematic/ADIN_PWR] of TP8 on 6 Bottom Layer | PTH pad 16 [/Top-Level Schematic/ADIN_PWR] of J1
+open: PTH pad 23 [/Top-Level Schematic/ADIN_SCK] of J1 | Track [/Top-Level Schematic/ADIN_SCK] on Top Layer, length 0.7500 mm
+open: Pad 27 [/Top-Level Schematic/BM1_DATA_N] of U1 on Top Layer | Pad 2 [/Top-Level Schematic/BM1_DATA_N] of T1 on Top Layer
+open: Pad 28 [/Top-Level Schematic/BM1_DATA_P] of U1 on Top Layer | Pad 1 [/Top-Level Schematic/BM1_DATA_P] of T1 on Top Layer
+open: Track [/Top-Level Schematic/BM1_N] on Top Layer, length 0.8843 mm | Via [/Top-Level Schematic/BM1_N] on Top Layer - 6 Bottom Layer
+open: Track [/Top-Level Schematic/BM1_N] on 6 Bottom Layer, length 1.2728 mm | Track [/Top-Level Schematic/BM1_N] on Top Layer, length 0.1061 mm
+open: Via [/Top-Level Schematic/BM1_P] on Top Layer - 6 Bottom Layer | Pad 1 [/Top-Level Schematic/BM1_P] of D4 on 6 Bottom Layer
+open: Pad 1 [/Top-Level Schematic/BM1_P] of TP3 on 6 Bottom Layer | Track [/Top-Level Schematic/BM1_P] on Top Layer, length 0.0935 mm
+open: Pad 1 [/Top-Level Schematic/BM1_P] of R12 on 6 Bottom Layer | Pad 1 [/Top-Level Schematic/BM1_P] of TP3 on 6 Bottom Layer
+open: Track [/Top-Level Schematic/BM1_P] on Top Layer, length 0.8195 mm | Pad 1 [/Top-Level Schematic/BM1_P] of R12 on 6 Bottom Layer
+open: Track [/Top-Level Schematic/BM1_P] on Top Layer, length 2.0400 mm | Track [/Top-Level Schematic/BM1_P] on 6 Bottom Layer, length 0.2500 mm
+open: Pad 4 [/Top-Level Schematic/BM2_DATA_N] of U1 on Top Layer | Pad 2 [/Top-Level Schematic/BM2_DATA_N] of T2 on Top Layer
+open: Pad 5 [/Top-Level Schematic/BM2_DATA_P] of U1 on Top Layer | Pad 1 [/Top-Level Schematic/BM2_DATA_P] of T2 on Top Layer
+open: Track [/Top-Level Schematic/BM2_N] on Top Layer, length 1.0914 mm | Via [/Top-Level Schematic/BM2_N] on Top Layer - 6 Bottom Layer
+open: Pad 2 [/Top-Level Schematic/BM2_N] of D5 on 6 Bottom Layer | Track [/Top-Level Schematic/BM2_N] on Top Layer, length 1.0914 mm
+open: Pad 2 [/Top-Level Schematic/BM2_N] of L2 on Top Layer | Track [/Top-Level Schematic/BM2_N] on 6 Bottom Layer, length 1.7580 mm
+open: Track [/Top-Level Schematic/BM2_N] on Top Layer, length 0.0364 mm | Track [/Top-Level Schematic/BM2_N] on 6 Bottom Layer, length 0.1449 mm
+open: Track [/Top-Level Schematic/BM2_P] on 6 Bottom Layer, length 1.1266 mm | Via [/Top-Level Schematic/BM2_P] on Top Layer - 6 Bottom Layer
+open: Track [/Top-Level Schematic/BM2_P] on 6 Bottom Layer, length 1.1266 mm | Track [/Top-Level Schematic/BM2_P] on Top Layer, length 0.3676 mm
+open: PTH pad 5 [/Top-Level Schematic/I2C1_SCL] of J1 | Track [/Top-Level Schematic/I2C1_SCL] on Top Layer, length 0.0750 mm
+open: Pad 1 [/Top-Level Schematic/I2C1_SCL] of R26 on 6 Bottom Layer | PTH pad 5 [/Top-Level Schematic/I2C1_SCL] of J1
+open: PTH pad 3 [/Top-Level Schematic/I2C1_SDA] of J1 | Track [/Top-Level Schematic/I2C1_SDA] on 6 Bottom Layer, length 0.7256
+open: Pad 1 [/Top-Level Schematic/I2C1_SDA] of R27 on 6 Bottom Layer | Track [/Top-Level Schematic/I2C1_SDA] on Top Layer, length 0.0750 mm
+open: Pad 2 [/Top-Level Schematic/Load Switch/ISET] of R34 on Top Layer | Pad 7 [/Top-Level Schematic/Load Switch/ISET] of U11 on Top Layer
+open: PTH pad 36 [/Top-Level Schematic/PAYLOAD_EN] of J1 | Pad 4 [/Top-Level Schematic/PAYLOAD_EN] of U11 on Top Layer
+open: Pad 1 [/Top-Level Schematic/PAYLOAD_EN] of TP19 on 6 Bottom Layer | PTH pad 36 [/Top-Level Schematic/PAYLOAD_EN] of J1
+open: Pad 4 [/Top-Level Schematic/PAYLOAD_EN] of U11 on Top Layer | Pad 1 [/Top-Level Schematic/PAYLOAD_EN] of R42 on 6 Bottom Layer
+open: PTH pad 2 [/Top-Level Schematic/PI_5V] of J1 | PTH pad 4 [/Top-Level Schematic/PI_5V] of J1
+open: Pad 1 [/Top-Level Schematic/PI_5V] of JP1 on Top Layer | PTH pad 2 [/Top-Level Schematic/PI_5V] of J1
+open: Pad 1 [/Top-Level Schematic/PoDL/Power Monitor/P_IN] of L2 on Top Laye | Track [/Top-Level Schematic/PoDL/Power Monitor/P_IN] on 6 Bottom Layer
+open: Track [/Top-Level Schematic/PoDL/Power Monitor/P_IN] on 6 Bottom Layer | Track [/Top-Level Schematic/PoDL/Power Monitor/P_IN] on 6 Bottom Layer
+open: PTH pad 24 [/Top-Level Schematic/~{ADIN_CS}] of J1 | Track [/Top-Level Schematic/~{ADIN_CS}] on Top Layer, length 1.1000 mm
+open: Track [/Top-Level Schematic/~{ADIN_INT}] on Top Layer, length 0.1016 m | Track [/Top-Level Schematic/~{ADIN_INT}] on 6 Bottom Layer, length 0.1
+open: PTH pad 22 [/Top-Level Schematic/~{ADIN_INT}] of J1 | Track [/Top-Level Schematic/~{ADIN_INT}] on 6 Bottom Layer, length 0.2
+open: Track [/Top-Level Schematic/~{ADIN_RST}] on Internal 1, length 0.1000  | PTH pad 18 [/Top-Level Schematic/~{ADIN_RST}] of J1
+open: Pad 1 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of R35 on 6 Bottom Layer | PTH pad 38 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of J1
+open: Pad 1 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of R35 on 6 Bottom Layer | Pad 1 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of TP35 on 6 Bottom Laye
+open: Pad 9 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of U11 on Top Layer | Pad 1 [/Top-Level Schematic/~{PAYLOAD_FAULT}] of R35 on 6 Bottom Layer
+open: Track [1V8] on 6 Bottom Layer, length 0.1000 mm | Pad A2 [1V8] of U6 on 6 Bottom Layer
+open: Track [3V3] on 6 Bottom Layer, length 0.1000 mm | Pad 1 [3V3] of C33 on 6 Bottom Layer
+open: Track [3V3] on 6 Bottom Layer, length 0.4000 mm | Via [3V3] on Top Layer - 6 Bottom Layer
+open: Track [3V3] on 6 Bottom Layer, length 0.7244 mm | Pad B1 [3V3] of U6 on 6 Bottom Layer
+open: Track [3V3] on Internal 1, length 0.1000 mm | Pad 2 [3V3] of R35 on 6 Bottom Layer
+open: Via [3V3] on Top Layer - 6 Bottom Layer | Track [3V3] on 6 Bottom Layer, length 0.0543 mm
+open: Pad 2 [3V3] of R26 on 6 Bottom Layer | Pad 1 [3V3] of TP20 on 6 Bottom Layer
+open: Pad 2 [3V3] of R27 on 6 Bottom Layer | Pad 2 [3V3] of R26 on 6 Bottom Layer
+open: Pad 2 [3V3] of R27 on 6 Bottom Layer | Track [3V3] on Top Layer, length 2.0250 mm
+open: Pad 2 [3V3] of C31 on Top Layer | Zone [3V3] on Top Layer, priority 1
+open: Track [ADIN_VDDIO] on 6 Bottom Layer, length 0.4950 mm | Pad 1 [ADIN_VDDIO] of JP2 on 6 Bottom Layer
+open: Pad 2 [GND] of C14 on 6 Bottom Layer | Pad 2 [GND] of R4 on 6 Bottom Layer
+open: Track [GND] on 6 Bottom Layer, length 0.1000 mm | Pad 2 [GND] of R4 on 6 Bottom Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of C14 on 6 Bottom Layer
+open: Pad 2 [GND] of C12 on 6 Bottom Layer | Track [GND] on 6 Bottom Layer, length 1.0459 mm
+open: Pad 2 [GND] of C4 on 6 Bottom Layer | Pad 2 [GND] of C12 on 6 Bottom Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of C9 on 6 Bottom Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of C1 on 6 Bottom Layer
+open: Pad 2 [GND] of C11 on 6 Bottom Layer | Via [GND] on Top Layer - 6 Bottom Layer
+open: Pad 2 [GND] of C11 on 6 Bottom Layer | Pad 2 [GND] of C3 on 6 Bottom Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of C7 on 6 Bottom Layer
+open: Pad 2 [GND] of C7 on 6 Bottom Layer | Pad 4 [GND] of Y1 on 6 Bottom Layer
+open: Pad 2 [GND] of C5 on 6 Bottom Layer | Via [GND] on Top Layer - 6 Bottom Layer
+open: Pad 2 [GND] of R2 on 6 Bottom Layer | Via [GND] on Top Layer - 6 Bottom Layer
+open: Track [GND] on 6 Bottom Layer, length 0.2121 mm | Pad 2 [GND] of C2 on 6 Bottom Layer
+open: Pad 2 [GND] of C13 on 6 Bottom Layer | Via [GND] on Top Layer - 6 Bottom Layer
+open: Pad 2 [GND] of Y1 on 6 Bottom Layer | Pad 4 [GND] of Y1 on 6 Bottom Layer
+open: Track [GND] on 6 Bottom Layer, length 0.3650 mm | Pad 2 [GND] of C8 on 6 Bottom Layer
+open: Pad 1 [GND] of R19 on 6 Bottom Layer | Pad 1 [GND] of C19 on 6 Bottom Layer
+open: Pad 1 [GND] of C19 on 6 Bottom Layer | Pad 1 [GND] of C18 on 6 Bottom Layer
+open: Track [GND] on Top Layer, length 0.7578 mm | Track [GND] on 6 Bottom Layer, length 0.1905 mm
+open: Track [GND] on 6 Bottom Layer, length 0.1000 mm | Pad 2 [GND] of R43 on 6 Bottom Layer
+open: Pad 1 [GND] of D8 on Top Layer | Pad 4 [GND] of L2 on Top Layer
+open: Track [GND] on 6 Bottom Layer, length 0.4242 mm | Pad 2 [GND] of C33 on 6 Bottom Layer
+open: Pad 4 [GND] of L2 on Top Layer | Track [GND] on 6 Bottom Layer, length 0.0530 mm
+open: Pad 2 [GND] of J5 on Top Layer | Track [GND] on 6 Bottom Layer, length 3.5233 mm
+open: Pad 2 [GND] of C17 on 6 Bottom Layer | Pad 1 [GND] of R13 on 6 Bottom Layer
+open: Track [GND] on 6 Bottom Layer, length 2.9428 mm | Pad 4 [GND] of L1 on Top Layer
+open: Track [GND] on 6 Bottom Layer, length 0.1000 mm | Track [GND] on 6 Bottom Layer, length 1.0750 mm
+open: Track [GND] on 6 Bottom Layer, length 0.1768 mm | Pad 2 [GND] of C26 on 6 Bottom Layer
+open: Pad 1 [GND] of D1 on Top Layer | Pad 2 [GND] of J5 on Top Layer
+open: Pad 1 [GND] of D1 on Top Layer | PTH pad 39 [GND] of J1
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 1 [GND] of C57 on 6 Bottom Layer
+open: Track [GND] on Top Layer, length 0.3536 mm | Pad 2 [GND] of C54 on 6 Bottom Layer
+open: Track [GND] on Top Layer, length 0.3536 mm | Pad 2 [GND] of C29 on 6 Bottom Layer
+open: Pad 1 [GND] of C56 on 6 Bottom Layer | Pad 1 [GND] of TP24 on 6 Bottom Layer
+open: Pad 1 [GND] of C57 on 6 Bottom Layer | Pad 1 [GND] of C56 on 6 Bottom Layer
+open: Pad 6 [GND] of U11 on Top Layer | Pad 1 [GND] of R34 on Top Layer
+open: Pad 3 [GND] of U11 on Top Layer | Pad 5 [GND] of U11 on Top Layer
+open: Pad 3 [GND] of U11 on Top Layer | Pad 11 [GND] of U11 on Top Layer
+open: Pad 11 [GND] of U11 on Top Layer | Pad 6 [GND] of U11 on Top Layer
+open: Pad 2 [GND] of D3 on 6 Bottom Layer | Pad 3 [GND] of U11 on Top Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 1 [GND] of C23 on Top Layer
+open: Pad 2 [GND] of C49 on Top Layer | Pad 2 [GND] of R42 on 6 Bottom Layer
+open: Pad 2 [GND] of C49 on Top Layer | Pad 3 [GND] of U11 on Top Layer
+open: Pad 1 [GND] of C31 on Top Layer | Track [GND] on Top Layer, length 0.2500 mm
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of R42 on 6 Bottom Layer
+open: Via [GND] on Top Layer - 6 Bottom Layer | Pad 2 [GND] of C58 on 6 Bottom Layer
+open: Pad 2 [GND] of C50 on 6 Bottom Layer | Pad 2 [GND] of R42 on 6 Bottom Layer
+open: Pad 1 [Net-(C16-Pad1)] of R14 on 6 Bottom Layer | Track [Net-(C16-Pad1)] on 6 Bottom Layer, length 0.2066 mm
+open: Pad 2 [Net-(C19-Pad2)] of R14 on 6 Bottom Layer | Pad 2 [Net-(C19-Pad2)] of C19 on 6 Bottom Layer
+open: Track [Net-(C22-A)] on Top Layer, length 1.9000 mm | Pad 1 [Net-(C22-A)] of R15 on 6 Bottom Layer
+open: Pad 1 [Net-(C23-A)] of R16 on Top Layer | Pad 2 [Net-(C23-A)] of C23 on Top Layer
+open: Track [Net-(C25-Pad2)] on 6 Bottom Layer, length 0.2844 mm | Track [Net-(C25-Pad2)] on Top Layer, length 0.1000 mm
+open: Pad 2 [Net-(D8-A)] of D8 on Top Layer | Pad 1 [Net-(D8-A)] of R44 on 6 Bottom Layer
+open: Pad 2 [Net-(D9-A)] of D9 on Top Layer | Pad 1 [Net-(D9-A)] of R45 on 6 Bottom Layer
+open: Pad 1 [Net-(D10-A)] of R46 on 6 Bottom Layer | Pad 2 [Net-(D10-A)] of D10 on Top Layer
+open: Track [Net-(U4-ALERT)] on 6 Bottom Layer, length 0.2756 mm | Track [Net-(U4-ALERT)] on 6 Bottom Layer, length 0.1266 mm
+open: Pad 2 [Net-(U11-UVLO)] of U11 on Top Layer | Pad 2 [Net-(U11-UVLO)] of R41 on 6 Bottom Layer
+open: Pad 2 [VBUS] of R16 on Top Layer | Pad 1 [VBUS] of L1 on Top Layer
+open: Pad 1 [VBUS] of C21 on Top Layer | Pad 2 [VBUS] of R16 on Top Layer
+open: Pad 1 [VBUS] of C20 on 6 Bottom Layer | Track [VBUS] on Top Layer, length 0.0011 mm
+open: Via [VBUS] on Top Layer - 6 Bottom Layer | Pad 1 [VBUS] of L1 on Top Layer
+open: Pad 2 [VBUS] of D1 on Top Layer | Pad 1 [VBUS] of R11 on 6 Bottom Layer
+open: Pad 2 [VBUS] of D1 on Top Layer | Via [VBUS] on Top Layer - 6 Bottom Layer
+open: Track [VBUS] on 6 Bottom Layer, length 0.6229 mm | Pad 1 [VBUS] of TP22 on 6 Bottom Layer
+open: Pad 1 [VBUS] of R41 on 6 Bottom Layer | Pad 1 [VBUS] of U11 on Top Layer
+open: Pad 1 [VBUS] of R41 on 6 Bottom Layer | Pad 1 [VBUS] of C49 on Top Layer
+open: Pad 2 [VBUS] of R15 on 6 Bottom Layer | Pad 1 [VBUS] of R41 on 6 Bottom Layer
+open: Pad 2 [VBUS] of R15 on 6 Bottom Layer | Via [VBUS] on Top Layer - 6 Bottom Layer
+open: Pad 1 [VBUS_OUT] of J5 on Top Layer | Pad 1 [VBUS_OUT] of TP36 on 6 Bottom Layer
+open: Pad 1 [VBUS_OUT] of TP36 on 6 Bottom Layer | Pad 2 [VBUS_OUT] of R11 on 6 Bottom Layer
+open: Pad 1 [VBUS_OUT] of D3 on 6 Bottom Layer | Pad 2 [VBUS_OUT] of R11 on 6 Bottom Layer
+open: Pad 10 [VBUS_OUT] of U11 on Top Layer | Pad 1 [VBUS_OUT] of D3 on 6 Bottom Layer
+open: Pad 10 [VBUS_OUT] of U11 on Top Layer | Pad 1 [VBUS_OUT] of C50 on 6 Bottom Layer
+open: PTH pad 1 [unconnected-(J1-3V3-Pad1)] of J1 | PTH pad 17 [unconnected-(J1-3V3-Pad1)] of J1

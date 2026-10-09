@@ -1,0 +1,20 @@
+M4: routed 39 nets; pairs [('BM1_DATA_N', 7.9, True), ('BM1_DATA_P', 9.4, True), ('BM2_DATA_P', 21.3, True), ('BM2_DATA_N', 23.4, False)] ; stitch vias 69 ; failed 12 ['3V3', '5V_PI', 'ADIN_VDDIO', 'GND']
+m4 dangling round 1: removed 35 {'track': 12, 'via': 23, 'arc': 0}, shortened 35 (DRC listed 70 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 2: removed 29 {'track': 29, 'via': 0, 'arc': 0}, shortened 9 (DRC listed 38 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 3: removed 4 {'track': 4, 'via': 0, 'arc': 0}, shortened 20 (DRC listed 24 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 4: removed 9 {'track': 9, 'via': 0, 'arc': 0}, shortened 2 (DRC listed 11 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 5: removed 1 {'track': 1, 'via': 0, 'arc': 0}, shortened 8 (DRC listed 9 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 6: removed 6 {'track': 6, 'via': 0, 'arc': 0}, shortened 1 (DRC listed 7 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 7: removed 2 {'track': 2, 'via': 0, 'arc': 0}, shortened 5 (DRC listed 7 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 8: removed 4 {'track': 4, 'via': 0, 'arc': 0}, shortened 0 (DRC listed 4 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 9: removed 0 {'track': 0, 'via': 0, 'arc': 0}, shortened 3 (DRC listed 3 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 10: removed 2 {'track': 2, 'via': 0, 'arc': 0}, shortened 0 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 11: removed 0 {'track': 0, 'via': 0, 'arc': 0}, shortened 2 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 12: removed 2 {'track': 2, 'via': 0, 'arc': 0}, shortened 0 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 13: removed 0 {'track': 0, 'via': 0, 'arc': 0}, shortened 2 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 14: removed 2 {'track': 2, 'via': 0, 'arc': 0}, shortened 0 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 15: removed 0 {'track': 0, 'via': 0, 'arc': 0}, shortened 2 (DRC listed 2 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 16: removed 1 {'track': 1, 'via': 0, 'arc': 0}, shortened 0 (DRC listed 1 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling round 17: removed 0 {'track': 0, 'via': 0, 'arc': 0}, shortened 1 (DRC listed 1 dangling items; 0 kept on open nets ['unconnected-(J1-3V3-Pad1)'])
+m4 dangling: none left after 17 round(s); DRC lists 0 dangling items
+check_fixed: 0 failures; 0 parts still parked off-board

@@ -1,0 +1,281 @@
+[
+ {
+  "region": "port1_pair",
+  "rect": [
+   -3.5,
+   25.5,
+   10.5,
+   32.5
+  ],
+  "block": "ADIN",
+  "caption": "Port-1 data pair: U1 pins 27/28 (north edge of U1 at rot 90) to T1 pads 1/2 in the band; the mote's U1 and T1 sit elsewhere, so the mote view shows only the ADIN block's copper placed as here",
+  "views": [
+   {
+    "layer": "top",
+    "board": "port1_pair_top_board.svg",
+    "mote": "port1_pair_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "port1_pair_in1_board.svg",
+    "mote": "port1_pair_in1_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "port1_pair_bot_board.svg",
+    "mote": "port1_pair_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "port2_pair",
+  "rect": [
+   -4.0,
+   34.0,
+   14.0,
+   41.5
+  ],
+  "block": "ADIN",
+  "caption": "Port-2 data pair: U1 pins 4/5 (south edge) through the pocket's south exit to T2 pads 1/2",
+  "views": [
+   {
+    "layer": "top",
+    "board": "port2_pair_top_board.svg",
+    "mote": "port2_pair_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "port2_pair_in1_board.svg",
+    "mote": "port2_pair_in1_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "port2_pair_bot_board.svg",
+    "mote": "port2_pair_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "spi_lane",
+  "rect": [
+   -7.5,
+   27.0,
+   29.5,
+   38.5
+  ],
+  "block": null,
+  "caption": "The SPI lane: from Sofar's vias at U1's west side east on Internal 2 under U1 and across the band to J1 pins 19-24, routed first (session 2: 25 mm down the west edge past the inserts)",
+  "views": [
+   {
+    "layer": "in3",
+    "board": "spi_lane_in3_board.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "spi_lane_in1_board.svg"
+   },
+   {
+    "layer": "top",
+    "board": "spi_lane_top_board.svg"
+   }
+  ]
+ },
+ {
+  "region": "int_fanout",
+  "rect": [
+   -8.5,
+   29.0,
+   -2.5,
+   34.5
+  ],
+  "block": "ADIN",
+  "caption": "~{ADIN_INT} fan-out west of U1: U1.39 -> Sofar's own via (2.8 mm inside the edge now that U1 is 3 mm east: no hand via) -> R1.1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "int_fanout_top_board.svg",
+    "mote": "int_fanout_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "int_fanout_bot_board.svg",
+    "mote": "int_fanout_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "u2_u3_pocket_exit",
+  "rect": [
+   -7.0,
+   36.0,
+   6.0,
+   42.0
+  ],
+  "block": "ADIN",
+  "caption": "The pocket's south exit: U2 / U3 (1.8 V and 3.3 V switches, bottom) with their fan-out vias, the port-2 pair above, 3V3 / 1V8 / ADIN_PWR leaving east; 3 mm taller than session 2",
+  "views": [
+   {
+    "layer": "top",
+    "board": "u2_u3_pocket_exit_top_board.svg",
+    "mote": "u2_u3_pocket_exit_top_mote.svg"
+   },
+   {
+    "layer": "in3",
+    "board": "u2_u3_pocket_exit_in3_board.svg",
+    "mote": "u2_u3_pocket_exit_in3_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "u2_u3_pocket_exit_bot_board.svg",
+    "mote": "u2_u3_pocket_exit_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "t1_cluster",
+  "rect": [
+   2.5,
+   24.5,
+   12.0,
+   32.5
+  ],
+  "block": "P1T",
+  "caption": "T1 cluster (P1T block) and the bus legs to L1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "t1_cluster_top_board.svg",
+    "mote": "t1_cluster_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "t1_cluster_bot_board.svg",
+    "mote": "t1_cluster_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "t2_cluster",
+  "rect": [
+   9.0,
+   30.0,
+   18.5,
+   38.0
+  ],
+  "block": "P2T",
+  "caption": "T2 cluster (P2T block) east of T1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "t2_cluster_top_board.svg",
+    "mote": "t2_cluster_top_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "t2_cluster_bot_board.svg",
+    "mote": "t2_cluster_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "north_band",
+  "rect": [
+   4.5,
+   -0.5,
+   24.5,
+   8.0
+  ],
+  "block": null,
+  "caption": "North band: the LEDs D10 / D8 / D9 on the edge, JP1 (5 V to the Pi) and JP2 (LED supply) on top beside them, FID3 / FID4; the LED resistors and FID1 / FID2 underneath",
+  "views": [
+   {
+    "layer": "top",
+    "board": "north_band_top_board.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "north_band_bot_board.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "north_band_in1_board.svg"
+   }
+  ]
+ },
+ {
+  "region": "u11_payload",
+  "rect": [
+   27.0,
+   49.0,
+   38.5,
+   62.0
+  ],
+  "block": null,
+  "caption": "Load switch U11 at the strip's south end: VBUS in (pre-stitched via), VBUS_OUT to J5 (0.6 mm), its signals to J1",
+  "views": [
+   {
+    "layer": "top",
+    "board": "u11_payload_top_board.svg"
+   },
+   {
+    "layer": "in3",
+    "board": "u11_payload_in3_board.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "u11_payload_bot_board.svg"
+   }
+  ]
+ },
+ {
+  "region": "pi5v_strip_north",
+  "rect": [
+   23.5,
+   0.0,
+   38.5,
+   25.0
+  ],
+  "block": "B5V",
+  "caption": "5 V cell at the strip's north end and the 5 V path: L6 -> JP1 in the north band -> J1 pins 2/4 across J1's north end",
+  "views": [
+   {
+    "layer": "top",
+    "board": "pi5v_strip_north_top_board.svg",
+    "mote": "pi5v_strip_north_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "pi5v_strip_north_in1_board.svg",
+    "mote": "pi5v_strip_north_in1_mote.svg"
+   },
+   {
+    "layer": "bot",
+    "board": "pi5v_strip_north_bot_board.svg",
+    "mote": "pi5v_strip_north_bot_mote.svg"
+   }
+  ]
+ },
+ {
+  "region": "insert_mp1",
+  "rect": [
+   -10.5,
+   39.0,
+   12.0,
+   60.0
+  ],
+  "block": "P1L",
+  "caption": "Port-1 inductor L1 (3 mm south) with the insert rings MP1 / MP2 (1.5 mm nearer the wall, 2.5 mm south) and the bus feeds; the P1L block's copper",
+  "views": [
+   {
+    "layer": "top",
+    "board": "insert_mp1_top_board.svg",
+    "mote": "insert_mp1_top_mote.svg"
+   },
+   {
+    "layer": "in1",
+    "board": "insert_mp1_in1_board.svg",
+    "mote": "insert_mp1_in1_mote.svg"
+   }
+  ]
+ }
+]

@@ -1,0 +1,5337 @@
+{
+ "frame": "board mm, Pi NW corner = (0,0)",
+ "blocks": [
+  {
+   "name": "RING_MP3",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP3"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    12.0
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP4",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP4"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    21.4
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM2_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP1",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP1"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    43.6
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_P"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "RING_MP2",
+   "refs": [
+    "MP1"
+   ],
+   "ref_map": {
+    "MP1": "MP2"
+   },
+   "src": [
+    176.00118,
+    120.00368
+   ],
+   "dst": [
+    -1.81,
+    53.0
+   ],
+   "rot": 0,
+   "radius": 3.7,
+   "kinds": [
+    "arc",
+    "via"
+   ],
+   "nets": [
+    "BM1_P"
+   ],
+   "net_map": {
+    "BM1_P": "/Top-Level Schematic/BM1_N"
+   },
+   "note": "Sofar's insert contact copied from MP1: C arc r 3.03 w 1.2 ~290 deg on L1, 7 vias 0.6/0.254 at r 3.0",
+   "copied": {
+    "track": 0,
+    "arc": 1,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "ADIN",
+   "refs": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ],
+   "dst": [
+    -1.4,
+    32.8
+   ],
+   "rot": 90,
+   "region": [
+    [
+     148.0,
+     107.6,
+     159.5,
+     114.1
+    ],
+    [
+     149.1,
+     114.1,
+     159.5,
+     120.6
+    ]
+   ],
+   "zone_region": [
+    [
+     148.0,
+     107.9,
+     159.5,
+     120.6
+    ]
+   ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N",
+    "BM2_DATA_P",
+    "BM2_DATA_N"
+   ],
+   "allowance": "U1 courtyard 1.79 mm from the L1 envelope (0.21 mm into the 2 mm band; its body 2.1 mm clear): Sofar's U1 west-side fan-out needs 0.3 mm more than the brief's 10 mm pocket",
+   "why": "whole ADIN block (U1 top; switches, decoupling, crystal below) in the west pocket, rotated 90 so port 1's data pins face north toward T1 in the band and port 2's face south; U1 clear of x 2.99 and both insert keep-outs",
+   "src": [
+    154.0011,
+    113.0036
+   ],
+   "anchor": "U1",
+   "placed": [
+    "U1",
+    "U2",
+    "U3",
+    "Y1",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C9",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "TP1",
+    "TP2"
+   ],
+   "copied": {
+    "track": 267,
+    "arc": 0,
+    "via": 50,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 15
+   }
+  },
+  {
+   "name": "P1L",
+   "refs": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ],
+   "dst": [
+    12.74,
+    44.25
+   ],
+   "rot": 90,
+   "region": [
+    [
+     158.9,
+     102.0,
+     172.2,
+     115.0
+    ]
+   ],
+   "exclude_region": [
+    [
+     165.0,
+     101.9,
+     168.3,
+     105.0
+    ]
+   ],
+   "why": "L1 centred in its envelope with the bottom-side parts Sofar put under it; rotated 90 so the bus pads face west toward MP1/MP2 (BM1_P north-west, BM1_N south-west) and VBUS/GND face east",
+   "src": [
+    165.5011,
+    108.7536
+   ],
+   "anchor": "L1",
+   "placed": [
+    "L1",
+    "D4",
+    "R12",
+    "R13",
+    "TP3",
+    "TP5",
+    "C17",
+    "D2"
+   ],
+   "copied": {
+    "track": 48,
+    "arc": 0,
+    "via": 19,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   }
+  },
+  {
+   "name": "P1T",
+   "refs": [
+    "T1",
+    "C16",
+    "C18",
+    "C19",
+    "R14"
+   ],
+   "dst": [
+    8.7,
+    28.4
+   ],
+   "rot": 0,
+   "region": [
+    [
+     158.8,
+     115.2,
+     165.4,
+     119.8
+    ]
+   ],
+   "exclude_nets": [
+    "BM1_DATA_P",
+    "BM1_DATA_N"
+   ],
+   "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); in the band between the envelopes, data pins facing U1 (west)",
+   "src": [
+    161.6011,
+    117.5036
+   ],
+   "anchor": "T1",
+   "placed": [
+    "T1",
+    "C16",
+    "C18",
+    "C19",
+    "R14"
+   ],
+   "copied": {
+    "track": 27,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   }
+  },
+  {
+   "name": "P2L",
+   "refs": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13"
+   ],
+   "dst": [
+    12.74,
+    16.75
+   ],
+   "rot": 90,
+   "region": [
+    [
+     125.0,
+     101.5,
+     138.3,
+     113.0
+    ]
+   ],
+   "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)",
+   "src": [
+    131.6792,
+    108.2786
+   ],
+   "anchor": "L2",
+   "placed": [
+    "L2",
+    "D5",
+    "R17",
+    "R19",
+    "TP7",
+    "TP13"
+   ],
+   "copied": {
+    "track": 28,
+    "arc": 0,
+    "via": 18,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 5
+   }
+  },
+  {
+   "name": "P2T",
+   "refs": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ],
+   "dst": [
+    16.0,
+    32.3
+   ],
+   "rot": 180,
+   "region": [
+    [
+     133.0,
+     113.1,
+     139.2,
+     121.0
+    ]
+   ],
+   "exclude_nets": [
+    "BM2_DATA_P",
+    "BM2_DATA_N"
+   ],
+   "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)",
+   "src": [
+    135.5011,
+    117.5036
+   ],
+   "anchor": "T2",
+   "placed": [
+    "T2",
+    "C24",
+    "C25",
+    "C27",
+    "R18"
+   ],
+   "copied": {
+    "track": 34,
+    "arc": 0,
+    "via": 6,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 5
+   }
+  },
+  {
+   "name": "B33",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "dst": [
+    31.551,
+    17.704
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.6,
+      146.4,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    },
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
+   ],
+   "why": "U5 cell (switch loop U5\u2013C30\u2013L3, bottom-side dividers and caps, top pours, In3 GND patch) in the east strip; the output cap C31 is the only part split off (the cell is 8.55 mm wide with it 9.65: the strip is 8.9)",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   }
+  },
+  {
+   "name": "B5V",
+   "refs": [
+    "U5",
+    "C30",
+    "L3",
+    "C28",
+    "C29",
+    "R20",
+    "R21",
+    "R22",
+    "R23"
+   ],
+   "ref_map": {
+    "U5": "U10",
+    "C30": "C55",
+    "L3": "L6",
+    "C28": "C53",
+    "C29": "C54",
+    "R20": "R39",
+    "R21": "R37",
+    "R22": "R40",
+    "R23": "R38"
+   },
+   "dst": [
+    31.551,
+    31.4
+   ],
+   "rot": 0,
+   "region": [
+    {
+     "rect": [
+      138.2,
+      104.6,
+      146.4,
+      112.9
+     ],
+     "layers": [
+      "F.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    },
+    {
+     "rect": [
+      138.2,
+      112.9,
+      144.3,
+      119.0
+     ],
+     "layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In3.Cu"
+     ]
+    }
+   ],
+   "clip_zone_nets": [
+    "3V3"
+   ],
+   "why": "5 V buck = U5's cell copied again with its parts mapped by function (D13); C56/C57/C58/TP38 placed beside it",
+   "src": [
+    140.5011,
+    115.0536
+   ],
+   "anchor": "U5",
+   "placed": [
+    "U10",
+    "C55",
+    "L6",
+    "C53",
+    "C54",
+    "R39",
+    "R37",
+    "R40",
+    "R38"
+   ],
+   "copied": {
+    "track": 88,
+    "arc": 0,
+    "via": 19,
+    "zone": 2,
+    "skipped_net": 0,
+    "clipped": 6
+   }
+  },
+  {
+   "name": "SENSE",
+   "refs": [
+    "U4",
+    "R8",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "dst": [
+    19.8,
+    15.0
+   ],
+   "rot": 0,
+   "region": [
+    [
+     144.4,
+     112.4,
+     148.0,
+     120.2
+    ],
+    [
+     148.0,
+     114.2,
+     149.0,
+     120.2
+    ],
+    {
+     "rect": [
+      143.6,
+      115.2,
+      144.4,
+      118.5
+     ],
+     "layers": [
+      "B.Cu"
+     ]
+    }
+   ],
+   "why": "R8 shunt + INA232 with Sofar's sense routing (all bottom-side parts) under L2's south-east, 4 mm from L2's P_IN pad as on the mote; J1's pin field leaves no \u2265 0.5 mm path for P_IN into the strip east of J1. The third rect (Bottom only) holds the west detour of the two Kelvin traces U4.1-R8.2 / U4.2-R8.1 (QE S7.b R2-F1)",
+   "src": [
+    146.3511,
+    115.7036
+   ],
+   "anchor": "U4",
+   "placed": [
+    "U4",
+    "R8",
+    "R7",
+    "C15",
+    "TP22"
+   ],
+   "copied": {
+    "track": 77,
+    "arc": 0,
+    "via": 5,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 10
+   }
+  },
+  {
+   "name": "DAMP3",
+   "refs": [
+    "C23"
+   ],
+   "dst": [
+    33.5,
+    40.0
+   ],
+   "rot": 0,
+   "region": [],
+   "why": "C23 (the sense block's 47 uF damping electrolytic, the block's only top part) alone in the strip; R16 beside U11",
+   "src": [
+    146.0011,
+    116.9036
+   ],
+   "anchor": "C23",
+   "placed": [
+    "C23"
+   ],
+   "copied": {
+    "track": 0,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 0
+   }
+  },
+  {
+   "name": "DAMP1",
+   "refs": [
+    "C21",
+    "C20",
+    "TP23"
+   ],
+   "dst": [
+    8.9,
+    57.5
+   ],
+   "rot": 90,
+   "region": [
+    [
+     151.9,
+     117.5,
+     156.5,
+     121.2
+    ]
+   ],
+   "why": "VBUS 10 uF + its test pad in the south-west pocket beside J5 (R16 moved next to C23's partner U11 row)",
+   "src": [
+    154.2011,
+    119.2036
+   ],
+   "anchor": "C21",
+   "placed": [
+    "C21",
+    "C20",
+    "TP23"
+   ],
+   "copied": {
+    "track": 8,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   }
+  },
+  {
+   "name": "DAMP2",
+   "refs": [
+    "C22"
+   ],
+   "dst": [
+    33.9,
+    48.2
+   ],
+   "rot": 0,
+   "region": [
+    [
+     146.8,
+     100.4,
+     155.8,
+     107.0
+    ]
+   ],
+   "why": "second damping electrolytic in the strip, Sofar's orientation (8.8 mm wide: pads 0.5 mm from the edge); its resistor R15 placed beside it",
+   "src": [
+    151.3011,
+    103.6036
+   ],
+   "anchor": "C22",
+   "placed": [
+    "C22"
+   ],
+   "copied": {
+    "track": 36,
+    "arc": 0,
+    "via": 7,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 4
+   }
+  },
+  {
+   "name": "B18",
+   "refs": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ],
+   "dst": [
+    20.7,
+    47.2
+   ],
+   "rot": 90,
+   "region": [
+    {
+     "rect": [
+      141.8,
+      108.4,
+      148.3,
+      113.2
+     ],
+     "layers": [
+      "B.Cu"
+     ]
+    }
+   ],
+   "exclude_vias_on": [
+    "3V3",
+    "GND"
+   ],
+   "why": "1.8 V buck (all bottom) east of L1 beside J1, rotated 90 to clear D2/C17 under L1",
+   "src": [
+    144.5011,
+    110.3286
+   ],
+   "anchor": "U6",
+   "placed": [
+    "U6",
+    "L4",
+    "C32",
+    "C33",
+    "TP21"
+   ],
+   "copied": {
+    "track": 43,
+    "arc": 0,
+    "via": 0,
+    "zone": 0,
+    "skipped_net": 0,
+    "clipped": 3
+   }
+  }
+ ],
+ "fresh": {
+  "C31": {
+   "x": 36.6,
+   "y": 17.7,
+   "rot": 0,
+   "side": "F"
+  },
+  "U11": {
+   "x": 32.5,
+   "y": 54.1,
+   "rot": 0,
+   "side": "F"
+  },
+  "C49": {
+   "x": 35.5,
+   "y": 54.6,
+   "rot": 90,
+   "side": "F"
+  },
+  "R35": {
+   "x": 17.5,
+   "y": 58.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "R16": {
+   "x": 37.2,
+   "y": 54.1,
+   "rot": 90,
+   "side": "F"
+  },
+  "R34": {
+   "x": 34.2,
+   "y": 56.75,
+   "rot": 0,
+   "side": "F"
+  },
+  "R41": {
+   "x": 31.3,
+   "y": 56.75,
+   "rot": 180,
+   "side": "F"
+  },
+  "JP1": {
+   "x": 32.0,
+   "y": 9.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "R26": {
+   "x": 37.0,
+   "y": 20.2,
+   "rot": 0,
+   "side": "B"
+  },
+  "R27": {
+   "x": 37.0,
+   "y": 22.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP20": {
+   "x": 37.2,
+   "y": 16.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP24": {
+   "x": 34.9,
+   "y": 22.4,
+   "rot": 0,
+   "side": "B"
+  },
+  "C56": {
+   "x": 31.6,
+   "y": 23.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "C57": {
+   "x": 31.6,
+   "y": 25.2,
+   "rot": 0,
+   "side": "B"
+  },
+  "C58": {
+   "x": 36.5,
+   "y": 30.8,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP38": {
+   "x": 36.5,
+   "y": 32.9,
+   "rot": 0,
+   "side": "B"
+  },
+  "R11": {
+   "x": 21.0,
+   "y": 58.0,
+   "rot": 90,
+   "side": "B"
+  },
+  "R42": {
+   "x": 36.9,
+   "y": 52.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "C26": {
+   "x": 17.0,
+   "y": 23.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "C50": {
+   "x": 35.4,
+   "y": 50.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "R15": {
+   "x": 37.0,
+   "y": 45.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "TP35": {
+   "x": 36.9,
+   "y": 54.6,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP36": {
+   "x": 19.5,
+   "y": 62.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "D3": {
+   "x": 33.0,
+   "y": 54.5,
+   "rot": 90,
+   "side": "B"
+  },
+  "TP19": {
+   "x": 37.2,
+   "y": 57.0,
+   "rot": 0,
+   "side": "B"
+  },
+  "D10": {
+   "x": 21.5,
+   "y": 28.3,
+   "rot": 0,
+   "side": "F"
+  },
+  "D8": {
+   "x": 21.5,
+   "y": 30.0,
+   "rot": 0,
+   "side": "F"
+  },
+  "D9": {
+   "x": 21.5,
+   "y": 31.7,
+   "rot": 0,
+   "side": "F"
+  },
+  "JP2": {
+   "x": 21.0,
+   "y": 28.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "R46": {
+   "x": 21.5,
+   "y": 31.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "R44": {
+   "x": 21.5,
+   "y": 32.7,
+   "rot": 0,
+   "side": "B"
+  },
+  "R45": {
+   "x": 21.5,
+   "y": 34.1,
+   "rot": 0,
+   "side": "B"
+  },
+  "R43": {
+   "x": 7.5,
+   "y": 36.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "TP8": {
+   "x": 9.8,
+   "y": 36.3,
+   "rot": 0,
+   "side": "B"
+  },
+  "D1": {
+   "x": 20.9,
+   "y": 59.0,
+   "rot": 90,
+   "side": "F"
+  },
+  "FID4": {
+   "x": 8.0,
+   "y": 2.5,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID3": {
+   "x": 21.5,
+   "y": 2.5,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID5": {
+   "x": 15.0,
+   "y": 56.0,
+   "rot": 0,
+   "side": "F"
+  },
+  "FID2": {
+   "x": 8.0,
+   "y": 2.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID1": {
+   "x": 21.5,
+   "y": 2.5,
+   "rot": 0,
+   "side": "B"
+  },
+  "FID6": {
+   "x": 15.0,
+   "y": 56.0,
+   "rot": 0,
+   "side": "B"
+  }
+ },
+ "trimmed": [
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MISO",
+   "layer": "Internal 1",
+   "start": [
+    -6.218,
+    33.026
+   ],
+   "end": [
+    -6.804,
+    32.441
+   ],
+   "width": 0.2,
+   "length": 0.828,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e5121c2b-22b0-4ae0-ae5d-c3f0a1743394",
+   "kept": [
+    [
+     -6.218,
+     33.026
+    ],
+    [
+     -6.289,
+     32.955
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.375,
+    31.879
+   ],
+   "end": [
+    -6.804,
+    31.451
+   ],
+   "width": 0.2,
+   "length": 0.606,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "4a41e38e-863d-4b17-b394-11d538b1d214",
+   "kept": [
+    [
+     -6.375,
+     31.879
+    ],
+    [
+     -6.446,
+     31.809
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.433,
+    29.196
+   ],
+   "end": [
+    -6.804,
+    29.196
+   ],
+   "width": 0.2032,
+   "length": 1.37,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "54d36939-6781-4897-98e8-c40c938f6f36",
+   "kept": [
+    [
+     -5.433,
+     29.196
+    ],
+    [
+     -5.535,
+     29.196
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -6.425,
+    33.55
+   ],
+   "end": [
+    -6.804,
+    33.171
+   ],
+   "width": 0.2,
+   "length": 0.535,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e712d86c-903c-4966-8658-22d7a0ce9dee",
+   "kept": [
+    [
+     -6.425,
+     33.55
+    ],
+    [
+     -6.496,
+     33.479
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    18.986,
+    44.45
+   ],
+   "end": [
+    12.165,
+    44.45
+   ],
+   "width": 0.2,
+   "length": 6.821,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "8a7b985e-4216-4a67-93ea-551a8dda5dec",
+   "kept": [
+    [
+     12.265,
+     44.45
+    ],
+    [
+     12.165,
+     44.45
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    12.4,
+    26.3
+   ],
+   "end": [
+    12.4,
+    26.096
+   ],
+   "width": 0.2,
+   "length": 0.204,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "a7c994fb-da79-4f15-8577-5d4bc01e85fa",
+   "kept": [
+    [
+     12.4,
+     26.3
+    ],
+    [
+     12.4,
+     26.2
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    18.986,
+    44.1
+   ],
+   "end": [
+    12.257,
+    44.1
+   ],
+   "width": 0.2,
+   "length": 6.729,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "535794e6-0b0b-4ef4-bb58-92b77414645c",
+   "kept": [
+    [
+     12.357,
+     44.1
+    ],
+    [
+     12.257,
+     44.1
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.35,
+    26.845
+   ],
+   "end": [
+    12.499,
+    26.696
+   ],
+   "width": 0.2,
+   "length": 0.211,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "abcbe158-cc8d-4bac-9502-5f4c659bcbe0",
+   "kept": [
+    [
+     12.35,
+     26.845
+    ],
+    [
+     12.421,
+     26.774
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Top Layer",
+   "start": [
+    10.506,
+    18.978
+   ],
+   "end": [
+    5.961,
+    18.978
+   ],
+   "width": 2.0,
+   "length": 4.545,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "62995271-0326-4dae-9fb4-f62515506dea",
+   "kept": [
+    [
+     10.506,
+     18.978
+    ],
+    [
+     9.415,
+     18.978
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    17.461,
+    16.778
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 5.496,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "e4b4d140-f945-4b30-86bc-c3ae8f430c6e",
+   "kept": [
+    [
+     12.065,
+     16.778
+    ],
+    [
+     11.965,
+     16.778
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    17.461,
+    16.427
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 5.642,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "cb1c3f42-8681-4eee-851e-7e1243f8a2f0",
+   "kept": [
+    [
+     11.921,
+     16.427
+    ],
+    [
+     11.819,
+     16.427
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    13.55
+   ],
+   "end": [
+    22.091,
+    13.496
+   ],
+   "width": 0.15,
+   "length": 0.076,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "9f779de7-7a68-4b2b-bd73-4d771791f349",
+   "kept": [
+    [
+     22.037,
+     13.55
+    ],
+    [
+     22.09,
+     13.497
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    13.674
+   ],
+   "end": [
+    22.449,
+    13.562
+   ],
+   "width": 0.15,
+   "length": 0.159,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "a7c6264f-8f94-4ff5-8ee7-a2ba618f1691",
+   "kept": [
+    [
+     22.337,
+     13.674
+    ],
+    [
+     22.39,
+     13.621
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.461,
+    20.103
+   ],
+   "end": [
+    16.317,
+    20.103
+   ],
+   "width": 0.5,
+   "length": 1.144,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "1a7a57ae-4ebb-410e-b429-5eb349e443a2",
+   "kept": [
+    [
+     16.567,
+     20.103
+    ],
+    [
+     16.317,
+     20.103
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_CS}",
+   "layer": "Internal 1",
+   "start": [
+    -6.118,
+    34.2
+   ],
+   "end": [
+    -6.804,
+    34.2
+   ],
+   "width": 0.2,
+   "length": 0.686,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "94c13c32-c917-4419-a0f6-bb8c8f1130bd",
+   "kept": [
+    [
+     -6.118,
+     34.2
+    ],
+    [
+     -6.218,
+     34.2
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -6.59,
+    28.844
+   ],
+   "end": [
+    -6.804,
+    28.63
+   ],
+   "width": 0.2,
+   "length": 0.303,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "7a8866e5-4d49-434b-9708-2bb635be3eb3",
+   "kept": [
+    [
+     -6.59,
+     28.844
+    ],
+    [
+     -6.66,
+     28.773
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    22.75,
+    43.6
+   ],
+   "end": [
+    22.949,
+    43.401
+   ],
+   "width": 0.2,
+   "length": 0.281,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "30debb62-1d17-4a92-83c6-83faab5cdde3",
+   "kept": [
+    [
+     22.75,
+     43.6
+    ],
+    [
+     22.821,
+     43.529
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.025,
+    38.801
+   ],
+   "end": [
+    -2.025,
+    38.7
+   ],
+   "width": 0.2,
+   "length": 0.101,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "a9c9ae4d-13e3-4ff3-a7c2-457f9c3a210f",
+   "kept": [
+    [
+     -2.025,
+     38.8
+    ],
+    [
+     -2.025,
+     38.7
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Top Layer",
+   "start": [
+    -5.875,
+    38.801
+   ],
+   "end": [
+    -5.875,
+    37.925
+   ],
+   "width": 0.381,
+   "length": 0.876,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "9b95cbab-4e81-42e5-aad1-b749542ac9bb",
+   "kept": [
+    [
+     -5.875,
+     38.801
+    ],
+    [
+     -5.875,
+     38.459
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.925,
+    43.55
+   ],
+   "end": [
+    19.275,
+    43.55
+   ],
+   "width": 0.2,
+   "length": 0.65,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "0b1a2766-8919-4bde-8108-bf0a32f85d58",
+   "kept": [
+    [
+     19.925,
+     43.55
+    ],
+    [
+     19.5,
+     43.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    17.849,
+    13.125
+   ],
+   "end": [
+    18.75,
+    13.125
+   ],
+   "width": 0.2,
+   "length": 0.901,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "74b03d48-6a7f-46e2-bca8-af7c4476935f",
+   "kept": [
+    [
+     18.65,
+     13.125
+    ],
+    [
+     18.75,
+     13.125
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    6.022,
+    30.839
+   ],
+   "end": [
+    6.196,
+    30.665
+   ],
+   "width": 0.381,
+   "length": 0.247,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "130fdd06-d05a-470b-abc8-ad4f6337b0a3",
+   "kept": [
+    [
+     6.022,
+     30.839
+    ],
+    [
+     6.157,
+     30.704
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    19.45,
+    13.7
+   ],
+   "end": [
+    19.45,
+    11.696
+   ],
+   "width": 0.5,
+   "length": 2.004,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "4b194358-e051-4252-a796-42ac03b988fb",
+   "kept": [
+    [
+     19.45,
+     11.95
+    ],
+    [
+     19.45,
+     11.696
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    29.246
+   ],
+   "end": [
+    37.051,
+    28.352
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "4e594cb2-50eb-4171-b1fb-9c5fdbd80292",
+   "kept": [
+    [
+     37.051,
+     28.602
+    ],
+    [
+     37.051,
+     28.352
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    30.4,
+    45.45
+   ],
+   "end": [
+    30.4,
+    44.996
+   ],
+   "width": 0.6,
+   "length": 0.454,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "61f9522c-1a47-4f11-8f2b-cc30366764a2",
+   "kept": [
+    [
+     30.4,
+     45.45
+    ],
+    [
+     30.4,
+     45.15
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    37.051,
+    15.55
+   ],
+   "end": [
+    37.051,
+    14.656
+   ],
+   "width": 0.5,
+   "length": 0.894,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "c42f366b-aebf-4eeb-a88e-f16b96167516",
+   "kept": [
+    [
+     37.051,
+     14.906
+    ],
+    [
+     37.051,
+     14.656
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.6,
+    46.95
+   ],
+   "end": [
+    32.6,
+    46.202
+   ],
+   "width": 0.2,
+   "length": 0.748,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "46159006-15db-4cdf-8a6d-6ad1924f4acc",
+   "kept": [
+    [
+     32.6,
+     46.302
+    ],
+    [
+     32.6,
+     46.202
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    12.75,
+    32.95
+   ],
+   "end": [
+    12.301,
+    32.95
+   ],
+   "width": 0.2,
+   "length": 0.449,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "46b62c4b-408b-4b40-b97b-f70f7bc91fb6",
+   "kept": [
+    [
+     12.75,
+     32.95
+    ],
+    [
+     12.65,
+     32.95
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    36.85,
+    49.6
+   ],
+   "end": [
+    37.264,
+    50.014
+   ],
+   "width": 0.2,
+   "length": 0.585,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "56a18c96-4892-406c-872c-d54ffa3c2f7b",
+   "kept": [
+    [
+     37.193,
+     49.943
+    ],
+    [
+     37.264,
+     50.014
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.1,
+    46.95
+   ],
+   "end": [
+    32.1,
+    46.202
+   ],
+   "width": 0.2,
+   "length": 0.748,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "9f0232db-0346-4247-8e18-2607d83784a2",
+   "kept": [
+    [
+     32.1,
+     46.302
+    ],
+    [
+     32.1,
+     46.202
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    5.675,
+    34.448
+   ],
+   "end": [
+    5.675,
+    30.925
+   ],
+   "width": 0.381,
+   "length": 3.523,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "d303286d-8684-4f6c-bb9c-0487f03adf1c",
+   "kept": [
+    [
+     5.675,
+     31.391
+    ],
+    [
+     5.675,
+     30.925
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.69,
+    45.6
+   ],
+   "end": [
+    18.09,
+    45.2
+   ],
+   "width": 0.3,
+   "length": 0.566,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "f79fd8b1-f9c7-4162-a785-6c8c39c9761f",
+   "kept": [
+    [
+     17.69,
+     45.6
+    ],
+    [
+     17.796,
+     45.494
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    32.771
+   ],
+   "end": [
+    35.35,
+    32.522
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "2fbb814e-8395-4f95-8cbf-3ff512bb01f1",
+   "kept": [
+    [
+     35.101,
+     32.771
+    ],
+    [
+     35.173,
+     32.699
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.878
+   ],
+   "end": [
+    35.35,
+    20.127
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "41ca4fef-7d43-48bf-b50b-0f77acfde953",
+   "kept": [
+    [
+     35.101,
+     19.878
+    ],
+    [
+     35.183,
+     19.961
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.075
+   ],
+   "end": [
+    35.35,
+    18.826
+   ],
+   "width": 0.2032,
+   "length": 0.352,
+   "stage": "m4",
+   "round": 1,
+   "action": "shortened",
+   "uuid": "876fe955-96be-48d0-92de-f7aaea5ed719",
+   "kept": [
+    [
+     35.101,
+     19.075
+    ],
+    [
+     35.173,
+     19.003
+    ]
+   ]
+  },
+  {
+   "kind": "via",
+   "net": "/Top-Level Schematic/5V_PI",
+   "at": [
+    36.026,
+    28.25
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    18.642,
+    38.425
+   ],
+   "end": [
+    18.986,
+    38.081
+   ],
+   "width": 1.5,
+   "length": 0.487,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    44.125
+   ],
+   "end": [
+    16.433,
+    44.125
+   ],
+   "width": 2.0,
+   "length": 0.0,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.411,
+    29.289
+   ],
+   "end": [
+    -4.411,
+    29.289
+   ],
+   "width": 0.2,
+   "length": 0.0,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    18.825,
+    48.3
+   ],
+   "end": [
+    18.771,
+    48.246
+   ],
+   "width": 0.2,
+   "length": 0.076,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    -4.376,
+    38.801
+   ],
+   "end": [
+    -4.35,
+    38.775
+   ],
+   "width": 0.5,
+   "length": 0.037,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    32.35,
+    45.15
+   ],
+   "end": [
+    32.504,
+    44.996
+   ],
+   "width": 0.6,
+   "length": 0.217,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    8.915,
+    23.253
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    9.265,
+    22.628
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.965,
+    13.695
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.94,
+    39.0
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    35.194,
+    25.233
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    12.925,
+    34.65
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.965,
+    12.896
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    35.194,
+    11.537
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    34.817,
+    30.775
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.965,
+    12.095
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    34.251,
+    27.05
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    6.892,
+    44.755
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    29.626,
+    31.5
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    29.626,
+    17.804
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.94,
+    38.25
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    34.817,
+    17.079
+   ],
+   "dia": 0.45,
+   "drill": 0.2,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    15.965,
+    11.295
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    34.251,
+    13.354
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    7.19,
+    46.0
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "GND",
+   "at": [
+    7.39,
+    45.3
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.075,
+    46.925
+   ],
+   "end": [
+    30.1,
+    46.95
+   ],
+   "width": 0.2,
+   "length": 0.035,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.399,
+    46.101
+   ],
+   "end": [
+    29.423,
+    46.077
+   ],
+   "width": 0.2,
+   "length": 0.035,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.075,
+    46.925
+   ],
+   "end": [
+    33.1,
+    46.95
+   ],
+   "width": 0.2,
+   "length": 0.035,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.258,
+    47.557
+   ],
+   "end": [
+    19.258,
+    47.51
+   ],
+   "width": 0.2,
+   "length": 0.047,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    8.504,
+    30.696
+   ],
+   "end": [
+    8.542,
+    30.658
+   ],
+   "width": 0.381,
+   "length": 0.054,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.6,
+    46.95
+   ],
+   "end": [
+    29.625,
+    46.925
+   ],
+   "width": 0.2,
+   "length": 0.035,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    15.89,
+    48.9
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "via",
+   "net": "VBUS",
+   "at": [
+    15.89,
+    49.65
+   ],
+   "dia": 0.6,
+   "drill": 0.3,
+   "stage": "m4",
+   "round": 1,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.4,
+    48.3
+   ],
+   "end": [
+    18.825,
+    48.3
+   ],
+   "width": 0.2,
+   "length": 0.575,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "3d62bf0f-1b7d-42b1-a926-605bd470a797",
+   "kept": [
+    [
+     19.4,
+     48.3
+    ],
+    [
+     19.3,
+     48.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    32.35,
+    45.9
+   ],
+   "end": [
+    32.35,
+    45.15
+   ],
+   "width": 0.6,
+   "length": 0.75,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "514d1f51-e356-482f-8564-03b7c9c35415",
+   "kept": [
+    [
+     32.35,
+     45.9
+    ],
+    [
+     32.35,
+     45.6
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    -3.85,
+    38.775
+   ],
+   "end": [
+    -4.35,
+    38.775
+   ],
+   "width": 0.5,
+   "length": 0.5,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "6fc37c0f-d5d8-4956-85ed-d349643bbc5a",
+   "kept": [
+    [
+     -3.85,
+     38.775
+    ],
+    [
+     -4.1,
+     38.775
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.075,
+    46.925
+   ],
+   "end": [
+    30.075,
+    46.259
+   ],
+   "width": 0.2,
+   "length": 0.666,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "2fb10bdf-e211-4b3b-a131-e366dd211e19",
+   "kept": [
+    [
+     30.075,
+     46.359
+    ],
+    [
+     30.075,
+     46.259
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.423,
+    46.077
+   ],
+   "end": [
+    29.773,
+    46.077
+   ],
+   "width": 0.2,
+   "length": 0.35,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "651b1cfa-819f-400f-ba39-174e34afb19c",
+   "kept": [
+    [
+     29.673,
+     46.077
+    ],
+    [
+     29.773,
+     46.077
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.625,
+    46.925
+   ],
+   "end": [
+    29.625,
+    46.375
+   ],
+   "width": 0.2,
+   "length": 0.55,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "739a6f8c-5196-4c0a-b62e-f18772bd9a4f",
+   "kept": [
+    [
+     29.625,
+     46.475
+    ],
+    [
+     29.625,
+     46.375
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.258,
+    47.51
+   ],
+   "end": [
+    19.768,
+    47.0
+   ],
+   "width": 0.2,
+   "length": 0.721,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "b436c822-3fd9-43a1-9750-e3143dbd3f91",
+   "kept": [
+    [
+     19.698,
+     47.071
+    ],
+    [
+     19.768,
+     47.0
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    8.542,
+    30.658
+   ],
+   "end": [
+    8.542,
+    29.858
+   ],
+   "width": 0.381,
+   "length": 0.8,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "da24e09c-3c89-4584-8e32-4580db06e812",
+   "kept": [
+    [
+     8.542,
+     30.091
+    ],
+    [
+     8.542,
+     29.858
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.075,
+    46.925
+   ],
+   "end": [
+    33.075,
+    46.325
+   ],
+   "width": 0.2,
+   "length": 0.6,
+   "stage": "m4",
+   "round": 2,
+   "action": "shortened",
+   "uuid": "e56fbac7-e7bf-4602-8530-a8228c488392",
+   "kept": [
+    [
+     33.075,
+     46.425
+    ],
+    [
+     33.075,
+     46.325
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MISO",
+   "layer": "Internal 1",
+   "start": [
+    -6.218,
+    33.026
+   ],
+   "end": [
+    -6.289,
+    32.955
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.375,
+    31.879
+   ],
+   "end": [
+    -6.446,
+    31.809
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.433,
+    29.196
+   ],
+   "end": [
+    -5.535,
+    29.196
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -6.425,
+    33.55
+   ],
+   "end": [
+    -6.496,
+    33.479
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    12.265,
+    44.45
+   ],
+   "end": [
+    12.165,
+    44.45
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    12.4,
+    26.3
+   ],
+   "end": [
+    12.4,
+    26.2
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    39.1
+   ],
+   "end": [
+    18.565,
+    38.425
+   ],
+   "width": 2.0,
+   "length": 0.955,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.357,
+    44.1
+   ],
+   "end": [
+    12.257,
+    44.1
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.35,
+    26.845
+   ],
+   "end": [
+    12.421,
+    26.774
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    12.065,
+    16.778
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.921,
+    16.427
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    13.55
+   ],
+   "end": [
+    22.09,
+    13.497
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    13.674
+   ],
+   "end": [
+    22.39,
+    13.621
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/PoDL/Power Monitor/P_IN",
+   "layer": "6 Bottom Layer",
+   "start": [
+    16.567,
+    20.103
+   ],
+   "end": [
+    16.317,
+    20.103
+   ],
+   "width": 0.5,
+   "length": 0.25,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_CS}",
+   "layer": "Internal 1",
+   "start": [
+    -6.118,
+    34.2
+   ],
+   "end": [
+    -6.218,
+    34.2
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -6.59,
+    28.844
+   ],
+   "end": [
+    -6.66,
+    28.773
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    22.75,
+    43.6
+   ],
+   "end": [
+    22.821,
+    43.529
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.025,
+    38.8
+   ],
+   "end": [
+    -2.025,
+    38.7
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Top Layer",
+   "start": [
+    -5.875,
+    38.801
+   ],
+   "end": [
+    -5.875,
+    38.459
+   ],
+   "width": 0.381,
+   "length": 0.342,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    18.65,
+    13.125
+   ],
+   "end": [
+    18.75,
+    13.125
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    6.022,
+    30.839
+   ],
+   "end": [
+    6.157,
+    30.704
+   ],
+   "width": 0.381,
+   "length": 0.19,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    30.4,
+    45.45
+   ],
+   "end": [
+    30.4,
+    45.15
+   ],
+   "width": 0.6,
+   "length": 0.3,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.6,
+    46.302
+   ],
+   "end": [
+    32.6,
+    46.202
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    37.193,
+    49.943
+   ],
+   "end": [
+    37.264,
+    50.014
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.1,
+    46.302
+   ],
+   "end": [
+    32.1,
+    46.202
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.69,
+    45.6
+   ],
+   "end": [
+    17.796,
+    45.494
+   ],
+   "width": 0.3,
+   "length": 0.15,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    32.771
+   ],
+   "end": [
+    35.173,
+    32.699
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.878
+   ],
+   "end": [
+    35.183,
+    19.961
+   ],
+   "width": 0.2032,
+   "length": 0.116,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.075
+   ],
+   "end": [
+    35.173,
+    19.003
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 2,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.375,
+    32.247
+   ],
+   "end": [
+    -6.375,
+    31.879
+   ],
+   "width": 0.2,
+   "length": 0.367,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "b9586bca-d054-4659-a95e-ed92d2b98e9d",
+   "kept": [
+    [
+     -6.375,
+     32.247
+    ],
+    [
+     -6.375,
+     32.147
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.7,
+    29.929
+   ],
+   "end": [
+    -5.433,
+    29.196
+   ],
+   "width": 0.2032,
+   "length": 1.037,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "4759fa3d-20e0-43ab-affd-affe41947be3",
+   "kept": [
+    [
+     -4.7,
+     29.929
+    ],
+    [
+     -4.772,
+     29.857
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_SCK",
+   "layer": "Internal 1",
+   "start": [
+    -5.55,
+    33.55
+   ],
+   "end": [
+    -6.425,
+    33.55
+   ],
+   "width": 0.2,
+   "length": 0.875,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "a23f9266-ee3e-41a7-a294-d396215615d8",
+   "kept": [
+    [
+     -5.55,
+     33.55
+    ],
+    [
+     -5.65,
+     33.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    11.8,
+    26.9
+   ],
+   "end": [
+    12.4,
+    26.3
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "2b0587b3-decf-4048-b4b1-28276d330fdc",
+   "kept": [
+    [
+     11.8,
+     26.9
+    ],
+    [
+     11.871,
+     26.829
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_N",
+   "layer": "Internal 2",
+   "start": [
+    11.565,
+    45.05
+   ],
+   "end": [
+    12.165,
+    44.45
+   ],
+   "width": 0.2,
+   "length": 0.849,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "339d3728-b3a7-476f-aa97-8a48b747ba34",
+   "kept": [
+    [
+     11.565,
+     45.05
+    ],
+    [
+     11.636,
+     44.979
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    42.668
+   ],
+   "end": [
+    17.89,
+    39.1
+   ],
+   "width": 2.0,
+   "length": 3.568,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "1794f9d7-e264-4d26-8a70-27930db4b2ce",
+   "kept": [
+    [
+     17.89,
+     42.668
+    ],
+    [
+     17.89,
+     41.668
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.35,
+    27.181
+   ],
+   "end": [
+    12.35,
+    26.845
+   ],
+   "width": 0.2,
+   "length": 0.336,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "56332e05-4093-441b-a7c9-1665353d8cec",
+   "kept": [
+    [
+     12.35,
+     27.181
+    ],
+    [
+     12.35,
+     27.081
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_N",
+   "layer": "Internal 2",
+   "start": [
+    11.115,
+    17.628
+   ],
+   "end": [
+    11.965,
+    16.778
+   ],
+   "width": 0.2,
+   "length": 1.202,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "5c4d5531-b953-4a48-9662-64aae337a3a8",
+   "kept": [
+    [
+     11.115,
+     17.628
+    ],
+    [
+     11.186,
+     17.557
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM2_P",
+   "layer": "Internal 2",
+   "start": [
+    11.629,
+    16.617
+   ],
+   "end": [
+    11.819,
+    16.427
+   ],
+   "width": 0.203,
+   "length": 0.269,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "d73c7fdc-8317-4d9f-994c-f207851818f5",
+   "kept": [
+    [
+     11.629,
+     16.617
+    ],
+    [
+     11.701,
+     16.545
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    14.978
+   ],
+   "end": [
+    22.037,
+    13.55
+   ],
+   "width": 0.15,
+   "length": 1.427,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "6aae18ce-2f8c-4630-a5ba-d87537d181f6",
+   "kept": [
+    [
+     22.037,
+     14.978
+    ],
+    [
+     22.037,
+     14.903
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    15.102
+   ],
+   "end": [
+    22.337,
+    13.674
+   ],
+   "width": 0.15,
+   "length": 1.427,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "4f509d23-7614-43d6-a63f-5ca3bc75614b",
+   "kept": [
+    [
+     22.337,
+     15.102
+    ],
+    [
+     22.337,
+     15.027
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.856,
+    28.844
+   ],
+   "end": [
+    -6.59,
+    28.844
+   ],
+   "width": 0.2,
+   "length": 1.734,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "669ae2b9-4920-440a-9d39-bb73f8c48afa",
+   "kept": [
+    [
+     -4.856,
+     28.844
+    ],
+    [
+     -4.956,
+     28.844
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    -2.025,
+    38.7
+   ],
+   "end": [
+    -1.675,
+    38.35
+   ],
+   "width": 0.2,
+   "length": 0.495,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "6978b630-275d-4db8-a8ca-1576f6526b9b",
+   "kept": [
+    [
+     -1.833,
+     38.508
+    ],
+    [
+     -1.675,
+     38.35
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "1V8",
+   "layer": "6 Bottom Layer",
+   "start": [
+    22.75,
+    44.025
+   ],
+   "end": [
+    22.75,
+    43.6
+   ],
+   "width": 0.2,
+   "length": 0.425,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "e0c10b66-0e47-4d95-9cd4-32ad000f2df3",
+   "kept": [
+    [
+     22.75,
+     44.025
+    ],
+    [
+     22.75,
+     43.925
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    18.75,
+    13.125
+   ],
+   "end": [
+    20.179,
+    11.696
+   ],
+   "width": 0.2,
+   "length": 2.02,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "7120bd0a-7baf-4788-a86f-c2a80c6a53ed",
+   "kept": [
+    [
+     20.017,
+     11.858
+    ],
+    [
+     20.179,
+     11.696
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "Top Layer",
+   "start": [
+    29.85,
+    46.0
+   ],
+   "end": [
+    30.4,
+    45.45
+   ],
+   "width": 0.6,
+   "length": 0.778,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "bbce2f70-e7de-494e-b3b0-7b7e7f0034da",
+   "kept": [
+    [
+     29.85,
+     46.0
+    ],
+    [
+     30.062,
+     45.788
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    37.264,
+    51.114
+   ],
+   "end": [
+    37.264,
+    50.014
+   ],
+   "width": 0.2,
+   "length": 1.1,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "56aedc06-15c9-4113-87ca-757973460697",
+   "kept": [
+    [
+     37.264,
+     51.114
+    ],
+    [
+     37.264,
+     51.014
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    17.69,
+    45.6
+   ],
+   "end": [
+    17.096,
+    45.6
+   ],
+   "width": 0.3,
+   "length": 0.594,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "f39552f5-4289-4d57-92f7-7c262302786f",
+   "kept": [
+    [
+     17.246,
+     45.6
+    ],
+    [
+     17.096,
+     45.6
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.878
+   ],
+   "end": [
+    35.101,
+    19.075
+   ],
+   "width": 0.2032,
+   "length": 0.803,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "0ed2e6fa-8417-41b7-a541-edf0f1026af3",
+   "kept": [
+    [
+     35.101,
+     19.878
+    ],
+    [
+     35.101,
+     19.777
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    33.574
+   ],
+   "end": [
+    35.101,
+    32.771
+   ],
+   "width": 0.2032,
+   "length": 0.803,
+   "stage": "m4",
+   "round": 3,
+   "action": "shortened",
+   "uuid": "6cdac353-86db-4e91-994c-7bb78835829e",
+   "kept": [
+    [
+     35.101,
+     33.574
+    ],
+    [
+     35.101,
+     33.473
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "6 Bottom Layer",
+   "start": [
+    19.4,
+    48.3
+   ],
+   "end": [
+    19.3,
+    48.3
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    30.075,
+    46.359
+   ],
+   "end": [
+    30.075,
+    46.259
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.625,
+    46.475
+   ],
+   "end": [
+    29.625,
+    46.375
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    33.075,
+    46.425
+   ],
+   "end": [
+    33.075,
+    46.325
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 3,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.9,
+    46.15
+   ],
+   "end": [
+    33.075,
+    46.325
+   ],
+   "width": 0.2,
+   "length": 0.247,
+   "stage": "m4",
+   "round": 4,
+   "action": "shortened",
+   "uuid": "3de39174-ba89-4618-9d9d-5b275951e242",
+   "kept": [
+    [
+     32.9,
+     46.15
+    ],
+    [
+     32.971,
+     46.221
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    29.625,
+    46.375
+   ],
+   "end": [
+    29.773,
+    46.227
+   ],
+   "width": 0.2,
+   "length": 0.21,
+   "stage": "m4",
+   "round": 4,
+   "action": "shortened",
+   "uuid": "dd3ecf7d-005c-4aeb-832f-76dad999debb",
+   "kept": [
+    [
+     29.703,
+     46.297
+    ],
+    [
+     29.773,
+     46.227
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.375,
+    32.247
+   ],
+   "end": [
+    -6.375,
+    32.147
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.7,
+    29.929
+   ],
+   "end": [
+    -4.772,
+    29.857
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    17.89,
+    42.668
+   ],
+   "end": [
+    17.89,
+    41.668
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    12.35,
+    27.181
+   ],
+   "end": [
+    12.35,
+    27.081
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    22.037,
+    14.978
+   ],
+   "end": [
+    22.037,
+    14.903
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.337,
+    15.102
+   ],
+   "end": [
+    22.337,
+    15.027
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.856,
+    28.844
+   ],
+   "end": [
+    -4.956,
+    28.844
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    20.017,
+    11.858
+   ],
+   "end": [
+    20.179,
+    11.696
+   ],
+   "width": 0.2,
+   "length": 0.229,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "VBUS",
+   "layer": "6 Bottom Layer",
+   "start": [
+    35.101,
+    19.878
+   ],
+   "end": [
+    35.101,
+    19.777
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 4,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.072,
+    32.55
+   ],
+   "end": [
+    -6.375,
+    32.247
+   ],
+   "width": 0.2,
+   "length": 0.429,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "575cba68-66e4-4a5d-963b-02a50e42ba57",
+   "kept": [
+    [
+     -6.072,
+     32.55
+    ],
+    [
+     -6.142,
+     32.479
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.7,
+    36.6
+   ],
+   "end": [
+    -4.7,
+    29.929
+   ],
+   "width": 0.2032,
+   "length": 6.671,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "73a97665-c614-4485-a814-e15d84de5d48",
+   "kept": [
+    [
+     -4.7,
+     36.6
+    ],
+    [
+     -4.7,
+     36.498
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    44.125
+   ],
+   "end": [
+    17.89,
+    42.668
+   ],
+   "width": 2.0,
+   "length": 2.061,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "9162d848-923f-4517-8685-8592fb185144",
+   "kept": [
+    [
+     16.433,
+     44.125
+    ],
+    [
+     17.14,
+     43.418
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Internal 2",
+   "start": [
+    11.955,
+    27.576
+   ],
+   "end": [
+    12.35,
+    27.181
+   ],
+   "width": 0.2,
+   "length": 0.559,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "83f9dec7-3f29-42a2-8be2-79efd146edbd",
+   "kept": [
+    [
+     11.955,
+     27.576
+    ],
+    [
+     12.025,
+     27.506
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    15.164
+   ],
+   "end": [
+    22.037,
+    14.978
+   ],
+   "width": 0.15,
+   "length": 0.264,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "91fd7790-dd8f-4599-817d-3456eb970e2f",
+   "kept": [
+    [
+     21.85,
+     15.164
+    ],
+    [
+     21.903,
+     15.111
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    15.289
+   ],
+   "end": [
+    22.337,
+    15.102
+   ],
+   "width": 0.15,
+   "length": 0.264,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "9383c5c8-6c61-4785-bc01-b67e0ca3af9b",
+   "kept": [
+    [
+     22.15,
+     15.289
+    ],
+    [
+     22.203,
+     15.236
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.411,
+    29.289
+   ],
+   "end": [
+    -4.856,
+    28.844
+   ],
+   "width": 0.2,
+   "length": 0.629,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "89f92512-1306-4df2-a7db-836810ae978e",
+   "kept": [
+    [
+     -4.411,
+     29.289
+    ],
+    [
+     -4.482,
+     29.218
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "3V3",
+   "layer": "Internal 1",
+   "start": [
+    20.8,
+    12.5
+   ],
+   "end": [
+    20.1,
+    11.8
+   ],
+   "width": 0.3,
+   "length": 0.99,
+   "stage": "m4",
+   "round": 5,
+   "action": "shortened",
+   "uuid": "c83c7e28-0310-4b40-bda0-5ab7c6dc4302",
+   "kept": [
+    [
+     20.8,
+     12.5
+    ],
+    [
+     20.694,
+     12.394
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.9,
+    46.15
+   ],
+   "end": [
+    32.971,
+    46.221
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 5,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.708,
+    46.15
+   ],
+   "end": [
+    32.9,
+    46.15
+   ],
+   "width": 0.2,
+   "length": 0.192,
+   "stage": "m4",
+   "round": 6,
+   "action": "shortened",
+   "uuid": "738b1878-5ad9-46d3-8fb0-67d95c613068",
+   "kept": [
+    [
+     32.708,
+     46.15
+    ],
+    [
+     32.808,
+     46.15
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -6.072,
+    32.55
+   ],
+   "end": [
+    -6.142,
+    32.479
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.7,
+    36.6
+   ],
+   "end": [
+    -4.7,
+    36.498
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    44.125
+   ],
+   "end": [
+    17.14,
+    43.418
+   ],
+   "width": 2.0,
+   "length": 1.0,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    15.164
+   ],
+   "end": [
+    21.903,
+    15.111
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    15.289
+   ],
+   "end": [
+    22.203,
+    15.236
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.411,
+    29.289
+   ],
+   "end": [
+    -4.482,
+    29.218
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 6,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_MOSI",
+   "layer": "Internal 1",
+   "start": [
+    -5.55,
+    32.55
+   ],
+   "end": [
+    -6.072,
+    32.55
+   ],
+   "width": 0.2,
+   "length": 0.522,
+   "stage": "m4",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "d1f6baa4-ede7-499f-8762-ca38dd0900e9",
+   "kept": [
+    [
+     -5.55,
+     32.55
+    ],
+    [
+     -5.65,
+     32.55
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.125,
+    37.025
+   ],
+   "end": [
+    -4.7,
+    36.6
+   ],
+   "width": 0.2032,
+   "length": 0.601,
+   "stage": "m4",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "edf03750-e079-4a3e-9dc1-5f856abaaade",
+   "kept": [
+    [
+     -5.125,
+     37.025
+    ],
+    [
+     -5.053,
+     36.953
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    16.375
+   ],
+   "end": [
+    21.85,
+    15.164
+   ],
+   "width": 0.15,
+   "length": 1.211,
+   "stage": "m4",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "e1424cdf-8dfb-452d-8d7e-7f24854bb8f1",
+   "kept": [
+    [
+     21.85,
+     16.375
+    ],
+    [
+     21.85,
+     16.3
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    16.747
+   ],
+   "end": [
+    22.15,
+    15.289
+   ],
+   "width": 0.15,
+   "length": 1.458,
+   "stage": "m4",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "9bfec824-703e-4cb1-ae36-f0d833f747ec",
+   "kept": [
+    [
+     22.15,
+     16.747
+    ],
+    [
+     22.15,
+     16.672
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.1,
+    29.6
+   ],
+   "end": [
+    -4.411,
+    29.289
+   ],
+   "width": 0.2,
+   "length": 0.44,
+   "stage": "m4",
+   "round": 7,
+   "action": "shortened",
+   "uuid": "886e03b1-c1cc-49f9-9fcd-847987f6989f",
+   "kept": [
+    [
+     -4.1,
+     29.6
+    ],
+    [
+     -4.171,
+     29.529
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/BM1_P",
+   "layer": "Top Layer",
+   "start": [
+    16.433,
+    44.125
+   ],
+   "end": [
+    13.098,
+    44.125
+   ],
+   "width": 2.0,
+   "length": 3.335,
+   "stage": "m4",
+   "round": 7,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "GND",
+   "layer": "6 Bottom Layer",
+   "start": [
+    32.708,
+    46.15
+   ],
+   "end": [
+    32.808,
+    46.15
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 7,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.125,
+    37.025
+   ],
+   "end": [
+    -5.053,
+    36.953
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.85,
+    16.375
+   ],
+   "end": [
+    21.85,
+    16.3
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SDA",
+   "layer": "Top Layer",
+   "start": [
+    22.15,
+    16.747
+   ],
+   "end": [
+    22.15,
+    16.672
+   ],
+   "width": 0.15,
+   "length": 0.075,
+   "stage": "m4",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    -4.1,
+    29.6
+   ],
+   "end": [
+    -4.171,
+    29.529
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 8,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.125,
+    37.55
+   ],
+   "end": [
+    -5.125,
+    37.025
+   ],
+   "width": 0.2032,
+   "length": 0.525,
+   "stage": "m4",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "5f949949-7ad6-4fea-b1fc-071f89c4bbca",
+   "kept": [
+    [
+     -5.125,
+     37.55
+    ],
+    [
+     -5.125,
+     37.448
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/I2C1_SCL",
+   "layer": "Top Layer",
+   "start": [
+    21.575,
+    16.65
+   ],
+   "end": [
+    21.85,
+    16.375
+   ],
+   "width": 0.15,
+   "length": 0.389,
+   "stage": "m4",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "feab8dac-0332-45ae-a11f-6fdf4b18943e",
+   "kept": [
+    [
+     21.575,
+     16.65
+    ],
+    [
+     21.628,
+     16.597
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.0,
+    29.6
+   ],
+   "end": [
+    -4.1,
+    29.6
+   ],
+   "width": 0.2,
+   "length": 6.1,
+   "stage": "m4",
+   "round": 9,
+   "action": "shortened",
+   "uuid": "aeeee5e7-bb9c-4554-823b-d3b1269902ab",
+   "kept": [
+    [
+     2.0,
+     29.6
+    ],
+    [
+     1.9,
+     29.6
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -5.125,
+    37.55
+   ],
+   "end": [
+    -5.125,
+    37.448
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.0,
+    29.6
+   ],
+   "end": [
+    1.9,
+    29.6
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 10,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.65,
+    38.025
+   ],
+   "end": [
+    -5.125,
+    37.55
+   ],
+   "width": 0.2032,
+   "length": 0.672,
+   "stage": "m4",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "406684b1-449c-4695-81ac-9aa117671d28",
+   "kept": [
+    [
+     -4.65,
+     38.025
+    ],
+    [
+     -4.722,
+     37.953
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.0,
+    29.6
+   ],
+   "end": [
+    2.5,
+    29.1
+   ],
+   "width": 0.2,
+   "length": 0.707,
+   "stage": "m4",
+   "round": 11,
+   "action": "shortened",
+   "uuid": "b7a5747c-b3b6-4fe9-8f97-ce4601aa5892",
+   "kept": [
+    [
+     2.429,
+     29.171
+    ],
+    [
+     2.5,
+     29.1
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -4.65,
+    38.025
+   ],
+   "end": [
+    -4.722,
+    37.953
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 12,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    2.429,
+    29.171
+   ],
+   "end": [
+    2.5,
+    29.1
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 12,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.656,
+    38.025
+   ],
+   "end": [
+    -4.65,
+    38.025
+   ],
+   "width": 0.2032,
+   "length": 0.994,
+   "stage": "m4",
+   "round": 13,
+   "action": "shortened",
+   "uuid": "c1bd3c58-e8a7-46a6-913a-caafec5494f9",
+   "kept": [
+    [
+     -3.656,
+     38.025
+    ],
+    [
+     -3.758,
+     38.025
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.6,
+    29.1
+   ],
+   "end": [
+    2.5,
+    29.1
+   ],
+   "width": 0.2,
+   "length": 1.1,
+   "stage": "m4",
+   "round": 13,
+   "action": "shortened",
+   "uuid": "8b2f475f-f84a-4164-af8f-9d452c14d2d3",
+   "kept": [
+    [
+     3.6,
+     29.1
+    ],
+    [
+     3.5,
+     29.1
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.656,
+    38.025
+   ],
+   "end": [
+    -3.758,
+    38.025
+   ],
+   "width": 0.2032,
+   "length": 0.102,
+   "stage": "m4",
+   "round": 14,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    3.6,
+    29.1
+   ],
+   "end": [
+    3.5,
+    29.1
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 14,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/ADIN_PWR",
+   "layer": "Internal 1",
+   "start": [
+    -3.419,
+    38.262
+   ],
+   "end": [
+    -3.656,
+    38.025
+   ],
+   "width": 0.2032,
+   "length": 0.335,
+   "stage": "m4",
+   "round": 15,
+   "action": "shortened",
+   "uuid": "8c800ff3-1a07-4e2b-84e9-73f63d17eefa",
+   "kept": [
+    [
+     -3.419,
+     38.262
+    ],
+    [
+     -3.491,
+     38.19
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    4.1,
+    29.6
+   ],
+   "end": [
+    3.6,
+    29.1
+   ],
+   "width": 0.2,
+   "length": 0.707,
+   "stage": "m4",
+   "round": 15,
+   "action": "shortened",
+   "uuid": "9359a038-88e4-41a7-b844-9bd57aaf0ece",
+   "kept": [
+    [
+     4.1,
+     29.6
+    ],
+    [
+     4.029,
+     29.529
+    ]
+   ]
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    4.1,
+    29.6
+   ],
+   "end": [
+    4.029,
+    29.529
+   ],
+   "width": 0.2,
+   "length": 0.1,
+   "stage": "m4",
+   "round": 16,
+   "action": "removed"
+  },
+  {
+   "kind": "track",
+   "net": "/Top-Level Schematic/~{ADIN_RST}",
+   "layer": "Internal 1",
+   "start": [
+    4.1,
+    30.872
+   ],
+   "end": [
+    4.1,
+    29.6
+   ],
+   "width": 0.2,
+   "length": 1.272,
+   "stage": "m4",
+   "round": 17,
+   "action": "shortened",
+   "uuid": "fc5add8e-a882-4893-92cc-1af74a983d50",
+   "kept": [
+    [
+     4.1,
+     30.872
+    ],
+    [
+     4.1,
+     30.5
+    ]
+   ]
+  }
+ ]
+}

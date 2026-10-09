@@ -1,0 +1,39 @@
+{
+ "_about": "Max body height (mm) of every bottom-side part, for BRIEF §2 (bottom ≤ 3 mm). Sources in _sources; J1 is the stacking header socket itself (exempt, it is the reason for the limit).",
+ "_sources": {
+  "RESC1005*/FP-RC0402*/FP-RMCF0402*/FP-CRCW0402*/R_0402": "0402 chip resistor, 0.40 max (IPC name X40; Yageo RC0402 0.35±0.05; Stackpole RMCF0402 0.35 max)",
+  "FP-RR0510-IPC_B": "Susumu RR0510 0402 thin film, 0.35 max (datasheet)",
+  "RESC1608X60X55ML20T10": "Vishay UR73D1J 0603, 0.60 max (IPC name X60)",
+  "CRCW08057R50FKEAHP-Footprint-1": "Vishay CRCW0805HP 0805, 0.60 max (datasheet)",
+  "FP-CRCW1210-e3-IPC_B": "Vishay CRCW1210, 0.60 max (datasheet 0.55±0.05)",
+  "FP-CL278-IPC_C/FP-CL511-IPC_C/FP-CC0402*": "0402 MLCC, 0.55 max (Samsung CL05 0.5±0.05; Yageo CC0402 0.55 max)",
+  "FP-GRM155-0_15-MFG/FP-GRJ155-0_2-MFG": "Murata 0402, 0.55 max (GRM155 0.5±0.05)",
+  "FP-GRM188*/FP-0603*/CAPC1608*/C_0402": "0603 MLCC, 0.90 max (GRM188 0.8±0.1; UMK107 0.8 max); C_0402 0.6",
+  "FP-0805-L_2_01_0_2-W_1_25-MFG/CAPC2013X145X50LL20T25/FP-C2012-125-0_2-MFG/C_0805": "0805 MLCC, 1.45 max (IPC name X145; AVX 08051C 1.4 max; TDK C2012 1.25 max; Murata GRM21B 1.45 max)",
+  "FP-SOD-323-MFG": "Bourns CDSOD323, 1.10 max (datasheet)",
+  "FP-PMDTM-MFG": "ROHM RB058LAM-60 PMDTM, 1.10 max (datasheet 1.0 max)",
+  "FP-DFE201612C-MFG": "Murata DFE201612E, 1.20 max (datasheet)",
+  "FP-YBG0006-MFG": "TI TPS62840YBG DSBGA, 0.50 max (datasheet)",
+  "AP22913CN4-7-Footprint-1": "Diodes AP22913 X1-WLB0909-4, 0.50 max (DS41203)",
+  "INA232AIDDFR-Footprint-1": "TI DDF (SOT-23-THIN 8), 1.00 max (datasheet)",
+  "FP-ABM11W-MFG": "Abracon ABM11W, 0.80 max (datasheet 0.75 max)",
+  "PCB_TP_1.5mm/FIDUCIAL_075MM/SolderJumper-2_R1210_Bridged_NetTie/Hole_M3/MountingHole_2.7mm_M2.5": "bare copper / hole, 0",
+  "78614015360-Footprint-2": "Würth WA-SMSI M3 insert: 1.5 mm body above the board (DESIGN D24, STEP model)",
+  "PinSocket_2x20_P2.54mm_Vertical": "J1 socket body 8.5 mm: the stacking header itself, exempt (BRIEF §2)"
+ },
+ "by_footprint": {
+  "RESC1005X40X25LL05T05": 0.4, "RESC1005X40X25LL05T10": 0.4, "RESC1005X40X25ML05T10": 0.4, "RESC1005X40X25NL05T10": 0.4,
+  "FP-RC0402-0_4-IPC_B": 0.4, "FP-RC0402-0_4-IPC_C": 0.4, "FP-RMCF0402-IPC_C": 0.4, "FP-CRCW0402-e3-MFG": 0.4, "R_0402_1005Metric": 0.4,
+  "FP-RR0510-IPC_B": 0.35,
+  "RESC1608X60X55ML20T10": 0.6, "CRCW08057R50FKEAHP-Footprint-1": 0.6, "FP-CRCW1210-e3-IPC_B": 0.6,
+  "FP-CL278-IPC_C": 0.55, "FP-CL511-IPC_C": 0.55, "FP-CC0402-MFG": 0.55, "FP-CC0402-0_55-IPC_B": 0.55,
+  "FP-GRM155-0_15-MFG": 0.55, "FP-GRJ155-0_2-MFG": 0.55,
+  "FP-GRM188-0_1-e0_2_0_5-IPC_B": 0.9, "FP-GRM188-0_2-IPC_B": 0.9, "FP-0603-L_1_6_0_2-W_0_8_0-MFG": 0.9, "CAPC1608X100X20ML10": 1.0, "C_0402_1005Metric": 0.6,
+  "FP-0805-L_2_01_0_2-W_1_25-MFG": 1.45, "CAPC2013X145X50LL20T25": 1.45, "FP-C2012-125-0_2-MFG": 1.25, "C_0805_2012Metric": 1.45,
+  "FP-SOD-323-MFG": 1.1, "FP-PMDTM-MFG": 1.1, "FP-DFE201612C-MFG": 1.2, "FP-YBG0006-MFG": 0.5,
+  "AP22913CN4-7-Footprint-1": 0.5, "INA232AIDDFR-Footprint-1": 1.0, "FP-ABM11W-MFG": 0.8,
+  "PCB_TP_1.5mm": 0.0, "FIDUCIAL_075MM": 0.0, "SolderJumper-2_R1210_Bridged_NetTie": 0.0, "Hole_M3": 0.0, "MountingHole_2.7mm_M2.5": 0.0,
+  "78614015360-Footprint-2": 1.5,
+  "PinSocket_2x20_P2.54mm_Vertical": 0.0
+ }
+}

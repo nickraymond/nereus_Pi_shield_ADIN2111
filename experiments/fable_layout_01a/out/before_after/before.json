@@ -1,0 +1,1429 @@
+{
+ "board": "/private/tmp/claude-501/-Users-nickbuemond-Documents-GitHub-nereus-Pi-shield-ADIN2111--claude-worktrees-priceless-curie-9f5206/19708384-d058-4575-b5a5-b34b91baabe7/scratchpad/before_b22752f.kicad_pcb",
+ "size": [
+  46.1,
+  65.1
+ ],
+ "origin": [
+  -7.55,
+  -0.05
+ ],
+ "footprints": {
+  "C23": [
+   33.5,
+   40.95,
+   0.0,
+   "F"
+  ],
+  "J5": [
+   15.0,
+   61.8,
+   0.0,
+   "F"
+  ],
+  "R34": [
+   29.6,
+   55.6,
+   90.0,
+   "F"
+  ],
+  "FID5": [
+   15.0,
+   56.0,
+   0.0,
+   "F"
+  ],
+  "C49": [
+   35.7,
+   54.35,
+   90.0,
+   "F"
+  ],
+  "MTG4": [
+   34.5,
+   61.5,
+   0.0,
+   "F"
+  ],
+  "H3": [
+   3.5,
+   61.5,
+   0.0,
+   "F"
+  ],
+  "T1": [
+   6.7,
+   28.4,
+   0.0,
+   "F"
+  ],
+  "L1": [
+   12.74,
+   44.25,
+   180.0,
+   "F"
+  ],
+  "H2": [
+   26.5,
+   3.5,
+   0.0,
+   "F"
+  ],
+  "MTG1": [
+   -3.5,
+   3.5,
+   0.0,
+   "F"
+  ],
+  "C55": [
+   30.251,
+   17.965,
+   90.0,
+   "F"
+  ],
+  "L6": [
+   34.451,
+   14.89,
+   90.0,
+   "F"
+  ],
+  "D8": [
+   15.0,
+   1.4,
+   0.0,
+   "F"
+  ],
+  "U11": [
+   32.5,
+   54.35,
+   -90.0,
+   "F"
+  ],
+  "MTG3": [
+   -3.5,
+   61.5,
+   0.0,
+   "F"
+  ],
+  "FID4": [
+   8.0,
+   2.5,
+   0.0,
+   "F"
+  ],
+  "JP1": [
+   32.05,
+   9.45,
+   0.0,
+   "F"
+  ],
+  "C31": [
+   36.6,
+   34.44,
+   0.0,
+   "F"
+  ],
+  "C30": [
+   30.251,
+   31.165,
+   90.0,
+   "F"
+  ],
+  "C21": [
+   8.9,
+   57.5,
+   90.0,
+   "F"
+  ],
+  "U5": [
+   31.551,
+   34.44,
+   -90.0,
+   "F"
+  ],
+  "L2": [
+   12.74,
+   16.75,
+   180.0,
+   "F"
+  ],
+  "D9": [
+   18.4,
+   1.4,
+   0.0,
+   "F"
+  ],
+  "D10": [
+   11.6,
+   1.4,
+   0.0,
+   "F"
+  ],
+  "D1": [
+   20.9,
+   59.0,
+   90.0,
+   "F"
+  ],
+  "H1": [
+   3.5,
+   3.5,
+   0.0,
+   "F"
+  ],
+  "MTG2": [
+   34.5,
+   3.5,
+   0.0,
+   "F"
+  ],
+  "H4": [
+   26.5,
+   61.5,
+   0.0,
+   "F"
+  ],
+  "L3": [
+   34.451,
+   28.09,
+   90.0,
+   "F"
+  ],
+  "C22": [
+   33.5,
+   48.6,
+   0.0,
+   "F"
+  ],
+  "FID3": [
+   21.5,
+   2.5,
+   0.0,
+   "F"
+  ],
+  "T2": [
+   13.7,
+   32.5,
+   0.0,
+   "F"
+  ],
+  "U10": [
+   31.551,
+   21.24,
+   -90.0,
+   "F"
+  ],
+  "U1": [
+   -1.7,
+   32.5,
+   90.0,
+   "F"
+  ],
+  "C5": [
+   1.4,
+   34.35,
+   180.0,
+   "B"
+  ],
+  "R16": [
+   37.0,
+   42.5,
+   90.0,
+   "B"
+  ],
+  "TP5": [
+   12.69,
+   45.4,
+   180.0,
+   "B"
+  ],
+  "R15": [
+   37.0,
+   45.5,
+   90.0,
+   "B"
+  ],
+  "R1": [
+   -5.1,
+   30.85,
+   180.0,
+   "B"
+  ],
+  "C13": [
+   1.45,
+   33.35,
+   180.0,
+   "B"
+  ],
+  "FID6": [
+   15.0,
+   56.0,
+   0.0,
+   "B"
+  ],
+  "R44": [
+   18.0,
+   4.2,
+   90.0,
+   "B"
+  ],
+  "C20": [
+   9.775,
+   60.075,
+   90.0,
+   "B"
+  ],
+  "C14": [
+   -4.85,
+   34.05,
+   0.0,
+   "B"
+  ],
+  "R19": [
+   10.465,
+   20.928,
+   0.0,
+   "B"
+  ],
+  "R45": [
+   19.4,
+   4.2,
+   90.0,
+   "B"
+  ],
+  "FID2": [
+   8.0,
+   2.5,
+   0.0,
+   "B"
+  ],
+  "TP35": [
+   36.6,
+   48.5,
+   0.0,
+   "B"
+  ],
+  "R26": [
+   36.6,
+   21.5,
+   0.0,
+   "B"
+  ],
+  "R42": [
+   36.0,
+   53.6,
+   0.0,
+   "B"
+  ],
+  "R43": [
+   7.5,
+   36.3,
+   0.0,
+   "B"
+  ],
+  "TP24": [
+   34.6,
+   9.0,
+   0.0,
+   "B"
+  ],
+  "D3": [
+   33.0,
+   53.9,
+   90.0,
+   "B"
+  ],
+  "C4": [
+   -2.65,
+   29.35,
+   -90.0,
+   "B"
+  ],
+  "TP2": [
+   3.5,
+   33.7,
+   180.0,
+   "B"
+  ],
+  "R6": [
+   -4.8,
+   32.3,
+   -90.0,
+   "B"
+  ],
+  "TP36": [
+   19.5,
+   62.3,
+   0.0,
+   "B"
+  ],
+  "R46": [
+   10.8,
+   4.2,
+   90.0,
+   "B"
+  ],
+  "D2": [
+   15.84,
+   42.4,
+   0.0,
+   "B"
+  ],
+  "U3": [
+   -3.9,
+   37.1,
+   -90.0,
+   "B"
+  ],
+  "C29": [
+   30.351,
+   31.29,
+   90.0,
+   "B"
+  ],
+  "C26": [
+   17.0,
+   23.3,
+   0.0,
+   "B"
+  ],
+  "MP4": [
+   -1.81,
+   21.4,
+   176.0,
+   "B"
+  ],
+  "TP19": [
+   30.6,
+   43.3,
+   0.0,
+   "B"
+  ],
+  "C27": [
+   14.3,
+   32.9,
+   90.0,
+   "B"
+  ],
+  "R8": [
+   19.1,
+   18.4,
+   180.0,
+   "B"
+  ],
+  "R7": [
+   21.825,
+   15.25,
+   -90.0,
+   "B"
+  ],
+  "TP22": [
+   21.65,
+   18.775,
+   90.0,
+   "B"
+  ],
+  "C17": [
+   15.79,
+   46.15,
+   90.0,
+   "B"
+  ],
+  "R2": [
+   1.3,
+   31.8,
+   180.0,
+   "B"
+  ],
+  "TP38": [
+   36.6,
+   16.3,
+   0.0,
+   "B"
+  ],
+  "R40": [
+   33.401,
+   23.84,
+   180.0,
+   "B"
+  ],
+  "C19": [
+   8.95,
+   25.0,
+   180.0,
+   "B"
+  ],
+  "U2": [
+   -1.4,
+   37.8,
+   -90.0,
+   "B"
+  ],
+  "R41": [
+   36.0,
+   52.3,
+   0.0,
+   "B"
+  ],
+  "R39": [
+   31.201,
+   23.84,
+   180.0,
+   "B"
+  ],
+  "C6": [
+   -5.094,
+   29.339,
+   0.0,
+   "B"
+  ],
+  "C2": [
+   0.1,
+   35.65,
+   90.0,
+   "B"
+  ],
+  "TP3": [
+   8.465,
+   39.0,
+   180.0,
+   "B"
+  ],
+  "R18": [
+   12.1,
+   32.15,
+   0.0,
+   "B"
+  ],
+  "C1": [
+   -0.9,
+   35.65,
+   90.0,
+   "B"
+  ],
+  "C18": [
+   7.8,
+   29.6,
+   0.0,
+   "B"
+  ],
+  "TP8": [
+   9.8,
+   36.3,
+   0.0,
+   "B"
+  ],
+  "C32": [
+   20.85,
+   28.825,
+   -90.0,
+   "B"
+  ],
+  "C15": [
+   20.45,
+   12.725,
+   0.0,
+   "B"
+  ],
+  "C9": [
+   -1.9,
+   35.65,
+   90.0,
+   "B"
+  ],
+  "C53": [
+   32.651,
+   21.64,
+   -90.0,
+   "B"
+  ],
+  "C57": [
+   31.6,
+   14.7,
+   0.0,
+   "B"
+  ],
+  "C28": [
+   32.651,
+   34.84,
+   -90.0,
+   "B"
+  ],
+  "R3": [
+   3.7,
+   32.0,
+   -90.0,
+   "B"
+  ],
+  "U4": [
+   19.8,
+   15.0,
+   -90.0,
+   "B"
+  ],
+  "C33": [
+   18.175,
+   33.1,
+   0.0,
+   "B"
+  ],
+  "C50": [
+   36.4,
+   55.5,
+   0.0,
+   "B"
+  ],
+  "J1": [
+   25.23,
+   8.37,
+   180.0,
+   "B"
+  ],
+  "C58": [
+   36.6,
+   14.0,
+   0.0,
+   "B"
+  ],
+  "FID1": [
+   21.5,
+   2.5,
+   0.0,
+   "B"
+  ],
+  "R12": [
+   12.115,
+   39.4,
+   0.0,
+   "B"
+  ],
+  "C10": [
+   1.45,
+   35.45,
+   180.0,
+   "B"
+  ],
+  "R5": [
+   -4.75,
+   35.9,
+   0.0,
+   "B"
+  ],
+  "TP23": [
+   9.775,
+   56.275,
+   180.0,
+   "B"
+  ],
+  "R35": [
+   30.6,
+   52.3,
+   90.0,
+   "B"
+  ],
+  "D5": [
+   8.615,
+   18.328,
+   0.0,
+   "B"
+  ],
+  "MP3": [
+   -1.81,
+   12.0,
+   176.0,
+   "B"
+  ],
+  "MP1": [
+   -1.81,
+   43.6,
+   176.0,
+   "B"
+  ],
+  "L4": [
+   18.55,
+   29.15,
+   0.0,
+   "B"
+  ],
+  "R37": [
+   30.801,
+   20.49,
+   -90.0,
+   "B"
+  ],
+  "MP2": [
+   -1.81,
+   53.0,
+   176.0,
+   "B"
+  ],
+  "C8": [
+   5.0,
+   28.3,
+   90.0,
+   "B"
+  ],
+  "R38": [
+   30.801,
+   22.29,
+   -90.0,
+   "B"
+  ],
+  "C54": [
+   30.351,
+   18.09,
+   90.0,
+   "B"
+  ],
+  "R17": [
+   10.465,
+   13.678,
+   0.0,
+   "B"
+  ],
+  "TP21": [
+   20.625,
+   33.05,
+   180.0,
+   "B"
+  ],
+  "R23": [
+   30.801,
+   35.49,
+   -90.0,
+   "B"
+  ],
+  "C56": [
+   31.6,
+   12.5,
+   0.0,
+   "B"
+  ],
+  "TP13": [
+   12.515,
+   18.378,
+   180.0,
+   "B"
+  ],
+  "R13": [
+   9.64,
+   46.925,
+   0.0,
+   "B"
+  ],
+  "C7": [
+   0.9,
+   28.5,
+   -90.0,
+   "B"
+  ],
+  "TP20": [
+   37.0,
+   8.8,
+   0.0,
+   "B"
+  ],
+  "D4": [
+   9.265,
+   43.25,
+   -90.0,
+   "B"
+  ],
+  "R21": [
+   30.801,
+   33.69,
+   -90.0,
+   "B"
+  ],
+  "C16": [
+   7.5,
+   27.6,
+   0.0,
+   "B"
+  ],
+  "R14": [
+   6.2,
+   25.3,
+   0.0,
+   "B"
+  ],
+  "TP7": [
+   9.837,
+   16.392,
+   180.0,
+   "B"
+  ],
+  "C11": [
+   -0.85,
+   29.45,
+   -90.0,
+   "B"
+  ],
+  "R11": [
+   21.0,
+   58.0,
+   90.0,
+   "B"
+  ],
+  "R27": [
+   36.6,
+   23.1,
+   0.0,
+   "B"
+  ],
+  "R4": [
+   -4.85,
+   35.0,
+   0.0,
+   "B"
+  ],
+  "Y1": [
+   3.1,
+   28.3,
+   0.0,
+   "B"
+  ],
+  "C24": [
+   11.8,
+   30.05,
+   0.0,
+   "B"
+  ],
+  "C3": [
+   -1.75,
+   29.45,
+   -90.0,
+   "B"
+  ],
+  "U6": [
+   19.0,
+   31.4,
+   90.0,
+   "B"
+  ],
+  "TP1": [
+   3.025,
+   36.425,
+   -90.0,
+   "B"
+  ],
+  "R22": [
+   33.401,
+   37.04,
+   180.0,
+   "B"
+  ],
+  "R20": [
+   31.201,
+   37.04,
+   180.0,
+   "B"
+  ],
+  "C25": [
+   15.0,
+   35.85,
+   0.0,
+   "B"
+  ],
+  "C12": [
+   -3.5,
+   29.35,
+   -90.0,
+   "B"
+  ],
+  "JP2": [
+   15.0,
+   4.3,
+   0.0,
+   "B"
+  ]
+ },
+ "copper": {
+  "Top Layer": {
+   "segments": 444,
+   "length_mm": 301.2
+  },
+  "vias": 277,
+  "6 Bottom Layer": {
+   "segments": 521,
+   "length_mm": 260.4
+  },
+  "Internal 1": {
+   "segments": 311,
+   "length_mm": 183.8
+  },
+  "Internal 2": {
+   "segments": 862,
+   "length_mm": 442.9
+  }
+ },
+ "zones": 15,
+ "nets": {
+  "5V_PI": {
+   "mm": 9.1,
+   "vias": 5,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "ADIN_AVDD": {
+   "mm": 16.4,
+   "vias": 5,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "ADIN_CLK25_REF": {
+   "mm": 14.0,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "ADIN_LED_VDD": {
+   "mm": 6.6,
+   "vias": 0,
+   "layers": [
+    "6 Bottom Layer"
+   ]
+  },
+  "DVDD1_1P1": {
+   "mm": 3.5,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "DVDD2_1P1": {
+   "mm": 2.3,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "~{ADIN_P1_LED1}": {
+   "mm": 33.4,
+   "vias": 4,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "~{ADIN_P2_LED1}": {
+   "mm": 40.9,
+   "vias": 3,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "ADIN_MISO": {
+   "mm": 65.5,
+   "vias": 1,
+   "layers": [
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "ADIN_MOSI": {
+   "mm": 32.9,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "ADIN_PWR": {
+   "mm": 42.6,
+   "vias": 10,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2"
+   ]
+  },
+  "ADIN_SCK": {
+   "mm": 32.2,
+   "vias": 3,
+   "layers": [
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "BM1_DATA_N": {
+   "mm": 8.6,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "BM1_DATA_P": {
+   "mm": 9.3,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "BM1_N": {
+   "mm": 57.6,
+   "vias": 12,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "BM1_P": {
+   "mm": 42.8,
+   "vias": 11,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "BM2_DATA_N": {
+   "mm": 18.2,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "BM2_DATA_P": {
+   "mm": 17.5,
+   "vias": 2,
+   "layers": [
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "BM2_N": {
+   "mm": 38.1,
+   "vias": 12,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "BM2_P": {
+   "mm": 51.0,
+   "vias": 12,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "I2C1_SCL": {
+   "mm": 18.7,
+   "vias": 2,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Top Layer"
+   ]
+  },
+  "I2C1_SDA": {
+   "mm": 25.8,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "ISET": {
+   "mm": 3.2,
+   "vias": 0,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "PAYLOAD_EN": {
+   "mm": 15.6,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "PI_5V": {
+   "mm": 2.3,
+   "vias": 0,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "P_IN": {
+   "mm": 17.9,
+   "vias": 6,
+   "layers": [
+    "6 Bottom Layer"
+   ]
+  },
+  "3V3_Buck_SW": {
+   "mm": 10.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "3V3_FB": {
+   "mm": 3.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "3V3_UVLO": {
+   "mm": 4.7,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "5V_Buck_SW": {
+   "mm": 10.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "5V_FB": {
+   "mm": 3.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "5V_UVLO": {
+   "mm": 4.7,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "~{ADIN_CS}": {
+   "mm": 65.2,
+   "vias": 6,
+   "layers": [
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "~{ADIN_INT}": {
+   "mm": 39.7,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "~{ADIN_RST}": {
+   "mm": 28.5,
+   "vias": 3,
+   "layers": [
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "~{PAYLOAD_FAULT}": {
+   "mm": 16.4,
+   "vias": 0,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "1V8": {
+   "mm": 36.7,
+   "vias": 4,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2"
+   ]
+  },
+  "3V3": {
+   "mm": 111.4,
+   "vias": 21,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "ADIN_VDDIO": {
+   "mm": 47.4,
+   "vias": 10,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1",
+    "Internal 2",
+    "Top Layer"
+   ]
+  },
+  "GND": {
+   "mm": 53.8,
+   "vias": 71,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C16-Pad1)": {
+   "mm": 5.1,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C16-Pad2)": {
+   "mm": 4.9,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C18-Pad2)": {
+   "mm": 2.1,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C19-Pad2)": {
+   "mm": 0.8,
+   "vias": 0,
+   "layers": [
+    "6 Bottom Layer"
+   ]
+  },
+  "Net-(C22-A)": {
+   "mm": 6.9,
+   "vias": 2,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C23-A)": {
+   "mm": 1.3,
+   "vias": 1,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "Net-(C24-Pad1)": {
+   "mm": 3.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C24-Pad2)": {
+   "mm": 1.7,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C25-Pad2)": {
+   "mm": 2.2,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(C27-Pad2)": {
+   "mm": 1.8,
+   "vias": 0,
+   "layers": [
+    "6 Bottom Layer"
+   ]
+  },
+  "Net-(D8-A)": {
+   "mm": 3.2,
+   "vias": 1,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "Net-(D9-A)": {
+   "mm": 2.7,
+   "vias": 1,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "Net-(D10-A)": {
+   "mm": 3.0,
+   "vias": 1,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-CEXT_2)": {
+   "mm": 1.7,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-CEXT_3)": {
+   "mm": 2.2,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-CEXT_6)": {
+   "mm": 2.5,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-CEXT_7)": {
+   "mm": 1.5,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-P1_LED_0{slash}SPI_CFG1)": {
+   "mm": 2.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-P2_LED_0{slash}P2_SWPD_EN)": {
+   "mm": 2.1,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-TEST_0{slash}P1_SWPD_EN)": {
+   "mm": 2.6,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-XTAL_I{slash}CLK_IN)": {
+   "mm": 4.0,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U1A-XTAL_O)": {
+   "mm": 4.2,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U4-ALERT)": {
+   "mm": 5.2,
+   "vias": 2,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 1"
+   ]
+  },
+  "Net-(U5-CB)": {
+   "mm": 1.4,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U6-SW)": {
+   "mm": 2.6,
+   "vias": 0,
+   "layers": [
+    "6 Bottom Layer"
+   ]
+  },
+  "Net-(U10-CB)": {
+   "mm": 1.5,
+   "vias": 1,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "Net-(U11-UVLO)": {
+   "mm": 3.9,
+   "vias": 1,
+   "layers": [
+    "Top Layer"
+   ]
+  },
+  "VBUS": {
+   "mm": 28.5,
+   "vias": 18,
+   "layers": [
+    "6 Bottom Layer",
+    "Top Layer"
+   ]
+  },
+  "VBUS_OUT": {
+   "mm": 23.1,
+   "vias": 9,
+   "layers": [
+    "6 Bottom Layer",
+    "Internal 2",
+    "Top Layer"
+   ]
+  }
+ }
+}

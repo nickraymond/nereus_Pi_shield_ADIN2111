@@ -1,0 +1,29 @@
+4 ('clearance', 'error')
+12 ('courtyards_overlap', 'error')
+36 ('hole_clearance', 'error')
+8 ('lib_footprint_mismatch', 'warning')
+2 ('nonmirrored_text_on_back_layer', 'warning')
+38 ('padstack', 'warning')
+4 ('padstack_invalid', 'error')
+28 ('shorting_items', 'error')
+2 ('silk_edge_clearance', 'warning')
+39 ('silk_over_copper', 'warning')
+43 ('silk_overlap', 'warning')
+12 ('solder_mask_bridge', 'error')
+112 ('text_height', 'warning')
+4 ('text_thickness', 'warning')
+courtyard overlaps:
+  Footprint U6 | Footprint TP21
+  Footprint R12 | Footprint D2
+  Footprint U10 | Footprint C55
+  Footprint TP5 | Footprint R13
+  Footprint U5 | Footprint C30
+  Footprint C12 | Footprint C4
+  Footprint C15 | Footprint U4
+  Footprint H3 | Footprint MTG3
+  Footprint C10 | Footprint TP1
+  Footprint R7 | Footprint U4
+  Footprint MTG1 | Footprint H1
+  Footprint R8 | Footprint TP22
+unconnected_items: 261
+schematic_parity: 4
