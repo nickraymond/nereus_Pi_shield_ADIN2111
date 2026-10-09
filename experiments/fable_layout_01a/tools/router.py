@@ -49,6 +49,7 @@ CLASSES = {
     "pair":   (0.6, 0.15, 2.1, 0.2),
 }
 PAIR_W, PAIR_PITCH, PAIR_VIA, PAIR_VIA_DRILL = 0.2, 0.4, 0.45, 0.2
+FINE_PAD = 0.35          # mm: pads narrower than this (BGA balls, 0.5 mm pitch pins) may leave by a 0.15 mm escape (BRIEF §5)
 # The swap via figure, in (along, lateral) coordinates of the via centre c (along = the travel direction u, lateral =
 # +1 to the left). The "near" track (the one on side s) dives at c - 0.3u; the "far" track swings out to lateral -0.5s,
 # passes the near via and dives at c + 0.3u; on the new layer the near track leaves on the far side and the far track on
@@ -59,6 +60,9 @@ SWAP_FAR_A = [(-0.8, -0.2), (-0.6, -0.5), (0.0, -0.5), (0.3, 0.0)]        # laye
 SWAP_NEAR_B = [(-0.3, 0.0), (0.0, -0.5), (0.6, -0.5), (0.8, -0.2)]         # layer B, near track leaves on the far side
 SWAP_FAR_B = [(0.3, 0.0), (0.8, 0.2)]                                      # layer B, far track leaves on the near side
 SWAP_RUN = 10                                                              # straight cells before and after: the figure spans 0.8 mm and a 90° turn right after it keeps its inner corner 0.2 mm behind the turn
+STRAIGHT_RUN = 3                                                           # straight cells before and after a straight via pair (two 0.45 vias at ±0.325)
+EXIT_STRAIGHT = 2                                                          # further same-direction steps after any figure's run before the path may turn
+PAD_SPLAY = 0.2                                                            # mm of straight approach over which the pair spreads from ±0.2 to the transformer pads' pitch (0.125 mm lateral: 32°)
 
 
 def net_class(name):
@@ -421,8 +425,14 @@ class Grid:
                 return False
         return True
 
-    def via_free(self, cx, cy, r, net, hw_cells=3, xr=()):
-        if self.edge[cy * W + cx] <= hw_cells or self.hole[cy * W + cx]:
+    def via_free(self, cx, cy, r, net, hw_cells=3, xr=(), dia=None, clr=None, drill=None):
+        """dia / clr: the via's real diameter and class clearance for the exact near-miss check (session 2, REPORT §6
+        #2: the check used to derive a diameter from the map radius, 0.03 mm under the class's 0.45, and let a 3V3
+        via sit 0.14 mm from R21's pad). drill: the via's real drill; the hole map assumes NEW_DRILL (0.3) plus the
+        cell margin, so a cell it blocks is re-checked exactly with the real drill when it is given."""
+        if self.edge[cy * W + cx] <= hw_cells:
+            return False
+        if self.hole[cy * W + cx] and (drill is None or not self.hole_free_exact(cx, cy, drill)):
             return False
         i = cy * W + cx
         near_miss = False
@@ -441,12 +451,35 @@ class Grid:
                 if not (v == 0 or v == net or v in self.same):
                     return False
         if near_miss:
-            return self.via_free_exact(cx, cy, r, net)
+            return self.via_free_exact(cx, cy, r, net, dia, clr)
         return True
 
-    def via_free_exact(self, cx, cy, r, net):
-        """Exact clearance of a via of map radius r (diameter ≈ 2·(ρ_r − 0.15)) at the cell to every other-net copper
-        item within reach, with pcbnew's shapes (the clearance is the class's 0.15 … 0.35 implied by ρ_r)."""
+    def hole_free_exact(self, cx, cy, drill):
+        """Hole-to-hole: the new drill's edge ≥ HOLE_GAP from every existing drill's edge (pads and vias), exactly."""
+        if not hasattr(self, "_items"):
+            self.via_free_exact(0, 0, self.radii[0], 0)        # builds the item list
+        x, y = pos(cx, cy)
+        reach = drill / 2 + self.HOLE_GAP + 3.0
+        for code, layers, item, bb in self._items:
+            cls = item.GetClass()
+            if cls == "PCB_VIA":
+                d_other = mm(item.GetDrillValue())
+                px, py = mm(item.GetPosition().x), mm(item.GetPosition().y)
+            elif cls == "PAD" and item.GetDrillSize().x > 0:
+                d_other = mm(max(item.GetDrillSize().x, item.GetDrillSize().y))
+                px, py = mm(item.GetPosition().x), mm(item.GetPosition().y)
+            else:
+                continue
+            if abs(px - x) > reach or abs(py - y) > reach:
+                continue
+            if math.hypot(px - x, py - y) - d_other / 2 - drill / 2 < self.HOLE_GAP - 1e-6:
+                return False
+        return True
+
+    def via_free_exact(self, cx, cy, r, net, dia=None, clr=None):
+        """Exact clearance of a via at the cell to every other-net copper item within reach, with pcbnew's shapes:
+        diameter `dia` and clearance `clr` when given (the class's), else derived from the map radius r (diameter ≈
+        2·(ρ_r − 0.15), clearance ρ_r − dia/2 − 0.07)."""
         if not hasattr(self, "_items"):
             self._items = []
             for f in self.board.GetFootprints():
@@ -464,11 +497,15 @@ class Grid:
                 self._items.append((code, layers, t, (mm(bb.GetLeft()), mm(bb.GetTop()), mm(bb.GetRight()), mm(bb.GetBottom()))))
         x, y = pos(cx, cy)
         rho = self.rho[r]
-        dia = 2 * (rho - 0.15 - 0.07)          # the via diameter this map radius stands for (radius_for rounds up)
+        if net == 0:
+            return True
+        if dia is None:
+            dia = 2 * (rho - 0.15 - 0.07)      # the via diameter this map radius stands for (radius_for rounds up)
+        if clr is None:
+            clr = rho - dia / 2 - 0.07
         for ref, (ix, iy) in geom.INSERTS.items():      # the insert pull-backs are not items: no other-net copper within r 4.8
             if net != self.netcode.get("/Top-Level Schematic/" + geom.INSERT_NET[ref]) and math.hypot(x - ix, y - iy) - dia / 2 < geom.INSERT_KEEPOUT_R + 0.01:
                 return False
-        clr = rho - dia / 2 - 0.07
         reach = rho + 0.3
         circle = pcbnew.SHAPE_CIRCLE(V(x, y), MM(dia / 2))
         for code, layers, item, bb in self._items:
@@ -482,6 +519,27 @@ class Grid:
             else:
                 shape = item.GetEffectiveShape(l)
             if shape.Collide(circle, MM(clr) - 1):
+                return False
+        return True
+
+    def seg_free_exact(self, layer, a, b, width, net, clr):
+        """Exact clearance of a track segment a-b (mm) of `width` on `layer` to every other-net copper item, with
+        pcbnew's shapes (for fixed geometry such as a pair's pin stubs, where the maps' 0.07 mm cell margin is
+        needlessly conservative)."""
+        if not hasattr(self, "_items"):
+            self.via_free_exact(0, 0, self.radii[0], net)       # builds the item list
+        shape = pcbnew.SHAPE_SEGMENT(V(*a), V(*b), MM(width))
+        x0, y0 = min(a[0], b[0]) - width - clr, min(a[1], b[1]) - width - clr
+        x1, y1 = max(a[0], b[0]) + width + clr, max(a[1], b[1]) + width + clr
+        for code, layers, item, bb in self._items:
+            if code == net or code in self.same or layer not in layers:
+                continue
+            if bb[0] > x1 or bb[2] < x0 or bb[1] > y1 or bb[3] < y0:
+                continue
+            if item.GetEffectiveShape(layer).Collide(shape, MM(clr) - 1):
+                return False
+        for ref, (ix, iy) in geom.INSERTS.items():
+            if net != self.netcode.get("/Top-Level Schematic/" + geom.INSERT_NET[ref]) and seg_dist(ix, iy, a[0], a[1], b[0], b[1]) - width / 2 < geom.INSERT_KEEPOUT_R + 0.01:
                 return False
         return True
 
@@ -560,7 +618,7 @@ class Grid:
                     best[nxt] = ng
                     parent[nxt] = cur
                     heapq.heappush(open_heap, (ng + h(nx, ny), ng, nxt))
-            if via_ok and self.via_free(cx, cy, rv, net, hwv, xrv):
+            if via_ok and self.via_free(cx, cy, rv, net, hwv, xrv, vdia, clear, vdrill):
                 for l2 in layers:
                     if l2 == l:
                         continue
@@ -572,12 +630,18 @@ class Grid:
                         heapq.heappush(open_heap, (ng + h(cx, cy), ng, nxt))
         return None
 
-    def route_pair(self, net, starts, goals, parity, layers=None, max_nodes=1500000, via_cost=8.0, end_guard=7, sides=(1, -1)):
+    def route_pair(self, net, starts, goals, parity, layers=None, max_nodes=1500000, via_cost=8.0, end_guard=7, sides=(1, -1), forbid=()):
         """A* for a pair's virtual track (class 'pair'). A layer change is a macro step: a straight run of n cells
-        on the old layer, the via(s) at its end, a straight run of n cells on the new layer (n = 7 for a swap via,
-        whose geometry spans ±0.7 mm; 3 for a straight via pair), all of it checked free. A swap via exchanges the
-        two tracks' sides; the number of swaps must have the given parity (commit_pair). No via lies within
-        `end_guard` cells of the start / goal cells. Returns (path, swap_cells) or (None, None)."""
+        on the old layer, the via(s), a straight run of n cells on the new layer (n = SWAP_RUN for a swap via, whose
+        figure spans ±0.9 mm; STRAIGHT_RUN for a straight via pair), all of it checked free. Two consecutive figures
+        are therefore ≥ (n_after + n_before) cells apart on one straight line and cannot overlap: 1.3 mm between a
+        straight pair and a swap, which keeps 0.175 mm between the swap's swing and the pair's vias. (Session 1 kept
+        a spacing counter in the A* state instead; a cell could be revisited with another counter value, so the path
+        looped back over itself to satisfy the spacing and the two tracks crossed: QE round 1 F1 / REPORT §6 #1.)
+        A swap via exchanges the two tracks' sides; the number of swaps must have the given parity (commit_pair).
+        No via lies within `end_guard` cells of the start / goal cells. `forbid`: cells no step or run may enter (the
+        pads' approach lane and the pins' stub, so the path cannot cross them). Returns (path, swap_cells) or
+        (None, None)."""
         width, clear, vdia, vdrill = CLASSES["pair"]
         rt = self.radius_for(width, clear)
         wide = PAIR_PITCH + 0.25 + PAIR_VIA                               # two 0.45 vias at ±0.325: 1.1 mm across
@@ -587,6 +651,7 @@ class Grid:
         xrv_str = self.xradii(net, wide, clear)
         hwv_str = int(math.ceil(wide / 2 / PITCH))
         layers = layers or [pcbnew.F_Cu, pcbnew.In1_Cu]
+        forbid = set(forbid)
         goal_cells = {}
         for l, cx, cy in goals:
             goal_cells.setdefault((cx, cy), set()).add(l)
@@ -606,7 +671,7 @@ class Grid:
         def run_free(l, cx, cy, dx, dy, n):
             for k in range(1, n + 1):
                 x, y = cx + k * dx, cy + k * dy
-                if not (0 <= x < W and 0 <= y < H) or not self.free(l, x, y, rt, net, hwt, xrt):
+                if not (0 <= x < W and 0 <= y < H) or (x, y) in forbid or not self.free(l, x, y, rt, net, hwt, xrt):
                     return False
                 if dx and dy and not (self.free(l, x - dx, y, rt, net, hwt, xrt) and self.free(l, x, y - dy, rt, net, hwt, xrt)):
                     return False
@@ -630,7 +695,7 @@ class Grid:
                 return (x0 + along * ux + lat * nx, y0 + along * uy + lat * ny)
             for along in (-0.3, 0.3):
                 vx, vy = cell(*at(along, 0.0))
-                if not self.via_free(vx, vy, rv1, net, hwv1, xrv1):
+                if not self.via_free(vx, vy, rv1, net, hwv1, xrv1, PAIR_VIA, clear, PAIR_VIA_DRILL):
                     return False
             for layer, figs in ((la, (SWAP_NEAR_A, SWAP_FAR_A)), (lb, (SWAP_NEAR_B, SWAP_FAR_B))):
                 for fig in figs:
@@ -639,24 +704,31 @@ class Grid:
                         n_ = max(1, int(geom.dist(p0, p1) / (PITCH / 2)))
                         for k in range(n_ + 1):
                             qx, qy = cell(p0[0] + (p1[0] - p0[0]) * k / n_, p0[1] + (p1[1] - p0[1]) * k / n_)
-                            if not (0 <= qx < W and 0 <= qy < H) or not self.free(layer, qx, qy, rt1, net, hwt1, xrt1):
+                            if not (0 <= qx < W and 0 <= qy < H) or (qx, qy) in forbid or not self.free(layer, qx, qy, rt1, net, hwt1, xrt1):
                                 return False
             return True
         steps = [(1, 0, 1.0), (-1, 0, 1.0), (0, 1, 1.0), (0, -1, 1.0), (1, 1, 1.4142), (1, -1, 1.4142), (-1, 1, 1.4142), (-1, -1, 1.4142)]
+        macros = ((False, STRAIGHT_RUN, 0),) + tuple((True, SWAP_RUN, sd) for sd in sides)
         open_heap, best, parent = [], {}, {}
-        GAP = 20          # cells from one layer change's exit to the next one's entry run (their figures must not overlap)
+        tick = 0          # heap tiebreak: the state tuples hold None / tuples and must never be compared
+        # state: (layer, cx, cy, swap parity, exit): exit = (dx, dy, k), the direction of the macro this cell was reached
+        # by and the number of same-direction steps still owed, else None. The EXIT_STRAIGHT steps after a figure's run
+        # continue straight and place no figure, then the first free step may not turn back past 90°: a path that turned
+        # 90° right after a figure put the next figure's vias 0.48 mm from the last one's, and one that turned back ran
+        # over the figure it had just left (the defects behind QE round 1 F1 / REPORT §6 #1).
         for s in starts:
             if s[0] in layers:
-                st = (s[0], s[1], s[2], 0, GAP)
+                st = (s[0], s[1], s[2], 0, None)
                 best[st] = 0.0
-                heapq.heappush(open_heap, (h(s[1], s[2]), 0.0, st))
+                heapq.heappush(open_heap, (h(s[1], s[2]), 0.0, tick, st))
+                tick += 1
         n = 0
         found = None
         while open_heap:
-            f, g, cur = heapq.heappop(open_heap)
+            f, g, _, cur = heapq.heappop(open_heap)
             if g > best.get(cur, 1e18):
                 continue
-            l, cx, cy, par, gap = cur
+            l, cx, cy, par, ex = cur
             if (cx, cy) in goal_cells and l in goal_cells[(cx, cy)] and par == parity:
                 found = cur
                 break
@@ -664,27 +736,34 @@ class Grid:
             if n > max_nodes:
                 return None, None
             for dx, dy, c in steps:
+                if ex is not None:
+                    if ex[2] > 0 and (dx, dy) != (ex[0], ex[1]):
+                        continue
+                    if ex[2] == 0 and dx * ex[0] + dy * ex[1] < 0:
+                        continue
                 nx, ny = cx + dx, cy + dy
-                if not (0 <= nx < W and 0 <= ny < H):
+                if not (0 <= nx < W and 0 <= ny < H) or (nx, ny) in forbid:
                     continue
                 if not self.free(l, nx, ny, rt, net, hwt, xrt):
                     continue
                 if dx and dy and not (self.free(l, cx + dx, cy, rt, net, hwt, xrt) and self.free(l, cx, cy + dy, rt, net, hwt, xrt)):
                     continue
-                nxt = (l, nx, ny, par, min(gap + 1, GAP))
+                nxt = (l, nx, ny, par, (ex[0], ex[1], ex[2] - 1) if (ex is not None and ex[2] > 0) else None)
                 ng = g + c
                 if ng < best.get(nxt, 1e18):
                     best[nxt] = ng
                     parent[nxt] = (cur, None)
-                    heapq.heappush(open_heap, (ng + h(nx, ny), ng, nxt))
-                # a layer change n cells ahead in this direction, straight through (and ≥ GAP cells after the previous one)
-                for swap, nn, side in ((False, 3, 0),) + tuple((True, SWAP_RUN, sd) for sd in sides):
-                    if gap + nn < GAP:
-                        continue
+                    tick += 1
+                    heapq.heappush(open_heap, (ng + h(nx, ny), ng, tick, nxt))
+                # a layer change nn cells ahead in this direction, straight through, and nn straight cells after it
+                # (not while straight steps are still owed after the last one)
+                if ex is not None and ex[2] > 0:
+                    continue
+                for swap, nn, side in macros:
                     vx, vy = cx + nn * dx, cy + nn * dy
                     if not (0 <= vx < W and 0 <= vy < H) or near_end(vx, vy):
                         continue
-                    if not swap and not self.via_free(vx, vy, rv_str, net, hwv_str, xrv_str):
+                    if not swap and not self.via_free(vx, vy, rv_str, net, hwv_str, xrv_str, wide, clear, PAIR_VIA_DRILL):
                         continue
                     if not run_free(l, cx, cy, dx, dy, nn):
                         continue
@@ -693,19 +772,20 @@ class Grid:
                             continue
                         if swap and not swap_free(l, l2, vx, vy, dx, dy, side):
                             continue
-                        ex, ey = vx + nn * dx, vy + nn * dy
-                        nxt = (l2, ex, ey, (1 - par) if swap else par, 0)
+                        qx, qy = vx + nn * dx, vy + nn * dy
+                        nxt = (l2, qx, qy, (1 - par) if swap else par, (dx, dy, EXIT_STRAIGHT))
                         ng = g + 2 * nn * c + via_cost
                         if ng < best.get(nxt, 1e18):
                             best[nxt] = ng
                             parent[nxt] = (cur, (dx, dy, nn, swap, l2, side))
-                            heapq.heappush(open_heap, (ng + h(ex, ey), ng, nxt))
+                            tick += 1
+                            heapq.heappush(open_heap, (ng + h(qx, qy), ng, tick, nxt))
         if found is None:
             return None, None
         path, swaps = [], {}
         cur = found
         while True:
-            l, cx, cy, par, gap = cur
+            l, cx, cy, par, ex = cur
             if cur not in parent:
                 path.append((l, cx, cy))
                 break
@@ -727,6 +807,35 @@ class Grid:
                     swaps[(vx, vy)] = side
             cur = prev
         return path[::-1], swaps
+
+    @staticmethod
+    def straight_cells(layer, a, b):
+        """The cells of a straight run from point a to point b (mm) on one layer, a included, as path entries."""
+        ca, cb = cell(*a), cell(*b)
+        n = max(abs(cb[0] - ca[0]), abs(cb[1] - ca[1]))
+        out = []
+        for k in range(n + 1):
+            out.append((layer, ca[0] + round((cb[0] - ca[0]) * k / n) if n else ca[0], ca[1] + round((cb[1] - ca[1]) * k / n) if n else ca[1]))
+        return out
+
+    @staticmethod
+    def lane_cells(a, b, half_width):
+        """Cells of the rectangle from a to b (mm) and `half_width` to either side (square ends: the cell at a or b
+        itself is inside, the cells beyond them are not), as a set of (cx, cy): a forbidden lane."""
+        x0, y0 = min(a[0], b[0]) - half_width, min(a[1], b[1]) - half_width
+        x1, y1 = max(a[0], b[0]) + half_width, max(a[1], b[1]) + half_width
+        c0, c1 = cell(x0, y0), cell(x1, y1)
+        L = geom.dist(a, b)
+        ux, uy = ((b[0] - a[0]) / L, (b[1] - a[1]) / L) if L > 1e-9 else (1.0, 0.0)
+        out = set()
+        for cy in range(c0[1], c1[1] + 1):
+            for cx in range(c0[0], c1[0] + 1):
+                px, py = pos(cx, cy)
+                along = (px - a[0]) * ux + (py - a[1]) * uy
+                lat = abs((px - a[0]) * uy - (py - a[1]) * ux)
+                if -1e-6 <= along <= L + 1e-6 and lat <= half_width + 1e-6:
+                    out.add((cx, cy))
+        return out
 
     # ---- emitting copper --------------------------------------------------------------------------------------
     def _new_track(self, net_name, a, b, layer, width):
@@ -816,11 +925,23 @@ class Grid:
         d = geom.dist(a, b)
         return ((b[0] - a[0]) / d, (b[1] - a[1]) / d) if d > 1e-9 else (0.0, 0.0)
 
-    def commit_pair(self, nets, path, pins, pads, swaps=None):
+    def commit_pair(self, nets, path, pins, pads, swaps=None, dir_in=None, pad_run=0.6, splay=PAD_SPLAY, dir_out=None, start_vias=None):
         """Emit a pair from a virtual-track path (route_pair): two 0.2 mm tracks at ±0.2 mm of the centre line (the
-        mote's geometry) plus the hand stubs from the two pins to the first vertex and from the last vertex to the two
-        pads; at a layer change either a straight via pair (two vias beside the track, sides kept) or the swap figure
-        (SWAP_* tables; the tracks exchange sides). nets = (P, N) names; pins / pads = ((xP, yP), (xN, yN)).
+        mote's geometry) plus the hand stubs from the two pins to the first vertex and, at the end, the approach to
+        the two pads; at a layer change either a straight via pair (two vias beside the track, sides kept) or the swap
+        figure (SWAP_* tables; the tracks exchange sides). nets = (P, N) names; pins / pads = ((xP, yP), (xN, yN)).
+        dir_in: the pads' entry direction (unit vector). With it, the path's last vertex A' is where the approach
+        begins: from A' the two tracks run straight along dir_in, spreading from ±0.2 mm to the pads' own pitch over
+        `splay` mm, and reach the pitch `pad_run` mm before the pad centres (the pads' near edge), so neither track
+        passes over the other net's pad (QE round 1 F1: the former approach ran the last segment from the path's end
+        straight to the pad centres, which crossed the opposite pad when the path arrived diagonally). A path that
+        ends on Internal 1 gets its via pair at A = B − splay, beside the approach (so the only figure the A* places
+        on the way is the swap). Without dir_in the old behaviour (last vertex → pad centres) is kept for the
+        blank-board tests. dir_out + start_vias ({net: (x, y)}): a path whose first cell is not on Top starts with
+        a via per net straight out of its pin (the Top stub from the pin centre along dir_out to the via; the vias
+        staggered along dir_out as Sofar's mote leaves U1, since two 0.45 mm vias do not fit side by side at the 0.5
+        mm pin pitch), the Internal 1 legs running on at the pins' own pitch to the path's first vertex S2 and
+        narrowing to ±0.2 there, so the only figure placed on the way is the swap.
         Returns {net: (tracks, vias, length_mm)}."""
         P, N = nets
         swaps = swaps or {}
@@ -854,7 +975,8 @@ class Grid:
 
         def offsets(verts, sgn, u_in=None, u_out=None):
             """Offset polyline at sgn·d (miter); u_in / u_out: the travel direction before the first / after the last
-            vertex when known (a swap or via pair there), else the end vertices use their single normal."""
+            vertex when known (a swap or via pair there, or the pads' approach), else the end vertices use their
+            single normal."""
             m = len(verts)
             out = []
             for i in range(m):
@@ -870,18 +992,57 @@ class Grid:
         pin_of = {P: pins[0], N: pins[1]}
         pad_of = {P: pads[0], N: pads[1]}
         entry = None          # (left point, right point, direction) the current run starts from (a via pair / swap exit)
+        start_vias = start_vias if (dir_out is not None and runs[0][0][0] != pcbnew.F_Cu) else None
+        if start_vias:
+            S2 = runs[0][0][1]
+            q = {}
+            for net_ in (left_net, right_net):
+                v = start_vias[net_]
+                emit(net_, pin_of[net_], v, pcbnew.F_Cu)                 # the Top stub, straight out of the pin
+                self._new_via(net_, v, PAIR_VIA, PAIR_VIA_DRILL)
+                stats[net_][1] += 1
+                along = (S2[0] - v[0]) * dir_out[0] + (S2[1] - v[1]) * dir_out[1]
+                q[net_] = (v[0] + along * dir_out[0], v[1] + along * dir_out[1])      # the pin's lateral, at S2's along
+                emit(net_, v, q[net_], runs[0][0][0])                     # the Internal 1 leg, still at the pins' pitch
+            entry = (q[left_net], q[right_net], dir_out)
         for k, run in enumerate(runs):
             layer = run[0][0]
             verts = dedupe([q for _, q in run])
-            if k == 0:
+            if k == 0 and not start_vias:
                 verts = dedupe([pin_mid] + verts)
             last = k + 1 == len(runs)
             u_in = entry[2] if entry else None
             if last:
-                verts = dedupe(verts + [pad_mid])
-                lo = offsets(verts, +1, u_in)
-                ro = offsets(verts, -1, u_in)
-                lo[-1], ro[-1] = pad_of[left_net], pad_of[right_net]
+                if dir_in is None:
+                    verts = dedupe(verts + [pad_mid])
+                    lo = offsets(verts, +1, u_in)
+                    ro = offsets(verts, -1, u_in)
+                    lo[-1], ro[-1] = pad_of[left_net], pad_of[right_net]
+                else:
+                    # the approach: ±0.2 through the path's last vertex A' (mitered with the entry direction), then
+                    # straight along dir_in: on Top, ±0.2 to A = B − splay, the splay to the pads' pitch by B =
+                    # pad_run before the centres, then straight into the pads. When the path ends on another layer,
+                    # a via pair at A (beside the approach, ±0.325, as a straight via pair) takes it to Top and the
+                    # Top tracks run from the vias straight into the pads (the pads' pitch 0.65 = the vias' 0.65).
+                    lo = offsets(verts, +1, u_in, dir_in)
+                    ro = offsets(verts, -1, u_in, dir_in)
+                    n_in = self._left(dir_in)
+                    B = (pad_mid[0] - pad_run * dir_in[0], pad_mid[1] - pad_run * dir_in[1])
+                    A = (B[0] - splay * dir_in[0], B[1] - splay * dir_in[1])
+                    if layer == pcbnew.F_Cu:
+                        last_v = verts[-1]
+                        ahead = (A[0] - last_v[0]) * dir_in[0] + (A[1] - last_v[1]) * dir_in[1]
+                        for arr, net_, sg in ((lo, left_net, +1), (ro, right_net, -1)):
+                            pd = pad_of[net_]
+                            if ahead > 0.05:          # A lies ahead of the path's end: a straight ±0.2 run to it first
+                                arr.append((A[0] + sg * d * n_in[0], A[1] + sg * d * n_in[1]))
+                            arr += [(B[0] + pd[0] - pad_mid[0], B[1] + pd[1] - pad_mid[1]), pd]
+                    else:
+                        end_vias = []
+                        for arr, net_, sg in ((lo, left_net, +1), (ro, right_net, -1)):
+                            v = (A[0] + sg * 0.325 * n_in[0], A[1] + sg * 0.325 * n_in[1])
+                            arr.append(v)
+                            end_vias.append((net_, v, pad_of[net_]))
                 u_next = None
             else:
                 c = verts[-1]
@@ -893,7 +1054,7 @@ class Grid:
                 lo = offsets(verts, +1, u_in, u)
                 ro = offsets(verts, -1, u_in, u)
                 u_next = u
-            if k == 0:
+            if k == 0 and not start_vias:
                 lo[0], ro[0] = pin_of[left_net], pin_of[right_net]
             if entry:
                 lo, ro = [entry[0]] + lo, [entry[1]] + ro
@@ -909,6 +1070,12 @@ class Grid:
             for a, b2 in zip(ro, ro[1:]):
                 emit(right_net, a, b2, layer)
             if last:
+                if dir_in is not None and layer != pcbnew.F_Cu:
+                    for net_, v, pd in end_vias:
+                        self._new_via(net_, v, PAIR_VIA, PAIR_VIA_DRILL)
+                        stats[net_][1] += 1
+                        emit(net_, v, (B[0] + pd[0] - pad_mid[0], B[1] + pd[1] - pad_mid[1]), pcbnew.F_Cu)
+                        emit(net_, (B[0] + pd[0] - pad_mid[0], B[1] + pd[1] - pad_mid[1]), pd, pcbnew.F_Cu)
                 break
             layer_b = runs[k + 1][0][0]
             if not swap:
@@ -938,6 +1105,19 @@ class Grid:
                      (c[0] + 0.8 * u[0] - d * nrm[0], c[1] + 0.8 * u[1] - d * nrm[1]), u)
             runs[k + 1] = [(layer_b, (c[0] + 0.8 * u[0], c[1] + 0.8 * u[1]))] + runs[k + 1][1:]
         return {n: tuple(v) for n, v in stats.items()}
+
+    def remove_made(self, net_names):
+        """Take a net's emitted items off the board again (a pair whose self-check failed). The grid's maps keep
+        their stamps (they read as the net's own copper, so a retry of the same net is not blocked by them)."""
+        gone = []
+        for name in net_names:
+            for it in self.made.pop(name, []):
+                self.board.Remove(it)
+                gone.append(id(it))
+        if hasattr(self, "_items"):
+            gone = set(gone)
+            self._items = [it for it in self._items if id(it[2]) not in gone]
+        return len(gone)
 
     @staticmethod
     def pair_parity(pins, pads, first_dir, last_dir):
@@ -979,6 +1159,12 @@ class Grid:
         xr3 = self.xradii(net, 0.15, 0.15)
         layers = ALL_LAYERS if pad.GetDrillSize().x > 0 else [l for l in ALL_LAYERS if pad.IsOnLayer(l)]
         layers = [l for l in layers if l in (layers_only or ROUTE_LAYERS)]
+        try:
+            size = pad.GetSize(pcbnew.F_Cu)
+        except TypeError:
+            size = pad.GetSize()
+        if min(mm(size.x), mm(size.y)) > FINE_PAD:
+            return {}             # a pad this big starts its class-width track itself (BRIEF §5: escapes are for pad fields)
         p = geom.xy(pad.GetPosition())
         c0 = cell(*p)
         out = {}
@@ -990,15 +1176,15 @@ class Grid:
                         break
                     if not self.free(l, cx, cy, r3, net, 1, xr3):
                         break
-                    if self.free(l, cx, cy, rt, net, hwt, xrt):
-                        if self.occ[l][cy * W + cx] != net:
-                            out[(l, cx, cy)] = (p, l)
-                        break
-        return out
+                    if self.free(l, cx, cy, rt, net, hwt, xrt) and self.occ[l][cy * W + cx] != net:
+                        out[(l, cx, cy)] = (p, l)       # the first cell outside the pad's own copper where the class width fits
+                        break                           # (session 2: a cell inside own copper, e.g. Sofar's 0.1 mm stub at
+        return out                                      # U2's balls, used to end the scan with no escape at all)
 
-    def find_via_spots(self, net, near, r_cells, max_r=2.0, inside=None, count=6, xr=()):
-        """Up to `count` cells nearest to `near` (mm) where a via of dilation radius r_cells fits for `net`,
-        optionally inside a polygon; spaced ≥ 0.5 mm apart so they are real alternatives."""
+    def find_via_spots(self, net, near, r_cells, max_r=2.0, inside=None, count=6, xr=(), dia=None, clr=None, also=None, drill=None):
+        """Up to `count` cells nearest to `near` (mm) where a via of dilation radius r_cells (diameter dia, clearance
+        clr for the exact check) fits for `net`, optionally inside a polygon and passing `also(x, y)`; spaced ≥ 0.5 mm
+        apart so they are real alternatives."""
         cx0, cy0 = cell(*near)
         cands = []
         rr = int(max_r / PITCH)
@@ -1007,9 +1193,11 @@ class Grid:
                 cx, cy = cx0 + dx, cy0 + dy
                 if not (0 <= cx < W and 0 <= cy < H):
                     continue
-                if not self.via_free(cx, cy, r_cells, net, 3, xr):
+                if not self.via_free(cx, cy, r_cells, net, 3, xr, dia, clr, drill):
                     continue
                 if inside is not None and not inside.Contains(V(*pos(cx, cy))):
+                    continue
+                if also is not None and not also(*pos(cx, cy)):
                     continue
                 cands.append((dx * dx + dy * dy, cx, cy))
         cands.sort()
@@ -1022,8 +1210,8 @@ class Grid:
                 break
         return out
 
-    def find_via_spot(self, net, near, r_cells, max_r=2.0, inside=None, xr=()):
-        s = self.find_via_spots(net, near, r_cells, max_r, inside, 1, xr)
+    def find_via_spot(self, net, near, r_cells, max_r=2.0, inside=None, xr=(), dia=None, clr=None, also=None, drill=None):
+        s = self.find_via_spots(net, near, r_cells, max_r, inside, 1, xr, dia, clr, also, drill)
         return s[0] if s else None
 
 

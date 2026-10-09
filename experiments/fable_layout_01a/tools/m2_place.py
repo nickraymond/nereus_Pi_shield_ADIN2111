@@ -34,15 +34,20 @@ BLOCKS = [
      "dst": [6.7, 28.4], "rot": 0,
      "region": [[158.8, 115.2, 165.4, 119.8]], "exclude_nets": ["BM1_DATA_P", "BM1_DATA_N"],
      "why": "T1 cluster split from L1 (on the mote T1 sits 9.6 mm from L1's centre, inside the 50 W envelope + 2 mm); "
-            "in the band between the envelopes, data pins facing U1 (west)"},
+            "in the band between the envelopes, data pins facing U1 (west). Session 2: tried at 7.0 (0.3 mm east) while the "
+            "pair's straight approach was 1.4 mm long and ran into the ADIN block's crystal via at (2.9, 29.775); the "
+            "approach is 0.9 mm now and clears it from 6.7, so the M1 position stands"},
     {"name": "P2L", "refs": ["L2", "D5", "R17", "R19", "TP7", "TP13"],
      "dst": [12.74, 16.75], "rot": 90,
      "region": [[125.0, 101.5, 138.3, 112.7]],
      "why": "as P1L: bus pads west (BM2_P north-west toward MP3, BM2_N south-west toward MP4)"},
     {"name": "P2T", "refs": ["T2", "C24", "C25", "C27", "R18"],
      "dst": [13.7, 32.5], "rot": 180,
-     "region": [[133.0, 113.1, 139.2, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
-     "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins)"},
+     "region": [[133.0, 113.1, 138.6, 121.0]], "exclude_nets": ["BM2_DATA_P", "BM2_DATA_N"],
+     "why": "T2 cluster in the band east of T1, rotated 180 so its data pins face west (toward U1's port-2 pins). Region "
+            "east edge 139.2 -> 138.6 (session 2): Sofar's GND pour-stitching via at mote (138.751, 116.854) serves the "
+            "U5 cell's R23 on the mote and lands 0.4 mm in front of T2's data pads after the 180 rotation, where it blocked "
+            "the pair's approach (the bottom pour is stitched by this board's own vias)"},
     {"name": "B33", "refs": ["U5", "C30", "L3", "C28", "C29", "R20", "R21", "R22", "R23"],
      "dst": [31.551, 34.44], "rot": 0,
      "region": [{"rect": [138.2, 104.6, 146.4, 112.9], "layers": ["F.Cu", "In1.Cu", "In3.Cu"]},

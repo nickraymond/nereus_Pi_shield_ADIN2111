@@ -144,9 +144,16 @@ def make_planes(board):
                             "NoConnect": [[3.5, 13.5, 9.5, 20.0], [3.5, 45.0, 9.5, 51.5]]}
     # 5 V to the Pi: a bottom-side pour under JP1 / L6 for the output caps (BRIEF §6: ≥ 1.0 mm or a pour); the links
     # L6 → JP1 → J1 pins 2/4 are 1.0 mm top-layer tracks (OPTIONS Q3)
+    # (the pour reaches under the 5 V cell's bottom-side dividers R37-R40 / C53 / C54 at y 21-24, which split it into
+    # islands; session 2: each island gets a via into the copied Top output pour where that covers it (zone_stitch,
+    # other_layer_copper) instead of a 1.0 mm track; the divider's tap R37.1 is one of those islands)
     pi5 = poly_from_rects([(29.7, 7.5, 38.0, 24.0)])
     add_zone(board, pcbnew.B_Cu, N("5V_PI"), pi5, "5V_PI pour (B.Cu) under JP1 / L6 / U10", 3, solid=True)
-    log["planes"]["5V_PI"] = [29.7, 7.5, 38.0, 24.0]
+    # and the same rectangle on Internal 2, as the mote carries the buck's output on a plane island (3V3 on In4): the
+    # bottom pour's islands (the dividers R37-R40 cut it) each get a via into this patch (zone_stitch), and the patch
+    # keeps 0.25 mm from the few Internal 2 tracks that cross the strip's north end
+    add_zone(board, pcbnew.In3_Cu, N("5V_PI"), poly_from_rects([(29.7, 7.5, 38.0, 24.0)]), "5V_PI patch (In3) under the 5 V cell", 3, 0.25, 0.25)
+    log["planes"]["5V_PI"] = {"B.Cu pour": [29.7, 7.5, 38.0, 24.0], "In3 patch": [29.7, 7.5, 38.0, 24.0]}
     # bottom-side GND pour over the whole board, as the mote's bottom layer (it is what joins Sofar's decoupling caps
     # under U1 and the 1.8 V buck to GND there); the insert pull-backs and the M3 holes' rule areas cut it
     gndb = pcbnew.SHAPE_POLY_SET(body)
@@ -228,42 +235,227 @@ def pad_of(board, ref, num):
     return next(p for p in fps[ref].Pads() if p.GetNumber() == num)
 
 
+PAIR_START_RUN = 0.5     # mm of straight virtual track leaving the pins beyond the 0.5 mm pin stub (the tracks leave the pins straight)
+PAIR_PAD_RUN = 0.6       # mm from a T pad's centre to its near edge (the pads are 1.2 mm long): the pitch is reached there
+PAIR_STAGGER = 0.33      # least distance between the pins' two vias along the exit direction: with the 0.5 mm pin pitch the centres are 0.6 apart (0.45 vias, 0.15 gap)
+
+
+def pair_check(board, P, Nn, pins_pads):
+    """The emitted pair, checked on the board (trust the artifact): each net one cluster from its pin to its pad,
+    and every P item ≥ 0.15 mm from every N item on each shared layer (pads of one footprint excepted: Sofar's T pads
+    are 0.24 mm apart). Returns (ok, [problems])."""
+    probs = []
+    cl = {}
+    for name in (P, Nn):
+        cl[name] = router.net_clusters(board, name)
+        if len(cl[name]) != 1:
+            probs.append(f"{name.rsplit('/', 1)[-1]}: {len(cl[name])} clusters (sizes {[len(c) for c in cl[name]]})")
+    ip = [it for c in cl[P] for it in c]
+    inn = [it for c in cl[Nn] for it in c]
+    worst = 9.0
+    for a in ip:
+        for b in inn:
+            if a.GetClass() == "PAD" and b.GetClass() == "PAD":
+                continue
+            common = router.item_layers(a) & router.item_layers(b)
+            for l in common:
+                dd = mm(a.GetEffectiveShape(l).GetClearance(b.GetEffectiveShape(l)))
+                if dd < worst:
+                    worst = dd
+                if dd < 0.149:
+                    pa = geom.xy(a.GetPosition())
+                    probs.append(f"{a.GetClass()[4:] or 'PAD'} {P.rsplit('/', 1)[-1]} vs {b.GetClass()[4:] or 'PAD'} {Nn.rsplit('/', 1)[-1]} on {board.GetLayerName(l)} at ({pa[0]:.2f}, {pa[1]:.2f}): {dd:.3f} mm")
+    return (not probs), probs, worst
+
+
 def route_pairs(g, board):
-    """Each ADIN pair as a coupled pair (router.route_pair / commit_pair): the virtual track starts 0.6 mm outside
-    U1's two pins and ends 0.6 mm in front of the T pads; Top + Internal 1; one swap via where the pin and pad
-    order demand it (pair_parity)."""
+    """Each ADIN pair as a coupled pair (router.route_pair / commit_pair): the virtual track leaves U1's two pins
+    straight (0.5 mm pin stub + PAIR_START_RUN), is routed on Top + Internal 1 to the approach point A' 1.4 mm in
+    front of the T pads (on either layer: a path still on Internal 1 there gets its via pair beside the approach), and
+    from A' runs straight into the pads, spreading to their pitch (commit_pair, dir_in).
+    The pads' approach lane and the pins' stub are forbidden cells, so the path cannot cross them. One swap via where
+    the pin and pad order demand it (pair_parity). The emitted copper is checked on the board (pair_check) and taken
+    off again if it fails; the other swing side is tried next, then the pair is reported open."""
     for port, (pn, nn, (uref, up, un), (tref, tp, tn), limit, dir_out, dir_in) in PAIRS.items():
         P, Nn = N(pn), N(nn)
         pins = (geom.xy(pad_of(board, uref, up).GetPosition()), geom.xy(pad_of(board, uref, un).GetPosition()))
         pads = (geom.xy(pad_of(board, tref, tp).GetPosition()), geom.xy(pad_of(board, tref, tn).GetPosition()))
         pin_mid = ((pins[0][0] + pins[1][0]) / 2, (pins[0][1] + pins[1][1]) / 2)
         pad_mid = ((pads[0][0] + pads[1][0]) / 2, (pads[0][1] + pads[1][1]) / 2)
-        S = (pin_mid[0] + 0.5 * dir_out[0], pin_mid[1] + 0.5 * dir_out[1])     # 0.1 mm past the pins' ends
-        E = (pad_mid[0] - 0.2 * dir_in[0], pad_mid[1] - 0.2 * dir_in[1])       # on the pads' own copper
+        S = (pin_mid[0] + 0.5 * dir_out[0], pin_mid[1] + 0.5 * dir_out[1])                     # 0.1 mm past the pins' ends
+        S1 = (S[0] + PAIR_START_RUN * dir_out[0], S[1] + PAIR_START_RUN * dir_out[1])          # a Top start: the A* starts here
+        # the approach: A' (the A* goal, on Top or Internal 1) → 0.3 mm straight → A (the via pair when the path is on
+        # Internal 1) → the splay → B (the pads' near edge) → the pad centres (router.commit_pair)
         parity = router.Grid.pair_parity(pins, pads, dir_out, dir_in)
         net = g.netcode[P]           # == g.netcode[Nn]: the pair is one net to the grid (Grid merge)
-        # the swap figure makes the far track longer: try each swing side and keep the one whose longer net is shorter
-        best = None
-        for sides in ((1,), (-1,)):
-            path, swaps = g.route_pair(net, {(F,) + router.cell(*S)}, {(F,) + router.cell(*E)}, parity, layers=[F, I1], max_nodes=1500000, via_cost=8.0, sides=sides)
-            if path is None:
-                continue
-            Lp = len(path) * router.PITCH + (0.5 if swaps else 0.0)
-            if best is None or Lp < best[0]:
-                best = (Lp, path, swaps)
-        if best is None:
+        # either end may hold a via pair beside the stub / the approach (vias at ±0.325, checked on every layer here,
+        # since commit_pair places them blind): then the A* may start / end on Internal 1 there and the swap is the only
+        # figure it places on the way. Port 1 (session 2): the end pair would land in the crystal's bottom pad, so the
+        # pair starts with vias at the pins (as Sofar's mote) and arrives at T1 on Top.
+        width, clear, vdia, vdrill = router.CLASSES["pair"]
+        rv1 = g.radius_for(router.PAIR_VIA, clear)
+        hwv1 = int(math.ceil(router.PAIR_VIA / 2 / router.PITCH))
+        xrv1 = g.xradii(net, router.PAIR_VIA, clear)
+        rt = g.radius_for(width, clear)
+        hwt = int(math.ceil(width / 2 / router.PITCH))
+        xrt = g.xradii(net, width, clear)
+
+        def via_pair_ok(c, u):
+            n_ = (u[1], -u[0])
+            return all(g.via_free(*router.cell(c[0] + sg * 0.325 * n_[0], c[1] + sg * 0.325 * n_[1]), rv1, net, hwv1, xrv1, router.PAIR_VIA, clear, router.PAIR_VIA_DRILL) for sg in (1, -1))
+
+        n_out = (dir_out[1], -dir_out[0])
+        # start variants: (label, start cells, forbidden lane, cells to prepend to the path, start vias)
+        variants = [("Top", {(F,) + router.cell(*S1)}, router.Grid.lane_cells(pin_mid, (S1[0] - 0.15 * dir_out[0], S1[1] - 0.15 * dir_out[1]), 0.9),
+                     router.Grid.straight_cells(F, S, S1)[:-1], None)]
+        # the pins' vias, staggered along dir_out (two 0.45 vias need 0.6 mm between centres; the pins are 0.5 apart):
+        # one net's via at L_near from its pin, the other's at L_near + PAIR_STAGGER; each stub straight out of its pin, each
+        # Internal 1 leg straight on to S2 = the far via + 0.3 mm; everything checked exactly, then S2's cell for the A*
+        pin_of = {P: pins[0], Nn: pins[1]}
+        found_start = None
+
+        def via_ok(name, L):
+            v = (pin_of[name][0] + L * dir_out[0], pin_of[name][1] + L * dir_out[1])
+            return g.via_free(*router.cell(*v), rv1, net, hwv1, xrv1, router.PAIR_VIA, clear, router.PAIR_VIA_DRILL) and g.seg_free_exact(F, pin_of[name], v, router.PAIR_W, net, clear)
+        for L_near in (0.8, 1.0, 1.3):
+            for far_net in (P, Nn):
+                near_net_ = Nn if far_net == P else P
+                if not via_ok(near_net_, L_near):
+                    continue
+                # the far via: the first free spot ≥ PAIR_STAGGER beyond the near one (0.05 mm steps, ≤ 0.6 further)
+                L_far = next((L for L in (L_near + PAIR_STAGGER + 0.05 * k for k in range(0, 7)) if via_ok(far_net, L)), None)
+                if L_far is None:
+                    continue
+                sv = {near_net_: (pin_of[near_net_][0] + L_near * dir_out[0], pin_of[near_net_][1] + L_near * dir_out[1]),
+                      far_net: (pin_of[far_net][0] + L_far * dir_out[0], pin_of[far_net][1] + L_far * dir_out[1])}
+                S2 = (pin_mid[0] + (L_far + router.STRAIGHT_RUN * router.PITCH) * dir_out[0], pin_mid[1] + (L_far + router.STRAIGHT_RUN * router.PITCH) * dir_out[1])
+                ok = True
+                for name in (P, Nn):
+                    v = sv[name]
+                    along = (S2[0] - v[0]) * dir_out[0] + (S2[1] - v[1]) * dir_out[1]
+                    q = (v[0] + along * dir_out[0], v[1] + along * dir_out[1])
+                    ok = ok and g.seg_free_exact(I1, v, q, router.PAIR_W, net, clear)
+                c2 = router.cell(*S2)
+                ok = ok and g.free(I1, c2[0], c2[1], rt, net, hwt, xrt)
+                if ok:
+                    found_start = (L_near, L_far, far_net, sv, S2)
+                    break
+            if found_start:
+                break
+        if found_start:
+            # the legs narrow to ±0.2 at S2 and run straight 0.3 mm more to S3, where the A* starts (a turn at S2 ran the
+            # outer track 0.1 mm past the other net's leg end)
+            L_near, L_far, far_net, sv, S2 = found_start
+            S3 = (S2[0] + router.STRAIGHT_RUN * router.PITCH * dir_out[0], S2[1] + router.STRAIGHT_RUN * router.PITCH * dir_out[1])
+            c3 = router.cell(*S3)
+            if all(g.free(I1, cx, cy, rt, net, hwt, xrt) for _, cx, cy in router.Grid.straight_cells(I1, S2, S3)):
+                variants.append((f"In1, vias at {L_near} / {L_far:.2f} mm from the pins ({far_net.rsplit('/', 1)[-1]} far)", {(I1,) + c3},
+                                 router.Grid.lane_cells(pin_mid, (S3[0] - 0.15 * dir_out[0], S3[1] - 0.15 * dir_out[1]), 0.9),
+                                 router.Grid.straight_cells(I1, S2, S3)[:-1], sv))
+        # the approach: with an end via pair (at A = B − splay, beside the approach) the A* goal A' is 0.3 mm before A on
+        # either layer; without one (the vias would not fit) the goal is A itself, on Top
+        A = (pad_mid[0] - (PAIR_PAD_RUN + router.PAD_SPLAY) * dir_in[0], pad_mid[1] - (PAIR_PAD_RUN + router.PAD_SPLAY) * dir_in[1])
+        end_vias = via_pair_ok(A, dir_in)
+        if end_vias:
+            A = (A[0] - router.STRAIGHT_RUN * router.PITCH * dir_in[0], A[1] - router.STRAIGHT_RUN * router.PITCH * dir_in[1])
+        beyond = (pad_mid[0] + 1.5 * dir_in[0], pad_mid[1] + 1.5 * dir_in[1])
+        a1 = (A[0] + 0.15 * dir_in[0], A[1] + 0.15 * dir_in[1])
+        lane_end = router.Grid.lane_cells(a1, beyond, 0.9)           # the approach lane is forbidden to the A*
+        goals = {(F,) + router.cell(*A)} | ({(I1,) + router.cell(*A)} if end_vias else set())
+        log["notes"].append(f"pair port {port}: start variants {[v[0] for v in variants]}; via pair at the pads' approach {'fits' if len(goals) > 1 else 'does not fit'}")
+        # the swap figure makes the far track longer: try each start variant and swing side, shortest first, and keep
+        # the first whose copper passes the board check
+        cands = []
+        for label, starts, lane_start, prefix, sv in variants:
+            for sides in ((1,), (-1,)):
+                path, swaps = g.route_pair(net, starts, goals, parity, layers=[F, I1], max_nodes=1500000, via_cost=8.0, sides=sides, forbid=lane_end | lane_start)
+                if path is None:
+                    continue
+                Lp = (len(prefix) + len(path)) * router.PITCH + (0.5 if swaps else 0.0) + (0.0 if path[-1][0] == F else 0.3) + (0.0 if sv is None else 1.2)
+                cands.append((Lp, f"{label}, swing {sides[0]}", prefix + path, swaps, sv))
+        if not cands:
             log["failed"].append({"net": pn, "why": f"pair port {port}: no path for the virtual track (parity {parity})"})
             log["pairs"].append({"port": port, "ok": False})
             continue
-        _, path, swaps = best
-        stats = g.commit_pair((P, Nn), path, pins, pads, swaps)
-        log["notes"].append(f"pair port {port}: parity {parity}, swap figures at {sorted((router.pos(*c), sd) for c, sd in swaps.items())}")
+        # every candidate is emitted, checked on the board and measured, then taken off again; the one with the shortest
+        # longer net among those that pass is emitted for good (the virtual path length does not tell which net gets
+        # the far via / the outer corners)
+        scored = []
+        for Lp, side, full, swaps, sv in cands:
+            stats = g.commit_pair((P, Nn), full, pins, pads, swaps, dir_in=dir_in, pad_run=PAIR_PAD_RUN, dir_out=dir_out, start_vias=sv)
+            ok, probs, worst = pair_check(board, P, Nn, (pins, pads))
+            Lmax = max(stats[P][2], stats[Nn][2])
+            n_rm = g.remove_made([P, Nn])
+            if ok:
+                scored.append((Lmax, side, full, swaps, sv))
+                log["notes"].append(f"pair port {port}: candidate {side}: passes the board check, P {stats[P][2]:.2f} / N {stats[Nn][2]:.2f} mm, min P-N clearance {worst:.3f}")
+            else:
+                log["notes"].append(f"pair port {port}: candidate {side} FAILED the board check ({probs[:3]}); {n_rm} items removed")
+        if not scored:
+            log["failed"].append({"net": pn, "why": f"pair port {port}: every candidate path failed the board check (parity {parity})"})
+            log["pairs"].append({"port": port, "ok": False})
+            continue
+        scored.sort(key=lambda c: c[0])
+        Lmax, side, full, swaps, sv = scored[0]
+        stats = g.commit_pair((P, Nn), full, pins, pads, swaps, dir_in=dir_in, pad_run=PAIR_PAD_RUN, dir_out=dir_out, start_vias=sv)
+        ok, probs, worst = pair_check(board, P, Nn, (pins, pads))
+        log["notes"].append(f"pair port {port}: parity {parity}, {side}, starts on {board.GetLayerName(full[0][0])}, ends on {board.GetLayerName(full[-1][0])}, swap figures at {sorted((router.pos(*c), sd) for c, sd in swaps.items())}; board check {'ok' if ok else 'FAILED'}, min P-N clearance {worst:.3f} mm")
         log["notes"].append(f"pair port {port}: {stats}")
         for name in (P, Nn):
             total = sum(mm(t.GetLength()) for t in board.GetTracks() if t.GetNetname() == name and t.GetClass() != "PCB_VIA")
             vias = sum(1 for t in board.GetTracks() if t.GetNetname() == name and t.GetClass() == "PCB_VIA")
             log["pairs"].append({"net": name.rsplit("/", 1)[-1], "port": port, "total_mm": round(total, 2), "limit_mm": limit, "vias": vias,
                                  "ok": total <= limit, "parity": parity})
+
+
+# where each regulator's fan-out vias may go (board frame): U2 sits in the pocket's south exit, which the port-2 pair
+# must cross on Top / Internal 1; Sofar's AVDD / GND vias at y 36.8-36.9 bound the pair's lane on the north, so a via
+# south of U2 must leave y 37.35-38.3 free for the 0.6 mm band: U2's vias go to the exit's south-west corner (x < -2.8,
+# y > 38.5, inside MP1's keep-out limit of y 38.7 at x -3); U3 is west of the pair's start
+FANOUT_SPOTS = {"U2": lambda x, y: x < -2.8 and y > 38.5, "U3": lambda x, y: x < -4.3 or y > 37.6}
+FANOUT_REACH = {"U2": 2.6}
+
+
+def fanout(g, board, refs=("U2", "U3"), max_r=1.7):
+    """BGA fan-out first (session 2): every non-GND ball of these bottom-side regulators gets its via (within max_r,
+    the net's class) before the pairs and the pocket's nets are routed. REPORT §6 #3 / the first M2 run of session 2:
+    U2's 1V8 ball ended sealed on the bottom (U3's fan-out vias west, the 3V3 track south, the port-2 pair above) with
+    no via spot left, so 1V8 and ADIN_PWR stayed open. The via is placed south / east / west of the ball, never north
+    (the pair's lane along U1's south edge)."""
+    n = 0
+    fps = geom.fp_by_ref(board)
+    for ref in refs:
+        for pad in fps[ref].Pads():
+            name = pad.GetNetname()
+            if not name or name == "GND":
+                continue
+            cluster = next(c for c in router.net_clusters(board, name) if any(it.GetClass() == "PAD" and it.m_Uuid.AsString() == pad.m_Uuid.AsString() for it in c))
+            if any(it.GetClass() == "PCB_VIA" or (it.GetClass() == "PAD" and it.GetDrillSize().x > 0) for it in cluster):
+                continue          # Sofar's copper already takes this ball to a via
+            cls = router.net_class(name)
+            width, clear, vdia, vdrill = router.CLASSES[cls]
+            net = g.netcode[name]
+            rv = g.radius_for(vdia, clear)
+            p = geom.xy(pad.GetPosition())
+            side = [pcbnew.B_Cu if fps[ref].IsFlipped() else F]       # the fan-out stays on the ball's own layer: the via at
+            s_cells = router.cluster_cells(g, cluster, side)             # its far end is its only via (the first try let the
+            s_esc = router.cluster_escapes(g, cluster, cls, net, side)   # route hop to Top at the ball and cross the pair's lane)
+            done = False
+            for spot in g.find_via_spots(net, p, rv, max_r=FANOUT_REACH.get(ref, max_r), count=8, xr=g.xradii(net, vdia, clear), dia=vdia, clr=clear, drill=vdrill,
+                                         also=FANOUT_SPOTS.get(ref, lambda x, y, py=p[1]: y > py - 0.3)):
+                cx, cy = router.cell(*spot)
+                path = g.route(net, s_cells | set(s_esc), {(side[0], cx, cy)}, cls, layers=side, via_ok=False, max_nodes=80000)
+                if path is None:
+                    continue
+                commit_with_stubs(g, name, path, cls, s_esc, {})
+                g.add_via(name, spot, vdia, vdrill)
+                log["stitch"].append({"net": name.rsplit("/", 1)[-1], "via": [round(spot[0], 2), round(spot[1], 2)], "fanout": f"{ref}.{pad.GetNumber()}"})
+                n += 1
+                done = True
+                break
+            if not done:
+                log["notes"].append(f"fan-out: no via spot within {max_r} mm of {ref}.{pad.GetNumber()} ({name.rsplit('/', 1)[-1]})")
+    log["notes"].append(f"{n} regulator balls fanned out to vias before the pairs ({', '.join(refs)})")
 
 
 def commit_with_stubs(g, net_name, path, cls, s_esc, t_esc):
@@ -360,9 +552,9 @@ def gnd_links(g, board):
     log["notes"].append(f"{n} intra-footprint GND links (0.15 mm)")
 
 
-def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True):
+def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True, only_ref=None):
     """A via next to every single-pad cluster of a plane net before the signals are routed (≤ 1.2 mm away, inside
-    the plane's filled copper), at the net's class width (escapes for fine pads)."""
+    the plane's filled copper), at the net's class width (escapes for fine pads). only_ref: this footprint's pads only."""
     poly, layer, fill = plane[:3]
     net = g.netcode[net_name]
     pcls = "gnd" if net_name == "GND" else router.net_class(net_name)
@@ -373,6 +565,8 @@ def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True):
         if plane_connected(cluster, plane) or len(cluster) != 1 or cluster[0].GetClass() != "PAD":
             continue
         pad = cluster[0]
+        if only_ref is not None and pad.GetParentFootprint().GetReference() != only_ref:
+            continue
         p = geom.xy(pad.GetPosition())
         if skip_pocket and p[0] < 7.0 and 25.0 < p[1] < 40.0:
             continue          # the ADIN pocket: U1's escapes need every free cell there; stitched after the signals
@@ -380,7 +574,7 @@ def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True):
             continue
         s_cells = g.pad_cells(pad)
         s_esc = g.escapes(pad, pcls, net)
-        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=fill, count=4, xr=g.xradii(net, vdia, clear)):
+        for spot in g.find_via_spots(net, p, rv, max_r=max_r, inside=fill, count=4, xr=g.xradii(net, vdia, clear), dia=vdia, clr=clear, drill=vdrill):
             cx, cy = router.cell(*spot)
             goals = {(l, cx, cy) for l in router.ROUTE_LAYERS}
             path = g.route(net, s_cells | set(s_esc), goals, pcls, max_nodes=20000)
@@ -391,7 +585,7 @@ def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True):
             log["stitch"].append({"net": net_name.rsplit("/", 1)[-1], "via": [round(spot[0], 2), round(spot[1], 2)], "pre": True})
             n += 1
             break
-    log["notes"].append(f"{n} {net_name.rsplit('/', 1)[-1]} pads pre-stitched (via within {max_r} mm) before the signals")
+    log["notes"].append(f"{n} {net_name.rsplit('/', 1)[-1]} pads pre-stitched (via within {max_r} mm) before the signals" + (f" ({only_ref} only)" if only_ref else ""))
 
 
 def stitch(g, board, polys):
@@ -418,7 +612,7 @@ def stitch(g, board, polys):
                     pts.append(geom.xy(it.GetEnd()))
             spots = []
             for p in pts:
-                for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=fill, count=12, xr=g.xradii(net, vdia, clear)):
+                for sp in g.find_via_spots(net, p, rv, max_r=4.0, inside=fill, count=12, xr=g.xradii(net, vdia, clear), dia=vdia, clr=clear, drill=vdrill):
                     spots.append((geom.dist(sp, p), sp))
             if not spots:
                 log["failed"].append({"net": net_name, "why": "no via spot in the plane within 4 mm", "near": pts[:3]})
@@ -441,6 +635,35 @@ def stitch(g, board, polys):
                 log["failed"].append({"net": net_name, "why": "no path to any of the stitching via spots", "near": pts[:3]})
                 continue
             log["stitch"].append({"net": net_name.rsplit("/", 1)[-1], "via": [round(spot[0], 2), round(spot[1], 2)]})
+
+
+def other_layer_copper(board, net_name, layer):
+    """A test (x, y) -> bool: does the net have copper on a layer other than `layer` at that point (a filled zone
+    island of the net, or a track / via / through pad of the net within its own copper, 0.05 mm margin)?"""
+    fills = []
+    for z in board.Zones():
+        if z.GetIsRuleArea() or z.GetNetname() != net_name or z.GetLayer() == layer:
+            continue
+        fp = z.GetFilledPolysList(z.GetLayer())
+        if fp.OutlineCount():
+            fills.append(pcbnew.SHAPE_POLY_SET(fp))
+    items = [t for t in board.GetTracks() if t.GetNetname() == net_name and (t.GetClass() == "PCB_VIA" or t.GetLayer() != layer)]
+    pads = [p for f in board.GetFootprints() for p in f.Pads() if p.GetNetname() == net_name and (p.GetDrillSize().x > 0 or any(p.IsOnLayer(l) for l in geom.CU if l != layer))]
+
+    def test(x, y):
+        q = V(x, y)
+        if any(fl.Contains(q) for fl in fills):
+            return True
+        for it in items:
+            l = next(iter(router.item_layers(it) - {layer}), None)
+            if l is not None and it.GetEffectiveShape(l).Collide(q, MM(0.05)):
+                return True
+        for p in pads:
+            l = next((l for l in geom.CU if l != layer and (p.GetDrillSize().x > 0 or p.IsOnLayer(l))), None)
+            if l is not None and p.GetEffectiveShape(l).Collide(q, MM(0.05)):
+                return True
+        return False
+    return test
 
 
 def zone_stitch(g, board, filler):
@@ -476,9 +699,13 @@ def zone_stitch(g, board, filler):
             cen = ((mm(bb.GetLeft()) + mm(bb.GetRight())) / 2, (mm(bb.GetTop()) + mm(bb.GetBottom())) / 2)
             inner = pcbnew.SHAPE_POLY_SET(isl)
             inner.Deflate(MM(vdia / 2 + 0.05), pcbnew.CORNER_STRATEGY_ROUND_ALL_CORNERS, MM(0.01))
-            spot = g.find_via_spot(net, cen, rv, max_r=max(2.0, (mm(bb.GetWidth()) + mm(bb.GetHeight())) / 2), inside=inner, xr=g.xradii(net, vdia, clear))
+            # the via is only useful where the net has copper on another layer to reach (session 2, REPORT §6 #5: a
+            # 5V_PI island via with nothing on any other layer was dangling)
+            others = other_layer_copper(board, net_name, layer)
+            spot = g.find_via_spot(net, cen, rv, max_r=max(2.0, (mm(bb.GetWidth()) + mm(bb.GetHeight())) / 2), inside=inner, xr=g.xradii(net, vdia, clear),
+                                   dia=vdia, clr=clear, also=others, drill=vdrill)
             if spot is None:
-                log["failed"].append({"net": net_name, "why": f"zone island on {board.GetLayerName(layer)} near {tuple(round(c, 1) for c in cen)} has no via and none fits"})
+                log["failed"].append({"net": net_name, "why": f"zone island on {board.GetLayerName(layer)} near {tuple(round(c, 1) for c in cen)} has no via and none fits over the net's copper on another layer"})
                 continue
             g.add_via(net_name, spot, vdia, vdrill)
             log["stitch"].append({"net": net_name.rsplit("/", 1)[-1], "via": [round(spot[0], 2), round(spot[1], 2)], "zone": z.GetZoneName()[:40]})
@@ -513,6 +740,8 @@ def main():
             nk += 1
     log["notes"].append(f"Kelvin sense traces protected: {nk} tracks + U4 pads 1/2 excluded from routing starts/ends and stitching")
     bus_feeds(g)
+    # 0. the regulators' balls get their vias first (fanout)
+    fanout(g, board)
     # 1. the ADIN pairs, coupled, Top + Internal 1
     route_pairs(g, board)
     # 2. the bus data legs (0.2 mm, 0.35 from everything incl. the opposite leg), Internal 1 preferred
@@ -524,8 +753,11 @@ def main():
     routed("5V_PI", L, "pi5v")
     L = route_net(g, board, N("PI_5V"), "pi5v", layer_cost=PREF_TOP, max_nodes=800000)
     routed("PI_5V", L, "pi5v")
-    # 4. the load switch's signals (their escapes leave U11's 0.5 mm pitch rows first), then the payload output:
-    #    U11 pin 10 -> D3/C50 (bottom) -> J5 pin 1 / TP36, Internal 2 west of U11 (south of J1's last pins)
+    # 4. the load switch: its VBUS input pin gets its plane via first (session 2, REPORT §6 #3: after the row's signals
+    #    the 0.5 mm escape of U11 pin 1 had no path to the plane), then its signals (their escapes leave U11's 0.5 mm
+    #    pitch rows first), then the payload output: U11 pin 10 -> D3/C50 (bottom) -> J5 pin 1 / TP36, Internal 2 west
+    #    of U11 (south of J1's last pins)
+    prestitch(g, board, polys["VBUS"], net_name="VBUS", only_ref="U11")
     for short in ("ISET", "Net-(U11-UVLO)", "~{PAYLOAD_FAULT}", "PAYLOAD_EN"):
         L = route_net(g, board, N(short), max_nodes=800000)
         routed(short, L, router.net_class(N(short)))
@@ -545,11 +777,13 @@ def main():
         routed(short, L, router.net_class(N(short)) + " (pocket corridor)")
     # 6. the rails into the pocket's south: 3V3 to U3 first (the longest way, from the island), then 1V8 (B18 -> U2) and
     #    ADIN_PWR (U2/U3 -> R43 / TP8 / J1 pin 16): the pocket's south exit holds one track per layer
-    L = route_net(g, board, "3V3", plane_poly=polys.get("3V3"), layer_cost={I3: 1.0, I1: 1.2, B: 1.5, F: 2.5}, max_nodes=2500000, via_cost=6.0)
+    # (session 2: the bottom layer costs 2.0 for these so they stay off the bottom around U2 / U3, whose balls leave
+    # on the bottom to their fan-out vias; the first M2 run of session 2 had 3V3 seal U2's balls in on the bottom)
+    L = route_net(g, board, "3V3", plane_poly=polys.get("3V3"), layer_cost={I3: 1.0, I1: 1.2, B: 2.0, F: 2.5}, max_nodes=2500000, via_cost=6.0)
     routed("3V3", L, "rail (plane + pocket)")
     L = route_net(g, board, N("1V8"), layer_cost=PREF_I3, max_nodes=1500000, via_cost=6.0)
     routed("1V8", L, "rail")
-    L = route_net(g, board, N("ADIN_PWR"), layer_cost=PREF_BOT, max_nodes=1500000, via_cost=6.0)
+    L = route_net(g, board, N("ADIN_PWR"), layer_cost=PREF_I3, max_nodes=1500000, via_cost=6.0)
     routed("ADIN_PWR", L, "signal (pocket corridor)")
     # 7. the LED block at the north edge: ~{ADIN_P2_LED1} by the west edge lane, ~{ADIN_P1_LED1} and ADIN_VDDIO north
     #    between the L2 envelope and J1 (OPTIONS Q6)
@@ -605,16 +839,31 @@ def main():
             continue
         net = g.netcode[z.GetNetname()]
         pcls = router.net_class(z.GetNetname())
+        width, clear, vdia, vdrill = router.CLASSES[pcls]
+        rt = g.radius_for(width, clear)
+        hwt = int(math.ceil(width / 2 / router.PITCH))
+        xrt = g.xradii(net, width, clear)
+        vias = [t.GetPosition() for t in board.GetTracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == z.GetNetname()]
+        pth = [p.GetPosition() for f in board.GetFootprints() for p in f.Pads() if p.GetNetname() == z.GetNetname() and p.GetDrillSize().x > 0]
         islands = []
         for i in range(fp.OutlineCount()):
+            isl = pcbnew.SHAPE_POLY_SET()
+            isl.AddOutline(fp.Outline(i))
+            if any(isl.Collide(q, MM(0.1)) for q in vias + pth):
+                continue          # this island reaches the net's other copper through a via / through pad: nothing to join
             o = fp.Outline(i)
             cells = set()
             for k in range(o.PointCount()):
                 q = o.CPoint(k)
                 cx, cy = router.cell(mm(q.x), mm(q.y))
-                if 0 <= cx < router.W and 0 <= cy < router.H:
+                # a start / goal cell on the fill's edge must itself be free for the track (session 2: a GND island-join
+                # track started 0.1 mm from a 1V8 track, which the fill keeps 0.25 from but a track must keep 0.15 from)
+                if 0 <= cx < router.W and 0 <= cy < router.H and g.free(z.GetLayer(), cx, cy, rt, net, hwt, xrt):
                     cells.add((z.GetLayer(), cx, cy))
-            islands.append(cells)
+            if cells:
+                islands.append(cells)
+        if len(islands) < 2:
+            continue
         islands.sort(key=len, reverse=True)
         for isl in islands[1:]:
             path = g.route(net, isl, islands[0], pcls, max_nodes=600000)
