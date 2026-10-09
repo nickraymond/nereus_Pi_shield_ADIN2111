@@ -165,6 +165,55 @@ class Mote:
                 # anything else (the big GND / power planes) is M4's: planes are rebuilt on the new geometry
         return {"footprints": fps, "copper": copper, "zones": zones, "nets": sorted(nets)}
 
+    def pad_paths(self, block, sel=None):
+        """The block's selected copper items that carry a pad-to-pad connection on the mote: the mote's pads of the
+        block's footprints and the selected tracks / arcs / vias (whole, as on the mote) joined by touching geometry,
+        and an item is a bridge when removing it splits a group of pads that the copper joined (pours are not part
+        of the graph: only track-connected pad groups count, as the QE's round-1 check). Returns [mote item].
+        Session 2 (QE round 1 F2): tools/dangling.py refuses to trim the board copies of these items."""
+        import router
+        sel = sel or self.select(block)
+        nets = set(sel["nets"])
+        pads = [p for f in sel["footprints"] for p in f.Pads() if p.GetNetname() in nets]
+        copper = [item for item, rect in sel["copper"]]
+        items = pads + copper
+        n = len(items)
+        boxes = [it.GetBoundingBox() for it in items]
+        adj = [[] for _ in range(n)]
+        for i in range(n):
+            for j in range(i + 1, n):
+                if items[i].GetNetname() != items[j].GetNetname() or not boxes[i].Intersects(boxes[j]):
+                    continue
+                if router.touches(items[i], items[j]):
+                    adj[i].append(j)
+                    adj[j].append(i)
+
+        def pad_groups(skip):
+            comp = [-1] * n
+            groups = set()
+            for s0 in range(len(pads)):
+                if comp[s0] >= 0 or s0 == skip:
+                    continue
+                stack, members = [s0], []
+                comp[s0] = s0
+                while stack:
+                    u = stack.pop()
+                    members.append(u)
+                    for v in adj[u]:
+                        if v != skip and comp[v] < 0:
+                            comp[v] = s0
+                            stack.append(v)
+                g = frozenset(m for m in members if m < len(pads))
+                if len(g) > 1:
+                    groups.add(g)
+            return groups
+        base = pad_groups(-1)
+        out = []
+        for i in range(len(pads), n):
+            if pad_groups(i) != base:
+                out.append(items[i])
+        return out
+
     # ---- nets -------------------------------------------------------------------------------------------------
     def block_net_map(self, block):
         """Mote net -> shield net for this block: through ref_map'd pads first, then the global map."""

@@ -4,6 +4,8 @@ items, remove them, refill, repeat until DRC lists none (a chain goes one segmen
 stubs clipped at a block's edge, Sofar's pour-stitching vias with no pour here, and the router's own tails. Items of a
 net DRC still reports as unconnected are kept: they are the partial route of an open link, and the report lists them.
 Every removed item is recorded in blocks.json "trimmed", so blockcheck accounts for copied items that were removed.
+Copied items on a mote pad-to-pad path of their block (blocks.json "protected", written by m3_copy.py) are never
+trimmed (QE round 1 F2): a dangling one means the path is cut on this board, and it is listed in "protected_dangling".
 
   $PY tools/dangling.py m4          # trims the board in place, appends to blocks.json "trimmed", prints a summary
 """
@@ -87,6 +89,32 @@ def junctions(board, t, same_net):
     return sorted(set(round(s, 4) for s in out))
 
 
+def is_protected(t, protected, board):
+    """The protected record this board item is a copy of (same net, kind, layer and geometry within 0.002 mm), else None."""
+    net = t.GetNetname()
+    cls = t.GetClass()
+    if cls == "PCB_VIA":
+        p = geom.xy(t.GetPosition())
+        for r in protected:
+            if r["kind"] == "via" and r["net"] == net and geom.dist(p, tuple(r["at"])) <= 0.002:
+                return r
+        return None
+    if cls == "PCB_ARC":
+        m = geom.xy(t.GetMid())
+        for r in protected:
+            if r["kind"] == "arc" and r["net"] == net and geom.dist(m, tuple(r["mid"])) <= 0.002:
+                return r
+        return None
+    a, b = geom.xy(t.GetStart()), geom.xy(t.GetEnd())
+    layer = board.GetLayerName(t.GetLayer())
+    for r in protected:
+        if r["kind"] == "track" and r["net"] == net and (layer is None or r["layer"] == layer):
+            s0, e0 = tuple(r["start"]), tuple(r["end"])
+            if (geom.dist(a, s0) <= 0.002 and geom.dist(b, e0) <= 0.002) or (geom.dist(a, e0) <= 0.002 and geom.dist(b, s0) <= 0.002):
+                return r
+    return None
+
+
 def describe(t, board):
     if t.GetClass() == "PCB_VIA":
         p = geom.xy(t.GetPosition())
@@ -111,7 +139,9 @@ def one_round(stage, rnd):
     viol, open_nets = drc_dangling(out / "drc_dangling.json")
     board = geom.load()
     by_uuid = {t.m_Uuid.AsString(): t for t in board.GetTracks()}
-    remove, seen, kept_open = [], set(), 0
+    protected = data.get("protected", [])
+    prot_dangling = data.setdefault("protected_dangling", [])
+    remove, seen, kept_open, kept_prot = [], set(), 0, 0
     for v in viol:
         for it in v["items"]:
             t = by_uuid.get(it["uuid"])
@@ -120,6 +150,18 @@ def one_round(stage, rnd):
             seen.add(it["uuid"])
             if t.GetNetname() in open_nets and not ALL:
                 kept_open += 1          # the partial route of an open link stays visible
+                continue
+            prot = is_protected(t, protected, board)
+            if prot is not None:
+                # a copied item on a mote pad-to-pad path is never trimmed (QE round 1 F2): if DRC calls it dangling, the
+                # path was cut elsewhere (a region clip) and the loss is recorded for the report, loudly
+                kept_prot += 1
+                rec = describe(t, board)
+                rec.update({"stage": stage, "round": rnd, "block": prot["block"]})
+                if not any(r.get("uuid") == t.m_Uuid.AsString() for r in prot_dangling):
+                    rec["uuid"] = t.m_Uuid.AsString()
+                    prot_dangling.append(rec)
+                    print(f"PROTECTED BUT DANGLING ({prot['block']}): {rec['net'].rsplit('/', 1)[-1]} {rec['kind']} at {rec.get('start', rec.get('at'))}: a mote pad-to-pad path is cut on this board")
                 continue
             remove.append(t)
     # A dangling TRACK is shortened to the copper it still joins (a stub whose body carries a via or a pad connection
@@ -166,24 +208,35 @@ def one_round(stage, rnd):
         pcbnew.ZONE_FILLER(board).Fill(board.Zones())
         geom.save(board)
         json.dump(data, open(geom.EXP / "blocks.json", "w"), indent=1)
-        print(f"{stage} dangling round {rnd}: removed {len(remove)} {kinds}, shortened {shortened} (DRC listed {len(viol)} dangling items; {kept_open} kept on open nets {sorted(n.rsplit('/', 1)[-1] for n in open_nets)})")
+        print(f"{stage} dangling round {rnd}: removed {len(remove)} {kinds}, shortened {shortened} (DRC listed {len(viol)} dangling items; {kept_open} kept on open nets {sorted(n.rsplit('/', 1)[-1] for n in open_nets)}; {kept_prot} kept as mote pad-to-pad copper)")
     else:
-        print(f"{stage} dangling: none left after {rnd - 1} round(s); DRC lists {len(viol)} dangling items, all on open nets {sorted(n.rsplit('/', 1)[-1] for n in open_nets)}" if viol
+        if kept_prot:
+            json.dump(data, open(geom.EXP / "blocks.json", "w"), indent=1)
+        print(f"{stage} dangling: none left after {rnd - 1} round(s); DRC lists {len(viol)} dangling items, all on open nets {sorted(n.rsplit('/', 1)[-1] for n in open_nets)} or protected ({kept_prot})" if viol
               else f"{stage} dangling: none left after {rnd - 1} round(s); DRC lists 0 dangling items")
     return len(remove) + shortened
 
 
 def main(stage):
     for rnd in range(1, 41):
-        r = subprocess.run([sys.executable, __file__, stage, "--round", str(rnd)] + (["--all"] if ALL else []), capture_output=True, text=True)
+        for attempt in (1, 2):
+            r = subprocess.run([sys.executable, __file__, stage, "--round", str(rnd)] + (["--all"] if ALL else []), capture_output=True, text=True)
+            if r.returncode == 0:
+                break
+            # a round's child process died (seen once: kicad-cli / pcbnew crashing on exit after the work was saved, exit 1
+            # with no traceback); the board and blocks.json are written atomically per round, so one retry is safe
+            sys.stderr.write(f"dangling round {rnd} attempt {attempt} exited {r.returncode}; stderr tail:\n" + r.stderr[-2000:] + "\n")
         for line in r.stdout.splitlines():
             if "dangling" in line:
                 print(line)
         if r.returncode != 0:
-            sys.stderr.write(r.stderr[-2000:])
-            raise SystemExit(f"dangling round {rnd} failed")
+            raise SystemExit(f"dangling round {rnd} failed twice (see the stderr above); the board holds rounds 1..{rnd - 1}; rerun the stage from its snapshot")
         if "dangling round" not in r.stdout:
             break
+    pd = json.load(open(geom.EXP / "blocks.json")).get("protected_dangling", [])
+    if pd:
+        print(f"{stage} dangling: {len(pd)} copied item(s) on a mote pad-to-pad path are dangling on this board (kept, listed in blocks.json 'protected_dangling'): "
+              + "; ".join(f"{r['block']} {r['net'].rsplit('/', 1)[-1]} {r['kind']} {r.get('start', r.get('at'))}" for r in pd[:12]))
 
 
 if __name__ == "__main__":
