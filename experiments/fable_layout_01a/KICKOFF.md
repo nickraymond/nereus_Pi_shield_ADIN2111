@@ -87,9 +87,7 @@ Order of work, committing after each with renders and a LOG.md entry:
    lengths, courtyards and the exits' occupancy side by side. The centre is the preferred answer; keep the pocket only
    if the trial shows the centre cannot meet the bar, and say why in numbers (LESSONS section 3). In the same
    placement pass put both cut jumpers (JP1 5 V to the Pi, JP2 LED supply) on the TOP side near a board edge with no
-   tall part beside them, visible and cuttable (Nick); state what their nets' routing costs. Reserve room for a
-   payload power LED + resistor (0603, top, beside J5, visible from the payload edge): the parts are a schematic
-   change for the live project, not for this experiment (BRIEF rule 4); keep the spot free and list it in REPORT.
+   tall part beside them, visible and cuttable (Nick); state what their nets' routing costs.
 3. Router clean-up: 45 degree runs as single segments (merge collinear steps in Grid.polyline and commit_pair), no
    back-and-forth; keep every pair under the mote's length with margin (BM1_DATA_P had 0.04 mm).
 4. Corridors reserved before routing: SPI (SCK, MOSI, MISO, ~{CS}) on a reserved Internal 2 lane straight from U1 to
