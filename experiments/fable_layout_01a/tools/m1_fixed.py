@@ -12,20 +12,23 @@ import geom
 import motecopy
 from geom import MM, V, mm, deg
 
+# JLCPCB JLC06161H-3313 (https://jlcpcb.com/impedance, read 2026-10-08; DFM.md row 21): outer 1 oz, inner 0.5 oz
+# ("H/H without copper" cores of 0.55 mm), 3313 prepregs outside, one 2116 in the middle; εr 3313 4.1, 2116 4.16, core 4.6.
+# Sum of the copper and dielectrics 1.538 mm; JLC's nominal finished thickness 1.6 mm (±10 %).
 STACKUP = """		(stackup
 			(layer "F.SilkS" (type "Top Silk Screen"))
 			(layer "F.Paste" (type "Top Solder Paste"))
 			(layer "F.Mask" (type "Top Solder Mask") (thickness 0.01))
 			(layer "F.Cu" (type "copper") (thickness 0.035))
-			(layer "dielectric 1" (type "prepreg") (thickness 0.21) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
-			(layer "In1.Cu" (type "copper") (thickness 0.035))
-			(layer "dielectric 2" (type "core") (thickness 0.38) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
-			(layer "In2.Cu" (type "copper") (thickness 0.035))
-			(layer "dielectric 3" (type "prepreg") (thickness 0.21) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
-			(layer "In3.Cu" (type "copper") (thickness 0.035))
-			(layer "dielectric 4" (type "core") (thickness 0.38) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
-			(layer "In4.Cu" (type "copper") (thickness 0.035))
-			(layer "dielectric 5" (type "prepreg") (thickness 0.21) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
+			(layer "dielectric 1" (type "prepreg") (thickness 0.0994) (material "3313 prepreg (JLC06161H-3313)") (epsilon_r 4.1) (loss_tangent 0.02))
+			(layer "In1.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 2" (type "core") (thickness 0.55) (material "FR4 core 0.55 H/H") (epsilon_r 4.6) (loss_tangent 0.02))
+			(layer "In2.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 3" (type "prepreg") (thickness 0.1088) (material "2116 prepreg (JLC06161H-3313)") (epsilon_r 4.16) (loss_tangent 0.02))
+			(layer "In3.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 4" (type "core") (thickness 0.55) (material "FR4 core 0.55 H/H") (epsilon_r 4.6) (loss_tangent 0.02))
+			(layer "In4.Cu" (type "copper") (thickness 0.0152))
+			(layer "dielectric 5" (type "prepreg") (thickness 0.0994) (material "3313 prepreg (JLC06161H-3313)") (epsilon_r 4.1) (loss_tangent 0.02))
 			(layer "B.Cu" (type "copper") (thickness 0.035))
 			(layer "B.Mask" (type "Bottom Solder Mask") (thickness 0.01))
 			(layer "B.Paste" (type "Bottom Solder Paste"))
@@ -190,6 +193,9 @@ def draw_envelopes(board):
         add_rect(board, e, pcbnew.Eco1_User, 0.15)
         add_rect(board, (e[0] - c, e[1] - c, e[2] + c, e[3] + c), pcbnew.Eco2_User, 0.1)
         add_text(board, f"{ref} 50 W envelope 15.5 x 15.5 (+2 mm clear)", ((e[0] + e[2]) / 2, e[1] - 0.9), pcbnew.Eco1_User, 0.8)
+    b = geom.BAND
+    add_rect(board, (geom.OUTLINE["x0"] + 0.5, b[0], 23.2, b[1]), pcbnew.Eco2_User, 0.1)
+    add_text(board, f"band y {b[0]}..{b[1]} ({b[1] - b[0]:.0f} mm)", (-2.0, b[0] + 0.6), pcbnew.Eco2_User, 0.8)
 
 
 def insert_rule_areas(board):

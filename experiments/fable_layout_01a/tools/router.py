@@ -599,7 +599,10 @@ class Grid:
                 while cur in parent:
                     cur = parent[cur]
                     path.append(cur)
-                return path[::-1]
+                path = path[::-1]
+                if cls == "thin":
+                    return path                 # orthogonal steps only: nothing to straighten
+                return self.straighten(path, lambda l_, x_, y_: self.free(l_, x_, y_, rt, net, hwt, xrt))
             n += 1
             if n > max_nodes:
                 return None
@@ -806,7 +809,15 @@ class Grid:
                 if swap:
                     swaps[(vx, vy)] = side
             cur = prev
-        return path[::-1], swaps
+        path = path[::-1]
+        # the via cells and the straight runs on both sides of every figure stay as they are (STRAIGHT_RUN / SWAP_RUN
+        # cells; the figure's geometry is emitted from them by commit_pair); everything between is straightened
+        fixed = set()
+        for k in range(len(path) - 1):
+            if path[k][0] != path[k + 1][0]:
+                fixed |= set(range(max(0, k - SWAP_RUN - EXIT_STRAIGHT), min(len(path), k + 2 + SWAP_RUN + EXIT_STRAIGHT)))
+        path = self.straighten(path, lambda l_, x_, y_: self.free(l_, x_, y_, rt, net, hwt, xrt) and (x_, y_) not in forbid, fixed)
+        return path, swaps
 
     @staticmethod
     def straight_cells(layer, a, b):
@@ -871,6 +882,89 @@ class Grid:
         if hasattr(self, "_items"):
             self._items.append((self.netcode[net_name], ALL_LAYERS, v, (p[0] - dia / 2, p[1] - dia / 2, p[0] + dia / 2, p[1] + dia / 2)))
         return v
+
+    @staticmethod
+    def octi(a, b):
+        """The two octilinear cell sequences from cell a to cell b (exclusive of a, inclusive of b): the diagonal part
+        (min(|dx|, |dy|) steps) and the orthogonal remainder, in either order; one sequence when a part is empty."""
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        sx, sy = (dx > 0) - (dx < 0), (dy > 0) - (dy < 0)
+        nd = min(abs(dx), abs(dy))
+        no = abs(dx) - nd if abs(dx) > abs(dy) else abs(dy) - nd
+        d_step = (sx, sy)
+        o_step = (sx, 0) if abs(dx) > abs(dy) else (0, sy)
+        parts = []
+        if nd:
+            parts.append((d_step, nd))
+        if no:
+            parts.append((o_step, no))
+        orders = [parts] if len(parts) < 2 else [parts, parts[::-1]]
+        out = []
+        for order in orders:
+            cells, c = [], a
+            for step, n in order:
+                for _ in range(n):
+                    c = (c[0] + step[0], c[1] + step[1])
+                    cells.append(c)
+            out.append(cells)
+        return out
+
+    def straighten(self, path, free_fn, fixed=()):
+        """Session 2.b (Nick: 45° runs as single segments, no back-and-forth). The A* walks 0.1 mm cells, so a run that
+        is neither orthogonal nor at 45° comes out as a staircase of alternating steps (25–40 segments per pair leg in
+        session 2). This pass replaces every maximal sub-run whose steps use only two directions 45° apart by the two
+        straight segments of the same displacement (orthogonal then diagonal, or the reverse: equal length), when every
+        cell of the new run is free for the net on the same maps the A* used (free_fn(layer, cx, cy), plus the corner
+        rule for diagonal steps); a sub-run that cannot be straightened whole is split in half and each half tried.
+        `fixed`: path indices that must stay vertices (via cells and the straight runs beside a pair's figures). The
+        result has the same end cells, the same layers in the same order, and never enters a cell the A* could not."""
+        n = len(path)
+        if n < 3:
+            return path
+        fixed = set(fixed) | {0, n - 1}
+        # split into stretches of one layer without a fixed index inside
+        bounds = sorted(fixed | {i for i in range(1, n) if path[i][0] != path[i - 1][0]} | {i for i in range(n - 1) if path[i + 1][0] != path[i][0]})
+        out = [path[0]]
+
+        def ok_run(layer, a, cells):
+            prev = a
+            for c in cells:
+                if not free_fn(layer, c[0], c[1]):
+                    return False
+                dx, dy = c[0] - prev[0], c[1] - prev[1]
+                if dx and dy and not (free_fn(layer, prev[0] + dx, prev[1]) and free_fn(layer, prev[0], prev[1] + dy)):
+                    return False
+                prev = c
+            return True
+
+        def fix(layer, cells):
+            """cells: a sub-run (list of (cx, cy)) from its first to its last cell; returns the straightened cells after the first."""
+            if len(cells) < 3:
+                return cells[1:]
+            steps = {(cells[k + 1][0] - cells[k][0], cells[k + 1][1] - cells[k][1]) for k in range(len(cells) - 1)}
+            if len(steps) == 1:
+                return cells[1:]
+            if len(steps) == 2:
+                for cand in self.octi(cells[0], cells[-1]):
+                    if ok_run(layer, cells[0], cand):
+                        return cand
+            # more than two directions, or neither order is free: split at the middle and try each half
+            m = len(cells) // 2
+            return fix(layer, cells[:m + 1]) + fix(layer, cells[m:])
+
+        i = 0
+        while i < n - 1:
+            j = next((b for b in bounds if b > i), n - 1)
+            layer = path[i][0]
+            if path[j][0] != layer:          # a layer change at j: the stretch ends at j - 1
+                j = max(i + 1, j - 1) if path[j - 1][0] == layer else j
+            cells = [(cx, cy) for l, cx, cy in path[i:j + 1]]
+            if len(cells) >= 2 and all(l == layer for l, _, _ in path[i:j + 1]):
+                out += [(layer, cx, cy) for cx, cy in fix(layer, cells)]
+            else:
+                out += path[i + 1:j + 1]
+            i = j
+        return out
 
     @staticmethod
     def polyline(path):

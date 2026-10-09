@@ -190,3 +190,34 @@ anything was touched. Nick's order of work (LESSONS §4): the fab's rules first,
   History). Nothing on the board changed (md5 unchanged); the fixes go into the M1–M3 scripts in the steps that follow.
 - The scratch copy's `tools/` path layout: `geom.MOTE` resolves two directories up, so a scratch copy must sit two levels
   below a directory holding (a link to) `KiCAD_reference_designs/`.
+
+## Session 2.b, step 2 (in progress) — frame 49 × 68, inserts, the OPTIONS trials (2026-10-08)
+
+Work in progress, committed so the record keeps up with the scratch trials (the board in `board/` is still session 2's;
+every trial runs on a scratch copy via `tools/trial.sh`, two levels under a directory that links `KiCAD_reference_designs/`).
+
+- **Frame** (`tools/geom.py`): 49 × 68, x −10.5 … 38.5, y 0 … 68. The extra width went WEST, not east: the first trial with it
+  on the east had T2's bottom cap inside MP4's keep-out and T1 against J1's socket courtyard at once, while the strip east of
+  J1 (whose parts did not move) gained nothing. The extra height went SOUTH and is spent on the band between the inductor
+  envelopes (L1's envelope, J5 and the south band 3 mm south; the band 26.5 … 37.5 = 11 mm, J1's SPI pins at its latitude).
+  Inserts 1.5 mm nearer the wall (x −6.31: ring copper on the brief's 0.5 mm edge line; JLCPCB's 0.2 would allow 1.8 mm);
+  the port-1 pair 2.5 mm south (3 mm put MP2's courtyard 2.91 mm from the Pi's H3 keep-out). Housing holes follow the corners.
+- **Scripts parametrised**: planes (`m4_route.make_planes`: slots and islands from the envelopes and the frame; inner planes
+  0.3 mm from holes, DFM row 12), bus feeds from `geom.INSERTS` and the inductor pads, the pairs' exit / entry directions
+  from the placement (`axis_dir`), fan-out spots as "anywhere but the two pairs' exit lanes", the prestitch skip area from
+  the ADIN block's parts, the pocket's hand via relative to U1 and per variant, `VARIANT=centre|pocket` in `m2_place.py`.
+- **Order of routing**: the SPI (SCK, MOSI, MISO, ~{CS}) first on Internal 2 (Internal 1 at 1.5×, Top only for the pin escape,
+  Bottom forbidden), then the fan-out vias, the pairs, the rest (Nick, LESSONS §3/§4).
+- **Router**: `Grid.straighten` (step 3) replaces every staircase sub-run by one orthogonal + one 45° segment when the new
+  cells are free on the same maps; applied in `route` and `route_pair` (the figures' runs fixed); 18/18 blank-board pair
+  tests still pass; the pocket trial's pair legs went from 25 / 40 to 15 / 18 segments. `PAIR_MARGIN` 0.3 mm (QE N2).
+- **DFM fixes in the pipeline**: `tools/dfm_fix.py` after placement (silk lines ≥ 0.15, references 1.0 / 0.15 moved to a clear
+  spot or hidden, lines over pads clipped, footprint silk texts); JLC's stackup in M1; fiducials ≥ 3.35 mm from the edge;
+  outer pours drop islands without a via; the bus feeds start 3.31 mm from the insert centre (NPTH-to-track).
+- **Trials so far** (scratch, both variants through M4 each time): pocket = session 2's layout moved with the frame: pairs
+  9.59 / 8.97 / 19.93 / 20.61, SPI 34–41 mm, DRC 113 / 109, 1 unconnected, rules 0 / 0 / 0. Centre: trials 2–4 (U1 rot 270,
+  SPI pins facing J1) gave SPI 8–14 mm and port 2 11–13 mm but port 1 9.7–10.0 (the port-1 pins sit south-WEST of U1 at that
+  rotation, T1 can only stand south-east) and Sofar's fan-out vias on T1's pads; trials 5–6 (U1 at the mote's rotation,
+  T1 at the mote's relative spot) failed both pairs on the swap figure's 2 mm straight run (the emitter cannot make the
+  U-turn the A* found behind the pads); trial 7 (T1 / T2 1 mm further from U1, C19 / R14 split off T1's cluster, the
+  half-plane behind the pads forbidden) is running, together with Nick's J5-west / L1-south variant (`J5WEST=1`).

@@ -27,15 +27,17 @@ SCALE = 40          # px per mm
 
 # name: (board rect x0, y0, x1, y1 in the brief's frame, block name or None, layers, caption)
 REGIONS = {
-    "port1_pair": ((-3.5, 25.0, 9.0, 32.0), "ADIN", ["top", "in1", "bot"], "Port-1 data pair: U1 pins 27/28 (north edge of U1) to T1 pads 1/2; the mote's U1 and T1 sit elsewhere, so the mote view shows only the ADIN block's copper placed as here"),
-    "port2_pair": ((-4.0, 33.0, 14.0, 40.0), "ADIN", ["top", "in1", "bot"], "Port-2 data pair: U1 pins 4/5 (south edge) through the pocket's south exit to T2 pads 1/2"),
-    "int_fanout": ((-7.5, 28.0, -3.0, 33.0), "ADIN", ["top", "bot"], "~{ADIN_INT} fan-out at the board's west edge: U1.39 → via → R1.1 (QE round 1 F2)"),
-    "u2_u3_pocket_exit": ((-7.0, 35.0, 5.0, 40.0), "ADIN", ["top", "in3", "bot"], "The pocket's south exit: U2 / U3 (1.8 V and 3.3 V switches, bottom) with their fan-out vias, the port-2 pair above, 3V3 / 1V8 / ADIN_PWR leaving east"),
-    "t1_cluster": ((2.5, 23.5, 11.5, 31.5), "P1T", ["top", "bot"], "T1 cluster (P1T block) and the bus legs to L1"),
-    "t2_cluster": ((9.0, 29.0, 18.0, 36.5), "P2T", ["top", "bot"], "T2 cluster (P2T block): the region clip at mote x 138.6 dropped the GND via that sat in front of the data pads"),
-    "u11_payload": ((27.0, 49.0, 38.5, 59.0), None, ["top", "in3", "bot"], "Load switch U11 at the strip's south end: VBUS in (pre-stitched via), VBUS_OUT to J5 (0.6 mm), its signals to J1"),
-    "pi5v_strip_north": ((28.5, 6.0, 38.5, 25.0), "B5V", ["top", "bot"], "5 V cell under JP1 at the strip's north end: the bottom 5V_PI pour under the output caps and the divider tap"),
-    "insert_mp1": ((-7.5, 38.0, 12.0, 56.0), "P1L", ["top", "in1"], "Port-1 inductor L1 with the insert rings MP1 / MP2 and the bus feeds; the P1L block's copper"),
+    "port1_pair": ((9.0, 32.0, 20.0, 38.5), "ADIN", ["top", "in1", "bot"], "Port-1 data pair: U1 pins 27/28 (south edge of U1 at rot 270) to T1 pads 1/2; the mote's U1 and T1 sit elsewhere, so the mote view shows only the ADIN block's copper placed as here"),
+    "port2_pair": ((-1.0, 24.0, 13.0, 30.5), "ADIN", ["top", "in1", "bot"], "Port-2 data pair: U1 pins 4/5 (north edge) to T2 pads 1/2 at the band's north edge"),
+    "spi_lane": ((14.0, 25.5, 29.5, 38.5), None, ["top", "in3", "in1"], "The SPI lane: U1's east pins (SCK, MOSI, MISO, ~{CS}) straight east on Internal 2 to J1 pins 19-24, routed first; ~{INT} / ~{RST} / ADIN_PWR beside it"),
+    "u2_u3_fanout": ((7.0, 23.5, 18.0, 29.5), "ADIN", ["bot", "top", "in3"], "U2 / U3 (1.8 V and 3.3 V switches, bottom) at the block's north edge with their fan-out vias, under the port-2 pair"),
+    "t1_cluster": ((15.5, 30.5, 24.0, 38.5), "P1T", ["top", "bot"], "T1 cluster (P1T block) south-east of U1 and the bus legs to L1"),
+    "t2_cluster": ((-2.0, 23.5, 8.5, 33.0), "P2T", ["top", "bot"], "T2 cluster (P2T block) north-west of U1 and the bus legs to L2"),
+    "north_band": ((4.5, -0.5, 24.5, 8.0), None, ["top", "bot", "in1"], "North band: the LEDs D10 / D8 / D9 on the edge, JP1 (5 V to the Pi) and JP2 (LED supply) on top beside them, FID3 / FID4; the LED resistors and FID1 / FID2 underneath"),
+    "pocket_b18": ((-10.5, 24.0, 1.0, 43.0), "B18", ["bot", "top", "in3"], "The west pocket U1 left: the 1.8 V buck B18 (bottom) between the insert keep-outs; 1V8 east to U2, 3V3 in from the strip"),
+    "u11_payload": ((27.0, 49.0, 38.5, 62.0), None, ["top", "in3", "bot"], "Load switch U11 at the strip's south end: VBUS in (pre-stitched via), VBUS_OUT to J5 (0.6 mm), its signals to J1"),
+    "pi5v_strip_north": ((23.5, 0.0, 38.5, 25.0), "B5V", ["top", "in1", "bot"], "5 V cell at the strip's north end and the 5 V path: L6 -> JP1 in the north band -> J1 pins 2/4 across J1's north end"),
+    "insert_mp1": ((-10.5, 39.0, 12.0, 60.0), "P1L", ["top", "in1"], "Port-1 inductor L1 (3 mm south) with the insert rings MP1 / MP2 (1.5 mm nearer the wall, 2.5 mm south) and the bus feeds; the P1L block's copper"),
 }
 
 

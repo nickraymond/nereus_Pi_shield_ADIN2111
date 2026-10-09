@@ -28,16 +28,26 @@ def N(short):
     return NETS[short]
 
 
-PAIRS = {    # port: (P net, N net, U1 pins (P, N), T pads (P, N), length limit per net (mote), pins' outward direction, pads' inward direction)
-    1: ("BM1_DATA_P", "BM1_DATA_N", ("U1", "28", "27"), ("T1", "1", "2"), 9.5, (0, -1), (1, 0)),
-    2: ("BM2_DATA_P", "BM2_DATA_N", ("U1", "5", "4"), ("T2", "1", "2"), 21.3, (0, 1), (1, 0)),
+PAIRS = {    # port: (P net, N net, U1 pins (P, N), T pads (P, N), length limit per net (mote)); the pins' outward direction and
+    1: ("BM1_DATA_P", "BM1_DATA_N", ("U1", "28", "27"), ("T1", "1", "2"), 9.5),      # the pads' inward direction are read from
+    2: ("BM2_DATA_P", "BM2_DATA_N", ("U1", "5", "4"), ("T2", "1", "2"), 21.3),      # the placement (axis_dir)
 }
+
+
+def axis_dir(frm, to):
+    """The axis-aligned unit vector from `frm` to `to` (the larger component wins)."""
+    dx, dy = to[0] - frm[0], to[1] - frm[1]
+    if abs(dx) >= abs(dy):
+        return (1 if dx > 0 else -1, 0)
+    return (0, 1 if dy > 0 else -1)
 # corridor preferences (OPTIONS §2.3): {layer: cost multiplier}; a layer not listed costs 1.0
 PREF_I3 = {I3: 1.0, I1: 1.5, F: 2.5, B: 2.5}
 PREF_I1 = {I1: 1.0, I3: 1.5, F: 2.5, B: 2.5}
 PREF_TOP = {F: 1.0, I1: 1.5, I3: 1.5, B: 1.5}
 PREF_BOT = {B: 1.0, I3: 1.4, I1: 1.5, F: 2.0}
 log = {"planes": {}, "manual": [], "pairs": [], "stitch": [], "routed": [], "failed": [], "notes": []}
+ADIN_AREA = None   # (x0, y0, x1, y1) of the ADIN block's parts, set in main
+PLANE_CLR = 0.3    # inner planes keep 0.3 from other copper and holes: JLCPCB's inner PTH hole-to-copper 0.3 (DFM.md row 12; was 0.25)
 
 
 def poly_from_rects(rects):
@@ -69,6 +79,8 @@ def add_zone(board, layer, net_name, poly, name, priority, min_thick=0.25, clear
     z.SetThermalReliefGap(MM(0.254))
     z.SetThermalReliefSpokeWidth(MM(0.254))
     z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL if solid else pcbnew.ZONE_CONNECTION_THERMAL)
+    if layer in (pcbnew.F_Cu, pcbnew.B_Cu) and hasattr(pcbnew, "ISLAND_REMOVAL_MODE_ALWAYS"):
+        z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)     # an outer-pour island with no via is dropped by the fill (REPORT §6 #1)
     z.SetZoneName(name)
     for i in range(poly.OutlineCount()):
         z.Outline().AddOutline(poly.Outline(i))
@@ -115,45 +127,47 @@ def make_planes(board):
     # GND plane with one slot past each inductor: the island (inductor + its inserts, west) joins the rest of the plane
     # only on the far side from the inserts (east); slots 0.5 mm wide along the island's band-side edge (as 01).
     gnd = pcbnew.SHAPE_POLY_SET(body)
-    slots = [(o["x0"], 26.2, 22.7, 26.7),      # port 2 island south edge (above U1's pins, y ≥ 28.2)
-             (o["x0"], 6.5, 22.7, 7.0),         # port 2 island north edge (north band stays with the main plane)
-             (o["x0"], 39.0, 22.7, 39.5),       # port 1 island north edge, south of the port-2 pair's corridor at y ≈ 37
-             (o["x0"], 54.0, 22.7, 54.5)]       # port 1 island south edge
+    e2, e1 = geom.ENVELOPES["L2"], geom.ENVELOPES["L1"]
+    slots = [(o["x0"], e2[3] + 1.7, 22.7, e2[3] + 2.2),      # port 2 island south edge (y 26.2–26.7: north of the band)
+             (o["x0"], e2[1] - 2.5, 22.7, e2[1] - 2.0),      # port 2 island north edge (north band stays with the main plane)
+             (o["x0"], e1[1] + 2.5, 22.7, e1[1] + 3.0),      # port 1 island north edge (y 42.0–42.5: south of the band and the port-1 pair)
+             (o["x0"], e1[3] + 2.0, 22.7, e1[3] + 2.5)]      # port 1 island south edge
     for s in slots:
         gnd.BooleanSubtract(router_rect(s))
     gnd.Simplify()
-    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, 0.25)
-    log["planes"]["GND"] = {"layer": "In2", "slots": slots, "note": "islands x -7.5..22.7, y 7-26.2 (port 2) and 39.5-54 (port 1), open to the east"}
+    add_zone(board, pcbnew.In2_Cu, "GND", gnd, "GND plane (In2): island per inductor, slots per the mote", 0, 0.25, PLANE_CLR)
+    log["planes"]["GND"] = {"layer": "In2", "slots": slots, "note": "islands x -7.5..22.7 around each inductor + its inserts, open to the east"}
     # PWR plane In4: VBUS everywhere but the P_IN island under port 2's centre, the 3V3 island at the 3.3 V buck's
     # output (moved with the cell: x 33.4-38, y 24-38), the copied ADIN islands (priority 7) and Sofar's two no-net islands
-    vbus = poly_from_rects([(23.2, 0.5, 38.0, 64.5), (o["x0"], 26.0, 23.2, 64.5), (16.8, 8.0, 23.2, 26.0)])
+    x1, y1 = o["x1"] - 0.5, o["y1"] - 0.5
+    vbus = poly_from_rects([(23.2, 0.5, x1, y1), (o["x0"], 26.0, 23.2, y1), (16.8, 8.0, 23.2, 26.0)])
     vbus.BooleanIntersection(body)
     p_in = poly_from_rects([(11.0, 8.0, 16.6, 25.7)])     # R8 straddles the P_IN / VBUS boundary at x ≈ 16.6
-    v3 = poly_from_rects([(33.4, 24.0, 38.0, 38.0)])
-    vbus.BooleanSubtract(poly_from_rects([(33.1, 23.7, 38.3, 38.3)]))
+    v3 = poly_from_rects([(33.4, 24.0, x1, 38.0)])
+    vbus.BooleanSubtract(poly_from_rects([(33.1, 23.7, x1 + 0.3, 38.3)]))
     vbus.Simplify()
-    nc2 = poly_from_rects([(3.5, 13.5, 9.5, 20.0)])
-    nc1 = poly_from_rects([(3.5, 45.0, 9.5, 51.5)])
-    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0, 0.25, 0.25)
-    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5, 0.25, 0.25)
-    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5, 0.25, 0.25)
-    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6, 0.25, 0.25)
-    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6, 0.25, 0.25)
+    nc2 = poly_from_rects([(3.5, e2[1] + 4.5, 9.5, e2[1] + 11.0)])
+    nc1 = poly_from_rects([(3.5, e1[1] + 5.5, 9.5, e1[1] + 12.0)])
+    add_zone(board, pcbnew.In4_Cu, "VBUS", vbus, "VBUS plane (In4)", 0, 0.25, PLANE_CLR)
+    add_zone(board, pcbnew.In4_Cu, N("P_IN"), p_in, "P_IN island (In4) under port 2 east", 5, 0.25, PLANE_CLR)
+    add_zone(board, pcbnew.In4_Cu, "3V3", v3, "3V3 island (In4) at the 3.3 V buck output", 5, 0.25, PLANE_CLR)
+    add_zone(board, pcbnew.In4_Cu, None, nc2, "NoConnect_P2 (In4, no net: Sofar Q10)", 6, 0.25, PLANE_CLR)
+    add_zone(board, pcbnew.In4_Cu, None, nc1, "NoConnect_P1 (In4, no net: Sofar Q10)", 6, 0.25, PLANE_CLR)
     log["planes"]["In4"] = {"VBUS": "strip x 23.2-38 full height + west half y 26-64.5 (ADIN islands cut it, priority 7)",
-                            "P_IN": [11.0, 8.0, 16.6, 25.7], "VBUS east of P_IN": [16.8, 8.0, 23.2, 26.0], "3V3": [33.4, 24.0, 38.0, 38.0],
+                            "P_IN": [11.0, 8.0, 16.6, 25.7], "VBUS east of P_IN": [16.8, 8.0, 23.2, 26.0], "3V3": [33.4, 24.0, x1, 38.0],
                             "NoConnect": [[3.5, 13.5, 9.5, 20.0], [3.5, 45.0, 9.5, 51.5]]}
     # 5 V to the Pi: a bottom-side pour under JP1 / L6 for the output caps (BRIEF §6: ≥ 1.0 mm or a pour); the links
     # L6 → JP1 → J1 pins 2/4 are 1.0 mm top-layer tracks (OPTIONS Q3)
     # (the pour reaches under the 5 V cell's bottom-side dividers R37-R40 / C53 / C54 at y 21-24, which split it into
     # islands; session 2: each island gets a via into the copied Top output pour where that covers it (zone_stitch,
     # other_layer_copper) instead of a 1.0 mm track; the divider's tap R37.1 is one of those islands)
-    pi5 = poly_from_rects([(29.7, 7.5, 38.0, 24.0)])
+    pi5 = poly_from_rects([(29.7, 7.5, x1, 24.0)])
     add_zone(board, pcbnew.B_Cu, N("5V_PI"), pi5, "5V_PI pour (B.Cu) under JP1 / L6 / U10", 3, solid=True)
     # and the same rectangle on Internal 2, as the mote carries the buck's output on a plane island (3V3 on In4): the
     # bottom pour's islands (the dividers R37-R40 cut it) each get a via into this patch (zone_stitch), and the patch
     # keeps 0.25 mm from the few Internal 2 tracks that cross the strip's north end
-    add_zone(board, pcbnew.In3_Cu, N("5V_PI"), poly_from_rects([(29.7, 7.5, 38.0, 24.0)]), "5V_PI patch (In3) under the 5 V cell", 3, 0.25, 0.25)
-    log["planes"]["5V_PI"] = {"B.Cu pour": [29.7, 7.5, 38.0, 24.0], "In3 patch": [29.7, 7.5, 38.0, 24.0]}
+    add_zone(board, pcbnew.In3_Cu, N("5V_PI"), poly_from_rects([(29.7, 7.5, x1, 24.0)]), "5V_PI patch (In3) under the 5 V cell", 3, 0.25, 0.25)
+    log["planes"]["5V_PI"] = {"B.Cu pour": [29.7, 7.5, x1, 24.0], "In3 patch": [29.7, 7.5, x1, 24.0]}
     # bottom-side GND pour over the whole board, as the mote's bottom layer (it is what joins Sofar's decoupling caps
     # under U1 and the 1.8 V buck to GND there); the insert pull-backs and the M3 holes' rule areas cut it
     gndb = pcbnew.SHAPE_POLY_SET(body)
@@ -172,12 +186,20 @@ def make_planes(board):
     log["planes"]["GND_B"] = "bottom pour, whole board, priority 0 (the 5V_PI pour is priority 3)"
 
 
-def bus_feeds(g):
-    """Insert ring → inductor bus pad, 1.5 mm wide on Top (BRIEF §6: ≥ 1.0 mm, short and wide)."""
-    feeds = [("MP3", "BM2_P", (1.5, 12.0), (10.0, 12.49)), ("MP4", "BM2_N", (1.5, 21.4), (10.0, 21.01)),
-             ("MP1", "BM1_P", (1.5, 43.6), (10.0, 39.99)), ("MP2", "BM1_N", (1.5, 53.0), (10.0, 48.5))]
-    for ref, net, a, b in feeds:
+def bus_feeds(g, board):
+    """Insert ring → inductor bus pad, 1.5 mm wide on Top (BRIEF §6: ≥ 1.0 mm, short and wide). From 3.31 mm east of the
+    insert's centre (inside Sofar's arc, r 2.43–3.63; the track's round end then stays 0.36 mm from the Ø4.4 hole: JLCPCB
+    NPTH-to-track 0.2, board 0.25, DFM.md row 13) to the inductor's pad of that net, with one bend 2.5 mm out."""
+    pads = {}
+    for ref in ("L1", "L2"):
+        for p in geom.fp_by_ref(board)[ref].Pads():
+            if p.GetNetname().rsplit("/", 1)[-1] in geom.INSERT_NET.values():
+                pads[p.GetNetname().rsplit("/", 1)[-1]] = geom.xy(p.GetPosition())
+    for ref, (ix, iy) in geom.INSERTS.items():
+        net = geom.INSERT_NET[ref]
         name = N(net)
+        a = (ix + 3.31, iy)
+        b = pads[net]
         mid = (a[0] + 2.5, a[1])
         g.add_track(name, a, mid, pcbnew.F_Cu, 1.5)
         g.add_track(name, mid, b, pcbnew.F_Cu, 1.5)
@@ -238,6 +260,7 @@ def pad_of(board, ref, num):
 PAIR_START_RUN = 0.5     # mm of straight virtual track leaving the pins beyond the 0.5 mm pin stub (the tracks leave the pins straight)
 PAIR_PAD_RUN = 0.6       # mm from a T pad's centre to its near edge (the pads are 1.2 mm long): the pitch is reached there
 PAIR_STAGGER = 0.33      # least distance between the pins' two vias along the exit direction: with the 0.5 mm pin pitch the centres are 0.6 apart (0.45 vias, 0.15 gap)
+PAIR_MARGIN = 0.3        # session 2.b (QE round 2 N2): a pair is kept under the mote's length by at least this much when any candidate manages it
 
 
 def pair_check(board, P, Nn, pins_pads):
@@ -276,12 +299,16 @@ def route_pairs(g, board):
     The pads' approach lane and the pins' stub are forbidden cells, so the path cannot cross them. One swap via where
     the pin and pad order demand it (pair_parity). The emitted copper is checked on the board (pair_check) and taken
     off again if it fails; the other swing side is tried next, then the pair is reported open."""
-    for port, (pn, nn, (uref, up, un), (tref, tp, tn), limit, dir_out, dir_in) in PAIRS.items():
+    fps_ = geom.fp_by_ref(board)
+    for port, (pn, nn, (uref, up, un), (tref, tp, tn), limit) in PAIRS.items():
         P, Nn = N(pn), N(nn)
         pins = (geom.xy(pad_of(board, uref, up).GetPosition()), geom.xy(pad_of(board, uref, un).GetPosition()))
         pads = (geom.xy(pad_of(board, tref, tp).GetPosition()), geom.xy(pad_of(board, tref, tn).GetPosition()))
         pin_mid = ((pins[0][0] + pins[1][0]) / 2, (pins[0][1] + pins[1][1]) / 2)
         pad_mid = ((pads[0][0] + pads[1][0]) / 2, (pads[0][1] + pads[1][1]) / 2)
+        dir_out = axis_dir(geom.xy(fps_[uref].GetPosition()), pin_mid)       # out of U1 through the pins
+        dir_in = axis_dir(pad_mid, geom.xy(fps_[tref].GetPosition()))        # into the transformer through its data pads
+        log["notes"].append(f"pair port {port}: pins out {dir_out}, pads in {dir_in}")
         S = (pin_mid[0] + 0.5 * dir_out[0], pin_mid[1] + 0.5 * dir_out[1])                     # 0.1 mm past the pins' ends
         S1 = (S[0] + PAIR_START_RUN * dir_out[0], S[1] + PAIR_START_RUN * dir_out[1])          # a Top start: the A* starts here
         # the approach: A' (the A* goal, on Top or Internal 1) → 0.3 mm straight → A (the via pair when the path is on
@@ -361,6 +388,19 @@ def route_pairs(g, board):
         beyond = (pad_mid[0] + 1.5 * dir_in[0], pad_mid[1] + 1.5 * dir_in[1])
         a1 = (A[0] + 0.15 * dir_in[0], A[1] + 0.15 * dir_in[1])
         lane_end = router.Grid.lane_cells(a1, beyond, 0.9)           # the approach lane is forbidden to the A*
+        # session 2.b (trial 5): the half-plane behind the pads is forbidden too (trial 6 also forbade the half-plane behind the
+        # pins, which left port 2 no path at all). With
+        # the mote's own U1 / T1 geometry (pins 2.2 mm west and 3.9 mm north of the pads, both facing east) the A* found
+        # its 2 mm of straight run for the swap figure by going past the pads and turning back, and the two offset tracks
+        # crossed at the U-turn (every candidate failed the board check). Sofar enters the pads from the body side with
+        # vias; our emitter enters along the lane, so the path must stay on the pins' side of the pads.
+        behind = set()
+        for cx in range(router.W):
+            for cy in range(router.H):
+                x, y = router.pos(cx, cy)
+                if (x - pad_mid[0]) * dir_in[0] + (y - pad_mid[1]) * dir_in[1] > 0.3:
+                    behind.add((cx, cy))
+        lane_end |= behind
         goals = {(F,) + router.cell(*A)} | ({(I1,) + router.cell(*A)} if end_vias else set())
         log["notes"].append(f"pair port {port}: start variants {[v[0] for v in variants]}; via pair at the pads' approach {'fits' if len(goals) > 1 else 'does not fit'}")
         # the swap figure makes the far track longer: try each start variant and swing side, shortest first, and keep
@@ -396,7 +436,10 @@ def route_pairs(g, board):
             log["pairs"].append({"port": port, "ok": False})
             continue
         scored.sort(key=lambda c: c[0])
-        Lmax, side, full, swaps, sv = scored[0]
+        within = [c for c in scored if c[0] <= limit - PAIR_MARGIN]
+        if scored[0][0] > limit - PAIR_MARGIN:
+            log["notes"].append(f"pair port {port}: no candidate keeps the {PAIR_MARGIN} mm margin under the {limit} mm limit (best {scored[0][0]:.2f})")
+        Lmax, side, full, swaps, sv = (within or scored)[0]
         stats = g.commit_pair((P, Nn), full, pins, pads, swaps, dir_in=dir_in, pad_run=PAIR_PAD_RUN, dir_out=dir_out, start_vias=sv)
         ok, probs, worst = pair_check(board, P, Nn, (pins, pads))
         log["notes"].append(f"pair port {port}: parity {parity}, {side}, starts on {board.GetLayerName(full[0][0])}, ends on {board.GetLayerName(full[-1][0])}, swap figures at {sorted((router.pos(*c), sd) for c, sd in swaps.items())}; board check {'ok' if ok else 'FAILED'}, min P-N clearance {worst:.3f} mm")
@@ -408,11 +451,29 @@ def route_pairs(g, board):
                                  "ok": total <= limit, "parity": parity})
 
 
-# where each regulator's fan-out vias may go (board frame): U2 sits in the pocket's south exit, which the port-2 pair
-# must cross on Top / Internal 1; Sofar's AVDD / GND vias at y 36.8-36.9 bound the pair's lane on the north, so a via
-# south of U2 must leave y 37.35-38.3 free for the 0.6 mm band: U2's vias go to the exit's south-west corner (x < -2.8,
-# y > 38.5, inside MP1's keep-out limit of y 38.7 at x -3); U3 is west of the pair's start
-FANOUT_SPOTS = {"U2": lambda x, y: x < -2.8 and y > 38.5, "U3": lambda x, y: x < -4.3 or y > 37.6}
+# where each regulator's fan-out via may go: anywhere but the two pairs' exit lanes (±1.5 mm beside each port's pin pair,
+# 4 mm out from U1 along the pins' direction): the pairs leave U1 straight through those lanes (route_pairs) and route
+# around whatever vias sit elsewhere. Session 2's pocket layout sent U2's vias to the exit's south-west corner by hand;
+# trial 2 of the centre layout forbade the whole band along U1's port edges and left 3 of 4 balls without a spot.
+def fanout_allowed(board, ref):
+    fps = geom.fp_by_ref(board)
+    u1 = geom.xy(fps["U1"].GetPosition())
+    lanes = []
+    for port, (pn, nn, (uref, up, un), *_rest) in PAIRS.items():
+        a, b = geom.xy(pad_of(board, uref, up).GetPosition()), geom.xy(pad_of(board, uref, un).GetPosition())
+        mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+        lanes.append((mid, axis_dir(u1, mid)))
+
+    def ok(x, y):
+        for mid, (dx, dy) in lanes:
+            along = (x - mid[0]) * dx + (y - mid[1]) * dy
+            lat = abs((x - mid[0]) * dy - (y - mid[1]) * dx)
+            if -0.5 <= along <= 4.0 and lat <= 1.5:
+                return False
+        return True
+    return ok
+
+
 FANOUT_REACH = {"U2": 2.6}
 
 
@@ -442,7 +503,7 @@ def fanout(g, board, refs=("U2", "U3"), max_r=1.7):
             s_esc = router.cluster_escapes(g, cluster, cls, net, side)   # route hop to Top at the ball and cross the pair's lane)
             done = False
             for spot in g.find_via_spots(net, p, rv, max_r=FANOUT_REACH.get(ref, max_r), count=8, xr=g.xradii(net, vdia, clear), dia=vdia, clr=clear, drill=vdrill,
-                                         also=FANOUT_SPOTS.get(ref, lambda x, y, py=p[1]: y > py - 0.3)):
+                                         also=fanout_allowed(board, ref)):
                 cx, cy = router.cell(*spot)
                 path = g.route(net, s_cells | set(s_esc), {(side[0], cx, cy)}, cls, layers=side, via_ok=False, max_nodes=80000)
                 if path is None:
@@ -568,8 +629,8 @@ def prestitch(g, board, plane, max_r=1.5, net_name="GND", skip_pocket=True, only
         if only_ref is not None and pad.GetParentFootprint().GetReference() != only_ref:
             continue
         p = geom.xy(pad.GetPosition())
-        if skip_pocket and p[0] < 7.0 and 25.0 < p[1] < 40.0:
-            continue          # the ADIN pocket: U1's escapes need every free cell there; stitched after the signals
+        if skip_pocket and ADIN_AREA and ADIN_AREA[0] <= p[0] <= ADIN_AREA[2] and ADIN_AREA[1] <= p[1] <= ADIN_AREA[3]:
+            continue          # the ADIN block's area: U1's escapes need every free cell there; stitched after the signals
         if pad.m_Uuid.AsString() in g.exclude_ids:
             continue
         s_cells = g.pad_cells(pad)
@@ -723,6 +784,12 @@ def main():
         if ni and ni.GetNetname():
             NETS[ni.GetNetname().rsplit("/", 1)[-1]] = ni.GetNetname()
     polys = planes(board)
+    global ADIN_AREA
+    blocks = {b["name"]: b for b in json.load(open(geom.EXP / "blocks.json"))["blocks"]}
+    fpsA = geom.fp_by_ref(board)
+    cys = [geom.courtyard_bbox(fpsA[r]) for r in blocks["ADIN"]["placed"]]
+    ADIN_AREA = (min(c[0] for c in cys) - 1.0, min(c[1] for c in cys) - 1.0, max(c[2] for c in cys) + 1.0, max(c[3] for c in cys) + 1.0)
+    log["notes"].append(f"ADIN block area (prestitch skipped inside): {tuple(round(v, 1) for v in ADIN_AREA)}")
     g = router.Grid(board, merge={N(nn): N(pn) for pn, nn, *_ in PAIRS.values()})
     log["notes"].append(f"grid {router.W}x{router.H} cells at {router.PITCH} mm built in {time.time() - t0:.0f} s")
     # The Kelvin sense traces (U4.1-R8.2 on P_IN, U4.2-R8.1 on VBUS, Sofar's 0.2032 mm Bottom tracks, copied whole) and
@@ -739,8 +806,14 @@ def main():
             g.exclude_ids.add(t.m_Uuid.AsString())
             nk += 1
     log["notes"].append(f"Kelvin sense traces protected: {nk} tracks + U4 pads 1/2 excluded from routing starts/ends and stitching")
-    bus_feeds(g)
-    # 0. the regulators' balls get their vias first (fanout)
+    bus_feeds(g, board)
+    # 0. SPI first (session 2.b, Nick: the SPI is how the Pi talks to the ADIN; it goes straight from U1 to J1's SPI pins on
+    #    a reserved Internal 2 lane, routed before anything else can take the room, never along a board edge; no length
+    #    matching, LESSONS §5). Internal 2 at cost 1.0, Internal 1 at 1.5, the outer layers forbidden for these nets.
+    for short in ("ADIN_SCK", "ADIN_MOSI", "ADIN_MISO", "~{ADIN_CS}"):
+        L = route_net(g, board, N(short), layers=[F, I3, I1], layer_cost={I3: 1.0, I1: 1.5, F: 3.0}, max_nodes=1500000, via_cost=6.0)
+        routed(short, L, "signal (SPI lane, Internal 2, first)")
+    # 0b. the regulators' balls get their vias next (fanout)
     fanout(g, board)
     # 1. the ADIN pairs, coupled, Top + Internal 1
     route_pairs(g, board)
@@ -771,8 +844,7 @@ def main():
             prestitch(g, board, polys[pn], net_name=pn)
     # 5. the ADIN pocket's planned nets (OPTIONS §2.3): SPI + ~{INT} + ~{CS} east on Internal 2 under U1 to J1; ~{RST} on
     #    Internal 1/2 from U1's east side; ADIN_PWR from U2/U3 on Internal 2
-    for short, pref in (("~{ADIN_INT}", {I3: 1.0, I1: 1.1, F: 2.5, B: 2.5}), ("ADIN_MOSI", PREF_I3), ("ADIN_MISO", PREF_I3), ("ADIN_SCK", PREF_I3), ("~{ADIN_CS}", PREF_I3),
-                        ("~{ADIN_RST}", PREF_I1)):
+    for short, pref in (("~{ADIN_INT}", {I3: 1.0, I1: 1.1, F: 2.5, B: 2.5}), ("~{ADIN_RST}", PREF_I1)):
         L = route_net(g, board, N(short), layer_cost=pref, max_nodes=1500000, via_cost=6.0)
         routed(short, L, router.net_class(N(short)) + " (pocket corridor)")
     # 6. the rails into the pocket's south: 3V3 to U3 first (the longest way, from the island), then 1V8 (B18 -> U2) and

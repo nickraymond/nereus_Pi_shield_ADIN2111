@@ -19,8 +19,13 @@ import motecopy
 import router
 from geom import MM, mm, V
 
-HAND_VIAS = [
-    {"block": "ADIN", "net": "/Top-Level Schematic/~{ADIN_INT}", "mote_via": [156.571, 107.509], "at": [-6.75, 30.25], "dia": 0.45, "drill": 0.2,
+import os
+# the hand via is only needed when the ADIN block sits at the west edge (VARIANT=pocket); in the centre placement the
+# region keeps Sofar's own via (mote y 107.509 is inside the full region's west edge 107.5)
+# centre (U1 at rot 0, the full region): no hand via, Sofar's ~{ADIN_INT} via is copied; pocket (rot 90, region clipped at
+# mote y 107.9 for the board edge): the via at the clip line's stub ends, (-5.05, -2.25) from U1 (session 2: (-6.75, 30.25) for U1 at (-1.7, 32.5))
+HAND_VIAS = [] if os.environ.get("VARIANT", "centre") == "centre" else [
+    {"block": "ADIN", "net": "/Top-Level Schematic/~{ADIN_INT}", "mote_via": [156.571, 107.509], "rel_u1": [-5.05, -2.25], "dia": 0.45, "drill": 0.2,
      "joins": "Sofar's ~{ADIN_INT} fan-out: the Top lead-out from U1.39 (ends at (-6.804, 30.3)) and the Bottom lead-out to R1.1 "
               "(ends at (-6.804, 30.2)), both clipped at the ADIN region's west edge (mote y 107.9, OPTIONS Q5)",
      "why": "on the mote the via joins the two; transformed it lands at (-7.19, 29.93), 0.08 mm inside the board edge and inside "
@@ -33,7 +38,11 @@ def hand_vias(board, data):
     """Add HAND_VIAS and prove each on the board (fail loudly otherwise)."""
     o = geom.OUTLINE
     recs = []
+    blocks = {b["name"]: b for b in data["blocks"]}
     for hv in HAND_VIAS:
+        if "rel_u1" in hv:          # session 2.b: the spot follows the ADIN block (session 2 had it absolute at (-6.75, 30.25) for U1 at (-1.7, 32.5))
+            d = blocks[hv["block"]]["dst"]
+            hv["at"] = [round(d[0] + hv["rel_u1"][0], 3), round(d[1] + hv["rel_u1"][1], 3)]
         x, y = hv["at"]
         r = hv["dia"] / 2
         v = pcbnew.PCB_VIA(board)

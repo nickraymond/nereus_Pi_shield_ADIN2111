@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Rebuild the experiment board from the schematic: M0 netlist + board, then each milestone script in order.
+# VARIANT=centre|pocket picks the placement (tools/m2_place.py, session 2.b); default centre.
 # Every step is a plain script; rerunning the pipeline is the only way the board changes (no hand edits, KiCad closed).
 #   tools/build_all.sh [m0…m4]        stop after this milestone
 #   START=m4 tools/build_all.sh       rerun the routing alone from the M3 snapshot (out/m3/snapshot.kicad_pcb)
@@ -39,6 +40,11 @@ for step in m2_place m3_copy m4_route; do
     cp out/m3/snapshot.kicad_pcb "$PCB"; cp out/m3/blocks.snapshot.json blocks.json
   fi
   "$PY" "tools/$step.py" 2>&1 | filter
+  if [ "$step" = m2_place ]; then
+    # silk to JLCPCB's legend limits (DFM.md rows 17-19): line widths, reference text size and spots, lines over pads
+    "$PY" tools/dfm_fix.py 2>&1 | filter
+    mkdir -p out/m2; "$K" pcb drc --schematic-parity --severity-all --format json -o out/m2/drc.json "$PCB" >/dev/null
+  fi
   if [ "$step" = m3_copy ]; then
     # trim Sofar's clipped lead-outs (dead ends toward the mote's processor) before routing: they would block the
     # ADIN pocket's exits; every trimmed item is recorded in blocks.json (blockcheck lists them as trimmed)
