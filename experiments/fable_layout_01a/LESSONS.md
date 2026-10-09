@@ -73,6 +73,11 @@ design review (`out/review/index.html`) are the pictures behind this text.*
   through M2 on a scratch copy (centre vs pocket, numbers side by side); the centre is the preferred answer unless
   the trial shows it cannot meet the bar.
 
+- **Cut jumpers visible and reachable.** JP1 (5 V to the Pi) and JP2 (the LED supply) go on the top side near a
+  board edge with no tall part beside them, so a user can see them and cut them. Today JP1 is on top at the strip's
+  north end between L6 (an inductor) and J1; JP2 is on the bottom under the LEDs. 2.b places both at an edge on top
+  and says what their nets' routing costs.
+
 ## 4. What 2.b has to do, in order
 
 1. Fetch and encode JLCPCB's limits (BRIEF §6 list) into `.kicad_pro` / `.kicad_dru`; `DFM.md` with URL + date per
