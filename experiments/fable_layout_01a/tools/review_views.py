@@ -128,6 +128,28 @@ def write_page(out, index, head):
     h = [f"<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Layout 1.a design review</title><style>{css}</style></head><body><main>"]
     h.append(head)
     h.append("<p class='legend mut'>Colours: <span style='background:#cc3597'></span>data pairs <span style='background:#178a42'></span>bus <span style='background:#d2412f'></span>VBUS <span style='background:#2d67d2'></span>3V3 <span style='background:#8b4cc6'></span>rails <span style='background:#c9a000'></span>5 V to the Pi <span style='background:#2a302d'></span>signals / GND tracks <span style='background:#8b928e'></span>GND fills. Left: Sofar's mote, its copper placed as this board places the block. Right: this board. Same renderer, same region, same scale (grid 0.1 mm cells; the images are 40 px/mm).</p>")
+    pl = geom.OUT / "review" / "pair_lengths.json"
+    if pl.exists():
+        PL = json.load(open(pl))
+        h.append("<h2>Critical pairs: P versus N length</h2>")
+        h.append("<p>The two 10BASE-T1L data pairs are the board's only length-critical nets (BRIEF §6: each leg no longer than the mote's; the mote's own legs differ too: Sofar's port-1 pair is 9.5 / 9.5 by the limit but his copper is not equal either). "
+                 "Track lengths only, vias not counted, from <code>tools/pair_lengths.py</code> walking each net from U1's pin to the transformer pad. Where the P–N difference comes from, per pair:</p>")
+        for port in sorted(PL, key=int):
+            r = PL[port]
+            P, N = r["P"], r["N"]
+            pP, pN = r["parts"][P], r["parts"][N]
+            h.append(f"<h3>Port {port}: {P} {pP['total']} mm vs {N} {pN['total']} mm (difference {pP['total'] - pN['total']:+.2f} mm; limit {r['limit']} mm each)</h3>")
+            h.append("<table><tr><th>Part of the route</th><th>P mm</th><th>N mm</th><th>P − N</th><th>Why</th></tr>")
+            why = {"pins' exit (stub + start vias)": "two 0.45 mm vias do not fit side by side at U1's 0.5 mm pin pitch, so one leg's via sits 0.53 mm further out and that leg runs longer at the pins' pitch before narrowing to the pair's 0.4 mm (port 1); on Top both stubs are equal (port 2)",
+                   "swap figure": "the pin order and the pad order are opposite, so P and N must cross once: the near track dives and the far track swings 0.5 mm out around its via, which adds ≈ 0.5 mm to the far track",
+                   "runs and bends": "on a coupled pair every bend puts one leg on the inside and the other on the outside: ≈ 0.4 mm per 90° turn, ≈ 0.17 mm per 45°; the bends do not all cancel",
+                   "approach into the pad": "the last 1.4 mm: the legs spread from the 0.4 mm pitch to the pads' 0.65 mm pitch and enter straight; equal by construction"}
+            for cat in ("pins' exit (stub + start vias)", "swap figure", "runs and bends", "approach into the pad"):
+                a, b = pP[cat], pN[cat]
+                h.append(f"<tr><td>{cat}</td><td class='num'>{a:.2f}</td><td class='num'>{b:.2f}</td><td class='num'>{a - b:+.2f}</td><td>{why[cat]}</td></tr>")
+            h.append(f"<tr><td><b>total</b></td><td class='num'><b>{pP['total']:.2f}</b></td><td class='num'><b>{pN['total']:.2f}</b></td><td class='num'><b>{pP['total'] - pN['total']:+.2f}</b></td><td>at 7.5 MBaud (10BASE-T1L) the skew of 0.6 mm is ≈ 4 ps against a 133 ns symbol; the brief holds each leg to the mote's length, not P to N</td></tr></table>")
+            h.append(f"<figure><img src='pair_{port}_legs.svg' alt='port {port} legs'><figcaption>Port {port}: both legs from U1's pins to the transformer pads; P magenta, N blue; solid Top, dashed Internal 1; circles are vias; the dashed ring marks the swap figure.</figcaption></figure>")
+        h.append("<p>To equalise P and N the next router step would mirror the start stagger at the pads (the far-via leg gets the near pad) and place the swap where a bend cancels it; both are emitter changes, not placement.</p>")
     for row in index:
         n = NOTES.get(row["region"], {})
         x0, y0, x1, y1 = row["rect"]
