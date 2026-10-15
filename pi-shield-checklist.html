@@ -257,9 +257,9 @@ const S = [
   intro:"20 boards: 6 for Sofar (due 11/30), 10 for you, 4 for scrap; dev units, no potting (D32). Critical parts go into JLC stock now; PCBA order target 10/30, fallback 11/3.",
   items:[
   ["S8.a: parts buy plan", `<p>docs/design-review/jlc_parts_buy_2026-10.md: U1, U2/U3, L3/L6, Y1, D1 (Vishay), D2/D3, MP1–MP4 by JLC global sourcing; J5 from JLC stock (C189893). Quantities with JLC attrition, prices, stock and lead times read 2026-10-15. Parts at JLC 10/29–11/13 if paid 10/16 (China time); a 10/30 PCBA order arrives ≈ 11/13–11/18. The PCBA order also waits on Sofar's review of the planned passives.</p>`, null, 1],
-  ["S8.a: QE review", `<p>Approved with nits in round 1 (timeline wording, Sofar-review dependency, China time, Y1 look-alike -6-K2Z-T3), all fixed. docs/design-review/qe/S8.md.</p>`, null, 1],
+  ["S8.a: QE review", `<p>Approved with nits in round 1 (timeline wording, Sofar-review dependency, China time, Y1 look-alike -6-K2Z-T3), all fixed; round 2 approved with 3 wording nits, fixed. docs/design-review/qe/S8.md.</p>`, null, 1],
   ["S8.a: buy the parts on JLC", `<p>Follow the steps in the doc (you buy; agents never log in or pay). Fill in the purchase record; flag any line with a lead time over 15 business days.</p>`, "nick"],
-  ["Flagged passives after Sofar's review", `<p>R8, R15/R16, C22/C23 and the commodity R/C lines (D27). If R8, R15/R16 or C22/C23 stay as specified, they need global sourcing too.</p>`],
+  ["Flagged passives after Sofar's review", `<p>R8, R15/R16, C22/C23 and the commodity R/C lines (D27). If R8, R15/R16 or C22/C23 stay as specified, or Sofar rejects any planned alternate, those lines need global sourcing too (9–20 business days).</p>`],
   ["JLC PCBA order", `<p>Target Fri 10/30, fallback Tue 11/3; it can only use the parts once they're in your JLC parts library.</p>`, "nick"],
   ["J5 sourcing field", `<p>At the next schematic edit: J5's SOURCING field → JLC stock (C189893), so bom.csv matches.</p>`]
 ]},

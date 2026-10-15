@@ -16,8 +16,9 @@ Nick, 4 for scrap. Dev units, no potting. JLC PCBA order target is Fri 10/30, wi
   11/18 if the 1–3-day review comes on top). A PCBA order can only use them once they arrive. So **10/30 needs the best
   case and 11/3 nearly so; plan on 11/6–11/13** until the checkout shows each line's lead time. Each day you wait moves
   the whole window, so pay as soon as you've checked the lines.
-- **The PCBA estimate holds.** An order on 10/30 arrives about **Fri 11/13 to Wed 11/18** (up to 3 days earlier if JLC's
-  1–2-day assembly figure applies), so your ~11/13–16 fits. Sofar's 11/30 holds for a PCBA order placed by about 11/6;
+- **The PCBA estimate holds.** An order on 10/30 arrives about **Fri 11/13 to Wed 11/18 or later** (up to 3 days earlier if
+  JLC's 1–2-day assembly figure applies), so your ~11/13–16 fits. Sofar's 11/30 holds only just for a PCBA order placed by
+  about 11/6 (arrives by Wed 11/25 at the 4-day assembly floor, before Thanksgiving, your check and forwarding);
   later than that it's at risk (see Timeline). The PCBA order also waits on Sofar's review of the planned passives.
 
 ## What to buy
@@ -210,7 +211,7 @@ Use this only for a line global sourcing can't supply. It's slower and dearer fo
 
 ## Sources (all read 2026-10-15)
 
-JLC shows each help page's "Last updated" date in the reader's time zone: this session saw Sep 08 (the sourcing page Sep
+JLC probably shows each help page's "Last updated" date in the reader's time zone (likely, not verified): this session saw Sep 08 (the sourcing page Sep
 09), and the QE saw Sep 09.
 
 - [global sourcing guide]: JLCPCB, "How to use JLCPCB Global Sourcing Parts Service?", updated 2026-09-08/09,

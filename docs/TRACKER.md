@@ -357,7 +357,7 @@ Fri 10/30 (fallback Tue 11/3).*
       JLC stock, C189893); quantities, attrition, prices, stock and lead times read 2026-10-15; steps for Nick. Global
       sourcing (9–20 business days) is the critical path: parts at JLC 10/29–11/13 if paid 10/16 (China time); a 10/30 PCBA
       order arrives ≈ 11/13–11/18; the PCBA order also waits on Sofar's review of the planned passives (D27)
-- [x] S8.a: QE review (fresh S8 session): **APPROVED WITH NITS** in round 1 (4 minor, 6 nits), fixed —
+- [x] S8.a: QE review (fresh S8 session): **APPROVED WITH NITS** in round 1 (4 minor, 6 nits), fixed; round 2 **APPROVED WITH NITS** (3 wording nits), fixed —
       `docs/design-review/qe/S8.md`
 - [ ] S8.a: Nick buys the parts on JLC (he does the purchase; agents never log in or pay) and fills in the purchase record
 - [ ] Flagged passives (R8, R15/R16, C22/C23, commodity R/C) bought after Sofar's review (D27)
