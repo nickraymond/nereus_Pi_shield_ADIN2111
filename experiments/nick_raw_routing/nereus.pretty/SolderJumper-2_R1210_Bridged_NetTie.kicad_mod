@@ -1,0 +1,143 @@
+(footprint "SolderJumper-2_R1210_Bridged_NetTie"
+	(version 20241229)
+	(generator "nereus_tools")
+	(layer "F.Cu")
+	(descr "1210 (3225 metric) 0 ohm resistor pads, geometry from the Sofar mote's R11 (Vault:FP-CRCW1210-e3-IPC_B), joined by a 1.0 mm copper bridge (net tie): connected as fabricated. Cut the bridge to open; refit a 0 ohm 1210 (Vishay CRCW12100000Z0EA, as R11) to close again. To cut: score both ends of the bridge, lift the copper out, check open with a meter. No paste: nothing is placed by assembly.")
+	(tags "net tie jumper bridged 1210 0R cuttable")
+	(property "Reference" "REF**"
+		(at 0 -2.4 0)
+		(layer "F.SilkS")
+		(uuid "2dd14ede-1c99-4c43-b70f-bd906e062693")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SolderJumper-2_R1210_Bridged_NetTie"
+		(at 0 2.4 0)
+		(layer "F.Fab")
+		(uuid "ecf76e23-47cd-44e4-9ee7-20b945b1314f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "efaf8fef-808e-4079-a12e-697c91f5db21")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2504908c-638b-4835-a5f1-2dbf1ba6d422")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+	(net_tie_pad_groups "1, 2")
+	(fp_poly
+		(pts
+			(xy -0.9 -0.5) (xy 0.9 -0.5) (xy 0.9 0.5) (xy -0.9 0.5)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Cu")
+		(uuid "3aa82124-5e90-41dc-9200-55132a325086")
+	)
+	(fp_rect
+		(start -0.85 -0.6)
+		(end 0.85 0.6)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Mask")
+		(uuid "c8530e46-1373-4268-9f37-54287b9152c3")
+	)
+	(fp_line
+		(start 0.4732 1.6)
+		(end -0.4732 1.6)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f38ae8c3-a932-428e-a04c-c30e62666a20")
+	)
+	(fp_line
+		(start 0.4732 -1.6)
+		(end -0.4732 -1.6)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "32b9202c-586b-4d9e-a5b6-cfca9fefaec9")
+	)
+	(fp_rect
+		(start -1.6 -1.25)
+		(end 1.6 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "75d065c7-5fdf-4874-b586-cd18846135b8")
+	)
+	(fp_rect
+		(start -2.3031 -1.6031)
+		(end 2.3031 1.6031)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "1868c4e9-cf14-45ed-bf19-05a629963e72")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "7f5e8b84-3a9f-42cd-84f5-422eb7c0dd6c")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.09)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.45065 0)
+		(size 1.2049 2.7062)
+		(layers "F.Cu" "F.Mask")
+		(uuid "12b47548-9541-44b1-8e91-cc11b944e2b0")
+	)
+	(pad "2" smd rect
+		(at 1.45065 0)
+		(size 1.2049 2.7062)
+		(layers "F.Cu" "F.Mask")
+		(uuid "6ba2704a-9053-4d27-966e-0994d9cf2bd7")
+	)
+)
