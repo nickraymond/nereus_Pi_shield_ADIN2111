@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-07 · Owner/gate: **Nick***
+*Last updated: 2026-10-15 · Owner/gate: **Nick***
 
 ---
 
@@ -348,6 +348,21 @@ block. Scoped exception to rules 8/9 (D31): the run writes only its own board in
 **Demo (Nick):** read `experiments/fable_layout_01/BRIEF.md`; `$PY experiments/fable_layout_01/tools/render_layers.py
 KiCAD_reference_designs/20250409_BM_Mote_000639-AB/BM_Mote_000639-AB.kicad_pcb /tmp/mote_layers` → six SVGs (top, in1–in4,
 bot) that match the walkthrough's layer views.
+
+### S8 — First build (20 boards)  `[~]`
+*Nick, 2026-10-14 (D32): 20 boards (6 for Sofar, paid on receipt, due at Sofar Mon 11/30; 10 for Nick; 4 scrap); dev units,
+no potting. Critical parts bought into JLC parts stock this week so their lead time runs during layout; JLC PCBA order target
+Fri 10/30 (fallback Tue 11/3).*
+- [x] S8.a Parts buy plan → `docs/design-review/jlc_parts_buy_2026-10.md`: 8 lines ≈ $556 (7 JLC global sourcing; J5 back in
+      JLC stock, C189893); quantities, attrition, prices, stock and lead times read 2026-10-15; steps for Nick. Global
+      sourcing (9–20 business days) is the critical path: parts at JLC 10/29–11/13 if paid 10/16; a 10/30 PCBA order arrives
+      ≈ 11/10–11/18
+- [ ] S8.a: QE review (fresh S8 session)
+- [ ] S8.a: Nick buys the parts on JLC (he does the purchase; agents never log in or pay) and fills in the purchase record
+- [ ] Flagged passives (R8, R15/R16, C22/C23, commodity R/C) bought after Sofar's review (D27)
+- [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3)
+**Demo (Nick):** open `docs/design-review/jlc_parts_buy_2026-10.md`: the "In short" box, the buy table and the steps;
+`git diff main --stat` touches only docs and the viewer (no KiCad file).
 
 ---
 
