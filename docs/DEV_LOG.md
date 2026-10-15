@@ -19,6 +19,37 @@ what broke, what's next.*
 
 ---
 
+## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
+
+**Branch:** sprint/8a-jlc-parts-buy
+**Files touched:** docs/design-review/jlc_parts_buy_2026-10.md (new), docs/design-review/qe/S8.md (new); TRACKER (S8),
+DESIGN D32, viewer
+**ERC:** not run (no KiCad file touched; Nick is in KiCad on the layout)  ·  **Net diff:** none
+**Done:**
+- Nick (10/14): 20 boards (6 Sofar by 11/30, 10 Nick, 4 scrap), dev units without potting; buy the critical parts into
+  JLC stock this week; PCBA order target 10/30 (fallback 11/3) → D32, S8
+- Read today, without logging in: JLC library listings, stock and attrition (jlcpcb.com parts search), the global-sourcing
+  and consignment help pages, the instant quote (6 layers, 49 × 68 mm, 20 pcs: PCB 8–9 days, DHL 2–4 BD), and Digi-Key /
+  Mouser stock and prices. Buy: 8 lines ≈ $556; steps and a purchase record for Nick
+- QE round 1 (fresh S8 session): APPROVED WITH NITS, all 10 fixed: PCBA timeline now takes Standard PCBA's ≥ 4-day floor
+  (10/30 order → 11/13–11/18+); "11/3 realistic" → plan on 11/6–11/13; the PCBA order also waits on Sofar's review (a
+  rejected alternate falls back to global sourcing); dates in China time; Y1 look-alike -6-K2Z-T3; demo uses
+  `main...HEAD`; J5's SOURCING field ticketed for the next schematic edit
+- QE round 2: APPROVED WITH NITS (3 wording nits, fixed; no further round needed)
+**Broke/surprised us:**
+- JLC now lists U1, L3/L6, D1, D2/D3 and MP1–MP4 (stock 0 or short); the 10/6 check found no LCSC listing. J5 is back in
+  JLC stock (34,285), so it skips global sourcing
+- Global sourcing is quoted at 9–20 business days (guide) or 9–15 days (sourcing page): the parts, not the board build,
+  set the 10/30 date; only the best case makes it
+- JLC lists 0 attrition for U1, U2/U3, L3/L6, D2/D3: offered +2 spares (≈ $36) as Nick's call
+- R8, R15/R16 (no JLC listing) and C22/C23 (JLC stock 3) will need global sourcing too if Sofar keeps them: a second
+  9–20-day wait after Sofar's review unless bought now (≈ $30, Nick's call)
+- Digi-Key showed a bot check after ~10 pages; stopped there, used Findchips for the last two prices
+- In passing (not fixed): TRACKER still shows S7 open although experiment 1.a merged via PR #31 on 10/9
+**Next:** Nick buys the parts on JLC and records order numbers and lead times; Nick's review and merge of PR #32
+
+---
+
 ## 2026-10-07 — Sprint S7.a — Layout experiment brief (Fable port of the mote layout)
 
 **Branch:** sprint/7a-layout-experiment-brief
