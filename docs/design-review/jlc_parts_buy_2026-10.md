@@ -12,11 +12,13 @@ Nick, 4 for scrap. Dev units, no potting. JLC PCBA order target is Fri 10/30, wi
 - **Buy 8 lines for ≈ $556** (table below). 7 lines go through **JLC global sourcing**. **J5 is back in JLC's own stock**
   (34,285 on 10/15; it was 0 on 10/6), so buy it straight into your parts library.
 - **The parts lead time sets the schedule, not the board build.** JLC quotes global sourcing at **9–20 business days**.
-  Paid Fri 10/16, the parts land at JLC between **Thu 10/29 and Fri 11/13** (Wed 11/18 if the 1–3-day review comes on
-  top). A PCBA order can only use them once they arrive. So **10/30 works only in the best case**, 11/3 is realistic, and
-  each day you wait moves the whole window. **Pay today if you can.**
-- **The PCBA estimate holds.** An order on 10/30 arrives about **Tue 11/10 to Wed 11/18**, so your ~11/13–16 is the middle
-  of that range. Sofar's 11/30 is at risk only if global sourcing runs to the end of its window (see Timeline).
+  Paid by Fri 10/16 China time (that's today, US Pacific), the parts land at JLC between **Thu 10/29 and Fri 11/13** (Wed
+  11/18 if the 1–3-day review comes on top). A PCBA order can only use them once they arrive. So **10/30 needs the best
+  case and 11/3 nearly so; plan on 11/6–11/13** until the checkout shows each line's lead time. Each day you wait moves
+  the whole window, so pay as soon as you've checked the lines.
+- **The PCBA estimate holds.** An order on 10/30 arrives about **Fri 11/13 to Wed 11/18** (up to 3 days earlier if JLC's
+  1–2-day assembly figure applies), so your ~11/13–16 fits. Sofar's 11/30 holds for a PCBA order placed by about 11/6;
+  later than that it's at risk (see Timeline). The PCBA order also waits on Sofar's review of the planned passives.
 
 ## What to buy
 
@@ -34,14 +36,15 @@ Quantities per board are from `docs/design-review/bom.csv`. Buy = 20 × per boar
 | J5 | SM02B-GHS-TB (JST; ordered as SM02B-GHS-TB(LF)(SN)) ⁶ | 1 | 20 | 2 | **22** | **C189893, stock 34,285** | **JLC stock** → My Parts Lib |
 
 ¹ JLC's attrition (`lossNumber`) for the library listing of the same MPN, from jlcpcb.com's parts search, 2026-10-15. JLC
-sets the final figure when you place the PCBA order. ⚑ Y1 has no listing, so 0 is assumed from the ten sibling ABM11W-25
-MHz listings (all 0). **Not verified.**
+sets the final figure when you place the PCBA order. ⚑ Y1 has no listing, so 0 is assumed from the 13 sibling ABM11W 25 MHz
+listings (all 0). **Not verified.**
 ² jlcpcb.com parts search, 2026-10-15. The 10/6 lifecycle check found no LCSC listing for U1, L3/L6, D1 or MP1–MP4. JLC
 lists them now, but with no stock.
 ³ Under JLC's rules, a part used in one PCBA order comes either from JLC stock plus JLC pre-order, or from global sourcing
 plus consignment, never a mix ([global sourcing guide], [consignment T&C]). JLC stock (27 and 10) is short, so buy all 40
 through global sourcing (D26).
-⁴ JLC lists other ABM11W 25 MHz variants (‑6‑B1U, ‑8‑K1Z …). They are not the specified part, so don't pick them.
+⁴ JLC lists 13 other ABM11W 25 MHz variants. The closest look-alike is ‑6‑K2Z‑T3 (C7060656), one character off the
+specified ‑6‑K1Z‑T3; others include ‑6‑B1U and ‑8‑K1Z. None is the specified part, so don't pick them.
 ⁵ Sofar Q7 is still open. The Vishay part is Sofar's own listed second source (D27), and the ST part is obsolete.
 ⁶ Digi-Key lists SM02B-GHS-TB(LF)(SN) as an alias of SM02B-GHS-TB. D26 routed J5 through global sourcing only because
 LCSC was out of stock on 10/6. JLC stock is now the simpler route: it's cheaper, needs no wait, and avoids the $20
@@ -94,7 +97,9 @@ duty of 3–30 % on some part types; its examples are relays, modules and cables
 
 ## Timeline
 
-**1. Parts arrive at JLC** (business days, paid Fri 10/16; a day earlier for each if you pay Thu 10/15):
+**1. Parts arrive at JLC** (business days, China time; JLC runs on UTC+8). The table starts from payment on Fri 10/16 in
+China, which is today in US Pacific time. Paying Friday daytime, Pacific time, lands on Saturday in China: the same dates if
+JLC counts from the next business day, otherwise one day later.
 
 | Global-sourcing lead time | Parts at JLC | PCBA order |
 |---|---|---|
@@ -108,18 +113,27 @@ JLC's two pages disagree on the range: the guide says 9–20 business days and t
 says whether the 1–3-day review is included. **The checkout shows a lead time per part. Read it there, and tell me (or
 put it in the record below) if any line shows more than 15 BD.**
 
-**2. PCBA order → boards in hand** (method in the next section):
+**The PCBA order also waits on Sofar's review (D27).** The first build buys the planned passives after that review. If
+Sofar rejects one of the 9 passive lines D27 changes (R34, R20/R39, R21/R35/R37/R43, C31, C17/C26, C21,
+C16/C18/C24/C25, C19/C27, R14/R18), that line falls back to its specified part. None of those had LCSC stock on 10/6
+(`bom_lifecycle.md`), so it would need global sourcing too: another 9–20 BD from the day it's bought. R8, R15/R16 and
+C22/C23 are the same case (see the optional items above).
+
+**2. PCBA order → boards in hand.** PCB 8–9 days, then Standard PCBA assembly at its "≥ 4 days" floor, then DHL 2–4 BD
+(method in the next section). The "+" marks the open upper end.
 
 | PCBA order | Production done | Arrives (DHL Express) |
 |---|---|---|
-| Fri 10/30 | Sun 11/8 – Thu 11/12 | **Tue 11/10 – Wed 11/18** |
-| Tue 11/3 | Thu 11/12 – Mon 11/16 | Mon 11/16 – Fri 11/20 |
-| Fri 11/13 | Sun 11/22 – Thu 11/26 | Tue 11/24 – Wed 12/2 ✗ |
-| Wed 11/18 | Fri 11/27 – Tue 12/1 | Tue 12/1 – Mon 12/7 ✗ |
+| Fri 10/30 | Wed 11/11 – Thu 11/12+ | **Fri 11/13 – Wed 11/18+** |
+| Tue 11/3 | Sun 11/15 – Mon 11/16+ | Tue 11/17 – Fri 11/20+ |
+| Fri 11/6 | Wed 11/18 – Thu 11/19+ | Fri 11/20 – Wed 11/25+ |
+| Fri 11/13 | Wed 11/25 – Thu 11/26+ | Fri 11/27 – Wed 12/2+ ✗ |
+| Wed 11/18 | Mon 11/30 – Tue 12/1+ | Wed 12/2 – Mon 12/7+ ✗ |
 
-A PCBA order by about 11/6 arrives by Wed 11/25 at worst. Any later and 11/30 depends on luck, and that's before your
-own check of the boards, the forwarding time to Sofar, and the Thanksgiving week (Thu 11/26). If the checkout shows long lead times,
-JLC's 4–5-day PCB expedite (on the quote page) wins back about 4 days.
+A PCBA order by about 11/6 arrives by Wed 11/25 if assembly takes 4 days. Any later and 11/30 depends on luck, and that's
+before your own check of the boards, the forwarding time to Sofar, and the Thanksgiving week (Thu 11/26). If JLC's FAQ
+figure applies (assembly in 1–2 days), each date comes up to 3 days earlier. If the checkout shows long lead times, JLC's
+4–5-day PCB expedite (on the quote page) wins back about 4 days.
 
 ## JLC 6-layer PCBA lead time (as of 2026-10-15)
 
@@ -127,10 +141,11 @@ JLC's 4–5-day PCB expedite (on the quote page) wins back about 4 days.
   outline), 20 pcs, read 2026-10-15. Expedite options: 4–5, 3–4 or 2–3 days at extra cost. It matches JLC's 2026-08-26
   notice ("production lead time 5 days … shown on the website: approximately 8–9 days"). JLC counts build time from the
   start of production to ready-to-ship ([quote page]).
-- **Assembly: 1–2 days to 4+ days.** JLC's PCBA FAQ says assembly starts right after the PCB and 90 % of orders finish
-  within 24 h, 48 h at most. Its capabilities page lists Standard PCBA at "≥ 4 days". **This board needs Standard PCBA**:
-  JLC marks AP22913CN4-7 "PCBA Type: Standard Only, X-ray Inspection: Required", and the layout plans bottom-side
-  parts (D31). So the range above uses 1–4 days.
+- **Assembly: 4+ days for this board.** **This board needs Standard PCBA**: JLC marks AP22913CN4-7 "PCBA Type: Standard
+  Only, X-ray Inspection: Required", and the layout plans bottom-side parts (D31). JLC's capabilities page lists Standard
+  PCBA at "≥ 4 days" (Economic "1 - 3 days") without saying whether that includes the PCB. JLC's PCBA FAQ says assembly
+  starts right after the PCB and 90 % of orders finish within 24 h, 48 h at most. The timeline takes 4 days as the floor
+  and leaves the upper end open; the FAQ figure would make it up to 3 days earlier.
 - **Shipping: DHL Express (DDP), 2–4 business days**, as the quote page showed on 2026-10-15.
 - **Not verified:** the PCBA build time JLC quotes for this exact board. It appears only after a Gerber upload, which is
   yours to do at order time. I didn't upload anything.
@@ -140,7 +155,7 @@ JLC's 4–5-day PCB expedite (on the quote page) wins back about 4 days.
 
 ## Steps: buy the parts on JLC (Nick)
 
-From JLC's global sourcing guide (updated 2026-09-08). A global-sourcing order **cannot be cancelled or returned once
+From JLC's global sourcing guide (updated 2026-09-08/09). A global-sourcing order **cannot be cancelled or returned once
 paid**, so check each MPN before you pay.
 
 1. Sign in at jlcpcb.com and open **Parts Manager → Order Parts → Global Sourcing Parts**.
@@ -148,7 +163,7 @@ paid**, so check each MPN before you pay.
    table. Use `SMA6F33A-M3/H` for D1, not the obsolete ST `SMA6F33A`.
 3. JLC lists several suppliers per part. Pick the one with stock ≥ the Buy qty, an MOQ ≤ the Buy qty and the **shortest
    lead time**; the price is secondary. Check that the maker and the full MPN match exactly. For Y1, the `-6-K1Z-T3`
-   suffix is the specified part. Enter the **Buy** qty and click **Add**.
+   suffix is the specified part, not the look-alike `-6-K2Z-T3`. Enter the **Buy** qty and click **Add**.
 4. **J5 from JLC stock:** open jlcpcb.com/partdetail/C189893, set qty **22** and click **Add to My Part Lib for
    Assembly**.
 5. Open **Cart**. JLC library parts and global-sourcing parts are listed and paid separately. Select the global-sourcing
@@ -177,13 +192,13 @@ paid**, so check each MPN before you pay.
 ## Fallback: consign a line yourself
 
 Use this only for a line global sourcing can't supply. It's slower and dearer for a buyer outside mainland China
-([consignment guide], [consignment T&C], both updated 2026-09-08):
+([consignment guide], [consignment T&C], both updated 2026-09-08/09):
 
 - Buy from Digi-Key or Mouser and ship to **JLC's Hong Kong warehouse**. First register the shipment under **Consigned
   Parts Shipments** as "Outside Mainland China", with price, maker, HS code and the other details the form asks for. JLC
   reviews the price within 2 BD, and **you must wait for approval before dispatch**.
-- Fees: an import-duty and 13 % VAT deposit (refunded once the parts are used in a PCBA order), a 2 % handling fee (minimum
-  $10 per shipment) and an overseas-consignment service fee of $85 for 1–50 part numbers.
+- Fees: import duty at a rate JLC sets, plus a 13 % VAT deposit (refunded once the parts are used in a PCBA order); a 2 %
+  handling fee (minimum $10 per shipment); and an overseas-consignment service fee of $85 for 1–50 part numbers.
 - For the same part, consigned stock can be combined with global sourcing but not with JLC stock.
 
 ## Not in this buy
@@ -195,17 +210,20 @@ Use this only for a line global sourcing can't supply. It's slower and dearer fo
 
 ## Sources (all read 2026-10-15)
 
-- [global sourcing guide]: JLCPCB, "How to use JLCPCB Global Sourcing Parts Service?", updated 2026-09-08,
+JLC shows each help page's "Last updated" date in the reader's time zone: this session saw Sep 08 (the sourcing page Sep
+09), and the QE saw Sep 09.
+
+- [global sourcing guide]: JLCPCB, "How to use JLCPCB Global Sourcing Parts Service?", updated 2026-09-08/09,
   https://jlcpcb.com/help/article/how-to-use-jlcpcb-global-sourcing-parts-service
 - [sourcing page]: JLCPCB, "PCBA Parts Sourcing Instruction", updated 2026-09-09 (global sourcing "Lead time: 9-15
   days"), https://jlcpcb.com/help/article/pcba-parts-sourcing-instruction
-- [consignment guide]: JLCPCB, "Overseas Component Consignment User Guide", updated 2026-09-08,
+- [consignment guide]: JLCPCB, "Overseas Component Consignment User Guide", updated 2026-09-08/09,
   https://jlcpcb.com/help/article/how-to-consign-parts-to-jlcpcb
-- [consignment T&C]: JLCPCB, "Consignment Parts Terms & Conditions", updated 2026-09-08,
+- [consignment T&C]: JLCPCB, "Consignment Parts Terms & Conditions", updated 2026-09-08/09,
   https://jlcpcb.com/help/article/consignment-part-terms-conditions
 - [quote page]: https://cart.jlcpcb.com/quote (Advanced PCB, 6 layers, 49 × 68 mm, 20 pcs; nothing uploaded or saved)
 - [capabilities]: https://jlcpcb.com/capabilities/pcb-assembly-capabilities (Economic vs Standard PCBA)
-- JLCPCB PCB Assembly FAQs, updated 2026-09-08, Q13 turn-time: https://jlcpcb.com/help/article/pcb-assembly-faqs
+- JLCPCB PCB Assembly FAQs, updated 2026-09-08/09, Q13 turn-time: https://jlcpcb.com/help/article/pcb-assembly-faqs
 - JLCPCB news, 2026-08-26, "High Multilayer PCB Lead Time Update":
   https://jlcpcb.com/news/multilayer-pcb-lead-time-update-august-2026
 - JLC library listings, stock, prices and attrition: jlcpcb.com parts search (the data behind

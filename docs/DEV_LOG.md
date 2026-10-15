@@ -30,6 +30,10 @@ what broke, what's next.*
 - Read today, without logging in: JLC library listings, stock and attrition (jlcpcb.com parts search), the global-sourcing
   and consignment help pages, the instant quote (6 layers, 49 × 68 mm, 20 pcs: PCB 8–9 days, DHL 2–4 BD), and Digi-Key /
   Mouser stock and prices. Buy: 8 lines ≈ $556; steps and a purchase record for Nick
+- QE round 1 (fresh S8 session): APPROVED WITH NITS, all 10 fixed: PCBA timeline now takes Standard PCBA's ≥ 4-day floor
+  (10/30 order → 11/13–11/18+); "11/3 realistic" → plan on 11/6–11/13; the PCBA order also waits on Sofar's review (a
+  rejected alternate falls back to global sourcing); dates in China time; Y1 look-alike -6-K2Z-T3; demo uses
+  `main...HEAD`; J5's SOURCING field ticketed for the next schematic edit
 **Broke/surprised us:**
 - JLC now lists U1, L3/L6, D1, D2/D3 and MP1–MP4 (stock 0 or short); the 10/6 check found no LCSC listing. J5 is back in
   JLC stock (34,285), so it skips global sourcing

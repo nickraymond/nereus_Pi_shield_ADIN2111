@@ -355,14 +355,16 @@ no potting. Critical parts bought into JLC parts stock this week so their lead t
 Fri 10/30 (fallback Tue 11/3).*
 - [x] S8.a Parts buy plan → `docs/design-review/jlc_parts_buy_2026-10.md`: 8 lines ≈ $556 (7 JLC global sourcing; J5 back in
       JLC stock, C189893); quantities, attrition, prices, stock and lead times read 2026-10-15; steps for Nick. Global
-      sourcing (9–20 business days) is the critical path: parts at JLC 10/29–11/13 if paid 10/16; a 10/30 PCBA order arrives
-      ≈ 11/10–11/18
-- [ ] S8.a: QE review (fresh S8 session)
+      sourcing (9–20 business days) is the critical path: parts at JLC 10/29–11/13 if paid 10/16 (China time); a 10/30 PCBA
+      order arrives ≈ 11/13–11/18; the PCBA order also waits on Sofar's review of the planned passives (D27)
+- [x] S8.a: QE review (fresh S8 session): **APPROVED WITH NITS** in round 1 (4 minor, 6 nits), fixed —
+      `docs/design-review/qe/S8.md`
 - [ ] S8.a: Nick buys the parts on JLC (he does the purchase; agents never log in or pay) and fills in the purchase record
 - [ ] Flagged passives (R8, R15/R16, C22/C23, commodity R/C) bought after Sofar's review (D27)
 - [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3)
+- [ ] J5 `SOURCING` field → JLC stock (C189893) at the next schematic edit, then `bom.csv` follows (QE S8 N10)
 **Demo (Nick):** open `docs/design-review/jlc_parts_buy_2026-10.md`: the "In short" box, the buy table and the steps;
-`git diff main --stat` touches only docs and the viewer (no KiCad file).
+`git diff main...HEAD --stat` touches only docs and the viewer (no KiCad file).
 
 ---
 
