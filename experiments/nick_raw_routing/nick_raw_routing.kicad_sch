@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20250114)
+	(version 20260306)
 	(generator "eeschema")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(uuid "30e82bf5-1344-486b-817c-02d3b0649ce4")
 	(paper "A3")
 	(title_block
@@ -13,6 +13,19 @@
 		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols)
+	(rectangle
+		(start 142.24 53.34)
+		(end 403.86 228.6)
+		(stroke
+			(width 0.254)
+			(type default)
+		)
+		(fill
+			(type color)
+			(color 210 210 210 1)
+		)
+		(uuid "8636af02-ec92-47f0-ae6d-00ed20e41b30")
+	)
 	(text "Variant: Standard"
 		(exclude_from_sim no)
 		(at 25.4 64.5922 0)
@@ -180,6 +193,28 @@
 			(justify left bottom)
 		)
 		(uuid "b4f83ee2-d90e-4347-b948-dce6adef1c21")
+	)
+	(text "Pi shield renders: TBD (after layout)"
+		(exclude_from_sim no)
+		(at 180.34 144.78 0)
+		(effects
+			(font
+				(size 6.096 6.096)
+			)
+			(justify left bottom)
+		)
+		(uuid "bc93f36e-73c8-45b3-bf21-9486ff7f1174")
+	)
+	(text "1  Cover\n2  Top-Level\n3  ADIN2111 (Single-Pair Ethernet)\n4  Load Switch (payload port)\n5  PoDL (Power over Data Line)\n6  Bus Power Monitor\n7  Power (buck converters)"
+		(exclude_from_sim no)
+		(at 25.4 102.87 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left top)
+		)
+		(uuid "c83a258e-645f-44a2-ae66-b84233cfbdd1")
 	)
 	(text "P/N:"
 		(exclude_from_sim no)
@@ -4756,11 +4791,13 @@
 			(color 128 0 0 1)
 		)
 		(fill
-			(color 128 255 128 1.0000)
+			(color 128 255 128 1)
 		)
 		(uuid "3c398828-e355-49f6-be37-cb3640d2c671")
 		(property "Sheetname" "Top-Level Schematic"
 			(at 25.4 243.6622 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4770,6 +4807,8 @@
 		)
 		(property "Sheetfile" "BM_Mote_1_Master.kicad_sch"
 			(at 25.4 246.2022 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4778,7 +4817,7 @@
 			)
 		)
 		(instances
-			(project "nereus_Pi_shield_ADIN2111"
+			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4"
 					(page "2")
 				)
@@ -4791,39 +4830,4 @@
 		)
 	)
 	(embedded_fonts no)
-	(rectangle
-		(start 142.24 53.34)
-		(end 403.86 228.6)
-		(stroke
-			(width 0.254)
-			(type default)
-		)
-		(fill
-			(type color)
-			(color 210 210 210 1)
-		)
-		(uuid "8636af02-ec92-47f0-ae6d-00ed20e41b30")
-	)
-	(text "Pi shield renders: TBD (after layout)"
-		(exclude_from_sim no)
-		(at 180.34 144.78 0)
-		(effects
-			(font
-				(size 6.096 6.096)
-			)
-			(justify left bottom)
-		)
-		(uuid "bc93f36e-73c8-45b3-bf21-9486ff7f1174")
-	)
-	(text "1  Cover\n2  Top-Level\n3  ADIN2111 (Single-Pair Ethernet)\n4  Load Switch (payload port)\n5  PoDL (Power over Data Line)\n6  Bus Power Monitor\n7  Power (buck converters)"
-		(exclude_from_sim no)
-		(at 25.4 102.87 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left top)
-		)
-		(uuid "c83a258e-645f-44a2-ae66-b84233cfbdd1")
-	)
 )
