@@ -12,15 +12,19 @@ Nick, 4 for scrap. Dev units, no potting. JLC PCBA order target is Fri 10/30, wi
 - **Buy 8 lines for ≈ $556** (table below). 7 lines go through **JLC global sourcing**. **J5 is back in JLC's own stock**
   (34,285 on 10/15; it was 0 on 10/6), so buy it straight into your parts library.
 - **The parts lead time sets the schedule, not the board build.** JLC quotes global sourcing at **9–20 business days**.
-  Paid Mon 10/19 China time (Monday before 09:00 Pacific; any later and it's Tuesday in China, one day later), the parts
-  land at JLC between **Fri 10/30 and Mon 11/16** (Thu 11/19 if the 1–3-day review comes on top). A PCBA order can only
-  use them once they arrive. So **10/30 needs the very best case (9 BD and a same-day PCBA order), the 11/3 fallback needs
-  ≤ 11 BD; plan on 11/9–11/16** until the checkout shows each line's lead time. Each day you wait moves
-  the whole window, so pay as soon as you've checked the lines.
-- **The PCBA estimate holds.** An order on 10/30 arrives about **Fri 11/13 to Wed 11/18 or later** (up to 3 days earlier if
-  JLC's 1–2-day assembly figure applies), so your ~11/13–16 fits. Sofar's 11/30 holds only just for a PCBA order placed by
-  about 11/6, which needs the parts within 14 BD (arrives by Wed 11/25 at the 4-day assembly floor, before Thanksgiving, your check and forwarding);
-  later than that it's at risk (see Timeline). The PCBA order also waits on Sofar's review of the planned passives.
+  Paid Mon 10/19 China time, the parts land at JLC between **Fri 10/30 and Mon 11/16** (Thu 11/19 if the 1–3-day review
+  comes on top). A PCBA order can only use them once they arrive. So **10/30 needs the very best case (9 BD and a
+  same-day PCBA order), the 11/3 fallback needs ≤ 11 BD; plan on 11/9–11/16** until the checkout shows each line's lead
+  time.
+- **When to pay: to keep 10/30 possible, pay between Sun 10/18 09:00 PT and Mon 10/19 09:00 PT** (Monday in China).
+  Paying during your Monday workday is already Tuesday in China. That rules out 10/30 (best case Mon 11/2) and moves every
+  date one business day: the 11/3 fallback then needs ≤ 10 BD and Sofar's 11/6 cutoff ≤ 13 BD.
+- **Your ~11/13–16 board estimate holds only in the best case.** That needs parts in 9 BD and a 10/30 PCBA order, with boards
+  arriving Fri 11/13 – Wed 11/18 or later (up to 3 days earlier if JLC's 1–2-day assembly figure applies). **In the
+  planning case (parts 11/9–11/16) the boards arrive about Tue 11/24 – Thu 12/3 or later, so Sofar's 11/30 is at risk.**
+  Making 11/30 needs the parts within 14 BD (PCBA order by about 11/6, boards by Wed 11/25 at the 4-day assembly floor),
+  or JLC's 4–5-day PCB expedite, which wins back about 4 days. Thanksgiving, your check and the forwarding to Sofar
+  still come after that. The PCBA order also waits on Sofar's review of the planned passives.
 
 ## What to buy
 
@@ -100,7 +104,7 @@ duty of 3–30 % on some part types; its examples are relays, modules and cables
 ## Timeline
 
 **1. Parts arrive at JLC** (business days, China time; JLC runs on UTC+8). The table starts from payment on Mon 10/19 in
-China, which is Monday before 09:00 Pacific. Paying later on Monday, Pacific time, lands on Tuesday in China: every date
+China, which is Sun 10/18 09:00 PT to Mon 10/19 09:00 PT. Paying later on Monday, Pacific time, lands on Tuesday in China: every date
 one business day later. (The 10/15 version started from Fri 10/16, which has passed.)
 
 | Global-sourcing lead time | Parts at JLC | PCBA order |
@@ -131,8 +135,9 @@ C22/C23 are the same case (see the optional items above).
 | Fri 10/30 | Wed 11/11 – Thu 11/12+ | **Fri 11/13 – Wed 11/18+** |
 | Tue 11/3 | Sun 11/15 – Mon 11/16+ | Tue 11/17 – Fri 11/20+ |
 | Fri 11/6 | Wed 11/18 – Thu 11/19+ | Fri 11/20 – Wed 11/25+ |
-| Fri 11/13 | Wed 11/25 – Thu 11/26+ | Fri 11/27 – Wed 12/2+ ✗ |
-| Wed 11/18 | Mon 11/30 – Tue 12/1+ | Wed 12/2 – Mon 12/7+ ✗ |
+| Mon 11/9 | Sat 11/21 – Sun 11/22+ | Tue 11/24 – Thu 11/26+ (at risk) |
+| Mon 11/16 | Sat 11/28 – Sun 11/29+ | Tue 12/1 – Thu 12/3+ ✗ |
+| Thu 11/19 | Tue 12/1 – Wed 12/2+ | Thu 12/3 – Tue 12/8+ ✗ |
 
 A PCBA order by about 11/6 arrives by Wed 11/25 if assembly takes 4 days. Any later and 11/30 depends on luck, and that's
 before your own check of the boards, the forwarding time to Sofar, and the Thanksgiving week (Thu 11/26). If JLC's FAQ

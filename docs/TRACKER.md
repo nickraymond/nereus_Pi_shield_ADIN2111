@@ -351,7 +351,7 @@ bot) that match the walkthrough's layer views.
 
 ### S8 — First build (20 boards)  `[~]`
 *Nick, 2026-10-14 (D32): 20 boards (6 for Sofar, paid on receipt, due at Sofar Mon 11/30; 10 for Nick; 4 scrap); dev units,
-no potting. Critical parts bought into JLC parts stock this week so their lead time runs during layout; JLC PCBA order target
+no potting. Critical parts bought into JLC parts stock as soon as possible (planned Mon 10/19) so their lead time runs during layout; JLC PCBA order target
 Fri 10/30 (fallback Tue 11/3).*
 - [x] S8.a Parts buy plan → `docs/design-review/jlc_parts_buy_2026-10.md`: 8 lines ≈ $556 (7 JLC global sourcing; J5 back in
       JLC stock, C189893); quantities, attrition, prices, stock and lead times read 2026-10-15; steps for Nick. Global

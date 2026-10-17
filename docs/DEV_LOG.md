@@ -38,6 +38,8 @@ DESIGN D32, viewer
 - QE round 2: APPROVED WITH NITS (3 wording nits, fixed; no further round needed)
 - 2026-10-17: dates re-anchored on a Mon 10/19 payment (PjM 003 relayed a QE 004 nit: Nick buys Monday). Parts at JLC
   10/30–11/16 (11/19 worst); 10/30 needs the very best case; plan on 11/9–11/16. Buy list unchanged
+- S8 QE date check: APPROVED WITH NITS. Fixed: the pay window that keeps 10/30 possible (Sun 10/18 09:00 – Mon 10/19
+  09:00 PT); in the planning case boards arrive ≈ 11/24–12/3, so Sofar's 11/30 is at risk; Timeline 2 rows 11/9, 11/16, 11/19
 **Broke/surprised us:**
 - JLC now lists U1, L3/L6, D1, D2/D3 and MP1–MP4 (stock 0 or short); the 10/6 check found no LCSC listing. J5 is back in
   JLC stock (34,285), so it skips global sourcing
