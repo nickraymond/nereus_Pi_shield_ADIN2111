@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-07 · Now: S7 layout experiment brief</strong> S6.g merged (QE approved). S7.a: the brief for a Fable session to port Sofar's mote copper onto the shield (46 × 65 mm, inserts on the west wall, 50 W inductor room, Micro-Fit payload, M3 housing holes) and Sofar layout questions Q9–Q12. <strong>Next:</strong> QE review of S7.a, then you start the Fable session; your S6 demo is still open.</p>
+    <p><strong>Updated 2026-10-15 · Now: S8 first build (20 boards)</strong> S8.a: the critical-parts buy for JLC, 8 lines ≈ $556 (7 by JLC global sourcing, J5 from JLC stock), with steps for you; QE approved with nits (fixed). Global sourcing takes 9–20 business days, so the parts set the PCBA date: pay Sun 10/18 09:00 – Mon 10/19 09:00 PT to keep 10/30 possible (very best case only); plan on parts 11/9–11/16, boards ≈ 11/24–12/3, so Sofar's 11/30 is at risk. <strong>Next:</strong> you buy the parts on JLC (docs/design-review/jlc_parts_buy_2026-10.md).</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -252,6 +252,16 @@ const S = [
   ["S7.a: the brief + kickoff prompt", `<p>experiments/fable_layout_01/BRIEF.md and KICKOFF.md, plus a layer renderer for before/after views. Sofar layout questions Q9–Q12 added, Q6 reworded; SPEC's insert-contact fact corrected (seven vias, not none).</p>`, null, 1],
   ["S7.a: QE review", `<p>Approved (round 3: plain 46 × 65 outline, QE agent file exception). Next: your read of BRIEF.md, then merge #29.</p>`, null, 1],
   ["S7.b: start the Fable session", `<p>Paste KICKOFF.md into a new session (Fable 5.1, high effort). Review its REPORT.md, renders and draft PR.</p>`, "nick"]
+]},
+{ t:"S8 — First build (20 boards)", o:"agent", w:"Claude Code", c:"--prj",
+  intro:"20 boards: 6 for Sofar (due 11/30), 10 for you, 4 for scrap; dev units, no potting (D32). Critical parts go into JLC stock as soon as possible (planned Mon 10/19; to keep 10/30 possible, pay Sun 10/18 09:00 – Mon 10/19 09:00 PT); PCBA order target 10/30, fallback 11/3.",
+  items:[
+  ["S8.a: parts buy plan", `<p>docs/design-review/jlc_parts_buy_2026-10.md: U1, U2/U3, L3/L6, Y1, D1 (Vishay), D2/D3, MP1–MP4 by JLC global sourcing; J5 from JLC stock (C189893). Quantities with JLC attrition, prices, stock and lead times read 2026-10-15. Parts at JLC 10/30–11/16 if paid Mon 10/19 (China time); a 10/30 PCBA order arrives ≈ 11/13–11/18. The PCBA order also waits on Sofar's review of the planned passives.</p>`, null, 1],
+  ["S8.a: QE review", `<p>Approved with nits in round 1 (timeline wording, Sofar-review dependency, China time, Y1 look-alike -6-K2Z-T3), all fixed; round 2 approved with 3 wording nits, fixed. docs/design-review/qe/S8.md.</p>`, null, 1],
+  ["S8.a: buy the parts on JLC", `<p>Follow the steps in the doc (you buy; agents never log in or pay). Fill in the purchase record; flag any line with a lead time over 15 business days.</p>`, "nick"],
+  ["Flagged passives after Sofar's review", `<p>R8, R15/R16, C22/C23 and the commodity R/C lines (D27). If R8, R15/R16 or C22/C23 stay as specified, or Sofar rejects any planned alternate, those lines need global sourcing too (9–20 business days).</p>`],
+  ["JLC PCBA order", `<p>Target Fri 10/30, fallback Tue 11/3; it can only use the parts once they're in your JLC parts library.</p>`, "nick"],
+  ["J5 sourcing field", `<p>At the next schematic edit: J5's SOURCING field → JLC stock (C189893), so bom.csv matches.</p>`]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
   intro:"Send Q2 and Q6–Q12 when ready (Q3 answered from the datasheet; Q4 is context only); Q1 and Q5 are deferred with the 50 W spin. The layout questions (Q6, Q9–Q12) have a page with a copper render for each. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
