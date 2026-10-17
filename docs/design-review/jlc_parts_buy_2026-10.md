@@ -1,6 +1,6 @@
 # JLC parts buy: critical parts for the first build (S8.a)
 
-*Read Thu 2026-10-15. Stock and prices change daily, so recheck on the buy screen. **Nick places the order**: agents never
+*Read Thu 2026-10-15; dates re-anchored Sat 10/17 on a Mon 10/19 payment. Stock and prices change daily, so recheck on the buy screen. **Nick places the order**: agents never
 log in to JLC, enter payment details or buy. Policy: DESIGN D26 (critical parts, exact part, JLC global sourcing) and D27
 (flagged passives wait for Sofar's review).*
 
@@ -12,13 +12,14 @@ Nick, 4 for scrap. Dev units, no potting. JLC PCBA order target is Fri 10/30, wi
 - **Buy 8 lines for ≈ $556** (table below). 7 lines go through **JLC global sourcing**. **J5 is back in JLC's own stock**
   (34,285 on 10/15; it was 0 on 10/6), so buy it straight into your parts library.
 - **The parts lead time sets the schedule, not the board build.** JLC quotes global sourcing at **9–20 business days**.
-  Paid by Fri 10/16 China time (that's today, US Pacific), the parts land at JLC between **Thu 10/29 and Fri 11/13** (Wed
-  11/18 if the 1–3-day review comes on top). A PCBA order can only use them once they arrive. So **10/30 needs the best
-  case and 11/3 nearly so; plan on 11/6–11/13** until the checkout shows each line's lead time. Each day you wait moves
+  Paid Mon 10/19 China time (Monday before 09:00 Pacific; any later and it's Tuesday in China, one day later), the parts
+  land at JLC between **Fri 10/30 and Mon 11/16** (Thu 11/19 if the 1–3-day review comes on top). A PCBA order can only
+  use them once they arrive. So **10/30 needs the very best case (9 BD and a same-day PCBA order), the 11/3 fallback needs
+  ≤ 11 BD; plan on 11/9–11/16** until the checkout shows each line's lead time. Each day you wait moves
   the whole window, so pay as soon as you've checked the lines.
 - **The PCBA estimate holds.** An order on 10/30 arrives about **Fri 11/13 to Wed 11/18 or later** (up to 3 days earlier if
   JLC's 1–2-day assembly figure applies), so your ~11/13–16 fits. Sofar's 11/30 holds only just for a PCBA order placed by
-  about 11/6 (arrives by Wed 11/25 at the 4-day assembly floor, before Thanksgiving, your check and forwarding);
+  about 11/6, which needs the parts within 14 BD (arrives by Wed 11/25 at the 4-day assembly floor, before Thanksgiving, your check and forwarding);
   later than that it's at risk (see Timeline). The PCBA order also waits on Sofar's review of the planned passives.
 
 ## What to buy
@@ -98,17 +99,19 @@ duty of 3–30 % on some part types; its examples are relays, modules and cables
 
 ## Timeline
 
-**1. Parts arrive at JLC** (business days, China time; JLC runs on UTC+8). The table starts from payment on Fri 10/16 in
-China, which is today in US Pacific time. Paying Friday daytime, Pacific time, lands on Saturday in China: the same dates if
-JLC counts from the next business day, otherwise one day later.
+**1. Parts arrive at JLC** (business days, China time; JLC runs on UTC+8). The table starts from payment on Mon 10/19 in
+China, which is Monday before 09:00 Pacific. Paying later on Monday, Pacific time, lands on Tuesday in China: every date
+one business day later. (The 10/15 version started from Fri 10/16, which has passed.)
 
 | Global-sourcing lead time | Parts at JLC | PCBA order |
 |---|---|---|
-| 9 BD (best) | Thu 10/29 | Fri 10/30 ✓ |
-| 9 BD + 3 BD review | Tue 11/3 | Tue 11/3 (fallback) ✓ |
-| 15 BD (JLC's sourcing page: "9–15 days") | Fri 11/6 | Fri 11/6 |
-| 20 BD (JLC's guide: "normally 9–20 business days") | Fri 11/13 | Fri 11/13 |
-| 20 BD + 3 BD review (worst) | Wed 11/18 | Wed 11/18 |
+| 9 BD (best) | Fri 10/30 | Fri 10/30 ✓ (same day) |
+| 9 BD + 3 BD review | Wed 11/4 | Wed 11/4 (misses the 11/3 fallback by a day) |
+| 15 BD (JLC's sourcing page: "9–15 days") | Mon 11/9 | Mon 11/9 |
+| 20 BD (JLC's guide: "normally 9–20 business days") | Mon 11/16 | Mon 11/16 |
+| 20 BD + 3 BD review (worst) | Thu 11/19 | Thu 11/19 |
+
+Table 2 below is keyed by the PCBA order date, so it still applies: look up the date the parts land.
 
 JLC's two pages disagree on the range: the guide says 9–20 business days and the sourcing page says 9–15 days. Neither
 says whether the 1–3-day review is included. **The checkout shows a lead time per part. Read it there, and tell me (or

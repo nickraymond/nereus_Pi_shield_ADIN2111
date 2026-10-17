@@ -36,6 +36,8 @@ DESIGN D32, viewer
   rejected alternate falls back to global sourcing); dates in China time; Y1 look-alike -6-K2Z-T3; demo uses
   `main...HEAD`; J5's SOURCING field ticketed for the next schematic edit
 - QE round 2: APPROVED WITH NITS (3 wording nits, fixed; no further round needed)
+- 2026-10-17: dates re-anchored on a Mon 10/19 payment (PjM 003 relayed a QE 004 nit: Nick buys Monday). Parts at JLC
+  10/30–11/16 (11/19 worst); 10/30 needs the very best case; plan on 11/9–11/16. Buy list unchanged
 **Broke/surprised us:**
 - JLC now lists U1, L3/L6, D1, D2/D3 and MP1–MP4 (stock 0 or short); the 10/6 check found no LCSC listing. J5 is back in
   JLC stock (34,285), so it skips global sourcing

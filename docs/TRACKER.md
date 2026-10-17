@@ -355,7 +355,7 @@ no potting. Critical parts bought into JLC parts stock this week so their lead t
 Fri 10/30 (fallback Tue 11/3).*
 - [x] S8.a Parts buy plan → `docs/design-review/jlc_parts_buy_2026-10.md`: 8 lines ≈ $556 (7 JLC global sourcing; J5 back in
       JLC stock, C189893); quantities, attrition, prices, stock and lead times read 2026-10-15; steps for Nick. Global
-      sourcing (9–20 business days) is the critical path: parts at JLC 10/29–11/13 if paid 10/16 (China time); a 10/30 PCBA
+      sourcing (9–20 business days) is the critical path: parts at JLC 10/30–11/16 if paid Mon 10/19 (China time; re-anchored 10/17, was 10/16); a 10/30 PCBA
       order arrives ≈ 11/13–11/18; the PCBA order also waits on Sofar's review of the planned passives (D27)
 - [x] S8.a: QE review (fresh S8 session): **APPROVED WITH NITS** in round 1 (4 minor, 6 nits), fixed; round 2 **APPROVED WITH NITS** (3 wording nits), fixed —
       `docs/design-review/qe/S8.md`
