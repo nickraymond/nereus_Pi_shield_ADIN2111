@@ -38,6 +38,10 @@ DESIGN D32, viewer
 - QE round 2: APPROVED WITH NITS (3 wording nits, fixed; no further round needed)
 - 2026-10-17: dates re-anchored on a Mon 10/19 payment (PjM 003 relayed a QE 004 nit: Nick buys Monday). Parts at JLC
   10/30–11/16 (11/19 worst); 10/30 needs the very best case; plan on 11/9–11/16. Buy list unchanged
+- 2026-10-18: Nick bought: JLC order DOB202610190524705, $956.05, all 7 lines from Digi-Key (shortest lead 10–14 days,
+  lowest price on JLC's list); ready for assembly est. 11/5 → boards ≈ 11/19–11/24+. U1 cost JLC's $27.76 vs Digi-Key's
+  $15.39 (+$270): he kept Digi-Key over a JLC pre-order (est. $15.48, price fixed only after payment, up to 18 days).
+  J5 not pre-bought: 31,805 in JLC stock, picked at the PCBA order (Nick)
 - S8 QE date check: APPROVED WITH NITS. Fixed: the pay window that keeps 10/30 possible (Sun 10/18 09:00 – Mon 10/19
   09:00 PT); in the planning case boards arrive ≈ 11/24–12/3, so Sofar's 11/30 is at risk; Timeline 2 rows 11/9, 11/16, 11/19
 **Broke/surprised us:**
