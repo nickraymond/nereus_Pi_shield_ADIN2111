@@ -359,6 +359,7 @@ Fri 10/30 (fallback Tue 11/3).*
       order arrives ≈ 11/13–11/18; the PCBA order also waits on Sofar's review of the planned passives (D27)
 - [x] S8.a: QE review (fresh S8 session): **APPROVED WITH NITS** in round 1 (4 minor, 6 nits), fixed; round 2 **APPROVED WITH NITS** (3 wording nits), fixed —
       `docs/design-review/qe/S8.md`
+- [x] S8.a: Nick's review; PR #32 merged 2026-10-17 (`56e1e1a`)
 - [x] S8.a: Nick bought the parts (2026-10-18 14:24 PT, Mon 10/19 in China): JLC global-sourcing order DOB202610190524705,
       all 7 lines from Digi-Key, $956.05 (U1 at JLC's $27.76); **ready for assembly est. 2026-11-05** → PCBA order ≈ 11/5,
       boards ≈ 11/19–11/24+. J5 not pre-bought: picked from JLC stock (31,805 on 10/18) at the PCBA order (Nick). Record in the doc
