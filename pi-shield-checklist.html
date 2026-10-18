@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-15 · Now: S8 first build (20 boards)</strong> S8.a: the critical-parts buy for JLC, 8 lines ≈ $556 (7 by JLC global sourcing, J5 from JLC stock), with steps for you; QE approved with nits (fixed). Global sourcing takes 9–20 business days, so the parts set the PCBA date: pay Sun 10/18 09:00 – Mon 10/19 09:00 PT to keep 10/30 possible (very best case only); plan on parts 11/9–11/16, boards ≈ 11/24–12/3, so Sofar's 11/30 is at risk. <strong>Next:</strong> you buy the parts on JLC (docs/design-review/jlc_parts_buy_2026-10.md).</p>
+    <p><strong>Updated 2026-10-18 · Now: S8 first build (20 boards)</strong> You bought the critical parts on 10/18: JLC order DOB202610190524705, $956.05, all from Digi-Key; JLC estimates them ready for assembly Thu 11/5, so the PCBA order is ≈ 11/5 and boards ≈ 11/19–11/24 (Sofar's 11/30 holds). J5 comes from JLC stock at the PCBA order. <strong>Next:</strong> review and merge PR #32; Sofar's review of the planned passives before the PCBA order.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -258,9 +258,9 @@ const S = [
   items:[
   ["S8.a: parts buy plan", `<p>docs/design-review/jlc_parts_buy_2026-10.md: U1, U2/U3, L3/L6, Y1, D1 (Vishay), D2/D3, MP1–MP4 by JLC global sourcing; J5 from JLC stock (C189893). Quantities with JLC attrition, prices, stock and lead times read 2026-10-15. Parts at JLC 10/30–11/16 if paid Mon 10/19 (China time); a 10/30 PCBA order arrives ≈ 11/13–11/18. The PCBA order also waits on Sofar's review of the planned passives.</p>`, null, 1],
   ["S8.a: QE review", `<p>Approved with nits in round 1 (timeline wording, Sofar-review dependency, China time, Y1 look-alike -6-K2Z-T3), all fixed; round 2 approved with 3 wording nits, fixed. docs/design-review/qe/S8.md.</p>`, null, 1],
-  ["S8.a: buy the parts on JLC", `<p>Follow the steps in the doc (you buy; agents never log in or pay). Fill in the purchase record; flag any line with a lead time over 15 business days.</p>`, "nick"],
+  ["S8.a: buy the parts on JLC", `<p>Done 10/18: JLC order DOB202610190524705, $956.05, all 7 lines from Digi-Key (U1 at $27.76); ready for assembly est. 11/5. J5: picked from JLC stock at the PCBA order (31,805 in stock 10/18).</p>`, "nick", 1],
   ["Flagged passives after Sofar's review", `<p>R8, R15/R16, C22/C23 and the commodity R/C lines (D27). If R8, R15/R16 or C22/C23 stay as specified, or Sofar rejects any planned alternate, those lines need global sourcing too (9–20 business days).</p>`],
-  ["JLC PCBA order", `<p>Target Fri 10/30, fallback Tue 11/3; it can only use the parts once they're in your JLC parts library.</p>`, "nick"],
+  ["JLC PCBA order", `<p>Target Fri 10/30, fallback Tue 11/3; it can only use the parts once they're in your JLC parts library (est. 11/5). Pick J5 (C189893) from JLC stock in the BOM step.</p>`, "nick"],
   ["J5 sourcing field", `<p>At the next schematic edit: J5's SOURCING field → JLC stock (C189893), so bom.csv matches.</p>`]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",

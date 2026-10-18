@@ -9,6 +9,12 @@ Nick, 4 for scrap. Dev units, no potting. JLC PCBA order target is Fri 10/30, wi
 
 ## In short
 
+- **Bought (Nick, 2026-10-18 14:24 PT, which is Mon 10/19 in China):** JLC global-sourcing order **DOB202610190524705**,
+  **$956.05**, all 7 lines from Digi-Key (the shortest lead, 10–14 days, and the lowest price on JLC's supplier list).
+  JLC estimates **ready for assembly Thu 11/5** (13 BD), so the PCBA order moves to about **11/5** and the boards arrive
+  about **Thu 11/19 – Tue 11/24 or later**. That keeps Sofar's 11/30 with a few days to spare; 10/30 and 11/3 are out.
+  **J5 isn't pre-bought** (Nick): it's picked from JLC's stock (31,805 on 10/18) when the PCBA order is placed. The bullets
+  below are the plan as written before the buy.
 - **Buy 8 lines for ≈ $556** (table below). 7 lines go through **JLC global sourcing**. **J5 is back in JLC's own stock**
   (34,285 on 10/15; it was 0 on 10/6), so buy it straight into your parts library.
 - **The parts lead time sets the schedule, not the board build.** JLC quotes global sourcing at **9–20 business days**.
@@ -87,6 +93,13 @@ before buying.
 |---|---|
 | Digi-Key prices (above) + J5 from JLC stock | **$555.60** |
 | Mouser prices + J5 from JLC stock | $552.06 |
+| **Actual: JLC global-sourcing order, 2026-10-18** (with +2 spares) | **$956.05** (+ J5 ≈ $11 from JLC stock at the PCBA order) |
+
+**Why the actual is higher:** JLC charged $27.76 for U1 against Digi-Key's own $15.39 (10+), which is +$270 on 22. On
+top of that come the +2 spares on five lines (≈ $36 at Digi-Key prices), $8.92 duty on MP1–MP4, a JLC markup of
+roughly 15–35 % on the other lines, and $1 per line. U1 was also offered as a JLC pre-order at an estimated $15.48.
+Nick kept Digi-Key because the pre-order price is only fixed after payment and its purchasing can take up to 18 days
+without asking ([pre-order T&C]), while Digi-Key showed a known 10–14 days.
 
 **Plan on ≈ $560.** It may run a little higher. JLC's global-sourcing markup isn't visible to us, and JLC can add customs
 duty of 3–30 % on some part types; its examples are relays, modules and cables, none of which are in this buy
@@ -135,6 +148,7 @@ C22/C23 are the same case (see the optional items above).
 | Fri 10/30 | Wed 11/11 – Thu 11/12+ | **Fri 11/13 – Wed 11/18+** |
 | Tue 11/3 | Sun 11/15 – Mon 11/16+ | Tue 11/17 – Fri 11/20+ |
 | Fri 11/6 | Wed 11/18 – Thu 11/19+ | Fri 11/20 – Wed 11/25+ |
+| **Thu 11/5 (parts ready, JLC est.)** | Tue 11/17 – Wed 11/18+ | **Thu 11/19 – Tue 11/24+** |
 | Mon 11/9 | Sat 11/21 – Sun 11/22+ | Tue 11/24 – Thu 11/26+ (at risk) |
 | Mon 11/16 | Sat 11/28 – Sun 11/29+ | Tue 12/1 – Thu 12/3+ ✗ |
 | Thu 11/19 | Tue 12/1 – Wed 12/2+ | Thu 12/3 – Tue 12/8+ ✗ |
@@ -185,18 +199,24 @@ paid**, so check each MPN before you pay.
    shows more than 15 BD, flag it**: it moves the 10/30 date.
 9. If JLC cancels a line at review (it "doesn't support assembly"; refunds take 1–7 days), use the consignment fallback.
 
-**Purchase record** (fill in after checkout):
+**Purchase record** (from Nick's cart and order screenshots, 2026-10-18): order **DOB202610190524705**, invoice
+11666342A, paid 2026-10-18 14:24 PT. Status was Reviewing; **Ready for Assembly: 2026-11-05**.
 
-| Line | Supplier picked | Qty | Unit price | Lead time shown | Order # |
+| Line | Supplier (Digi-Key #) | Qty | Unit price | Line total | Ready for assembly (JLC est.) |
 |---|---|---|---|---|---|
-| U1 | | 20 | | | |
-| U2/U3 | | 40 | | | |
-| L3/L6 | | 40 | | | |
-| Y1 | | 20 | | | |
-| D1 | | 25 | | | |
-| D2/D3 | | 40 | | | |
-| MP1–MP4 | | 81 | | | |
-| J5 (JLC stock) | JLC | 22 | $0.5397 | in stock | |
+| U1 | 505-ADIN2111BCPZ-ND | 22 | $27.7563 | $611.64 | 2026-11-05 |
+| U2/U3 | AP22913CN4-7DICT-ND | 42 | $0.3077 | $13.93 | 2026-11-05 |
+| L3/L6 | 553-PA5432.822NLTCT-ND | 42 | $1.8824 | $80.07 | 2026-11-05 |
+| Y1 | 535-13848-1-ND | 22 | $0.5244 | $12.54 | 2026-11-05 |
+| D1 | 112-SMA6F33A-M3/HCT-ND | 27 | $0.6088 | $17.44 | 2026-11-05 |
+| D2/D3 | RB058LAM-60TFCT-ND | 45 | $0.6932 | $32.20 ⁸ | order: 2026-11-05 ⁸ |
+| MP1–MP4 | 732-78614015360CT-ND | 84 | $2.1227 | $188.23 incl. $8.92 duty ⁸ | order: 2026-11-05 ⁸ |
+| **Total** | | | | **$956.05** | |
+| J5 (JLC stock) | C189893 | 22 | $0.5055 (cart, 10/18) | ≈ $11, paid with the PCBA order | not pre-bought: picked from JLC stock at the PCBA order (31,805 available 10/18; Nick) |
+
+⁸ These two lines were behind "Show All" in the order screenshot. Their totals are the cart totals plus $1: each of the
+five visible lines is $1.00 above qty × unit price, and with that the 7 lines sum exactly to the $956.05 order total.
+Quantities include Nick's +2 spares (D1: 25 + 2; D2/D3 45 and MP1–MP4 84 as Nick chose).
 
 ## Fallback: consign a line yourself
 
@@ -217,7 +237,7 @@ Use this only for a line global sourcing can't supply. It's slower and dearer fo
 - **J1** Pi socket: no part number yet (height open).
 - **Everything else** in `bom.csv`: LCSC/JLC-stocked parts, chosen when you place the PCBA order.
 
-## Sources (all read 2026-10-15)
+## Sources (all read 2026-10-15 unless dated)
 
 JLC probably shows each help page's "Last updated" date in the reader's time zone (likely, not verified): this session saw Sep 08 (the sourcing page Sep
 09), and the QE saw Sep 09.
@@ -230,6 +250,9 @@ JLC probably shows each help page's "Last updated" date in the reader's time zon
   https://jlcpcb.com/help/article/how-to-consign-parts-to-jlcpcb
 - [consignment T&C]: JLCPCB, "Consignment Parts Terms & Conditions", updated 2026-09-08/09,
   https://jlcpcb.com/help/article/consignment-part-terms-conditions
+- [pre-order T&C]: JLCPCB, "Pre-Ordering Parts Terms & Conditions", updated 2026-09-09, read 2026-10-18
+  (estimated price "for reference only", final quote after payment; buys without asking if lead time ≤ 18 days),
+  https://jlcpcb.com/help/article/pre-ordering-parts-terms-conditions
 - [quote page]: https://cart.jlcpcb.com/quote (Advanced PCB, 6 layers, 49 × 68 mm, 20 pcs; nothing uploaded or saved)
 - [capabilities]: https://jlcpcb.com/capabilities/pcb-assembly-capabilities (Economic vs Standard PCBA)
 - JLCPCB PCB Assembly FAQs, updated 2026-09-08/09, Q13 turn-time: https://jlcpcb.com/help/article/pcb-assembly-faqs
