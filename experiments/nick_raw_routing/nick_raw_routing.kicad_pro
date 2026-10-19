@@ -262,76 +262,28 @@
   "erc": {
     "erc_exclusions": [
       [
-        "pin_not_connected|2298700|3238500|63b235cc-7b80-4d92-a67a-d180d0bdc57f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|2451100|3238500|1ccc35f6-8fc7-4372-8a5e-1a4bf361615f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|2601400|3240420|e923028a-7287-44f5-88db-4fb16a92b3e1|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|2753800|3240420|bb03ba81-ccb0-41b8-8b81-facf98d9787d|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|2906200|3240420|32b94466-90ac-404e-a31f-36c60edb0f49|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|3058600|3240420|4c5e77ce-775f-433d-9d12-b7d5d5e2ca48|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "Fiducial: a copper mark with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: FIDUCIAL_075MM, no net); the imported symbol carries one hidden NC pin"
-      ],
-      [
-        "pin_not_connected|3162300|3289300|d9beae47-09f3-4022-b3f7-ad8bab9f1793|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it; grounding the holes stays Nick's board decision"
-      ],
-      [
-        "pin_not_connected|3289300|3289300|6e5f369c-b405-4f7c-b0a9-8c5af6cc0c35|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it; grounding the holes stays Nick's board decision"
-      ],
-      [
-        "pin_not_connected|3416300|3289300|32f133c6-060e-40c7-a685-891c4892cad1|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it; grounding the holes stays Nick's board decision"
-      ],
-      [
-        "pin_not_connected|3543300|3289300|10a79fd1-7418-493e-a6b2-bd6dc3907a2b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671|",
-        "M3 mounting hole: plated hole with no net on the mote board (BM_Mote_000639-AB.kicad_pcb: Hole_M3, no net), kept as Sofar has it; grounding the holes stays Nick's board decision"
+        "endpoint_off_grid|3111500|1560322|ff1dd015-afb8-4bda-affd-928a5e8ca7de|00000000-0000-0000-0000-000000000000|||",
+        ""
       ],
       [
         "power_pin_not_driven|1689100|2157222|1f6aa00b-d332-4ee4-9f03-345b013f7e7b|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+        ""
       ],
       [
         "power_pin_not_driven|1689100|2208022|aba19838-229f-4459-83a1-c31485ca40dc|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+        ""
       ],
       [
         "power_pin_not_driven|1689100|785622|45409598-abd9-46c1-8c5c-5d41f582d48f|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
+        ""
       ],
       [
         "power_pin_not_driven|1689100|836422|f5a4b2fd-14f3-4b99-8342-728781a12762|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "LMR51430 switch node (SW) / bootstrap (CB): driven by the regulator itself; the net holds only its inductor or bootstrap capacitor. The imported symbol types the pin power input"
-      ],
-      [
-        "power_pin_not_driven|2781300|1560322|03f18759-49d3-4152-b8e8-d9dfcd8d8e24|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "TPS62840 VIN on 3V3, which U5 drives through inductor L3 (passive pins), so ERC sees no power output"
-      ],
-      [
-        "power_pin_not_driven|2946400|2260600|e2dee947-4a35-4218-9755-57afb5e71655|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15|",
-        "ADIN_VDDIO is driven by load switch U3 VOUT (AP22913), which the imported symbol types as passive, so ERC sees no power output; switched by ADIN_PWR (D21)"
+        ""
       ],
       [
         "power_pin_not_driven|3111500|1560322|18be0493-d9f1-435c-a081-6edbcf32dae2|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "TPS62840 switch node: driven by the regulator itself; the net holds only L4. The imported symbol types the pin power input"
-      ],
-      [
-        "power_pin_not_driven|3111500|1636522|d467e5d4-94aa-41a9-afa2-41b5071ab410|00000000-0000-0000-0000-000000000000|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a|",
-        "TPS62840 VOS senses its own 1V8 output, driven through inductor L4 (passive pins), so ERC sees no power output"
+        ""
       ]
     ],
     "meta": {
@@ -933,7 +885,7 @@
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
-    "used_designators": "JP3-4,#PWR4,#PWR6,#PWR48,#PWR61,J2,R9",
+    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR80,#PWR84-92,#FLG4-7,J2-3,R9-10,R24",
     "variants": []
   },
   "sheets": [

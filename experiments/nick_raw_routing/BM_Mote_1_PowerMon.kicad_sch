@@ -910,7 +910,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "I2C0 (Pi GPIO0/1) · Address 0x41 (A0 = GND)"
+	(text "I2C0 (Pi GPIO0/1) · Address 0x41 (A0 = VS)"
 		(exclude_from_sim no)
 		(at 175.26 132.08 0)
 		(effects
@@ -943,6 +943,12 @@
 		(uuid "f4938a53-206c-4837-a699-806913474882")
 	)
 	(junction
+		(at 176.53 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1c61855c-55f4-455b-b10f-29743930e06c")
+	)
+	(junction
 		(at 187.96 177.6222)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -960,25 +966,31 @@
 		(color 0 0 0 0)
 		(uuid "c750431d-a597-434f-a6b1-0bd653cb6f8b")
 	)
-	(wire
-		(pts
-			(xy 200.66 157.3022) (xy 200.66 149.6822)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01d2fb96-0efb-45bb-a2e4-c7dfe1100367")
+	(junction
+		(at 176.53 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d8b423c3-83a6-4b55-a6d4-616638376090")
 	)
 	(wire
 		(pts
-			(xy 167.64 149.6822) (xy 200.66 149.6822)
+			(xy 242.57 162.56) (xy 242.57 162.3822)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2adaee07-f82e-4249-8fe9-1fce5e96b718")
+		(uuid "045e3d21-7648-4418-b846-72ee9d3cf282")
+	)
+	(wire
+		(pts
+			(xy 242.57 162.3822) (xy 248.92 162.3822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e57987c-15e6-4b31-b13f-7920f0894ce2")
 	)
 	(wire
 		(pts
@@ -992,7 +1004,17 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 159.8422) (xy 241.3 159.8422)
+			(xy 241.3 157.48) (xy 243.84 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fb5597e-8567-4907-bd70-ae3af2b99e50")
+	)
+	(wire
+		(pts
+			(xy 242.57 160.02) (xy 241.3 160.02)
 		)
 		(stroke
 			(width 0)
@@ -1022,7 +1044,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 162.3822) (xy 241.3 162.3822)
+			(xy 242.57 162.56) (xy 241.3 162.56)
 		)
 		(stroke
 			(width 0)
@@ -1042,13 +1064,13 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 159.8422) (xy 200.66 159.8422)
+			(xy 176.53 158.75) (xy 167.64 158.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5146ef14-4c90-4ef7-89d1-02d0fde31aae")
+		(uuid "4c3f563f-0a93-4f6b-ad20-1643a08fe06f")
 	)
 	(wire
 		(pts
@@ -1062,7 +1084,17 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 177.6222) (xy 200.66 164.9222)
+			(xy 176.53 158.75) (xy 200.66 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "61a85a7e-762b-4f58-93ff-4416bc957fe4")
+	)
+	(wire
+		(pts
+			(xy 200.66 165.1) (xy 200.66 177.8)
 		)
 		(stroke
 			(width 0)
@@ -1072,7 +1104,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 164.9222) (xy 241.3 164.9222)
+			(xy 242.57 165.1) (xy 241.3 165.1)
 		)
 		(stroke
 			(width 0)
@@ -1082,7 +1114,17 @@
 	)
 	(wire
 		(pts
-			(xy 274.32 177.6222) (xy 274.32 139.5222)
+			(xy 200.66 148.59) (xy 200.66 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "983c9b33-f508-43f0-aaee-04c5bc50eb2f")
+	)
+	(wire
+		(pts
+			(xy 274.32 177.6222) (xy 274.32 139.7)
 		)
 		(stroke
 			(width 0)
@@ -1092,13 +1134,53 @@
 	)
 	(wire
 		(pts
-			(xy 274.32 139.5222) (xy 241.3 139.5222)
+			(xy 176.53 148.59) (xy 167.64 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab919b4e-9e2e-4657-b0a5-f053412d1ef7")
+	)
+	(wire
+		(pts
+			(xy 242.57 159.8422) (xy 248.92 159.8422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac0512cd-63d8-404c-ba80-fee9dfcb8066")
+	)
+	(wire
+		(pts
+			(xy 242.57 164.9222) (xy 248.92 164.9222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b173d5f9-8bae-4211-8717-a39d847e92ed")
+	)
+	(wire
+		(pts
+			(xy 274.32 139.7) (xy 243.84 139.7)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b57f2b72-36ae-4d72-bd04-af7da7b9673e")
+	)
+	(wire
+		(pts
+			(xy 200.66 148.59) (xy 176.53 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8006834-69be-4608-a6a5-f6f78401733c")
 	)
 	(wire
 		(pts
@@ -1112,6 +1194,46 @@
 	)
 	(wire
 		(pts
+			(xy 200.66 162.56) (xy 200.66 162.3822)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c26ed45e-41d2-4f98-8c07-581d16d276a3")
+	)
+	(wire
+		(pts
+			(xy 242.57 165.1) (xy 242.57 164.9222)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d872bc97-7e73-4c2e-bf61-d72bd21a0a32")
+	)
+	(wire
+		(pts
+			(xy 242.57 160.02) (xy 242.57 159.8422)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9e16fd5-cd07-4f5d-a3c4-56a5d1906e0e")
+	)
+	(wire
+		(pts
+			(xy 200.66 158.75) (xy 200.66 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f03fa8d0-0eba-4b20-968c-5bc65abd5b16")
+	)
+	(wire
+		(pts
 			(xy 177.8 162.3822) (xy 187.96 162.3822)
 		)
 		(stroke
@@ -1122,7 +1244,7 @@
 	)
 	(hierarchical_label "P_IN"
 		(shape passive)
-		(at 167.64 149.6822 180)
+		(at 167.64 148.59 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1133,7 +1255,7 @@
 	)
 	(hierarchical_label "P_OUT"
 		(shape passive)
-		(at 167.64 159.8422 180)
+		(at 167.64 158.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1188,7 +1310,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:P1_0_INA232AIDDFR-Symbol-1_Sofar Ocean Technologies, Inc.")
-		(at 208.28 152.2222 0)
+		(at 208.28 152.4 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1198,7 +1320,7 @@
 		(dnp no)
 		(uuid "31bb7daa-75ca-492a-9d9f-2443a0b72ad6")
 		(property "Reference" "U4"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1209,7 +1331,7 @@
 			)
 		)
 		(property "Value" "INA232AIDDFR"
-			(at 208.28 172.5422 0)
+			(at 208.28 172.72 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1220,7 +1342,7 @@
 			)
 		)
 		(property "Footprint" "Vault:INA232AIDDFR-Footprint-1"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1231,7 +1353,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1242,7 +1364,7 @@
 			)
 		)
 		(property "Description" "48-V, 16-bit high-precision I²C output current/voltage/power monitor with alert 8-SOT-23-THIN -40 to 125"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1253,7 +1375,7 @@
 			)
 		)
 		(property "SHEET" "PowerMon"
-			(at 200.152 175.0822 0)
+			(at 200.152 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1265,7 +1387,7 @@
 			)
 		)
 		(property "PLANNED MPN" "INA232AIDDFR"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1276,7 +1398,7 @@
 			)
 		)
 		(property "PLANNED MFR" "Texas Instruments"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1287,7 +1409,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C5447660"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1298,7 +1420,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1309,7 +1431,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Texas Instruments"
-			(at 208.28 152.2222 0)
+			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1752,7 +1874,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:P1_3_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
-		(at 241.3 139.5222 0)
+		(at 243.84 139.7 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1762,7 +1884,7 @@
 		(dnp no)
 		(uuid "63b07409-48dd-4d4a-a697-53d100fe0d34")
 		(property "Reference" "R7"
-			(at 242.824 146.1262 0)
+			(at 245.364 146.304 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1773,7 +1895,7 @@
 			)
 		)
 		(property "Value" "RC0402JR-0710KL"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1785,7 +1907,7 @@
 			)
 		)
 		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1796,7 +1918,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1807,7 +1929,7 @@
 			)
 		)
 		(property "Description" "RES 10K OHM 5% 1/16W 0402"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1818,7 +1940,7 @@
 			)
 		)
 		(property "SIZE CODE" "0402"
-			(at 242.824 148.6662 0)
+			(at 245.364 148.844 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1829,7 +1951,7 @@
 			)
 		)
 		(property "RESISTANCE TOLERANCE" "5%"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1841,7 +1963,7 @@
 			)
 		)
 		(property "PACKAGING" "Tape and Reel"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1853,7 +1975,7 @@
 			)
 		)
 		(property "CASE CODE (METRIC)" "1005"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1865,7 +1987,7 @@
 			)
 		)
 		(property "LEAD FREE" "Lead Free"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1877,7 +1999,7 @@
 			)
 		)
 		(property "RESISTOR TYPE" "Thick Film"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1889,7 +2011,7 @@
 			)
 		)
 		(property "MIN OPERATING TEMPERATURE" "-55°C"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1901,7 +2023,7 @@
 			)
 		)
 		(property "MILITARY STANDARD" "Not"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1913,7 +2035,7 @@
 			)
 		)
 		(property "DEPTH" "0.5mm"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1925,7 +2047,7 @@
 			)
 		)
 		(property "SERIES" "RC"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1937,7 +2059,7 @@
 			)
 		)
 		(property "CASE/PACKAGE" "0402"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1949,7 +2071,7 @@
 			)
 		)
 		(property "CONSTRUCTION" "Rectangular"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1961,7 +2083,7 @@
 			)
 		)
 		(property "MAX POWER DISSIPATION" "63mW"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1973,7 +2095,7 @@
 			)
 		)
 		(property "NUMBER OF TERMINATIONS" "2"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1985,7 +2107,7 @@
 			)
 		)
 		(property "PACKAGE QUANTITY" "1"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1997,7 +2119,7 @@
 			)
 		)
 		(property "TERMINATION" "SMD/SMT"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2009,7 +2131,7 @@
 			)
 		)
 		(property "LENGTH" "0.039inch"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2021,7 +2143,7 @@
 			)
 		)
 		(property "TEMPERATURE COEFFICIENT" "100ppm/°C"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2033,7 +2155,7 @@
 			)
 		)
 		(property "CASE CODE (IMPERIAL)" "0402"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2045,7 +2167,7 @@
 			)
 		)
 		(property "POWER RATING" "62.5mW"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2057,7 +2179,7 @@
 			)
 		)
 		(property "RESISTANCE" "10k"
-			(at 242.824 151.2062 0)
+			(at 245.364 151.384 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2068,7 +2190,7 @@
 			)
 		)
 		(property "HEIGHT" "0.016inch"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2080,7 +2202,7 @@
 			)
 		)
 		(property "FEATURES" "Moisture Resistant"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2092,7 +2214,7 @@
 			)
 		)
 		(property "VOLTAGE RATING" "50V"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2104,7 +2226,7 @@
 			)
 		)
 		(property "ROHS COMPLIANT" "Yes"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2116,7 +2238,7 @@
 			)
 		)
 		(property "MAX OPERATING TEMPERATURE" "155°C"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2128,7 +2250,7 @@
 			)
 		)
 		(property "TOLERANCE" "5%"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2140,7 +2262,7 @@
 			)
 		)
 		(property "WIDTH" "0.02inch"
-			(at 239.776 139.0142 0)
+			(at 242.316 139.192 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2152,7 +2274,7 @@
 			)
 		)
 		(property "SHEET" "Processor"
-			(at 239.776 160.3502 0)
+			(at 242.316 160.528 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2164,7 +2286,7 @@
 			)
 		)
 		(property "PLANNED MPN" "RC0402JR-0710KL"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2175,7 +2297,7 @@
 			)
 		)
 		(property "PLANNED MFR" "Yageo"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2186,7 +2308,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C60489"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2197,7 +2319,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2208,7 +2330,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
-			(at 241.3 139.5222 0)
+			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2235,8 +2357,8 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:P1_1_RES_Altium Content Vault_0")
-		(at 175.26 157.3022 0)
-		(unit 0)
+		(at 173.99 156.21 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2245,7 +2367,7 @@
 		(dnp no)
 		(uuid "68a02e29-28b2-4746-9b3f-7c0dda1b0b56")
 		(property "Reference" "R8"
-			(at 178.562 154.5082 0)
+			(at 177.292 153.416 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2256,7 +2378,7 @@
 			)
 		)
 		(property "Value" "UR73D1JTTD10L0F"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2268,7 +2390,7 @@
 			)
 		)
 		(property "Footprint" "Vault:RESC1608X60X55ML20T10"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2279,7 +2401,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2290,7 +2412,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2301,7 +2423,7 @@
 			)
 		)
 		(property "MANUFACTURER" "KOA Speer"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2313,7 +2435,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER" "UR73D1JTTD10L0F"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2325,7 +2447,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER1" "MFL0603R0100FA"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2337,7 +2459,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER2" "MFSA0603R0100FSM"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2349,7 +2471,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER3" "RL0816T-R010-F"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2361,7 +2483,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER4" "D1MPC0603DR010FF-T5"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2373,7 +2495,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER5" "D1WEL0603MR010F-T5"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2385,7 +2507,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER6" "ERJ-3LWFR010V"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2397,7 +2519,7 @@
 			)
 		)
 		(property "MANUFACTURERPARTNUMBER7" "CSRF0603FT10L0"
-			(at 177.038 149.1742 0)
+			(at 175.768 148.082 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2409,7 +2531,7 @@
 			)
 		)
 		(property "RESISTANCE" ".01R"
-			(at 178.562 157.0482 0)
+			(at 177.292 155.956 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2420,7 +2542,7 @@
 			)
 		)
 		(property "SHEET" "PowerMon"
-			(at 177.038 162.8902 0)
+			(at 175.768 161.798 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2432,7 +2554,7 @@
 			)
 		)
 		(property "ALT1 MPN" "PMR03EZPFU10L0"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2443,7 +2565,7 @@
 			)
 		)
 		(property "ALT1 MFR" "ROHM"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2454,7 +2576,7 @@
 			)
 		)
 		(property "ALT1 LCSC" "C308571"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2465,7 +2587,7 @@
 			)
 		)
 		(property "ALT2 MPN" "WSLP0603R0100FEA"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2476,7 +2598,7 @@
 			)
 		)
 		(property "ALT2 MFR" "Vishay"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2487,7 +2609,7 @@
 			)
 		)
 		(property "ALT2 LCSC" "C5334451"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2498,7 +2620,7 @@
 			)
 		)
 		(property "ALT NOTE" "Sofar review: power-path current sense; check land pattern"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2509,7 +2631,7 @@
 			)
 		)
 		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2520,7 +2642,7 @@
 			)
 		)
 		(property "PLANNED MPN" "UR73D1JTTD10L0F"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2531,7 +2653,7 @@
 			)
 		)
 		(property "PLANNED MFR" "KOA Speer"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2542,7 +2664,7 @@
 			)
 		)
 		(property "PLANNED LCSC" ""
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2553,7 +2675,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "As specified (Sofar review), JLC global sourcing: no LCSC listing. ROHM PMR03 (ALT1) electrodes (b 0.35 mm, datasheet Rev.PMR03-IA-012E) sit inside these pads, which were drawn for the UR73D1J's 0.55 mm electrodes and reach 0.35 mm under the PMR03 body; ROHM gives no land pattern, so not adopted"
-			(at 175.26 157.3022 0)
+			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2573,7 +2695,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b7759097-e9e5-490d-ac64-34ed3cfe8dff"
 					(reference "R8")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
