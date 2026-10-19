@@ -910,9 +910,9 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "I2C Address: 0x41"
+	(text "I2C0 (Pi GPIO0/1) · Address 0x41 (A0 = GND)"
 		(exclude_from_sim no)
-		(at 203.2 136.9822 0)
+		(at 175.26 132.08 0)
 		(effects
 			(font
 				(size 2.286 2.286)
@@ -923,8 +923,8 @@
 	)
 	(text_box "Power Monitor"
 		(exclude_from_sim no)
-		(at 257.81 191.5922 0)
-		(size -54.61 6.35)
+		(at 203.2 191.5922 0)
+		(size 54.61 6.35)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width -0.0001)
