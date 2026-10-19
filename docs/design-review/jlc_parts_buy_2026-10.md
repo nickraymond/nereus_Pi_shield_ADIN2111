@@ -98,10 +98,10 @@ before buying.
 **Why the actual is higher:** JLC charged $27.76 for U1 against Digi-Key's own $15.39 (10+), which is +$270 on 22. On
 top of that come the +2 spares on five lines (≈ $36 at Digi-Key prices), $8.92 duty on MP1–MP4, a JLC markup of
 roughly 15–35 % on the other lines, and $1 per line. U1 was also offered as a JLC pre-order at an estimated $15.48.
-Nick kept Digi-Key. In his words, he was "worried they are just going to source from Digikey and charge me the higher
-fee" and take longer. The design session's reading of JLC's pre-order terms backed that up, and Nick accepted it: the
-pre-order price is only fixed after payment, and purchasing can take up to 18 days without asking ([pre-order T&C]).
-Digi-Key showed a known 10–14 days.
+Nick first thought the pre-order worth trying to save the $270, though he worried JLC would "just … source from
+Digikey and charge me the higher fee" and take longer. After the design session's reading of JLC's pre-order terms
+(the price is only fixed after payment, and purchasing can take up to 18 days without asking; [pre-order T&C]), he kept
+Digi-Key and its known 10–14 days.
 
 **Plan on ≈ $560.** It may run a little higher. JLC's global-sourcing markup isn't visible to us, and JLC can add customs
 duty of 3–30 % on some part types; its examples are relays, modules and cables, none of which are in this buy
