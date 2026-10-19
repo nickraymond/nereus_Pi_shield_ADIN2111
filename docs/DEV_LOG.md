@@ -38,6 +38,14 @@ DESIGN D32, viewer
 - QE round 2: APPROVED WITH NITS (3 wording nits, fixed; no further round needed)
 - 2026-10-17: dates re-anchored on a Mon 10/19 payment (PjM 003 relayed a QE 004 nit: Nick buys Monday). Parts at JLC
   10/30–11/16 (11/19 worst); 10/30 needs the very best case; plan on 11/9–11/16. Buy list unchanged
+- 2026-10-18: Nick bought: JLC order DOB202610190524705, $956.05, all 7 lines from Digi-Key (shortest lead 10–14 days,
+  lowest price on JLC's list); ready for assembly est. 11/5 → boards ≈ 11/19–11/24+. U1 cost JLC's $27.76 vs Digi-Key's
+  $15.39 (+$270): he first thought a JLC pre-order (est. $15.48) worth trying to save the $270, though worried JLC would buy from
+  Digi-Key anyway at the higher fee; after the session's reading of the pre-order terms (price fixed only after payment,
+  up to 18 days) he kept Digi-Key.
+  J5 not pre-bought: 31,805 in JLC stock, picked at the PCBA order (Nick)
+- Nick merged PR #32 on 2026-10-17 (`56e1e1a`, at ada4e1a). I then pushed the purchase record to #32's branch without
+  checking the PR state, so it missed main; cherry-picked onto `sprint/8a-purchase-record` from main (PjM 003 caught it)
 - S8 QE date check: APPROVED WITH NITS. Fixed: the pay window that keeps 10/30 possible (Sun 10/18 09:00 – Mon 10/19
   09:00 PT); in the planning case boards arrive ≈ 11/24–12/3, so Sofar's 11/30 is at risk; Timeline 2 rows 11/9, 11/16, 11/19
 **Broke/surprised us:**
@@ -50,7 +58,7 @@ DESIGN D32, viewer
   9–20-day wait after Sofar's review unless bought now (≈ $30, Nick's call)
 - Digi-Key showed a bot check after ~10 pages; stopped there, used Findchips for the last two prices
 - In passing (not fixed): TRACKER still shows S7 open although experiment 1.a merged via PR #31 on 10/9
-**Next:** Nick buys the parts on JLC and records order numbers and lead times; Nick's review and merge of PR #32
+**Next:** PCBA order once the parts are ready (JLC est. 11/5), after Sofar's review of the planned passives (D27)
 
 ---
 
