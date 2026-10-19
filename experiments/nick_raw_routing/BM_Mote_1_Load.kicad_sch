@@ -5091,7 +5091,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Load_1_RES_Altium Content Vault_0")
 		(at 151.13 158.75 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5122,7 +5122,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "0402"
+		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
 			(at 152.908 150.622 0)
 			(hide yes)
 			(show_name no)
@@ -5344,7 +5344,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89"
 					(reference "R34")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
