@@ -98,8 +98,10 @@ before buying.
 **Why the actual is higher:** JLC charged $27.76 for U1 against Digi-Key's own $15.39 (10+), which is +$270 on 22. On
 top of that come the +2 spares on five lines (≈ $36 at Digi-Key prices), $8.92 duty on MP1–MP4, a JLC markup of
 roughly 15–35 % on the other lines, and $1 per line. U1 was also offered as a JLC pre-order at an estimated $15.48.
-Nick kept Digi-Key because the pre-order price is only fixed after payment and its purchasing can take up to 18 days
-without asking ([pre-order T&C]), while Digi-Key showed a known 10–14 days.
+Nick kept Digi-Key. In his words, he was "worried they are just going to source from Digikey and charge me the higher
+fee" and take longer. The design session's reading of JLC's pre-order terms backed that up, and Nick accepted it: the
+pre-order price is only fixed after payment, and purchasing can take up to 18 days without asking ([pre-order T&C]).
+Digi-Key showed a known 10–14 days.
 
 **Plan on ≈ $560.** It may run a little higher. JLC's global-sourcing markup isn't visible to us, and JLC can add customs
 duty of 3–30 % on some part types; its examples are relays, modules and cables, none of which are in this buy
@@ -215,7 +217,7 @@ paid**, so check each MPN before you pay.
 | J5 (JLC stock) | C189893 | 22 | $0.5055 (cart, 10/18) | ≈ $11, paid with the PCBA order | not pre-bought: picked from JLC stock at the PCBA order (31,805 available 10/18; Nick) |
 
 ⁸ These two lines were behind "Show All" in the order screenshot. Their totals are the cart totals plus $1: each of the
-five visible lines is $1.00 above qty × unit price, and with that the 7 lines sum exactly to the $956.05 order total.
+five visible lines is about $1.00 above qty × unit price (±$0.01, because the unit prices are shown rounded), and with that the 7 lines sum exactly to the $956.05 order total.
 Quantities include Nick's +2 spares (D1: 25 + 2; D2/D3 45 and MP1–MP4 84 as Nick chose).
 
 ## Fallback: consign a line yourself
