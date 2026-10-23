@@ -6777,13 +6777,13 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_2_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
 		(at 256.54 103.9622 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "293c16fd-1fbd-4483-aca8-896f6234bd08")
 		(property "Reference" "R13"
 			(at 242.824 102.4382 0)
@@ -7216,7 +7216,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R13")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -8566,7 +8566,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_0_a00bbbee19879c290e62620ae7e47b1_Altium Content Vault")
 		(at 312.42 147.1422 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9077,7 +9077,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate; JLC global sourcing"
+		(property "ALT NOTE" ""
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -9088,7 +9088,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "JLC global sourcing (first build) "
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -9132,7 +9132,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): no potting-safe like-for-like alternate (constraint 8); LCSC listing out of stock: JLC global sourcing"
+		(property "PLANNED NOTE" ""
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -9164,7 +9164,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C22")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -9792,13 +9792,13 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_2_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
 		(at 256.54 73.4822 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "6f2e13c4-e2df-4b18-85ec-374432744013")
 		(property "Reference" "R12"
 			(at 242.824 71.9582 0)
@@ -10231,7 +10231,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R12")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -10239,13 +10239,13 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_2_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
 		(at 256.54 208.1022 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "70156fb9-9f15-42bb-ad98-b494f1e69def")
 		(property "Reference" "R17"
 			(at 242.824 206.5782 0)
@@ -10678,7 +10678,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R17")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -11539,7 +11539,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "SR0805FR-477R5L"
+		(property "ALT1 MPN" ""
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11550,7 +11550,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" ""
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11561,7 +11561,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C873769"
+		(property "ALT1 LCSC" ""
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11605,7 +11605,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated"
+		(property "ALT NOTE" ""
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11616,7 +11616,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "JLC global sourcing (first build) "
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11649,7 +11649,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "wait for JLC update"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -11660,7 +11660,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): the only stocked alternate (YAGEO SR0805, ALT1) has no stated pulse rating and ±200 vs ±100 ppm/°C; JLC global sourcing: no LCSC listing"
+		(property "PLANNED NOTE" ""
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -14458,7 +14458,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_1_c1678fac7984e62e0809fbf79c06691_Sofar Ocean Technologies, Inc.")
 		(at 383.54 152.2222 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14521,7 +14521,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 45, ready 2026-11-05"
 			(at 383.54 152.2222 0)
 			(hide yes)
 			(show_name no)
@@ -14554,7 +14554,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C3757753"
 			(at 383.54 152.2222 0)
 			(hide yes)
 			(show_name no)
@@ -14597,7 +14597,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D2")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -14605,13 +14605,13 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_2_1029c3af85768c4190bb7ad29bc67b5_Altium Content Vault")
 		(at 256.54 238.5822 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c25e2981-473b-425e-ab23-6b3daafe7c89")
 		(property "Reference" "R19"
 			(at 242.824 237.0582 0)
@@ -15044,7 +15044,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R19")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -16601,7 +16601,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_1_SMA6F33A_Sofar Ocean Technologies, Inc.")
 		(at 358.14 144.6022 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16808,7 +16808,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing of Sofar's second source Vishay SMA6F33A-M3/H (ST part obsolete; Sofar Q7) (D26)"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 27, ready 2026-11-05"
 			(at 358.14 144.6022 0)
 			(hide yes)
 			(show_name no)
@@ -16852,7 +16852,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Sofar's own listed second source (their MANUFACTURERPARTNUMBER1); ST SMA6F33A is obsolete (DK); no LCSC listing found (2026-10-06): JLC global sourcing; Sofar Q7"
+		(property "PLANNED NOTE" "Sofar's own listed second source (their MANUFACTURERPARTNUMBER1)"
 			(at 358.14 144.6022 0)
 			(hide yes)
 			(show_name no)
@@ -16884,7 +16884,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D1")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)

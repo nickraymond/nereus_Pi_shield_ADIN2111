@@ -859,12 +859,1044 @@
           "label": "Footprint",
           "name": "Footprint",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "AUTOMOTIVE GRADE",
+          "name": "AUTOMOTIVE GRADE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "BIDIRECTIONAL",
+          "name": "BIDIRECTIONAL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "BREAKDOWN VOLTAGE",
+          "name": "BREAKDOWN VOLTAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CAPACITANCE",
+          "name": "CAPACITANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CASE CODE (IMPERIAL)",
+          "name": "CASE CODE (IMPERIAL)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CASE CODE (METRIC)",
+          "name": "CASE CODE (METRIC)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CASE/PACKAGE",
+          "name": "CASE/PACKAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CAS~{E}/PACKAGE",
+          "name": "CAS~{E}/PACKAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CATEGORY",
+          "name": "CATEGORY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CLAMPING VOLTAGE",
+          "name": "CLAMPING VOLTAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPONENT TYPE",
+          "name": "COMPONENT TYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPONENTLINK1DESCRIPTION",
+          "name": "COMPONENTLINK1DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPONENTLINK1URL",
+          "name": "COMPONENTLINK1URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPONENTLINK2DESCRIPTION",
+          "name": "COMPONENTLINK2DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPONENTLINK2URL",
+          "name": "COMPONENTLINK2URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COMPOSITION",
+          "name": "COMPOSITION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CONSTRUCTION",
+          "name": "CONSTRUCTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CONTACT PLATING",
+          "name": "CONTACT PLATING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "COPYRIGHT",
+          "name": "COPYRIGHT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CURRENT",
+          "name": "CURRENT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "CURRENT - PEAK PULSE (10/1000ΜS)",
+          "name": "CURRENT - PEAK PULSE (10/1000ΜS)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DATASHEET URL",
+          "name": "DATASHEET URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DATASHEET VERSION",
+          "name": "DATASHEET VERSION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DATASHEETVERSION",
+          "name": "DATASHEETVERSION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DATEMODIFIED",
+          "name": "DATEMODIFIED",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DEPTH",
+          "name": "DEPTH",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DESIGN ITEM ID",
+          "name": "DESIGN ITEM ID",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DESIGN RESOURCES",
+          "name": "DESIGN RESOURCES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DEVICE CLASS L1",
+          "name": "DEVICE CLASS L1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DEVICE CLASS L2",
+          "name": "DEVICE CLASS L2",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DEVICE CLASS L3",
+          "name": "DEVICE CLASS L3",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIAMETER",
+          "name": "DIAMETER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIELECTRIC",
+          "name": "DIELECTRIC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIELECTRIC MATERIAL",
+          "name": "DIELECTRIC MATERIAL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIGIKEY DESCRIPTION",
+          "name": "DIGIKEY DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIRECTION",
+          "name": "DIRECTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DIRECTION TYPE",
+          "name": "DIRECTION TYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ESR (EQUIVALENT SERIES RESISTANCE)",
+          "name": "ESR (EQUIVALENT SERIES RESISTANCE)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "FAMILY",
+          "name": "FAMILY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "FEATURES",
+          "name": "FEATURES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "FOOTPRINT URL",
+          "name": "FOOTPRINT URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "FREQUENCY",
+          "name": "FREQUENCY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "HEIGHT",
+          "name": "HEIGHT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "HEIGHT - SEATED (MAX)",
+          "name": "HEIGHT - SEATED (MAX)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ICSPARTNUMBER",
+          "name": "ICSPARTNUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ICS_PARTTYPE",
+          "name": "ICS_PARTTYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "INDUCTANCE",
+          "name": "INDUCTANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "INPUT_LOAD",
+          "name": "INPUT_LOAD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "INSULATION RESISTANCE",
+          "name": "INSULATION RESISTANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "IPC LAND PATTERN NAME",
+          "name": "IPC LAND PATTERN NAME",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ISSUENO",
+          "name": "ISSUENO",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KITS",
+          "name": "KITS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAD DIAMETER",
+          "name": "LEAD DIAMETER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAD FREE",
+          "name": "LEAD FREE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAD PITCH",
+          "name": "LEAD PITCH",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAD SPACING",
+          "name": "LEAD SPACING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAD STYLE",
+          "name": "LEAD STYLE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LEAKAGE CURRENT",
+          "name": "LEAKAGE CURRENT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LENGTH",
+          "name": "LENGTH",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LIFE (HOURS)",
+          "name": "LIFE (HOURS)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LIFESTATUS",
+          "name": "LIFESTATUS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LOAD CAPACITANCE",
+          "name": "LOAD CAPACITANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Datasheet",
+          "name": "Datasheet",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER 1",
+          "name": "MANUFACTURER 1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER PART NUMBER",
+          "name": "MANUFACTURER PART NUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER PART NUMBER 1",
+          "name": "MANUFACTURER PART NUMBER 1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER URL",
+          "name": "MANUFACTURER URL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER1",
+          "name": "MANUFACTURER1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER2",
+          "name": "MANUFACTURER2",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER",
+          "name": "MANUFACTURERPARTNUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER1",
+          "name": "MANUFACTURERPARTNUMBER1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER2",
+          "name": "MANUFACTURERPARTNUMBER2",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER3",
+          "name": "MANUFACTURERPARTNUMBER3",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER4",
+          "name": "MANUFACTURERPARTNUMBER4",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER5",
+          "name": "MANUFACTURERPARTNUMBER5",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER6",
+          "name": "MANUFACTURERPARTNUMBER6",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURERPARTNUMBER7",
+          "name": "MANUFACTURERPARTNUMBER7",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER_PART_NUMBER",
+          "name": "MANUFACTURER_PART_NUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MATERIAL",
+          "name": "MATERIAL",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MAX OPERATING TEMPERATURE",
+          "name": "MAX OPERATING TEMPERATURE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MAX POWER DISSIPATION",
+          "name": "MAX POWER DISSIPATION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MFR_NAME",
+          "name": "MFR_NAME",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MILITARY STANDARD",
+          "name": "MILITARY STANDARD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MIN OPERATING TEMPERATURE",
+          "name": "MIN OPERATING TEMPERATURE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MNTTYPE",
+          "name": "MNTTYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MOUNT",
+          "name": "MOUNT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MOUNTING TECHNOLOGY",
+          "name": "MOUNTING TECHNOLOGY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MOUNTING TYPE",
+          "name": "MOUNTING TYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MOUSER DESCRIPTION",
+          "name": "MOUSER DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "NUMBER OF CHANNELS",
+          "name": "NUMBER OF CHANNELS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "NUMBER OF PINS",
+          "name": "NUMBER OF PINS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "NUMBER OF TERMINATIONS",
+          "name": "NUMBER OF TERMINATIONS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "OCTOPART",
+          "name": "OCTOPART",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ONLINE CATALOG",
+          "name": "ONLINE CATALOG",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "OPERATING TEMPERATURE",
+          "name": "OPERATING TEMPERATURE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "OTHER NAMES",
+          "name": "OTHER NAMES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "OUTPUT_LOAD",
+          "name": "OUTPUT_LOAD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE",
+          "name": "PACKAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE / CASE",
+          "name": "PACKAGE / CASE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE DESCRIPTION",
+          "name": "PACKAGE DESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE QUANTITY",
+          "name": "PACKAGE QUANTITY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGE REFERENCE",
+          "name": "PACKAGE REFERENCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGEDESCRIPTION",
+          "name": "PACKAGEDESCRIPTION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGEREFERENCE",
+          "name": "PACKAGEREFERENCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PACKAGING",
+          "name": "PACKAGING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PART NUMBER",
+          "name": "PART NUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PARTID",
+          "name": "PARTID",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PARTNUMBER",
+          "name": "PARTNUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PARTTYPE",
+          "name": "PARTTYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PCBFOOTPRINTALT",
+          "name": "PCBFOOTPRINTALT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PCN PART NUMBER",
+          "name": "PCN PART NUMBER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PEAK PULSE CURRENT",
+          "name": "PEAK PULSE CURRENT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PEAK PULSE POWER",
+          "name": "PEAK PULSE POWER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PIN COUNT",
+          "name": "PIN COUNT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PINS",
+          "name": "PINS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "AUTOMOTIVE",
+          "name": "AUTOMOTIVE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "$PN",
+          "name": "$PN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PN",
+          "name": "PN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "POWER",
+          "name": "POWER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "POWER - PEAK PULSE",
+          "name": "POWER - PEAK PULSE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "POWER RATING",
+          "name": "POWER RATING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PRODUCT TRAINING MODULES",
+          "name": "PRODUCT TRAINING MODULES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Planned MFR",
+          "name": "Planned MFR",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Planned MPN",
+          "name": "Planned MPN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RADIATION HARDENING",
+          "name": "RADIATION HARDENING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RATINGS",
+          "name": "RATINGS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "REACH SVHC",
+          "name": "REACH SVHC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "REFDES",
+          "name": "REFDES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RESISTANCE",
+          "name": "RESISTANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RESISTANCE TOLERANCE",
+          "name": "RESISTANCE TOLERANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RESISTOR TYPE",
+          "name": "RESISTOR TYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "REVERSE STANDOFF VOLTAGE",
+          "name": "REVERSE STANDOFF VOLTAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "REVISION",
+          "name": "REVISION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RIPPLE CURRENT",
+          "name": "RIPPLE CURRENT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "RIPPLE CURRENT (AC)",
+          "name": "RIPPLE CURRENT (AC)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ROHS",
+          "name": "ROHS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ROHS COMPLIANT",
+          "name": "ROHS COMPLIANT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ROHS INFORMATION",
+          "name": "ROHS INFORMATION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ROHSCOMPLIANT",
+          "name": "ROHSCOMPLIANT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SERIES",
+          "name": "SERIES",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SHEET",
+          "name": "SHEET",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SIZE / DIMENSION",
+          "name": "SIZE / DIMENSION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SIZE CODE",
+          "name": "SIZE CODE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SOURCE",
+          "name": "SOURCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "ALTIUM_VALUE",
+          "name": "ALTIUM_VALUE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "STANDARD PACKAGE",
+          "name": "STANDARD PACKAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SUPPLIER PART NUMBER 1",
+          "name": "SUPPLIER PART NUMBER 1",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TECHNOLOGY",
+          "name": "TECHNOLOGY",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TEMPERATURE",
+          "name": "TEMPERATURE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TEMPERATURE CHARACTERISTIC",
+          "name": "TEMPERATURE CHARACTERISTIC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TEMPERATURE COEFFICIENT",
+          "name": "TEMPERATURE COEFFICIENT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TEMPERATURE RANGE HIGH",
+          "name": "TEMPERATURE RANGE HIGH",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TEMPERATURE RANGE LOW",
+          "name": "TEMPERATURE RANGE LOW",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TERMINATION",
+          "name": "TERMINATION",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "THICKNESS",
+          "name": "THICKNESS",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "THICKNESS (MAX)",
+          "name": "THICKNESS (MAX)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TOLERANCE",
+          "name": "TOLERANCE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "TYPE",
+          "name": "TYPE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE",
+          "name": "VOLTAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE - BREAKDOWN (MIN)",
+          "name": "VOLTAGE - BREAKDOWN (MIN)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE - CLAMPING (MAX) @ IPP",
+          "name": "VOLTAGE - CLAMPING (MAX) @ IPP",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE - RATED",
+          "name": "VOLTAGE - RATED",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE - REVERSE STANDOFF (TYP)",
+          "name": "VOLTAGE - REVERSE STANDOFF (TYP)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE RATING",
+          "name": "VOLTAGE RATING",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "VOLTAGE RATING (DC)",
+          "name": "VOLTAGE RATING (DC)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "WEIGHT",
+          "name": "WEIGHT",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "WIDTH",
+          "name": "WIDTH",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "WORKING VOLTAGE",
+          "name": "WORKING VOLTAGE",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "APPLICATIONS",
+          "name": "APPLICATIONS",
+          "show": false
         }
       ],
-      "filter_string": "",
+      "filter_string": "R38",
       "group_symbols": true,
       "include_excluded_from_bom": false,
-      "name": "Sofar review (planned parts)",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -917,7 +1949,7 @@
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
-    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR80,#PWR84-92,#FLG4-8,J2-3,R9-10,R24",
+    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-93,#FLG4-8,J2-4,J6,R9-10,R24,F1",
     "variants": []
   },
   "sheets": [

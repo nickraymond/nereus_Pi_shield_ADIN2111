@@ -6418,7 +6418,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6451,7 +6451,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "none shown yet; check My Parts"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6474,6 +6474,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Analog Devices"
+			(at 187.96 204.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field12" ""
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -10987,7 +10998,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_2_AP22913CN4-7-Symbol-1_Sofar Ocean Technologies, Inc.")
 		(at 106.68 199.39 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11062,7 +11073,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 42, ready 2026-11-05"
 			(at 106.68 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -11144,7 +11155,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15"
 					(reference "U2")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)
@@ -11809,7 +11820,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 120"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -11842,7 +11853,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "none shown yet; check My Parts"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -11865,6 +11876,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Analog Devices"
+			(at 123.19 85.2678 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field12" ""
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -13347,7 +13369,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 87"
+		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13380,7 +13402,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "none shown yet"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)

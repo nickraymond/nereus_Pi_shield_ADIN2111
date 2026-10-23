@@ -2553,7 +2553,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "PMR03EZPFU10L0"
+		(property "ALT1 MPN" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2564,7 +2564,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "ROHM"
+		(property "ALT1 MFR" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2575,7 +2575,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C308571"
+		(property "ALT1 LCSC" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2586,7 +2586,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "WSLP0603R0100FEA"
+		(property "ALT2 MPN" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2597,7 +2597,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Vishay"
+		(property "ALT2 MFR" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2608,7 +2608,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C5334451"
+		(property "ALT2 LCSC" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2619,7 +2619,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: power-path current sense; check land pattern"
+		(property "ALT NOTE" ""
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2630,7 +2630,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "JLC global sourcing (first build) "
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2663,7 +2663,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "wait for JLC update"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
