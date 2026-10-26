@@ -16966,7 +16966,7 @@
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:PODL_0_SRF1260-101M_Sofar Ocean Technologies, Inc.")
 		(at 238.76 88.7222 0)
-		(unit 0)
+		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17073,7 +17073,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06) (thin margin)"
+		(property "PLANNED NOTE" ""
 			(at 238.76 88.7222 0)
 			(hide yes)
 			(show_name no)
@@ -17085,6 +17085,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Bourns"
+			(at 238.76 88.7222 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "Bought 42"
 			(at 238.76 88.7222 0)
 			(hide yes)
 			(show_name no)
@@ -17111,7 +17122,7 @@
 			(project "nick_raw_routing"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "L1")
-					(unit 0)
+					(unit 1)
 				)
 			)
 		)

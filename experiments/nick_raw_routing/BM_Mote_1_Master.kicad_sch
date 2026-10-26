@@ -9229,8 +9229,8 @@
 	)
 	(text_box "R11 (0 Ω, DNP): bypass for payload switch U11\nWhen open (as built): payload on only when the Pi sets PAYLOAD_EN;\nU11 limits it to ~0.73 A and flags faults on PAYLOAD_FAULT (active low).\nWhen fitted: payload always on at bus voltage (VBUS);\nno switching, no current limit, no fault flag."
 		(exclude_from_sim no)
-		(at 184.15 217.17 0)
-		(size -78.74 12.7)
+		(at 105.41 217.17 0)
+		(size 78.74 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)

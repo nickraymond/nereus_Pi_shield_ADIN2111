@@ -1891,9 +1891,27 @@
           "label": "APPLICATIONS",
           "name": "APPLICATIONS",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Field12",
+          "name": "Field12",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Planned LCSC",
+          "name": "Planned LCSC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Planned Note",
+          "name": "Planned Note",
+          "show": false
         }
       ],
-      "filter_string": "R38",
+      "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": false,
       "name": "",
@@ -1949,7 +1967,7 @@
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
-    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-93,#FLG4-8,J2-4,J6,R9-10,R24,F1",
+    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-94,#FLG4-8,J2-4,J6,R9-10,R24,R36,F1,C59",
     "variants": []
   },
   "sheets": [
