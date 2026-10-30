@@ -1,0 +1,4 @@
+(version 1)
+   (rule "BM data pairs matched"
+     (condition "A.inDiffPair('*DATA*')")
+     (constraint skew (max 0.5mm)))
