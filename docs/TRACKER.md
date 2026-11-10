@@ -402,11 +402,15 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       SPI landing; CFG1 strap (JP3, R2, R47) south of U1, because R2's strap pad could not be reached under U1; ADIN_TIMER 77 mm on
       the bottom along the south and east edges. DRC 151 errors (none on the new copper), open 60 → 47 (30 nets), parity 0
 - [x] Nick's KiCad look after steps 0–2 (2026-11-10, 3D view; no changes asked)
-- [ ] Step 4 power → Nick's KiCad look
+- [x] Step 4 power: GND zone fills the north-west notch of Sofar's GND plane (5 V converter, J4, J3); J4 → F1; TP38; U11_RTN;
+      PI_3V3 pins joined, J2 pins 9/11/13 from a new PI_3V3 zone on the PWR plane; VBUS_OUT → J5 (1.0 mm, top then bottom);
+      J5 GND to two vias. DRC 25 errors (none new), open 47 → 36 (26 nets), parity 0
+- [ ] Nick's KiCad look after steps 3–4: the bus trunks at the inserts, the new GND and PI_3V3 zones, VBUS_OUT down the west edge
+- [ ] Bottom silkscreen still reads "PCBA-000639-AB BM Mote" (Sofar's board name): rename or remove in step 9 (Nick)
 - [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 3 (JLC rules): 25 errors, 47 unconnected items, 0 parity issues.
+→ after step 4 (JLC rules): 25 errors, 36 unconnected items, 0 parity issues.
 
 ---
 

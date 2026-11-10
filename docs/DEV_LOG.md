@@ -65,7 +65,13 @@ what broke, what's next.*
   disc on the bottom). Plain hole + two scoped rules + trunk ends 0.25 mm off the hole: DRC 151 → 25 errors
 - The "solder mask bridge" at MP4 only was the fiducial's 2.25 mm mask opening touching the insert's, not the insert itself
 - The 25 left: 16 GND vias in U1's keepout (as on the mote, kept), 3 skew (Sofar Q13), 3 courtyards, R26/R27 (step 5)
-**Next:** step 4, power: GND and PI_5V at the wire pads, J4 → F1, PI_3V3 to J2 pins 9/11/13, VBUS_OUT → J5, 5V_PI → TP38.
+- Step 4, power. Sofar's GND plane has a notch in its north-west corner; U10, C54/C55 and J4 sat in it with GND vias
+  that reached nothing. A GND zone now fills it and joins the north strip. Open connections 47 → 36
+- A plane cannot pass between two 2.54 mm header pins at 0.3 mm clearance (the web is 0.24 mm, under the 0.25 mm
+  minimum); the new PI_3V3 zone uses 0.25 mm (web 0.34 mm). JLC's 0.3 mm hole-to-copper still holds (0.6 mm)
+- U11's exposed pad overlapped its RTN island by 0.05 mm but was not connected; a short track into the island fixes it
+- The bottom silkscreen still carries Sofar's "PCBA-000639-AB BM Mote" label
+**Next:** Nick's KiCad look; then step 5 (I2C0, I2C3, R26/R27), step 6 (payload switch), step 7 (Pi → J2 breakout), step 8 (LEDs).
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
