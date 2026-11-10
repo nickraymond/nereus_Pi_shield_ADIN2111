@@ -79,7 +79,8 @@ and 0.10 mm under the top copper; Internal 2 is 0.11 mm from the GND plane.
 | Open connections | 63 | 63 |
 | Schematic parity issues | 0 | 0 |
 
-What is left: 110 at the four inserts (68 hole clearance, 38 solder mask bridge, 4 pad stack), 16 GND vias in the
-keepout under U1 (the same 16 as on the mote; kept, Nick 2026-11-10), 3 skew (Q13), 3 courtyard overlaps,
-2 shorts that later routing steps remove. Warnings went from 377 to 466, almost all silkscreen text now
+What is left: 108 at the four inserts (68 hole clearance, 36 solder mask bridge, 4 pad stack), 16 GND vias in the
+keepout under U1 (the same 16 as on the mote; kept, Nick 2026-11-10), 3 skew (Q13), 3 courtyard overlaps, and at
+R26/R27 2 solder mask bridges and 1 short, plus 1 short at a GND via, all removed by later routing steps.
+(Corrected 2026-11-10: an earlier version counted the two R26/R27 mask bridges with the inserts, as 110.) Warnings went from 377 to 466, almost all silkscreen text now
 measured against JLC's 1.0 mm / 0.15 mm.

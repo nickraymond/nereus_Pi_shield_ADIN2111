@@ -274,7 +274,7 @@ const S = [
   ["Ask Sofar: Q13 data-pair lengths", `<p>P and N differ by 1.46 mm (port 1) and 3.05 mm (port 2) on the mote itself. The note is on the PoDL sheet beside T1.</p>`, "nick"],
   ["Step 1: ADIN SPI", `<p>Done (a0e6640): SCK and CS on Internal 2, MOSI and MISO on Internal 1, each from its J1 pin to Sofar's via, no new via. 60 open connections left on 38 nets; DRC 134 errors, none on the new copper.</p>`, null, 1],
   ["Your requests of 11/10: holes, LEDs, inserts, J4", `<p>Done as step 1b: copper keep-outs of radius 3.0 mm on all layers at H1–H4; LEDs at x 145.80 / 148.80 / 151.80, 3.5 mm from the south edge; inserts on one line, 12.40 mm from each edge, mirrored; J4 as two wire pads like J5. DRC 151 errors (17 more, all at the insert footprint), 60 open connections, parity 0.</p>`, null, 1],
-  ["Insert footprint errors", `<p>127 of the 151 DRC errors come from Sofar's insert footprint (unplated hole, mask opening and vias inside the pad). To look at before the bus pairs.</p>`],
+  ["Insert footprint errors", `<p>125 of the 151 DRC errors come from Sofar's insert footprint (unplated hole, mask opening and vias inside the pad). To look at before the bus pairs.</p>`],
   ["Step 2: ADIN control and straps", `<p>INT, RST, ADIN_PWR, straps; JP3, JP4, R9 and R47 move. Then your look in KiCad.</p>`],
   ["Steps 3–4: bus pairs and power", `<p>Then your look in KiCad.</p>`],
   ["Steps 5–8: I2C, payload switch, Pi → J2 breakout, LEDs", `<p>Then your look in KiCad.</p>`],

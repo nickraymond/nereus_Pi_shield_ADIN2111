@@ -395,7 +395,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       trunk ends follow; LEDs at x 145.80 / 148.80 / 151.80, y 128.60 (3.5 mm from the south edge); J4 → wire pads at (119.0, 92.1);
       copper keep-out r 3.0 mm on all layers at H1–H4 (radius from `Pi_HAT_outline.dxf`, layer HOLE_KEEPOUT).
       DRC 151 errors (17 more, all at the insert footprint), 60 open, parity 0; ERC 39
-- [ ] Insert footprint: 127 of the 151 errors (hole clearance, solder mask bridge, pad stack) come from it; look at it before step 3 or in step 9
+- [ ] Insert footprint: 125 of the 151 errors (69 hole clearance, 52 solder mask bridge, 4 pad stack) come from it; look at it before step 3 or in step 9
 - [ ] Step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
 - [ ] Step 3 bus pairs · step 4 power → Nick's KiCad look
 - [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
