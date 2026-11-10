@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-11-10 · Now: S9 finish the routing for JLC</strong> Step 0 is done on the board in experiments/nick_raw_routing/: the fixes before routing, no copper changed. 63 open connections on 41 nets are left to route. <strong>Next:</strong> your decision D (JLC rules and stackup), then the ADIN SPI nets. S8: parts bought 10/18 (JLC order DOB202610190524705), estimated ready for assembly 11/5; the PCBA order waits on the finished board and Sofar's review of the planned passives.</p>
+    <p><strong>Updated 2026-11-10 · Now: S9 finish the routing for JLC</strong> Steps 0 and 0b are done on branch Fable_5.2: the fixes before routing, JLC's rules and stackup, and J5 as two wire pads; no copper changed yet. 63 open connections on 41 nets are left to route. <strong>Next:</strong> the ADIN SPI nets. S8: parts bought 10/18 (JLC order DOB202610190524705), estimated ready for assembly 11/5; the PCBA order waits on the finished board and Sofar's review of the planned passives.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -268,7 +268,10 @@ const S = [
   items:[
   ["Review and plan", `<p>77 open connections on 46 nets and 424 DRC errors on the zip board. You chose: base = zip, inserts option 1 (labels exchanged, no copper change), part moves approved.</p>`, null, 1],
   ["Step 0: fixes before routing", `<p>Done (58365af), no copper changed: outline circles off Edge.Cuts, MP1/MP2 and MP3/MP4 exchanged, MTG1–4 removed, J5 and TP38 on the board. DRC 324 errors, 63 open connections on 41 nets, parity 0.</p>`, null, 1],
-  ["Decision D: JLC rules and stackup", `<p>Rule values from JLC's page, and the stackup: JLC06161H-3313 (default) or -2116A (recommended). Also the skew rule and the 16 keepout vias, both as on Sofar's mote.</p>`, "nick"],
+  ["Decision D: JLC rules and stackup", `<p>Decided 11/10 (D34): JLC's limits and the standard stackup JLC06161H-3313 are in the settings, in one commit that can be reverted alone (docs/design-review/jlc_rules_2026-11.md). The BM data pairs and the 16 GND vias under U1 stay as on Sofar's mote.</p>`, "nick", 1],
+  ["Step 0b: J5 wire pads, J6, fiducials", `<p>Done (cf6ec47), no copper changed: J5 is two through-hole wire pads instead of the JST connector; J6 one pitch west; fiducials as on your branch. DRC under JLC's rules: 134 errors, 63 open connections, parity 0.</p>`, null, 1],
+  ["Confirm J5's pads", `<p>Oval 4.2 × 2.6 mm, 1.3 mm hole, 3.81 mm pitch, at the west edge: my proposal. Check in KiCad that the size suits your wire.</p>`, "nick"],
+  ["Ask Sofar: Q13 data-pair lengths", `<p>P and N differ by 1.46 mm (port 1) and 3.05 mm (port 2) on the mote itself. The note is on the PoDL sheet beside T1.</p>`, "nick"],
   ["Steps 1–2: ADIN SPI, control and straps", `<p>SPI on the two inner layers with no new vias; INT, RST, ADIN_PWR, straps; JP3, JP4, R9 and R47 move. Then your look in KiCad.</p>`],
   ["Steps 3–4: bus pairs and power", `<p>Then your look in KiCad.</p>`],
   ["Steps 5–8: I2C, payload switch, Pi → J2 breakout, LEDs", `<p>Then your look in KiCad.</p>`],

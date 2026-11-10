@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
 **Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)
-**Files touched:** experiments/nick_raw_routing/ (board; Master sheet: 4 × `on_board no`; scripts/ new); TRACKER (S9), DESIGN D33, viewer
+**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D34, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
 **ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
 **Done:**
 - Reviewed the zip board (2026-11-09): 77 open connections on 46 nets, 424 DRC errors under its own rules, parity 0. Plan
@@ -38,7 +38,14 @@ what broke, what's next.*
   helper runs its second pass in a fresh process
 - J5 does not fit at y 111 on the west edge (pads overlap the BM2_N trunk by 0.2 mm); placed at y 122.2
 - The BM data pairs and the 16 GND vias in U1's keepout are identical to the mote; the 0.5 mm skew rule is not met by the mote
-**Next:** Nick's decision D (JLC rules, stackup); then step 1, the ADIN SPI nets.
+- Later the same day (Nick's decisions, D34): JLC rule values and the standard stackup JLC06161H-3313 written into the
+  settings in one revertible commit (6f54c27), record in `docs/design-review/jlc_rules_2026-11.md`: 324 → 134 errors
+- BM data pairs compared item by item with the mote: identical. Sofar Q13 and a note on the PoDL sheet (f9fe3b7)
+- Step 0b (cf6ec47): J5 is now two through-hole wire pads (new footprint in nereus.pretty, symbol out of the BOM);
+  J6 one pitch west and the fiducials as on Nick's `reload_old_mote` 7cc5f04; TP38 re-placed. Parity 0, ERC unchanged
+- Schematic parity compares symbol fields with footprint fields: a swapped footprint needs the symbol's fields copied
+- The board's silkscreen already marks the inserts − + − + west to east, which matches the copper and option 1
+**Next:** step 1, the ADIN SPI nets: SCK and CS on Internal 2, MOSI and MISO on Internal 1, no new vias.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 

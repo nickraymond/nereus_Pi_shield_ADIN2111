@@ -364,8 +364,8 @@ Fri 10/30 (fallback Tue 11/3).*
       all 7 lines from Digi-Key, $956.05 (U1 at JLC's $27.76); **ready for assembly est. 2026-11-05** → PCBA order ≈ 11/5,
       boards ≈ 11/19–11/24+. J5 not pre-bought: picked from JLC stock (31,805 on 10/18) at the PCBA order (Nick). Record in the doc
 - [ ] Flagged passives (R8, R15/R16, C22/C23, commodity R/C) bought after Sofar's review (D27)
-- [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3; parts ready est. Thu 11/5, so ≈ 11/5; pick J5 C189893 from JLC stock)
-- [ ] J5 `SOURCING` field → JLC stock (C189893) at the next schematic edit, then `bom.csv` follows (QE S8 N10)
+- [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3; parts ready est. Thu 11/5, so ≈ 11/5; no J5 part since D34: wire pads on the S9 board)
+- [ ] J5 `SOURCING` field (QE S8 N10): on the S9 board J5 is wire pads with no part (D34); the live project's schematic and `bom.csv` still list the JST part
 **Demo (Nick):** open `docs/design-review/jlc_parts_buy_2026-10.md`: the "In short" box, the buy table and the steps;
 `git diff main...HEAD --stat` touches only docs and the viewer (no KiCad file).
 
@@ -378,13 +378,17 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Review + plan with drawings; Nick: A base = zip, B inserts option 1, C part moves approved (2026-11-10)
 - [x] Step 0, fixes before routing, no copper changed (58365af): outline circles off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4
       removed; J5, TP38 on the board; GND strip priority. DRC 424 → 324 errors, open 77 → 63 (46 → 41 nets), parity 0; ERC unchanged (39)
-- [ ] **Decision D (Nick):** JLC rule values and stackup (JLC06161H-3313 or -2116A); skew rule; 16 keepout vias as on the mote
+- [x] Decision D (Nick, 2026-11-10; D34): JLC rule values + standard stackup JLC06161H-3313, in one revertible commit (6f54c27;
+      `docs/design-review/jlc_rules_2026-11.md`); data pairs and the 16 GND vias kept as on the mote; Sofar Q13 + note on the PoDL sheet (f9fe3b7)
+- [x] Step 0b, no copper changed (cf6ec47): J5 → two through-hole wire pads (new footprint, not in BOM); J6 one pitch west and
+      FID1/FID3 as on Nick's `reload_old_mote`; TP38 re-placed. DRC under JLC rules: 134 errors, 63 open (41 nets), parity 0; ERC unchanged (39)
+- [ ] Nick: confirm J5's pad size (4.2 × 2.6 mm), hole (1.3 mm) and pitch (3.81 mm) in KiCad
 - [ ] Step 1 ADIN SPI · step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
 - [ ] Step 3 bus pairs · step 4 power → Nick's KiCad look
 - [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 0: 324 errors, 63 unconnected items, 0 parity issues.
+→ after step 0b (JLC rules): 134 errors, 63 unconnected items, 0 parity issues.
 
 ---
 
