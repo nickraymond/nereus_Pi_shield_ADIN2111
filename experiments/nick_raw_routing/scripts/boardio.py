@@ -103,3 +103,30 @@ def find_tracks(board, tracks, short, layer_name, box):
         if all(x0 <= x <= x1 and y0 <= y <= y1 for x, y in ends):
             found.append(t)
     return found
+
+
+def add_via(board, short, x, y, diameter=0.6, drill=0.3):
+    """Add a through via. Default 0.6 mm with a 0.3 mm hole, the size for new vias (Sofar's 0.45 / 0.2 stay at the ADIN)."""
+    v = pcbnew.PCB_VIA(board)
+    v.SetViaType(pcbnew.VIATYPE_THROUGH)
+    v.SetLayerPair(pcbnew.F_Cu, pcbnew.B_Cu)
+    v.SetPosition(pcbnew.VECTOR2I(pcbnew.FromMM(x), pcbnew.FromMM(y)))
+    v.SetWidth(pcbnew.F_Cu, pcbnew.FromMM(diameter))
+    v.SetDrill(pcbnew.FromMM(drill))
+    v.SetNet(net_of(board, short))
+    board.Add(v)
+    return v
+
+
+def place(fp, x, y, pads, top=None):
+    """Move a footprint to (x, y), optionally to the top side, and turn it until its pads sit at `pads`
+    ({number: (x, y)}, 0.02 mm tolerance). Fails loudly if no rotation fits."""
+    if top is True and fp.IsFlipped():
+        fp.Flip(fp.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
+    move_to(fp, x, y)
+    for rot in (0, 90, 180, 270):
+        fp.SetOrientationDegrees(rot)
+        got = {p.GetNumber(): (mm(p.GetPosition().x), mm(p.GetPosition().y)) for p in fp.Pads()}
+        if all(abs(got[n][0] - px) < 0.02 and abs(got[n][1] - py) < 0.02 for n, (px, py) in pads.items()):
+            return rot
+    raise AssertionError("%s: no rotation puts its pads at %s (last tried: %s)" % (fp.GetReference(), pads, got))
