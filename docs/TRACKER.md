@@ -406,11 +406,20 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       PI_3V3 pins joined, J2 pins 9/11/13 from a new PI_3V3 zone on the PWR plane; VBUS_OUT → J5 (1.0 mm, top then bottom);
       J5 GND to two vias. DRC 25 errors (none new), open 47 → 36 (26 nets), parity 0
 - [ ] Nick's KiCad look after steps 3–4: the bus trunks at the inserts, the new GND and PI_3V3 zones, VBUS_OUT down the west edge
+- [x] Step 7 Pi → J2 breakout, all 11 nets (aa8cd65, bcfe41f): channel re-laned (INT, ADIN_PWR, RST to the north lanes), TP38 to the
+      bottom side; UART_TX, ADC_ALERT on Internal 1; UART_RX, SPI1_CE1, MOTOR_nSLEEP/IN1/IN2 on top; SPI1_CE0 on the bottom;
+      SPI1_MISO/MOSI/SCLK on Internal 2. No via
+- [x] Step 5, I2C0 (bcfe41f): one small via per stub, SCL on Internal 1, SDA on Internal 2, to J1 27/28 and J2 15/16; R26/R27 moved
+      below J2 beside PI_3V3 pin 13 (clears the 3V3 / PI_3V3 short). DRC 22 errors, open 19 on 12 nets, parity 0
+- [ ] Step 5, I2C3 (6 open): J1 13/15 → J2 8/7, the pull-ups R10/R24, Qwiic J3. Proposed: move R10/R24 beside J3
+- [ ] Step 6, payload switch (3 open): PAYLOAD_EN (J1.37 → U11.4, TP19), ~PAYLOAD_FAULT (J1.31 → U11.9). Between x 150 and 160 the top
+      layer and both inner layers carry north–south runs (INT, I2C0, SPI) from J1 down to U1; only the bottom layer crosses them
+- [ ] Step 8, LEDs (10 open): proposed: JP2 moves from the east edge to beside the LEDs
 - [ ] Bottom silkscreen still reads "PCBA-000639-AB BM Mote" (Sofar's board name): rename or remove in step 9 (Nick)
-- [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
+- [ ] Nick's KiCad look after steps 5–8
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 4 (JLC rules): 25 errors, 36 unconnected items, 0 parity issues.
+→ after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.
 
 ---
 

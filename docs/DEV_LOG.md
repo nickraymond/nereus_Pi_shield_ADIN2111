@@ -71,7 +71,11 @@ what broke, what's next.*
   minimum); the new PI_3V3 zone uses 0.25 mm (web 0.34 mm). JLC's 0.3 mm hole-to-copper still holds (0.6 mm)
 - U11's exposed pad overlapped its RTN island by 0.05 mm but was not connected; a short track into the island fixes it
 - The bottom silkscreen still carries Sofar's "PCBA-000639-AB BM Mote" label
-**Next:** Nick's KiCad look; then step 5 (I2C0, I2C3, R26/R27), step 6 (payload switch), step 7 (Pi → J2 breakout), step 8 (LEDs).
+- Step 7 (all 11 breakout nets) and I2C0 with R26/R27: open connections 36 → 19 on 12 nets, DRC 25 → 22 errors.
+  The header channel now holds 4 lanes on top, 4 on the bottom, 2 to 3 on each inner layer
+- Stopped there (time box). Left: I2C3 (6), payload switch signals (3), LEDs (10). The area between x 150 and 160 is
+  walled north to south on the top and both inner layers; westbound nets from the east J1 pins can only cross on the bottom
+**Next:** I2C3 (with R10/R24 moved beside J3), PAYLOAD_EN / ~PAYLOAD_FAULT on the bottom below J2, LEDs with JP2 beside them.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
