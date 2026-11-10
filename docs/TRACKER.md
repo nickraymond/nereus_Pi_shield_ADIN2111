@@ -411,12 +411,23 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       SPI1_MISO/MOSI/SCLK on Internal 2. No via
 - [x] Step 5, I2C0 (bcfe41f): one small via per stub, SCL on Internal 1, SDA on Internal 2, to J1 27/28 and J2 15/16; R26/R27 moved
       below J2 beside PI_3V3 pin 13 (clears the 3V3 / PI_3V3 short). DRC 22 errors, open 19 on 12 nets, parity 0
-- [ ] Step 5, I2C3 (6 open): J1 13/15 → J2 8/7, the pull-ups R10/R24, Qwiic J3. Proposed: move R10/R24 beside J3
-- [ ] Step 6, payload switch (3 open): PAYLOAD_EN (J1.37 → U11.4, TP19), ~PAYLOAD_FAULT (J1.31 → U11.9). Between x 150 and 160 the top
-      layer and both inner layers carry north–south runs (INT, I2C0, SPI) from J1 down to U1; only the bottom layer crosses them
-- [ ] Step 8, LEDs (10 open): proposed: JP2 moves from the east edge to beside the LEDs
+- [x] Mock-up of the last 19 connections on the plan page; Nick: "routing approved" (2026-11-10)
+- [x] Step 5b, I2C3 (53ff783): SCL on top, SDA on the bottom from J1 13/15 to J2 8/7; on the bottom below J2 and J6 to two vias,
+      then Internal 1 past the 5 V converter to two vias beside J3; R10/R24 on the bottom side beside J3. Mote leftovers removed
+      (old I2C3 copper, the PI_3V3 trunk to the old pull-up place). Two changes from the mock-up: the converter's 5V_PI and
+      VBUS tracks wall off the bottom layer, hence Internal 1 and two more vias; R10 on the bottom, not the top (its
+      courtyard overlapped J3's). Open 19 → 13
+- [x] Step 6, payload switch (1688971): PAYLOAD_EN (J1.37) and ~PAYLOAD_FAULT (J1.31) on Internal 1 down a J2 pin gap, one via each,
+      west on the bottom (y 97.50 / 93.40) to Sofar's vias at U11 (FAULT's last 12 mm on Internal 2); PAYLOAD_EN on to TP19 on
+      Internal 2 with a via beside the pad. A dead 3V3 stub and its via removed. Open 13 → 10
+- [x] Step 8, LEDs (0772b8a): JP2 at (148.60, 124.30) above the LEDs; ADIN_LED_VDD through one via to R44–R46 on the bottom; the two
+      link-LED lines on Internal 2 from Sofar's vias at U1; one via per anode; D8's GND pad to JP3 pad 3 on top (no GND plane
+      south of y 123). Open 10 → 0
+- [x] Board fully routed: 0 open connections, parity 0, ERC 39 (unchanged); DRC 22 errors, all carried: 16 GND vias in U1's
+      keepout (as on the mote), 3 skew (Sofar Q13), 3 courtyards (C54/C55/U10)
+- [ ] `sofar_brief.md` has no row for the Qwiic connector J3 and the I2C3 pull-ups R10/R24 (schematic additions on this board)
 - [ ] Bottom silkscreen still reads "PCBA-000639-AB BM Mote" (Sofar's board name): rename or remove in step 9 (Nick)
-- [ ] Nick's KiCad look after steps 5–8
+- [ ] Nick's KiCad look after steps 5–8: I2C3 past the 5 V converter, R10/R24 under J3, the payload lines below J2, JP2 and the LEDs
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
 → after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.

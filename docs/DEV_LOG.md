@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
 **Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)
-**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D34, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
+**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D36, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
 **ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
 **Done:**
 - Reviewed the zip board (2026-11-09): 77 open connections on 46 nets, 424 DRC errors under its own rules, parity 0. Plan
@@ -75,7 +75,19 @@ what broke, what's next.*
   The header channel now holds 4 lanes on top, 4 on the bottom, 2 to 3 on each inner layer
 - Stopped there (time box). Left: I2C3 (6), payload switch signals (3), LEDs (10). The area between x 150 and 160 is
   walled north to south on the top and both inner layers; westbound nets from the east J1 pins can only cross on the bottom
-**Next:** I2C3 (with R10/R24 moved beside J3), PAYLOAD_EN / ~PAYLOAD_FAULT on the bottom below J2, LEDs with JP2 beside them.
+- Afternoon: mock-up of the last 19 connections on the plan page, approved by Nick. Steps 5b, 6 and 8 built
+  (53ff783, 1688971, 0772b8a): open connections 19 → 13 → 10 → 0. DRC 22 errors, all carried; parity 0; ERC 39
+- The mock-up took I2C3 past the 5 V converter on the bottom layer. The trial DRC showed the converter's own 5V_PI and
+  VBUS tracks there (2 shorts, 3 crossings): the pair now changes to Internal 1 at two vias south of J6. SDA passes
+  between the 5V_FB via and the VBUS via, SCL south of both
+- R10 on the top beside J3 overlapped J3's courtyard; both pull-ups sit on the bottom side next to J3's two vias
+- A 3V3 stub on the bottom near U11 ended in the open (DRC had it as a dangling track); removing it left its via with
+  nothing to join, so the via went too
+- There is no GND plane under the LEDs (the plane ends at y 123, with a slot at y 121.5–122.5): D8's cathode runs
+  16 mm on top along the south edge to JP3's GND pad instead of dropping into a via
+- JP2 is an R1210-size bridged jumper (courtyard 3.3 × 4.7 mm); it fits between C23 and the LED row at y 124.30
+**Next:** Nick's KiCad look after steps 5–8; then step 9: dead mote stubs, silkscreen, the 3 courtyard overlaps, exclusions for
+the 22 carried errors (Nick / Sofar Q13), fab outputs, draft PR to QE.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
