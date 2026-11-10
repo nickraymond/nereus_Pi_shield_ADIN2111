@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>nereus_Pi_shield_ADIN2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-10-18 · Now: S8 first build (20 boards)</strong> You bought the critical parts on 10/18: JLC order DOB202610190524705, $956.05, all from Digi-Key; JLC estimates them ready for assembly Thu 11/5, so the PCBA order is ≈ 11/5 and boards ≈ 11/19–11/24 (Sofar's 11/30 holds). J5 comes from JLC stock at the PCBA order. PR #32 merged 10/17; the purchase record follows in its own PR. <strong>Next:</strong> Sofar's review of the planned passives before the PCBA order.</p>
+    <p><strong>Updated 2026-11-10 · Now: S9 finish the routing for JLC</strong> Step 0 is done on the board in experiments/nick_raw_routing/: the fixes before routing, no copper changed. 63 open connections on 41 nets are left to route. <strong>Next:</strong> your decision D (JLC rules and stackup), then the ADIN SPI nets. S8: parts bought 10/18 (JLC order DOB202610190524705), estimated ready for assembly 11/5; the PCBA order waits on the finished board and Sofar's review of the planned passives.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -262,6 +262,17 @@ const S = [
   ["Flagged passives after Sofar's review", `<p>R8, R15/R16, C22/C23 and the commodity R/C lines (D27). If R8, R15/R16 or C22/C23 stay as specified, or Sofar rejects any planned alternate, those lines need global sourcing too (9–20 business days).</p>`],
   ["JLC PCBA order", `<p>Target Fri 10/30, fallback Tue 11/3; it can only use the parts once they're in your JLC parts library (est. 11/5). Pick J5 (C189893) from JLC stock in the BOM step.</p>`, "nick"],
   ["J5 sourcing field", `<p>At the next schematic edit: J5's SOURCING field → JLC stock (C189893), so bom.csv matches.</p>`]
+]},
+{ t:"S9 — Finish the routing for JLC", o:"agent", w:"Claude Code", c:"--prj",
+  intro:"Finish the board in experiments/nick_raw_routing/ and get it through JLC's checks (D33). Base: the zip board of 2026-11-09. Scripted edits; after each step a refill, DRC with parity, a render and one commit. Plan page with drawings: https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc",
+  items:[
+  ["Review and plan", `<p>77 open connections on 46 nets and 424 DRC errors on the zip board. You chose: base = zip, inserts option 1 (labels exchanged, no copper change), part moves approved.</p>`, null, 1],
+  ["Step 0: fixes before routing", `<p>Done (58365af), no copper changed: outline circles off Edge.Cuts, MP1/MP2 and MP3/MP4 exchanged, MTG1–4 removed, J5 and TP38 on the board. DRC 324 errors, 63 open connections on 41 nets, parity 0.</p>`, null, 1],
+  ["Decision D: JLC rules and stackup", `<p>Rule values from JLC's page, and the stackup: JLC06161H-3313 (default) or -2116A (recommended). Also the skew rule and the 16 keepout vias, both as on Sofar's mote.</p>`, "nick"],
+  ["Steps 1–2: ADIN SPI, control and straps", `<p>SPI on the two inner layers with no new vias; INT, RST, ADIN_PWR, straps; JP3, JP4, R9 and R47 move. Then your look in KiCad.</p>`],
+  ["Steps 3–4: bus pairs and power", `<p>Then your look in KiCad.</p>`],
+  ["Steps 5–8: I2C, payload switch, Pi → J2 breakout, LEDs", `<p>Then your look in KiCad.</p>`],
+  ["Step 9: clean-up, JLC DRC, fab outputs", `<p>Target: 0 errors, 0 open connections, 0 parity issues under JLC's rules, every exclusion listed. QE review, then your look in KiCad.</p>`]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
   intro:"Send Q2 and Q6–Q12 when ready (Q3 answered from the datasheet; Q4 is context only); Q1 and Q5 are deferred with the 50 W spin. The layout questions (Q6, Q9–Q12) have a page with a copper render for each. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",

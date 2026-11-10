@@ -19,6 +19,27 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
+
+**Branch:** claude/nereus-board-routing-916378 (from reload_old_mote 3d596b9)
+**Files touched:** experiments/nick_raw_routing/ (board; Master sheet: 4 × `on_board no`; scripts/ new); TRACKER (S9), DESIGN D33, viewer
+**ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
+**Done:**
+- Reviewed the zip board (2026-11-09): 77 open connections on 46 nets, 424 DRC errors under its own rules, parity 0. Plan
+  page with drawings; Nick: base = zip, inserts option 1, part moves approved
+- Step 0 (58365af), by script: 44 circles + caption off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4 removed; J5 and TP38 onto the
+  board; GND north strip priority 1; zones refilled. DRC 324 errors, 63 open (41 nets), parity 0
+- Read JLC's capability and stackup pages (jlcpcb.com, 2026-11-10 10:36 AM PT). With JLC-based rule values on a scratch
+  copy: 134 errors, none from track, clearance or via size in the existing copper
+**Broke/surprised us:**
+- The Edge.Cuts circles were why J1's GND and PI_5V pins had no plane connection; the refill confirmed it
+- Which insert shows "shorting" in DRC depends on item order; the pad/copper mismatch was at all four inserts
+- pcbnew's writer settles only on the second save, and a second LoadBoard in one process breaks GetDrawings: the save
+  helper runs its second pass in a fresh process
+- J5 does not fit at y 111 on the west edge (pads overlap the BM2_N trunk by 0.2 mm); placed at y 122.2
+- The BM data pairs and the 16 GND vias in U1's keepout are identical to the mote; the 0.5 mm skew rule is not met by the mote
+**Next:** Nick's decision D (JLC rules, stackup); then step 1, the ADIN SPI nets.
+
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
 **Branch:** sprint/8a-jlc-parts-buy

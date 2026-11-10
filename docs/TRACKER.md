@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-15 · Owner/gate: **Nick***
+*Last updated: 2026-11-10 · Owner/gate: **Nick***
 
 ---
 
@@ -368,6 +368,22 @@ Fri 10/30 (fallback Tue 11/3).*
 - [ ] J5 `SOURCING` field → JLC stock (C189893) at the next schematic edit, then `bom.csv` follows (QE S8 N10)
 **Demo (Nick):** open `docs/design-review/jlc_parts_buy_2026-10.md`: the "In short" box, the buy table and the steps;
 `git diff main...HEAD --stat` touches only docs and the viewer (no KiCad file).
+
+### S9 — Finish the routing on `nick_raw_routing` for JLC  `[~]`
+*Nick, 2026-11-10: finish the board in `experiments/nick_raw_routing/` and get it through JLC's checks. Base: the board in
+`nereus_step2_power_2026-11-09.zip` (= `reload_old_mote` 3d596b9 + the earlier session's steps 1–2). Nick's go on the plan
+is the approval for an agent to edit this board (rules 8/9, D33). Plan page: https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc.
+Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: refill, DRC with parity, render, one commit.*
+- [x] Review + plan with drawings; Nick: A base = zip, B inserts option 1, C part moves approved (2026-11-10)
+- [x] Step 0, fixes before routing, no copper changed (58365af): outline circles off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4
+      removed; J5, TP38 on the board; GND strip priority. DRC 424 → 324 errors, open 77 → 63 (46 → 41 nets), parity 0; ERC unchanged (39)
+- [ ] **Decision D (Nick):** JLC rule values and stackup (JLC06161H-3313 or -2116A); skew rule; 16 keepout vias as on the mote
+- [ ] Step 1 ADIN SPI · step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
+- [ ] Step 3 bus pairs · step 4 power → Nick's KiCad look
+- [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
+- [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
+**Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
+→ after step 0: 324 errors, 63 unconnected items, 0 parity issues.
 
 ---
 
