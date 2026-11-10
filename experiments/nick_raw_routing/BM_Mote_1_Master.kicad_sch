@@ -14825,9 +14825,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "4438bd76-a20f-415b-b0f8-735de9c274a1")
 		(property "Reference" "J5"
@@ -14840,7 +14840,7 @@
 				)
 			)
 		)
-		(property "Value" "SM02B-GHS-TB"
+		(property "Value" "Wire pads"
 			(at 87.63 265.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14850,7 +14850,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal"
+		(property "Footprint" "nereus:WirePads_1x02_P3.81mm_Oval4.2x2.6mm_Drill1.3mm"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14861,7 +14861,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
+		(property "Datasheet" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14872,7 +14872,7 @@
 				)
 			)
 		)
-		(property "Description" "JST GH 1.25 mm 2-pin SMD right-angle header, 1.0 A per contact (AWG #26), 50 V: payload power out, pin 1 VBUS_OUT, pin 2 GND (D23)"
+		(property "Description" "Payload power out: two through-hole wire pads (4.2 x 2.6 mm oval, 1.3 mm hole), leads soldered directly, no connector. Pin 1 VBUS_OUT, pin 2 GND. Was JST SM02B-GHS-TB until 2026-11-10"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14883,7 +14883,7 @@
 				)
 			)
 		)
-		(property "MANUFACTURER" "JST"
+		(property "MANUFACTURER" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14894,7 +14894,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C189893"
+		(property "LCSC" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14905,7 +14905,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC Parts"
+		(property "SOURCING" "No part: wire pads"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14916,7 +14916,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "SM02B-GHS-TB"
+		(property "PLANNED MPN" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14927,7 +14927,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "JST"
+		(property "PLANNED MFR" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14938,7 +14938,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C189893"
+		(property "PLANNED LCSC" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14949,7 +14949,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC listing out of stock (2026-10-06): JLC global sourcing"
+		(property "PLANNED NOTE" "No part to buy"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
