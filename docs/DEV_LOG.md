@@ -61,7 +61,11 @@ what broke, what's next.*
   south of U1 and the pin-19 node comes to them on Internal 2 from its existing via. Open connections 60 → 47
 - Around noon the repo folder was renamed by mistake and a fresh clone took its name; the work continues in a new
   worktree of that clone on Fable_5.2 (nothing was lost: everything was pushed)
-**Next:** Nick's KiCad look after steps 0–2; then the insert footprint errors and step 3, the bus pairs.
+- Step 3: the insert errors traced to the Altium import of the unplated hole (size 0 on inner layers, a net-less 5.5 mm
+  disc on the bottom). Plain hole + two scoped rules + trunk ends 0.25 mm off the hole: DRC 151 → 25 errors
+- The "solder mask bridge" at MP4 only was the fiducial's 2.25 mm mask opening touching the insert's, not the insert itself
+- The 25 left: 16 GND vias in U1's keepout (as on the mote, kept), 3 skew (Sofar Q13), 3 courtyards, R26/R27 (step 5)
+**Next:** step 4, power: GND and PI_5V at the wire pads, J4 → F1, PI_3V3 to J2 pins 9/11/13, VBUS_OUT → J5, 5V_PI → TP38.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
