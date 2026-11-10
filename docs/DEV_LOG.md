@@ -21,7 +21,7 @@ what broke, what's next.*
 
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
-**Branch:** claude/nereus-board-routing-916378 (from reload_old_mote 3d596b9)
+**Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)
 **Files touched:** experiments/nick_raw_routing/ (board; Master sheet: 4 × `on_board no`; scripts/ new); TRACKER (S9), DESIGN D33, viewer
 **ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
 **Done:**

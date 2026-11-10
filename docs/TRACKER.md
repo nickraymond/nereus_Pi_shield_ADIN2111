@@ -373,6 +373,7 @@ Fri 10/30 (fallback Tue 11/3).*
 *Nick, 2026-11-10: finish the board in `experiments/nick_raw_routing/` and get it through JLC's checks. Base: the board in
 `nereus_step2_power_2026-11-09.zip` (= `reload_old_mote` 3d596b9 + the earlier session's steps 1–2). Nick's go on the plan
 is the approval for an agent to edit this board (rules 8/9, D33). Plan page: https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc.
+Branch: `Fable_5.2` (Nick, 2026-11-10; pushed only on his approval).
 Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: refill, DRC with parity, render, one commit.*
 - [x] Review + plan with drawings; Nick: A base = zip, B inserts option 1, C part moves approved (2026-11-10)
 - [x] Step 0, fixes before routing, no copper changed (58365af): outline circles off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4
