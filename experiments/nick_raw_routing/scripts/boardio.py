@@ -131,3 +131,17 @@ def place(fp, x, y, pads, top=None):
         if all(abs(got[n][0] - px) < 0.02 and abs(got[n][1] - py) < 0.02 for n, (px, py) in pads.items()):
             return rot
     raise AssertionError("%s: no rotation puts its pads at %s (last tried: %s)" % (fp.GetReference(), pads, got))
+
+
+def move_vertex(tracks, short, layer_id, old, new, expect=2):
+    """Move every end of net `short` on a layer that sits at `old` (0.02 mm) to `new`. `tracks`: list(board.GetTracks())."""
+    hits = 0
+    for t in tracks:
+        if t.Type() != pcbnew.PCB_TRACE_T or t.GetLayer() != layer_id or t.GetNetname().split("/")[-1] != short:
+            continue
+        for get, put in ((t.GetStart, t.SetStart), (t.GetEnd, t.SetEnd)):
+            p = get()
+            if abs(mm(p.x) - old[0]) < 0.02 and abs(mm(p.y) - old[1]) < 0.02:
+                put(pcbnew.VECTOR2I(pcbnew.FromMM(new[0]), pcbnew.FromMM(new[1])))
+                hits += 1
+    assert hits == expect, (short, old, hits)
