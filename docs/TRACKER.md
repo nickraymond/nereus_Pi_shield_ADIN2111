@@ -383,12 +383,20 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 0b, no copper changed (cf6ec47): J5 → two through-hole wire pads (new footprint, not in BOM); J6 one pitch west and
       FID1/FID3 as on Nick's `reload_old_mote`; TP38 re-placed. DRC under JLC rules: 134 errors, 63 open (41 nets), parity 0; ERC unchanged (39)
 - [ ] Nick: confirm J5's pad size (4.2 × 2.6 mm), hole (1.3 mm) and pitch (3.81 mm) in KiCad
-- [ ] Step 1 ADIN SPI · step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
+- [x] Step 1 ADIN SPI (a0e6640): SCK + CS on Internal 2, MOSI + MISO on Internal 1, J1 pin → Sofar's via, no new via;
+      the PI_3V3 branch on Internal 2 that crossed them is removed (back in step 4); MOSI's via removed (nothing left to join).
+      DRC 134 errors (none on the new copper), open 63 → 60 (38 nets), parity 0
+- [ ] Nick's requests of 2026-11-10, before the bus pairs (step 3) and LEDs (step 8):
+      (a) copper keep-out on every layer around H1–H4, so a screw head or thread cannot short to a plane;
+      (b) LEDs D8–D10 on the board's centreline (x 148.80), evenly spaced, one line 3–4 mm from the south edge (now x 146.69 / 149.72 / 152.40, y ≈ 126.9, 5.2 mm from the edge);
+      (c) inserts on one line, each pair the same distance from its edge, mirrored (now x 129.51 / 139.10 / 160.10 / 169.70, y 127.40–127.56; 13.21 mm from the west edge, 11.60 mm from the east);
+      (d) J4 as the same two wire pads as J5, no connector
+- [ ] Step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
 - [ ] Step 3 bus pairs · step 4 power → Nick's KiCad look
 - [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 0b (JLC rules): 134 errors, 63 unconnected items, 0 parity issues.
+→ after step 1 (JLC rules): 134 errors, 60 unconnected items, 0 parity issues.
 
 ---
 

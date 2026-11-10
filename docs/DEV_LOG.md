@@ -45,7 +45,12 @@ what broke, what's next.*
   J6 one pitch west and the fiducials as on Nick's `reload_old_mote` 7cc5f04; TP38 re-placed. Parity 0, ERC unchanged
 - Schematic parity compares symbol fields with footprint fields: a swapped footprint needs the symbol's fields copied
 - The board's silkscreen already marks the inserts − + − + west to east, which matches the copper and option 1
-**Next:** step 1, the ADIN SPI nets: SCK and CS on Internal 2, MOSI and MISO on Internal 1, no new vias.
+- Step 1 (a0e6640): ADIN SPI routed. SCK + CS on Internal 2, MOSI + MISO on Internal 1, through J2's first two pin gaps
+  to Sofar's vias; J1 pin to U1 pad 32.7 / 36.4 / 39.5 / 34 mm (SCK / CS / MOSI / MISO). Open connections 63 → 60
+- The PI_3V3 feed to J2 pins 9/11/13 (Internal 2, y 89.5) crossed SCK and CS and had to go; it returns in step 4
+- After a `board.Remove()`, pcbnew's Python bindings cannot list tracks again: the scripts collect first and remove last
+- Nick's four requests for the south edge and the holes are captured in TRACKER S9
+**Next:** Nick's four requests (hole keep-outs, LEDs on the centreline, inserts symmetric, J4 as wire pads), then step 2.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
