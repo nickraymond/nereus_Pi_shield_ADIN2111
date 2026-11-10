@@ -55,7 +55,13 @@ what broke, what's next.*
   checked to be pulled back. DRC errors 134 → 151: the 17 extra are all at the insert footprint
 - KiCad's ERC picks one of several net names at random for a "multiple net names" warning: same 39 items, wording varies
 - The pink Nick saw over Sofar's tracks is KiCad's locked-item shadow (158 locked segments), not copper
-**Next:** step 2, the ADIN control nets and straps (JP3, JP4, R9, R47 move); the insert footprint errors before step 3.
+- Step 2: ADIN control nets and both straps routed. Two nets on one layer in the header channel cross unless their
+  west-to-east order at J1 equals their order at J2: RST and ADIN_PWR share the bottom, INT has the top
+- R2's CFG1_STRAP pad sat boxed in under U1 (thermal vias, U1's pad on the other side): R2, R47 and JP3 now sit together
+  south of U1 and the pin-19 node comes to them on Internal 2 from its existing via. Open connections 60 → 47
+- Around noon the repo folder was renamed by mistake and a fresh clone took its name; the work continues in a new
+  worktree of that clone on Fable_5.2 (nothing was lost: everything was pushed)
+**Next:** Nick's KiCad look after steps 0–2; then the insert footprint errors and step 3, the bus pairs.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 

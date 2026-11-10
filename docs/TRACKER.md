@@ -396,12 +396,15 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       copper keep-out r 3.0 mm on all layers at H1–H4 (radius from `Pi_HAT_outline.dxf`, layer HOLE_KEEPOUT).
       DRC 151 errors (17 more, all at the insert footprint), 60 open, parity 0; ERC 39
 - [ ] Insert footprint: 125 of the 151 errors (69 hole clearance, 52 solder mask bridge, 4 pad stack) come from it; look at it before step 3 or in step 9
-- [ ] Step 2 ADIN control + straps (JP3/JP4/R9/R47 move) → Nick's KiCad look
+- [x] Step 2 ADIN control + straps: INT on top, RST and ADIN_PWR on the bottom to Sofar's stub and vias; CFG0 strap (JP4, R9) at the
+      SPI landing; CFG1 strap (JP3, R2, R47) south of U1, because R2's strap pad could not be reached under U1; ADIN_TIMER 77 mm on
+      the bottom along the south and east edges. DRC 151 errors (none on the new copper), open 60 → 47 (30 nets), parity 0
+- [ ] Nick's KiCad look after steps 0–2: J4/J5 pad sizes, JP3/R2/R47 south of U1, the ADIN_TIMER route
 - [ ] Step 3 bus pairs · step 4 power → Nick's KiCad look
 - [ ] Step 5 I2C · step 6 payload switch · step 7 Pi → J2 breakout · step 8 LEDs → Nick's KiCad look
 - [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 1b (JLC rules): 151 errors, 60 unconnected items, 0 parity issues.
+→ after step 2 (JLC rules): 151 errors, 47 unconnected items, 0 parity issues.
 
 ---
 
