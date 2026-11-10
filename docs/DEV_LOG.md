@@ -50,7 +50,12 @@ what broke, what's next.*
 - The PI_3V3 feed to J2 pins 9/11/13 (Internal 2, y 89.5) crossed SCK and CS and had to go; it returns in step 4
 - After a `board.Remove()`, pcbnew's Python bindings cannot list tracks again: the scripts collect first and remove last
 - Nick's four requests for the south edge and the holes are captured in TRACKER S9
-**Next:** Nick's four requests (hole keep-outs, LEDs on the centreline, inserts symmetric, J4 as wire pads), then step 2.
+- Step 1b: Nick's four requests applied. Inserts mirrored about the centreline with their rings and trunk ends; LEDs in
+  one line 3.5 mm from the south edge; J4 as wire pads; copper keep-outs (r 3.0 mm, all layers) at H1–H4, plane copper
+  checked to be pulled back. DRC errors 134 → 151: the 17 extra are all at the insert footprint
+- KiCad's ERC picks one of several net names at random for a "multiple net names" warning: same 39 items, wording varies
+- The pink Nick saw over Sofar's tracks is KiCad's locked-item shadow (158 locked segments), not copper
+**Next:** step 2, the ADIN control nets and straps (JP3, JP4, R9, R47 move); the insert footprint errors before step 3.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
