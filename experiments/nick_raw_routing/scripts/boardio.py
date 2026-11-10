@@ -5,7 +5,8 @@ import sys
 import pcbnew
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BOARD = os.path.join(HERE, "..", "nick_raw_routing.kicad_pcb")
+# NRR_BOARD points the scripts at another copy of the board (for a trial on a scratch copy)
+BOARD = os.environ.get("NRR_BOARD") or os.path.join(HERE, "..", "nick_raw_routing.kicad_pcb")
 mm = pcbnew.ToMM
 
 

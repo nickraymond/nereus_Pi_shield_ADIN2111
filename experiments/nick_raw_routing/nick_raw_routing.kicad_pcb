@@ -4313,7 +4313,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "F.Cu")
 		(uuid "26361ac2-e67e-43fc-a7e3-6e6a3837ba27")
-		(at 123.9 128.6 90)
+		(at 123.7 128.6 90)
 		(property "Reference" "FID3"
 			(at 0.7538 2.499995 0)
 			(unlocked yes)
@@ -31526,19 +31526,6 @@
 			(drill 4.4)
 			(layers "*.Cu" "*.Mask")
 			(uuid "573aeb6d-8ef6-4bd5-8ded-718c50f45742")
-			(padstack
-				(mode front_inner_back)
-				(layer "Inner"
-					(shape circle)
-					(size 0 0)
-					(zone_connect -1)
-				)
-				(layer "B.Cu"
-					(shape circle)
-					(size 5.5 5.5)
-					(zone_connect -1)
-				)
-			)
 		)
 		(pad "1" smd custom
 			(at 2.19992 0 266)
@@ -34446,19 +34433,6 @@
 			(drill 4.4)
 			(layers "*.Cu" "*.Mask")
 			(uuid "543448b2-5998-49cd-a27c-2bead8bda834")
-			(padstack
-				(mode front_inner_back)
-				(layer "Inner"
-					(shape circle)
-					(size 0 0)
-					(zone_connect -1)
-				)
-				(layer "B.Cu"
-					(shape circle)
-					(size 5.5 5.5)
-					(zone_connect -1)
-				)
-			)
 		)
 		(pad "1" smd custom
 			(at 2.19992 0 266)
@@ -58746,7 +58720,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "B.Cu")
 		(uuid "887080ac-e709-4947-b4ad-0476ea9f94d2")
-		(at 123.9 128.6 180)
+		(at 123.7 128.6 180)
 		(property "Reference" "FID1"
 			(at 0.402 1.602557 0)
 			(unlocked yes)
@@ -66324,19 +66298,6 @@
 			(drill 4.4)
 			(layers "*.Cu" "*.Mask")
 			(uuid "5121cd6b-ccb3-433f-8b59-a47146af562b")
-			(padstack
-				(mode front_inner_back)
-				(layer "Inner"
-					(shape circle)
-					(size 0 0)
-					(zone_connect -1)
-				)
-				(layer "B.Cu"
-					(shape circle)
-					(size 5.5 5.5)
-					(zone_connect -1)
-				)
-			)
 		)
 		(pad "1" smd custom
 			(at 2.19992 0 266)
@@ -68000,19 +67961,6 @@
 			(drill 4.4)
 			(layers "*.Cu" "*.Mask")
 			(uuid "ebaeff5a-887f-426e-977e-5be8ba59171f")
-			(padstack
-				(mode front_inner_back)
-				(layer "Inner"
-					(shape circle)
-					(size 0 0)
-					(zone_connect -1)
-				)
-				(layer "B.Cu"
-					(shape circle)
-					(size 5.5 5.5)
-					(zone_connect -1)
-				)
-			)
 		)
 		(pad "1" smd custom
 			(at 2.19992 0 266)
@@ -211481,7 +211429,7 @@
 	)
 	(segment
 		(start 123 120.10486)
-		(end 127.540219 124.64508)
+		(end 127.225913 124.330774)
 		(width 2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/BM2_N")
@@ -211843,7 +211791,7 @@
 		(uuid "45a4fa19-de3a-4b34-8a03-340a1131b3a0")
 	)
 	(segment
-		(start 129.5761 113.7536)
+		(start 129.1 114.23)
 		(end 131.6511 111.6786)
 		(width 2)
 		(layer "F.Cu")
@@ -211883,16 +211831,16 @@
 		(uuid "c4f7c608-9725-4a5d-a473-0c218d8a9f07")
 	)
 	(segment
-		(start 129.5761 113.7536)
-		(end 129.58 120.60274)
+		(start 129.1 114.23)
+		(end 129.1 120.12274)
 		(width 2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/BM2_P")
 		(uuid "dab88886-afde-414b-a3b3-57ab0b5d3272")
 	)
 	(segment
-		(start 129.58 120.60274)
-		(end 135.43289 126.45563)
+		(start 129.1 120.12274)
+		(end 135.110973 126.133713)
 		(width 2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/BM2_P")
@@ -212443,7 +212391,7 @@
 	)
 	(segment
 		(start 165.62021 121.12772)
-		(end 161.42021 125.32772)
+		(end 161.738483 125.009446)
 		(width 2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/BM1_N")
@@ -212862,7 +212810,7 @@
 	)
 	(segment
 		(start 174.3 120.7123)
-		(end 170.2675 124.7448)
+		(end 170.577187 124.435112)
 		(width 2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/BM1_P")

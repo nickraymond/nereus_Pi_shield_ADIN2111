@@ -9,3 +9,10 @@
    (rule "JLC pad hole to pad hole"
      (condition "A.Type == 'Pad' && B.Type == 'Pad'")
      (constraint hole_to_hole (min 0.45mm)))
+
+   (rule "Insert hole to other copper"
+     (condition "A.Type == 'Pad' && A.Pad_Type == 'NPTH, mechanical' && A.memberOfFootprint('MP?')")
+     (constraint hole_clearance (min 0.2mm)))
+   (rule "Insert hole to its own ring pad"
+     (condition "A.Type == 'Pad' && A.Pad_Type == 'NPTH, mechanical' && A.memberOfFootprint('MP?') && B.Type == 'Pad' && B.memberOfFootprint('MP?')")
+     (constraint hole_clearance (min 0mm)))
