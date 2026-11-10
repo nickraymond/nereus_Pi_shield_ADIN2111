@@ -3189,6 +3189,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "OPEN QUESTION FOR SOFAR (Q13, noted 2026-11-10)\nThe BM data pairs between U1 and T1 / T2 are\nSofar's copper, copied 1:1 from mote 000639-AB\n(checked item by item). P and N differ in length:\n  Port 1: BM1_DATA_N  8.01 mm, BM1_DATA_P  9.47 mm\n  Port 2: BM2_DATA_N 21.30 mm, BM2_DATA_P 18.25 mm\n  (1.46 mm and 3.05 mm apart)\nWhy are the pairs not length-matched?\nKept as drawn until answered."
+		(exclude_from_sim no)
+		(at 128.27 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "7e6dce48-01b9-4f1e-bdb9-2c4a5957a5fa")
+	)
 	(text "Coupling Network - Port 2"
 		(exclude_from_sim no)
 		(at 62.23 167.4622 0)

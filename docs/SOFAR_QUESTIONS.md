@@ -3,7 +3,7 @@
 *Questions about the Sofar mote design that only Sofar can answer. Nick sends
 them; record the answer, date and who answered, then move the fact into
 SPEC.md or POWER_PATH.md with "Sofar, <name>, <date>" as its source.*
-*Last updated: 2026-10-07*
+*Last updated: 2026-11-10*
 
 State key: `[ ]` not sent · `[>]` sent, waiting · `[x]` answered · `[-]` deferred (don't send yet)
 
@@ -21,3 +21,4 @@ State key: `[ ]` not sent · `[>]` sent, waiting · `[x]` answered · `[-]` defe
 | Q10 | [ ] | What are the two slots in the ground plane (L3) for, and should a new layout keep them? A slot runs past each PoDL inductor and stops ≈ 27 mm down, so the ground under L1/L2 joins the rest only along the bottom edge. Also: are the two unconnected islands in the power plane (L5) near the upper ears intentional (copper balance?) | Copy deliberate choices, drop accidental ones (D31 copies them as drawn until answered) | |
 | Q11 | [ ] | What stackup and fab is 000639-AB built with (copper weights, dielectric thicknesses, impedance target, if any)? The file records only 6 layers and 1.6 mm | Reusing the inner-layer routing unchanged needs the same or an equivalent stackup | |
 | Q12 | [ ] | Which layout rules must hold if we move a block as a rigid group: ADIN data pair length or spacing (8–9.5 mm to T1, 18–21 mm to T2 today), distance from the 3V3 buck, bus-to-logic clearance (1–2 mm bus copper, 0.35 mm pour clearance today), and any extra rules for a potted board? | The shield moves whole blocks to fit a Pi Zero outline (D31) | |
+| Q13 | [ ] | The BM data pairs between U1 and T1 / T2 on 000639-AB are not length-matched: BM1_DATA_N 8.01 mm vs BM1_DATA_P 9.47 mm (1.46 mm apart), BM2_DATA_N 21.30 mm vs BM2_DATA_P 18.25 mm (3.05 mm apart); each net has two vias and runs on the top layer and Internal 1. Is that deliberate, or the result of the space available? Is there a skew limit to hold if these lines are ever re-routed? | We copied this copper 1:1 (pads, 71 track and via items and the positions of U1, T1, T2 compared with the mote file, 2026-11-10) and keep it as drawn. The board's own rule asks for 0.5 mm, which the mote does not meet either. Noted on the PoDL sheet beside T1 | |
