@@ -49,7 +49,7 @@ for r in ("MTG1", "MTG2", "MTG3", "MTG4"):
 
 # 4. J5 to the west edge, same rotation (signal pads east, opening west); fiducials out of its way
 assert fp["J5"].GetOrientationDegrees() == -90
-move_to(fp["J5"], 119.50, 122.20)
+move_to(fp["J5"], 119.60, 122.20)  # MP pads 0.6 mm from the west edge
 for r in ("FID1", "FID3"):
     assert pos(fp[r]) == (117.9011, 124.1036), pos(fp[r])
     move_to(fp[r], 118.50, 112.00)
@@ -63,9 +63,4 @@ assert len(strips) == 1
 strips[0].SetAssignedPriority(1)
 
 boardio.save(b)
-b = boardio.load()
-fp = boardio.footprints(b)
-print("Edge.Cuts items:", sum(1 for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts))
-for r in ("MP1", "MP2", "MP3", "MP4", "J5", "FID1", "FID3", "TP38"):
-    print(" ", r, pos(fp[r]), [p.GetNetname().split("/")[-1] for p in fp[r].Pads() if p.GetNumber() == "1"][:1])
-print("footprints:", len(fp))
+boardio.report(["MP1", "MP2", "MP3", "MP4", "J5", "FID1", "FID3", "TP38"])

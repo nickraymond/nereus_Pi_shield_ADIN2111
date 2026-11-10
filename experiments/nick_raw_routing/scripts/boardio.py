@@ -1,5 +1,7 @@
 """Load and save nick_raw_routing.kicad_pcb with pcbnew."""
 import os
+import subprocess
+import sys
 import pcbnew
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -12,9 +14,19 @@ def load(path=BOARD):
 
 
 def save(board, path=BOARD):
-    """Save, then load and save once more: the writer's output is stable only after the second pass."""
+    """Save, then load and save once more: the writer's output is stable only after the second pass.
+
+    The second pass runs in a fresh process; a second LoadBoard in the same process leaves pcbnew's
+    Python bindings unable to list drawings.
+    """
     pcbnew.SaveBoard(path, board)
-    pcbnew.SaveBoard(path, pcbnew.LoadBoard(path))
+    code = "import pcbnew, sys; pcbnew.SaveBoard(sys.argv[1], pcbnew.LoadBoard(sys.argv[1]))"
+    subprocess.run([sys.executable, "-c", code, path], check=True, stderr=subprocess.DEVNULL)
+
+
+def report(refs):
+    """Print the saved board's state from a fresh process."""
+    subprocess.run([sys.executable, os.path.join(HERE, "report.py")] + list(refs), check=True, stderr=subprocess.DEVNULL)
 
 
 def footprints(board):
