@@ -470,6 +470,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       (DESIGN D43). VBUS_OUT's bottom track turns at (122.30, 99.60); J3's four top tracks re-laid; its GND via now at
       (122.80, 101.40). 9 segments and 1 via out, 19 segments and 1 via in. DRC and ERC counts unchanged, 0 open, parity 0.
       Smallest J3 copper to BM2_N 1.02 mm (was 2.37 mm), measured on the board
+- [x] Step 14 (a41524d), Nick 2026-11-11 (comment on the proposal in the summary doc: "Proposal approved"): the zone "GND north-west
+      fill" is redrawn 0.5 mm clear of Sofar's west ground wing and slot (review finding R-S4, DESIGN D44). Sofar's zone is
+      untouched; its copper refills the wing, which joins the main ground only at the slot's south end again, as on the mote.
+      No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
@@ -483,14 +487,14 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       to y 104.10 and 0.70 mm west, VBUS_OUT's bottom track turned earlier to clear J4's GND pad, J3's four top tracks re-laid,
       its GND via moved to (122.80, 101.40). DRC counts as after step 12, 0 open, parity 0. Smallest J3 copper to BM2_N:
       2.37 mm before, 1.02 mm in the mock (the SCL track; measured on both boards)
-- [ ] Review finding R-S4, Nick 2026-11-11 (comment on the summary doc): "Please show me the mock of this". Checked on the board and
+- [x] Review finding R-S4 (built as step 14), Nick 2026-11-11 (comment on the summary doc): "Please show me the mock of this". Checked on the board and
       on a refilled scratch copy of the mote (same coordinates): Sofar's GND zone has a 0.38 mm slot (x 131.31–131.69 from y 93.4
       to 101.6, then east along y 101.81–102.2 to x 138.4, then south to y ≈ 113.6) that leaves the wing under L2 joined to the main
       ground only at the south; the zone "GND north-west fill" (prio 2) covers the wing's north tip and the slot's north end.
       Mock on a scratch copy, not on the board (`~/NereusData/nereus_Pi_shield_ADIN2111/rs4_mock_2026-11-11/`, `mock_rs4.py`):
       fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
       (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
-      the wing; DRC counts unchanged, 0 open, parity 0. Waiting for Nick's go; why Sofar cut the slot stays open (Q10)
+      the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
 - [ ] Open items after Nick's second batch of doc comments, 2026-11-11 (all answered in the summary doc; pictures and mocks in
       `~/NereusData/nereus_Pi_shield_ADIN2111/`; nothing built, Nick decides each):
       · ADIN_TIMER off J2 (Nick: "should only go to the primary Pi Header"): today on J1 pin 36 (GPIO16), J2 pin 22 and R47; the
