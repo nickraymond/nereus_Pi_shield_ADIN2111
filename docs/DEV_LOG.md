@@ -19,6 +19,28 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
+
+**Branch:** Fable_5.2 (work only here; push only on Nick's approval, each time)
+**Files touched:** this entry only
+**ERC:** 39 items (`erc_16.json`)  ·  **Net diff:** none in this entry
+**State:**
+- Board `experiments/nick_raw_routing/` is at step 16 (b0115b9). DRC after step 16 (`~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-11/drc_16.json`): 3 errors not excluded (skew, kept pending Sofar), 16 excluded, 0 open, parity 0.
+- Tree clean at this commit; 28 commits (3054b8c … 14c826a) plus this one are ahead of `origin/Fable_5.2` (c0edb77). No PR on the branch (`gh pr list --head Fable_5.2 --state all` → `[]`). No QE review of steps 12–16 yet.
+- Summary doc for Nick, where he comments and approves: https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2 (sections "Built on your approvals of 2026-11-11" and "Still open"). Plan page https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc is stale since step 9.
+- Helper scripts of the outgoing session (scratch trial, DRC diff, board compare, net and plane plots, doc-edit scripts): `~/NereusData/nereus_Pi_shield_ADIN2111/session_tools_2026-11-11/`. They carry the old session's scratchpad path inside; adjust before use.
+**Open with Nick (no change without his word; layout changes are mocked first):**
+1. J2 pin 22 once ADIN_TIMER leaves the breakout header: unconnected or GND (schematic change, about 3 mm of track re-laid around the pad, "TM" removed on both sides).
+2. R47's value: fields disagree (Value / PART NUMBER `RC0402FR-071KL`, PLANNED MPN `RC0402FR-071K5L`).
+3. Extra input capacitor at U10: leave, add, or an unfitted footprint.
+4. The three vias at L6: delete or give them a 5V_PI fill; settle together with R-S1 (U10 thermal copper, not mocked).
+5. Fiducials: 1 mm dots in 2 mm openings, moved inboard (mock on his word).
+6. Sofar's empty name frame on the bottom: remove or keep.
+7. JP1 end marks (recommended: leave out).
+**Not done:** datasheet check of three of the four strap-table rows; Sofar brief and DESIGN.md pin map behind the board (routing review N12); where Sofar's list of alternate parts lives is not known.
+**Order after the decisions (TRACKER "Order of work to the JLC order"):** layout and schematic changes → final silkscreen pass → freeze → schematics and BOM documents (BOM in its own session that Nick starts) → JLC export from the frozen board → design review doc (skew errors first, then R-S6) → draft PR and QE.
+**Next:** Nick answers the open items in the new session; first one is pin 22.
+
 ## 2026-11-11 — Sprint S9 — Step 9h: silkscreen style; two read-only reviews started
 
 **Branch:** Fable_5.2
