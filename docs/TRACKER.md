@@ -507,7 +507,12 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       same day with `kicad-cli pcb export pos` and pcbnew: 105 of 143 footprints have no SMD / through-hole attribute; the export
       lists 139 footprints (all but the 4 flagged no-pos), among them 30 no-BOM ones (H1–H4, FID1–FID6, JP1–JP4, 16 test points)
       and the unfitted R11
-- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. CPL: filter the placement export against the
+- [x] Nick asked 2026-11-11 (comment on the summary doc) what the 34 pad-stack warnings are. Read from the board: Sofar's library
+      footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
+      (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
+      0.33 mm mask circles, six 0.25 mm paste polygons). Nothing to change
+- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. Check U6's mask openings and paste dots in the
+      gerbers. CPL: filter the placement export against the
       BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
 → after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.
