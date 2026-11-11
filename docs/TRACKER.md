@@ -459,6 +459,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       (CFG 1 | CFG 0 | SPI MODE, bold frame on the as-built row 1 / 0 = generic SPI with CRC); screw sizes and the USB warning
       moved behind JP1; "Pi Shield / ADIN2111 Rev0" removed from the bottom, Sofar's frame around it left empty (DESIGN D42).
       No copper or footprint change. DRC silkscreen overlaps 25 → 24, all else unchanged; 0 open, parity 0, ERC 39
+- [x] Step 12b (0a885e9), Nick 2026-11-11 (comment on the summary doc: 'Please try to fit "Threaded Inserts" and "Mounting Holes" if
+      you can'): the bottom reads "THREADED INSERTS M3" / "MOUNTING HOLES M2.5" on two lines above the USB warning. Silkscreen
+      only; DRC and ERC counts unchanged, 0 open, parity 0
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
