@@ -34,7 +34,9 @@ what broke, what's next.*
 - KiCad checks TrueType stroke weight: 199 texts flagged under 0.15 mm, even some 1.5 mm ones (thin details such as the zero's slash).
 - The port LEDs sit on the far side from their ports (D9 on port 1 is by BM2). The names match the nets; Nick wants the LEDs swapped.
 - KiCad writes each TrueType text's outlines into the board file (render cache), about 10 000 lines.
-**Next:** check the two review reports with Nick; mock for the LED swap.
+- Later the same day: both review reports came in (0 blockers in the design; 12 should-fix items), summary doc for Nick's comments at https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2.
+- Step 10 (7c30e8f) on Nick's "Yes, build it": port LEDs swapped so each sits beside its own port (DESIGN D40). Only the four LED nets change; DRC and ERC counts unchanged.
+**Next:** Nick's decisions in the summary doc (push, strap table on the bottom, which review fixes to make before Sofar's review).
 
 ---
 

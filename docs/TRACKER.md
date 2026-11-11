@@ -448,7 +448,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       east strip beside L1, turned 90°; bottom: ratings under J2, screw sizes (inserts M3, mounting holes M2.5) and the USB warning
 - [x] State after 9h: no copper change (tracks, vias, zones, pads and footprint positions identical to e686111); DRC 3 errors not
       excluded (skew), 16 excluded, 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-11/`)
-- [ ] Nick: port LEDs sit on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
+- [x] Step 10 (7c30e8f), Nick approved the mock on 2026-11-11 ("Yes, build it"): D9 / R45 swap places with D10 / R46, so the east
+      LED (by BM1) shows port 1 and the west LED (by BM2) port 2; PWR stays in the middle; names P1 / P2 follow (DESIGN D40).
+      Only the four LED nets change. DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, warnings unchanged; ERC 39
+- [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
       Mock made 2026-11-11 on a scratch copy: 0 open, parity 0, no new DRC error (`~/NereusData/nereus_Pi_shield_ADIN2111/led_swap_mock_2026-11-11/`)
