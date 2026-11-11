@@ -502,7 +502,13 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       doc"): the 3 skew errors are its first item, with the proposal to keep them as is pending Sofar
 - [ ] Left in DRC as warnings: 24 silkscreen overlaps (25 before step 12) and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
       one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
-- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look
+- [x] Nick 2026-11-11 (his comment on the summary doc, row "Footprint differs from library", 106 warnings): "If there is no impact on
+      manufacturing or assembly then ignore the warning". Ignored: gerbers come from the board's own footprint copies. Checked the
+      same day with `kicad-cli pcb export pos` and pcbnew: 105 of 143 footprints have no SMD / through-hole attribute; the export
+      lists 139 footprints (all but the 4 flagged no-pos), among them 30 no-BOM ones (H1–H4, FID1–FID6, JP1–JP4, 16 test points)
+      and the unfitted R11
+- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. CPL: filter the placement export against the
+      BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
 → after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.
 
