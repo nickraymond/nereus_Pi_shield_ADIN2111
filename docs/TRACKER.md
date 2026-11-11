@@ -491,8 +491,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       Alliance SPI with protection is checked against the datasheet (SPEC, Table 22); the datasheet could not be fetched on
       2026-11-10 to check the other three. Check them before the board is ordered
 - [x] Nick accepted 2026-11-11 (his comment on the summary doc, row "Text stroke weight", 199 warnings): "accept, lets see if JLC
-      pushes back once I submit designs". The stroke-weight warnings stay. The designator height (0.8 mm, next item) is still open
-- [ ] Nick: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
+      pushes back once I submit designs". The stroke-weight warnings stay
+- [x] Nick approved 2026-11-11 (his comment on the summary doc, row "Text height": "approve, see if JLC pushes back once we submit
+      designs"): the designators stay 0.8 mm high. What was asked: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
       KiCad flags 199 texts for TrueType stroke weight under 0.15 mm (thin details such as the zero's slash; main strokes measure
       about 0.15 mm on the render at designator size). Accept, or go to 1.0 mm designators (they fit, more of them far from their part)
 - [x] Nick decided 2026-11-11 (his comment on the summary doc, on "3 not excluded (skew on Sofar's data pairs)"): the 3 skew
