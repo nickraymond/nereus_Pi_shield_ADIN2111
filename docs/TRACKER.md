@@ -503,7 +503,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       · R47 value: Value / PART NUMBER say RC0402FR-071KL (1 kΩ), PLANNED MPN says RC0402FR-071K5L (1.5 kΩ, C11702). Nick picks
       · R-S5 input capacitor at U10: U10 has the same input capacitors as U5 on shield and mote (UMK107BBJ225KA-T 2.2 µF,
         GRM188R72A104KA35D 0.1 µF). Options: leave, add, or add an unfitted footprint
-      · R-S6 (`rs6_2026-11-11/`): the 0.2 mm link (4.25 mm) joins L1 pad 3 to the via at (165.88, 107.95), which feeds only T1 pad 6
+      · R-S6, decided by Nick 2026-11-11: leave as is, see the design review doc item (`rs6_2026-11-11/`): the 0.2 mm link (4.25 mm) joins L1 pad 3 to the via at (165.88, 107.95), which feeds only T1 pad 6
         over a 0.2 mm Internal 2 track that the mote has too; the bus trunk is 2 mm on both boards. Rated low by the design session
       · M-S4 (`ms4_2026-11-11/`): the three 5V_PI vias at L6 meet 5V_PI copper on the top layer only (the mote's vias at L3 land on
         a 3V3 fill on the PWR plane) and overlap L6 pad 2's edge by about 0.25 mm. Delete, or give them a fill; settle with R-S1
@@ -536,7 +536,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Nick decided 2026-11-11 (his comment on the summary doc, on "3 not excluded (skew on Sofar's data pairs)"): the 3 skew
       errors stay as they are, not excluded, "pending Sofar confirmation and agreement" (Q13)
 - [ ] Design review doc, when Nick asks for it ("Once the changes are done, I'll ask your help to put together a design review
-      doc"): the 3 skew errors are its first item, with the proposal to keep them as is pending Sofar
+      doc"): the 3 skew errors are its first item, with the proposal to keep them as is pending Sofar. Also in it (Nick's comment
+      on R-S6, 2026-11-11: "call this out in the design doc, with the suggestion that we approve as is pending Sofar's check"):
+      the 0.2 mm, 4.25 mm link from L1 pad 3 to the via that feeds T1, where the mote had wide copper
 - [ ] Left in DRC as warnings: 24 silkscreen overlaps (25 before step 12) and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
       one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
 - [x] Nick 2026-11-11 (his comment on the summary doc, row "Footprint differs from library", 106 warnings): "If there is no impact on
