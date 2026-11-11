@@ -193,7 +193,7 @@
 		(uuid "0154ce68-21ef-4480-a969-344cccbc2fb7")
 		(at 166.83 89.4 180)
 		(property "Reference" "R27"
-			(at 0.252005 -0.727567 180)
+			(at -0.37 -2 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "3b1323f8-9597-450d-8f99-10dbd8672dc4")
@@ -839,7 +839,7 @@
 		(descr "1210 (3225 metric) 0 ohm resistor pads, geometry from the Sofar mote's R11 (Vault:FP-CRCW1210-e3-IPC_B), joined by a 1.0 mm copper bridge (net tie): connected as fabricated. Cut the bridge to open; refit a 0 ohm 1210 (Vishay CRCW12100000Z0EA, as R11) to close again. To cut: score both ends of the bridge, lift the copper out, check open with a meter. No paste: nothing is placed by assembly.")
 		(tags "net tie jumper bridged 1210 0R cuttable")
 		(property "Reference" "JP2"
-			(at 0 -2.4 90)
+			(at -0.3 3.7 0)
 			(layer "F.SilkS")
 			(uuid "318094f3-e191-48b7-b942-e8932e6f2278")
 			(effects
@@ -1003,6 +1003,7 @@
 		(property "Reference" "H3"
 			(at 0 -3.2 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "ab11d5b8-7aae-438c-9c16-80eb078d6c66")
 			(effects
 				(font
@@ -1118,12 +1119,12 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C56"
-			(at 0 -1.68 90)
+			(at 2.832805 -0.29735 0)
 			(layer "F.SilkS")
 			(uuid "a81edc89-4190-4a98-aeb9-848baefc1d13")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.6)
 					(thickness 0.15)
 				)
 			)
@@ -2274,12 +2275,12 @@
 		(descr "Two through-hole wire pads for soldering leads directly to the board, no connector. Oval pads 4.2 x 2.6 mm, 1.3 mm plated hole, 3.81 mm pitch. Pad 1 at the origin. Made for J5, payload power out (Nick, 2026-11-10)")
 		(tags "wire pads solder lead through hole 2 pin")
 		(property "Reference" "J4"
-			(at 0 -2.3 0)
+			(at 3.5 1.9 0)
 			(layer "F.SilkS")
 			(uuid "7bd3f467-a5a2-4320-b2a8-1e86568319a8")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.8)
 					(thickness 0.15)
 				)
 			)
@@ -3579,6 +3580,7 @@
 		(property "Reference" "H4"
 			(at 0 -3.2 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "b20551ab-a2d1-458d-a43f-4ecc19a0ac4e")
 			(effects
 				(font
@@ -4989,7 +4991,7 @@
 		(descr "SMD Solder 3-pad Jumper, 1x1.5mm rounded Pads, 0.3mm gap, pads 1-2 bridged with 1 copper strip")
 		(tags "net tie solder jumper bridged")
 		(property "Reference" "JP3"
-			(at 0 -1.8 0)
+			(at 5.4 0 0)
 			(layer "F.SilkS")
 			(uuid "42e180c3-0c24-4bd6-812e-7d6152bacdeb")
 			(effects
@@ -5525,6 +5527,7 @@
 		(property "Reference" "D9"
 			(at 0.000001 -1.429999 90)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "87c51634-d20c-4b63-b329-aee17702efaf")
 			(effects
 				(font
@@ -7457,12 +7460,12 @@
 		(descr "JST SH series connector, SM04B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf)")
 		(tags "connector JST SH horizontal")
 		(property "Reference" "J3"
-			(at 0 -3.98 90)
+			(at 4.7964 2.1011 0)
 			(layer "F.SilkS")
 			(uuid "2022cc6a-5263-4d58-a12b-1d23a065c987")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.8)
 					(thickness 0.15)
 				)
 			)
@@ -8999,6 +9002,7 @@
 		(property "Reference" "H2"
 			(at 0 -3.2 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "97c28146-98f5-4387-8c7d-1741c456cf62")
 			(effects
 				(font
@@ -9801,6 +9805,7 @@
 		(property "Reference" "D8"
 			(at -0.000001 -1.429999 90)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "26c9730a-d3de-4ac5-96dc-127ed539abe5")
 			(effects
 				(font
@@ -10090,6 +10095,7 @@
 		(property "Reference" "D10"
 			(at -0.000001 -1.429999 90)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "7bf03b28-1798-4349-a5bb-823f152ba8a8")
 			(effects
 				(font
@@ -11697,7 +11703,7 @@
 		(uuid "6145a1b4-b79e-4e0d-a58e-13dd2beadf9d")
 		(at 165.5611 90.6 90)
 		(property "Reference" "R26"
-			(at 0.17149 -0.6788 90)
+			(at -0.8 -1.2611 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "aa486cb4-5a69-4219-89c8-daa4b5cfe685")
@@ -12927,12 +12933,12 @@
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C58"
-			(at 0 -1.16 90)
+			(at -2.832805 -0.90265 0)
 			(layer "F.SilkS")
 			(uuid "d7d7c2d7-0b21-4c16-bb62-d8bfff3912ae")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.6)
 					(thickness 0.15)
 				)
 			)
@@ -14564,7 +14570,7 @@
 		(descr "SMD Solder 3-pad Jumper, 1x1.5mm rounded Pads, 0.3mm gap, pads 1-2 bridged with 1 copper strip")
 		(tags "net tie solder jumper bridged")
 		(property "Reference" "JP4"
-			(at 0 -1.8 180)
+			(at -1.2 -2 0)
 			(layer "F.SilkS")
 			(uuid "0452678e-90fa-4a2a-92d4-6a7b9733b096")
 			(effects
@@ -16090,6 +16096,7 @@
 		(property "Reference" "H1"
 			(at 0 -3.2 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "3dca4ac0-f9b3-4b48-b397-fe79945caf24")
 			(effects
 				(font
@@ -16203,7 +16210,7 @@
 		(uuid "8e919aeb-cb2f-4c51-bb09-f7dffc8105ab")
 		(at 153.27 124.75)
 		(property "Reference" "R47"
-			(at -1.902005 -0.047443 180)
+			(at -0.37 1.25 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "55b96939-8f6e-46ca-86f6-56fc15fbc897")
@@ -17119,7 +17126,7 @@
 		(uuid "9d352037-159f-43fa-b24a-f47f901e7e5d")
 		(at 129.5161 93.0837 180)
 		(property "Reference" "C54"
-			(at 1.702557 0.177005 90)
+			(at -0.0039 -1.3663 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "a30d51f8-612f-47f8-ba57-cb33f608b84b")
@@ -18626,12 +18633,12 @@
 		(descr "Through hole straight pin header, 2x03, 2.54mm pitch, double rows")
 		(tags "Through hole pin header THT 2x03 2.54mm double row")
 		(property "Reference" "J6"
-			(at 1.27 -2.38 90)
+			(at 6.5964 5.0511 0)
 			(layer "F.SilkS")
 			(uuid "12685ee8-f056-4741-ba0f-9fc6a8dd28b0")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.8)
 					(thickness 0.15)
 				)
 			)
@@ -18944,12 +18951,12 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C57"
-			(at 0 -1.68 90)
+			(at 2.832805 0.002649 0)
 			(layer "F.SilkS")
 			(uuid "71f64fb6-15b5-4a38-bdcf-6df793e230ec")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.6)
 					(thickness 0.15)
 				)
 			)
@@ -22809,7 +22816,7 @@
 		(uuid "df19b701-1ef1-4ae1-ad88-002054fd2b4b")
 		(at 154.6 124.35 90)
 		(property "Reference" "R2"
-			(at 0.076995 -0.702557 90)
+			(at -0.25 1.8 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "750f08c6-da66-4498-947d-6ba49d735d33")
@@ -23869,6 +23876,7 @@
 		(property "Reference" "F1"
 			(at 0 -1.83 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "a5948624-1cd9-4b00-b051-1c426b17dd66")
 			(effects
 				(font
@@ -24881,12 +24889,12 @@
 		(descr "SMD Solder 3-pad Jumper, 1x1.5mm rounded Pads, 0.3mm gap, pads 1-2 bridged with 1 copper strip")
 		(tags "net tie solder jumper bridged")
 		(property "Reference" "JP1"
-			(at 0 -1.8 0)
+			(at -1.0989 3.7036 0)
 			(layer "F.SilkS")
 			(uuid "44250221-dde8-496f-89c5-2649af9dcbe4")
 			(effects
 				(font
-					(size 1 1)
+					(size 1 0.8)
 					(thickness 0.15)
 				)
 			)
@@ -30620,6 +30628,7 @@
 			(at -4.353459 -2.994561 0)
 			(unlocked yes)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "2fefe00f-4768-4104-b3b2-80de7fca583e")
 			(effects
 				(font
@@ -33535,6 +33544,7 @@
 			(at -4.50008 -3.4 0)
 			(unlocked yes)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "c8e203fd-977a-4238-bfbf-bab6b8a4ad5e")
 			(effects
 				(font
@@ -65896,6 +65906,7 @@
 			(at -4.405187 -2.99996 0)
 			(unlocked yes)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "2d0457e4-17d9-44f1-8acf-3f2eff332c41")
 			(effects
 				(font
@@ -67560,6 +67571,7 @@
 			(at -4.548352 -3.005399 0)
 			(unlocked yes)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "1c842729-438a-40c1-9c07-393e6bac7ba3")
 			(effects
 				(font
@@ -82177,6 +82189,36 @@
 		)
 		(layer "F.SilkS")
 		(uuid "a87d0d83-18c5-4033-9817-37a12b1a02b6")
+	)
+	(gr_line
+		(start 162.3511 89.75)
+		(end 162.3511 89.55)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "1e1fee27-cd7d-4a1d-b767-81ac67124688")
+	)
+	(gr_line
+		(start 162.3511 89.75)
+		(end 165.9611 89.75)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "3d0e3122-9fc8-446c-91c9-dede2393bf8f")
+	)
+	(gr_line
+		(start 165.9611 89.75)
+		(end 165.9611 89.55)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "90f6fcb0-4dc5-4edf-b9f6-eb6d51a9c21f")
 	)
 	(gr_line
 		(start 124.5011 109.1286)
@@ -200308,52 +200350,490 @@
 		(layer "User.10")
 		(uuid "f3ade367-8f6f-4d05-a62e-fe9ea3bd251b")
 	)
-	(gr_text "2"
-		(at 143.9011 126.7036 0)
+	(gr_text "5V IN"
+		(at 125.3 94 0)
+		(layer "F.SilkS")
+		(uuid "cf074503-f037-4157-9e8f-0f9b29ceba08")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 145.6 87.64 0)
+		(layer "F.SilkS")
+		(uuid "e4fbf1f0-931c-44fa-9dae-64ee6eca2c03")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "ALR"
+		(at 150.3211 82.5 0)
+		(layer "F.SilkS")
+		(uuid "de53a653-9f96-4e85-958e-27be33566ce0")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 152.8611 82.5 0)
+		(layer "F.SilkS")
+		(uuid "3b68899b-68dc-4e1c-afa2-9ad502488665")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "CE1"
+		(at 155.4011 82.5 0)
+		(layer "F.SilkS")
+		(uuid "ce5b74fc-ccce-4187-8761-21e0d79165c1")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "CE0"
+		(at 155.4011 90.35 0)
+		(layer "F.SilkS")
+		(uuid "bbd4066f-8428-4dcf-af70-101739689eb1")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "SC3"
+		(at 157.9411 82.5 0)
+		(layer "F.SilkS")
+		(uuid "7b944c26-30d2-4979-99a4-999b93c831e3")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "SD3"
+		(at 157.9411 90.35 0)
+		(layer "F.SilkS")
+		(uuid "a5fbfaee-62b3-4d5a-921f-6319ba8dbab9")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "3V3"
+		(at 160.3011 90.35 0)
+		(layer "F.SilkS")
+		(uuid "855b5458-cbef-4e5d-b31d-9660651a28c8")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 160.4811 82.5 0)
+		(layer "F.SilkS")
+		(uuid "3d2cc884-d958-452c-95e5-f4ec9eb5fc80")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 163.0211 82.5 0)
+		(layer "F.SilkS")
+		(uuid "cb415d39-9581-44a6-aede-987c72555ecc")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "3V3"
+		(at 163.5 90.35 0)
+		(layer "F.SilkS")
+		(uuid "c47f1caa-ac7c-415f-a8ee-7cc5f0531f1a")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 165.5611 82.5 0)
+		(layer "F.SilkS")
+		(uuid "770549f8-00b1-4a09-b15f-6c12aa6d3c48")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "SC0"
+		(at 168.1011 82.5 0)
+		(layer "F.SilkS")
+		(uuid "c520e1ab-3ad7-446a-bd59-e7c355a1ba4e")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "SD0"
+		(at 168.5011 90.35 0)
+		(layer "F.SilkS")
+		(uuid "344f36ae-eb98-42c6-b902-f02f3ab04f6f")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 170.6411 82.5 0)
+		(layer "F.SilkS")
+		(uuid "ccab5674-03b5-463a-a1b7-0c4d4ca0f458")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "SLP"
+		(at 170.6411 90.35 0)
+		(layer "F.SilkS")
+		(uuid "912af6ee-6e84-41c7-9f8f-4ec81f0d729f")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "IN2"
+		(at 173.1811 82.5 0)
+		(layer "F.SilkS")
+		(uuid "176a9b97-c682-453a-bbbe-dea19e412408")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "IN1"
+		(at 173.1811 90.35 0)
+		(layer "F.SilkS")
+		(uuid "81dca864-0068-4733-ae6a-0326258ae14c")
+		(effects
+			(font
+				(size 1 0.6)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "5V-PI"
+		(at 121 84.2 0)
+		(layer "F.SilkS")
+		(uuid "2783b9c5-defd-4327-9ed0-33d35b76664b")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "I2C3"
+		(at 121.4 106.4 0)
+		(layer "F.SilkS")
+		(uuid "def65af2-9285-4f51-aff7-4355bc107edb")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "PAYLOAD"
+		(at 124.6 122.1 0)
+		(layer "F.SilkS")
+		(uuid "805a8261-75d1-4787-8659-8df5d1299ed6")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "PI 5V"
+		(at 140.3 91.7 0)
+		(layer "F.SilkS")
+		(uuid "e9a900a2-c468-413e-928f-d506b06640e9")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "5V"
+		(at 145.2 85.1 0)
+		(layer "F.SilkS")
+		(uuid "61ac377e-04f2-45dc-9127-ae446f7c615a")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "CFG0"
+		(at 156.4 94.4 0)
+		(layer "F.SilkS")
+		(uuid "85eb900a-d5a2-431e-9841-d5022afc3143")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "CFG1"
+		(at 163.2 122.4 0)
+		(layer "F.SilkS")
+		(uuid "b9da0288-0cfa-49a9-9424-e3fd6630f5d3")
+		(effects
+			(font
+				(size 1 0.7)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "LED"
+		(at 144.9 125.3 0)
+		(layer "F.SilkS")
+		(uuid "3419d3b7-c296-4278-8f32-c60be17cd59f")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "P1"
+		(at 145.8 131 0)
+		(layer "F.SilkS")
+		(uuid "01f123af-ac68-4168-a6bf-cd5a03d2d559")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "PWR"
+		(at 148.8 131 0)
+		(layer "F.SilkS")
+		(uuid "6f1e8929-eb89-4fce-83a8-c07473e4fedd")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "TX"
+		(at 150.3211 90.35 0)
+		(layer "F.SilkS")
+		(uuid "c32a2663-2a14-4ec6-ae0f-d09e4ee08b05")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "0"
+		(at 151.3 96.4 0)
+		(layer "F.SilkS")
+		(uuid "07122543-ea25-40c0-90ba-e7be7510c80d")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "1"
+		(at 151.5 122.4 0)
+		(layer "F.SilkS")
+		(uuid "dd435d57-e5f2-4830-b420-94cea665d80a")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "P2"
+		(at 151.8 131 0)
+		(layer "F.SilkS")
+		(uuid "37ec7b9b-1283-4186-870f-5f5445c862e4")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "RX"
+		(at 152.8611 90.35 0)
+		(layer "F.SilkS")
+		(uuid "ccfb9b27-a2a0-4423-b315-7d8361c3d081")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "1"
+		(at 157.6 96.4 0)
+		(layer "F.SilkS")
+		(uuid "eaa49756-1f63-471e-9d81-715f577cb5e0")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "0"
+		(at 157.6 122.4 0)
+		(layer "F.SilkS")
+		(uuid "9976ad16-5bba-4a76-8b4d-1f1c0b1212f8")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "TM"
+		(at 175.7211 82.5 0)
+		(layer "F.SilkS")
+		(uuid "84bd4ae9-56dc-40f7-b24b-63fb00e8e0e2")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "MI"
+		(at 175.7211 90.35 0)
+		(layer "F.SilkS")
+		(uuid "6197039c-0860-4917-9cf4-d298efaad3f1")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "MO"
+		(at 178.2611 82.5 0)
+		(layer "F.SilkS")
+		(uuid "67f44fde-b8c7-4018-be17-18408d67c896")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "CK"
+		(at 178.2611 90.35 0)
+		(layer "F.SilkS")
+		(uuid "dd54b497-2eb2-4366-b106-f64ad5223fb4")
+		(effects
+			(font
+				(size 1 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "BM2"
+		(at 133.5 124 0)
 		(layer "F.SilkS")
 		(uuid "7862853d-d9ac-46ea-bc82-ec227c276a69")
 		(effects
 			(font
-				(size 2.5 2.5)
-				(thickness 0.4)
+				(size 1.3 1)
+				(thickness 0.2)
 			)
-			(justify left bottom)
 		)
 	)
-	(gr_text "1"
-		(at 153.6011 126.7036 0)
+	(gr_text "BM1"
+		(at 164.1 124 0)
 		(layer "F.SilkS")
 		(uuid "151e8e0d-e730-44ef-acfa-4ddfb814aeac")
 		(effects
 			(font
-				(size 2.5 2.5)
-				(thickness 0.4)
+				(size 1.3 1)
+				(thickness 0.2)
 			)
-			(justify left bottom)
 		)
 	)
-	(gr_text "2"
-		(at 146.4011 126.7286 360)
+	(gr_text "BM2"
+		(at 133.5 124 360)
 		(layer "B.SilkS")
 		(uuid "934f4051-1c3d-48cc-96dd-d57a8ddc6094")
 		(effects
 			(font
-				(size 2.5 2.5)
-				(thickness 0.4)
+				(size 1.3 1)
+				(thickness 0.2)
 			)
-			(justify left bottom mirror)
+			(justify mirror)
 		)
 	)
-	(gr_text "1"
-		(at 155.4511 126.70985 360)
+	(gr_text "BM1"
+		(at 164.1 124 360)
 		(layer "B.SilkS")
 		(uuid "8626aff5-31a3-4681-b4a2-b13f54809561")
 		(effects
 			(font
-				(size 2.5 2.5)
-				(thickness 0.4)
+				(size 1.3 1)
+				(thickness 0.2)
 			)
-			(justify left bottom mirror)
+			(justify mirror)
 		)
 	)
 	(gr_text "Pi_HAT_outline  65 x 56 mm"
@@ -200388,46 +200868,6 @@
 				(thickness 0.25)
 			)
 		)
-	)
-	(gr_text_box "PCBA\n000639\nAB"
-		(start 112.83626 59.72415)
-		(end 118.9011 64.48305)
-		(margins 0 0 0 0)
-		(layer "F.SilkS")
-		(uuid "201f4e48-dc62-4aa2-92b8-00231bc99193")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.2)
-			)
-			(justify left top)
-		)
-		(border no)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(knockout no)
-	)
-	(gr_text_box "BM Mote"
-		(start 114.43626 53.19947)
-		(end 121.41126 54.59915)
-		(margins 0 0 0 0)
-		(layer "F.SilkS")
-		(uuid "60d0cdf5-1f35-49b1-8b3d-06a2b4818513")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.2)
-			)
-			(justify left top)
-		)
-		(border no)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(knockout no)
 	)
 	(gr_text_box "-"
 		(start 121.9011 129.50376)
@@ -200470,8 +200910,8 @@
 		(knockout no)
 	)
 	(gr_text_box "-"
-		(start 152.63465 129.20392)
-		(end 154.76755 130.6036)
+		(start 153.23465 129.70392)
+		(end 155.36755 131.1036)
 		(margins 0 0 0 0)
 		(layer "F.SilkS")
 		(uuid "017d6a6b-e820-4c4c-a4ac-cc68cc92cd63")
