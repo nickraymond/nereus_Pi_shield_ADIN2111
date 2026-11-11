@@ -10480,7 +10480,7 @@
 	)
 	(wire
 		(pts
-			(xy 497.84 336.55) (xy 501.65 336.55)
+			(xy 497.84 336.55) (xy 520.7 336.55)
 		)
 		(stroke
 			(width 0)
@@ -11030,7 +11030,7 @@
 	)
 	(wire
 		(pts
-			(xy 520.7 331.47) (xy 520.7 334.01)
+			(xy 520.7 331.47) (xy 520.7 336.55)
 		)
 		(stroke
 			(width 0)
@@ -11917,30 +11917,6 @@
 			(justify left bottom)
 		)
 		(uuid "f9de8043-501c-4e11-8570-f054f0bfe103")
-	)
-	(global_label "ADIN_TIMER"
-		(shape input)
-		(at 501.65 336.55 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0d9d672f-d3b8-4734-81b3-8c2b3756d57e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 515.3395 336.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 	)
 	(global_label "ADIN_TIMER"
 		(shape input)
@@ -19888,7 +19864,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 520.7 334.01 0)
+		(at 520.7 336.55 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19898,7 +19874,7 @@
 		(dnp no)
 		(uuid "bd5721e4-7f8e-4c96-9b46-25af94d8d1f7")
 		(property "Reference" "#PWR085"
-			(at 520.7 330.2 0)
+			(at 520.7 332.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19909,7 +19885,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 520.7 341.63 0)
+			(at 520.7 344.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19919,7 +19895,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19930,7 +19906,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19941,7 +19917,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
