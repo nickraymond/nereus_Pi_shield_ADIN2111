@@ -517,6 +517,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       Also in this pass (Nick, same day, row "Silkscreen over copper": "Same as above, lets review this as last step before design
       freeze"): the 8 silkscreen-on-copper warnings = pin-1 marks of U1, U5, U10; outline segments of R34 (2) and C59; the two
       "-" marks at the BM2 inserts (top and bottom)
+- [x] Nick 2026-11-11 (comment on the summary doc, row "Isolated copper", 3 warnings, proposal "Leave"): "agree, so long as no issue
+      with assembly". Read from the board: zones `NoConnect_Left` (68.8 mm²) and `NoConnect_Right` (46.9 mm²) on the inner PWR
+      plane; one no-net zone on the top layer under L3, filled as two patches (1.76 and 0.70 mm²), no mask opening on or within
+      0.5 mm of them, 0.28 mm from L3 pad 1 (box to box). No exposed copper, so left as they are
 - [x] Nick asked 2026-11-11 (comment on the summary doc) what the 34 pad-stack warnings are. Read from the board: Sofar's library
       footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
       (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
