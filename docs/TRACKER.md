@@ -478,6 +478,14 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       to y 104.10 and 0.70 mm west, VBUS_OUT's bottom track turned earlier to clear J4's GND pad, J3's four top tracks re-laid,
       its GND via moved to (122.80, 101.40). DRC counts as after step 12, 0 open, parity 0. Smallest J3 copper to BM2_N:
       2.37 mm today, 1.02 mm in the mock (the SCL track; measured on both boards). Waiting for Nick's go
+- [ ] Review finding R-S4, Nick 2026-11-11 (comment on the summary doc): "Please show me the mock of this". Checked on the board and
+      on a refilled scratch copy of the mote (same coordinates): Sofar's GND zone has a 0.38 mm slot (x 131.31–131.69 from y 93.4
+      to 101.6, then east along y 101.81–102.2 to x 138.4, then south to y ≈ 113.6) that leaves the wing under L2 joined to the main
+      ground only at the south; the zone "GND north-west fill" (prio 2) covers the wing's north tip and the slot's north end.
+      Mock on a scratch copy, not on the board (`~/NereusData/nereus_Pi_shield_ADIN2111/rs4_mock_2026-11-11/`, `mock_rs4.py`):
+      fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
+      (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
+      the wing; DRC counts unchanged, 0 open, parity 0. Waiting for Nick's go; why Sofar cut the slot stays open (Q10)
 - [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
       `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
