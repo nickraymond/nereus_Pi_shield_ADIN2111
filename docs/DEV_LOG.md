@@ -19,6 +19,43 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-11 — Sprint S9 — New design session: Nick's answers to the open items; two mocks
+
+**Branch:** claude/fable-5-2-continue-55a515, cut from `Fable_5.2` at 5180c47. Nick approved it in the previous
+session's chat on 2026-11-11 ("Yes, new branch", 2:04 PM Pacific, read in that session's transcript): the app could
+not share the old worktree. The commits return to `Fable_5.2` by fast-forward later, on Nick's word. Nothing pushed.
+**Files touched:** this entry, TRACKER (S9)
+**ERC:** 39 items on the mock copies, unchanged  ·  **Net diff:** none (no board or schematic change yet)
+**Done:**
+- /agent-entry; summary doc read and trimmed to open items on Nick's request (a copy of the doc before the trim:
+  `~/NereusData/nereus_Pi_shield_ADIN2111/summary_doc_backup_2026-11-11/`). Doc comments reach this session.
+- Nick answered the seven open items as comments on the summary doc (read in the threads, 2:17 to 2:26 PM Pacific):
+  pin 22 "Tie it to GND"; U10 input capacitor "Leave as the mote has it"; fiducials "approved make it happen";
+  Sofar's empty frame "Remove it"; JP1 end marks "Leave them off"; the vias at L6 "Make them useful like the mote, so
+  they help with thermal" / "show me"; R-S1 "show me a mock ... What thermal vias, if any, should be added?"; R47 "I
+  believe the intent was the 1.5kohm ... Does the 1.5kohm still work as intended".
+- R47 answered in its thread: with R2 4.7 kΩ to 3.3 V, GPIO16 low through 1.5 kΩ puts pin 19 at 0.80 V, on the ADIN's
+  V_IL of 0.8 V (SPEC, Rev. B Table 1); 1 kΩ gives 0.58 V. Recommended 1 kΩ. Nick's pick is open.
+- Mock M-S4 (`ms4_mock_2026-11-11/`): the three 5V_PI vias under L6 between its pads at (124.60 / 126.40 / 128.20,
+  87.15), on a new 5V_PI fill on the PWR Plane (57.2 mm², x 123.55..131.00, y 86.75..95.00). The PWR Plane was empty
+  there; the copper under the old via places is the PI_5V pour. 0 open, parity 0, no new DRC item, via_dangling 7 → 4.
+- Mock R-S1 (`rs1_mock_2026-11-11/`): a top-layer GND fill at U10 (12.2 mm², settings of Sofar's fill at U5) and two
+  GND vias at (132.70, 90.10) and (133.14, 87.75). 0 open, parity 0, no new DRC item; Sofar's 3V3 fill 525.4 → 522.1 mm².
+- Both mocks are in the summary doc; nothing is built. Nick decides each.
+**Broke/surprised us:**
+- A clean checkout gives 2 more DRC warnings than `drc_16.json`: `nonmirrored_text_on_back_layer` for the "*" texts
+  of U5 and U10 on B.Fab (Sofar's footprint). The old worktree's `nick_raw_routing.kicad_prl` (local, not in git)
+  hides that layer; with that file copied in, the report equals `drc_16.json` exactly. New baseline for comparisons:
+  `ms4_mock_2026-11-11/drc_base.json` (untouched copy, all layers visible).
+- The power budget puts 26 mW in L6 and 0.53 W in U10 at 1 A (`power_budget.md` §3): the fill at L6 has little heat
+  to spread; R-S1 is the change that matters for heat. Said so in the doc.
+- Sofar's U5 has a top GND fill under its body but no via under the body; the R-S1 mock's via under U10 is new
+  against the mote. Said so in the doc.
+- analog.com timed out again; the ADIN2111 datasheet is still unread this month (strap table rows, internal pull-up).
+- Sofar's rule areas on the GND and PWR planes around the old mote outline carry no restriction (all flags off).
+**Next:** build the three approved changes, each as its own step (Sofar's frame off the bottom; fiducials; ADIN_TIMER
+off J2 with pin 22 to GND); then R47, the L6 vias and R-S1 on Nick's word.
+
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 
 **Branch:** Fable_5.2 (work only here; push only on Nick's approval, each time)

@@ -373,7 +373,9 @@ Fri 10/30 (fallback Tue 11/3).*
 *Nick, 2026-11-10: finish the board in `experiments/nick_raw_routing/` and get it through JLC's checks. Base: the board in
 `nereus_step2_power_2026-11-09.zip` (= `reload_old_mote` 3d596b9 + the earlier session's steps 1–2). Nick's go on the plan
 is the approval for an agent to edit this board (rules 8/9, D33). Plan page: https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc.
-Branch: `Fable_5.2` (Nick, 2026-11-10; pushed only on his approval).
+Branch: `Fable_5.2` (Nick, 2026-11-10; pushed only on his approval). Since 2026-11-11 (after step 16) the work continues on
+`claude/fable-5-2-continue-55a515`, cut from `Fable_5.2` at 5180c47, because the app could not share the old worktree (Nick,
+previous session's chat, 2026-11-11: "Yes, new branch"); its commits return to `Fable_5.2` by fast-forward later, on Nick's word.
 Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: refill, DRC with parity, render, one commit.*
 - [x] Review + plan with drawings; Nick: A base = zip, B inserts option 1, C part moves approved (2026-11-10)
 - [x] Step 0, fixes before routing, no copper changed (58365af): outline circles off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4
@@ -502,7 +504,21 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
       (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
       the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
-- [ ] Still open with Nick after steps 12–16 (list kept in the summary doc, section "Still open"): J2 pin 22 once ADIN_TIMER leaves
+- [ ] Nick's answers of 2026-11-11 to the seven open items (comments on the summary doc, read in the threads):
+      · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. To build (schematic and board)
+      · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). To build
+      · Sofar's empty name frame on the bottom: "Remove it". To build
+      · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays
+      · JP1 end marks: "Leave them off". Closed, no change
+      · R47: Nick meant 1.5 kΩ as a way for the Pi to override the CFG1 strap at boot; by divider arithmetic 1.5 kΩ puts pin 19
+        at 0.80 V against V_IL 0.8 V (SPEC), 1 kΩ at 0.58 V. Recommended 1 kΩ; Nick's pick is open
+      · The three vias at L6: "Make them useful like the mote". Mocked on a 5V_PI fill on the PWR Plane
+        (`~/NereusData/nereus_Pi_shield_ADIN2111/ms4_mock_2026-11-11/`); L6 makes 26 mW at 1 A, so the gain is small. Nick's go is open
+      · R-S1: "show me a mock". Mocked: top GND fill at U10 and two GND vias (`rs1_mock_2026-11-11/`). Nick's go is open
+- [ ] Found 2026-11-11: a clean checkout shows 2 DRC warnings more than `drc_16.json` (`nonmirrored_text_on_back_layer`, the "*"
+      texts of U5 and U10 on B.Fab, Sofar's footprint); the old worktree's local `.kicad_prl` hid that layer. No effect on
+      fabrication. Baseline for comparisons from here on: `ms4_mock_2026-11-11/drc_base.json`
+- [ ] Still open with Nick after steps 12–16 (list kept in the summary doc, section "Still open"; answered 2026-11-11, see the item above): J2 pin 22 once ADIN_TIMER leaves
       it (unconnected or GND), R47's value, the U10 input capacitor, the three vias at L6 together with R-S1, fiducials, Sofar's
       empty frame on the bottom, JP1 end marks. Not done: datasheet check of three strap rows; Sofar brief and DESIGN.md pin map
       behind the board (routing review N12, not gone through by the design session); nothing since c0edb77 pushed; no PR; no QE
