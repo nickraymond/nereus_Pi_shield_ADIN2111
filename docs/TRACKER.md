@@ -502,6 +502,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
       (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
       the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
+- [ ] Still open with Nick after steps 12–16 (list kept in the summary doc, section "Still open"): J2 pin 22 once ADIN_TIMER leaves
+      it (unconnected or GND), R47's value, the U10 input capacitor, the three vias at L6 together with R-S1, fiducials, Sofar's
+      empty frame on the bottom, JP1 end marks. Not done: datasheet check of three strap rows; Sofar brief and DESIGN.md pin map
+      behind the board (routing review N12, not gone through by the design session); nothing since c0edb77 pushed; no PR; no QE
 - [ ] Open items after Nick's second batch of doc comments, 2026-11-11 (all answered in the summary doc; pictures and mocks in
       `~/NereusData/nereus_Pi_shield_ADIN2111/`; nothing built, Nick decides each):
       · ADIN_TIMER off J2 (Nick: "should only go to the primary Pi Header"): today on J1 pin 36 (GPIO16), J2 pin 22 and R47; the
