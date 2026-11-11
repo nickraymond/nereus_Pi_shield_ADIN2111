@@ -483,7 +483,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [ ] Nick: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
       KiCad flags 199 texts for TrueType stroke weight under 0.15 mm (thin details such as the zero's slash; main strokes measure
       about 0.15 mm on the render at designator size). Accept, or go to 1.0 mm designators (they fit, more of them far from their part)
-- [ ] Nick: the 3 skew errors: exclude with a note, or wait for Sofar's answer to Q13
+- [x] Nick decided 2026-11-11 (his comment on the summary doc, on "3 not excluded (skew on Sofar's data pairs)"): the 3 skew
+      errors stay as they are, not excluded, "pending Sofar confirmation and agreement" (Q13)
+- [ ] Design review doc, when Nick asks for it ("Once the changes are done, I'll ask your help to put together a design review
+      doc"): the 3 skew errors are its first item, with the proposal to keep them as is pending Sofar
 - [ ] Left in DRC as warnings: 24 silkscreen overlaps (25 before step 12) and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
       one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
 - [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look
