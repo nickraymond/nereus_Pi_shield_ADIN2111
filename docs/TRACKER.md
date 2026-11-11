@@ -494,6 +494,17 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       joined to pad 2 by a top-layer 5V_PI polygon in Sofar's style, and land on a new 5V_PI fill on the PWR Plane, 57.2 mm²
       (review finding M-S4, DESIGN D47). DRC: via_dangling 7 → 4, nothing new; 0 open, parity 0, ERC 39
       (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_19.json`, `erc_19.json`, `after_steps18_19_converter.png`)
+- [x] Step 20, Nick 2026-11-11 (comments on the summary doc: "should only go to the primary Pi Header"; "Tie it to GND"): ADIN_TIMER
+      is off the breakout header and J2 pin 22 is ground, in the Master sheet and on the board; ADIN_TIMER's bottom track runs
+      down the gap between pins 22 and 24; "TM" reads "GND" on both sides (DESIGN D48). DRC counts unchanged, 0 open, parity 0, ERC 39
+- [x] Step 21, Nick 2026-11-11 (this session's chat: "the large BM shield silkscreen at the far right should be rotated 180 deg,
+      and move the silk screen for [the] dev header south a bit"): the board name reads from the north down under the logo, which
+      stays upright; J2's north-row names on the top side stand 0.46 mm from J1's pads, was 0.16 mm (DESIGN D49). Silkscreen
+      only; checks unchanged (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_21.json`, `after_step21_top.png`)
+- [ ] Step 22, fiducials (script `scripts/step22_fiducials.py`, tried on a scratch copy, not built): 1 mm dots, 2 mm openings;
+      south-west pair to (123.40, 127.90), east pair to (177.50, 122.90), north-west pair to (125.90, 92.00), 11.6 mm from its old
+      place because nothing nearer is free on both sides. Trial DRC: nothing new, silkscreen-on-copper 8 → 6, 0 open, parity 0.
+      Waiting for Nick's look at the north-west place
 - [ ] R47 = 1 kΩ (Nick, this session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
       already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
       (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the
@@ -520,7 +531,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
       the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
 - [ ] Nick's answers of 2026-11-11 to the seven open items (comments on the summary doc, read in the threads):
-      · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. To build (schematic and board)
+      · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. Built as step 20
       · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). To build
       · Sofar's empty name frame on the bottom: "Remove it". Built as step 17
       · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays

@@ -65,8 +65,18 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
   wrong, left for the BOM session.
 - Fiducial search (read only): no place within 8 mm of the north-west pair is free on both sides for a 1 mm dot
   in a 2 mm opening 3.5 mm from the edge; the other two pairs have free places 0.4 and 0.9 mm away. Not built yet.
-**Next:** fiducials (the north-west pair needs a place found, top and bottom may have to differ); ADIN_TIMER off J2
-with pin 22 to GND (schematic and board).
+- Third round (about 2:55 PM, chat): "board looks good"; two silkscreen requests for the next round. Step 20: ADIN_TIMER
+  off J2, pin 22 to GND, schematic and board (DESIGN D48). Step 21: board name turned 180°, J2's top-side names
+  0.30 mm south (DESIGN D49). After step 21: 3 skew errors not excluded, 16 excluded, 0 open, parity 0, ERC 39.
+- The schematic edit of step 20 is a text edit of the Master sheet (label block out, two wire ends and the GND
+  symbol's coordinates changed); parity 0 against the board and ERC 39 are the check that KiCad reads it as meant.
+- Turning the logo with the name put it on its head at the south end (first trial); built with the logo left
+  upright in place. That variant was run on the board directly, without a second trial.
+- `run_step.sh` hid a failed assertion once (its output filter dropped the line) and went on to DRC an untouched
+  scratch copy; it now stops when the step script fails.
+- Fiducials (step 22 script written, tried, not built): a place free on both sides exists for the north-west pair
+  at (125.90, 92.00), 11.6 mm from the old one, between L6, the AUX OUT box and C55.
+**Next:** Nick's look at the fiducial places, then step 22; then the final silkscreen pass.
 
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 
