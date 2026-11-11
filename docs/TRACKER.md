@@ -533,6 +533,13 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
       (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
       0.33 mm mask circles, six 0.25 mm paste polygons). Nothing to change
+- [ ] Order of work to the JLC order (Nick's comments on the summary doc, 2026-11-11; nothing more changes on the board until Nick
+      and the design session have talked through the open items, his chat message of the same day):
+      1. the remaining layout and schematic changes; 2. the final silkscreen pass; 3. layout freeze; 4. schematics and BOM documents
+      brought up to date ("we need to freeze the layout and update all BOM docs and schematics first"); the BOM clean-up runs in
+      its own Fable 5.2 session that Nick starts ("a solo Fable 5.2 session just for BOM review and updates + fixes"), which
+      cross-references Sofar's suggested alternative parts first, then JLC stock ("we are out of time for global sourcing"),
+      before any generic JLC part is specified; 5. export in JLC's form from the frozen board, never from the draft folder
 - [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. Check U6's mask openings and paste dots in the
       gerbers. CPL: filter the placement export against the
       BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
