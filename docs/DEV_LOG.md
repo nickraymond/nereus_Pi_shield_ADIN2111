@@ -41,7 +41,8 @@ what broke, what's next.*
 - Step 12b (0a885e9): screw sizes on the bottom spelled out, "THREADED INSERTS M3" / "MOUNTING HOLES M2.5" (Nick's doc comment).
 - Step 12c (242e46c): port LED names P1 / P2 become BM1 / BM2 (Nick's doc comment).
 - Nick's doc comment: the 3 skew errors stay as they are pending Sofar; they open the design review doc he will ask for.
-**Next:** Nick's answer on the QWIIC connector (J3) move and the AUX OUT label; his decisions in the summary doc (which review fixes to make before Sofar's review).
+- Step 13 (0595d79) on Nick's "I approve the mock": Qwiic J3 on the centre line, J4 2.15 mm south with AUX OUT labelled like VBUS OUT (DESIGN D43). J3 copper to BM2_N 2.37 → 1.02 mm.
+**Next:** Nick's remaining decisions in the summary doc (which review fixes to make before Sofar's review).
 
 ---
 

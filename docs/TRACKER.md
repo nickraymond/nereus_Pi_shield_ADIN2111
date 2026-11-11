@@ -465,6 +465,11 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 12c (242e46c), Nick 2026-11-11 (comment on the summary doc: "change P1 and P2 to BM1 and BM2 so they match the silk
       screen above the threaded inserts"): the port LEDs read BM2 (D10, west) / PWR / BM1 (D9, east). Silkscreen only; DRC and
       ERC counts unchanged, 0 open, parity 0
+- [x] Step 13 (0595d79), Nick 2026-11-11 (comment on the mock picture in the summary doc: "I approve the mock"): Qwiic connector J3 on
+      the centre line (y 104.10, 0.70 mm further west), J4 2.15 mm south with "AUX OUT" above its pads and a box like VBUS OUT's
+      (DESIGN D43). VBUS_OUT's bottom track turns at (122.30, 99.60); J3's four top tracks re-laid; its GND via now at
+      (122.80, 101.40). 9 segments and 1 via out, 19 segments and 1 via in. DRC and ERC counts unchanged, 0 open, parity 0.
+      Smallest J3 copper to BM2_N 1.02 mm (was 2.37 mm), measured on the board
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
@@ -472,12 +477,12 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Two mocks (text
       lines, then a ruled table); built as step 12. Summary of changes and findings for Nick's comments:
       https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2
-- [ ] Nick 2026-11-11: Qwiic connector J3 on the board's centre line, moved south so that AUX OUT's name fits above J4's pads as on
+- [x] Nick 2026-11-11 (built as step 13): Qwiic connector J3 on the board's centre line, moved south so that AUX OUT's name fits above J4's pads as on
       VBUS OUT. Mock on a scratch copy, not on the board (`scripts/step13_qwiic_centre_aux_label.py`; pictures and DRC report in
       `~/NereusData/nereus_Pi_shield_ADIN2111/qwiic_mock_2026-11-11/`): J4 2.15 mm south (F1 sits right above it), J3 2.50 mm south
       to y 104.10 and 0.70 mm west, VBUS_OUT's bottom track turned earlier to clear J4's GND pad, J3's four top tracks re-laid,
       its GND via moved to (122.80, 101.40). DRC counts as after step 12, 0 open, parity 0. Smallest J3 copper to BM2_N:
-      2.37 mm today, 1.02 mm in the mock (the SCL track; measured on both boards). Waiting for Nick's go
+      2.37 mm before, 1.02 mm in the mock (the SCL track; measured on both boards)
 - [ ] Review finding R-S4, Nick 2026-11-11 (comment on the summary doc): "Please show me the mock of this". Checked on the board and
       on a refilled scratch copy of the mote (same coordinates): Sofar's GND zone has a 0.38 mm slot (x 131.31–131.69 from y 93.4
       to 101.6, then east along y 101.81–102.2 to x 138.4, then south to y ≈ 113.6) that leaves the wing under L2 joined to the main
