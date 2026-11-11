@@ -486,6 +486,18 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 17, Nick 2026-11-11 (comment on the summary doc: "Remove it"): Sofar's empty name frame is off the bottom silkscreen
       (five lines, DESIGN D46). Silkscreen only. DRC against a clean-checkout baseline: counts unchanged (3 skew errors, 16
       excluded), 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_17.json`, `erc_17.json`)
+- [x] Step 18 (c445bff), Nick 2026-11-11 (comment on the mock in the summary doc: "approved"): top-layer GND fill at U10 (12.2 mm²,
+      as Sofar has at U5) and two more GND vias at (132.70, 90.10) and (133.14, 87.75); pin 1 reaches the GND plane through five
+      vias (review finding R-S1, DESIGN D47). No part or track moves. DRC counts unchanged, 0 open, parity 0, ERC 39
+- [x] Step 19 (ae8380d), Nick 2026-11-11 (comment on the mock: "Approved, but instead of [fingers] how [about] a polygon like Sofar
+      did under [the] large L1 L2 inductors?"): the three vias at L6 sit under the inductor at (124.60 / 126.40 / 128.20, 87.15),
+      joined to pad 2 by a top-layer 5V_PI polygon in Sofar's style, and land on a new 5V_PI fill on the PWR Plane, 57.2 mm²
+      (review finding M-S4, DESIGN D47). DRC: via_dangling 7 → 4, nothing new; 0 open, parity 0, ERC 39
+      (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_19.json`, `erc_19.json`, `after_steps18_19_converter.png`)
+- [ ] R47 = 1 kΩ (Nick, this session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
+      already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
+      (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the
+      ADIN leaves reset, unless the Pi means to override CFG1
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
@@ -514,10 +526,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays
       · JP1 end marks: "Leave them off". Closed, no change
       · R47: Nick meant 1.5 kΩ as a way for the Pi to override the CFG1 strap at boot; by divider arithmetic 1.5 kΩ puts pin 19
-        at 0.80 V against V_IL 0.8 V (SPEC), 1 kΩ at 0.58 V. Recommended 1 kΩ; Nick's pick is open
+        at 0.80 V against V_IL 0.8 V (SPEC), 1 kΩ at 0.58 V. Recommended 1 kΩ; Nick picked 1 kΩ (see the R47 item)
       · The three vias at L6: "Make them useful like the mote". Mocked on a 5V_PI fill on the PWR Plane
-        (`~/NereusData/nereus_Pi_shield_ADIN2111/ms4_mock_2026-11-11/`); L6 makes 26 mW at 1 A, so the gain is small. Nick's go is open
-      · R-S1: "show me a mock". Mocked: top GND fill at U10 and two GND vias (`rs1_mock_2026-11-11/`). Nick's go is open
+        (`~/NereusData/nereus_Pi_shield_ADIN2111/ms4_mock_2026-11-11/`); L6 makes 26 mW at 1 A, so the gain is small. Built as step 19
+      · R-S1: "show me a mock". Mocked: top GND fill at U10 and two GND vias (`rs1_mock_2026-11-11/`). Built as step 18
 - [ ] Found 2026-11-11: a clean checkout shows 2 DRC warnings more than `drc_16.json` (`nonmirrored_text_on_back_layer`, the "*"
       texts of U5 and U10 on B.Fab, Sofar's footprint); the old worktree's local `.kicad_prl` hid that layer. No effect on
       fabrication. Baseline for comparisons from here on: `ms4_mock_2026-11-11/drc_base.json`

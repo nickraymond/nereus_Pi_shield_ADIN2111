@@ -56,8 +56,17 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
 - Later, once KiCad was closed (2:40 PM Pacific): step 17, Sofar's empty name frame off the bottom silkscreen on
   Nick's "Remove it" (DESIGN D46). 50 lines out of the board file, nothing else. DRC counts unchanged against the
   clean-checkout baseline, 0 open, parity 0, ERC 39 (`steps_2026-11-11/drc_17.json`, `erc_17.json`).
-**Next:** the two other approved changes, each as its own step (fiducials; ADIN_TIMER off J2 with pin 22 to GND);
-then R47, the L6 vias and R-S1 on Nick's word.
+- Nick's second round (2:43 PM, doc comments and chat): R-S1 "approved"; the L6 vias "Approved, but ... a polygon like
+  Sofar did under [the] large L1 L2 inductors"; R47 "the 1kOHM it is" (chat). Step 18 (c445bff): top GND fill and two
+  GND vias at U10, built as mocked. Step 19 (ae8380d): the L6 vias on the 5V_PI fill, with one top-layer polygon in
+  place of the mock's three necks (Sofar's polygons are net-tied shapes with 0.25 mm chamfers; 17 on the board).
+  DESIGN D47. After step 19: 3 skew errors not excluded, 16 excluded, via_dangling 4, 0 open, parity 0, ERC 39.
+- R47 needs no board or symbol change for 1 kΩ (Value and PART NUMBER say so already); only the PLANNED fields are
+  wrong, left for the BOM session.
+- Fiducial search (read only): no place within 8 mm of the north-west pair is free on both sides for a 1 mm dot
+  in a 2 mm opening 3.5 mm from the edge; the other two pairs have free places 0.4 and 0.9 mm away. Not built yet.
+**Next:** fiducials (the north-west pair needs a place found, top and bottom may have to differ); ADIN_TIMER off J2
+with pin 22 to GND (schematic and board).
 
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 
