@@ -451,6 +451,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 10 (7c30e8f), Nick approved the mock on 2026-11-11 ("Yes, build it"): D9 / R45 swap places with D10 / R46, so the east
       LED (by BM1) shows port 1 and the west LED (by BM2) port 2; PWR stays in the middle; names P1 / P2 follow (DESIGN D40).
       Only the four LED nets change. DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, warnings unchanged; ERC 39
+- [x] Step 11 (6874391), Nick 2026-11-11 ("rotate JP2 clockwise, then add a silk screen label above D8 to say ADIN ... After that
+      change push"): JP2 lies east-west at (149.00, 124.00); "ADIN" stands above D8, which shows the ADIN's power, not the
+      board's (DESIGN D41). 5 top segments of ADIN_VDDIO / ADIN_LED_VDD re-laid. DRC and ERC counts unchanged, 0 open, parity 0
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).

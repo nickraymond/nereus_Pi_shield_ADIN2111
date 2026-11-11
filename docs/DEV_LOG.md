@@ -36,7 +36,8 @@ what broke, what's next.*
 - KiCad writes each TrueType text's outlines into the board file (render cache), about 10 000 lines.
 - Later the same day: both review reports came in (0 blockers in the design; 12 should-fix items), summary doc for Nick's comments at https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2.
 - Step 10 (7c30e8f) on Nick's "Yes, build it": port LEDs swapped so each sits beside its own port (DESIGN D40). Only the four LED nets change; DRC and ERC counts unchanged.
-**Next:** Nick's decisions in the summary doc (push, strap table on the bottom, which review fixes to make before Sofar's review).
+- Step 11 (6874391): JP2 turned to lie east-west, "ADIN" above D8 (DESIGN D41); then pushed on Nick's word.
+**Next:** Nick's decisions in the summary doc (strap table on the bottom as a ruled table, which review fixes to make before Sofar's review).
 
 ---
 
