@@ -514,6 +514,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       own part, both sides, shown to Nick in pictures. Start point (DRC after step 12c): 24 overlap warnings = 9 designators
       0.10–0.13 mm from a part outline (C21, D8, U2 ×2, C24, C25, C26, R24, R11), 7 of Sofar's outlines touching each other,
       4 box or board lines on a part outline, 2 "VBUS OUT" texts 0.14 mm from their box, 2 pin-1 marks (U1, U4) on their outline
+      Also in this pass (Nick, same day, row "Silkscreen over copper": "Same as above, lets review this as last step before design
+      freeze"): the 8 silkscreen-on-copper warnings = pin-1 marks of U1, U5, U10; outline segments of R34 (2) and C59; the two
+      "-" marks at the BM2 inserts (top and bottom)
 - [x] Nick asked 2026-11-11 (comment on the summary doc) what the 34 pad-stack warnings are. Read from the board: Sofar's library
       footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
       (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
