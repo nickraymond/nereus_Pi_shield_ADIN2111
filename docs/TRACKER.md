@@ -466,6 +466,12 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Two mocks (text
       lines, then a ruled table); built as step 12. Summary of changes and findings for Nick's comments:
       https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2
+- [ ] Nick 2026-11-11: Qwiic connector J3 on the board's centre line, moved south so that AUX OUT's name fits above J4's pads as on
+      VBUS OUT. Mock on a scratch copy, not on the board (`scripts/step13_qwiic_centre_aux_label.py`; pictures and DRC report in
+      `~/NereusData/nereus_Pi_shield_ADIN2111/qwiic_mock_2026-11-11/`): J4 2.15 mm south (F1 sits right above it), J3 2.50 mm south
+      to y 104.10 and 0.70 mm west, VBUS_OUT's bottom track turned earlier to clear J4's GND pad, J3's four top tracks re-laid,
+      its GND via moved to (122.80, 101.40). DRC counts as after step 12, 0 open, parity 0. Smallest J3 copper to BM2_N:
+      2.37 mm today, 1.02 mm in the mock (the SCL track; measured on both boards). Waiting for Nick's go
 - [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
       `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
