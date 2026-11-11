@@ -53,8 +53,11 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
   against the mote. Said so in the doc.
 - analog.com timed out again; the ADIN2111 datasheet is still unread this month (strap table rows, internal pull-up).
 - Sofar's rule areas on the GND and PWR planes around the old mote outline carry no restriction (all flags off).
-**Next:** build the three approved changes, each as its own step (Sofar's frame off the bottom; fiducials; ADIN_TIMER
-off J2 with pin 22 to GND); then R47, the L6 vias and R-S1 on Nick's word.
+- Later, once KiCad was closed (2:40 PM Pacific): step 17, Sofar's empty name frame off the bottom silkscreen on
+  Nick's "Remove it" (DESIGN D46). 50 lines out of the board file, nothing else. DRC counts unchanged against the
+  clean-checkout baseline, 0 open, parity 0, ERC 39 (`steps_2026-11-11/drc_17.json`, `erc_17.json`).
+**Next:** the two other approved changes, each as its own step (fiducials; ADIN_TIMER off J2 with pin 22 to GND);
+then R47, the L6 vias and R-S1 on Nick's word.
 
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 

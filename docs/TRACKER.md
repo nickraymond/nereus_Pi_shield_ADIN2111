@@ -483,6 +483,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 16 (b0115b9), Nick 2026-11-11 (comment on the proposal in the summary doc: "approved"): J6's GND pads 2 / 4 / 6 set to
       thermal relief on the pad (review finding M-S6, DESIGN D45); each pin stands in a ring with four spokes on the GND plane.
       No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 17, Nick 2026-11-11 (comment on the summary doc: "Remove it"): Sofar's empty name frame is off the bottom silkscreen
+      (five lines, DESIGN D46). Silkscreen only. DRC against a clean-checkout baseline: counts unchanged (3 skew errors, 16
+      excluded), 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_17.json`, `erc_17.json`)
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
@@ -507,7 +510,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [ ] Nick's answers of 2026-11-11 to the seven open items (comments on the summary doc, read in the threads):
       · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. To build (schematic and board)
       · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). To build
-      · Sofar's empty name frame on the bottom: "Remove it". To build
+      · Sofar's empty name frame on the bottom: "Remove it". Built as step 17
       · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays
       · JP1 end marks: "Leave them off". Closed, no change
       · R47: Nick meant 1.5 kΩ as a way for the Pi to override the CFG1 strap at boot; by divider arithmetic 1.5 kΩ puts pin 19
