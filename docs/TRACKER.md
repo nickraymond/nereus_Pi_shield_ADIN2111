@@ -450,7 +450,12 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       excluded (skew), 16 excluded, 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-11/`)
 - [ ] Nick: port LEDs sit on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
-      beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first)
+      beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
+      Mock made 2026-11-11 on a scratch copy: 0 open, parity 0, no new DRC error (`~/NereusData/nereus_Pi_shield_ADIN2111/led_swap_mock_2026-11-11/`)
+- [ ] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Mock made on the
+      same scratch copy: six lines in the east strip, the screw sizes and USB warning moved behind JP1. The modes are copied from
+      the schematic table and not checked against the datasheet. Summary of changes and findings for Nick's comments:
+      https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2
 - [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
       `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
