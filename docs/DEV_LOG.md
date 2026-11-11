@@ -19,6 +19,25 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-11 — Sprint S9 — Step 9h: silkscreen style; two read-only reviews started
+
+**Branch:** Fable_5.2
+**Files touched:** experiments/nick_raw_routing/ (board: silkscreen only; scripts/step9h_silk_style.py, .json, step9h_plan/); TRACKER, DESIGN D39, sofar_brief row 13, checklist
+**ERC:** 39 items, unchanged  ·  **Net diff:** none (tracks, vias, zones, pads and footprint positions identical to e686111)
+**Done:**
+- Two mock rounds on scratch copies (`~/NereusData/nereus_Pi_shield_ADIN2111/silk_mock_2026-11-10/`, `silk_mock_2026-11-11/`), then step 9h (0bd5d89) on Nick's "Yes, build it".
+- Menlo Bold for the slashed zero; function names large with the designator under them; J4 / J5 boxed; all 128 designators at 0.8 mm; name and logo in the east strip; ratings and screw sizes on the bottom (DESIGN D39).
+- DRC: 3 errors not excluded (skew), 16 excluded, 0 open, parity 0. Silkscreen overlaps 54 → 25, silkscreen on copper 14 → 8.
+- Two read-only reviews of e686111 started as background agents (routing and reliability; manufacturability at JLC). The manufacturability report is in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/dfm_review.md`.
+**Broke/surprised us:**
+- J4 is a 5 V output (converter → JP1 → F1 → J4); the 9c label "5V IN" was wrong.
+- KiCad checks TrueType stroke weight: 199 texts flagged under 0.15 mm, even some 1.5 mm ones (thin details such as the zero's slash).
+- The port LEDs sit on the far side from their ports (D9 on port 1 is by BM2). The names match the nets; Nick wants the LEDs swapped.
+- KiCad writes each TrueType text's outlines into the board file (render cache), about 10 000 lines.
+**Next:** check the two review reports with Nick; mock for the LED swap.
+
+---
+
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
 **Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)

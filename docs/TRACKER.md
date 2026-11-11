@@ -442,12 +442,24 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 9g (488cfbd), Nick's request: board name "Pi Shield / ADIN2111 Rev0" with the Bristlemouth logo in the north-east
       corner (top) and the name on the bottom in place of Sofar's part number and "BM Mote"
 - [x] State after 9e–9g: DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, ERC 39
+- [x] Step 9h (0bd5d89), Nick approved mock round 2 on 2026-11-11 ("Yes, build it"): silkscreen style (DESIGN D39). Menlo Bold
+      (slashed zero); function names large with the designator small under them; J4 "+5V / AUX OUT / GND" and J5 "VBUS OUT" boxed
+      on both sides; all 128 designators 0.8 mm (six turned 90°: C10 C30 C31 D1 D8 L3; F1 stays hidden); board name and logo in the
+      east strip beside L1, turned 90°; bottom: ratings under J2, screw sizes (inserts M3, mounting holes M2.5) and the USB warning
+- [x] State after 9h: no copper change (tracks, vias, zones, pads and footprint positions identical to e686111); DRC 3 errors not
+      excluded (skew), 16 excluded, 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-11/`)
+- [ ] Nick: port LEDs sit on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
+      D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
+      beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first)
+- [ ] Reviews of e686111, 2026-11-11 (read-only agents; findings not yet checked by the design session):
+      manufacturability report `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/dfm_review.md`; routing review still running
 - [ ] Nick: what the CFG1 / CFG0 positions select is not on the silkscreen. Only 0 / 0 = OPEN Alliance SPI with protection is
       recorded (SPEC, datasheet Table 22); the datasheet could not be fetched on 2026-11-10 to check the other three
-- [ ] Nick: silkscreen text size. 108 reference texts are 0.6 mm or 0.64 mm high (Sofar's), under the 1.0 mm in the JLC rule set;
-      53 have a 0.127 mm stroke (rule 0.15 mm). Enlarge where it fits and hide the rest, or accept as Sofar had them
+- [ ] Nick: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
+      KiCad flags 199 texts for TrueType stroke weight under 0.15 mm (thin details such as the zero's slash; main strokes measure
+      about 0.15 mm on the render at designator size). Accept, or go to 1.0 mm designators (they fit, more of them far from their part)
 - [ ] Nick: the 3 skew errors: exclude with a note, or wait for Sofar's answer to Q13
-- [ ] Left in DRC as warnings: 61 silkscreen overlaps and 14 silkscreen-on-copper (mostly Sofar's part outlines), 7 vias that join
+- [ ] Left in DRC as warnings: 25 silkscreen overlaps and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
       one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
 - [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
