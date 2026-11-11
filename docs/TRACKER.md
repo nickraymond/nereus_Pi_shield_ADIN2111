@@ -428,7 +428,22 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [ ] `sofar_brief.md` has no row for the Qwiic connector J3 and the I2C3 pull-ups R10/R24 (schematic additions on this board)
 - [ ] Bottom silkscreen still reads "PCBA-000639-AB BM Mote" (Sofar's board name): rename or remove in step 9 (Nick)
 - [ ] Nick's KiCad look after steps 5–8: I2C3 past the 5 V converter, R10/R24 under J3, the payload lines below J2, JP2 and the LEDs
-- [ ] Step 9 clean-up, JLC DRC (0 errors, 0 open, 0 parity; exclusions listed), fab outputs → QE review → Nick's KiCad look
+- [x] Step 9a (f4faaca): dead mote copper removed, 58 segments / 46.8 mm that ended in the open (found by repeated DRC on a scratch copy)
+- [x] Step 9b (c9db5f8): the 3 courtyard overlaps at the 5 V converter cleared (C55 0.50 mm west, C54 0.30 mm south, their GND via moved)
+- [x] Step 9c (e1eedf3), Nick's request of 2026-11-10: silkscreen names on the straps (JP1 5V-PI, JP2 LED, JP3 CFG1, JP4 CFG0 with
+      1 / 0 ends), the wire pads (J4 5V IN, J5 PAYLOAD), J6 (PI 5V, rows 5V / GND), J3 (I2C3), every J2 pin, the inserts (BM1 / BM2,
+      both sides) and the LEDs (P1 / PWR / P2); reference texts moved off other parts; refs of F1, D8–D10, H1–H4, MP1–MP4 hidden
+- [x] Step 9d (ab8baae): DRC exclusions with comments for the 16 GND vias in Sofar's keepout under U1 (kept, D34)
+- [x] State after 9a–9d: DRC 3 errors not excluded (skew on Sofar's BM data pairs, Sofar Q13), 16 excluded, 0 open, parity 0, ERC 39.
+      Draft fab files export cleanly (13 gerbers, 2 drill files, positions; `~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-10/fab_draft/`)
+- [ ] Nick: what the CFG1 / CFG0 positions select is not on the silkscreen. Only 0 / 0 = OPEN Alliance SPI with protection is
+      recorded (SPEC, datasheet Table 22); the datasheet could not be fetched on 2026-11-10 to check the other three
+- [ ] Nick: silkscreen text size. 108 reference texts are 0.6 mm or 0.64 mm high (Sofar's), under the 1.0 mm in the JLC rule set;
+      53 have a 0.127 mm stroke (rule 0.15 mm). Enlarge where it fits and hide the rest, or accept as Sofar had them
+- [ ] Nick: the 3 skew errors: exclude with a note, or wait for Sofar's answer to Q13
+- [ ] Left in DRC as warnings: 61 silkscreen overlaps and 14 silkscreen-on-copper (mostly Sofar's part outlines), 7 vias that join
+      one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
+- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
 → after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.
 

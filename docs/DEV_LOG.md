@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
 **Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)
-**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D36, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
+**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D37, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
 **ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
 **Done:**
 - Reviewed the zip board (2026-11-09): 77 open connections on 46 nets, 424 DRC errors under its own rules, parity 0. Plan
@@ -86,8 +86,20 @@ what broke, what's next.*
 - There is no GND plane under the LEDs (the plane ends at y 123, with a slot at y 121.5–122.5): D8's cathode runs
   16 mm on top along the south edge to JP3's GND pad instead of dropping into a via
 - JP2 is an R1210-size bridged jumper (courtyard 3.3 × 4.7 mm); it fits between C23 and the LED row at y 124.30
-**Next:** Nick's KiCad look after steps 5–8; then step 9: dead mote stubs, silkscreen, the 3 courtyard overlaps, exclusions for
-the 22 carried errors (Nick / Sofar Q13), fab outputs, draft PR to QE.
+- Pushed on Nick's word (3:46 PM), then step 9 a–d (f4faaca, c9db5f8, e1eedf3, ab8baae): dead copper, courtyards, silkscreen
+  names, exclusions. DRC 22 → 3 errors not excluded (the skew rule on Sofar's data pairs), 16 excluded, 0 open, parity 0
+- Dead copper: removing the tracks DRC calls dangling exposes the next segment of the same stub; it took 4 rounds (30, 17,
+  7, 4 segments) to reach none. The open-connection count stayed 0 in every round
+- U10's courtyard is 5.1 × 4.4 mm for a SOT-23-6; the capacitors beside it were placed against the body, not the courtyard
+- The fiducial FID2 sits beside JP1 and the screw-head area of H1 above it: JP1's name fits only in two short lines
+- J2's footprint outline leaves 2.2 mm between it and J1's pads: 3-letter pin names at 1.0 mm height need a 0.6 mm
+  character width to fit the 2.54 mm pitch; names with M (MOSI, MISO, TIMER) are cut to two letters at 0.8 mm
+- KiCad 10 reads DRC exclusions from the project file as [marker string, comment] pairs; kicad-cli honours them and
+  still lists them with `--severity-all`, marked excluded
+- The ADIN2111 datasheet could not be fetched (analog.com timed out), so the silkscreen names the straps and their 1 / 0
+  ends but not what each combination selects
+**Next:** Nick's decisions: silkscreen text size, the 3 skew errors, the bottom "BM Mote" text, the CFG table. Then final fab
+outputs and the QE review.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
