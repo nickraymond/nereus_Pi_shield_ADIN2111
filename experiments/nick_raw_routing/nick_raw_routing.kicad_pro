@@ -76,7 +76,72 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "items_not_allowed|152101100|111103600|b1a49fa9-a32f-415b-b05b-44d1c6e42c80|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|112370260|2d19614e-5da4-459c-8e2e-5f3cf2358413|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|113636930|7dd52b3d-06a8-4741-81d9-0a8eab2c78c5|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|114903590|1dfd0723-bcd8-4431-b52f-492f13075eef|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|111103600|bf0b1de9-5b7a-4e0d-a50d-f83838161caf|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|112370260|aa3203df-dce0-4b8c-bda2-4ea535855968|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|113636930|d2e55b9b-f0c2-4b3b-adc3-e65fbf8c4b2d|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|114903590|b0e6f62a-57ab-4ae8-b4f5-ff0df545fdb0|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|111103600|0246e079-1cf1-4d5e-8116-597109f98c5b|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|112370260|adda4b40-80dd-4d53-8154-db929423dcf6|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|113636930|b5fcc91b-fe26-4f54-803f-0eba48f80609|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|114903590|2b424a8d-2c36-497c-96c6-35ceb42591e0|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|111103600|e98ae4f3-2afb-4333-a358-8bf7474785d9|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|112370260|5deda764-9521-414b-bc6a-a4c65ec04b6d|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|113636930|39207626-8371-4383-b862-67dc1e7ca514|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|114903590|2770b474-8daa-4410-b04f-ea558edd65c9|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ]
+      ],
       "meta": {
         "version": 2
       },
