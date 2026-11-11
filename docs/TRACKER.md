@@ -522,6 +522,14 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       `experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`, SHA-256 3728e882…46a3518e, with the schematic of step 20. Local
       tag `s9-layout-freeze` (not pushed). From here on no copper, part, outline or silkscreen change without a new word from
       Nick; schematic edits are limited to fields (BOM session). JLC files are exported from this board only
+- [x] Step 25, Nick 2026-11-11 (this session's chat: "update the front sheet of the schematic to show top and bottom views of
+      the board with dimensions for length and width like you'd expect on a drawing"): the cover sheet of
+      `experiments/nick_raw_routing/nick_raw_routing.kicad_sch` shows the frozen board's top and bottom view with 65.00 mm and
+      56.00 mm dimension lines (outline read from Edge.Cuts) in the frame that held "renders: TBD"; "DIMENSIONS:" reads
+      "65.00 x 56.00 x 1.6 mm". The sheet holds no parts or wires; ERC 39, parity 0, board untouched. PDF of the whole
+      schematic: `~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/front_sheet/nick_raw_routing_schematic.pdf`.
+      Open for Nick: the cover still reads rev AA, 2026-10-07, "First release", P/N PCB-000001-AA, while the board's
+      silkscreen says "Rev0"; whether the cover's revision, date and change line should follow is his call
 - [ ] After the freeze, in this order: schematics and BOM documents brought up to date (the BOM in its own session that Nick
       starts: Sofar's alternates first, then JLC stock; R47's PLANNED fields to 1 kΩ); DESIGN pin map and Sofar brief checked
       against the board (routing review N12: J2, J3, J4 / F1, J6, JP1, R47 / ADIN_TIMER); JLC export from the frozen board;
