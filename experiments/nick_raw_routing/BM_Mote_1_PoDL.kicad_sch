@@ -5520,7 +5520,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 336.042 141.8082 0)
 			(hide yes)
 			(show_name no)
@@ -9724,7 +9724,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 313.182 141.8082 0)
 			(hide yes)
 			(show_name no)
