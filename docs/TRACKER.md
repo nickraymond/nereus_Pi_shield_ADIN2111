@@ -501,10 +501,24 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       and move the silk screen for [the] dev header south a bit"): the board name reads from the north down under the logo, which
       stays upright; J2's north-row names on the top side stand 0.46 mm from J1's pads, was 0.16 mm (DESIGN D49). Silkscreen
       only; checks unchanged (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_21.json`, `after_step21_top.png`)
-- [ ] Step 22, fiducials (script `scripts/step22_fiducials.py`, tried on a scratch copy, not built): 1 mm dots, 2 mm openings;
-      south-west pair to (123.40, 127.90), east pair to (177.50, 122.90), north-west pair to (125.90, 92.00), 11.6 mm from its old
-      place because nothing nearer is free on both sides. Trial DRC: nothing new, silkscreen-on-copper 8 → 6, 0 open, parity 0.
-      Waiting for Nick's look at the north-west place
+- [x] Step 22, Nick 2026-11-11 ("approved make it happen"; on the mock: "Fiducials look good"): fiducials are 1 mm dots in 2 mm
+      openings; south-west pair at (123.40, 127.90), east pair at (177.50, 122.90), north-west pair at (125.90, 92.00), 11.6 mm
+      from its old place because nothing nearer is free on both sides (DESIGN D50). DRC: silkscreen-on-copper 8 → 6, nothing new
+- [x] Step 23, Nick 2026-11-11 (this session's chat, with a picture: "This is the way the logo should look please"; "move the
+      'Threaded insert...' silk screen block farther [east] on the bottom ... Also draw a box around the note blocks"): the logo
+      follows the board name at its south end, turned with it; the notes behind JP1 stand at the west edge in a box, the ratings
+      under J2 0.80 mm south in a box (DESIGN D51). Silkscreen only; checks unchanged
+- [x] Step 24, the final silkscreen pass, Nick 2026-11-11 ("please refine the placement of the small component silk screen"):
+      eleven designators moved to planned free places beside their own parts, D8, U2 and the VBUS OUT texts nudged (DESIGN
+      D51). DRC silk_overlap 24 → 13; left: Sofar's touching outlines (7), his pin-1 marks (2), the AUX OUT box on L6's outline
+      (3), one board line at L3; silk_over_copper 6 (pin-1 marks of U1, U5, U10; outline segments of R34 and C59). Ten
+      designators in dense areas stay where they are (list in D51)
+- [x] State after step 24 (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_24.json`, `erc_24.json`; clean-checkout
+      baseline, all layers visible): 3 skew errors not excluded (pending Sofar), 16 excluded, 0 open, parity 0, ERC 39.
+      Warnings: text_thickness 199, text_height 129, lib_footprint_mismatch 106, padstack 34, silk_overlap 13, silk_over_copper 6,
+      via_dangling 4, isolated_copper 3, nonmirrored_text_on_back_layer 2
+- [ ] Layout freeze: Nick asked for it once steps 22–24 are done ("I'd like to move on to the design freeze once these are done
+      so we can do a BOM clean up"). Waiting for his look at the pictures and his word
 - [ ] R47 = 1 kΩ (Nick, this session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
       already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
       (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the
@@ -532,7 +546,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
 - [ ] Nick's answers of 2026-11-11 to the seven open items (comments on the summary doc, read in the threads):
       · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. Built as step 20
-      · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). To build
+      · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). Built as step 22
       · Sofar's empty name frame on the bottom: "Remove it". Built as step 17
       · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays
       · JP1 end marks: "Leave them off". Closed, no change

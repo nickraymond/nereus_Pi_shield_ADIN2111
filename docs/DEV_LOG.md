@@ -76,7 +76,15 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
   scratch copy; it now stops when the step script fails.
 - Fiducials (step 22 script written, tried, not built): a place free on both sides exists for the north-west pair
   at (125.90, 92.00), 11.6 mm from the old one, between L6, the AUX OUT box and C55.
-**Next:** Nick's look at the fiducial places, then step 22; then the final silkscreen pass.
+- Fourth round (about 3:15 PM, chat, with a picture): the logo as in step 21's first trial; fiducials good; notes
+  block to the edge, boxes around both note blocks; then refine the small designators; then the freeze. Step 22
+  (fiducials, DESIGN D50), step 23 (logo with the name, notes and boxes), step 24 (designators) built (D51).
+- Step 24's planner works on bounding boxes, which are larger than the drawn letters: it calls most present places
+  "blocked" and finds free ones for eleven designators; ten in the dense areas have no clearly better place and stay.
+- Six tented vias lie under the bottom notes' text, three of them from step 19. Not moved.
+- After step 24: 3 skew errors not excluded, 16 excluded, 0 open, parity 0, ERC 39; silk_overlap 13, silk_over_copper 6.
+**Next:** Nick's look at the pictures and his word for the layout freeze; then schematics and BOM documents, the BOM
+session (Nick starts it), JLC export, design review doc, draft PR and QE.
 
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 
