@@ -483,6 +483,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
       from T1 to L1 on 0.2 mm tracks; no top-side GND zone at U10; R47 value 1 kΩ against planned part 1.5 kΩ; JP3 bridged to
       ADIN_VDDIO (CFG1 = 1; the mote had 0). The other findings are not yet checked. Nick decides which to fix before Sofar's review
+- [x] Nick confirmed 2026-11-11 (his comment on the summary doc): "The as built is correct, Sofar found issues getting the ADIN2111
+      to work with Open Alliance + CRC ... so we want to keep Generic with CRC". CFG1 = 1, CFG0 = 0 stays (review finding R-S2
+      closed, no board change). His schematic table has no row named "OPEN Alliance + CRC"; its OPEN Alliance rows are
+      "+ protection" (0 / 0, the mote's setting) and "no protection" (0 / 1)
 - [ ] Nick: the four strap modes on the bottom silkscreen (step 12) are copied from the schematic's table. Only 0 / 0 = OPEN
       Alliance SPI with protection is checked against the datasheet (SPEC, Table 22); the datasheet could not be fetched on
       2026-11-10 to check the other three. Check them before the board is ordered
