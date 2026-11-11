@@ -454,26 +454,31 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 11 (6874391), Nick 2026-11-11 ("rotate JP2 clockwise, then add a silk screen label above D8 to say ADIN ... After that
       change push"): JP2 lies east-west at (149.00, 124.00); "ADIN" stands above D8, which shows the ADIN's power, not the
       board's (DESIGN D41). 5 top segments of ADIN_VDDIO / ADIN_LED_VDD re-laid. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 12 (3054b8c), Nick 2026-11-11 ("Yes build it, but say Bold Box instead of Heavy Box", "remove the Pi Shield name on
+      the bottom"): the schematic's table "ADIN2111 SPI CFG Straps" stands on the bottom as a ruled table in the east strip
+      (CFG 1 | CFG 0 | SPI MODE, bold frame on the as-built row 1 / 0 = generic SPI with CRC); screw sizes and the USB warning
+      moved behind JP1; "Pi Shield / ADIN2111 Rev0" removed from the bottom, Sofar's frame around it left empty (DESIGN D42).
+      No copper or footprint change. DRC silkscreen overlaps 25 → 24, all else unchanged; 0 open, parity 0, ERC 39
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
       Mock made 2026-11-11 on a scratch copy: 0 open, parity 0, no new DRC error (`~/NereusData/nereus_Pi_shield_ADIN2111/led_swap_mock_2026-11-11/`)
-- [ ] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Mock made on the
-      same scratch copy: six lines in the east strip, the screw sizes and USB warning moved behind JP1. The modes are copied from
-      the schematic table and not checked against the datasheet. Summary of changes and findings for Nick's comments:
+- [x] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Two mocks (text
+      lines, then a ruled table); built as step 12. Summary of changes and findings for Nick's comments:
       https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2
 - [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
       `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
       from T1 to L1 on 0.2 mm tracks; no top-side GND zone at U10; R47 value 1 kΩ against planned part 1.5 kΩ; JP3 bridged to
       ADIN_VDDIO (CFG1 = 1; the mote had 0). The other findings are not yet checked. Nick decides which to fix before Sofar's review
-- [ ] Nick: what the CFG1 / CFG0 positions select is not on the silkscreen. Only 0 / 0 = OPEN Alliance SPI with protection is
-      recorded (SPEC, datasheet Table 22); the datasheet could not be fetched on 2026-11-10 to check the other three
+- [ ] Nick: the four strap modes on the bottom silkscreen (step 12) are copied from the schematic's table. Only 0 / 0 = OPEN
+      Alliance SPI with protection is checked against the datasheet (SPEC, Table 22); the datasheet could not be fetched on
+      2026-11-10 to check the other three. Check them before the board is ordered
 - [ ] Nick: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
       KiCad flags 199 texts for TrueType stroke weight under 0.15 mm (thin details such as the zero's slash; main strokes measure
       about 0.15 mm on the render at designator size). Accept, or go to 1.0 mm designators (they fit, more of them far from their part)
 - [ ] Nick: the 3 skew errors: exclude with a note, or wait for Sofar's answer to Q13
-- [ ] Left in DRC as warnings: 25 silkscreen overlaps and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
+- [ ] Left in DRC as warnings: 24 silkscreen overlaps (25 before step 12) and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
       one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
 - [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
