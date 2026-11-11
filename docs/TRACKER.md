@@ -517,8 +517,15 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       baseline, all layers visible): 3 skew errors not excluded (pending Sofar), 16 excluded, 0 open, parity 0, ERC 39.
       Warnings: text_thickness 199, text_height 129, lib_footprint_mismatch 106, padstack 34, silk_overlap 13, silk_over_copper 6,
       via_dangling 4, isolated_copper 3, nonmirrored_text_on_back_layer 2
-- [ ] Layout freeze: Nick asked for it once steps 22–24 are done ("I'd like to move on to the design freeze once these are done
-      so we can do a BOM clean up"). Waiting for his look at the pictures and his word
+- [x] **Layout freeze, 2026-11-11** (Nick, this session's chat: "Yes, freeze it", after "I'd like to move on to the design freeze
+      once these are done so we can do a BOM clean up"). Frozen: the board as of step 24 (456752d),
+      `experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`, SHA-256 3728e882…46a3518e, with the schematic of step 20. Local
+      tag `s9-layout-freeze` (not pushed). From here on no copper, part, outline or silkscreen change without a new word from
+      Nick; schematic edits are limited to fields (BOM session). JLC files are exported from this board only
+- [ ] After the freeze, in this order: schematics and BOM documents brought up to date (the BOM in its own session that Nick
+      starts: Sofar's alternates first, then JLC stock; R47's PLANNED fields to 1 kΩ); DESIGN pin map and Sofar brief checked
+      against the board (routing review N12: J2, J3, J4 / F1, J6, JP1, R47 / ADIN_TIMER); JLC export from the frozen board;
+      design review doc when Nick asks; draft PR and QE review. 43 commits and the tag are not pushed
 - [ ] R47 = 1 kΩ (Nick, this session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
       already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
       (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the

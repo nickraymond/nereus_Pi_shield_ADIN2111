@@ -83,8 +83,21 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
   "blocked" and finds free ones for eleven designators; ten in the dense areas have no clearly better place and stay.
 - Six tented vias lie under the bottom notes' text, three of them from step 19. Not moved.
 - After step 24: 3 skew errors not excluded, 16 excluded, 0 open, parity 0, ERC 39; silk_overlap 13, silk_over_copper 6.
-**Next:** Nick's look at the pictures and his word for the layout freeze; then schematics and BOM documents, the BOM
-session (Nick starts it), JLC export, design review doc, draft PR and QE.
+- **Layout frozen** on Nick's "Yes, freeze it" (about 3:35 PM): the board as of step 24 (456752d), SHA-256
+  3728e882268f10ad619c7eda81b289087a70814d26bca223493e208346a3518e; local tag `s9-layout-freeze`. Nothing pushed.
+**Handoff state (for a rotation or the BOM session):**
+- Branch claude/fable-5-2-continue-55a515, tree clean, 43 commits ahead of `origin/Fable_5.2` (c0edb77), no PR, no QE yet.
+- Checks of the frozen board: `~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_24.json`, `erc_24.json`
+  (clean checkout, all layers visible): 3 skew errors not excluded, 16 excluded, 0 open, parity 0, ERC 39.
+- Step runner and helper scripts of this session: the session scratchpad (`run_step.sh`, `layerplot.py`, `fidfind.py`,
+  `desig_audit.py`, `near.py`, `zonearea.py`), copied to `~/NereusData/nereus_Pi_shield_ADIN2111/session_tools_2026-11-11b/`.
+- BOM facts found on the way: R47 PLANNED MPN / LCSC name the 1.5 kΩ part, the decision is 1 kΩ (RC0402FR-071KL);
+  the manufacturability review's list (J3 no part number, J1 "TBD", C59 mismatch, no LCSC number for U1, L3 / L6, Y1,
+  D1, R8, R15 / R16, R38 13.3 kΩ against D16's 13.7 kΩ) is not checked by this session; `bom.csv` is the live
+  project's, not this board's. Where Sofar's list of alternates lives is not known.
+- The summary doc (https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2) shows open items only; its comments reach this session.
+**Next:** schematics and BOM documents (the BOM session is Nick's to start); DESIGN pin map and Sofar brief against
+the board; JLC export from the frozen board; design review doc on Nick's word; draft PR and QE.
 
 ## 2026-11-11 — Sprint S9 — Handoff after steps 12–16 (session rotation, 2:01 PM Pacific)
 
