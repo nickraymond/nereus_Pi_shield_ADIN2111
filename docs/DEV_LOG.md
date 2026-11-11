@@ -43,6 +43,7 @@ what broke, what's next.*
 - Nick's doc comment: the 3 skew errors stay as they are pending Sofar; they open the design review doc he will ask for.
 - Step 13 (0595d79) on Nick's "I approve the mock": Qwiic J3 on the centre line, J4 2.15 mm south with AUX OUT labelled like VBUS OUT (DESIGN D43). J3 copper to BM2_N 2.37 → 1.02 mm.
 - Step 14 (a41524d) on Nick's "Proposal approved": north-west GND fill pulled 0.5 mm clear of Sofar's west ground wing (R-S4, DESIGN D44). Outline only; checks unchanged.
+- Step 15 (d6a4fb8): R15 / R16 back on Sofar's footprint, board and PoDL sheet (M-S5). Step 16 (b0115b9): thermal relief on J6's GND pins (M-S6). DESIGN D45; checks unchanged.
 **Next:** Nick's remaining decisions in the summary doc (which review fixes to make before Sofar's review).
 
 ---

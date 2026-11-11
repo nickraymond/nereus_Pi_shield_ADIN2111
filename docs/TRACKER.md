@@ -474,6 +474,13 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       fill" is redrawn 0.5 mm clear of Sofar's west ground wing and slot (review finding R-S4, DESIGN D44). Sofar's zone is
       untouched; its copper refills the wing, which joins the main ground only at the slot's south end again, as on the mote.
       No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 15 (d6a4fb8), Nick 2026-11-11 (comment in the summary doc: "lets put back the sofar footprint"): R15 and R16 carry
+      `Vault:CRCW08057R50FKEAHP-Footprint-1` again, on the board and in the PoDL sheet's two Footprint fields (review finding
+      M-S5, DESIGN D45). Pads sit exactly where the mote's do; no track or via change. DRC and ERC counts unchanged, 0 open,
+      parity 0
+- [x] Step 16 (b0115b9), Nick 2026-11-11 (comment on the proposal in the summary doc: "approved"): J6's GND pads 2 / 4 / 6 set to
+      thermal relief on the pad (review finding M-S6, DESIGN D45); each pin stands in a ring with four spokes on the GND plane.
+      No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
@@ -507,9 +514,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
         over a 0.2 mm Internal 2 track that the mote has too; the bus trunk is 2 mm on both boards. Rated low by the design session
       · M-S4 (`ms4_2026-11-11/`): the three 5V_PI vias at L6 meet 5V_PI copper on the top layer only (the mote's vias at L3 land on
         a 3V3 fill on the PWR plane) and overlap L6 pad 2's edge by about 0.25 mm. Delete, or give them a fill; settle with R-S1
-      · M-S5 (`ms5_2026-11-11/`): R15 / R16, same part; mote pads 0.85 × 1.35 mm at pitch 1.65, shield (KiCad R_0805_2012Metric)
+      · M-S5, built as step 15 (`ms5_2026-11-11/`): R15 / R16, same part; mote pads 0.85 × 1.35 mm at pitch 1.65, shield (KiCad R_0805_2012Metric)
         1.02 × 1.40 mm at pitch 1.83; gap 0.80 mm on both. Put Sofar's footprint back, or note it in the Sofar brief
-      · M-S6 (`ms6_mock_2026-11-11/`, `mock_ms6.py`): mock with J6 pads 2 / 4 / 6 set to thermal relief on the pad; today they are
+      · M-S6, built as step 16 (`ms6_mock_2026-11-11/`, `mock_ms6.py`): mock with J6 pads 2 / 4 / 6 set to thermal relief on the pad; today they are
         solid in Sofar's GND zone on three sides. DRC counts unchanged, 0 open, parity 0
       · Fiducials: FID1–FID6 are 0.75 mm dots in 2.25 mm openings at (117.90, 83.60), (123.70, 128.60), (178.70, 122.00), top and
         bottom; 1.6 / 3.5 / 2.6 mm from the board edge. JLC's help page (updated 2026-09-09) asks for 1 mm dots, 2 mm openings,
