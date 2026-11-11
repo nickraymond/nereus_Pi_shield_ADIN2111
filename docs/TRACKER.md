@@ -426,7 +426,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Board fully routed: 0 open connections, parity 0, ERC 39 (unchanged); DRC 22 errors, all carried: 16 GND vias in U1's
       keepout (as on the mote), 3 skew (Sofar Q13), 3 courtyards (C54/C55/U10)
 - [ ] `sofar_brief.md` has no row for the Qwiic connector J3 and the I2C3 pull-ups R10/R24 (schematic additions on this board)
-- [ ] Bottom silkscreen still reads "PCBA-000639-AB BM Mote" (Sofar's board name): rename or remove in step 9 (Nick)
+- [x] Bottom silkscreen "PCBA-000639-AB BM Mote" (Sofar's board name): replaced by "Pi Shield / ADIN2111 Rev0" (Nick, step 9g)
 - [ ] Nick's KiCad look after steps 5–8: I2C3 past the 5 V converter, R10/R24 under J3, the payload lines below J2, JP2 and the LEDs
 - [x] Step 9a (f4faaca): dead mote copper removed, 58 segments / 46.8 mm that ended in the open (found by repeated DRC on a scratch copy)
 - [x] Step 9b (c9db5f8): the 3 courtyard overlaps at the 5 V converter cleared (C55 0.50 mm west, C54 0.30 mm south, their GND via moved)
@@ -436,6 +436,12 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 9d (ab8baae): DRC exclusions with comments for the 16 GND vias in Sofar's keepout under U1 (kept, D34)
 - [x] State after 9a–9d: DRC 3 errors not excluded (skew on Sofar's BM data pairs, Sofar Q13), 16 excluded, 0 open, parity 0, ERC 39.
       Draft fab files export cleanly (13 gerbers, 2 drill files, positions; `~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-10/fab_draft/`)
+- [x] Step 9e (88e55ae), Nick's request: JP3 (CFG1) to the north-east corner at (168.60, 96.40), in one row with JP4 and with the
+      same order (0 west, 1 east); CFG1_STRAP 61 mm on Internal 1 from R2 along the south and east edges; R2 and R47 stay at U1
+- [x] Step 9f (779c331), Nick's request: R26 / R27 to the bottom side, 4 mm south of J2's pads, fed from J2 pins 13 / 15 / 16
+- [x] Step 9g (488cfbd), Nick's request: board name "Pi Shield / ADIN2111 Rev0" with the Bristlemouth logo in the north-east
+      corner (top) and the name on the bottom in place of Sofar's part number and "BM Mote"
+- [x] State after 9e–9g: DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, ERC 39
 - [ ] Nick: what the CFG1 / CFG0 positions select is not on the silkscreen. Only 0 / 0 = OPEN Alliance SPI with protection is
       recorded (SPEC, datasheet Table 22); the datasheet could not be fetched on 2026-11-10 to check the other three
 - [ ] Nick: silkscreen text size. 108 reference texts are 0.6 mm or 0.64 mm high (Sofar's), under the 1.0 mm in the JLC rule set;

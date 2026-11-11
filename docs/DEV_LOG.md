@@ -22,7 +22,7 @@ what broke, what's next.*
 ## 2026-11-10 — Sprint S9 — Routing plan for nick_raw_routing; step 0 (fixes before routing)
 
 **Branch:** Fable_5.2 (from reload_old_mote 3d596b9; Nick 2026-11-10: this work gets its own branch, pushed on his approval)
-**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D37, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
+**Files touched:** experiments/nick_raw_routing/ (board, .kicad_pro, .kicad_dru; Master sheet: MTG1–4 off board, J5; PoDL sheet: note; nereus.pretty: wire pads; scripts/ new); TRACKER (S9), DESIGN D33–D38, SOFAR_QUESTIONS Q13, sofar_brief row 8, jlc_rules_2026-11.md, viewer
 **ERC:** 39 items, identical before and after  ·  **Net diff:** tracks and vias identical to the zip board; only MTG1–4's pads gone
 **Done:**
 - Reviewed the zip board (2026-11-09): 77 open connections on 46 nets, 424 DRC errors under its own rules, parity 0. Plan
@@ -98,8 +98,15 @@ what broke, what's next.*
   still lists them with `--severity-all`, marked excluded
 - The ADIN2111 datasheet could not be fetched (analog.com timed out), so the silkscreen names the straps and their 1 / 0
   ends but not what each combination selects
-**Next:** Nick's decisions: silkscreen text size, the 3 skew errors, the bottom "BM Mote" text, the CFG table. Then final fab
-outputs and the QE review.
+- Later (Nick's three requests), steps 9e–9g (88e55ae, 779c331, 488cfbd): JP3 beside JP4 in the north-east corner, R26 / R27
+  to the bottom side away from J2, board name and Bristlemouth logo. DRC unchanged: 3 skew errors, 0 open, parity 0
+- Sofar's GND and PWR planes follow the mote's outline: the north-east corner (east of x 166.5, north of y 96) has no plane
+  copper. JP3's first GND via landed in nothing (1 open connection in the trial); it now sits at (167.90, 99.80) in the fill
+- The bottom layer next to ADIN_TIMER has no room for a second track past the GND via at (156.55, 120.75) (4 µm short at
+  0.127 mm clearance), and a lane south of ADIN_TIMER cannot turn north without crossing it: CFG1_STRAP runs on Internal 1
+- The Bristlemouth logo was on the board file all along, 22 mm east of the outline, with the frame of Sofar's title block
+  above the north edge
+**Next:** Nick's decisions: silkscreen text size, the 3 skew errors, the CFG table. Then final fab outputs and the QE review.
 
 ## 2026-10-15 — Sprint S8.a — JLC parts buy plan for the first build (20 boards)
 
