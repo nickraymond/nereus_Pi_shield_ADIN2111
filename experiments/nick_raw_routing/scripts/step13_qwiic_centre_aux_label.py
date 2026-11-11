@@ -1,6 +1,5 @@
-"""NOT YET APPLIED TO THE BOARD: a mock run on a scratch copy on 2026-11-11, waiting for Nick's go (TRACKER).
-
-Step 13: Qwiic connector J3 on the board's east-west centre line; J4 "AUX OUT" labelled like J5 "VBUS OUT"
+"""Step 13: Qwiic connector J3 on the board's east-west centre line; J4 "AUX OUT" labelled like J5 "VBUS OUT"
+(mocked on a scratch copy first; Nick's comment on the mock picture in the summary doc, 2026-11-11: "I approve the mock").
 (Nick, 2026-11-11: "is there a way to place it along the center line of the board?", "move the connector
 southward so there is more room for the silk screen of the AUX OUT", "the silkscreen of the AUX Out to match
 the VBUS Out where the functional name is above the pads").
