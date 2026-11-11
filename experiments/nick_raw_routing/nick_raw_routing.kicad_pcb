@@ -191,11 +191,11 @@
 	(footprint "nereus:SolderJumper-2_R1210_Bridged_NetTie"
 		(layer "F.Cu")
 		(uuid "04773f6d-abc0-44bc-9489-76249afe621e")
-		(at 148.6 124.3 -90)
+		(at 149 124 180)
 		(descr "1210 (3225 metric) 0 ohm resistor pads, geometry from the Sofar mote's R11 (Vault:FP-CRCW1210-e3-IPC_B), joined by a 1.0 mm copper bridge (net tie): connected as fabricated. Cut the bridge to open; refit a 0 ohm 1210 (Vishay CRCW12100000Z0EA, as R11) to close again. To cut: score both ends of the bridge, lift the copper out, check open with a meter. No paste: nothing is placed by assembly.")
 		(tags "net tie jumper bridged 1210 0R cuttable")
 		(property "Reference" "JP2"
-			(at 1.1 3.7 0)
+			(at 4.1 -1.4 0)
 			(layer "F.SilkS")
 			(uuid "318094f3-e191-48b7-b942-e8932e6f2278")
 			(effects
@@ -250,7 +250,7 @@
 			)
 		)
 		(property "Value" "Bridged"
-			(at 0 2.4 90)
+			(at 0 2.4 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ed8e31a7-3b82-48c9-99b1-db1a8cc60fa8")
@@ -262,7 +262,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 90)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "48aee692-f079-45db-894f-c3d46fa1935d")
@@ -274,7 +274,7 @@
 			)
 		)
 		(property "Description" "Bridged 0 ohm link (net tie, 1210 pads): cut to disable both ADIN status LEDs (D25); refit CRCW12100000Z0EA to restore"
-			(at 0 0 90)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d7eb4bc2-7351-45a0-ba7b-b172f6439b68")
@@ -364,7 +364,7 @@
 			(uuid "23f398da-bcac-4147-8811-0a332e5d1d25")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "d9be8cb5-e72f-41a5-8b63-5fb941a56705")
 			(effects
@@ -375,7 +375,7 @@
 			)
 		)
 		(pad "1" smd rect
-			(at -1.45065 0 270)
+			(at -1.45065 0 180)
 			(size 1.2049 2.7062)
 			(layers "F.Cu" "F.Mask")
 			(net "ADIN_VDDIO")
@@ -384,7 +384,7 @@
 			(uuid "0517eb7a-b91a-4cd7-ad85-182a3717401a")
 		)
 		(pad "2" smd rect
-			(at 1.45065 0 270)
+			(at 1.45065 0 180)
 			(size 1.2049 2.7062)
 			(layers "F.Cu" "F.Mask")
 			(net "/Top-Level Schematic/ADIN/ADIN_LED_VDD")
@@ -207513,6 +207513,59 @@
 			)
 		)
 	)
+	(gr_text "ADIN"
+		(at 148.8 126.45 0)
+		(layer "F.SilkS")
+		(uuid "ee23bed9-43a5-405d-962b-58439f24da6b")
+		(effects
+			(font
+				(face "Menlo")
+				(size 1 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+		)
+		(render_cache "ADIN" 0
+			(polygon
+				(pts
+					(xy 148.108354 126.865) (xy 147.947153 126.865) (xy 147.896839 126.610987) (xy 147.680977 126.610987)
+					(xy 147.631836 126.865) (xy 147.470587 126.865) (xy 147.560884 126.446856) (xy 147.713217 126.446856)
+					(xy 147.865723 126.446856) (xy 147.789226 126.029506) (xy 147.713217 126.446856) (xy 147.560884 126.446856)
+					(xy 147.690845 125.845041) (xy 147.888095 125.845041)
+				)
+			)
+			(polygon
+				(pts
+					(xy 148.456883 125.85088) (xy 148.524948 125.867021) (xy 148.580486 125.891836) (xy 148.625578 125.924348)
+					(xy 148.661857 125.964293) (xy 148.690769 126.01229) (xy 148.714724 126.072605) (xy 148.733255 126.147649)
+					(xy 148.745414 126.240332) (xy 148.749833 126.353982) (xy 148.745416 126.467937) (xy 148.733259 126.560928)
+					(xy 148.714729 126.636271) (xy 148.690771 126.696872) (xy 148.661857 126.745137) (xy 148.625549 126.785313)
+					(xy 148.580438 126.817993) (xy 148.524897 126.842925) (xy 148.456848 126.859136) (xy 148.373846 126.865)
+					(xy 148.201166 126.865) (xy 148.201166 126.681329) (xy 148.362366 126.681329) (xy 148.406086 126.681329)
+					(xy 148.453109 126.675989) (xy 148.490044 126.661297) (xy 148.519052 126.63835) (xy 148.541592 126.606957)
+					(xy 148.557252 126.569738) (xy 148.569981 126.517938) (xy 148.578734 126.44756) (xy 148.582038 126.353982)
+					(xy 148.578739 126.261185) (xy 148.569994 126.191323) (xy 148.557267 126.139835) (xy 148.541592 126.102779)
+					(xy 148.519068 126.071532) (xy 148.490069 126.048676) (xy 148.453129 126.034035) (xy 148.406086 126.028712)
+					(xy 148.362366 126.028712) (xy 148.362366 126.681329) (xy 148.201166 126.681329) (xy 148.201166 125.845041)
+					(xy 148.373846 125.845041)
+				)
+			)
+			(polygon
+				(pts
+					(xy 148.893985 126.020896) (xy 148.893985 125.845041) (xy 149.379833 125.845041) (xy 149.379833 126.020896)
+					(xy 149.217509 126.020896) (xy 149.217509 126.689145) (xy 149.379833 126.689145) (xy 149.379833 126.865)
+					(xy 148.893985 126.865) (xy 148.893985 126.689145) (xy 149.056309 126.689145) (xy 149.056309 126.020896)
+				)
+			)
+			(polygon
+				(pts
+					(xy 149.538737 125.845041) (xy 149.712003 125.845041) (xy 149.939344 126.586257) (xy 149.939344 125.845041)
+					(xy 150.081445 125.845041) (xy 150.081445 126.865) (xy 149.909254 126.865) (xy 149.680838 126.123784)
+					(xy 149.680838 126.865) (xy 149.538737 126.865)
+				)
+			)
+		)
+	)
 	(gr_text "PWR"
 		(at 148.8 131 0)
 		(layer "F.SilkS")
@@ -213190,20 +213243,12 @@
 		(uuid "0e194103-d4f7-4ac3-833f-d3b3117423ca")
 	)
 	(segment
-		(start 150.4 122.4)
-		(end 149.95 122.85)
+		(start 150.45 123.2)
+		(end 150.45 124)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "ADIN_VDDIO")
-		(uuid "35b6a4cb-50c0-4452-8252-6133bc5f4782")
-	)
-	(segment
-		(start 149.95 122.85)
-		(end 148.6 122.84935)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "ADIN_VDDIO")
-		(uuid "3a847e37-e2e3-4d31-8f27-954db1dfe0f9")
+		(uuid "31d2be0d-c131-4392-aa1d-e28e03135fbf")
 	)
 	(segment
 		(start 155.9 96.4)
@@ -213223,11 +213268,11 @@
 	)
 	(segment
 		(start 152.55 122.4)
-		(end 150.4 122.4)
+		(end 151.25 122.4)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "ADIN_VDDIO")
-		(uuid "5d182a08-ae14-464c-9bba-eb3d2249fb45")
+		(uuid "5e22c6d4-62e1-4572-a598-f850912a3f9f")
 	)
 	(segment
 		(start 153.2261 117.1786)
@@ -213244,6 +213289,14 @@
 		(layer "F.Cu")
 		(net "ADIN_VDDIO")
 		(uuid "8f5a3387-fcfb-4aaf-9421-ed3272d961d3")
+	)
+	(segment
+		(start 151.25 122.4)
+		(end 150.45 123.2)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "ADIN_VDDIO")
+		(uuid "909b2c11-ee74-4b1d-97bc-261614de00f6")
 	)
 	(segment
 		(start 152.2636 108.88267)
@@ -213790,20 +213843,20 @@
 		(uuid "9d827a69-a9f5-46e3-9cbf-bdde18bf6cec")
 	)
 	(segment
-		(start 146.95 125.75)
+		(start 147.55 124)
+		(end 147.55 124.05)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/Top-Level Schematic/ADIN/ADIN_LED_VDD")
+		(uuid "2f5ce58c-f7f7-4d2c-91a5-b77ad52409a3")
+	)
+	(segment
+		(start 147.55 124.05)
 		(end 146.4 125.2)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "/Top-Level Schematic/ADIN/ADIN_LED_VDD")
-		(uuid "2e2d19cb-c0e8-4088-932d-d35ed3a11809")
-	)
-	(segment
-		(start 148.6 125.75065)
-		(end 146.95 125.75)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/Top-Level Schematic/ADIN/ADIN_LED_VDD")
-		(uuid "fd3ef0e2-42d3-4a4c-8c77-977b73b330df")
+		(uuid "6a9b5210-4910-4e4a-bc62-1036d847c047")
 	)
 	(via
 		(at 146.4 125.2)
