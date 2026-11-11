@@ -2994,7 +2994,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "F.Cu")
 		(uuid "1a18b8c2-5cbc-4054-91ed-db4bf459b584")
-		(at 117.9011 83.6036 90)
+		(at 125.9011 92.0036 90)
 		(property "Reference" "FID4"
 			(at -0.0712 -1.450005 0)
 			(unlocked yes)
@@ -3138,12 +3138,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0 270)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(FID4-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "472229cf-6750-454d-90c7-de1bd13ddbb4")
@@ -3947,7 +3947,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "F.Cu")
 		(uuid "26361ac2-e67e-43fc-a7e3-6e6a3837ba27")
-		(at 123.7 128.6 90)
+		(at 123.400001 127.900001 90)
 		(property "Reference" "FID3"
 			(at 0.7538 2.499995 0)
 			(unlocked yes)
@@ -4091,12 +4091,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0 270)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(FID3-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "22b43ff8-171c-4900-8c42-57fea352e037")
@@ -21198,7 +21198,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "F.Cu")
 		(uuid "bf72cb8c-dcba-4041-8cce-51e60a1c29e0")
-		(at 178.7011 122.0036 90)
+		(at 177.501101 122.9036 90)
 		(property "Reference" "FID5"
 			(at 0.8788 -2.475005 0)
 			(unlocked yes)
@@ -21342,12 +21342,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0 270)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(FID5-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "fd8911f9-7a1f-4785-87fe-cbffbf4c74e5")
@@ -48126,7 +48126,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "B.Cu")
 		(uuid "520ba444-889b-4635-a4c1-ebd346dfa1f9")
-		(at 178.7011 122.0036 90)
+		(at 177.501101 122.9036 90)
 		(property "Reference" "FID6"
 			(at -0.5462 2.225005 0)
 			(unlocked yes)
@@ -48275,12 +48275,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0 270)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "unconnected-(FID6-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "85daec09-cdbb-4324-ac87-caa0ea16a907")
@@ -63384,7 +63384,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "B.Cu")
 		(uuid "887080ac-e709-4947-b4ad-0476ea9f94d2")
-		(at 123.7 128.6 180)
+		(at 123.400001 127.900001 180)
 		(property "Reference" "FID1"
 			(at 0.402 1.602557 0)
 			(unlocked yes)
@@ -63533,12 +63533,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "unconnected-(FID1-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "33475dc7-64aa-48a2-bb54-3948e9e30922")
@@ -84861,7 +84861,7 @@
 	(footprint "Vault:FIDUCIAL_075MM"
 		(layer "B.Cu")
 		(uuid "e2eb13a8-8115-459e-b58a-70d83cebe1b6")
-		(at 117.9011 83.6036 180)
+		(at 125.9011 92.0036 180)
 		(property "Reference" "FID2"
 			(at 2.552 -0.047443 0)
 			(unlocked yes)
@@ -85010,12 +85010,12 @@
 		)
 		(pad "0" smd circle
 			(at 0 0)
-			(size 0.75 0.75)
+			(size 1 1)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "unconnected-(FID2-NC-Pad0)")
 			(pinfunction "NC_0")
 			(pintype "passive")
-			(solder_mask_margin 0.75)
+			(solder_mask_margin 0.5)
 			(solder_paste_margin -2)
 			(thermal_bridge_angle 90)
 			(uuid "ce994fd1-2da1-4ef6-8a56-95e7fe3c03cc")
