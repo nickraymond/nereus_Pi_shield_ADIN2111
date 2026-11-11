@@ -507,6 +507,13 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       same day with `kicad-cli pcb export pos` and pcbnew: 105 of 143 footprints have no SMD / through-hole attribute; the export
       lists 139 footprints (all but the 4 flagged no-pos), among them 30 no-BOM ones (H1–H4, FID1–FID6, JP1–JP4, 16 test points)
       and the unfitted R11
+- [ ] Final silkscreen pass, the last task before the design freeze; the BOM clean-up follows it. Nick 2026-11-11 (comment on the
+      summary doc, row "Silkscreen overlap"): "lets review this as the final task before freezing the design and moving to the BOM
+      clean up ... adjust the silkscreen so that they do not overlap and it's clean what they belong to ... knowing the label of
+      each part is important for future debug". Scope: every designator clear of outlines and other text and plainly beside its
+      own part, both sides, shown to Nick in pictures. Start point (DRC after step 12c): 24 overlap warnings = 9 designators
+      0.10–0.13 mm from a part outline (C21, D8, U2 ×2, C24, C25, C26, R24, R11), 7 of Sofar's outlines touching each other,
+      4 box or board lines on a part outline, 2 "VBUS OUT" texts 0.14 mm from their box, 2 pin-1 marks (U1, U4) on their outline
 - [x] Nick asked 2026-11-11 (comment on the summary doc) what the 34 pad-stack warnings are. Read from the board: Sofar's library
       footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
       (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
