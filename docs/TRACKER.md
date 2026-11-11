@@ -462,6 +462,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] Step 12b (0a885e9), Nick 2026-11-11 (comment on the summary doc: 'Please try to fit "Threaded Inserts" and "Mounting Holes" if
       you can'): the bottom reads "THREADED INSERTS M3" / "MOUNTING HOLES M2.5" on two lines above the USB warning. Silkscreen
       only; DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 12c (242e46c), Nick 2026-11-11 (comment on the summary doc: "change P1 and P2 to BM1 and BM2 so they match the silk
+      screen above the threaded inserts"): the port LEDs read BM2 (D10, west) / PWR / BM1 (D9, east). Silkscreen only; DRC and
+      ERC counts unchanged, 0 open, parity 0
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
