@@ -486,6 +486,26 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
       (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
       the wing; DRC counts unchanged, 0 open, parity 0. Waiting for Nick's go; why Sofar cut the slot stays open (Q10)
+- [ ] Open items after Nick's second batch of doc comments, 2026-11-11 (all answered in the summary doc; pictures and mocks in
+      `~/NereusData/nereus_Pi_shield_ADIN2111/`; nothing built, Nick decides each):
+      · ADIN_TIMER off J2 (Nick: "should only go to the primary Pi Header"): today on J1 pin 36 (GPIO16), J2 pin 22 and R47; the
+        track runs through J2 pin 22's pad. Needs a schematic change, about 3 mm of track re-laid, "TM" removed on both sides.
+        Open: J2 pin 22 unconnected or GND
+      · R47 value: Value / PART NUMBER say RC0402FR-071KL (1 kΩ), PLANNED MPN says RC0402FR-071K5L (1.5 kΩ, C11702). Nick picks
+      · R-S5 input capacitor at U10: U10 has the same input capacitors as U5 on shield and mote (UMK107BBJ225KA-T 2.2 µF,
+        GRM188R72A104KA35D 0.1 µF). Options: leave, add, or add an unfitted footprint
+      · R-S6 (`rs6_2026-11-11/`): the 0.2 mm link (4.25 mm) joins L1 pad 3 to the via at (165.88, 107.95), which feeds only T1 pad 6
+        over a 0.2 mm Internal 2 track that the mote has too; the bus trunk is 2 mm on both boards. Rated low by the design session
+      · M-S4 (`ms4_2026-11-11/`): the three 5V_PI vias at L6 meet 5V_PI copper on the top layer only (the mote's vias at L3 land on
+        a 3V3 fill on the PWR plane) and overlap L6 pad 2's edge by about 0.25 mm. Delete, or give them a fill; settle with R-S1
+      · M-S5 (`ms5_2026-11-11/`): R15 / R16, same part; mote pads 0.85 × 1.35 mm at pitch 1.65, shield (KiCad R_0805_2012Metric)
+        1.02 × 1.40 mm at pitch 1.83; gap 0.80 mm on both. Put Sofar's footprint back, or note it in the Sofar brief
+      · M-S6 (`ms6_mock_2026-11-11/`, `mock_ms6.py`): mock with J6 pads 2 / 4 / 6 set to thermal relief on the pad; today they are
+        solid in Sofar's GND zone on three sides. DRC counts unchanged, 0 open, parity 0
+      · Fiducials: FID1–FID6 are 0.75 mm dots in 2.25 mm openings at (117.90, 83.60), (123.70, 128.60), (178.70, 122.00), top and
+        bottom; 1.6 / 3.5 / 2.6 mm from the board edge. JLC's help page (updated 2026-09-09) asks for 1 mm dots, 2 mm openings,
+        3 to 4 along the edges, 3.35 mm from the edge, and edge rails of 5 mm for standard assembly:
+        https://jlcpcb.com/help/article/how-to-add-edge-rails-fiducials-for-pcb-assembly-order . Proposal: 1 mm dots, moved inboard
 - [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
       `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
       Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
