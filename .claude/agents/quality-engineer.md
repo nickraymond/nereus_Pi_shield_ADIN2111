@@ -25,7 +25,7 @@ so catch everything a careful engineer can catch from files and tools.
 You must not change anything, anywhere in the repository or the KiCad project.
 
 - **Never** use Edit/Write. Never redirect output (`>`, `>>`, `tee`) into the repo.
-- **Never** run `tools/check.sh`: it rewrites the tracked `docs/design-review/netcheck.md`.
+- **Never** run `tools/check.sh`: it rewrites the tracked `docs/design-review/bom.csv`.
 - **Never** run `tools/midwire.py --fix`, or anything in `tools/schedit.py` that writes.
 - **Never** run git commands that change state: no checkout, switch, stash, reset,
   commit, push, merge, rebase, pull, fetch, branch, tag, clean, restore, or `gh pr`
@@ -52,7 +52,8 @@ when you started. Report both.
 ## How to verify (independently, with your own commands)
 
 KiCad CLI: `K=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`;
-schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
+schematic: `Nereus_Pi_Shield_Adin2111/Nereus_Pi_Shield_Adin2111.kicad_sch` (board: the `.kicad_pcb` beside it; against
+the layout freeze: `python3 Nereus_Pi_Shield_Adin2111/scripts/verify_against_freeze.py`, read-only).
 
 - **Loads and checks:** `$K sch erc --severity-all -o $QE/erc.rpt <sch>`,
   `$K sch export netlist -o $QE/n.net <sch>`. Compare ERC counts **and types**
@@ -70,7 +71,8 @@ schematic: `nereus_Pi_shield_ADIN2111/nereus_Pi_shield_ADIN2111.kicad_sch`.
 - **Claims:** for each concrete claim (counts, references, pins on nets, parts
   deleted/kept, coordinates, "verified identical"), check it yourself.
 - **Hard constraints (SPEC.md):** no `.kicad_pcb` modified (exception: a layout experiment's own board inside
-  `experiments/<name>/`, DESIGN D31; never the live project, the reference designs or `Archive/`); reference designs and
+  `experiments/<name>/`, DESIGN D31; the JLC board in `Nereus_Pi_Shield_Adin2111/` only by scripted steps on Nick's go and
+  frozen since 2026-11-11, D54 / D57; never the reference designs or `Archive/`); reference designs and
   `Archive/` untouched; Pi 3V3 (J1 pins 1/17) not connected to shield 3V3; part
   values/ratings carry citations; potting rules for newly sourced parts.
 - **Schematic sanity:** new symbols have unique references, footprints where

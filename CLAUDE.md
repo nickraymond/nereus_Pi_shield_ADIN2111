@@ -21,7 +21,7 @@ Docs map — read per the ritual, don't skip it:
 - `.claude/agents/quality-engineer.md` — read-only QE reviewer; reviews every PR
   before Nick's KiCad review (reports in `docs/design-review/qe/`)
 
-Layout: `nereus_Pi_shield_ADIN2111/` is the live KiCad project; `tools/check.sh`
+Layout: `Nereus_Pi_Shield_Adin2111/` is the live KiCad project, the board ordered at JLC (DESIGN D57); `tools/check.sh`
 runs every check; `docs/design-review/` holds check outputs;
 `KiCAD_reference_designs/` and `Archive/` are read-only.
 
@@ -40,7 +40,7 @@ runs every check; `docs/design-review/` holds check outputs;
    partial failure never destroys good data.
 7. **KiCad runtime rules.** KiCad stays closed while an agent edits; checks run
    through kicad-cli; no agent ever writes a `.kicad_pcb`, except a layout experiment's own board inside
-   `experiments/<name>/` (DESIGN D31), never merged into the live project.
+   `experiments/<name>/` (DESIGN D31), never merged into the live project. The JLC board in `Nereus_Pi_Shield_Adin2111/` is edited only by scripted steps on Nick's go (D33, D54) and is frozen since 2026-11-11: no copper, part, outline or silkscreen change without a new word from Nick.
 8. **Hard constraints in SPEC.md are absolute.**
 
 > Never trust a script just because it exits successfully. Trust the artifacts.
