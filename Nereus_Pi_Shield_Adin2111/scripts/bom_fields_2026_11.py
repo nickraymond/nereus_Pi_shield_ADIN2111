@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-SHEETS = sorted(HERE.glob("BM_Mote_1_*.kicad_sch")) + [HERE / "nick_raw_routing.kicad_sch"]
+SHEETS = sorted(HERE.glob("Nereus_Pi_Shield_Adin2111_*.kicad_sch")) + [HERE / "Nereus_Pi_Shield_Adin2111.kicad_sch"]
 PROP = re.compile(r'\t\t\(property "((?:[^"\\]|\\.)*)" "((?:[^"\\]|\\.)*)"\n(?:\t\t\t[^\n]*\n)*\t\t\)\n')
 
 RD = "2026-11-11"

@@ -1,7 +1,7 @@
 """Step 9h planner: where every silkscreen text, box line and reference designator goes.
 
 Plain python 3, no pcbnew. Run in this folder:
-  <KiCad python> dump.py ../../nick_raw_routing.kicad_pcb base.json     (the board BEFORE step 9h)
+  <KiCad python> dump.py ../../Nereus_Pi_Shield_Adin2111.kicad_pcb base.json     (the board BEFORE step 9h)
   python3 plan.py 0.8 0.75                                              (designator height, width in mm)
 It prints every collision it could not avoid and writes plan.json; the reviewed result is committed as
 ../step9h_silk_style.json, which step9h_silk_style.py applies.

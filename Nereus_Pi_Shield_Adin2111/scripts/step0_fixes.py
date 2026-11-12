@@ -5,7 +5,7 @@
 2. MP1 trades places with MP2, and MP3 with MP4, so each insert pad's net matches the bus copper
    already at that spot (Nick, 2026-11-10: "use option 1").
 3. MTG1-MTG4 (M3 holes from the mote, outside the outline) are removed. Their symbols are set to
-   "not on board" in BM_Mote_1_Master.kicad_sch by hand, in the same commit.
+   "not on board" in Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch by hand, in the same commit.
 4. J5 (payload out) moves onto the board at the west edge, opening west. FID1 and FID3 make room.
 5. TP38 (5V_PI test point) moves onto the board beside C58.
 6. The "GND north strip" zone gets priority 1; it overlapped the mote's GND plane at priority 0.

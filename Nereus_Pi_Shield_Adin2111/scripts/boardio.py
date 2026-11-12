@@ -1,4 +1,4 @@
-"""Load and save nick_raw_routing.kicad_pcb with pcbnew."""
+"""Load and save Nereus_Pi_Shield_Adin2111.kicad_pcb with pcbnew."""
 import os
 import subprocess
 import sys
@@ -6,7 +6,7 @@ import pcbnew
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # NRR_BOARD points the scripts at another copy of the board (for a trial on a scratch copy)
-BOARD = os.environ.get("NRR_BOARD") or os.path.join(HERE, "..", "nick_raw_routing.kicad_pcb")
+BOARD = os.environ.get("NRR_BOARD") or os.path.join(HERE, "..", "Nereus_Pi_Shield_Adin2111.kicad_pcb")
 mm = pcbnew.ToMM
 
 

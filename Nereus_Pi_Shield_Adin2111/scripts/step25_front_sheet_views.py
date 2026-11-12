@@ -8,7 +8,7 @@ Run with the system python3 (needs Pillow and kicad-cli), from anywhere:
 - Renders the frozen board's top and bottom side with kicad-cli (orthographic), crops each to the board, and
   draws both on one picture with dimension lines: 65.00 mm and 56.00 mm, the size of the Edge.Cuts outline as
   read from the board file (centre lines x 116.301..181.301, y 76.104..132.104).
-- Front sheet (nick_raw_routing.kicad_sch, A3): the picture goes into the frame that held "Pi shield renders: TBD
+- Front sheet (Nereus_Pi_Shield_Adin2111.kicad_sch, A3): the picture goes into the frame that held "Pi shield renders: TBD
   (after layout)"; that text is removed and the frame loses its grey fill, which would cover the picture.
   "DIMENSIONS: TBD (after layout)" becomes "65.00 x 56.00 x 1.6 mm"; corner radius, layer count and mounting
   holes stand in a note under the views. Nothing electrical changes: the sheet holds no parts or wires.
@@ -23,8 +23,8 @@ import uuid
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BOARD = os.environ.get("NRR_BOARD") or os.path.join(HERE, "..", "nick_raw_routing.kicad_pcb")
-SCH = os.path.join(os.path.dirname(os.path.abspath(BOARD)), "nick_raw_routing.kicad_sch")
+BOARD = os.environ.get("NRR_BOARD") or os.path.join(HERE, "..", "Nereus_Pi_Shield_Adin2111.kicad_pcb")
+SCH = os.path.join(os.path.dirname(os.path.abspath(BOARD)), "Nereus_Pi_Shield_Adin2111.kicad_sch")
 KCLI = "/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli"
 OUT = sys.argv[1]
 W_MM, H_MM = 65.00, 56.00                  # Edge.Cuts outline, read from the board (outline.py of this session)

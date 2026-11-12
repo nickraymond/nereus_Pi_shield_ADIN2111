@@ -9,7 +9,7 @@ import json
 import os
 import sys
 
-PRO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "nick_raw_routing.kicad_pro")
+PRO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Nereus_Pi_Shield_Adin2111.kicad_pro")
 PRO = os.environ.get("NRR_PRO", PRO)
 COMMENT = "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
 NIL = "00000000-0000-0000-0000-000000000000"

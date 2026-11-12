@@ -28,7 +28,7 @@ import boardio
 from boardio import mm
 
 MM = pcbnew.FromMM
-DRU = os.path.join(os.path.dirname(boardio.BOARD), "nick_raw_routing.kicad_dru")
+DRU = os.path.join(os.path.dirname(boardio.BOARD), "Nereus_Pi_Shield_Adin2111.kicad_dru")
 INSERTS = ("MP1", "MP2", "MP3", "MP4")
 END_R = 3.45                       # trunk end centre to insert centre: 2.2 hole + 0.25 clearance + 1.0 half width
 

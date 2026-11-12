@@ -24,7 +24,7 @@ import boardio
 from boardio import add_track, mm
 
 FACE = "Menlo"
-SCH = os.path.join(os.path.dirname(os.path.abspath(boardio.BOARD)), "BM_Mote_1_Master.kicad_sch")
+SCH = os.path.join(os.path.dirname(os.path.abspath(boardio.BOARD)), "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 OUT = [((175.72, 84.00), (174.72, 83.00)), ((176.99, 86.37), (175.72, 85.10)), ((175.72, 85.10), (175.72, 84.00))]
 NEW = [(174.72, 83.00), (176.19, 83.00), (176.99, 83.80), (176.99, 86.37)]
 

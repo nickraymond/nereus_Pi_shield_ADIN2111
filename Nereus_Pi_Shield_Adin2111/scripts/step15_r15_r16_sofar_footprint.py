@@ -22,7 +22,7 @@ from boardio import mm
 LIB = os.path.join(os.path.dirname(os.path.abspath(boardio.BOARD)), "mote.pretty")
 NAME = "CRCW08057R50FKEAHP-Footprint-1"
 OLD_ID, NEW_ID = "Resistor_SMD:R_0805_2012Metric", "Vault:" + NAME
-SCH = os.path.join(os.path.dirname(os.path.abspath(boardio.BOARD)), "BM_Mote_1_PoDL.kicad_sch")
+SCH = os.path.join(os.path.dirname(os.path.abspath(boardio.BOARD)), "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 FACE = "Menlo"
 # pad centres on the mote board (KiCAD_reference_designs/20250409_BM_Mote_000639-AB), read with pcbnew
 WANT = {"R15": {"1": (152.076, 99.304), "2": (150.426, 99.304)}, "R16": {"1": (150.901, 118.879), "2": (150.901, 120.529)}}

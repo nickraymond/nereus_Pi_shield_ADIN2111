@@ -5,9 +5,9 @@ Sources, read 2026-11-10 10:36 AM PT:
   https://jlcpcb.com/impedance                        (stackup JLC06161H-3313: 1.6 mm, 1 oz outer, 0.5 oz inner)
 
 Three files change, all in one commit so `git revert` of that commit is the rollback:
-  nick_raw_routing.kicad_pro   board setup constraints
-  nick_raw_routing.kicad_dru   two custom rules for through-hole pads
-  nick_raw_routing.kicad_pcb   stackup and solder-mask minimum web (setup block only)
+  Nereus_Pi_Shield_Adin2111.kicad_pro   board setup constraints
+  Nereus_Pi_Shield_Adin2111.kicad_dru   two custom rules for through-hole pads
+  Nereus_Pi_Shield_Adin2111.kicad_pcb   stackup and solder-mask minimum web (setup block only)
 
 Old and new values: docs/design-review/jlc_rules_2026-11.md
 Run with plain python3, then scripts/normalize.py with KiCad's python.
@@ -16,9 +16,9 @@ import json
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PRO = os.path.join(HERE, "..", "nick_raw_routing.kicad_pro")
-DRU = os.path.join(HERE, "..", "nick_raw_routing.kicad_dru")
-PCB = os.path.join(HERE, "..", "nick_raw_routing.kicad_pcb")
+PRO = os.path.join(HERE, "..", "Nereus_Pi_Shield_Adin2111.kicad_pro")
+DRU = os.path.join(HERE, "..", "Nereus_Pi_Shield_Adin2111.kicad_dru")
+PCB = os.path.join(HERE, "..", "Nereus_Pi_Shield_Adin2111.kicad_pcb")
 
 # name: (value before, value after)
 RULES = {

@@ -19,7 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bom_fields_2026_11 as sch  # noqa: E402
 
-BOARD = sch.HERE / "nick_raw_routing.kicad_pcb"
+BOARD = sch.HERE / "Nereus_Pi_Shield_Adin2111.kicad_pcb"
 FIELDS = sorted({name for _, fields in sch.LINES for name in fields})
 RENAMED_FROM = sorted({old for names in sch.RENAME.values() for old in names})
 PROP = re.compile(r'\t\t\(property "((?:[^"\\]|\\.)*)" "((?:[^"\\]|\\.)*)"\n(?:\t\t\t[^\n]*\n)*\t\t\)\n')

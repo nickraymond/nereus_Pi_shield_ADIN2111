@@ -3,7 +3,7 @@
 table", "Yes build it, but say Bold Box instead of Heavy Box", "remove the Pi Shield name on the bottom").
 
 - Ruled table in the east strip of the bottom silkscreen, 10.6 x 10.8 mm: columns CFG 1 | CFG 0 | SPI MODE,
-  four mode rows copied from the schematic's table "ADIN2111 SPI CFG Straps" (BM_Mote_1_ADIN2111.kicad_sch).
+  four mode rows copied from the schematic's table "ADIN2111 SPI CFG Straps" (Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch).
   The as-built row (CFG1 = 1, CFG0 = 0: generic SPI with CRC, the default bridges of JP3 and JP4) has a
   0.25 mm frame (the other rules are 0.15 mm); the caption under the table says so.
 - The screw sizes and the USB warning move from the east strip to the space behind JP1 (three lines).
