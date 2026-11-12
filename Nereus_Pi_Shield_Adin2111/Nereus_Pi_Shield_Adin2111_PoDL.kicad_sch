@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "PoDL (Power over Data Line)")
-		(date "2026-10-07")
+		(date "2026-11-11")
 		(rev "AA")
 		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
 		(comment 2 "Author: ${AUTHOR}")

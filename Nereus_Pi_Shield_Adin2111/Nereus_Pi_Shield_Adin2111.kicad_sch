@@ -6,7 +6,7 @@
 	(paper "A3")
 	(title_block
 		(title "Cover Page")
-		(date "2026-10-07")
+		(date "2026-11-11")
 		(rev "AA")
 		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
 		(comment 2 "Author: ${AUTHOR}")
@@ -97,7 +97,7 @@
 		)
 		(uuid "32da206b-a4d2-419f-81d9-5a96e33a9e23")
 	)
-	(text "First release, derived from Sofar mote 000639-AB"
+	(text "First build (Rev0); derived from Sofar mote 000639-AB"
 		(exclude_from_sim no)
 		(at 337.82 37.9222 0)
 		(effects
@@ -121,7 +121,7 @@
 		)
 		(uuid "75b0b714-80e9-4602-bda9-381476cbc4b2")
 	)
-	(text "2026-10-07"
+	(text "2026-11-11"
 		(exclude_from_sim no)
 		(at 281.94 37.9222 0)
 		(effects

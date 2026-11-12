@@ -6,7 +6,7 @@
 	(paper "A2")
 	(title_block
 		(title "Top-Level")
-		(date "2026-10-07")
+		(date "2026-11-11")
 		(rev "AA")
 		(comment 1 "${PCBPARTNAME} · ${PCBPARTNUMBER}")
 		(comment 2 "Author: ${AUTHOR}")
