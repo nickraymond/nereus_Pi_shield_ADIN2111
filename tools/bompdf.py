@@ -6,6 +6,7 @@ backups and how it's sourced. Rows where the planned part differs from Sofar's a
 HTML is laid out and printed to PDF by AppKit (tools/html2pdf.js via osascript). Python standard library only.
 
   python3 tools/bompdf.py
+  python3 tools/bompdf.py <bom.csv> <out.pdf> "<board name and revision>" "<closing note>"   # another board's BOM
 """
 import csv
 import html
@@ -39,14 +40,15 @@ def alt(r, n):
     return "" if not mpn else f"{esc(mpn)} ({esc(r[f'Alt{n} Mfr'])}, {esc(r[f'Alt{n} LCSC'])})"
 
 
-def build(rows):
+def build(rows, board="PCB-000001-AA rev AA", source="docs/design-review/bom.csv",
+          note="(for Sofar's review; nothing adopted before it, D26/D27)"):
     changed = [r for r in rows if r["Planned MPN"] and r["Planned MPN"] != r["Value (MPN)"]]
     head = (f"<h2>nereus_Pi_shield_ADIN2111 — BOM for review</h2>"
-            f"<p>PCB-000001-AA rev AA · from <tt>docs/design-review/bom.csv</tt> · {date.today().isoformat()} · "
+            f"<p>{esc(board)} · from <tt>{esc(source)}</tt> · {date.today().isoformat()} · "
             f"{len(rows)} lines, {sum(int(r['Qty']) for r in rows if not r['DNP'])} fitted parts per board "
             f"(+ {sum(int(r['Qty']) for r in rows if r['DNP'])} DNP) · "
             f"<span style='background:{CHANGED}'>&nbsp;{len(changed)} lines where the planned part differs from "
-            f"Sofar's&nbsp;</span> (for Sofar's review; nothing adopted before it, D26/D27)</p>")
+            f"Sofar's&nbsp;</span> {esc(note)}</p>")
     # widths in points; they add up to the printable A3-landscape width (1190 - 2 × 28 margins = 1134)
     cols = [("Refs", 80), ("Qty", 34), ("Sofar's part (specified)", 140), ("Planned part", 140),
             ("Why (planned note)", 250), ("Backups (Alt1 / Alt2)", 210), ("Sourcing", 150), ("Footprint", 130)]
@@ -69,10 +71,15 @@ def build(rows):
 
 
 def main():
+    global CSV, OUT
+    kw = {}
+    if len(sys.argv) >= 3:
+        CSV, OUT = Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve()
+        kw = dict(zip(("board", "note"), sys.argv[3:5]), source=str(CSV.relative_to(ROOT)))
     rows = list(csv.DictReader(open(CSV, newline="")))
     with tempfile.TemporaryDirectory() as d:
         page = Path(d) / "bom.html"
-        page.write_text(build(rows))
+        page.write_text(build(rows, **kw))
         r = subprocess.run(["osascript", "-l", "JavaScript", str(ROOT / "tools/html2pdf.js"), str(page), str(OUT),
                             "landscape"], capture_output=True, text=True)
     if r.returncode != 0 or not OUT.exists() or OUT.stat().st_size == 0:

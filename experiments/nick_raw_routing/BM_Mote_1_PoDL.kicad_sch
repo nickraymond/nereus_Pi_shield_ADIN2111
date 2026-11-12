@@ -3189,6 +3189,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "OPEN QUESTION FOR SOFAR (Q13, noted 2026-11-10)\nThe BM data pairs between U1 and T1 / T2 are\nSofar's copper, copied 1:1 from mote 000639-AB\n(checked item by item). P and N differ in length:\n  Port 1: BM1_DATA_N  8.01 mm, BM1_DATA_P  9.47 mm\n  Port 2: BM2_DATA_N 21.30 mm, BM2_DATA_P 18.25 mm\n  (1.46 mm and 3.05 mm apart)\nWhy are the pairs not length-matched?\nKept as drawn until answered."
+		(exclude_from_sim no)
+		(at 128.27 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "7e6dce48-01b9-4f1e-bdb9-2c4a5957a5fa")
+	)
 	(text "Coupling Network - Port 2"
 		(exclude_from_sim no)
 		(at 62.23 167.4622 0)
@@ -4886,7 +4897,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06) (thin margin)"
+		(property "PLANNED NOTE" "As specified; from the parts bought. JLC public stock is 92 on 2026-11-11 as well (need 40)"
 			(at 238.76 223.3422 0)
 			(hide yes)
 			(show_name no)
@@ -4898,6 +4909,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Bourns"
+			(at 238.76 223.3422 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "Nick's JLC parts library: order POB0202610210527741 (2026-10-20), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 238.76 223.3422 0)
 			(hide yes)
 			(show_name no)
@@ -5394,7 +5416,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 60.96 192.8622 0)
 			(hide yes)
 			(show_name no)
@@ -5405,7 +5427,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 60.96 192.8622 0)
 			(hide yes)
 			(show_name no)
@@ -5416,7 +5438,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 60.96 192.8622 0)
 			(hide yes)
 			(show_name no)
@@ -5427,7 +5449,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 60.96 192.8622 0)
 			(hide yes)
 			(show_name no)
@@ -5438,7 +5460,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 60.96 192.8622 0)
 			(hide yes)
 			(show_name no)
@@ -5509,7 +5531,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 336.042 141.8082 0)
 			(hide yes)
 			(show_name no)
@@ -5679,7 +5701,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated"
+		(property "ALT NOTE" "Not on Sofar's list: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated; JLC stock 5,492 on 2026-11-11"
 			(at 335.28 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -5690,7 +5712,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 50, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 335.28 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -5723,7 +5745,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C313962"
 			(at 335.28 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -5734,7 +5756,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): the only stocked alternate (YAGEO SR0805, ALT1) has no stated pulse rating and ±200 vs ±100 ppm/°C; JLC global sourcing: no LCSC listing"
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 335.28 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -6367,7 +6389,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11): 1,123, need 40. Pick the BOURNS listing; JLC has two other makers' parts of the same name"
+			(at 43.18 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 43.18 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -6856,7 +6889,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6867,7 +6900,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6878,7 +6911,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6889,7 +6922,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6900,7 +6933,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6911,7 +6944,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6922,7 +6955,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6933,7 +6966,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6977,7 +7010,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); specified Susumu has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Specified RR0510P-101-D has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. 100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -7479,7 +7512,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 116.84 116.6622 0)
 			(hide yes)
 			(show_name no)
@@ -7490,7 +7523,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 116.84 116.6622 0)
 			(hide yes)
 			(show_name no)
@@ -7501,7 +7534,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 116.84 116.6622 0)
 			(hide yes)
 			(show_name no)
@@ -7512,7 +7545,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 116.84 116.6622 0)
 			(hide yes)
 			(show_name no)
@@ -7523,7 +7556,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 116.84 116.6622 0)
 			(hide yes)
 			(show_name no)
@@ -7683,7 +7716,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 101.6 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -7695,6 +7728,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Würth Elektronik"
+			(at 101.6 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 101.6 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -8249,7 +8293,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate"
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -8260,7 +8304,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 60, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -8304,7 +8348,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 312.42 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -8806,7 +8850,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 116.84 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -8817,7 +8861,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 116.84 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -8828,7 +8872,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 116.84 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -8839,7 +8883,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 116.84 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -8850,7 +8894,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 116.84 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -9359,7 +9403,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 287.02 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -9371,6 +9415,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Murata"
+			(at 287.02 142.0622 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 287.02 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -9609,7 +9664,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 58.42 241.1222 0)
 			(hide yes)
 			(show_name no)
@@ -9620,7 +9675,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "C0805C102KDRACTU"
+		(property "PLANNED MPN" "C0805C102MDRACTU"
 			(at 58.42 241.1222 0)
 			(hide yes)
 			(show_name no)
@@ -9642,7 +9697,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C2167549"
+		(property "PLANNED LCSC" "C2181610"
 			(at 58.42 241.1222 0)
 			(hide yes)
 			(show_name no)
@@ -9653,7 +9708,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same KEMET series, ±10 % instead of ±20 % (tighter); 1 nF 1 kV X7R 0805; specified ±20 % part has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (188 on 2026-11-11, need 40). Planned before: KEMET C0805C102KDRACTU, now ALT1"
 			(at 58.42 241.1222 0)
 			(hide yes)
 			(show_name no)
@@ -9713,7 +9768,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Vault:CRCW08057R50FKEAHP-Footprint-1"
 			(at 313.182 141.8082 0)
 			(hide yes)
 			(show_name no)
@@ -9817,7 +9872,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" ""
+		(property "ALT1 MPN" "SR0805FR-477R5L"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9828,7 +9883,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" ""
+		(property "ALT1 MFR" "YAGEO"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9839,7 +9894,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" ""
+		(property "ALT1 LCSC" "C873769"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9883,7 +9938,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Not on Sofar's list: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated; JLC stock 5,492 on 2026-11-11"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9894,7 +9949,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 50, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9927,7 +9982,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "wait for JLC update"
+		(property "PLANNED LCSC" "C313962"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -9938,7 +9993,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 312.42 134.4422 0)
 			(hide yes)
 			(show_name no)
@@ -10364,7 +10419,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10375,7 +10430,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10386,7 +10441,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10397,7 +10452,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10408,7 +10463,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10419,7 +10474,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10441,7 +10496,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10485,7 +10540,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "Specified C2012X7S2A105K125AB has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same maker and series, 1 µF ±10 % 100 V X7S 0805, JLC stock 7,130 (need 42); thickness not confirmed (K125AB is 1.25 mm, KT000N doesn't state it)"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10927,7 +10982,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 299.72 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -10938,7 +10993,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "UMK325AB7106KM-T"
+		(property "PLANNED MPN" "CL32B106KBJNNNE"
 			(at 299.72 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -10949,7 +11004,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "Taiyo Yuden"
+		(property "PLANNED MFR" "Samsung"
 			(at 299.72 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -10960,7 +11015,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C386167"
+		(property "PLANNED LCSC" "C138687"
 			(at 299.72 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -10971,7 +11026,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "10 µF ±10 % 50 V X7R 1210 from Taiyo Yuden, an established MLCC maker, for the power path (FH ALT1 has more stock, kept as backup); specified Samsung out of stock at LCSC and DK; Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (77,751 on 2026-11-11, need 20). Planned before: Taiyo Yuden UMK325AB7106KM-T, now ALT2"
 			(at 299.72 142.0622 0)
 			(hide yes)
 			(show_name no)
@@ -11473,7 +11528,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 60.96 81.1022 0)
 			(hide yes)
 			(show_name no)
@@ -11484,7 +11539,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 60.96 81.1022 0)
 			(hide yes)
 			(show_name no)
@@ -11495,7 +11550,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 60.96 81.1022 0)
 			(hide yes)
 			(show_name no)
@@ -11506,7 +11561,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 60.96 81.1022 0)
 			(hide yes)
 			(show_name no)
@@ -11517,7 +11572,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 60.96 81.1022 0)
 			(hide yes)
 			(show_name no)
@@ -12028,7 +12083,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12039,7 +12094,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12050,7 +12105,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12061,7 +12116,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12072,7 +12127,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12083,7 +12138,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12105,7 +12160,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12149,7 +12204,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "Specified C2012X7S2A105K125AB has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same maker and series, 1 µF ±10 % 100 V X7S 0805, JLC stock 7,130 (need 42); thickness not confirmed (K125AB is 1.25 mm, KT000N doesn't state it)"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12575,7 +12630,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12586,7 +12641,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12597,7 +12652,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12608,7 +12663,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12619,7 +12674,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12630,7 +12685,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12641,7 +12696,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12652,7 +12707,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12696,7 +12751,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); specified Susumu has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Specified RR0510P-101-D has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. 100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12799,7 +12854,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 45, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 45, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 383.54 152.2222 0)
 			(hide yes)
 			(show_name no)
@@ -12843,7 +12898,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 10 on 2026-11-11 (need 40), so from the parts bought"
 			(at 383.54 152.2222 0)
 			(hide yes)
 			(show_name no)
@@ -13093,7 +13148,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 58.42 129.3622 0)
 			(hide yes)
 			(show_name no)
@@ -13104,7 +13159,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "C0805C102KDRACTU"
+		(property "PLANNED MPN" "C0805C102MDRACTU"
 			(at 58.42 129.3622 0)
 			(hide yes)
 			(show_name no)
@@ -13126,7 +13181,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C2167549"
+		(property "PLANNED LCSC" "C2181610"
 			(at 58.42 129.3622 0)
 			(hide yes)
 			(show_name no)
@@ -13137,7 +13192,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same KEMET series, ±10 % instead of ±20 % (tighter); 1 nF 1 kV X7R 0805; specified ±20 % part has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (188 on 2026-11-11, need 40). Planned before: KEMET C0805C102KDRACTU, now ALT1"
 			(at 58.42 129.3622 0)
 			(hide yes)
 			(show_name no)
@@ -13622,7 +13677,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11): 1,123, need 40. Pick the BOURNS listing; JLC has two other makers' parts of the same name"
+			(at 43.18 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 43.18 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -13771,7 +13837,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 101.6 182.7022 0)
 			(hide yes)
 			(show_name no)
@@ -13783,6 +13849,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Würth Elektronik"
+			(at 101.6 182.7022 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 101.6 182.7022 0)
 			(hide yes)
 			(show_name no)
@@ -14337,7 +14414,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate; JLC global sourcing"
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate"
 			(at 335.28 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -14348,7 +14425,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 60, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 335.28 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -14392,7 +14469,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): no potting-safe like-for-like alternate (constraint 8); LCSC listing out of stock: JLC global sourcing"
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 335.28 147.1422 0)
 			(hide yes)
 			(show_name no)
@@ -14639,7 +14716,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 27, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 27, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 358.14 144.6022 0)
 			(hide yes)
 			(show_name no)
@@ -14672,7 +14749,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C7083040"
 			(at 358.14 144.6022 0)
 			(hide yes)
 			(show_name no)
@@ -14683,7 +14760,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Sofar's own listed second source (their MANUFACTURERPARTNUMBER1)"
+		(property "PLANNED NOTE" "Sofar's own listed alternate 1 (mote file, MANUFACTURERPARTNUMBER1); the specified ST SMA6F33A is obsolete (JLC stock 2 on 2026-11-11)"
 			(at 358.14 144.6022 0)
 			(hide yes)
 			(show_name no)
@@ -14904,7 +14981,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified; from the parts bought. JLC public stock is 92 on 2026-11-11 as well (need 40)"
 			(at 238.76 88.7222 0)
 			(hide yes)
 			(show_name no)
@@ -14926,7 +15003,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought 42"
+		(property "SOURCING" "Nick's JLC parts library: order POB0202610210527741 (2026-10-20), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 238.76 88.7222 0)
 			(hide yes)
 			(show_name no)

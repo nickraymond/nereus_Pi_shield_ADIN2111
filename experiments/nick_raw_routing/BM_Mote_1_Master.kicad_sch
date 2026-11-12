@@ -10480,7 +10480,7 @@
 	)
 	(wire
 		(pts
-			(xy 497.84 336.55) (xy 501.65 336.55)
+			(xy 497.84 336.55) (xy 520.7 336.55)
 		)
 		(stroke
 			(width 0)
@@ -11030,7 +11030,7 @@
 	)
 	(wire
 		(pts
-			(xy 520.7 331.47) (xy 520.7 334.01)
+			(xy 520.7 331.47) (xy 520.7 336.55)
 		)
 		(stroke
 			(width 0)
@@ -11920,30 +11920,6 @@
 	)
 	(global_label "ADIN_TIMER"
 		(shape input)
-		(at 501.65 336.55 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0d9d672f-d3b8-4734-81b3-8c2b3756d57e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 515.3395 336.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-	)
-	(global_label "ADIN_TIMER"
-		(shape input)
 		(at 118.11 113.03 180)
 		(fields_autoplaced yes)
 		(effects
@@ -12050,7 +12026,7 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "07b7da0c-7f23-4698-b878-fa04d8adb5a7")
@@ -12411,7 +12387,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -12444,7 +12420,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -12455,7 +12431,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -12710,7 +12686,7 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1b04a594-31e8-4d30-b717-83a8d9590e55")
@@ -14296,7 +14272,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 185.42 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -14308,6 +14284,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 185.42 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 185.42 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -14751,7 +14738,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -14784,7 +14771,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -14795,7 +14782,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -14825,9 +14812,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "4438bd76-a20f-415b-b0f8-735de9c274a1")
 		(property "Reference" "J5"
@@ -14840,7 +14827,7 @@
 				)
 			)
 		)
-		(property "Value" "SM02B-GHS-TB"
+		(property "Value" "Wire pads"
 			(at 87.63 265.43 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14850,7 +14837,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_GH_SM02B-GHS-TB_1x02-1MP_P1.25mm_Horizontal"
+		(property "Footprint" "nereus:WirePads_1x02_P3.81mm_Oval4.2x2.6mm_Drill1.3mm"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14861,7 +14848,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eGH.pdf"
+		(property "Datasheet" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14872,7 +14859,7 @@
 				)
 			)
 		)
-		(property "Description" "JST GH 1.25 mm 2-pin SMD right-angle header, 1.0 A per contact (AWG #26), 50 V: payload power out, pin 1 VBUS_OUT, pin 2 GND (D23)"
+		(property "Description" "Payload power out: two through-hole wire pads (4.2 x 2.6 mm oval, 1.3 mm hole), leads soldered directly, no connector. Pin 1 VBUS_OUT, pin 2 GND. Was JST SM02B-GHS-TB until 2026-11-10"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14883,7 +14870,7 @@
 				)
 			)
 		)
-		(property "MANUFACTURER" "JST"
+		(property "MANUFACTURER" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14894,7 +14881,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C189893"
+		(property "LCSC" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14905,7 +14892,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC Parts"
+		(property "SOURCING" "No part: wire pads"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14916,7 +14903,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "SM02B-GHS-TB"
+		(property "PLANNED MPN" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14927,7 +14914,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "JST"
+		(property "PLANNED MFR" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14938,7 +14925,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C189893"
+		(property "PLANNED LCSC" ""
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -14949,7 +14936,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC listing out of stock (2026-10-06): JLC global sourcing"
+		(property "PLANNED NOTE" "No part to buy"
 			(at 87.63 259.08 0)
 			(hide yes)
 			(show_name no)
@@ -15963,7 +15950,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A)"
+		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A); in JLC stock (read 2026-11-11)"
+			(at 256.54 369.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11). A PPTC resettable fuse: kept for this unpotted build on Nick's word (2026-11-11), an exception to SPEC constraint 8; replace it before a potted build"
 			(at 256.54 369.57 90)
 			(hide yes)
 			(show_name no)
@@ -16456,7 +16454,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16467,7 +16465,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16478,7 +16476,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16489,7 +16487,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16500,7 +16498,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -17046,6 +17044,17 @@
 				)
 			)
 		)
+		(property "SOURCING" "DNP: not ordered"
+			(at 158.75 242.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "07a8e8b2-5b0e-464d-8266-3355ad6a6b54")
 		)
@@ -17068,7 +17077,7 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "81e13981-9db2-4b22-9a11-a00c8f2913aa")
@@ -17563,9 +17572,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "86132db7-8a78-4a88-8fa3-37acd90b9409")
@@ -17580,7 +17589,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x02"
+		(property "Value" "Wire pads"
 			(at 274.32 378.4599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17591,7 +17600,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
+		(property "Footprint" "nereus:WirePads_1x02_P3.81mm_Oval4.2x2.6mm_Drill1.3mm"
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
@@ -17613,7 +17622,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "5 V in: two through-hole wire pads (4.2 x 2.6 mm oval, 1.3 mm hole), leads soldered directly, no connector. Pin 1 to F1, pin 2 GND. Was JST S2B-PH until 2026-11-10"
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
@@ -17624,7 +17633,7 @@
 				)
 			)
 		)
-		(property "Planned MPN" "S2B-PH-SM4-TB(LF)(SN)"
+		(property "Planned MPN" ""
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
@@ -17635,7 +17644,7 @@
 				)
 			)
 		)
-		(property "Planned LCSC" "C295747"
+		(property "Planned LCSC" ""
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
@@ -17646,7 +17655,7 @@
 				)
 			)
 		)
-		(property "Planned MFR" "JST"
+		(property "Planned MFR" ""
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
@@ -18196,7 +18205,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 185.42 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -18208,6 +18217,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 185.42 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 185.42 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -19849,7 +19869,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 109.22 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -19861,6 +19881,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 109.22 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 109.22 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -19888,7 +19919,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 520.7 334.01 0)
+		(at 520.7 336.55 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19898,7 +19929,7 @@
 		(dnp no)
 		(uuid "bd5721e4-7f8e-4c96-9b46-25af94d8d1f7")
 		(property "Reference" "#PWR085"
-			(at 520.7 330.2 0)
+			(at 520.7 332.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19909,7 +19940,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 520.7 341.63 0)
+			(at 520.7 344.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19919,7 +19950,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19930,7 +19961,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19941,7 +19972,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 520.7 334.01 0)
+			(at 520.7 336.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20742,7 +20773,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
+		(property "SOURCING" "OPEN (Nick): part not chosen, socket height open. In JLC stock on 2026-11-11: ZHOURI 2.54-2*20 C2977589 (37,698), Megastar ZX-PM2.54-2-20PY C7499354 (6,641), both 8.5 mm by JLC's text"
 			(at 142.24 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -21559,7 +21590,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -21592,7 +21623,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -21603,7 +21634,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -21633,7 +21664,7 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cf9d7b3d-695e-467a-bfeb-4fdd7d38a8bc")
@@ -23177,7 +23208,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty N, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 516.89 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -23221,7 +23252,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -24386,7 +24417,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 109.22 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -24398,6 +24429,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 109.22 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 109.22 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -24488,7 +24530,7 @@
 				)
 			)
 		)
-		(property "Planned MPN" "SM04B-SRSS-TB(LF)(SN)"
+		(property "PLANNED MPN" "SM04B-SRSS-TB(LF)(SN)"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)
@@ -24499,7 +24541,7 @@
 				)
 			)
 		)
-		(property "Planned MFR" "JST"
+		(property "PLANNED MFR" "JST"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)
@@ -24510,7 +24552,29 @@
 				)
 			)
 		)
-		(property "Planned LCSC" "C160404"
+		(property "PLANNED LCSC" "C160404"
+			(at 367.03 377.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PLANNED NOTE" "Qwiic connector (I2C3); in JLC stock (read 2026-11-11)"
+			(at 367.03 377.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)

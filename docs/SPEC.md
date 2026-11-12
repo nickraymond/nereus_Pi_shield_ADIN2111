@@ -1,7 +1,7 @@
 # SPEC.md — nereus_Pi_shield_ADIN2111
 
 *What Nick wants. Stable reference — agents skim this; changes require Nick's approval.*
-*Last updated: 2026-10-05*
+*Last updated: 2026-11-11*
 
 ## Goal
 
@@ -70,8 +70,9 @@ production (DESIGN D12).
 - GRM21BR61C226ME44 (C56, C57): 22 µF ±20 %, 16 V, X5R, 0805; GRM155R61A475MEAA
   (C58): 4.7 µF ±20 %, 10 V, X5R, 0402; both in production. *(Murata product
   pages, read 2026-10-05)*
-- RC0402FR-0713K7L (R38): Yageo 13.7 kΩ ±1 %, 1/16 W, 0402, thick film.
-  *(Digi-Key product listing 311-13.7KLRCT-ND, 2026-10-05)*
+- RC0402FR-0713K7L (R38 in the live project): Yageo 13.7 kΩ ±1 %, 1/16 W, 0402, thick film.
+  *(Digi-Key product listing 311-13.7KLRCT-ND, 2026-10-05)* On the board ordered at JLC R38 is 13.3 kΩ,
+  UNI-ROYAL 0402WGF1332TCE (DESIGN D52).
 - TI's own LMR51430 application circuit uses C_IN = 2.2 µF and, at 1.1 MHz,
   suggests L = 3.3 µH (5 V) / 2.2 µH (3.3 V) with 2 × 10 µF / 25 V output caps.
   *(SLUSEF4A Figure 9-1, Table 9-2)*
@@ -147,6 +148,9 @@ production (DESIGN D12).
    and footprint extraction). Board, layout and routing belong to Nick.
    *Exception (Nick, 2026-10-07, D31): a layout experiment writes its own board inside `experiments/<name>/`
    on its own branch; it never touches the live project, the reference designs or `Archive/`, and is never merged.*
+   *Amendment (Nick, 2026-11-11, DESIGN D54): the board in `experiments/nick_raw_routing/` is the board ordered at JLC
+   and lives on `main` (PR 35), on Nick's instruction "Lets merge all of this [onto] main". Agents edited it by
+   scripted steps on Nick's go (D33); since the layout freeze of 2026-11-11 only its hidden footprint fields change.*
 2. KiCad stays closed while an agent edits project files. The agent confirms
    this with Nick before its first edit of each session.
 3. Every net the design keeps must match the mote's copper, proven by a
@@ -167,6 +171,8 @@ production (DESIGN D12).
    - **No aluminium electrolytic capacitors.** *(Nick, 2026-10-04)*
    - **No PPTC resettable fuses**; their trip behaviour changes when
      encapsulated. *(Sofar 50W/100W guide)*
+     *Exception (Nick, 2026-11-11: "Keep F1"; DESIGN D53): F1 at J4, a PPTC (BHFUSE BSMD1206-150-16V), stays for
+     the first build of 20 development boards, which are not potted (D32). Replace it before any potted build.*
    - Flag for Nick: any part with internal voids, vents or moving parts
      (trimmers, switches, relays); large MLCCs (1210 and up; prefer
      flexible-termination parts); ferrite magnetics (check vendor potting
@@ -191,6 +197,11 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
+- BOM review of 2026-11-11 (`docs/design-review/bom_review_2026-11.md`; QE S9 finding 4): no datasheet was read for
+  the parts chosen there, so their ratings rest on JLC's listing text and constraint 5 is not met for them. To read
+  before the order or flag at bring-up: TDK C2012X7S2A105KT000N (C17 / C26; thickness against Sofar's 1.25 mm),
+  Samsung CL10A226MQ8NRNC (C31), YAGEO RT0402BRD07100RL (R14 / R18), RALEC RTT021824FTH (R20 / R39), BHFUSE
+  BSMD1206-150-16V (F1), and Stackpole CSRF0603FT10L0 (R8's backup; land pattern against R8's pads).
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
@@ -210,8 +221,10 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   IPC-2221, 1 oz assumed, 2.4 A at ΔT 10 °C / 3.2 A at 20 °C; 2 mV drop at 2.5 A.
 - ~~Pi undervoltage threshold~~ answered (power_budget §5): the Zero range has **no**
   low-voltage detector (Raspberry Pi documentation, "Power supply warnings"); the
-  bench check is 5V_PI ≥ 4.75 V at J1 (USB 2.0 VBUS minimum). R38 stays 13.7 kΩ
-  (D16); 13.5 kΩ is the drop-in fix if the bench check fails.
+  bench check is 5V_PI ≥ 4.75 V at J1 (USB 2.0 VBUS minimum). R38 stayed 13.7 kΩ
+  (D16) in the live project. **The board ordered at JLC has R38 = 13.3 kΩ (Nick, D52):** 5.11 V nominal, 4.95–5.28 V
+  worst case, 30 mV over USB's 5.25 V at the top corner (power_budget §5). Open until bring-up: the bench check is
+  4.75 V ≤ 5V_PI at J1 ≤ 5.25 V, unloaded and at 1 A; 13.7 kΩ (RC0402FR-0713K7L) is the drop-in if it reads high.
 - With JP1 bridged, the Pi must never also have a USB cable plugged in. Its power
   micro-USB feeds the 5 V rail directly (Raspberry Pi Zero 2 W reduced schematic,
   J1 → 5V); whether the data port's VBUS does too is unconfirmed (not shown in the

@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-10-15 · Owner/gate: **Nick***
+*Last updated: 2026-11-11 · Owner/gate: **Nick***
 
 ---
 
@@ -364,10 +364,345 @@ Fri 10/30 (fallback Tue 11/3).*
       all 7 lines from Digi-Key, $956.05 (U1 at JLC's $27.76); **ready for assembly est. 2026-11-05** → PCBA order ≈ 11/5,
       boards ≈ 11/19–11/24+. J5 not pre-bought: picked from JLC stock (31,805 on 10/18) at the PCBA order (Nick). Record in the doc
 - [ ] Flagged passives (R8, R15/R16, C22/C23, commodity R/C) bought after Sofar's review (D27)
-- [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3; parts ready est. Thu 11/5, so ≈ 11/5; pick J5 C189893 from JLC stock)
-- [ ] J5 `SOURCING` field → JLC stock (C189893) at the next schematic edit, then `bom.csv` follows (QE S8 N10)
+- [ ] JLC PCBA order (target Fri 10/30, fallback Tue 11/3; parts ready est. Thu 11/5, so ≈ 11/5; no J5 part since D34: wire pads on the S9 board)
+- [ ] J5 `SOURCING` field (QE S8 N10): on the S9 board J5 is wire pads with no part (D34); the live project's schematic and `bom.csv` still list the JST part
 **Demo (Nick):** open `docs/design-review/jlc_parts_buy_2026-10.md`: the "In short" box, the buy table and the steps;
 `git diff main...HEAD --stat` touches only docs and the viewer (no KiCad file).
+
+### S9 — Finish the routing on `nick_raw_routing` for JLC  `[~]`
+*Nick, 2026-11-10: finish the board in `experiments/nick_raw_routing/` and get it through JLC's checks. Base: the board in
+`nereus_step2_power_2026-11-09.zip` (= `reload_old_mote` 3d596b9 + the earlier session's steps 1–2). Nick's go on the plan
+is the approval for an agent to edit this board (rules 8/9, D33). Plan page: https://claude.ai/artifact/WW6S2MLhrNHYLe7zbg5Wsc.
+Branch: `Fable_5.2` (Nick, 2026-11-10; pushed only on his approval). Since 2026-11-11 (after step 16) the work continues on
+`claude/fable-5-2-continue-55a515`, cut from `Fable_5.2` at 5180c47, because the app could not share the old worktree (Nick,
+previous session's chat, 2026-11-11: "Yes, new branch"); its commits return to `Fable_5.2` by fast-forward later, on Nick's word.
+Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: refill, DRC with parity, render, one commit.*
+- [x] Review + plan with drawings; Nick: A base = zip, B inserts option 1, C part moves approved (2026-11-10)
+- [x] Step 0, fixes before routing, no copper changed (58365af): outline circles off Edge.Cuts; MP1↔MP2, MP3↔MP4; MTG1–4
+      removed; J5, TP38 on the board; GND strip priority. DRC 424 → 324 errors, open 77 → 63 (46 → 41 nets), parity 0; ERC unchanged (39)
+- [x] Decision D (Nick, 2026-11-10; D34): JLC rule values + standard stackup JLC06161H-3313, in one revertible commit (6f54c27;
+      `docs/design-review/jlc_rules_2026-11.md`); data pairs and the 16 GND vias kept as on the mote; Sofar Q13 + note on the PoDL sheet (f9fe3b7)
+- [x] Step 0b, no copper changed (cf6ec47): J5 → two through-hole wire pads (new footprint, not in BOM); J6 one pitch west and
+      FID1/FID3 as on Nick's `reload_old_mote`; TP38 re-placed. DRC under JLC rules: 134 errors, 63 open (41 nets), parity 0; ERC unchanged (39)
+- [ ] Nick: confirm J5's pad size (4.2 × 2.6 mm), hole (1.3 mm) and pitch (3.81 mm) in KiCad
+- [x] Step 1 ADIN SPI (a0e6640): SCK + CS on Internal 2, MOSI + MISO on Internal 1, J1 pin → Sofar's via, no new via;
+      the PI_3V3 branch on Internal 2 that crossed them is removed (back in step 4); MOSI's via removed (nothing left to join).
+      DRC 134 errors (none on the new copper), open 63 → 60 (38 nets), parity 0
+- [x] Nick's requests of 2026-11-10, done as step 1b (see the next item):
+      (a) copper keep-out on every layer around H1–H4, so a screw head or thread cannot short to a plane;
+      (b) LEDs D8–D10 on the board's centreline (x 148.80), evenly spaced, one line 3–4 mm from the south edge (now x 146.69 / 149.72 / 152.40, y ≈ 126.9, 5.2 mm from the edge);
+      (c) inserts on one line, each pair the same distance from its edge, mirrored (now x 129.51 / 139.10 / 160.10 / 169.70, y 127.40–127.56; 13.21 mm from the west edge, 11.60 mm from the east);
+      (d) J4 as the same two wire pads as J5, no connector
+- [x] Step 1b: inserts at x 128.70 / 138.30 / 159.30 / 168.90, y 127.45 (12.40 mm from each edge, mirrored), rings concentric,
+      trunk ends follow; LEDs at x 145.80 / 148.80 / 151.80, y 128.60 (3.5 mm from the south edge); J4 → wire pads at (119.0, 92.1);
+      copper keep-out r 3.0 mm on all layers at H1–H4 (radius from `Pi_HAT_outline.dxf`, layer HOLE_KEEPOUT).
+      DRC 151 errors (17 more, all at the insert footprint), 60 open, parity 0; ERC 39
+- [x] Insert footprint + step 3 bus pairs: the insert's unplated hole is a plain hole again (the import had left a net-less 5.5 mm
+      copper disc on the bottom and size 0 inside); two scoped rules for the insert hole; trunk ends pulled back to 3.45 mm from
+      the insert centre; BM2_P's vertical run off Sofar's GND via; fiducials 0.2 mm west. DRC 151 → 25 errors, open 47, parity 0
+- [x] Step 2 ADIN control + straps: INT on top, RST and ADIN_PWR on the bottom to Sofar's stub and vias; CFG0 strap (JP4, R9) at the
+      SPI landing; CFG1 strap (JP3, R2, R47) south of U1, because R2's strap pad could not be reached under U1; ADIN_TIMER 77 mm on
+      the bottom along the south and east edges. DRC 151 errors (none on the new copper), open 60 → 47 (30 nets), parity 0
+- [x] Nick's KiCad look after steps 0–2 (2026-11-10, 3D view; no changes asked)
+- [x] Step 4 power: GND zone fills the north-west notch of Sofar's GND plane (5 V converter, J4, J3); J4 → F1; TP38; U11_RTN;
+      PI_3V3 pins joined, J2 pins 9/11/13 from a new PI_3V3 zone on the PWR plane; VBUS_OUT → J5 (1.0 mm, top then bottom);
+      J5 GND to two vias. DRC 25 errors (none new), open 47 → 36 (26 nets), parity 0
+- [ ] Nick's KiCad look after steps 3–4: the bus trunks at the inserts, the new GND and PI_3V3 zones, VBUS_OUT down the west edge
+- [x] Step 7 Pi → J2 breakout, all 11 nets (aa8cd65, bcfe41f): channel re-laned (INT, ADIN_PWR, RST to the north lanes), TP38 to the
+      bottom side; UART_TX, ADC_ALERT on Internal 1; UART_RX, SPI1_CE1, MOTOR_nSLEEP/IN1/IN2 on top; SPI1_CE0 on the bottom;
+      SPI1_MISO/MOSI/SCLK on Internal 2. No via
+- [x] Step 5, I2C0 (bcfe41f): one small via per stub, SCL on Internal 1, SDA on Internal 2, to J1 27/28 and J2 15/16; R26/R27 moved
+      below J2 beside PI_3V3 pin 13 (clears the 3V3 / PI_3V3 short). DRC 22 errors, open 19 on 12 nets, parity 0
+- [x] Mock-up of the last 19 connections on the plan page; Nick: "routing approved" (2026-11-10)
+- [x] Step 5b, I2C3 (53ff783): SCL on top, SDA on the bottom from J1 13/15 to J2 8/7; on the bottom below J2 and J6 to two vias,
+      then Internal 1 past the 5 V converter to two vias beside J3; R10/R24 on the bottom side beside J3. Mote leftovers removed
+      (old I2C3 copper, the PI_3V3 trunk to the old pull-up place). Two changes from the mock-up: the converter's 5V_PI and
+      VBUS tracks wall off the bottom layer, hence Internal 1 and two more vias; R10 on the bottom, not the top (its
+      courtyard overlapped J3's). Open 19 → 13
+- [x] Step 6, payload switch (1688971): PAYLOAD_EN (J1.37) and ~PAYLOAD_FAULT (J1.31) on Internal 1 down a J2 pin gap, one via each,
+      west on the bottom (y 97.50 / 93.40) to Sofar's vias at U11 (FAULT's last 12 mm on Internal 2); PAYLOAD_EN on to TP19 on
+      Internal 2 with a via beside the pad. A dead 3V3 stub and its via removed. Open 13 → 10
+- [x] Step 8, LEDs (0772b8a): JP2 at (148.60, 124.30) above the LEDs; ADIN_LED_VDD through one via to R44–R46 on the bottom; the two
+      link-LED lines on Internal 2 from Sofar's vias at U1; one via per anode; D8's GND pad to JP3 pad 3 on top (no GND plane
+      south of y 123). Open 10 → 0
+- [x] Board fully routed: 0 open connections, parity 0, ERC 39 (unchanged); DRC 22 errors, all carried: 16 GND vias in U1's
+      keepout (as on the mote), 3 skew (Sofar Q13), 3 courtyards (C54/C55/U10)
+- [ ] `sofar_brief.md` has no row for the Qwiic connector J3 and the I2C3 pull-ups R10/R24 (schematic additions on this board)
+- [x] Bottom silkscreen "PCBA-000639-AB BM Mote" (Sofar's board name): replaced by "Pi Shield / ADIN2111 Rev0" (Nick, step 9g)
+- [ ] Nick's KiCad look after steps 5–8: I2C3 past the 5 V converter, R10/R24 under J3, the payload lines below J2, JP2 and the LEDs
+- [x] Step 9a (f4faaca): dead mote copper removed, 58 segments / 46.8 mm that ended in the open (found by repeated DRC on a scratch copy)
+- [x] Step 9b (c9db5f8): the 3 courtyard overlaps at the 5 V converter cleared (C55 0.50 mm west, C54 0.30 mm south, their GND via moved)
+- [x] Step 9c (e1eedf3), Nick's request of 2026-11-10: silkscreen names on the straps (JP1 5V-PI, JP2 LED, JP3 CFG1, JP4 CFG0 with
+      1 / 0 ends), the wire pads (J4 5V IN, J5 PAYLOAD), J6 (PI 5V, rows 5V / GND), J3 (I2C3), every J2 pin, the inserts (BM1 / BM2,
+      both sides) and the LEDs (P1 / PWR / P2); reference texts moved off other parts; refs of F1, D8–D10, H1–H4, MP1–MP4 hidden
+- [x] Step 9d (ab8baae): DRC exclusions with comments for the 16 GND vias in Sofar's keepout under U1 (kept, D34)
+- [x] State after 9a–9d: DRC 3 errors not excluded (skew on Sofar's BM data pairs, Sofar Q13), 16 excluded, 0 open, parity 0, ERC 39.
+      Draft fab files export cleanly (13 gerbers, 2 drill files, positions; `~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-10/fab_draft/`)
+- [x] Step 9e (88e55ae), Nick's request: JP3 (CFG1) to the north-east corner at (168.60, 96.40), in one row with JP4 and with the
+      same order (0 west, 1 east); CFG1_STRAP 61 mm on Internal 1 from R2 along the south and east edges; R2 and R47 stay at U1
+- [x] Step 9f (779c331), Nick's request: R26 / R27 to the bottom side, 4 mm south of J2's pads, fed from J2 pins 13 / 15 / 16
+- [x] Step 9g (488cfbd), Nick's request: board name "Pi Shield / ADIN2111 Rev0" with the Bristlemouth logo in the north-east
+      corner (top) and the name on the bottom in place of Sofar's part number and "BM Mote"
+- [x] State after 9e–9g: DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, ERC 39
+- [x] Step 9h (0bd5d89), Nick approved mock round 2 on 2026-11-11 ("Yes, build it"): silkscreen style (DESIGN D39). Menlo Bold
+      (slashed zero); function names large with the designator small under them; J4 "+5V / AUX OUT / GND" and J5 "VBUS OUT" boxed
+      on both sides; all 128 designators 0.8 mm (six turned 90°: C10 C30 C31 D1 D8 L3; F1 stays hidden); board name and logo in the
+      east strip beside L1, turned 90°; bottom: ratings under J2, screw sizes (inserts M3, mounting holes M2.5) and the USB warning
+- [x] State after 9h: no copper change (tracks, vias, zones, pads and footprint positions identical to e686111); DRC 3 errors not
+      excluded (skew), 16 excluded, 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/step9_2026-11-11/`)
+- [x] Step 10 (7c30e8f), Nick approved the mock on 2026-11-11 ("Yes, build it"): D9 / R45 swap places with D10 / R46, so the east
+      LED (by BM1) shows port 1 and the west LED (by BM2) port 2; PWR stays in the middle; names P1 / P2 follow (DESIGN D40).
+      Only the four LED nets change. DRC 3 errors not excluded (skew), 16 excluded, 0 open, parity 0, warnings unchanged; ERC 39
+- [x] Step 11 (6874391), Nick 2026-11-11 ("rotate JP2 clockwise, then add a silk screen label above D8 to say ADIN ... After that
+      change push"): JP2 lies east-west at (149.00, 124.00); "ADIN" stands above D8, which shows the ADIN's power, not the
+      board's (DESIGN D41). 5 top segments of ADIN_VDDIO / ADIN_LED_VDD re-laid. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 12 (3054b8c), Nick 2026-11-11 ("Yes build it, but say Bold Box instead of Heavy Box", "remove the Pi Shield name on
+      the bottom"): the schematic's table "ADIN2111 SPI CFG Straps" stands on the bottom as a ruled table in the east strip
+      (CFG 1 | CFG 0 | SPI MODE, bold frame on the as-built row 1 / 0 = generic SPI with CRC); screw sizes and the USB warning
+      moved behind JP1; "Pi Shield / ADIN2111 Rev0" removed from the bottom, Sofar's frame around it left empty (DESIGN D42).
+      No copper or footprint change. DRC silkscreen overlaps 25 → 24, all else unchanged; 0 open, parity 0, ERC 39
+- [x] Step 12b (0a885e9), Nick 2026-11-11 (comment on the summary doc: 'Please try to fit "Threaded Inserts" and "Mounting Holes" if
+      you can'): the bottom reads "THREADED INSERTS M3" / "MOUNTING HOLES M2.5" on two lines above the USB warning. Silkscreen
+      only; DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 12c (242e46c), Nick 2026-11-11 (comment on the summary doc: "change P1 and P2 to BM1 and BM2 so they match the silk
+      screen above the threaded inserts"): the port LEDs read BM2 (D10, west) / PWR / BM1 (D9, east). Silkscreen only; DRC and
+      ERC counts unchanged, 0 open, parity 0
+- [x] Step 13 (0595d79), Nick 2026-11-11 (comment on the mock picture in the summary doc: "I approve the mock"): Qwiic connector J3 on
+      the centre line (y 104.10, 0.70 mm further west), J4 2.15 mm south with "AUX OUT" above its pads and a box like VBUS OUT's
+      (DESIGN D43). VBUS_OUT's bottom track turns at (122.30, 99.60); J3's four top tracks re-laid; its GND via now at
+      (122.80, 101.40). 9 segments and 1 via out, 19 segments and 1 via in. DRC and ERC counts unchanged, 0 open, parity 0.
+      Smallest J3 copper to BM2_N 1.02 mm (was 2.37 mm), measured on the board
+- [x] Step 14 (a41524d), Nick 2026-11-11 (comment on the proposal in the summary doc: "Proposal approved"): the zone "GND north-west
+      fill" is redrawn 0.5 mm clear of Sofar's west ground wing and slot (review finding R-S4, DESIGN D44). Sofar's zone is
+      untouched; its copper refills the wing, which joins the main ground only at the slot's south end again, as on the mote.
+      No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 15 (d6a4fb8), Nick 2026-11-11 (comment in the summary doc: "lets put back the sofar footprint"): R15 and R16 carry
+      `Vault:CRCW08057R50FKEAHP-Footprint-1` again, on the board and in the PoDL sheet's two Footprint fields (review finding
+      M-S5, DESIGN D45). Pads sit exactly where the mote's do; no track or via change. DRC and ERC counts unchanged, 0 open,
+      parity 0
+- [x] Step 16 (b0115b9), Nick 2026-11-11 (comment on the proposal in the summary doc: "approved"): J6's GND pads 2 / 4 / 6 set to
+      thermal relief on the pad (review finding M-S6, DESIGN D45); each pin stands in a ring with four spokes on the GND plane.
+      No part, track or via change. DRC and ERC counts unchanged, 0 open, parity 0
+- [x] Step 17, Nick 2026-11-11 (comment on the summary doc: "Remove it"): Sofar's empty name frame is off the bottom silkscreen
+      (five lines, DESIGN D46). Silkscreen only. DRC against a clean-checkout baseline: counts unchanged (3 skew errors, 16
+      excluded), 0 open, parity 0, ERC 39 (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_17.json`, `erc_17.json`)
+- [x] Step 18 (c445bff), Nick 2026-11-11 (comment on the mock in the summary doc: "approved"): top-layer GND fill at U10 (12.2 mm²,
+      as Sofar has at U5) and two more GND vias at (132.70, 90.10) and (133.14, 87.75); pin 1 reaches the GND plane through five
+      vias (review finding R-S1, DESIGN D47). No part or track moves. DRC counts unchanged, 0 open, parity 0, ERC 39
+- [x] Step 19 (ae8380d), Nick 2026-11-11 (comment on the mock: "Approved, but instead of [fingers] how [about] a polygon like Sofar
+      did under [the] large L1 L2 inductors?"): the three vias at L6 sit under the inductor at (124.60 / 126.40 / 128.20, 87.15),
+      joined to pad 2 by a top-layer 5V_PI polygon in Sofar's style, and land on a new 5V_PI fill on the PWR Plane, 57.2 mm²
+      (review finding M-S4, DESIGN D47). DRC: via_dangling 7 → 4, nothing new; 0 open, parity 0, ERC 39
+      (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_19.json`, `erc_19.json`, `after_steps18_19_converter.png`)
+- [x] Step 20, Nick 2026-11-11 (comments on the summary doc: "should only go to the primary Pi Header"; "Tie it to GND"): ADIN_TIMER
+      is off the breakout header and J2 pin 22 is ground, in the Master sheet and on the board; ADIN_TIMER's bottom track runs
+      down the gap between pins 22 and 24; "TM" reads "GND" on both sides (DESIGN D48). DRC counts unchanged, 0 open, parity 0, ERC 39
+- [x] Step 21, Nick 2026-11-11 (this session's chat: "the large BM shield silkscreen at the far right should be rotated 180 deg,
+      and move the silk screen for [the] dev header south a bit"): the board name reads from the north down under the logo, which
+      stays upright; J2's north-row names on the top side stand 0.46 mm from J1's pads, was 0.16 mm (DESIGN D49). Silkscreen
+      only; checks unchanged (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_21.json`, `after_step21_top.png`)
+- [x] Step 22, Nick 2026-11-11 ("approved make it happen"; on the mock: "Fiducials look good"): fiducials are 1 mm dots in 2 mm
+      openings; south-west pair at (123.40, 127.90), east pair at (177.50, 122.90), north-west pair at (125.90, 92.00), 11.6 mm
+      from its old place because nothing nearer is free on both sides (DESIGN D50). DRC: silkscreen-on-copper 8 → 6, nothing new
+- [x] Step 23, Nick 2026-11-11 (this session's chat, with a picture: "This is the way the logo should look please"; "move the
+      'Threaded insert...' silk screen block farther [east] on the bottom ... Also draw a box around the note blocks"): the logo
+      follows the board name at its south end, turned with it; the notes behind JP1 stand at the west edge in a box, the ratings
+      under J2 0.80 mm south in a box (DESIGN D51). Silkscreen only; checks unchanged
+- [x] Step 24, the final silkscreen pass, Nick 2026-11-11 ("please refine the placement of the small component silk screen"):
+      eleven designators moved to planned free places beside their own parts, D8, U2 and the VBUS OUT texts nudged (DESIGN
+      D51). DRC silk_overlap 24 → 13; left: Sofar's touching outlines (7), his pin-1 marks (2), the AUX OUT box on L6's outline
+      (3), one board line at L3; silk_over_copper 6 (pin-1 marks of U1, U5, U10; outline segments of R34 and C59). Ten
+      designators in dense areas stay where they are (list in D51)
+- [x] State after step 24 (`~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_24.json`, `erc_24.json`; clean-checkout
+      baseline, all layers visible): 3 skew errors not excluded (pending Sofar), 16 excluded, 0 open, parity 0, ERC 39.
+      Warnings: text_thickness 199, text_height 129, lib_footprint_mismatch 106, padstack 34, silk_overlap 13, silk_over_copper 6,
+      via_dangling 4, isolated_copper 3, nonmirrored_text_on_back_layer 2
+- [x] **Layout freeze, 2026-11-11** (Nick, this session's chat: "Yes, freeze it", after "I'd like to move on to the design freeze
+      once these are done so we can do a BOM clean up"). Frozen: the board as of step 24 (456752d),
+      `experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`, SHA-256 3728e882…46a3518e, with the schematic of step 20. Local
+      tag `s9-layout-freeze` (not pushed). From here on no copper, part, outline or silkscreen change without a new word from
+      Nick; schematic edits are limited to fields (BOM session). JLC files are exported from this board only
+- [x] Step 25, Nick 2026-11-11 (this session's chat: "update the front sheet of the schematic to show top and bottom views of
+      the board with dimensions for length and width like you'd expect on a drawing"): the cover sheet of
+      `experiments/nick_raw_routing/nick_raw_routing.kicad_sch` shows the frozen board's top and bottom view with 65.00 mm and
+      56.00 mm dimension lines (outline read from Edge.Cuts) in the frame that held "renders: TBD"; "DIMENSIONS:" reads
+      "65.00 x 56.00 x 1.6 mm". The sheet holds no parts or wires; ERC 39, parity 0, board untouched. PDF of the whole
+      schematic: `~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/front_sheet/nick_raw_routing_schematic.pdf`.
+      Open for Nick: the cover still reads rev AA, 2026-10-07, "First release", P/N PCB-000001-AA, while the board's
+      silkscreen says "Rev0"; whether the cover's revision, date and change line should follow is his call
+- [ ] After the freeze, in this order: schematics and BOM documents brought up to date (the BOM in its own session that Nick
+      starts: Sofar's alternates first, then JLC stock; R47's PLANNED fields to 1 kΩ); DESIGN pin map and Sofar brief checked
+      against the board (routing review N12: J2, J3, J4 / F1, J6, JP1, R47 / ADIN_TIMER); JLC export from the frozen board;
+      design review doc when Nick asks; draft PR and QE review. Since 2026-11-11 evening: draft PR 35 holds all of it (branch
+      `claude/adoring-mclaren-10dc39`); the tag `s9-layout-freeze` is still local
+- [x] R47 = 1 kΩ (PLANNED fields corrected by the BOM session, 2026-11-11; Nick, the design session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value, PART NUMBER
+      and the PLANNED fields all say RC0402FR-071KL (JLC C106235). Software rule that goes with it: GPIO16 stays an input while the
+      ADIN leaves reset, unless the Pi means to override CFG1
+- [x] BOM session, 2026-11-11 (branch `claude/adoring-mclaren-10dc39`, Nick's go in its chat): BOM of this board from its own
+      schematic, 53 lines → `docs/design-review/bom_nick_raw_routing.csv` / `.pdf`; review with every changed line, the stock
+      table (JLC parts search, read 2026-11-11) and the open lines → `docs/design-review/bom_review_2026-11.md`. Fields only:
+      R47's planned part is 1 kΩ (C106235); C59's planned part is 220 nF; five lines back to Sofar's part, which JLC stocks
+      now (C16 group, C19 / C27, C21, R21 group, R34); Sofar's own alternates for R8 as ALT1 / ALT2 (CSRF0603FT10L0 in JLC
+      stock: 9,822). ERC 39, DRC counts as `drc_24.json`, 0 open, parity 0; nets identical
+- [x] The board file after the BOM session: hidden footprint fields only (parity compares them with the symbol fields). With
+      those fields taken out it equals tag `s9-layout-freeze` byte for byte (`scripts/bom_fields_board_sync_2026_11.py --verify
+      <board at the tag> <board>`); its SHA-256 is no longer the one in the freeze item
+- [x] Nick's order screenshots, 2026-11-11 (BOM session's chat, "Here are the parts ordered"): R8 25, C22 / C23 60, R15 / R16 50
+      (order DOB202610210529840, 2026-10-20), L1 / L2 42 (POB0202610210527741) and six lines of the 10/18 order read "Complete";
+      their SOURCING fields name order, quantity and status. R8 has no spare (20 + attrition 5)
+- [!] **U1 (ADIN2111BCPZ, 22 bought 2026-10-18) still reads "Purchasing"** on that screen; JLC's estimate was 2026-11-05. The
+      PCBA order cannot include U1 until JLC has it: Nick asks JLC support for the date. U1's JLC part is C3226961 (the number
+      on the order line; JLC's public listing names it ADIN2111BCPZ-R7)
+- [x] F1 stays (Nick, BOM session's chat, 2026-11-11: "Keep F1"): a PPTC fuse, kept for this unpotted build as an exception to
+      SPEC constraint 8; replace it before a potted build. Not yet written into SPEC or DESIGN (design session, on Nick's word)
+- [ ] Nick: J1 socket part (height); JLC stocks C2977589 and C7499354, both 8.5 mm by JLC's text
+- [ ] Nick, at the order screen: the bought lines show in My Parts Lib; C597304 has no maker name on JLC's page
+- [x] Draft PR 35 to main, 2026-11-11 (Nick, BOM session's chat: "Lets merge all of this [onto] main and delete all other
+      branches"; he chose PR, QE, then merge): all of S9, step 25 and the BOM review, 104 commits, fast-forward. The 35 other
+      remote branches are deleted; three tips main lacks are kept as tags `archive/reload_old_mote`,
+      `archive/experiment-fable-layout-01a`, `archive/sprint-8a-jlc-parts-buy`. Local `Fable_5.2` and
+      `claude/fable-5-2-continue-55a515` stay until the design session's work is on main
+- [x] QE round 2 on PR 35 (head 95fb538): **APPROVED WITH NITS**: all 11 round-1 findings closed (finding 11 withdrawn by the QE),
+      one new nit (DESIGN pin map row for J1 pins 1 / 17), fixed. The QE's check of the fix push and the merge are recorded
+      on PR 35 — `docs/design-review/qe/S9.md`
+- [x] QE round 1 on PR 35: **CHANGES REQUESTED** (3 major, 5 minor, 3 nits) — `docs/design-review/qe/S9.md`. Board, freeze,
+      netlist, BOM CSV and stock table confirmed. Fixed: findings 4, 7, 8, 9, 10. Nick answered the other four the same
+      evening (BOM session's chat): R38 stays 13.3 kΩ with a bench check (DESIGN D52); the F1 exception and the merge to
+      main are in SPEC and DESIGN (D53, D54); the two old board files are removed; JP1 is a selector as built (D55).
+      The questions as put to Nick:
+      · R38 is 13.3 kΩ on the board (his commit 629d4e8): 5.11 V nominal, 4.95–5.28 V worst case, 30 mV over USB's 5.25 V
+        (`power_budget.md` §5); DESIGN D13 / D16 and SPEC still say 13.7 kΩ. Keep and record with a bench check, or 13.5 kΩ, or 13.7 kΩ
+      · his OK to write into SPEC and DESIGN: the F1 exception (constraint 8) and that this experiment board is merged to
+        main (constraint 1, D31 / D33)
+      · `nick_raw_routing_BEFORE.kicad_pcb` and `nick_raw_routing_OLD.kicad_pcb` beside the frozen board: move out or keep
+      · JP1 is a 3-pad jumper bridged 1–2 (PI_5V–5V_PI); J4 "+5V / AUX OUT" and F1 hang on pad 3 and are live only when
+        JP1 is re-bridged 2–3: is that the intent? DESIGN D14 describes a 2-pad link
+- [ ] After Nick's answer: fields of J1; `pi-shield-checklist.html`,
+      DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
+      are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
+      C2012X7S2A105KT000N (C17 / C26)
+- [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
+      D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
+      beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).
+      Mock made 2026-11-11 on a scratch copy: 0 open, parity 0, no new DRC error (`~/NereusData/nereus_Pi_shield_ADIN2111/led_swap_mock_2026-11-11/`)
+- [x] Nick 2026-11-11: the schematic's table "ADIN2111 SPI CFG Straps" should go on the board bottom if possible. Two mocks (text
+      lines, then a ruled table); built as step 12. Summary of changes and findings for Nick's comments:
+      https://claude.ai/artifact/Jy3PvmmmkEJk8qQLjoTvq2
+- [x] Nick 2026-11-11 (built as step 13): Qwiic connector J3 on the board's centre line, moved south so that AUX OUT's name fits above J4's pads as on
+      VBUS OUT. Mock on a scratch copy, not on the board (`scripts/step13_qwiic_centre_aux_label.py`; pictures and DRC report in
+      `~/NereusData/nereus_Pi_shield_ADIN2111/qwiic_mock_2026-11-11/`): J4 2.15 mm south (F1 sits right above it), J3 2.50 mm south
+      to y 104.10 and 0.70 mm west, VBUS_OUT's bottom track turned earlier to clear J4's GND pad, J3's four top tracks re-laid,
+      its GND via moved to (122.80, 101.40). DRC counts as after step 12, 0 open, parity 0. Smallest J3 copper to BM2_N:
+      2.37 mm before, 1.02 mm in the mock (the SCL track; measured on both boards)
+- [x] Review finding R-S4 (built as step 14), Nick 2026-11-11 (comment on the summary doc): "Please show me the mock of this". Checked on the board and
+      on a refilled scratch copy of the mote (same coordinates): Sofar's GND zone has a 0.38 mm slot (x 131.31–131.69 from y 93.4
+      to 101.6, then east along y 101.81–102.2 to x 138.4, then south to y ≈ 113.6) that leaves the wing under L2 joined to the main
+      ground only at the south; the zone "GND north-west fill" (prio 2) covers the wing's north tip and the slot's north end.
+      Mock on a scratch copy, not on the board (`~/NereusData/nereus_Pi_shield_ADIN2111/rs4_mock_2026-11-11/`, `mock_rs4.py`):
+      fill outline redrawn 0.5 mm outside the wing and slot: (116.80, 87.50) (132.90, 87.50) (132.90, 92.89) (131.10, 92.89)
+      (128.10, 95.89) (128.10, 97.65) (124.50, 101.25) (124.50, 102.45) (124.10, 103.20) (116.80, 103.20). Sofar's copper refills
+      the wing; DRC counts unchanged, 0 open, parity 0. Why Sofar cut the slot stays open (Q10)
+- [ ] Nick's answers of 2026-11-11 to the seven open items (comments on the summary doc, read in the threads):
+      · J2 pin 22: "Tie it to GND"; ADIN_TIMER stays on the Pi header only. Built as step 20
+      · Fiducials: "approved make it happen" (1 mm dots, 2 mm openings, the two near the edge moved inboard). Built as step 22
+      · Sofar's empty name frame on the bottom: "Remove it". Built as step 17
+      · U10 input capacitor: "Leave as the mote has it". Closed, no change; Sofar question stays
+      · JP1 end marks: "Leave them off". Closed, no change
+      · R47: Nick meant 1.5 kΩ as a way for the Pi to override the CFG1 strap at boot; by divider arithmetic 1.5 kΩ puts pin 19
+        at 0.80 V against V_IL 0.8 V (SPEC), 1 kΩ at 0.58 V. Recommended 1 kΩ; Nick picked 1 kΩ (see the R47 item)
+      · The three vias at L6: "Make them useful like the mote". Mocked on a 5V_PI fill on the PWR Plane
+        (`~/NereusData/nereus_Pi_shield_ADIN2111/ms4_mock_2026-11-11/`); L6 makes 26 mW at 1 A, so the gain is small. Built as step 19
+      · R-S1: "show me a mock". Mocked: top GND fill at U10 and two GND vias (`rs1_mock_2026-11-11/`). Built as step 18
+- [ ] Found 2026-11-11: a clean checkout shows 2 DRC warnings more than `drc_16.json` (`nonmirrored_text_on_back_layer`, the "*"
+      texts of U5 and U10 on B.Fab, Sofar's footprint); the old worktree's local `.kicad_prl` hid that layer. No effect on
+      fabrication. Baseline for comparisons from here on: `ms4_mock_2026-11-11/drc_base.json`
+- [ ] Still open with Nick after steps 12–16 (list kept in the summary doc, section "Still open"; answered 2026-11-11, see the item above): J2 pin 22 once ADIN_TIMER leaves
+      it (unconnected or GND), R47's value, the U10 input capacitor, the three vias at L6 together with R-S1, fiducials, Sofar's
+      empty frame on the bottom, JP1 end marks. Not done: datasheet check of three strap rows; Sofar brief and DESIGN.md pin map
+      behind the board (routing review N12, not gone through by the design session); nothing since c0edb77 pushed; no PR; no QE
+- [ ] Open items after Nick's second batch of doc comments, 2026-11-11 (all answered in the summary doc; pictures and mocks in
+      `~/NereusData/nereus_Pi_shield_ADIN2111/`; nothing built, Nick decides each):
+      · ADIN_TIMER off J2 (Nick: "should only go to the primary Pi Header"): today on J1 pin 36 (GPIO16), J2 pin 22 and R47; the
+        track runs through J2 pin 22's pad. Needs a schematic change, about 3 mm of track re-laid, "TM" removed on both sides.
+        Open: J2 pin 22 unconnected or GND
+      · R47 value: Value / PART NUMBER say RC0402FR-071KL (1 kΩ), PLANNED MPN says RC0402FR-071K5L (1.5 kΩ, C11702). Nick picks
+      · R-S5 input capacitor at U10: U10 has the same input capacitors as U5 on shield and mote (UMK107BBJ225KA-T 2.2 µF,
+        GRM188R72A104KA35D 0.1 µF). Options: leave, add, or add an unfitted footprint
+      · R-S6, decided by Nick 2026-11-11: leave as is, see the design review doc item (`rs6_2026-11-11/`): the 0.2 mm link (4.25 mm) joins L1 pad 3 to the via at (165.88, 107.95), which feeds only T1 pad 6
+        over a 0.2 mm Internal 2 track that the mote has too; the bus trunk is 2 mm on both boards. Rated low by the design session
+      · M-S4 (`ms4_2026-11-11/`): the three 5V_PI vias at L6 meet 5V_PI copper on the top layer only (the mote's vias at L3 land on
+        a 3V3 fill on the PWR plane) and overlap L6 pad 2's edge by about 0.25 mm. Delete, or give them a fill; settle with R-S1
+      · M-S5, built as step 15 (`ms5_2026-11-11/`): R15 / R16, same part; mote pads 0.85 × 1.35 mm at pitch 1.65, shield (KiCad R_0805_2012Metric)
+        1.02 × 1.40 mm at pitch 1.83; gap 0.80 mm on both. Put Sofar's footprint back, or note it in the Sofar brief
+      · M-S6, built as step 16 (`ms6_mock_2026-11-11/`, `mock_ms6.py`): mock with J6 pads 2 / 4 / 6 set to thermal relief on the pad; today they are
+        solid in Sofar's GND zone on three sides. DRC counts unchanged, 0 open, parity 0
+      · Fiducials: FID1–FID6 are 0.75 mm dots in 2.25 mm openings at (117.90, 83.60), (123.70, 128.60), (178.70, 122.00), top and
+        bottom; 1.6 / 3.5 / 2.6 mm from the board edge. JLC's help page (updated 2026-09-09) asks for 1 mm dots, 2 mm openings,
+        3 to 4 along the edges, 3.35 mm from the edge, and edge rails of 5 mm for standard assembly:
+        https://jlcpcb.com/help/article/how-to-add-edge-rails-fiducials-for-pcb-assembly-order . Proposal: 1 mm dots, moved inboard
+- [ ] Reviews of e686111, 2026-11-11 (read-only agents), reports in `~/NereusData/nereus_Pi_shield_ADIN2111/review_2026-11-11/`:
+      `dfm_review.md` (1 blocker: the draft export is stale; 6 should fix) and `routing_review.md` (0 blockers; 6 should fix).
+      Spot-checked on the board by the design session: the three unused 5V_PI vias at L6 (127.90 / 128.46 / 128.99, 84.2); BM1_P
+      from T1 to L1 on 0.2 mm tracks; no top-side GND zone at U10; R47 value 1 kΩ against planned part 1.5 kΩ; JP3 bridged to
+      ADIN_VDDIO (CFG1 = 1; the mote had 0). The other findings are not yet checked. Nick decides which to fix before Sofar's review
+- [x] Nick confirmed 2026-11-11 (his comment on the summary doc): "The as built is correct, Sofar found issues getting the ADIN2111
+      to work with Open Alliance + CRC ... so we want to keep Generic with CRC". CFG1 = 1, CFG0 = 0 stays (review finding R-S2
+      closed, no board change). His schematic table has no row named "OPEN Alliance + CRC"; its OPEN Alliance rows are
+      "+ protection" (0 / 0, the mote's setting) and "no protection" (0 / 1)
+- [ ] Nick: the four strap modes on the bottom silkscreen (step 12) are copied from the schematic's table. Only 0 / 0 = OPEN
+      Alliance SPI with protection is checked against the datasheet (SPEC, Table 22); the datasheet could not be fetched on
+      2026-11-10 to check the other three. Check them before the board is ordered
+- [x] Nick accepted 2026-11-11 (his comment on the summary doc, row "Text stroke weight", 199 warnings): "accept, lets see if JLC
+      pushes back once I submit designs". The stroke-weight warnings stay
+- [x] Nick approved 2026-11-11 (his comment on the summary doc, row "Text height": "approve, see if JLC pushes back once we submit
+      designs"): the designators stay 0.8 mm high. What was asked: silkscreen text size after 9h. The 128 designators are 0.8 mm high (JLC rule set: 1.0 mm; Sofar's were 0.6 / 0.64 mm).
+      KiCad flags 199 texts for TrueType stroke weight under 0.15 mm (thin details such as the zero's slash; main strokes measure
+      about 0.15 mm on the render at designator size). Accept, or go to 1.0 mm designators (they fit, more of them far from their part)
+- [x] Nick decided 2026-11-11 (his comment on the summary doc, on "3 not excluded (skew on Sofar's data pairs)"): the 3 skew
+      errors stay as they are, not excluded, "pending Sofar confirmation and agreement" (Q13)
+- [ ] Design review doc, when Nick asks for it ("Once the changes are done, I'll ask your help to put together a design review
+      doc"): the 3 skew errors are its first item, with the proposal to keep them as is pending Sofar. Also in it (Nick's comment
+      on R-S6, 2026-11-11: "call this out in the design doc, with the suggestion that we approve as is pending Sofar's check"):
+      the 0.2 mm, 4.25 mm link from L1 pad 3 to the via that feeds T1, where the mote had wide copper
+- [ ] Left in DRC as warnings: 24 silkscreen overlaps (25 before step 12) and 8 silkscreen-on-copper after 9h (mostly Sofar's part outlines), 7 vias that join
+      one layer only (3 on 5V_PI at L6, 1 on U11_RTN, 3 GND), 3 no-net fills of Sofar's, 106 footprint-vs-library and 34 pad-stack notes
+- [x] Nick 2026-11-11 (his comment on the summary doc, row "Footprint differs from library", 106 warnings): "If there is no impact on
+      manufacturing or assembly then ignore the warning". Ignored: gerbers come from the board's own footprint copies. Checked the
+      same day with `kicad-cli pcb export pos` and pcbnew: 105 of 143 footprints have no SMD / through-hole attribute; the export
+      lists 139 footprints (all but the 4 flagged no-pos), among them 30 no-BOM ones (H1–H4, FID1–FID6, JP1–JP4, 16 test points)
+      and the unfitted R11
+- [ ] Final silkscreen pass, the last task before the design freeze; the BOM clean-up follows it. Nick 2026-11-11 (comment on the
+      summary doc, row "Silkscreen overlap"): "lets review this as the final task before freezing the design and moving to the BOM
+      clean up ... adjust the silkscreen so that they do not overlap and it's clean what they belong to ... knowing the label of
+      each part is important for future debug". Scope: every designator clear of outlines and other text and plainly beside its
+      own part, both sides, shown to Nick in pictures. Start point (DRC after step 12c): 24 overlap warnings = 9 designators
+      0.10–0.13 mm from a part outline (C21, D8, U2 ×2, C24, C25, C26, R24, R11), 7 of Sofar's outlines touching each other,
+      4 box or board lines on a part outline, 2 "VBUS OUT" texts 0.14 mm from their box, 2 pin-1 marks (U1, U4) on their outline
+      Also in this pass (Nick, same day, row "Silkscreen over copper": "Same as above, lets review this as last step before design
+      freeze"): the 8 silkscreen-on-copper warnings = pin-1 marks of U1, U5, U10; outline segments of R34 (2) and C59; the two
+      "-" marks at the BM2 inserts (top and bottom)
+- [x] Nick 2026-11-11 (comment on the summary doc, row "Isolated copper", 3 warnings, proposal "Leave"): "agree, so long as no issue
+      with assembly". Read from the board: zones `NoConnect_Left` (68.8 mm²) and `NoConnect_Right` (46.9 mm²) on the inner PWR
+      plane; one no-net zone on the top layer under L3, filled as two patches (1.76 and 0.70 mm²), no mask opening on or within
+      0.5 mm of them, 0.28 mm from L3 pad 1 (box to box). No exposed copper, so left as they are
+- [x] Nick asked 2026-11-11 (comment on the summary doc) what the 34 pad-stack warnings are. Read from the board: Sofar's library
+      footprints (library `Vault`), not layout. 16 test points and 6 fiducials: pad paste margin −2 mm, so no paste (wanted). U6
+      (TPS62840YBGR, 6 pads, 12 warnings): pad mask and paste margins −1000 mm, replaced by shapes drawn in the footprint (six
+      0.33 mm mask circles, six 0.25 mm paste polygons). Nothing to change
+- [ ] Order of work to the JLC order (Nick's comments on the summary doc, 2026-11-11; nothing more changes on the board until Nick
+      and the design session have talked through the open items, his chat message of the same day):
+      1. the remaining layout and schematic changes; 2. the final silkscreen pass; 3. layout freeze; 4. schematics and BOM documents
+      brought up to date ("we need to freeze the layout and update all BOM docs and schematics first"); the BOM clean-up runs in
+      its own Fable 5.2 session that Nick starts ("a solo Fable 5.2 session just for BOM review and updates + fixes"), which
+      cross-references Sofar's suggested alternative parts first, then JLC stock ("we are out of time for global sourcing"),
+      before any generic JLC part is specified; 5. export in JLC's form from the frozen board, never from the draft folder
+- [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. Check U6's mask openings and paste dots in the
+      gerbers. CPL: filter the placement export against the
+      BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
+**Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
+→ on the frozen board with the BOM fields (PR 35): 3 errors not excluded (skew on Sofar's data pairs, pending Sofar), 16
+excluded, 0 unconnected items, 0 parity issues. `kicad-cli sch erc --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_sch`
+→ 39 items.
 
 ---
 

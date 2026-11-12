@@ -76,7 +76,72 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "items_not_allowed|152101100|111103600|b1a49fa9-a32f-415b-b05b-44d1c6e42c80|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|112370260|2d19614e-5da4-459c-8e2e-5f3cf2358413|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|113636930|7dd52b3d-06a8-4741-81d9-0a8eab2c78c5|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|152101100|114903590|1dfd0723-bcd8-4431-b52f-492f13075eef|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|111103600|bf0b1de9-5b7a-4e0d-a50d-f83838161caf|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|112370260|aa3203df-dce0-4b8c-bda2-4ea535855968|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|113636930|d2e55b9b-f0c2-4b3b-adc3-e65fbf8c4b2d|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|153367760|114903590|b0e6f62a-57ab-4ae8-b4f5-ff0df545fdb0|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|111103600|0246e079-1cf1-4d5e-8116-597109f98c5b|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|112370260|adda4b40-80dd-4d53-8154-db929423dcf6|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|113636930|b5fcc91b-fe26-4f54-803f-0eba48f80609|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|154634430|114903590|2b424a8d-2c36-497c-96c6-35ceb42591e0|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|111103600|e98ae4f3-2afb-4333-a358-8bf7474785d9|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|112370260|5deda764-9521-414b-bc6a-a4c65ec04b6d|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|113636930|39207626-8371-4383-b862-67dc1e7ca514|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ],
+        [
+          "items_not_allowed|155901090|114903590|2770b474-8daa-4410-b04f-ea558edd65c9|00000000-0000-0000-0000-000000000000",
+          "GND thermal via under U1 in Sofar's keepout, same as the mote; kept (DESIGN D34)"
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -146,22 +211,22 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.1,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
-        "min_hole_to_hole": 0.25,
+        "min_hole_to_hole": 0.2,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
-        "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
-        "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.0,
+        "min_silk_clearance": 0.15,
+        "min_text_height": 1.0,
+        "min_text_thickness": 0.15,
+        "min_through_hole_diameter": 0.2,
+        "min_track_width": 0.1,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_via_diameter": 0.45,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -178,6 +243,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -189,6 +255,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -200,6 +267,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -572,6 +640,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
+      "same_local_global_power": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
@@ -637,8 +706,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
-    "netclass_assignments": null,
+    "net_colors": {},
+    "netclass_assignments": {},
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -2011,7 +2080,7 @@
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
-    "used_designators": "JP3-4,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-94,#FLG4-9,J2-4,J6,R9-10,R24,R36,R47,F1,C59",
+    "used_designators": "#FLG4-9,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-94,C59,F1,J2-4,J6,JP3-4,R9-10,R24,R36,R47",
     "variants": []
   },
   "sheets": [
