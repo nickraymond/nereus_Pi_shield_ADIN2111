@@ -30172,7 +30172,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): part not chosen, socket height open. In JLC stock on 2026-11-11: ZHOURI 2.54-2*20 C2977589 (37,698), Megastar ZX-PM2.54-2-20PY C7499354 (6,641), both 8.5 mm by JLC's text"
+		(property "SOURCING" "JLC stock (read 2026-11-11); a through-hole part on the bottom side, JLC assembly type: wave soldering"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30186,7 +30186,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "TBD"
+		(property "PLANNED MPN" "2.54-2*20"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30200,7 +30200,63 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" ""
+		(property "ALT1 MPN" "ZX-PM2.54-2-20PY"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "40d8c95c-c842-4a88-9240-45989a69fa92")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "ALT1 MFR" "Megastar"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bd7dcf96-a556-404d-bf78-8f415b4e3e74")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "ALT1 LCSC" "C7499354"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a5967227-0db4-4b44-8a21-e2dfe22d588e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "ALT NOTE" "Same 8.5 mm height and 3.2 mm pin length by JLC's attributes, gold on brass, 3 A; JLC stock 6,449 on 2026-11-11. Not chosen: the 5 mm KH-2.54FH-2X20P-H5.0 (C55160398; 12 in stock, fit on the Pi's pins unchecked)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8e50e458-fe81-4e39-b163-25691d3810c2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "PLANNED MFR" "ZHOURI"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30214,7 +30270,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C2977589"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30228,7 +30284,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick)"
+		(property "PLANNED NOTE" "2×20 2.54 mm female through-hole socket, 8.5 mm tall: Nick's decision of 2026-11-11 (the 8 or 8.5 mm header). JLC's attributes: insulation height 8.5 mm, pin length 3.2 mm, gold on brass, 2.5 A; JLC stock 37,633 (need 20). Datasheet not read"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")

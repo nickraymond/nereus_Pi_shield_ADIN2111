@@ -98,10 +98,14 @@ LINES = [
          f"1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A); in JLC stock (read {RD})",
          STOCK + ". A PPTC resettable fuse: kept for this unpotted build on Nick's word (2026-11-11), an exception "
          "to SPEC constraint 8; replace it before a potted build"),
-    line("J1", "TBD", "", "",
-         "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick)",
-         f"OPEN (Nick): part not chosen, socket height open. In JLC stock on {RD}: ZHOURI 2.54-2*20 C2977589 "
-         "(37,698), Megastar ZX-PM2.54-2-20PY C7499354 (6,641), both 8.5 mm by JLC's text"),
+    line("J1", "2.54-2*20", "ZHOURI", "C2977589",
+         f"2×20 2.54 mm female through-hole socket, 8.5 mm tall: Nick's decision of {RD} (the 8 or 8.5 mm header). "
+         "JLC's attributes: insulation height 8.5 mm, pin length 3.2 mm, gold on brass, 2.5 A; JLC stock 37,633 "
+         "(need 20). Datasheet not read",
+         STOCK + "; a through-hole part on the bottom side, JLC assembly type: wave soldering",
+         ALT1_MPN="ZX-PM2.54-2-20PY", ALT1_MFR="Megastar", ALT1_LCSC="C7499354",
+         ALT_NOTE=f"Same 8.5 mm height and 3.2 mm pin length by JLC's attributes, gold on brass, 3 A; JLC stock 6,449 on {RD}. "
+                  "Not chosen: the 5 mm KH-2.54FH-2X20P-H5.0 (C55160398; 12 in stock, fit on the Pi's pins unchecked)"),
     line("J3", "SM04B-SRSS-TB(LF)(SN)", "JST", "C160404",
          f"Qwiic connector (I2C3); in JLC stock (read {RD})"),
     line("L1,L2", "SRF1260-101M", "Bourns", "C6496096",

@@ -201,13 +201,15 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
   the parts chosen there, so their ratings rest on JLC's listing text and constraint 5 is not met for them. To read
   before the order or flag at bring-up: TDK C2012X7S2A105KT000N (C17 / C26; thickness against Sofar's 1.25 mm),
   Samsung CL10A226MQ8NRNC (C31), YAGEO RT0402BRD07100RL (R14 / R18), RALEC RTT021824FTH (R20 / R39), BHFUSE
-  BSMD1206-150-16V (F1), and Stackpole CSRF0603FT10L0 (R8's backup; land pattern against R8's pads).
+  BSMD1206-150-16V (F1), Stackpole CSRF0603FT10L0 (R8's backup; land pattern against R8's pads), and the J1 socket
+  ZHOURI 2.54-2*20 (C2977589; pin size against the footprint's holes, DESIGN D56).
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).
 - ~~U9 (FPF2700MX) obsolete~~ done (S5.a, D18): replaced by TPS26621DRCR (U11). Still
   open: lifecycle-check every BOM part before S6. — done in S5.e (`docs/design-review/bom_lifecycle.md`); the sourcing
-  decisions per flagged part and J1's part number (socket height) are open, for Nick.
+  decisions per flagged part and J1's part number (socket height) were open, for Nick; both are settled for the board
+  ordered at JLC (`docs/design-review/bom_review_2026-11.md`; J1: DESIGN D56).
 - ~~R11's description field (Altium import) reads "RES SMD 205K OHM 1% 1/2W 1992" for a
   0 Ω CRCW1210 jumper: stale import data to clean in S6.~~ done in S6.e for all five CRCW1210 jumpers (R11–R13, R17, R19).
 - Effective capacitance of C56/C57 (GRM21BR61C226ME44) at 5 V DC bias. Murata's

@@ -19,6 +19,32 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-11 — Sprint S9 — PR 35 merged; J1 socket decided (BOM session, late evening)
+
+**Branch:** sprint/9-j1-socket, cut from `main` at `4acd4ff`
+**Files touched:** `BM_Mote_1_Master.kicad_sch` (J1's fields), `nick_raw_routing.kicad_pcb` (J1's hidden footprint fields),
+`scripts/bom_fields_2026_11.py`, BOM CSV / PDF, `bom_review_2026-11.md`, DESIGN (D56), SPEC, TRACKER, checklist, this entry
+**ERC:** 39 items, unchanged  ·  **Net diff:** none (nets identical to the freeze; DRC counts unchanged, 0 open, parity 0)
+**Done:**
+- PR 35 merged to main at 9:03 PM Pacific as `4acd4ff`, on Nick's instruction, after QE round 3 APPROVED on `81879a3`
+  with 0 findings (posted on the PR). Main's files equal the approved commit. The PR branch is deleted on GitHub;
+  only `main` and the three `archive/` tags remain there.
+- Nick, this session's chat: "I would like to use the 8mm or 8.5mm tall header. Add that decision please so all order
+  decisions are final". J1's planned part is ZHOURI 2.54-2*20, JLC C2977589: insulation height 8.5 mm, pin length
+  3.2 mm, gold on brass, 2.5 A by JLC's attributes, stock 37,633 (read 9:06 PM). Backup Megastar C7499354. DESIGN D56.
+- He had asked for the shortest socket first. JLC lists one 5 mm 2×20 through-hole socket (Kinghelm, C55160398): 12 in
+  stock, no datasheet link, fit on the Pi's pins unchecked; nothing shorter at 2.54 mm pitch. Search record:
+  `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/j1_socket_search_2026-11-11.md`.
+- The schematic PDF of the merged board was exported for Nick's look at the cover sheet:
+  `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/pr35_head/nick_raw_routing_schematic_pr35_1d35732.pdf`.
+**Broke/surprised us:**
+- JLC's page gives J1's assembly type as wave soldering; J1 is on the bottom side of a board with parts on both
+  sides. How JLC fits it is not checked.
+- An unquoted shell here-document ate three back-quoted names in a docs commit of PR 35; caught on the diff, fixed in
+  `81879a3` before QE's last round. Here-documents with back-quotes are quoted from now on.
+**Next:** this branch needs a PR, QE and merge on Nick's word; then the JLC export and the Sofar package from main.
+U1 (ADIN2111BCPZ) is the one line not yet at JLC.
+
 ## 2026-11-11 — Sprint S9 / S8 — BOM review of the frozen board for the JLC order (BOM session)
 
 **Branch:** claude/adoring-mclaren-10dc39 (the BOM session's own; fast-forwarded to tag `s9-layout-freeze`). Pushed on
