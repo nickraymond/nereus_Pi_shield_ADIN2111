@@ -756,8 +756,10 @@ outline or silkscreen changed. Evidence: `~/NereusData/nereus_Pi_shield_ADIN2111
       built 1 / 0. The datasheet has no "OPEN Alliance with CRC": that option is the 0 / 0 row ("+ protection",
       "OPEN+PROT"). To run a board that way: re-bridge JP3 to 2–3, or the Pi holds GPIO16 low while the ADIN leaves
       reset (R47; not bench-tested). No layout or schematic change needed
-- [ ] Nick: Sofar Q8 (licence to share derived files) is not sent; the cover keeps Sofar's CC BY-ND notice word for
-      word and the GitHub repository is public
+- [x] Licence decided (Nick, rename session's chat, 2026-11-12, as typed): "I am keeping and inheriting the sale lisence as Sofar"
+      (the same licence as Sofar's). The cover keeps Sofar's CC BY-ND 4.0 notice, the attribution and the logo word
+      for word, as S10 left them; no file changed for this. Q8 stays on the list for Sofar as a request to confirm.
+      The GitHub repository is public and has no LICENSE file
 - [ ] Nick's word to push `sprint/10-repo-rename` (and the tags `s9-layout-freeze`, `archive/schematic-only-project`)
       and open a draft PR; then QE (fresh S10 session), Nick's KiCad look, merge
 - [ ] Nick's KiCad look: the renamed project has been checked with kicad-cli only, not yet opened in the KiCad application

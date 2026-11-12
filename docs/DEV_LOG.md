@@ -57,7 +57,11 @@ BOM fields and 143 sheet file names)
 **Not done:** the renamed project has not been opened in the KiCad application; nothing pushed; no QE; the review
 package README still describes S6's package; Sofar Q8 not sent (the cover keeps Sofar's CC BY-ND notice, the GitHub
 repository is public).
-**Next:** Nick's word to push and open a draft PR; QE in a fresh S10 session; Nick's KiCad look; merge.
+- Later the same morning, Nick, this session's chat: "I am keeping and inheriting the sale lisence as Sofar" (the same licence as Sofar's). Recorded in
+  TRACKER S10 and on Q8 in SOFAR_QUESTIONS; the cover already carries Sofar's notice word for word, so no KiCad file
+  changed. He also gave the word for the push and the draft PR ("The Push onpen draft PR - this is the last step now I
+  am sending to Sofar").
+**Next:** QE in a fresh S10 session on the draft PR; Nick's KiCad look; merge.
 
 ## 2026-11-11 — Sprint S9 — PR 35 merged; J1 socket decided (BOM session, late evening)
 
