@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Find (and optionally fix) symbol pins whose end sits in the middle of a wire.
 
+Legacy since S10 (2026-11-12): written for the schematic-only project that left the tree in S10 (tag
+`archive/schematic-only-project`) and for KiCad 9 files; `tools/check.sh` no longer runs it. Kept with its test.
+
 Altium connects a pin that touches a wire anywhere along it; KiCad only
 connects at wire ends. The Altium import left such pins unconnected. KiCad 9
 needs the wire split at the pin (a junction alone is not enough when loading

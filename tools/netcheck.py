@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Compare schematic connectivity against the mote's copper.
 
+Legacy since S10 (2026-11-12): written for the schematic-only project that left the tree in S10 (tag
+`archive/schematic-only-project`) and for KiCad 9 files; `tools/check.sh` no longer runs it. Kept with its test.
+
 Reads the mote board (read-only) and a KiCad netlist exported from our
 schematic, then compares which pins are joined together. Net names are
 ignored (the Altium import renamed them); only parts present in both designs

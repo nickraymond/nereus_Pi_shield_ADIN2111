@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """ERC exclusions from a reviewed table of reasons.
 
+Legacy since S10 (2026-11-12): written for the schematic-only project that left the tree in S10 (tag
+`archive/schematic-only-project`) and for KiCad 9 files; `tools/check.sh` no longer runs it. Kept with its test.
+
 KiCad 9 stores each ERC exclusion in the .kicad_pro as [key, comment], where key is
 "type|x|y|item-uuid|aux-uuid|sheet-path|item-sheet-path|aux-sheet-path" with x, y in
 schematic internal units (100 nm) — see KiCad 9.0 eeschema/sch_marker.cpp,
