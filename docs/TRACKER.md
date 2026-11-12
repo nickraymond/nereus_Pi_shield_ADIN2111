@@ -760,8 +760,18 @@ outline or silkscreen changed. Evidence: `~/NereusData/nereus_Pi_shield_ADIN2111
       (the same licence as Sofar's). The cover keeps Sofar's CC BY-ND 4.0 notice, the attribution and the logo word
       for word, as S10 left them; no file changed for this. Q8 stays on the list for Sofar as a request to confirm.
       The GitHub repository is public and has no LICENSE file
-- [ ] Nick's word to push `sprint/10-repo-rename` (and the tags `s9-layout-freeze`, `archive/schematic-only-project`)
-      and open a draft PR; then QE (fresh S10 session), Nick's KiCad look, merge
+- [x] Pushed on Nick's word (rename session's chat, 2026-11-12: "The Push onpen draft PR - this is the last step now I am
+      sending to Sofar"): branch, tags `s9-layout-freeze` and `archive/schematic-only-project`, **draft PR 37**
+      (https://github.com/nickraymond/nereus_Pi_shield_ADIN2111/pull/37)
+- [x] **QE waived for PR 37 by Nick** (rename session's chat, 2026-11-12: "I want to send the design file to SOFAR asap, no
+      QE need. I just want all the files on main to be committed so I can pull a local ycopy and send them a zip").
+      Rule 3's QE nibble is skipped for this PR on his word; the checks are the design session's own (`tools/check.sh`,
+      commit messages). No independent review has confirmed them
+- [x] Sofar questions (Nick, same chat: "all but Q13 have been resolved"; "remove them from the list at the next update"):
+      `docs/SOFAR_QUESTIONS.md` lists Q13 alone as open; Q2 and Q6 to Q12 are marked resolved on his word, their answers
+      not yet written down. The three review points the tracker marks "pending Sofar" (four generic BOM lines, the
+      0.2 mm link at L1, U10's input capacitor) are left as written: his sentence named the numbered questions
+- [ ] Merge of PR 37 to main, on Nick's word
 - [ ] Nick's KiCad look: the renamed project has been checked with kicad-cli only, not yet opened in the KiCad application
 - [ ] After the merge, on Nick's main checkout: `experiments/nick_raw_routing/` will stay behind holding KiCad's own
       local files (lock files, `.kicad_prl`); clear it by hand

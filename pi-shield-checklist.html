@@ -95,7 +95,7 @@ th{background:var(--code-bg)}
   <h1>Mote → Pi Zero 2W shield</h1>
   <p class="sub">Turning a copy of the BM mote into <code>Nereus_Pi_Shield_Adin2111</code>. Claude Code owns schematic capture up to a design-review package; you own review, layout and bring-up. Filter by owner, tap any item for detail.</p>
   <div class="status">
-    <p><strong>Updated 2026-11-12 · Now: S10, the project is renamed Nereus_Pi_Shield_Adin2111 and sits at the repo root (branch sprint/10-repo-rename, not pushed: it waits on your word, then QE and your look in KiCad)</strong> Names only: nets, parts, copper and silkscreen are unchanged; the board equals the freeze tag apart from hidden BOM fields and 143 sheet file names. The ADIN strap tables are checked against the datasheet: all four rows match, and the OPEN Alliance option you asked about is the "+ protection" row. Fresh schematic.pdf and a new board.pdf are in docs/design-review. State before (2026-11-11, PR 35): the board is fully routed under JLC's rules: 0 open connections, parity 0, and 3 DRC errors left on purpose (skew on Sofar's data pairs, waiting on Sofar). You froze the layout on 2026-11-11 (tag s9-layout-freeze, board of step 24). After the freeze: the cover sheet shows the board's top and bottom view (step 25), and the BOM review is done (docs/design-review/bom_review_2026-11.md): 51 of 53 lines are ready to order, and the parts you bought on 10/18 and 10/20 read "Complete" at JLC except U1. PR 35 carried all of it to main; QE's first round asked for changes (docs/design-review/qe/S9.md), all answered. You answered QE's questions the same evening: R38 stays 13.3 kΩ with a bench check, F1 stays for this unpotted build, the two old board files are gone, JP1 is a selector as built (DESIGN D52 to D55). QE approved in round 3 and PR 35 was merged to main the same evening. J1 is the 8.5 mm socket (your decision), so every part decision of the BOM is made. Open: U1 has not reached JLC (it stops the PCBA order), and the JLC export.</p>
+    <p><strong>Updated 2026-11-12 · Now: S10, the project is renamed Nereus_Pi_Shield_Adin2111 and sits at the repo root (branch sprint/10-repo-rename, draft PR 37; you waived QE for it so the files can go to Sofar)</strong> Names only: nets, parts, copper and silkscreen are unchanged; the board equals the freeze tag apart from hidden BOM fields and 143 sheet file names. The ADIN strap tables are checked against the datasheet: all four rows match, and the OPEN Alliance option you asked about is the "+ protection" row. Fresh schematic.pdf and a new board.pdf are in docs/design-review. State before (2026-11-11, PR 35): the board is fully routed under JLC's rules: 0 open connections, parity 0, and 3 DRC errors left on purpose (skew on Sofar's data pairs, waiting on Sofar). You froze the layout on 2026-11-11 (tag s9-layout-freeze, board of step 24). After the freeze: the cover sheet shows the board's top and bottom view (step 25), and the BOM review is done (docs/design-review/bom_review_2026-11.md): 51 of 53 lines are ready to order, and the parts you bought on 10/18 and 10/20 read "Complete" at JLC except U1. PR 35 carried all of it to main; QE's first round asked for changes (docs/design-review/qe/S9.md), all answered. You answered QE's questions the same evening: R38 stays 13.3 kΩ with a bench check, F1 stays for this unpotted build, the two old board files are gone, JP1 is a selector as built (DESIGN D52 to D55). QE approved in round 3 and PR 35 was merged to main the same evening. J1 is the 8.5 mm socket (your decision), so every part decision of the BOM is made. Open: U1 has not reached JLC (it stops the PCBA order), and the JLC export.</p>
     <p><strong>Rating:</strong> the mote's own, ~20 W absolute max = 890 mA per port inductor at 24 V; every power-path part stays as Sofar built it, except the payload load switch (D17). 50 W waits for a later spin, scoped with the motor (see Later). <strong>Potted:</strong> newly sourced parts can't be electrolytics or PPTCs; vetted Sofar parts stay as they are.</p>
     <p class="small">This page mirrors <code>docs/TRACKER.md</code>. Agents set <span class="repo">✓ in repo</span> with every PR. Your own ticks are saved in this browser only.</p>
   </div>
@@ -313,26 +313,27 @@ const S = [
   ["Step 7: docs", `<p>TRACKER, DESIGN D57, SPEC, CLAUDE.md, README, QE agent file, this page, DEV_LOG.</p>`, null, 1],
   ["ADIN straps checked against the datasheet", `<p>ADIN2111 Rev. B, Table 22: CFG1 / CFG0 = 0 / 0 OPEN Alliance with Protection, 0 / 1 OPEN Alliance Without Protection, 1 / 0 Generic SPI with 8-bit CRC, 1 / 1 Generic SPI Without 8-bit CRC. The schematic table and the bottom silkscreen match in all four rows; as built 1 / 0. There is no mode named \"OPEN Alliance with CRC\": that option is the 0 / 0 row. To run a board that way: re-bridge JP3 to 2–3, or the Pi holds GPIO16 low at the ADIN's reset (not bench-tested). Nothing edited.</p>`, null, 1],
   ["Licence: the same as Sofar's", `<p>Your decision of 2026-11-12: the shield keeps and inherits Sofar's licence. The cover keeps Sofar's CC BY-ND 4.0 notice, attribution and logo word for word. Q8 stays on the list for Sofar as a request to confirm. The GitHub repository is public and has no LICENSE file.</p>`, "nick", 1],
-  ["Your word to push and open a draft PR", `<p>Branch sprint/10-repo-rename and the tags s9-layout-freeze and archive/schematic-only-project are local. Then QE (fresh S10 session), your look in KiCad, merge.</p>`, "nick"],
+  ["Pushed; draft PR 37; QE waived by you", `<p>PR 37: https://github.com/nickraymond/nereus_Pi_shield_ADIN2111/pull/37. You on 2026-11-12: no QE needed, the files go to Sofar as soon as possible. Merge to main on your word.</p>`, "nick", 1],
   ["Your look in KiCad", `<p>Checked with kicad-cli only so far. <code>open ~/Documents/GitHub/nereus_Pi_shield_ADIN2111/.claude/worktrees/trusting-dubinsky-3449c4/Nereus_Pi_Shield_Adin2111/Nereus_Pi_Shield_Adin2111.kicad_pro</code></p>`, "nick"],
   ["After the merge: clear the old folder on your checkout", `<p><code>experiments/nick_raw_routing/</code> will stay behind on your main checkout holding KiCad's own local files (lock files, .kicad_prl).</p>`, "nick"],
   ["Review package for this board", `<p>docs/design-review/README.md still describes the S6 package of the removed project (header note added).</p>`]
 ]},
 { t:"Questions for Sofar", o:"nick", w:"You", c:"--prj",
-  intro:"Send Q2 and Q6–Q12 when ready (Q3 answered from the datasheet; Q4 is context only); Q1 and Q5 are deferred with the 50 W spin. The layout questions (Q6, Q9–Q12) have a page with a copper render for each. Full wording and answers in docs/SOFAR_QUESTIONS.md. Tick once answered.",
+  intro:"Open with Sofar: Q13 only. You said on 2026-11-12 that all the others are resolved (their answers are not yet written into docs/SOFAR_QUESTIONS.md). Q3 was answered from the datasheet; Q1, Q4 and Q5 are deferred with the 50 W spin.",
   items:[
   ["Q1 Fuse / e-fuse on the through-power path? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. Our 000639-AB copy has none, and Sofar says the mote has no through-current protection. Their guide mentions a Bel C1F2 2 A fuse as a placeholder. What do they recommend at ~50 W, potted?</p>`],
-  ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`],
+  ["Q2 Is R11 fitted?", `<p>0 Ω across the load switch; fitted means always on.</p>`, null, 1],
   ["Q3 What current limit does R34 set on the FPF2700? (answered, don't send)", `<p>From the datasheet you found: ≈ 0.74 A typical, 0.59–0.89 A.</p>`, null, 1],
   ["Q4 Why is the load switch controlled from the mezzanine side?", ``],
   ["Q5 MSD1514-473 tested since the guide? Damping values? (deferred)", `<p>Deferred with the 50 W spin (D12): don't send yet. The guide says it's not qualified at 50 W and that damping should be retuned.</p>`],
-  ["Q6 Insert pad: may we give it the bus net?", `<p>Reworded 2026-10-07: the bus reaches each insert through seven vias in its ring pad.</p>`],
-  ["Q7 D1 source now that ST's SMA6F33A is obsolete?", ``],
-  ["Q8 Licence for sharing the derived shield files?", ``],
-  ["Q9 R12, R13, R17, R19 fitted in production?", `<p>They sit across the PoDL inductor windings.</p>`],
-  ["Q10 Ground-plane slots and power-plane islands: why?", ``],
-  ["Q11 Stackup and fab?", ``],
-  ["Q12 Layout rules when moving a block?", ``]
+  ["Q6 Insert pad: may we give it the bus net?", `<p>Reworded 2026-10-07: the bus reaches each insert through seven vias in its ring pad.</p>`, null, 1],
+  ["Q7 D1 source now that ST's SMA6F33A is obsolete?", ``, null, 1],
+  ["Q8 Licence for sharing the derived shield files?", ``, null, 1],
+  ["Q9 R12, R13, R17, R19 fitted in production?", `<p>They sit across the PoDL inductor windings.</p>`, null, 1],
+  ["Q10 Ground-plane slots and power-plane islands: why?", ``, null, 1],
+  ["Q11 Stackup and fab?", ``, null, 1],
+  ["Q12 Layout rules when moving a block?", ``, null, 1],
+  ["Q13 Data pairs not length-matched: deliberate? Skew limit?", `<p>Open: the one question still to ask. BM1 pair 1.46 mm apart, BM2 pair 3.05 mm apart on the mote; copied 1:1. The 3 DRC skew errors on the board wait on the answer.</p>`]
 ]},
 { t:"Review and decide", o:"nick", w:"You", c:"--prj",
   items:[

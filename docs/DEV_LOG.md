@@ -61,7 +61,11 @@ repository is public).
   TRACKER S10 and on Q8 in SOFAR_QUESTIONS; the cover already carries Sofar's notice word for word, so no KiCad file
   changed. He also gave the word for the push and the draft PR ("The Push onpen draft PR - this is the last step now I
   am sending to Sofar").
-**Next:** QE in a fresh S10 session on the draft PR; Nick's KiCad look; merge.
+- Draft PR 37 opened. Nick then, same chat: "all but Q13 have been resolved" (Sofar questions; SOFAR_QUESTIONS now lists Q13 alone
+  as open, the others marked resolved on his word, answers not recorded) and "I want to send the design file to SOFAR
+  asap, no QE need": QE is waived for PR 37 on his word. No independent review of this sprint's checks.
+**Next:** merge PR 37 on Nick's word; he pulls main and sends Sofar a zip. Later: the answers to Q2 and Q6 to Q12 into
+SOFAR_QUESTIONS; `sofar_brief.md` brought up to the board.
 
 ## 2026-11-11 — Sprint S9 — PR 35 merged; J1 socket decided (BOM session, late evening)
 
