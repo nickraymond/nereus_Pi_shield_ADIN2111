@@ -1,7 +1,7 @@
 # SPEC.md — nereus_Pi_shield_ADIN2111
 
 *What Nick wants. Stable reference — agents skim this; changes require Nick's approval.*
-*Last updated: 2026-11-11*
+*Last updated: 2026-11-12*
 
 ## Goal
 
@@ -31,7 +31,8 @@ production (DESIGN D12).
 
 | Item | Location | Role |
 |---|---|---|
-| Live KiCad project | `nereus_Pi_shield_ADIN2111/` (renamed from `_002` in S0.1) | The design. The only thing agents edit. |
+| Live KiCad project | `Nereus_Pi_Shield_Adin2111/` (the JLC board; `experiments/nick_raw_routing/` until 2026-11-12, DESIGN D57) | The design: schematic and frozen board. Edited only by scripted steps on Nick's go (constraint 1). |
+| Schematic-only project of S0–S6 | git tag `archive/schematic-only-project` (was `nereus_Pi_shield_ADIN2111/`) | Out of the tree since S10; behind the JLC board (DESIGN D54). |
 | Mote reference | `KiCAD_reference_designs/20250409_BM_Mote_000639-AB/` | Its `.kicad_pcb` copper is the truth for kept nets. Read-only. |
 | UrchinCam | `KiCAD_reference_designs/UrchinCam-main/` | Prior art for a Pi shield. Read-only. |
 | Archive | `Archive/` | Earlier iterations and the junction fix. Read-only. |
@@ -151,6 +152,8 @@ production (DESIGN D12).
    *Amendment (Nick, 2026-11-11, DESIGN D54): the board in `experiments/nick_raw_routing/` is the board ordered at JLC
    and lives on `main` (PR 35), on Nick's instruction "Lets merge all of this [onto] main". Agents edited it by
    scripted steps on Nick's go (D33); since the layout freeze of 2026-11-11 only its hidden footprint fields change.*
+   *Since 2026-11-12 (Nick: "make the changes"; DESIGN D57) that board's project is `Nereus_Pi_Shield_Adin2111/` at the
+   repo root, and it is the live project. The JLC board in `Nereus_Pi_Shield_Adin2111/` is edited only by scripted steps on Nick's go (D33, D54) and is frozen since 2026-11-11: no copper, part, outline or silkscreen change without a new word from Nick.*
 2. KiCad stays closed while an agent edits project files. The agent confirms
    this with Nick before its first edit of each session.
 3. Every net the design keeps must match the mote's copper, proven by a

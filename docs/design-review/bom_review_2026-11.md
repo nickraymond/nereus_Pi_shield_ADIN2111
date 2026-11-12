@@ -1,10 +1,10 @@
 # BOM review for the JLC order (2026-11-11)
 
-*Board: `experiments/nick_raw_routing/`, layout frozen at tag `s9-layout-freeze` (board of step 24). Build: 20 boards,
+*Board: `Nereus_Pi_Shield_Adin2111/` (`experiments/nick_raw_routing/` until 2026-11-12), layout frozen at tag `s9-layout-freeze` (board of step 24). Build: 20 boards,
 JLC PCBA. Stock read Wed 2026-11-11, 4:24 to 4:31 PM Pacific, from JLC's parts search (not signed in). Stock changes
 daily: read it again on the order screen.*
 
-**The BOM:** [`bom_nick_raw_routing.csv`](bom_nick_raw_routing.csv) and [`bom_nick_raw_routing.pdf`](bom_nick_raw_routing.pdf),
+**The BOM:** [`bom.csv`](bom.csv) and [`bom.pdf`](bom.pdf) (named `bom_nick_raw_routing.*` until 2026-11-12),
 53 lines, 108 fitted parts per board plus R11 (not fitted). They are exported from this board's own schematic, not
 from the live project. `bom.csv` and `bom.pdf` in this folder belong to the live project and are older.
 
@@ -98,7 +98,7 @@ Four lines keep a generic part, because Sofar's part has no stock and Sofar's fi
 | R14, R18 | RR0510P-101-D (0) | YAGEO RT0402BRD07100RL, C705627 (345,748) | 100 Ω thin film 0402, ±25 ppm; ±0.1 % against Sofar's ±0.5 % |
 | R20, R39 | CRCW04021M82FKED (0) | RALEC RTT021824FTH, C166520 (7,566) | 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402 |
 
-These four were already the planned parts in the review sheet of 10/23 (`experiments/nick_raw_routing/
+These four were already the planned parts in the review sheet of 10/23 (`Nereus_Pi_Shield_Adin2111/history/
 pi_adin_shield_bom_for_review.xlsx`). Whether Sofar agreed to them is not recorded in the repo.
 
 ## Alternates in Sofar's mote file
@@ -209,9 +209,9 @@ Need = 20 boards × quantity + JLC's attrition for that listing. Source of every
 - Reports: `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/` (`erc_after2.json`, `drc_after2.json`,
   `net_before.net`, `net_after2.net`).
 
-Regenerate: `python3 experiments/nick_raw_routing/scripts/bom_fields_2026_11.py` (dry run; `--write` edits), then
-`bom_fields_board_sync_2026_11.py`; the CSV with the `kicad-cli sch export bom` line in DEV_LOG's entry of 2026-11-11;
-the PDF with `python3 tools/bompdf.py docs/design-review/bom_nick_raw_routing.csv docs/design-review/bom_nick_raw_routing.pdf "<board>" "<note>"`.
+Regenerate: `python3 Nereus_Pi_Shield_Adin2111/scripts/bom_fields_2026_11.py` (dry run; `--write` edits), then
+`bom_fields_board_sync_2026_11.py`; the CSV with `tools/check.sh` (the `kicad-cli sch export bom` line of DEV_LOG's entry of 2026-11-11);
+the PDF with `python3 tools/bompdf.py docs/design-review/bom.csv docs/design-review/bom.pdf "<board>" "<note>"`.
 
 ## Not done here
 

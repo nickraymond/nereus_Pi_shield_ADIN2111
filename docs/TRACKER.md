@@ -1,7 +1,10 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-11-11 · Owner/gate: **Nick***
+*Last updated: 2026-11-12 · Owner/gate: **Nick***
+*Since 2026-11-12 (S10, DESIGN D57) the JLC board's project is `Nereus_Pi_Shield_Adin2111/` at the repo root. In the dated
+items below, `experiments/nick_raw_routing/`, `nick_raw_routing.*` and `BM_Mote_1_*` are its old names, and
+`nereus_Pi_shield_ADIN2111/` is the schematic-only project of S0–S6 (out of the tree; tag `archive/schematic-only-project`).*
 
 ---
 
@@ -42,11 +45,11 @@
    **Every deliberate change from Sofar's mote goes in `docs/design-review/sofar_brief.md`**
    (one row: mote vs shield vs why), shipped with the board files.
 7. **Facts carry sources; unknowns get flagged, not guessed.**
-8. **KiCad files:** never write a `.kicad_pcb` (exception: a layout experiment's own board in `experiments/<name>/`, D31). Reference designs and
+8. **KiCad files:** never write a `.kicad_pcb` (exception: a layout experiment's own board in `experiments/<name>/`, D31). The JLC board in `Nereus_Pi_Shield_Adin2111/` is edited only by scripted steps on Nick's go (D33, D54) and is frozen since 2026-11-11: no copper, part, outline or silkscreen change without a new word from Nick. Reference designs and
    `Archive/` are read-only. After every `.kicad_sch` text edit, kicad-cli must
    load the schematic and ERC must run, or the edit is not done.
 9. **The board is Nick's.** Answer layout and routing questions; don't act on them, except inside an approved layout
-   experiment (`experiments/`, D31), which is never merged.
+   experiment (`experiments/`, D31), which is never merged. For the JLC board see rule 8.
 
 ### Check command
 
@@ -54,9 +57,12 @@
 tools/check.sh
 ```
 
-This runs ERC, netlist export, PDF export and `tools/netcheck.py`. Raw outputs
-go to `docs/design-review/out/` (git-ignored); `docs/design-review/netcheck.md`
-is tracked. The exit code is netcheck's (0 = matches the copper). Tool tests:
+This checks the JLC board's project `Nereus_Pi_Shield_Adin2111/`: ERC, DRC with schematic parity, the board against
+the freeze tag (`Nereus_Pi_Shield_Adin2111/scripts/verify_against_freeze.py`), netlist, PDF and BOM export. Raw outputs
+go to `docs/design-review/out/` (git-ignored); `docs/design-review/bom.csv` is tracked. Exit code 0 = every figure is
+the recorded one (ERC 39; DRC 3 errors not excluded, 16 excluded, 0 unconnected, 0 parity; 143 parts, 110 nets).
+Board drawings: `tools/boardpdf.sh` → `docs/design-review/board.pdf`. `netcheck.py`, `midwire.py` and `ercexclude.py`
+are legacy since S10 (they target the schematic-only project of S0–S6). Tool tests:
 `python3 tools/test_netcheck.py` and `python3 tools/test_midwire.py`, `python3 tools/test_schedit.py`, `python3 tools/test_ercsum.py`, `python3 tools/test_fpextract.py`, `python3 tools/test_ercexclude.py`, `python3 tools/test_fpattrs.py` and `python3 tools/test_bompdf.py`. ERC tables: `python3 tools/ercsum.py --items`.
 ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate from `docs/design-review/erc_justifications.csv`).
 
@@ -65,8 +71,8 @@ ERC exclusions: `python3 tools/ercexclude.py` (check) / `--write` (regenerate fr
 ```
 docs/                         SPEC TRACKER DESIGN POWER_PATH SOFAR_QUESTIONS DEV_LOG PROMPTS
 docs/design-review/           netcheck.md, out/ (check outputs), final review package
-nereus_Pi_shield_ADIN2111/    live KiCad project (the only design agents edit)
-tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py, bompdf.py (+ tests)
+Nereus_Pi_Shield_Adin2111/    live KiCad project = the JLC board (frozen 2026-11-11; rule 8); scripts/, history/
+tools/                        check.sh, netcheck.py, midwire.py, schedit.py, ercsum.py, fpextract.py, ercexclude.py, fpattrs.py, bompdf.py (+ tests), boardpdf.sh
 experiments/                  layout experiments (D31): briefs on main; each run on its own branch, never merged
 KiCAD_reference_designs/      mote + UrchinCam (read-only)
 Archive/                      earlier iterations, junction fix (read-only)
@@ -656,9 +662,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       to work with Open Alliance + CRC ... so we want to keep Generic with CRC". CFG1 = 1, CFG0 = 0 stays (review finding R-S2
       closed, no board change). His schematic table has no row named "OPEN Alliance + CRC"; its OPEN Alliance rows are
       "+ protection" (0 / 0, the mote's setting) and "no protection" (0 / 1)
-- [ ] Nick: the four strap modes on the bottom silkscreen (step 12) are copied from the schematic's table. Only 0 / 0 = OPEN
+- [x] Nick: the four strap modes on the bottom silkscreen (step 12) are copied from the schematic's table. Only 0 / 0 = OPEN
       Alliance SPI with protection is checked against the datasheet (SPEC, Table 22); the datasheet could not be fetched on
-      2026-11-10 to check the other three. Check them before the board is ordered
+      2026-11-10 to check the other three. Check them before the board is ordered. **Checked 2026-11-12 (S10): all four
+      rows match Table 22**
 - [x] Nick accepted 2026-11-11 (his comment on the summary doc, row "Text stroke weight", 199 warnings): "accept, lets see if JLC
       pushes back once I submit designs". The stroke-weight warnings stay
 - [x] Nick approved 2026-11-11 (his comment on the summary doc, row "Text height": "approve, see if JLC pushes back once we submit
@@ -706,10 +713,75 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [ ] Final fab outputs (gerbers, drill, BOM, CPL) → QE review → Nick's KiCad look. Check U6's mask openings and paste dots in the
       gerbers. CPL: filter the placement export against the
       BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
-**Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
+**Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all Nereus_Pi_Shield_Adin2111/Nereus_Pi_Shield_Adin2111.kicad_pcb`
 → on the frozen board with the BOM fields (PR 35): 3 errors not excluded (skew on Sofar's data pairs, pending Sofar), 16
-excluded, 0 unconnected items, 0 parity issues. `kicad-cli sch erc --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_sch`
+excluded, 0 unconnected items, 0 parity issues. `kicad-cli sch erc --severity-all Nereus_Pi_Shield_Adin2111/Nereus_Pi_Shield_Adin2111.kicad_sch`
 → 39 items.
+
+### S10 — Repo clean-up: the project is `Nereus_Pi_Shield_Adin2111`  `[~]`
+*Nick's six requests of 2026-11-12, as quoted in the brief the BOM session gave this session (not read at the source
+here): one consistent project name `Nereus_Pi_Shield_Adin2111`; all pages reference it; front-page references to the
+mote change to the board's name; the project moves out of `experiments/` to the main folder; a fresh PDF of the
+drawings; a double check of the ADIN straps. Plan with questions: https://claude.ai/artifact/4SbhgpZhw9QLdpF1voLRtV.
+Go: Nick, rename session's chat, 2026-11-12: "make the changes"; he typed no other answer, so the plan's
+recommendations stand. Branch `sprint/10-repo-rename` from `4a4c14b`. The layout stays frozen: no copper, part,
+outline or silkscreen changed. Evidence: `~/NereusData/nereus_Pi_shield_ADIN2111/rename_2026-11-12/`.*
+- [x] Plan, and proof on a scratch copy before any repo file changed: ERC 39, DRC 3 / 16 excluded / 0 / 0, netlist
+      identical, board different in 143 `sheetfile` lines only, gerbers and drill equal
+- [x] Step 1 (17830f6): the schematic-only project `nereus_Pi_shield_ADIN2111/` (S0–S6, behind the JLC board, D54) is out
+      of the tree; local tag `archive/schematic-only-project` on `4a4c14b` keeps it. On this Mac's case-insensitive disk
+      its folder is the same path as the new name, so it had to leave first
+- [x] Step 2 (fd5e61f): `experiments/nick_raw_routing/` → `Nereus_Pi_Shield_Adin2111/`, 124 pure renames
+- [x] Step 3 (01ef6c8), by `scripts/rename_project_2026_11.py`: root files `Nereus_Pi_Shield_Adin2111.kicad_pro / .kicad_sch /
+      .kicad_pcb / .kicad_dru`; sheets `…_TopLevel / _ADIN2111 / _LoadSwitch / _PoDL / _Power / _PowerMonitor.kicad_sch`; 254
+      project instances, 6 `Sheetfile` properties, 143 board `sheetfile` values, 5 `.kicad_pro` values (PCBPARTNAME: the cover
+      title and line 1 of every title block). Netlist identical (143 parts, 110 nets, value / footprint / fields); ERC 39;
+      DRC 3 / 16 / 0 / 0; `scripts/verify_against_freeze.py`: identical to the freeze apart from the BOM fields and sheet
+      file names; plain diff of the board 143 lines, all `sheetfile`; gerbers and drill (28 files) equal
+- [x] Kept on purpose (DESIGN D57): sheet names in KiCad (part of 53 of 110 net names), library names, the board's printed
+      name "Pi Shield / ADIN2111 Rev0", Sofar's attribution on every title block, the licence notice and CC logo on the cover
+- [x] Step 4 (dffe78c): eight leftovers (three zips, the outline-import board, old netlist, PDF, review sheet, `nereus.bak`)
+      into `Nereus_Pi_Shield_Adin2111/history/`; 12 scripts and `scripts/README.md` follow the new names
+- [x] Step 5 (d3f2de6): cover revision line: rev AA, 2026-11-11 (layout freeze, also the date in all 7 title blocks),
+      "First build (Rev0); derived from Sofar mote 000639-AB". The plan's longer wording ran past the table's edge
+- [x] Step 6 (1cc11b8): `tools/check.sh` checks this board; `netcheck` / `midwire` / `ercexclude` marked legacy; this
+      board's BOM is `docs/design-review/bom.csv` / `bom.pdf` (CSV byte for byte the former `bom_nick_raw_routing.csv`);
+      fresh `schematic.pdf` (7 sheets); new `board.pdf` (9 pages, `tools/boardpdf.sh`)
+- [x] Step 7: TRACKER, DESIGN (D57, sheet hierarchy), SPEC (inventory, constraint 1), CLAUDE.md, README, QE agent file,
+      review-package README note, BOM review paths, checklist, DEV_LOG
+- [x] **ADIN straps checked, nothing edited** (Nick's item 6; closes the S9 item "only 0 / 0 is checked"): ADIN2111
+      Rev. B, Table 22 (page 27; PDF with the SHA-256 SPEC cites): CFG1 / CFG0 = 0 / 0 OPEN Alliance with Protection,
+      0 / 1 OPEN Alliance Without Protection, 1 / 0 Generic SPI with 8-bit CRC, 1 / 1 Generic SPI Without 8-bit CRC. The
+      schematic table and the bottom silkscreen table match in all four rows; JP3 / JP4 end marks match their pads; as
+      built 1 / 0. The datasheet has no "OPEN Alliance with CRC": that option is the 0 / 0 row ("+ protection",
+      "OPEN+PROT"). To run a board that way: re-bridge JP3 to 2–3, or the Pi holds GPIO16 low while the ADIN leaves
+      reset (R47; not bench-tested). No layout or schematic change needed
+- [x] Licence decided (Nick, rename session's chat, 2026-11-12, as typed): "I am keeping and inheriting the sale lisence as Sofar"
+      (the same licence as Sofar's). The cover keeps Sofar's CC BY-ND 4.0 notice, the attribution and the logo word
+      for word, as S10 left them; no file changed for this. Q8 stays on the list for Sofar as a request to confirm.
+      The GitHub repository is public and has no LICENSE file
+- [x] Pushed on Nick's word (rename session's chat, 2026-11-12: "The Push onpen draft PR - this is the last step now I am
+      sending to Sofar"): branch, tags `s9-layout-freeze` and `archive/schematic-only-project`, **draft PR 37**
+      (https://github.com/nickraymond/nereus_Pi_shield_ADIN2111/pull/37)
+- [x] **QE waived for PR 37 by Nick** (rename session's chat, 2026-11-12: "I want to send the design file to SOFAR asap, no
+      QE need. I just want all the files on main to be committed so I can pull a local ycopy and send them a zip").
+      Rule 3's QE nibble is skipped for this PR on his word; the checks are the design session's own (`tools/check.sh`,
+      commit messages). No independent review has confirmed them
+- [x] Sofar questions (Nick, same chat: "all but Q13 have been resolved"; "remove them from the list at the next update"):
+      `docs/SOFAR_QUESTIONS.md` lists Q13 alone as open; Q2 and Q6 to Q12 are marked resolved on his word, their answers
+      not yet written down. The three review points the tracker marks "pending Sofar" (four generic BOM lines, the
+      0.2 mm link at L1, U10's input capacitor) are left as written: his sentence named the numbered questions
+- [ ] Merge of PR 37 to main, on Nick's word
+- [ ] Nick's KiCad look: the renamed project has been checked with kicad-cli only, not yet opened in the KiCad application
+- [ ] After the merge, on Nick's main checkout: `experiments/nick_raw_routing/` will stay behind holding KiCad's own
+      local files (lock files, `.kicad_prl`); clear it by hand
+- [ ] The review package README (`docs/design-review/README.md`) still describes the S6 package of the removed project
+      (header note added); a package for this board is not written
+**Demo (Nick):** `tools/check.sh` → `ERC:      39 items`, `DRC:      3 errors not excluded, 16 excluded, 0 unconnected,
+0 parity issues`, `Netlist:  143 parts, 110 nets`, `Freeze:   identical to the freeze apart from the BOM fields and sheet
+file names`, `BOM: … (53 rows)`, exit 0. Open `docs/design-review/schematic.pdf` (7 pages, new name on the cover and in
+every title block) and `board.pdf` (9 pages). In KiCad (worktree until merged):
+`open ~/Documents/GitHub/nereus_Pi_shield_ADIN2111/.claude/worktrees/trusting-dubinsky-3449c4/Nereus_Pi_Shield_Adin2111/Nereus_Pi_Shield_Adin2111.kicad_pro`
 
 ---
 

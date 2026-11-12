@@ -4,6 +4,13 @@
 **Based on:** Sofar Bristlemouth mote 000639-AB (KiCad copy of the Altium design), PoDL / ADIN2111 front end and power
 path kept as Sofar designed them (DESIGN D12). **Package assembled:** 2026-10-06 (Sprint S6).
 
+> **2026-11-12 (S10, DESIGN D57).** This page describes the S6 package of the schematic-only project, which left the
+> tree in S10 (tag `archive/schematic-only-project`). In this folder `schematic.pdf`, `board.pdf`, `bom.csv` and `bom.pdf`
+> now belong to the board ordered at JLC, `Nereus_Pi_Shield_Adin2111/`, and `tools/check.sh` checks that board (expected
+> lines: TRACKER, S10 demo). `netcheck.md`, `erc_justifications.csv`, `excluded_parts.txt`, `changelog.md` and
+> `footprints.md` are the S6 record; the figures and commands below are S6's and no longer run as written. A package
+> for the JLC board is not written yet.
+
 ## Status at a glance
 
 | Check | Result | Where |

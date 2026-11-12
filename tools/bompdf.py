@@ -43,7 +43,7 @@ def alt(r, n):
 def build(rows, board="PCB-000001-AA rev AA", source="docs/design-review/bom.csv",
           note="(for Sofar's review; nothing adopted before it, D26/D27)"):
     changed = [r for r in rows if r["Planned MPN"] and r["Planned MPN"] != r["Value (MPN)"]]
-    head = (f"<h2>nereus_Pi_shield_ADIN2111 — BOM for review</h2>"
+    head = (f"<h2>Nereus_Pi_Shield_Adin2111 — BOM for review</h2>"
             f"<p>{esc(board)} · from <tt>{esc(source)}</tt> · {date.today().isoformat()} · "
             f"{len(rows)} lines, {sum(int(r['Qty']) for r in rows if not r['DNP'])} fitted parts per board "
             f"(+ {sum(int(r['Qty']) for r in rows if r['DNP'])} DNP) · "

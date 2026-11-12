@@ -11,7 +11,7 @@ reviews, lays out, routes and brings up the board.
 ## Folders
 
 ```
-nereus_Pi_shield_ADIN2111/   live KiCad 9 project — open the .kicad_pro
+Nereus_Pi_Shield_Adin2111/   live KiCad 10 project, the board ordered at JLC — open Nereus_Pi_Shield_Adin2111.kicad_pro
 docs/                        spec, tracker, design log, power-path study
 docs/design-review/          ERC, netlist, PDF and the review package
 KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)

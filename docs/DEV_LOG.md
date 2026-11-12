@@ -19,6 +19,54 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-12 — Sprint S10 — The project is Nereus_Pi_Shield_Adin2111 at the repo root; strap tables checked (rename session)
+
+**Branch:** sprint/10-repo-rename, cut from `main` at `4a4c14b`; seven commits (17830f6, fd5e61f, 01ef6c8, dffe78c,
+d3f2de6, 1cc11b8 and the docs commit). Not pushed, no PR.
+**Files touched:** the whole project folder (moved and renamed), `tools/check.sh`, `tools/boardpdf.sh`, `tools/pdfmerge.js`,
+`tools/bompdf.py`, three legacy tool docstrings, `docs/design-review/` (`bom.csv`, `bom.pdf`, `schematic.pdf`, `board.pdf`,
+README note, BOM review paths), TRACKER, DESIGN (D57), SPEC, CLAUDE.md, README, QE agent file, checklist, this entry
+**ERC:** 39 items, unchanged  ·  **Net diff:** none (143 parts, 110 nets, values, footprints and fields identical; DRC 3
+errors not excluded, 16 excluded, 0 unconnected, 0 parity; the board equals tag `s9-layout-freeze` apart from the hidden
+BOM fields and 143 sheet file names)
+**Done:**
+- /agent-entry; plan with 16 questions for Nick (https://claude.ai/artifact/4SbhgpZhw9QLdpF1voLRtV); the rename tried on
+  a scratch copy first. Nick, this session's chat: "make the changes"; KiCad closed on his word ("Closed, go ahead"),
+  confirmed with pgrep. He typed no answer to the plan's questions, so its recommendations were followed.
+- Seven steps, each with its checks in the commit message: old schematic-only project out (tag
+  `archive/schematic-only-project`); folder moved; project files and six sheets renamed by
+  `scripts/rename_project_2026_11.py`; leftovers into `history/`; cover revision line; check script, BOM names and PDFs;
+  docs. Details: TRACKER S10, DESIGN D57.
+- ADIN strap tables checked against the datasheet Nick supplied (`~/Downloads/adin2111.pdf`, the SHA-256 SPEC cites),
+  Table 22 on page 27 read from the rendered page: all four rows of the schematic table and the bottom silkscreen
+  match; "OPEN Alliance with CRC" is the datasheet's "OPEN Alliance with Protection" (0 / 0). Nothing edited.
+- New `scripts/verify_against_freeze.py` (also run by `tools/check.sh`): the board against the freeze tag with the BOM
+  fields taken out and the sheet file names blanked.
+**Broke/surprised us:**
+- This Mac's disk is case-insensitive: `Nereus_Pi_Shield_Adin2111/` and the old `nereus_Pi_shield_ADIN2111/` are one
+  path, so the old project had to leave the tree before the move. Tried in a throwaway repo: a clean checkout gets the
+  new capitals on pull; a folder that still holds untracked files keeps its old name.
+- The board file never names the project; it names the six sheet files, once per footprint (143 lines).
+- `tools/netcheck.py` reads no nets from a KiCad 10 netlist ("parsed no nets"); `check.sh` no longer calls it.
+- `kicad-cli pcb export pdf` with `--scale` 2, 1.5 or 0 gave empty or near-empty pages; only 1 : 1 plots the board on
+  the page. `board.pdf` is therefore 1 : 1 on A4 (vector).
+- The plan's cover wording "First build, silkscreen Rev0; …" ran past the revision table; "First build (Rev0); …" fits.
+- KiCad was open on the main checkout's `experiments/nick_raw_routing/` when the go came; work started after Nick quit it.
+- No PDF tool is installed (no poppler, no Python PDF library); the datasheet and the PDFs were read through macOS
+  PDFKit from `osascript`.
+**Not done:** the renamed project has not been opened in the KiCad application; nothing pushed; no QE; the review
+package README still describes S6's package; Sofar Q8 not sent (the cover keeps Sofar's CC BY-ND notice, the GitHub
+repository is public).
+- Later the same morning, Nick, this session's chat: "I am keeping and inheriting the sale lisence as Sofar" (the same licence as Sofar's). Recorded in
+  TRACKER S10 and on Q8 in SOFAR_QUESTIONS; the cover already carries Sofar's notice word for word, so no KiCad file
+  changed. He also gave the word for the push and the draft PR ("The Push onpen draft PR - this is the last step now I
+  am sending to Sofar").
+- Draft PR 37 opened. Nick then, same chat: "all but Q13 have been resolved" (Sofar questions; SOFAR_QUESTIONS now lists Q13 alone
+  as open, the others marked resolved on his word, answers not recorded) and "I want to send the design file to SOFAR
+  asap, no QE need": QE is waived for PR 37 on his word. No independent review of this sprint's checks.
+**Next:** merge PR 37 on Nick's word; he pulls main and sends Sofar a zip. Later: the answers to Q2 and Q6 to Q12 into
+SOFAR_QUESTIONS; `sofar_brief.md` brought up to the board.
+
 ## 2026-11-11 — Sprint S9 — PR 35 merged; J1 socket decided (BOM session, late evening)
 
 **Branch:** sprint/9-j1-socket, cut from `main` at `4acd4ff`
