@@ -742,6 +742,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a85ff371-c269-4baf-a5ed-13c421b25c30")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
@@ -768,7 +781,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1120,6 +1133,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b7eabec2-9a18-4da3-95e5-6fdeb7422b7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Texas Instruments"
 			(at 0 0 270)
 			(unlocked yes)
@@ -1146,7 +1172,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2592,7 +2618,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2644,7 +2670,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Only stocked LCSC match: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Vishay part has no LCSC listing"
+		(property "PLANNED NOTE" "Specified CRCW04021M82FKED has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same spec: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; JLC stock 7,566 (need 50)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3582,6 +3608,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8164bfa-64bf-4468-8619-0d680f207d90")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Taiyo Yuden"
 			(at 0 0 180)
 			(unlocked yes)
@@ -3608,7 +3647,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4227,6 +4266,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1407915a-98d8-4d84-b405-1f67120529ff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Texas Instruments"
 			(at 0 0 180)
 			(unlocked yes)
@@ -4253,7 +4305,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5391,6 +5443,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "012a1beb-cb49-44e1-9bbe-0bd0fddd4c28")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Hubei KENTO"
 			(at 0 0 270)
 			(unlocked yes)
@@ -5417,7 +5482,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6598,7 +6663,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6611,7 +6676,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "UMK325AB7106KM-T"
+		(property "PLANNED MPN" "CL32B106KBJNNNE"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6624,7 +6689,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "Taiyo Yuden"
+		(property "PLANNED MFR" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6637,7 +6702,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C386167"
+		(property "PLANNED LCSC" "C138687"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6650,7 +6715,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "10 µF ±10 % 50 V X7R 1210 from Taiyo Yuden, an established MLCC maker, for the power path (FH ALT1 has more stock, kept as backup); specified Samsung out of stock at LCSC and DK; Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (77,751 on 2026-11-11, need 20). Planned before: Taiyo Yuden UMK325AB7106KM-T, now ALT2"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7123,6 +7188,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9d5a9da-54a0-45e9-99d3-5beabe6fb165")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 180)
 			(unlocked yes)
@@ -7149,7 +7227,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7446,7 +7524,7 @@
 				)
 			)
 		)
-		(property "Planned MPN" "SM04B-SRSS-TB(LF)(SN)"
+		(property "PLANNED MPN" "SM04B-SRSS-TB(LF)(SN)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7459,7 +7537,33 @@
 				)
 			)
 		)
-		(property "Planned MFR" "JST"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7a6488b1-13fb-47ae-b67f-8d612278972b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PLANNED NOTE" "Qwiic connector (I2C3); in JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9767b065-244c-4a94-9742-8eb3497cda61")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PLANNED MFR" "JST"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7472,7 +7576,7 @@
 				)
 			)
 		)
-		(property "Planned LCSC" "C160404"
+		(property "PLANNED LCSC" "C160404"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7944,7 +8048,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7983,7 +8087,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet; check My Parts"
+		(property "PLANNED LCSC" "C3226964"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7996,7 +8100,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9566,6 +9670,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f8c7e820-0726-4902-84de-6053f0a5ab6e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 90)
 			(unlocked yes)
@@ -9592,7 +9709,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9961,6 +10078,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1b862fbd-74ea-44ce-9c3d-b2a9a167fe24")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Hubei KENTO"
 			(at 0 0 90)
 			(unlocked yes)
@@ -9987,7 +10117,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10299,6 +10429,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "91f91945-dde7-4356-825c-e58184ec70a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Hubei KENTO"
 			(at 0 0 270)
 			(unlocked yes)
@@ -10325,7 +10468,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11049,7 +11192,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11062,7 +11205,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11075,7 +11218,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11088,7 +11231,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11101,7 +11244,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11508,7 +11651,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11547,7 +11690,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17230195"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11560,7 +11703,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12158,7 +12301,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12171,7 +12314,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "AC0402FR-079K09L"
+		(property "PLANNED MPN" "RC0402FR-079K09L"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12184,7 +12327,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12197,7 +12340,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C227284"
+		(property "PLANNED LCSC" "C274897"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12210,7 +12353,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same YAGEO 0402 thick-film family, 9.09 kΩ ±1 % 62.5 mW 50 V ±100 ppm; specified part has no LCSC listing; our part (D18), no amendment needed"
+		(property "PLANNED NOTE" "As specified: in JLC stock now (4,378 on 2026-11-11, need 30). Planned before: YAGEO AC0402FR-079K09L, now ALT1"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12783,6 +12926,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a4dd3a02-3dca-4228-8bf5-69aecaa32b31")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 270)
 			(unlocked yes)
@@ -12809,7 +12965,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13022,6 +13178,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11); the 2026-10-23 review sheet says 42 were also bought: check My Parts Lib"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1cc9f098-3b09-46ab-8ff2-bfe907cd9d84")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Bourns"
 			(at 0 0 90)
 			(unlocked yes)
@@ -13048,7 +13217,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06) (thin margin)"
+		(property "PLANNED NOTE" "As specified; JLC stock 92 on 2026-11-11 (need 40)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13876,7 +14045,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13889,7 +14058,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 60 ordered; confirm they are in My Parts Lib before the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13941,7 +14110,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14814,7 +14983,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified; JLC stock 92 on 2026-11-11 (need 40)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14840,7 +15009,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought 42"
+		(property "SOURCING" "JLC stock (read 2026-11-11); the 2026-10-23 review sheet says 42 were also bought: check My Parts Lib"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15613,7 +15782,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15626,7 +15795,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15639,7 +15808,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15652,7 +15821,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15665,7 +15834,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16221,12 +16390,25 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "RC0402FR-071K5L"
+		(property "PLANNED MPN" "RC0402FR-071KL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b40c1f33-db87-46f6-ac3e-5aff61260d19")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c2a57e5c-7488-4c00-ae62-7cc7d6332394")
 			(effects
 				(font
 					(size 1 1)
@@ -16247,7 +16429,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C11702"
+		(property "PLANNED LCSC" "C106235"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16260,7 +16442,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified: 1 kΩ (Nick, 2026-11-11); in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16571,6 +16753,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5578c1e4-9ee5-431e-ba04-96a42d384b3b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Würth Elektronik"
 			(at 0 0 180)
 			(unlocked yes)
@@ -16597,7 +16792,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -17491,6 +17686,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1d106f2f-9361-4c15-b645-c02267513500")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
@@ -17517,7 +17725,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -18244,12 +18452,25 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
+		(property "PLANNED MPN" "CL05A224KA5NNNC"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "98301934-2c54-4810-b918-371601394b0a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b67e3804-1162-4333-a6ac-09b8a8f50eb8")
 			(effects
 				(font
 					(size 1 1)
@@ -18283,7 +18504,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19240,6 +19461,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4f3fad1c-9147-49e6-9d9c-481c31e66168")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
@@ -19266,7 +19500,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19485,6 +19719,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1133ec4e-f863-41be-966a-36667849a8db")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Würth Elektronik"
 			(at 0 0 0)
 			(unlocked yes)
@@ -19511,7 +19758,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20213,6 +20460,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2ef1bb1f-11d6-4e70-9a18-8781453f595c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Texas Instruments"
 			(at 0 0 0)
 			(unlocked yes)
@@ -20239,7 +20499,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -21060,6 +21320,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2b0f2e49-f784-42dd-bd39-a0c6083c35c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -21086,7 +21359,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -21799,6 +22072,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b2d1a7e1-239a-4812-a518-e939c93a3034")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
@@ -21825,7 +22111,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22389,7 +22675,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated"
+		(property "ALT NOTE" "Not on Sofar's list: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated; JLC stock 5,492 on 2026-11-11"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22402,7 +22688,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 50 ordered; confirm they are in My Parts Lib before the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22441,7 +22727,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C313962"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22454,7 +22740,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): the only stocked alternate (YAGEO SR0805, ALT1) has no stated pulse rating and ±200 vs ±100 ppm/°C; JLC global sourcing: no LCSC listing"
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22993,6 +23279,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9bab7772-521f-43a8-a766-27590008d8f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Taiyo Yuden"
 			(at 0 0 90)
 			(unlocked yes)
@@ -23019,7 +23318,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11); Taiyo Yuden now lists it as MSASU168BB5225KTNA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23803,6 +24102,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2432a8b3-66ac-4160-8e70-b26f3cad9c0a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 270)
 			(unlocked yes)
@@ -23829,7 +24141,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24239,7 +24551,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 27, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 27; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24278,7 +24590,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C7083040"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24291,7 +24603,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Sofar's own listed second source (their MANUFACTURERPARTNUMBER1)"
+		(property "PLANNED NOTE" "Sofar's own listed alternate 1 (mote file, MANUFACTURERPARTNUMBER1); the specified ST SMA6F33A is obsolete (JLC stock 2 on 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24516,6 +24828,19 @@
 				)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11). OPEN (Nick): a PPTC resettable fuse, which SPEC constraint 8 bars on newly sourced parts"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c745dcf-c55f-440f-9e49-c6897c35e3a2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property "PLANNED MFR" "BHFUSE"
 			(at 0 0 0)
 			(unlocked yes)
@@ -24555,7 +24880,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A)"
+		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A); in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25290,7 +25615,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25342,7 +25667,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 22 µF ±20 % 6.3 V X5R 0603; specified TDK out of stock at LCSC (and DK until 2027-01)"
+		(property "PLANNED NOTE" "Specified C1608X5R0J226M080AC has JLC stock 1 (2026-11-11) and Sofar's mote file gives no alternate. Same spec, 22 µF ±20 % 6.3 V X5R 0603; JLC Basic part, stock 6,741,783 (need 30)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26476,7 +26801,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate; JLC global sourcing"
+		(property "ALT NOTE" "Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so no like-for-like alternate"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26489,7 +26814,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) until an ALT is approved (D26)"
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 60 ordered; confirm they are in My Parts Lib before the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26541,7 +26866,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review): no potting-safe like-for-like alternate (constraint 8); LCSC listing out of stock: JLC global sourcing"
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27031,7 +27356,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 42, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27070,7 +27395,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet"
+		(property "PLANNED LCSC" "C17230195"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27083,7 +27408,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27964,6 +28289,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4b9a6e37-2e86-42c8-93d2-675e78ad6501")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -27992,7 +28331,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -28828,6 +29167,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c3671920-de53-468e-b414-bca517d17356")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 90)
 			(unlocked yes)
@@ -28856,7 +29209,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -29384,6 +29737,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5c14b929-48e0-4ccc-85e6-9db1c6ebb5b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
@@ -29412,7 +29779,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -29805,7 +30172,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
+		(property "SOURCING" "OPEN (Nick): part not chosen, socket height open. In JLC stock on 2026-11-11: ZHOURI 2.54-2*20 C2977589 (37,698), Megastar ZX-PM2.54-2-20PY C7499354 (6,641), both 8.5 mm by JLC's text"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -31988,6 +32355,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "cf7cc548-aaeb-4a36-8693-086a6ec30077")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 90)
 			(unlocked yes)
@@ -32016,7 +32397,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32451,7 +32832,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32493,7 +32874,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -32507,7 +32888,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33432,7 +33813,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33488,7 +33869,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "Specified C2012X7S2A105K125AB has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same maker and series, 1 µF ±10 % 100 V X7S 0805, JLC stock 7,130 (need 42); thickness not confirmed (K125AB is 1.25 mm, KT000N doesn't state it)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -34190,6 +34571,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "06155154-4d12-4098-8b1e-d977020bb858")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
@@ -34218,7 +34613,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -34685,6 +35080,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bbafa443-c878-4e71-a707-ae4babd7deb4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -34713,7 +35122,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35512,7 +35921,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35554,7 +35963,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35568,7 +35977,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -36927,6 +37336,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d83594c8-b0ad-4a9f-97a9-70f079f17284")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 180)
 			(unlocked yes)
@@ -36955,7 +37378,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -37228,7 +37651,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 45; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -37270,7 +37693,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C3757753"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -37284,7 +37707,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 10 on 2026-11-11 (need 40), so from the parts bought"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -38677,6 +39100,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e799c453-0c2d-434a-b9f8-be94bc181e2f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 180)
 			(unlocked yes)
@@ -38705,7 +39142,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -39172,7 +39609,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -39186,7 +39623,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "C0805C102KDRACTU"
+		(property "PLANNED MPN" "C0805C102MDRACTU"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -39214,7 +39651,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C2167549"
+		(property "PLANNED LCSC" "C2181610"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -39228,7 +39665,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same KEMET series, ±10 % instead of ±20 % (tighter); 1 nF 1 kV X7R 0805; specified ±20 % part has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (188 on 2026-11-11, need 40). Planned before: KEMET C0805C102KDRACTU, now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -40278,6 +40715,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "90c1fcc2-f098-4d8e-92eb-f747cacf5dc9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 270)
 			(unlocked yes)
@@ -40306,7 +40757,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -41088,6 +41539,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "871a8505-8142-4877-bbc4-aea0e37d34d8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 270)
 			(unlocked yes)
@@ -41116,7 +41581,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42037,7 +42502,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42093,7 +42558,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); specified Susumu has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Specified RR0510P-101-D has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. 100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -43321,6 +43786,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e966ed28-bdef-495b-9fbc-471b4377bdd9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 90)
 			(unlocked yes)
@@ -43349,7 +43828,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44457,7 +44936,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44471,7 +44950,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "C0805C102KDRACTU"
+		(property "PLANNED MPN" "C0805C102MDRACTU"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44499,7 +44978,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C2167549"
+		(property "PLANNED LCSC" "C2181610"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44513,7 +44992,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same KEMET series, ±10 % instead of ±20 % (tighter); 1 nF 1 kV X7R 0805; specified ±20 % part has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (188 on 2026-11-11, need 40). Planned before: KEMET C0805C102KDRACTU, now ALT1"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44853,7 +45332,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" ""
+		(property "ALT1 MPN" "SR0805FR-477R5L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44867,7 +45346,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" ""
+		(property "ALT1 MFR" "YAGEO"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44881,7 +45360,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" ""
+		(property "ALT1 LCSC" "C873769"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44937,7 +45416,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Not on Sofar's list: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated; JLC stock 5,492 on 2026-11-11"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44951,7 +45430,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 50 ordered; confirm they are in My Parts Lib before the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -44993,7 +45472,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "wait for JLC update"
+		(property "PLANNED LCSC" "C313962"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -45007,7 +45486,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" ""
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -45664,6 +46143,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a8998e38-d210-4c70-a8ad-cf09dcd6b500")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 270)
 			(unlocked yes)
@@ -45692,7 +46185,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -46938,6 +47431,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "093bcdb5-3840-4970-9da8-c3328d787a6a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
@@ -46966,7 +47473,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -47776,6 +48283,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a68b3440-58bb-4859-88bf-0e74499cfe99")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Bourns"
 			(at 0 0 270)
 			(unlocked yes)
@@ -47804,7 +48325,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11): 1,123, need 40. Pick the BOURNS listing; JLC has two other makers' parts of the same name"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -48790,6 +49311,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ee9d1ca2-8409-4c9b-aae9-f4bd6d851250")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 270)
 			(unlocked yes)
@@ -48818,7 +49353,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -49393,6 +49928,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "99053182-46bc-4cf7-b214-cab5ec4e028b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
@@ -49421,7 +49970,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50323,7 +50872,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50379,7 +50928,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "TDK C2012 series, same 1 µF ±10 % 100 V X7S 0805 per LCSC (thickness not confirmed: K125AB is 1.25 mm, KT000N doesn't state it); specified number out of stock at LCSC; power path: Sofar review"
+		(property "PLANNED NOTE" "Specified C2012X7S2A105K125AB has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same maker and series, 1 µF ±10 % 100 V X7S 0805, JLC stock 7,130 (need 42); thickness not confirmed (K125AB is 1.25 mm, KT000N doesn't state it)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -51296,6 +51845,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f00e26b5-786e-43b2-8866-f0aa074878e5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "UNI-ROYAL"
 			(at 0 0 180)
 			(unlocked yes)
@@ -51324,7 +51887,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "13.3k 1% 0402 for 5V buck at 5.11 V (was 13.7k); same UNI-ROYAL range as the 100k (C25741)"
+		(property "PLANNED NOTE" "13.3k 1% 0402 for 5V buck at 5.11 V (was 13.7k); in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -52282,7 +52845,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -52296,7 +52859,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -52310,7 +52873,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -52324,7 +52887,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -52338,7 +52901,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -53215,7 +53778,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -53229,7 +53792,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -53243,7 +53806,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -53257,7 +53820,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -53271,7 +53834,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -54123,6 +54686,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d42b9b55-dc44-4d1e-94fc-0673807111ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 90)
 			(unlocked yes)
@@ -54151,7 +54728,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -54499,6 +55076,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "055dbfee-53f5-40f6-8734-1dd19e86b56b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -54527,7 +55118,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -55241,6 +55832,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "a212c832-b212-4de9-a79c-fb38bdaf73a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 90)
 			(unlocked yes)
@@ -55269,7 +55874,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -55670,7 +56275,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 42, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -55726,7 +56331,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+		(property "PLANNED NOTE" "As specified; JLC public stock 33 on 2026-11-11 (need 40), so from the parts bought"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -57365,6 +57970,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7aaf2fb6-0f5f-4074-8ff0-48072178711e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
@@ -57393,7 +58012,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -57807,7 +58426,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -57863,7 +58482,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+		(property "PLANNED NOTE" "As specified; JLC public stock 33 on 2026-11-11 (need 40), so from the parts bought"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -59557,6 +60176,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b26de8fc-278d-474b-a258-cebe7af973d3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
@@ -59585,7 +60218,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -60458,7 +61091,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -60472,7 +61105,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -60486,7 +61119,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -60500,7 +61133,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -60514,7 +61147,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -61240,6 +61873,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e5b00cd0-56bf-442b-9fcf-9e6bb8cb64da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
@@ -61268,7 +61915,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -62116,6 +62763,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8b565b57-5350-4fbd-b34f-d5658de0a2d4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 0)
 			(unlocked yes)
@@ -62144,7 +62805,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63026,7 +63687,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63040,7 +63701,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "CC0805KKX7R0BB474"
+		(property "PLANNED MPN" "08051C474KAT2A"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63054,7 +63715,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "KYOCERA AVX"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63068,7 +63729,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C596323"
+		(property "PLANNED LCSC" "C597304"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63082,7 +63743,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Same spec, 470 nF ±10 % 100 V X7R 0805, largest LCSC stock (250,730 vs the AVX ALT2's 750, 2026-10-06); specified AVX has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (8,865 on 2026-11-11, need 82; JLC's listing shows no maker name). Planned before: YAGEO CC0805KKX7R0BB474, now ALT1"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -63652,6 +64313,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "eb5c8118-5add-49bc-8ac1-ad14bc6a0cfa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Texas Instruments"
 			(at 0 0 270)
 			(unlocked yes)
@@ -63680,7 +64355,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -64397,6 +65072,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "50028192-0d10-4565-8047-f3dfcc0f5661")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 90)
 			(unlocked yes)
@@ -64425,7 +65114,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -65353,7 +66042,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -65367,7 +66056,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -65381,7 +66070,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -65395,7 +66084,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -65409,7 +66098,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66325,7 +67014,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66339,7 +67028,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66353,7 +67042,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66367,7 +67056,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -66381,7 +67070,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -67222,6 +67911,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "daca8b87-0b75-476a-9e49-5e19372f306d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Panasonic"
 			(at 0 0 270)
 			(unlocked yes)
@@ -67250,7 +67953,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -67551,6 +68254,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "367c9af2-2aa3-45c7-91f4-8019bdc609a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Texas Instruments"
 			(at 0 0 0)
 			(unlocked yes)
@@ -67579,7 +68296,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -68691,6 +69408,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "caae8761-e625-43b0-8413-6dbade160667")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
@@ -68719,7 +69450,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -69175,6 +69906,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f3b7fe57-a9f6-4f0f-a8ed-8d5376a6822f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 90)
 			(unlocked yes)
@@ -69203,7 +69948,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -69826,6 +70571,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2958133b-c25d-4a88-bfec-bb35e088393f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
@@ -69854,7 +70613,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -70670,6 +71429,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "1e050ef4-5fca-4d6c-8074-4fe4a6804de6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 180)
 			(unlocked yes)
@@ -70698,7 +71471,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71079,7 +71852,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71121,7 +71894,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71135,7 +71908,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71578,7 +72351,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71620,7 +72393,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet"
+		(property "PLANNED LCSC" "C6851222"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71634,7 +72407,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -72358,6 +73131,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "52f6f214-7a7d-4371-a450-3c50496f8e91")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
@@ -72386,7 +73173,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -72803,7 +73590,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty N, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -72859,7 +73646,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -73699,6 +74486,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d78dd0f4-d5e0-4d4b-a737-8201c6174d64")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 90)
 			(unlocked yes)
@@ -73727,7 +74528,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74252,7 +75053,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" ""
+		(property "ALT1 MPN" "CSRF0603FT10L0"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74266,7 +75067,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" ""
+		(property "ALT1 MFR" "Stackpole"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74280,7 +75081,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" ""
+		(property "ALT1 LCSC" "C346485"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74294,7 +75095,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MPN" ""
+		(property "ALT2 MPN" "MFL0603R0100FA"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74308,7 +75109,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MFR" ""
+		(property "ALT2 MFR" "EATON"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74322,7 +75123,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 LCSC" ""
+		(property "ALT2 LCSC" "C6090593"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74336,7 +75137,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Sofar's own listed alternates 7 and 1 (mote file, MANUFACTURERPARTNUMBER7 / 1); JLC stock on 2026-11-11: 9,822 and 16 (16 is short of 20). Sofar's other five: stock 0 or no listing. Not on Sofar's list, in JLC stock: ROHM PMR03EZPFU10L0 C308571 (pads not confirmed), Vishay WSLP0603R0100FEA C5334451"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74350,7 +75151,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 25 ordered (need 20 + 5 attrition); confirm in My Parts Lib, else order ALT1 from JLC stock"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74392,7 +75193,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "wait for JLC update"
+		(property "PLANNED LCSC" "C2482319"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -74406,7 +75207,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review), JLC global sourcing: no LCSC listing. ROHM PMR03 (ALT1) electrodes (b 0.35 mm, datasheet Rev.PMR03-IA-012E) sit inside these pads, which were drawn for the UR73D1J's 0.55 mm electrodes and reach 0.35 mm under the PMR03 body; ROHM gives no land pattern, so not adopted"
+		(property "PLANNED NOTE" "As specified if the 25 bought are in My Parts Lib (JLC public stock 0 on 2026-11-11). If they are not: Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 (ALT1), JLC stock 9,822"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -75489,6 +76290,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d06a15bd-a908-4382-b115-7ec30c49d9f7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
@@ -75517,7 +76332,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -76403,6 +77218,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "eddfa552-7070-4439-bb2e-57d919e2a9f0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -76431,7 +77260,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -77211,6 +78040,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9ae2c63a-f383-47ff-926a-5294bba891b1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Bourns"
 			(at 0 0 180)
 			(unlocked yes)
@@ -77239,7 +78082,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11): 1,123, need 40. Pick the BOURNS listing; JLC has two other makers' parts of the same name"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -77959,6 +78802,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0db94829-d2de-4deb-a650-23d08781e0de")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
@@ -77987,7 +78844,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -79702,6 +80559,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "84a10fd8-430a-4906-af59-8038011303e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
@@ -79730,7 +80601,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -80607,7 +81478,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -80621,7 +81492,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -80635,7 +81506,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -80649,7 +81520,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -80663,7 +81534,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -81649,7 +82520,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -81705,7 +82576,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "Only stocked LCSC match: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Vishay part has no LCSC listing"
+		(property "PLANNED NOTE" "Specified CRCW04021M82FKED has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. Same spec: 1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; JLC stock 7,566 (need 50)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -82427,6 +83298,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9285bb17-bbdc-4c78-ae81-fbf0d4d2bcff")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Samsung"
 			(at 0 0 90)
 			(unlocked yes)
@@ -82455,7 +83340,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -83330,7 +84215,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11); not Sofar's part, see PLANNED NOTE"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -83386,7 +84271,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); specified Susumu has no LCSC listing; PoDL front end: Sofar review"
+		(property "PLANNED NOTE" "Specified RR0510P-101-D has JLC stock 0 (2026-11-11) and Sofar's mote file gives no alternate. 100 Ω thin film 0402, ±0.1 % ±25 ppm (tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84124,6 +85009,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "DNP: not ordered"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "409700bc-d826-4b2d-ab0e-10cd5134a5b6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Vishay Dale"
 			(at 0 0 180)
 			(unlocked yes)
@@ -84558,6 +85457,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "14585370-32c3-43cb-82da-fd9ac36c1f0b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Murata"
 			(at 0 0 270)
 			(unlocked yes)
@@ -84586,7 +85499,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -85195,6 +86108,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7ba62068-c7c4-4a77-86cd-886a339b2dc3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 180)
 			(unlocked yes)
@@ -85223,7 +86150,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -85889,6 +86816,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d52a39de-1f26-4ddd-baf2-62e3930f9a96")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 270)
 			(unlocked yes)
@@ -85917,7 +86858,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -86297,7 +87238,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 45, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 45; pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -86353,7 +87294,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 10 on 2026-11-11 (need 40), so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -86819,6 +87760,20 @@
 				(justify mirror)
 			)
 		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c542fb0c-74af-4b8f-a8a2-a71e6d02fb86")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property "PLANNED MFR" "Yageo"
 			(at 0 0 90)
 			(unlocked yes)
@@ -86847,7 +87802,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")

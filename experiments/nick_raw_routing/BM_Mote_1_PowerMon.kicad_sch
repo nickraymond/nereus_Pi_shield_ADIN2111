@@ -1419,7 +1419,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -1431,6 +1431,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Texas Instruments"
+			(at 208.28 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 208.28 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -1835,7 +1846,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 187.96 164.9222 0)
 			(hide yes)
 			(show_name no)
@@ -1847,6 +1858,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 187.96 164.9222 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 187.96 164.9222 0)
 			(hide yes)
 			(show_name no)
@@ -2318,7 +2340,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2330,6 +2352,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 243.84 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 243.84 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -2553,7 +2586,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" ""
+		(property "ALT1 MPN" "CSRF0603FT10L0"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2564,7 +2597,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" ""
+		(property "ALT1 MFR" "Stackpole"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2575,7 +2608,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" ""
+		(property "ALT1 LCSC" "C346485"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2586,7 +2619,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" ""
+		(property "ALT2 MPN" "MFL0603R0100FA"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2597,7 +2630,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" ""
+		(property "ALT2 MFR" "EATON"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2608,7 +2641,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" ""
+		(property "ALT2 LCSC" "C6090593"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2619,7 +2652,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" ""
+		(property "ALT NOTE" "Sofar's own listed alternates 7 and 1 (mote file, MANUFACTURERPARTNUMBER7 / 1); JLC stock on 2026-11-11: 9,822 and 16 (16 is short of 20). Sofar's other five: stock 0 or no listing. Not on Sofar's list, in JLC stock: ROHM PMR03EZPFU10L0 C308571 (pads not confirmed), Vishay WSLP0603R0100FEA C5334451"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2630,7 +2663,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (first build) "
+		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 25 ordered (need 20 + 5 attrition); confirm in My Parts Lib, else order ALT1 from JLC stock"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2663,7 +2696,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "wait for JLC update"
+		(property "PLANNED LCSC" "C2482319"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -2674,7 +2707,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar review), JLC global sourcing: no LCSC listing. ROHM PMR03 (ALT1) electrodes (b 0.35 mm, datasheet Rev.PMR03-IA-012E) sit inside these pads, which were drawn for the UR73D1J's 0.55 mm electrodes and reach 0.35 mm under the PMR03 body; ROHM gives no land pattern, so not adopted"
+		(property "PLANNED NOTE" "As specified if the 25 bought are in My Parts Lib (JLC public stock 0 on 2026-11-11). If they are not: Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 (ALT1), JLC stock 9,822"
 			(at 173.99 156.21 0)
 			(hide yes)
 			(show_name no)

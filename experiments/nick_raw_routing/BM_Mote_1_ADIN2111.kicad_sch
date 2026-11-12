@@ -6000,7 +6000,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 69.85 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 69.85 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -6478,7 +6489,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6511,7 +6522,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet; check My Parts"
+		(property "PLANNED LCSC" "C3226964"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6522,7 +6533,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -7072,7 +7083,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 154.94 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -7084,6 +7095,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 154.94 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 154.94 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -7228,7 +7250,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 358.14 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 358.14 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -7738,7 +7771,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing, all 40 (LCSC has 30) (D26)"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 106.68 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -7782,7 +7815,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+		(property "PLANNED NOTE" "As specified; JLC public stock 33 on 2026-11-11 (need 40), so from the parts bought"
 			(at 106.68 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -8413,7 +8446,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -8425,6 +8458,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 194.31 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 194.31 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -8897,7 +8941,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 34.29 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 34.29 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -9444,7 +9499,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 358.14 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -9456,6 +9511,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 358.14 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 358.14 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -9776,7 +9842,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 355.6 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 355.6 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -10324,7 +10401,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 189.23 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -10336,6 +10413,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 189.23 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 189.23 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -10944,7 +11032,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 154.94 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -10956,6 +11044,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 154.94 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 154.94 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -11133,7 +11232,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 42, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
 			(at 106.68 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -11177,7 +11276,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; LCSC has 30 of the 40 needed (2026-10-06): JLC global sourcing for the rest"
+		(property "PLANNED NOTE" "As specified; JLC public stock 33 on 2026-11-11 (need 40), so from the parts bought"
 			(at 106.68 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -11765,7 +11864,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 171.45 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -11777,6 +11876,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 171.45 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 171.45 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -11880,7 +11990,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -11913,7 +12023,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet; check My Parts"
+		(property "PLANNED LCSC" "C3226964"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -11924,7 +12034,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -12260,7 +12370,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 303.53 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 303.53 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -12405,7 +12526,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 306.07 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 306.07 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -12964,7 +13096,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 204.47 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -12976,6 +13108,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 204.47 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 204.47 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13148,7 +13291,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 330.2 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 330.2 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -13429,7 +13583,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty 22, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13462,7 +13616,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "none shown yet"
+		(property "PLANNED LCSC" "C6851222"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13473,7 +13627,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -14037,7 +14191,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 184.15 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -14049,6 +14203,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 184.15 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 184.15 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -14425,7 +14590,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 209.55 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14437,6 +14602,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 209.55 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 209.55 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14897,7 +15073,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 222.25 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -14909,6 +15085,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 222.25 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 222.25 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -15381,7 +15568,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 74.93 117.0178 0)
 			(hide yes)
 			(show_name no)
@@ -15393,6 +15580,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 74.93 117.0178 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 74.93 117.0178 0)
 			(hide yes)
 			(show_name no)
@@ -15865,7 +16063,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 332.74 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -15877,6 +16075,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 332.74 213.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 332.74 213.36 0)
 			(hide yes)
 			(show_name no)
@@ -16552,7 +16761,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 181.61 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -16564,6 +16773,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 181.61 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 181.61 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -16950,7 +17170,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 144.78 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -16962,6 +17182,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 144.78 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 144.78 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -17422,7 +17653,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 144.78 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -17434,6 +17665,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 144.78 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 144.78 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -17904,7 +18146,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 175.26 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -17916,6 +18158,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 175.26 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 175.26 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -18388,7 +18641,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 20.32 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 20.32 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -18775,7 +19039,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 121.92 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -18787,6 +19051,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 121.92 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 121.92 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -19173,7 +19448,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 134.62 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -19185,6 +19460,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 134.62 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 134.62 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -19329,7 +19615,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 332.74 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 332.74 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -19692,7 +19989,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "PLANNED MPN" "RC0402FR-071K5L"
+		(property "PLANNED MPN" "RC0402FR-071KL"
 			(at 203.2 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -19714,7 +20011,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C11702"
+		(property "PLANNED LCSC" "C106235"
 			(at 203.2 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -19725,7 +20022,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified: 1 kΩ (Nick, 2026-11-11); in JLC stock (read 2026-11-11)"
+			(at 203.2 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 203.2 78.74 0)
 			(hide yes)
 			(show_name no)

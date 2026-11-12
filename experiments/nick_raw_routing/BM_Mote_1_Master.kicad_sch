@@ -12387,7 +12387,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -12420,7 +12420,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -12431,7 +12431,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -14272,7 +14272,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 185.42 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -14284,6 +14284,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 185.42 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 185.42 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -14727,7 +14738,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -14760,7 +14771,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -14771,7 +14782,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -15939,7 +15950,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A)"
+		(property "PLANNED NOTE" "1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A); in JLC stock (read 2026-11-11)"
+			(at 256.54 369.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11). OPEN (Nick): a PPTC resettable fuse, which SPEC constraint 8 bars on newly sourced parts"
 			(at 256.54 369.57 90)
 			(hide yes)
 			(show_name no)
@@ -16432,7 +16454,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16443,7 +16465,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16454,7 +16476,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16465,7 +16487,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -16476,7 +16498,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 323.85 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -17012,6 +17034,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Vishay Dale"
+			(at 158.75 242.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "DNP: not ordered"
 			(at 158.75 242.57 0)
 			(hide yes)
 			(show_name no)
@@ -18172,7 +18205,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 185.42 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -18184,6 +18217,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Panasonic"
+			(at 185.42 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 185.42 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -19825,7 +19869,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 109.22 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -19837,6 +19881,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 109.22 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 109.22 148.59 0)
 			(hide yes)
 			(show_name no)
@@ -20718,7 +20773,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick). Candidates ZHOURI 2.54-2*20 C2977589, Megastar ZX-PM2.54-2-20PY C7499354 (both 8.5 mm)"
+		(property "SOURCING" "OPEN (Nick): part not chosen, socket height open. In JLC stock on 2026-11-11: ZHOURI 2.54-2*20 C2977589 (37,698), Megastar ZX-PM2.54-2-20PY C7499354 (6,641), both 8.5 mm by JLC's text"
 			(at 142.24 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -21535,7 +21590,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing, DK 7,835"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -21568,7 +21623,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C17256375"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -21579,7 +21634,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -23153,7 +23208,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Bought: JLC global sourcing DOB202610190524705 (2026-10-18), qty N, ready 2026-11-05"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
 			(at 516.89 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -23197,7 +23252,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 516.89 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -24362,7 +24417,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 109.22 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -24374,6 +24429,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Yageo"
+			(at 109.22 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 109.22 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -24464,7 +24530,7 @@
 				)
 			)
 		)
-		(property "Planned MPN" "SM04B-SRSS-TB(LF)(SN)"
+		(property "PLANNED MPN" "SM04B-SRSS-TB(LF)(SN)"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)
@@ -24475,7 +24541,7 @@
 				)
 			)
 		)
-		(property "Planned MFR" "JST"
+		(property "PLANNED MFR" "JST"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)
@@ -24486,7 +24552,29 @@
 				)
 			)
 		)
-		(property "Planned LCSC" "C160404"
+		(property "PLANNED LCSC" "C160404"
+			(at 367.03 377.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PLANNED NOTE" "Qwiic connector (I2C3); in JLC stock (read 2026-11-11)"
+			(at 367.03 377.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 367.03 377.19 0)
 			(hide yes)
 			(show_name no)

@@ -3207,7 +3207,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 152.4 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 152.4 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -3562,7 +3573,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
+		(property "PLANNED MPN" "CL05A224KA5NNNC"
 			(at 256.54 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -3595,7 +3606,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 256.54 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -3607,6 +3618,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Samsung"
+			(at 256.54 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 256.54 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -4099,7 +4121,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 152.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -4110,7 +4132,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 152.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -4121,7 +4143,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 152.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -4132,7 +4154,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 152.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -4143,7 +4165,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 152.4 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -5070,7 +5092,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 193.04 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -5082,6 +5104,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Stackpole"
+			(at 193.04 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 193.04 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -5725,7 +5758,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 292.1 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -5736,7 +5769,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "0402WGF1003TCE"
+		(property "PLANNED MPN" "RMCF0402FT100K"
 			(at 292.1 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -5747,7 +5780,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "UNI-ROYAL"
+		(property "PLANNED MFR" "Stackpole"
 			(at 292.1 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -5758,7 +5791,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C25741"
+		(property "PLANNED LCSC" "C7055151"
 			(at 292.1 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -5769,7 +5802,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "JLC Basic part (no extended-part fee), ample LCSC stock; 100 kΩ ±1 % 62.5 mW 50 V ±100 ppm 0402; specified Stackpole is out of stock at LCSC and is AEC-Q200, this one doesn't state it"
+		(property "PLANNED NOTE" "As specified: Sofar's part is in JLC stock now (1,058 on 2026-11-11, need 110). Planned before: UNI-ROYAL 0402WGF1003TCE (JLC Basic), now ALT1"
 			(at 292.1 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -5946,7 +5979,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC global sourcing (D26); no LCSC listing"
+		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 45; pick it from My Parts Lib at the PCBA order"
 			(at 292.1 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -5979,7 +6012,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C3757753"
 			(at 292.1 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -5990,7 +6023,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC global sourcing (D26): no LCSC listing"
+		(property "PLANNED NOTE" "As specified; JLC public stock 10 on 2026-11-11 (need 40), so from the parts bought"
 			(at 292.1 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -6499,7 +6532,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 271.78 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -6511,6 +6544,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Murata"
+			(at 271.78 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 271.78 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -6727,7 +6771,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Planned part from LCSC once Sofar approves it (D27); until then the specified part via JLC global sourcing"
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6738,7 +6782,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "AC0402FR-079K09L"
+		(property "PLANNED MPN" "RC0402FR-079K09L"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6749,7 +6793,7 @@
 				)
 			)
 		)
-		(property "PLANNED MFR" "YAGEO"
+		(property "PLANNED MFR" "Yageo"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6760,7 +6804,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C227284"
+		(property "PLANNED LCSC" "C274897"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6771,7 +6815,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same YAGEO 0402 thick-film family, 9.09 kΩ ±1 % 62.5 mW 50 V ±100 ppm; specified part has no LCSC listing; our part (D18), no amendment needed"
+		(property "PLANNED NOTE" "As specified: in JLC stock now (4,378 on 2026-11-11, need 30). Planned before: YAGEO AC0402FR-079K09L, now ALT1"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -6990,7 +7034,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
+			(at 226.06 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 226.06 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -7441,7 +7496,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; in LCSC stock (checked 2026-10-06)"
+		(property "PLANNED NOTE" "As specified; in JLC stock (read 2026-11-11)"
 			(at 127 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -7453,6 +7508,17 @@
 			)
 		)
 		(property "MANUFACTURER" "Murata"
+			(at 127 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
 			(at 127 113.03 0)
 			(hide yes)
 			(show_name no)
