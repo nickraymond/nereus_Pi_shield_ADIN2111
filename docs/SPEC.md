@@ -191,6 +191,11 @@ See TRACKER.md — every sprint ends with a demo Nick can run.
 
 - Questions for Sofar (R11, R34/U9, mezzanine control, e-fuse, …) live in
   `docs/SOFAR_QUESTIONS.md`.
+- BOM review of 2026-11-11 (`docs/design-review/bom_review_2026-11.md`; QE S9 finding 4): no datasheet was read for
+  the parts chosen there, so their ratings rest on JLC's listing text and constraint 5 is not met for them. To read
+  before the order or flag at bring-up: TDK C2012X7S2A105KT000N (C17 / C26; thickness against Sofar's 1.25 mm),
+  Samsung CL10A226MQ8NRNC (C31), YAGEO RT0402BRD07100RL (R14 / R18), RALEC RTT021824FTH (R20 / R39), BHFUSE
+  BSMD1206-150-16V (F1), and Stackpole CSRF0603FT10L0 (R8's backup; land pattern against R8's pads).
 - ~~FPF2700 current limit~~ answered (Fairchild datasheet Rev. 1.0.3, supplied by Nick;
   power_budget §1): R34 = 374 kΩ → ≈ 0.74 A typical (0.59–0.89 A). As captured, R11 was
   fitted and bypassed U9; Nick: R11 DNP so the switch and limit work (D17, S5).

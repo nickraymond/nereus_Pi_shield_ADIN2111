@@ -6889,7 +6889,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6900,7 +6900,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6911,7 +6911,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6922,7 +6922,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6933,7 +6933,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6944,7 +6944,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -6955,7 +6955,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 60.96 103.9622 0)
 			(hide yes)
 			(show_name no)
@@ -10419,7 +10419,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10430,7 +10430,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10441,7 +10441,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10452,7 +10452,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10463,7 +10463,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -10474,7 +10474,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 203.2 228.4222 0)
 			(hide yes)
 			(show_name no)
@@ -12083,7 +12083,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12094,7 +12094,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12105,7 +12105,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12116,7 +12116,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12127,7 +12127,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12138,7 +12138,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 208.28 93.8022 0)
 			(hide yes)
 			(show_name no)
@@ -12630,7 +12630,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12641,7 +12641,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12652,7 +12652,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12663,7 +12663,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12674,7 +12674,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12685,7 +12685,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)
@@ -12696,7 +12696,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 60.96 215.7222 0)
 			(hide yes)
 			(show_name no)

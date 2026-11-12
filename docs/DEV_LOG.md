@@ -21,8 +21,8 @@ what broke, what's next.*
 
 ## 2026-11-11 — Sprint S9 / S8 — BOM review of the frozen board for the JLC order (BOM session)
 
-**Branch:** claude/adoring-mclaren-10dc39 (the BOM session's own; fast-forwarded to tag `s9-layout-freeze`, then 3
-commits). Nothing pushed, no PR.
+**Branch:** claude/adoring-mclaren-10dc39 (the BOM session's own; fast-forwarded to tag `s9-layout-freeze`). Pushed on
+Nick's word the same evening as draft PR 35 to main; see the end of this entry.
 **Files touched:** the six sheets in `experiments/nick_raw_routing/` (fields only), `nick_raw_routing.kicad_pcb`
 (hidden footprint fields only), `scripts/bom_fields_2026_11.py`, `scripts/bom_fields_board_sync_2026_11.py`,
 `docs/design-review/bom_nick_raw_routing.csv` / `.pdf`, `bom_review_2026-11.md`, `tools/bompdf.py`, this entry, TRACKER
@@ -71,6 +71,18 @@ commits). Nothing pushed, no PR.
 - Nick, this session's chat, 2026-11-11, after the screenshots: "Keep F1". F1 (PPTC) stays for this unpotted build, an exception to SPEC
   constraint 8, written into F1's SOURCING field and the review; SPEC and DESIGN are not edited. Checks again: ERC 39,
   parity 0. Open lines: U1 (not at JLC yet) and J1 (socket).
+- Evening: Nick, this session's chat: "Lets merge all of this [onto] main and delete all other branches". He chose the
+  route "PR, QE, then merge", "Tag, then delete" for branch tips main lacks, and to leave the two other sessions'
+  worktrees until the design session is done. Done: the design session's step 25 (4ae53a7) merged in without
+  conflict; checklist synced; **draft PR 35** to main (104 commits, fast-forward); 35 remote branches deleted, each
+  tip recorded in `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/branches_to_delete_2026-11-11.txt`;
+  tags pushed for the three tips main lacks (`archive/reload_old_mote`, `archive/experiment-fable-layout-01a`,
+  `archive/sprint-8a-jlc-parts-buy`). Left: local `Fable_5.2` and `claude/fable-5-2-continue-55a515`.
+- QE round 1 on PR 35 (`docs/design-review/qe/S9.md`): CHANGES REQUESTED, 3 major, 5 minor, 3 nits; board, freeze,
+  netlist, BOM CSV and stock table confirmed. Fixed here: findings 4, 7, 8, 9, 10 (11 needs no change). Waiting on
+  Nick: R38's value (13.3 kΩ puts the Pi rail's worst case at 5.28 V per `power_budget.md` §5), his OK to record the F1
+  exception and the merge of the experiment folder in SPEC and DESIGN, the two spare board files, and whether J4
+  should be live as shipped.
 **Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's pick for J1;
 QE review of the BOM session's commits; the design session's JLC export from this branch's board.
 

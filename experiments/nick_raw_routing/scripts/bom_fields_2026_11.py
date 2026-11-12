@@ -58,7 +58,9 @@ LINES = [
     line("C17,C26", "C2012X7S2A105KT000N", "TDK", "C342785",
          f"Specified C2012X7S2A105K125AB has JLC stock 0 ({RD}) and {MOTE}. Same maker and series, 1 µF ±10 % "
          "100 V X7S 0805, JLC stock 7,130 (need 42); thickness not confirmed (K125AB is 1.25 mm, KT000N doesn't "
-         "state it)", NOT_SOFAR),
+         "state it)", NOT_SOFAR,
+         ALT1_MPN="GCM21BC72A105KE36L", ALT1_MFR="Murata", ALT1_LCSC="C126585",
+         ALT2_MPN="", ALT2_MFR="", ALT2_LCSC=""),
     line("C19,C27", "C0805C102MDRACTU", "KEMET", "C2181610",
          f"As specified: Sofar's part is in JLC stock now (188 on {RD}, need 40). Planned before: KEMET "
          "C0805C102KDRACTU, now ALT1"),
@@ -75,7 +77,9 @@ LINES = [
          SPEC + "; Taiyo Yuden now lists it as MSASU168BB5225KTNA01"),
     line("C31", "CL10A226MQ8NRNC", "Samsung", "C59461",
          f"Specified C1608X5R0J226M080AC has JLC stock 1 ({RD}) and {MOTE}. Same spec, 22 µF ±20 % 6.3 V X5R "
-         "0603; JLC Basic part, stock 6,741,783 (need 30)", NOT_SOFAR),
+         "0603; JLC Basic part, stock 6,741,783 (need 30)", NOT_SOFAR,
+         ALT1_MPN="GRM188R60J226MEA0D", ALT1_MFR="Murata", ALT1_LCSC="C77042",
+         ALT2_MPN="", ALT2_MFR="", ALT2_LCSC=""),
     line("C32", "GRJ155R60J106ME11D", "Murata", "C469527"),
     line("C33", "GRM155R60J475ME87D", "Murata", "C76996"),
     line("C56,C57", "GRM21BR61C226ME44L", "Murata", "C86817"),
@@ -125,7 +129,10 @@ LINES = [
          "DNP: not ordered"),
     line("R14,R18", "RT0402BRD07100RL", "YAGEO", "C705627",
          f"Specified RR0510P-101-D has JLC stock 0 ({RD}) and {MOTE}. 100 Ω thin film 0402, ±0.1 % ±25 ppm "
-         "(tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)", NOT_SOFAR),
+         "(tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)", NOT_SOFAR,
+         ALT1_MPN="ERA2AEB101X", ALT1_MFR="Panasonic", ALT1_LCSC="C445575",
+         ALT2_MPN="", ALT2_MFR="", ALT2_LCSC="",
+         ALT_NOTE="100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"),
     line("R15,R16", "CRCW08057R50FKEAHP", "Vishay Dale", "C313962",
          f"As specified (pulse-rated part of the bus damper); {MOTE}. JLC public stock 0 on {RD}, so from the "
          "parts bought", bought(50, OCT20),
@@ -134,7 +141,9 @@ LINES = [
                   f"5,492 on {RD}"),
     line("R20,R39", "RTT021824FTH", "RALEC", "C166520",
          f"Specified CRCW04021M82FKED has JLC stock 0 ({RD}) and {MOTE}. Same spec: 1.82 MΩ ±1 % 62.5 mW 50 V "
-         "±100 ppm 0402; JLC stock 7,566 (need 50)", NOT_SOFAR),
+         "±100 ppm 0402; JLC stock 7,566 (need 50)", NOT_SOFAR,
+         ALT1_MPN="", ALT1_MFR="", ALT1_LCSC="",
+         ALT_NOTE="No backup: the other 1.82 MΩ parts were out of stock at LCSC on 2026-10-06, not read again"),
     line("R21,R35,R36,R37,R43", "RMCF0402FT100K", "Stackpole", "C7055151",
          f"As specified: Sofar's part is in JLC stock now (1,058 on {RD}, need 110). Planned before: UNI-ROYAL "
          "0402WGF1003TCE (JLC Basic), now ALT1"),

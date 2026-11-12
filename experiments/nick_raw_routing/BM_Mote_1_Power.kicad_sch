@@ -6779,7 +6779,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "CL10A226MQ8NRNC"
+		(property "ALT1 MPN" "GRM188R60J226MEA0D"
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -6790,7 +6790,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "Samsung"
+		(property "ALT1 MFR" "Murata"
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -6801,7 +6801,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C59461"
+		(property "ALT1 LCSC" "C77042"
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -6812,7 +6812,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GRM188R60J226MEA0D"
+		(property "ALT2 MPN" ""
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -6823,7 +6823,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -6834,7 +6834,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C77042"
+		(property "ALT2 LCSC" ""
 			(at 205.74 95.0722 0)
 			(hide yes)
 			(show_name no)
@@ -8615,7 +8615,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RTT021824FTH"
+		(property "ALT1 MPN" ""
 			(at 74.93 100.1522 0)
 			(hide yes)
 			(show_name no)
@@ -8626,7 +8626,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "RALEC"
+		(property "ALT1 MFR" ""
 			(at 74.93 100.1522 0)
 			(hide yes)
 			(show_name no)
@@ -8637,7 +8637,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C166520"
+		(property "ALT1 LCSC" ""
 			(at 74.93 100.1522 0)
 			(hide yes)
 			(show_name no)
@@ -8681,7 +8681,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+		(property "ALT NOTE" "No backup: the other 1.82 MΩ parts were out of stock at LCSC on 2026-10-06, not read again"
 			(at 74.93 100.1522 0)
 			(hide yes)
 			(show_name no)
@@ -9878,7 +9878,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "ALT1 MPN" "RTT021824FTH"
+		(property "ALT1 MPN" ""
 			(at 74.93 237.3122 0)
 			(hide yes)
 			(show_name no)
@@ -9889,7 +9889,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "RALEC"
+		(property "ALT1 MFR" ""
 			(at 74.93 237.3122 0)
 			(hide yes)
 			(show_name no)
@@ -9900,7 +9900,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C166520"
+		(property "ALT1 LCSC" ""
 			(at 74.93 237.3122 0)
 			(hide yes)
 			(show_name no)
@@ -9944,7 +9944,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+		(property "ALT NOTE" "No backup: the other 1.82 MΩ parts were out of stock at LCSC on 2026-10-06, not read again"
 			(at 74.93 237.3122 0)
 			(hide yes)
 			(show_name no)

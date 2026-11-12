@@ -2527,7 +2527,7 @@
 				)
 			)
 		)
-		(property "ALT1 MPN" "RTT021824FTH"
+		(property "ALT1 MPN" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2540,7 +2540,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "RALEC"
+		(property "ALT1 MFR" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2553,7 +2553,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C166520"
+		(property "ALT1 LCSC" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2605,7 +2605,7 @@
 				)
 			)
 		)
-		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+		(property "ALT NOTE" "No backup: the other 1.82 MΩ parts were out of stock at LCSC on 2026-10-06, not read again"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25524,7 +25524,7 @@
 				)
 			)
 		)
-		(property "ALT1 MPN" "CL10A226MQ8NRNC"
+		(property "ALT1 MPN" "GRM188R60J226MEA0D"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25537,7 +25537,7 @@
 				)
 			)
 		)
-		(property "ALT1 MFR" "Samsung"
+		(property "ALT1 MFR" "Murata"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25550,7 +25550,7 @@
 				)
 			)
 		)
-		(property "ALT1 LCSC" "C59461"
+		(property "ALT1 LCSC" "C77042"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25563,7 +25563,7 @@
 				)
 			)
 		)
-		(property "ALT2 MPN" "GRM188R60J226MEA0D"
+		(property "ALT2 MPN" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25576,7 +25576,7 @@
 				)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25589,7 +25589,7 @@
 				)
 			)
 		)
-		(property "ALT2 LCSC" "C77042"
+		(property "ALT2 LCSC" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -33715,7 +33715,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33729,7 +33729,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33743,7 +33743,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33757,7 +33757,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33771,7 +33771,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -33785,7 +33785,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42404,7 +42404,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42418,7 +42418,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42432,7 +42432,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42446,7 +42446,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42460,7 +42460,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42474,7 +42474,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -42488,7 +42488,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50774,7 +50774,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" "C2012X7S2A105KT000N"
+		(property "ALT1 MPN" "GCM21BC72A105KE36L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50788,7 +50788,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" "TDK"
+		(property "ALT1 MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50802,7 +50802,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" "C342785"
+		(property "ALT1 LCSC" "C126585"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50816,7 +50816,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MPN" "GCM21BC72A105KE36L"
+		(property "ALT2 MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50830,7 +50830,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MFR" "Murata"
+		(property "ALT2 MFR" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -50844,7 +50844,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 LCSC" "C126585"
+		(property "ALT2 LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -82422,7 +82422,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" "RTT021824FTH"
+		(property "ALT1 MPN" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -82436,7 +82436,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" "RALEC"
+		(property "ALT1 MFR" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -82450,7 +82450,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" "C166520"
+		(property "ALT1 LCSC" ""
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -82506,7 +82506,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT NOTE" "1.82 MΩ ±1 % 62.5 mW 50 V ±100 ppm"
+		(property "ALT NOTE" "No backup: the other 1.82 MΩ parts were out of stock at LCSC on 2026-10-06, not read again"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84117,7 +84117,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MPN" "RT0402BRD07100RL"
+		(property "ALT1 MPN" "ERA2AEB101X"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84131,7 +84131,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 MFR" "YAGEO"
+		(property "ALT1 MFR" "Panasonic"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84145,7 +84145,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT1 LCSC" "C705627"
+		(property "ALT1 LCSC" "C445575"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84159,7 +84159,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MPN" "ERA2AEB101X"
+		(property "ALT2 MPN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84173,7 +84173,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 MFR" "Panasonic"
+		(property "ALT2 MFR" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84187,7 +84187,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT2 LCSC" "C445575"
+		(property "ALT2 LCSC" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -84201,7 +84201,7 @@
 				(justify mirror)
 			)
 		)
-		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT2 AEC-Q200; PoDL front end: Sofar review"
+		(property "ALT NOTE" "100 Ω ±0.1 % ±25 ppm thin film 0402 (tighter); ALT1 AEC-Q200; PoDL front end: Sofar review"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")

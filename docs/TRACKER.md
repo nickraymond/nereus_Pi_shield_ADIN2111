@@ -533,10 +533,10 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [ ] After the freeze, in this order: schematics and BOM documents brought up to date (the BOM in its own session that Nick
       starts: Sofar's alternates first, then JLC stock; R47's PLANNED fields to 1 kΩ); DESIGN pin map and Sofar brief checked
       against the board (routing review N12: J2, J3, J4 / F1, J6, JP1, R47 / ADIN_TIMER); JLC export from the frozen board;
-      design review doc when Nick asks; draft PR and QE review. 43 commits and the tag are not pushed
-- [x] R47 = 1 kΩ (PLANNED fields corrected by the BOM session, 2026-11-11; Nick, the design session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
-      already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
-      (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the
+      design review doc when Nick asks; draft PR and QE review. Since 2026-11-11 evening: draft PR 35 holds all of it (branch
+      `claude/adoring-mclaren-10dc39`); the tag `s9-layout-freeze` is still local
+- [x] R47 = 1 kΩ (PLANNED fields corrected by the BOM session, 2026-11-11; Nick, the design session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value, PART NUMBER
+      and the PLANNED fields all say RC0402FR-071KL (JLC C106235). Software rule that goes with it: GPIO16 stays an input while the
       ADIN leaves reset, unless the Pi means to override CFG1
 - [x] BOM session, 2026-11-11 (branch `claude/adoring-mclaren-10dc39`, Nick's go in its chat): BOM of this board from its own
       schematic, 53 lines → `docs/design-review/bom_nick_raw_routing.csv` / `.pdf`; review with every changed line, the stock
@@ -557,7 +557,21 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       SPEC constraint 8; replace it before a potted build. Not yet written into SPEC or DESIGN (design session, on Nick's word)
 - [ ] Nick: J1 socket part (height); JLC stocks C2977589 and C7499354, both 8.5 mm by JLC's text
 - [ ] Nick, at the order screen: the bought lines show in My Parts Lib; C597304 has no maker name on JLC's page
-- [ ] After Nick's answer: fields of J1; QE review of the BOM session's commits; `pi-shield-checklist.html`,
+- [x] Draft PR 35 to main, 2026-11-11 (Nick, BOM session's chat: "Lets merge all of this [onto] main and delete all other
+      branches"; he chose PR, QE, then merge): all of S9, step 25 and the BOM review, 104 commits, fast-forward. The 35 other
+      remote branches are deleted; three tips main lacks are kept as tags `archive/reload_old_mote`,
+      `archive/experiment-fable-layout-01a`, `archive/sprint-8a-jlc-parts-buy`. Local `Fable_5.2` and
+      `claude/fable-5-2-continue-55a515` stay until the design session's work is on main
+- [~] QE round 1 on PR 35: **CHANGES REQUESTED** (3 major, 5 minor, 3 nits) — `docs/design-review/qe/S9.md`. Board, freeze,
+      netlist, BOM CSV and stock table confirmed. Fixed: findings 4, 7, 8, 9, 10. Open with Nick:
+      · R38 is 13.3 kΩ on the board (his commit 629d4e8): 5.11 V nominal, 4.95–5.28 V worst case, 30 mV over USB's 5.25 V
+        (`power_budget.md` §5); DESIGN D13 / D16 and SPEC still say 13.7 kΩ. Keep and record with a bench check, or 13.5 kΩ, or 13.7 kΩ
+      · his OK to write into SPEC and DESIGN: the F1 exception (constraint 8) and that this experiment board is merged to
+        main (constraint 1, D31 / D33)
+      · `nick_raw_routing_BEFORE.kicad_pcb` and `nick_raw_routing_OLD.kicad_pcb` beside the frozen board: move out or keep
+      · JP1 is a 3-pad jumper bridged 1–2 (PI_5V–5V_PI); J4 "+5V / AUX OUT" and F1 hang on pad 3 and are live only when
+        JP1 is re-bridged 2–3: is that the intent? DESIGN D14 describes a 2-pad link
+- [ ] After Nick's answer: fields of J1; QE round 2 on PR 35; `pi-shield-checklist.html`,
       DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
       are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
       C2012X7S2A105KT000N (C17 / C26)
@@ -680,7 +694,9 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       gerbers. CPL: filter the placement export against the
       BOM (see the item above) and never use the "SMD only" option, which would drop the footprints without an attribute
 **Demo (Nick):** `kicad-cli pcb drc --refill-zones --schematic-parity --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_pcb`
-→ after step 7 and I2C0 (JLC rules): 22 errors, 19 unconnected items, 0 parity issues.
+→ on the frozen board with the BOM fields (PR 35): 3 errors not excluded (skew on Sofar's data pairs, pending Sofar), 16
+excluded, 0 unconnected items, 0 parity issues. `kicad-cli sch erc --severity-all experiments/nick_raw_routing/nick_raw_routing.kicad_sch`
+→ 39 items.
 
 ---
 
