@@ -32,7 +32,7 @@ Not referenced by any sheet (files deleted in S1): BM_Mote_1_Processor, BM_Mote_
 | 38 | 20 | **~{PAYLOAD_FAULT}** (was SW_FLAGB; U11 FLT, open drain, R35 pull-up: low = fault) |
 | 2 / 4 | — | `PI_5V`, joined to `5V_PI` by JP1 (bridged link; cut to isolate, D14). On the board ordered at JLC JP1 is a three-pad selector, bridged 1–2 to the Pi as built; pad 3 goes through F1 to J4 (D55) |
 | 6, 9, 14, 20, 25, 30, 34, 39 | — | GND |
-| 1, 17 | — | **unconnected** (Pi 3.3 V) in the live project. On the board ordered at JLC pins 1 / 17 are the net , which feeds J2 pins 9 / 11 / 13, J3 pin 2 and the pull-ups R10, R24, R26, R27; it stays separate from the shield's  (SPEC constraint 4). The full pin-map pass against that board is TRACKER's open N12 item |
+| 1, 17 | — | **unconnected** (Pi 3.3 V) in the live project. On the board ordered at JLC pins 1 / 17 are the net `PI_3V3`, which feeds J2 pins 9 / 11 / 13, J3 pin 2 and the pull-ups R10, R24, R26, R27; it stays separate from the shield's `3V3` (SPEC constraint 4). The full pin-map pass against that board is TRACKER's open N12 item |
 
 Reserved: 26 (CE1), 29, 32, 33 (motor). Free: 40 (SW_PGOOD dropped, D18). Avoid: 27, 28 (HAT EEPROM), 8, 10 (console).
 All 17 unused GPIO pins (7, 8, 10–13, 15, 26–29, 31–33, 35, 37, 40) carry no-connect flags; remove the flag when a pin is used.

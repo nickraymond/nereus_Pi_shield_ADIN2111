@@ -564,7 +564,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       `claude/fable-5-2-continue-55a515` stay until the design session's work is on main
 - [x] QE round 2 on PR 35 (head 95fb538): **APPROVED WITH NITS**: all 11 round-1 findings closed (finding 11 withdrawn by the QE),
       one new nit (DESIGN pin map row for J1 pins 1 / 17), fixed. The QE's check of the fix push and the merge are recorded
-      on PR 35 — 
+      on PR 35 — `docs/design-review/qe/S9.md`
 - [x] QE round 1 on PR 35: **CHANGES REQUESTED** (3 major, 5 minor, 3 nits) — `docs/design-review/qe/S9.md`. Board, freeze,
       netlist, BOM CSV and stock table confirmed. Fixed: findings 4, 7, 8, 9, 10. Nick answered the other four the same
       evening (BOM session's chat): R38 stays 13.3 kΩ with a bench check (DESIGN D52); the F1 exception and the merge to
