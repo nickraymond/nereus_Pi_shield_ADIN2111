@@ -562,11 +562,14 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       remote branches are deleted; three tips main lacks are kept as tags `archive/reload_old_mote`,
       `archive/experiment-fable-layout-01a`, `archive/sprint-8a-jlc-parts-buy`. Local `Fable_5.2` and
       `claude/fable-5-2-continue-55a515` stay until the design session's work is on main
-- [~] QE round 1 on PR 35: **CHANGES REQUESTED** (3 major, 5 minor, 3 nits) — `docs/design-review/qe/S9.md`. Board, freeze,
+- [x] QE round 2 on PR 35 (head 95fb538): **APPROVED WITH NITS**: all 11 round-1 findings closed (finding 11 withdrawn by the QE),
+      one new nit (DESIGN pin map row for J1 pins 1 / 17), fixed. The QE's check of the fix push and the merge are recorded
+      on PR 35 — 
+- [x] QE round 1 on PR 35: **CHANGES REQUESTED** (3 major, 5 minor, 3 nits) — `docs/design-review/qe/S9.md`. Board, freeze,
       netlist, BOM CSV and stock table confirmed. Fixed: findings 4, 7, 8, 9, 10. Nick answered the other four the same
       evening (BOM session's chat): R38 stays 13.3 kΩ with a bench check (DESIGN D52); the F1 exception and the merge to
       main are in SPEC and DESIGN (D53, D54); the two old board files are removed; JP1 is a selector as built (D55).
-      Round 2 is with the QE. The questions as put to Nick:
+      The questions as put to Nick:
       · R38 is 13.3 kΩ on the board (his commit 629d4e8): 5.11 V nominal, 4.95–5.28 V worst case, 30 mV over USB's 5.25 V
         (`power_budget.md` §5); DESIGN D13 / D16 and SPEC still say 13.7 kΩ. Keep and record with a bench check, or 13.5 kΩ, or 13.7 kΩ
       · his OK to write into SPEC and DESIGN: the F1 exception (constraint 8) and that this experiment board is merged to
@@ -574,7 +577,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       · `nick_raw_routing_BEFORE.kicad_pcb` and `nick_raw_routing_OLD.kicad_pcb` beside the frozen board: move out or keep
       · JP1 is a 3-pad jumper bridged 1–2 (PI_5V–5V_PI); J4 "+5V / AUX OUT" and F1 hang on pad 3 and are live only when
         JP1 is re-bridged 2–3: is that the intent? DESIGN D14 describes a 2-pad link
-- [ ] After Nick's answer: fields of J1; QE round 2 on PR 35; `pi-shield-checklist.html`,
+- [ ] After Nick's answer: fields of J1; `pi-shield-checklist.html`,
       DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
       are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
       C2012X7S2A105KT000N (C17 / C26)

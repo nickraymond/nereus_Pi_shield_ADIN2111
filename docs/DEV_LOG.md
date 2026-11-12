@@ -87,6 +87,9 @@ Nick's word the same evening as draft PR 35 to main; see the end of this entry.
   "Yes, selector as built". Written: DESIGN D52 (R38, bench check 4.75–5.25 V at J1), D53 (F1), D54 (this board on
   main), D55 (JP1's three states); SPEC constraints 1 and 8 amended, R38's fact and open question updated; the two
   old board files deleted from the folder. No 13.5 kΩ 0402 part had JLC stock (12 listings, all 0). Round 2 sent to QE.
+- QE round 2 (head 95fb538): APPROVED WITH NITS. All 11 findings closed, finding 11 withdrawn by the QE, one new nit
+  (DESIGN pin map, J1 pins 1 / 17 are PI_3V3 on this board), fixed. The QE's check of that fix push and the merge
+  itself are recorded on PR 35, so that the merged commit is the one the QE saw.
 **Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's pick for J1;
 QE review of the BOM session's commits; the design session's JLC export from this branch's board.
 
