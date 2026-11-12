@@ -204,7 +204,7 @@ TP38.1; KiCad-Python `tools/fpextract.py … --verify` → 0 problems.
       Vishay second source); R8 stays (ROHM gives no land pattern); J1 TBD; the rest as specified
 - [x] S5.i: QE review (standing S5 session): **APPROVED WITH NITS** in round 1, nits fixed — `docs/design-review/qe/S5.md`
 - [x] S5.i: merged on Nick's instruction ("if the QE approves, merge"); S5 complete except J1's part number → S6
-- [ ] J1 socket part number (height) — when the board spacing is known (Nick)
+- [x] J1 socket part number (height): 8.5 mm, ZHOURI 2.54-2*20, JLC C2977589, on the board ordered at JLC (Nick, 2026-11-11; DESIGN D56)
 - [x] S5.b: wire the pin map in DESIGN.md (stub + same-name label per signal pin); reserved (26, 29, 32, 33),
       avoided (8, 10, 27, 28) and all other unused GPIO pins free with no-connect flags (17); Pi 3V3 pins 1/17 stay NC
 - [x] S5.c: ADIN_PWR **R43 100 kΩ** pull-down (AP22913 has none, DS41203); ADIN_RST none (internal pull-up,
@@ -555,7 +555,14 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       on the order line; JLC's public listing names it ADIN2111BCPZ-R7)
 - [x] F1 stays (Nick, BOM session's chat, 2026-11-11: "Keep F1"): a PPTC fuse, kept for this unpotted build as an exception to
       SPEC constraint 8; replace it before a potted build. Not yet written into SPEC or DESIGN (design session, on Nick's word)
-- [ ] Nick: J1 socket part (height); JLC stocks C2977589 and C7499354, both 8.5 mm by JLC's text
+- [x] J1 socket (Nick, BOM session's chat, 2026-11-11: "I would like to use the 8mm or 8.5mm tall header. Add that decision
+      please so all order decisions are final"): ZHOURI 2.54-2*20, JLC C2977589, 8.5 mm, stock 37,633 (need 20); backup Megastar
+      C7499354. Fields only on J1; ERC 39, parity 0, `--verify` passes (DESIGN D56). With it every part decision of the
+      BOM is made: 51 of 53 lines ready, R11 not fitted, U1 bought but not yet at JLC
+- [x] PR 35 merged to main on 2026-11-11, 9:03 PM Pacific (merge commit `4acd4ff`) after QE round 3 APPROVED on `81879a3`
+      (report on the PR; main's files equal that commit). GitHub has `main` only, plus the three `archive/` tags
+- [ ] At the order (Nick): J1 is a through-hole part on the bottom side and JLC lists it for wave soldering: see how JLC
+      fits it; R8 has no spare (25 = 20 + attrition 5)
 - [ ] Nick, at the order screen: the bought lines show in My Parts Lib; C597304 has no maker name on JLC's page
 - [x] Draft PR 35 to main, 2026-11-11 (Nick, BOM session's chat: "Lets merge all of this [onto] main and delete all other
       branches"; he chose PR, QE, then merge): all of S9, step 25 and the BOM review, 104 commits, fast-forward. The 35 other
@@ -577,7 +584,7 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       · `nick_raw_routing_BEFORE.kicad_pcb` and `nick_raw_routing_OLD.kicad_pcb` beside the frozen board: move out or keep
       · JP1 is a 3-pad jumper bridged 1–2 (PI_5V–5V_PI); J4 "+5V / AUX OUT" and F1 hang on pad 3 and are live only when
         JP1 is re-bridged 2–3: is that the intent? DESIGN D14 describes a 2-pad link
-- [ ] After Nick's answer: fields of J1; `pi-shield-checklist.html`,
+- [ ] Left for the design session or a later PR: `pi-shield-checklist.html`,
       DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
       are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
       C2012X7S2A105KT000N (C17 / C26)

@@ -11,16 +11,16 @@ from the live project. `bom.csv` and `bom.pdf` in this folder belong to the live
 **Rule (Nick, 2026-11-11):** per line, Sofar's specified part or an alternate from Sofar's own list if JLC has it in
 stock; then the parts already bought into JLC; only then a generic part JLC stocks. No global sourcing.
 
-**Result:** 50 lines are ready to order: 36 from JLC stock as specified by Sofar or by us, 4 from JLC stock with a
+**Result:** 51 lines are ready to order: 37 from JLC stock as specified by Sofar or by us, 4 from JLC stock with a
 generic part, 10 from the parts Nick bought on 2026-10-18 and 2026-10-20 (all "Complete" on his order screen of
-2026-11-11). One line is not fitted. Two lines are open, below; one of them, U1, stops the order.
+2026-11-11). One line is not fitted. Every part decision is made; one line is open, below: U1 has not reached JLC, and that
+stops the order.
 
-## Open lines: questions for Nick
+## Open line
 
 | # | Line | State | What is needed |
 |---|---|---|---|
 | 1 | **U1** ADIN2111BCPZ, 22 bought 2026-10-18 | **Still "Purchasing"** on Nick's order screen of 2026-11-11; JLC's estimate was 2026-11-05. Every other bought line reads "Complete". JLC's public stock of ADIN2111BCPZ is 0 on both of its listings. | The PCBA order cannot be placed with U1 until JLC receives it. Ask JLC support for the date on order DOB202610190524705. There is no other source inside the rule: Sofar's file gives no alternate for U1. |
-| 2 | **J1** Pi socket, 2 × 20 | Still "TBD": the socket height is not chosen. In JLC stock: ZHOURI 2.54-2*20 (C2977589, 37,698) and Megastar ZX-PM2.54-2-20PY (C7499354, 6,641), both 8.5 mm by JLC's text. | Your pick, or leave J1 off the order and solder your own socket. It sets the board-to-Pi spacing. |
 
 Closed on 2026-11-11 by Nick's order screenshots (kept in `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/`,
 `nick_jlc_order_history_2026-11-11_a.webp` and `_b.webp`):
@@ -38,6 +38,13 @@ Closed on 2026-11-11 by Nick's order screenshots (kept in `~/NereusData/nereus_P
 | | D2, D3 RB058LAM-60TFTR (C3757753) | 45 | Complete |
 | | MP1 to MP4 78614015360 (C17256375) | 84 | Complete |
 | | **U1 ADIN2111BCPZ (C3226961)** | 22 | **Purchasing** |
+
+**J1 is the 8.5 mm socket** (Nick, BOM session's chat, 2026-11-11: "I would like to use the 8mm or 8.5mm tall header";
+DESIGN D56): ZHOURI 2.54-2*20, JLC C2977589, a 2 × 20 through-hole socket; JLC's attributes give insulation height
+8.5 mm, pin length 3.2 mm, gold on brass, 2.5 A; stock 37,633 for a need of 20. Backup: Megastar ZX-PM2.54-2-20PY
+(C7499354, same height, 6,449). The 5 mm socket JLC lists (Kinghelm KH-2.54FH-2X20P-H5.0, C55160398) is not used: 12
+in stock, and its fit on the Pi's pins was not checked. J1 is a through-hole part on the bottom side; JLC's page gives
+its assembly type as wave soldering, so see at the order how JLC fits it. Its datasheet is not read.
 
 **F1 stays** (Nick, BOM session's chat, 2026-11-11: "Keep F1"). F1, BSMD1206-150-16V (BHFUSE, C883133, JLC stock
 42,233), is a PPTC resettable fuse. SPEC constraint 8 bars PPTCs on newly sourced parts, because potting changes how
@@ -159,7 +166,7 @@ Need = 20 boards × quantity + JLC's attrition for that listing. Source of every
 | D8 | 1 | KT-0603R | [C2286](https://jlcpcb.com/partdetail/C2286) | 6,090,401 | 10 | 30 | JLC stock |
 | D9,D10 | 2 | KT-0603YG | [C2289](https://jlcpcb.com/partdetail/C2289) | 34,769 | 14 | 54 | JLC stock |
 | F1 | 1 | BSMD1206-150-16V | [C883133](https://jlcpcb.com/partdetail/C883133) | 42,233 | 4 | 24 | JLC stock (PPTC, kept on Nick's word) |
-| J1 | 1 | TBD | — | - | - | 20 | **open**: part not chosen |
+| J1 | 1 | 2.54-2*20 (ZHOURI) | [C2977589](https://jlcpcb.com/partdetail/C2977589) | 37,633 | 0 | 20 | JLC stock (8.5 mm socket, Nick's decision) |
 | J3 | 1 | SM04B-SRSS-TB(LF)(SN) | [C160404](https://jlcpcb.com/partdetail/C160404) | 75,275 | 0 | 20 | JLC stock |
 | L1,L2 | 2 | SRF1260-101M | [C6496096](https://jlcpcb.com/partdetail/C6496096) | 92 | 0 | 40 | bought 10/20, qty 42, Complete |
 | L3,L6 | 2 | PA5432.822NLT | [C17230195](https://jlcpcb.com/partdetail/C17230195) | 0 | 0 | 40 | bought 10/18, qty 42, Complete |
@@ -210,7 +217,8 @@ the PDF with `python3 tools/bompdf.py docs/design-review/bom_nick_raw_routing.cs
 
 - No datasheet was read for this review. Ratings in the notes are JLC's listing text or carried over from
   `bom_alternates.md` (2026-10-06).
-- The placement file (which footprints JLC should place) is the design session's task.
+- The placement file (which footprints JLC should place) is the design session's task. J1 is through-hole and on the
+  bottom side; how JLC fits it is not checked.
 - DESIGN D26 / D27 (sourcing policy) and the Sofar brief still describe the earlier plan. R38, F1, the merge to main
   and JP1 are recorded in DESIGN D52 to D55 since QE's first round.
 - `bom_lifecycle.md`, `bom_alternates.md` and `jlc_parts_buy_2026-10.md` are left as the record of October.
