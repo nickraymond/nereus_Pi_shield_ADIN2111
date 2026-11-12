@@ -15961,7 +15961,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC stock (read 2026-11-11). OPEN (Nick): a PPTC resettable fuse, which SPEC constraint 8 bars on newly sourced parts"
+		(property "SOURCING" "JLC stock (read 2026-11-11). A PPTC resettable fuse: kept for this unpotted build on Nick's word (2026-11-11), an exception to SPEC constraint 8; replace it before a potted build"
 			(at 256.54 369.57 90)
 			(hide yes)
 			(show_name no)

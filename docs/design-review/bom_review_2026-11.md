@@ -11,17 +11,16 @@ from the live project. `bom.csv` and `bom.pdf` in this folder belong to the live
 **Rule (Nick, 2026-11-11):** per line, Sofar's specified part or an alternate from Sofar's own list if JLC has it in
 stock; then the parts already bought into JLC; only then a generic part JLC stocks. No global sourcing.
 
-**Result:** 49 lines are ready to order: 35 from JLC stock as specified by Sofar or by us, 4 from JLC stock with a
+**Result:** 50 lines are ready to order: 36 from JLC stock as specified by Sofar or by us, 4 from JLC stock with a
 generic part, 10 from the parts Nick bought on 2026-10-18 and 2026-10-20 (all "Complete" on his order screen of
-2026-11-11). One line is not fitted. Three lines are open, below; one of them, U1, stops the order.
+2026-11-11). One line is not fitted. Two lines are open, below; one of them, U1, stops the order.
 
 ## Open lines: questions for Nick
 
 | # | Line | State | What is needed |
 |---|---|---|---|
 | 1 | **U1** ADIN2111BCPZ, 22 bought 2026-10-18 | **Still "Purchasing"** on Nick's order screen of 2026-11-11; JLC's estimate was 2026-11-05. Every other bought line reads "Complete". JLC's public stock of ADIN2111BCPZ is 0 on both of its listings. | The PCBA order cannot be placed with U1 until JLC receives it. Ask JLC support for the date on order DOB202610190524705. There is no other source inside the rule: Sofar's file gives no alternate for U1. |
-| 2 | **F1** BSMD1206-150-16V (BHFUSE, C883133) | In JLC stock: 42,233. It is a PPTC resettable fuse; SPEC constraint 8 bars PPTCs on newly sourced parts, because potting changes how they trip. | Your word to keep it. Recommended: keep it, since these 20 are development units without potting (DESIGN D32) and the layout is frozen; record the exception and replace it before a potted build. |
-| 3 | **J1** Pi socket, 2 × 20 | Still "TBD": the socket height is not chosen. In JLC stock: ZHOURI 2.54-2*20 (C2977589, 37,698) and Megastar ZX-PM2.54-2-20PY (C7499354, 6,641), both 8.5 mm by JLC's text. | Your pick, or leave J1 off the order and solder your own socket. It sets the board-to-Pi spacing. |
+| 2 | **J1** Pi socket, 2 × 20 | Still "TBD": the socket height is not chosen. In JLC stock: ZHOURI 2.54-2*20 (C2977589, 37,698) and Megastar ZX-PM2.54-2-20PY (C7499354, 6,641), both 8.5 mm by JLC's text. | Your pick, or leave J1 off the order and solder your own socket. It sets the board-to-Pi spacing. |
 
 Closed on 2026-11-11 by Nick's order screenshots (kept in `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/`,
 `nick_jlc_order_history_2026-11-11_a.webp` and `_b.webp`):
@@ -39,6 +38,11 @@ Closed on 2026-11-11 by Nick's order screenshots (kept in `~/NereusData/nereus_P
 | | D2, D3 RB058LAM-60TFTR (C3757753) | 45 | Complete |
 | | MP1 to MP4 78614015360 (C17256375) | 84 | Complete |
 | | **U1 ADIN2111BCPZ (C3226961)** | 22 | **Purchasing** |
+
+**F1 stays** (Nick, BOM session's chat, 2026-11-11: "Keep F1"). F1, BSMD1206-150-16V (BHFUSE, C883133, JLC stock
+42,233), is a PPTC resettable fuse. SPEC constraint 8 bars PPTCs on newly sourced parts, because potting changes how
+they trip. These 20 boards are development units without potting (DESIGN D32), so it is kept as an exception for
+this build and has to be replaced before a potted build. SPEC and DESIGN do not record the exception yet.
 
 For the order screen, not blocking:
 
@@ -154,7 +158,7 @@ Need = 20 boards × quantity + JLC's attrition for that listing. Source of every
 | D4,D5 | 2 | CDSOD323-T36SC | [C911382](https://jlcpcb.com/partdetail/C911382) | 1,123 | 0 | 40 | JLC stock |
 | D8 | 1 | KT-0603R | [C2286](https://jlcpcb.com/partdetail/C2286) | 6,090,401 | 10 | 30 | JLC stock |
 | D9,D10 | 2 | KT-0603YG | [C2289](https://jlcpcb.com/partdetail/C2289) | 34,769 | 14 | 54 | JLC stock |
-| F1 | 1 | BSMD1206-150-16V | [C883133](https://jlcpcb.com/partdetail/C883133) | 42,233 | 4 | 24 | JLC stock; **open**: PPTC |
+| F1 | 1 | BSMD1206-150-16V | [C883133](https://jlcpcb.com/partdetail/C883133) | 42,233 | 4 | 24 | JLC stock (PPTC, kept on Nick's word) |
 | J1 | 1 | TBD | — | - | - | 20 | **open**: part not chosen |
 | J3 | 1 | SM04B-SRSS-TB(LF)(SN) | [C160404](https://jlcpcb.com/partdetail/C160404) | 75,275 | 0 | 20 | JLC stock |
 | L1,L2 | 2 | SRF1260-101M | [C6496096](https://jlcpcb.com/partdetail/C6496096) | 92 | 0 | 40 | bought 10/20, qty 42, Complete |

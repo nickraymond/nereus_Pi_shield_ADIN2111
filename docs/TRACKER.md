@@ -545,9 +545,11 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [!] **U1 (ADIN2111BCPZ, 22 bought 2026-10-18) still reads "Purchasing"** on that screen; JLC's estimate was 2026-11-05. The
       PCBA order cannot include U1 until JLC has it: Nick asks JLC support for the date. U1's JLC part is C3226961 (the number
       on the order line; JLC's public listing names it ADIN2111BCPZ-R7)
-- [ ] Nick: F1 is a PPTC fuse (SPEC constraint 8): keep it for this unpotted build? J1 socket part (height)
+- [x] F1 stays (Nick, BOM session's chat, 2026-11-11: "Keep F1"): a PPTC fuse, kept for this unpotted build as an exception to
+      SPEC constraint 8; replace it before a potted build. Not yet written into SPEC or DESIGN (design session, on Nick's word)
+- [ ] Nick: J1 socket part (height); JLC stocks C2977589 and C7499354, both 8.5 mm by JLC's text
 - [ ] Nick, at the order screen: the bought lines show in My Parts Lib; C597304 has no maker name on JLC's page
-- [ ] After Nick's answers: fields of F1 / J1; QE review of the BOM session's commits; `pi-shield-checklist.html`,
+- [ ] After Nick's answer: fields of J1; QE review of the BOM session's commits; `pi-shield-checklist.html`,
       DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
       are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
       C2012X7S2A105KT000N (C17 / C26)

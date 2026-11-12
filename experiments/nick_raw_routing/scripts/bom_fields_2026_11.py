@@ -92,7 +92,8 @@ LINES = [
     line("D9,D10", "KT-0603YG", "Hubei KENTO", "C2289"),
     line("F1", "BSMD1206-150-16V", "BHFUSE", "C883133",
          f"1.5 A hold / 3 A trip; LiFePO4 charge bridge open (0.57 A); in JLC stock (read {RD})",
-         STOCK + ". OPEN (Nick): a PPTC resettable fuse, which SPEC constraint 8 bars on newly sourced parts"),
+         STOCK + ". A PPTC resettable fuse: kept for this unpotted build on Nick's word (2026-11-11), an exception "
+         "to SPEC constraint 8; replace it before a potted build"),
     line("J1", "TBD", "", "",
          "Part not chosen: 2×20 2.54 mm female TH socket, height open (Nick)",
          f"OPEN (Nick): part not chosen, socket height open. In JLC stock on {RD}: ZHOURI 2.54-2*20 C2977589 "

@@ -68,7 +68,10 @@ commits). Nothing pushed, no PR.
   names ADIN2111BCPZ-R7; the field now says C3226961 (was C3226964, from the public search). SOURCING of the eleven
   bought lines names its order, quantity and status. Checks again: ERC 39, DRC counts unchanged, parity 0, nets
   identical, board identical to the tag apart from the BOM fields. Open lines: six → three (U1, F1, J1).
-**Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's word on F1 and J1;
+- Nick, this session's chat, 2026-11-11, after the screenshots: "Keep F1". F1 (PPTC) stays for this unpotted build, an exception to SPEC
+  constraint 8, written into F1's SOURCING field and the review; SPEC and DESIGN are not edited. Checks again: ERC 39,
+  parity 0. Open lines: U1 (not at JLC yet) and J1 (socket).
+**Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's pick for J1;
 QE review of the BOM session's commits; the design session's JLC export from this branch's board.
 
 ## 2026-11-11 — Sprint S9 — New design session: Nick's answers to the open items; two mocks
