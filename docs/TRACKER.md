@@ -1,7 +1,7 @@
 # TRACKER.md — Sprint Ladder & Rules
 
 *The agent entry point and the single source of truth for progress.*
-*Last updated: 2026-11-10 · Owner/gate: **Nick***
+*Last updated: 2026-11-11 · Owner/gate: **Nick***
 
 ---
 
@@ -526,10 +526,28 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
       starts: Sofar's alternates first, then JLC stock; R47's PLANNED fields to 1 kΩ); DESIGN pin map and Sofar brief checked
       against the board (routing review N12: J2, J3, J4 / F1, J6, JP1, R47 / ADIN_TIMER); JLC export from the frozen board;
       design review doc when Nick asks; draft PR and QE review. 43 commits and the tag are not pushed
-- [ ] R47 = 1 kΩ (Nick, this session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
+- [x] R47 = 1 kΩ (PLANNED fields corrected by the BOM session, 2026-11-11; Nick, the design session's chat, 2026-11-11: "Ok, so the 1kOHM it is based on your suggestion"). Value and PART NUMBER
       already say RC0402FR-071KL; the PLANNED MPN / LCSC fields still name the 1.5 kΩ part and are corrected in the BOM session
       (the LCSC number of the 1 kΩ part is not looked up yet). Software rule that goes with it: GPIO16 stays an input while the
       ADIN leaves reset, unless the Pi means to override CFG1
+- [x] BOM session, 2026-11-11 (branch `claude/adoring-mclaren-10dc39`, Nick's go in its chat): BOM of this board from its own
+      schematic, 53 lines → `docs/design-review/bom_nick_raw_routing.csv` / `.pdf`; review with every changed line, the stock
+      table (JLC parts search, read 2026-11-11) and the open lines → `docs/design-review/bom_review_2026-11.md`. Fields only:
+      R47's planned part is 1 kΩ (C106235); C59's planned part is 220 nF; five lines back to Sofar's part, which JLC stocks
+      now (C16 group, C19 / C27, C21, R21 group, R34); Sofar's own alternates for R8 as ALT1 / ALT2 (CSRF0603FT10L0 in JLC
+      stock: 9,822). ERC 39, DRC counts as `drc_24.json`, 0 open, parity 0; nets identical
+- [x] The board file after the BOM session: hidden footprint fields only (parity compares them with the symbol fields). With
+      those fields taken out it equals tag `s9-layout-freeze` byte for byte (`scripts/bom_fields_board_sync_2026_11.py --verify
+      <board at the tag> <board>`); its SHA-256 is no longer the one in the freeze item
+- [ ] Nick: six open BOM lines (`bom_review_2026-11.md`, top): C22 / C23, R15 / R16 and R8 have JLC stock 0 and the 10/23
+      review sheet says they were ordered (60, 50, 25): are they in My Parts Lib? F1 is a PPTC fuse (SPEC constraint 8): keep
+      for this unpotted build? J1 socket part. L1 / L2 from JLC stock (92) or from the 42 bought
+- [ ] Nick, at the order screen: My Parts Lib shows the seven lines bought 2026-10-18 (not verified by an agent); U1's JLC
+      number (C3226964 or C56341494); C597304 has no maker name on JLC's page
+- [ ] After Nick's answers: fields of the open lines; QE review of the BOM session's three commits; `pi-shield-checklist.html`,
+      DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
+      are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
+      C2012X7S2A105KT000N (C17 / C26)
 - [x] Found 2026-11-11: port LEDs sat on the far side from their ports. D9 (west, by BM2) is on ~ADIN_P1_LED1 and port 1 is BM1 (east);
       D10 (east, by BM1) is on ~ADIN_P2_LED1 and port 2 is BM2 (west). The names P1 / P2 match the nets. Nick wants each LED
       beside its own port with PWR in the middle: swap D9 / R45 with D10 / R46 and re-route the two LED lines (mock first).

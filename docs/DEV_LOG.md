@@ -19,6 +19,51 @@ what broke, what's next.*
 
 ---
 
+## 2026-11-11 — Sprint S9 / S8 — BOM review of the frozen board for the JLC order (BOM session)
+
+**Branch:** claude/adoring-mclaren-10dc39 (the BOM session's own; fast-forwarded to tag `s9-layout-freeze`, then 3
+commits). Nothing pushed, no PR.
+**Files touched:** the six sheets in `experiments/nick_raw_routing/` (fields only), `nick_raw_routing.kicad_pcb`
+(hidden footprint fields only), `scripts/bom_fields_2026_11.py`, `scripts/bom_fields_board_sync_2026_11.py`,
+`docs/design-review/bom_nick_raw_routing.csv` / `.pdf`, `bom_review_2026-11.md`, `tools/bompdf.py`, this entry, TRACKER
+**ERC:** 39 items, unchanged  ·  **Net diff:** none (nets, values and footprints identical; DRC counts as `drc_24.json`,
+0 open, parity 0)
+**Done:**
+- /agent-entry; Nick's go in this session's chat ("otherwise [the] plan sounds good"), with two directions: "reference
+  all the alternatives given in the source mote file in the reference folder" and "The ideal outcome is that you find
+  alternatives on the Sofar list that JLC stocks".
+- Sofar's alternates read from the mote reference (8 sheets, 170 parts, every field): only R8 (seven part numbers), D1
+  (two) and Y2 (one; not on the shield) carry any. The review sheet of 10/23 holds no reply from Sofar.
+- JLC stock read for every line, its planned part and its backups: jlcpcb.com parts search, 2026-11-11 4:24 to 4:31 PM
+  Pacific, not signed in. Table and a second reading: `~/NereusData/nereus_Pi_shield_ADIN2111/bom_review_2026-11-11/`.
+- R8: Sofar's alternate 7, Stackpole CSRF0603FT10L0 (C346485), is in JLC stock (9,822); alternate 1 has 16; the
+  other five have 0 or no listing. Both are in R8's ALT fields.
+- Five lines went back to Sofar's specified part, which JLC stocks now: C16 / C18 / C24 / C25, C19 / C27, C21,
+  R21 / R35 / R36 / R37 / R43, R34. Four keep a generic part (C17 / C26, C31, R14 / R18, R20 / R39).
+- R47's planned part is the 1 kΩ RC0402FR-071KL (C106235); C59's planned part is its 220 nF value; J3's fields carry
+  the upper-case names; text placeholders in PLANNED LCSC replaced by JLC's part numbers.
+- BOM of this board: 53 lines, 108 fitted parts and R11. Export:
+  `kicad-cli sch export bom -o docs/design-review/bom_nick_raw_routing.csv --fields 'Reference,${QUANTITY},Value,MANUFACTURER,PLANNED MPN,PLANNED MFR,PLANNED LCSC,PLANNED NOTE,${DNP},SOURCING,ALT1 MPN,ALT1 MFR,ALT1 LCSC,ALT2 MPN,ALT2 MFR,ALT2 LCSC,ALT NOTE,Footprint' --labels 'Refs,Qty,Value (MPN),Mfr,Planned MPN,Planned Mfr,Planned LCSC,Planned note,DNP,Sourcing,Alt1 MPN,Alt1 Mfr,Alt1 LCSC,Alt2 MPN,Alt2 Mfr,Alt2 LCSC,Alt note,Footprint' --group-by 'Value,${DNP}' experiments/nick_raw_routing/nick_raw_routing.kicad_sch`
+**Broke/surprised us:**
+- This worktree's branch was cut at 5180c47 (step 16), 14 commits behind the freeze tag; fast-forwarded on Nick's go.
+- KiCad 10's schematic parity compares every symbol field with the footprint's copy: the sheet edits alone gave 109
+  parity items. The same values went into the board's hidden footprint fields (285 changes, 70 new hidden fields on
+  the Fab layers). With those fields taken out the board equals the tag byte for byte (`--verify`); its SHA-256 is no
+  longer 3728e882…: the freeze is now "tag `s9-layout-freeze` plus BOM fields".
+- `tools/schedit.py` writes new fields in KiCad 9's form; the sheets are KiCad 10 files, so the new script copies the
+  symbol's own PLANNED MPN field as the pattern.
+- Fields differed inside one BOM line (C22 / C23, R15 / R16, D2 / D3, L1 / L2, L3 / L6, MP1 / MP2 to MP4, U2 / U3), so
+  the export joined two texts in one cell. Each line now has one text.
+- F1 is a PPTC resettable fuse (SPEC constraint 8). C597304 (Sofar's 08051C474KAT2A) shows no maker on JLC's page.
+- R12, R13, R17, R19 are not on this board (Nick's commit 1c75bd3); R38 is 13.3 kΩ (Nick's commit 629d4e8) while
+  DESIGN D16 says 13.7 kΩ.
+- A direct request to JLC's search from the shell was refused by the permission check; the figures were read through
+  the browser pane and copied into the table, then checked against a second reading (one stock figure had moved).
+- Not done: no datasheet read (CSRF0603 land pattern against R8's pads, C2012X7S2A105KT000N's thickness); no QE
+  review; `pi-shield-checklist.html`, DESIGN and the Sofar brief are left to the design session.
+**Next:** Nick answers the six open lines in `docs/design-review/bom_review_2026-11.md` (My Parts Lib for C22 / C23,
+R15 / R16, R8; F1; J1; L1 / L2); then the fields of those lines, QE, and the design session's JLC export.
+
 ## 2026-11-11 — Sprint S9 — New design session: Nick's answers to the open items; two mocks
 
 **Branch:** claude/fable-5-2-continue-55a515, cut from `Fable_5.2` at 5180c47. Nick approved it in the previous
