@@ -140,6 +140,9 @@ not share the old worktree. The commits return to `Fable_5.2` by fast-forward la
 - After step 24: 3 skew errors not excluded, 16 excluded, 0 open, parity 0, ERC 39; silk_overlap 13, silk_over_copper 6.
 - **Layout frozen** on Nick's "Yes, freeze it" (about 3:35 PM): the board as of step 24 (456752d), SHA-256
   3728e882268f10ad619c7eda81b289087a70814d26bca223493e208346a3518e; local tag `s9-layout-freeze`. Nothing pushed.
+- After the freeze (3:45 PM): step 25, the schematic's cover sheet shows the board's top and bottom view with
+  dimension lines (Nick's request in chat). KiCad takes an embedded picture without a resolution tag at 300 ppi; the
+  placeholder frame had a grey fill that hid the picture, now none. Sheet +328 kB. ERC 39, parity 0, board untouched.
 **Handoff state (for a rotation or the BOM session):**
 - Branch claude/fable-5-2-continue-55a515, tree clean, 43 commits ahead of `origin/Fable_5.2` (c0edb77), no PR, no QE yet.
 - Checks of the frozen board: `~/NereusData/nereus_Pi_shield_ADIN2111/steps_2026-11-11/drc_24.json`, `erc_24.json`
