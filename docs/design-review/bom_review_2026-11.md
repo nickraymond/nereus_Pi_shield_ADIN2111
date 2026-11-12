@@ -42,7 +42,7 @@ Closed on 2026-11-11 by Nick's order screenshots (kept in `~/NereusData/nereus_P
 **F1 stays** (Nick, BOM session's chat, 2026-11-11: "Keep F1"). F1, BSMD1206-150-16V (BHFUSE, C883133, JLC stock
 42,233), is a PPTC resettable fuse. SPEC constraint 8 bars PPTCs on newly sourced parts, because potting changes how
 they trip. These 20 boards are development units without potting (DESIGN D32), so it is kept as an exception for
-this build and has to be replaced before a potted build. SPEC and DESIGN do not record the exception yet.
+this build and has to be replaced before a potted build (SPEC constraint 8, DESIGN D53).
 
 For the order screen, not blocking:
 
@@ -123,7 +123,7 @@ No other part has one. Detail: `~/NereusData/nereus_Pi_shield_ADIN2111/bom_revie
   R19 (removed in Nick's commit `1c75bd3`, 2026-10-26).
 - **Only on this board:** C59 (220 nF, U11 dVdT), F1 (fuse at J4), J3 (Qwiic), R9, R10, R24, R36, R47.
 - **Different value:** R38 is 0402WGF1332TCE, 13.3 kΩ for 5.11 V (Nick's commit `629d4e8`, 2026-10-23); `bom.csv` and
-  DESIGN D16 still say 13.7 kΩ.
+  the live project say 13.7 kΩ. Nick confirmed 13.3 kΩ on 2026-11-11 (DESIGN D52, with a bench check).
 - **In the schematic but not in either BOM:** J2 and J6 (headers, marked not fitted), J4 and J5 (wire pads),
   JP1 to JP4, H1 to H4, test points, fiducials.
 - **Planned part differs:** the five lines that went back to Sofar's part, above.
@@ -211,6 +211,6 @@ the PDF with `python3 tools/bompdf.py docs/design-review/bom_nick_raw_routing.cs
 - No datasheet was read for this review. Ratings in the notes are JLC's listing text or carried over from
   `bom_alternates.md` (2026-10-06).
 - The placement file (which footprints JLC should place) is the design session's task.
-- DESIGN D16 (R38), D26 / D27 (sourcing policy) and the Sofar brief still describe the earlier plan; they are the
-  design session's documents.
+- DESIGN D26 / D27 (sourcing policy) and the Sofar brief still describe the earlier plan. R38, F1, the merge to main
+  and JP1 are recorded in DESIGN D52 to D55 since QE's first round.
 - `bom_lifecycle.md`, `bom_alternates.md` and `jlc_parts_buy_2026-10.md` are left as the record of October.

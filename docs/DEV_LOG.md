@@ -83,6 +83,10 @@ Nick's word the same evening as draft PR 35 to main; see the end of this entry.
   Nick: R38's value (13.3 kΩ puts the Pi rail's worst case at 5.28 V per `power_budget.md` §5), his OK to record the F1
   exception and the merge of the experiment folder in SPEC and DESIGN, the two spare board files, and whether J4
   should be live as shipped.
+- Nick's answers (this session's chat, same evening): "Keep 13.3 kΩ"; "Yes, write both"; "Remove from the folder";
+  "Yes, selector as built". Written: DESIGN D52 (R38, bench check 4.75–5.25 V at J1), D53 (F1), D54 (this board on
+  main), D55 (JP1's three states); SPEC constraints 1 and 8 amended, R38's fact and open question updated; the two
+  old board files deleted from the folder. No 13.5 kΩ 0402 part had JLC stock (12 listings, all 0). Round 2 sent to QE.
 **Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's pick for J1;
 QE review of the BOM session's commits; the design session's JLC export from this branch's board.
 
