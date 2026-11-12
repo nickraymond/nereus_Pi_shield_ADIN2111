@@ -4779,7 +4779,7 @@
 			(uuid "93895515-7859-4ba7-8a13-a77f6aa692f6")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR51")
 					(unit 1)
@@ -4943,7 +4943,7 @@
 			(uuid "747876be-dd9a-48e9-80a5-59a851b28dcc")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "L2")
 					(unit 0)
@@ -5489,7 +5489,7 @@
 			(uuid "46853553-0c26-4326-88f3-70f0ff6c31f7")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C24")
 					(unit 0)
@@ -5774,7 +5774,7 @@
 			(uuid "2f1b026a-0dc8-4246-ab03-91761f7223ba")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R16")
 					(unit 1)
@@ -5848,7 +5848,7 @@
 			(uuid "b07a33ce-4740-4c9e-92cd-b059db060b46")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR52")
 					(unit 1)
@@ -5922,7 +5922,7 @@
 			(uuid "9356de1b-3e7a-45c5-b120-a2680b52855e")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR53")
 					(unit 1)
@@ -6418,7 +6418,7 @@
 			(uuid "6fbd46d1-b15f-4f50-8fc6-78a554ab3417")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D5")
 					(unit 0)
@@ -6492,7 +6492,7 @@
 			(uuid "5db88371-c20b-4983-91fa-bfe02613bd82")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR54")
 					(unit 1)
@@ -7039,7 +7039,7 @@
 			(uuid "8f6e65fa-3ce4-45af-a7a9-7aa0078837d5")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R14")
 					(unit 0)
@@ -7585,7 +7585,7 @@
 			(uuid "ddac62b4-88b9-490b-8162-6639f69a3619")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C18")
 					(unit 0)
@@ -7771,7 +7771,7 @@
 			(uuid "5ef04475-5366-407a-af81-3663df493762")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "T1")
 					(unit 1)
@@ -8377,7 +8377,7 @@
 			(uuid "1929dd23-4849-474c-bb3f-354c30bee515")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C22")
 					(unit 1)
@@ -8923,7 +8923,7 @@
 			(uuid "b1231121-b9a2-4441-8960-5c82a72bbf59")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C25")
 					(unit 0)
@@ -8997,7 +8997,7 @@
 			(uuid "e12b91a9-dad1-40ec-9eff-dfbf7ec852e9")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR55")
 					(unit 1)
@@ -9443,7 +9443,7 @@
 			(uuid "0da6c57a-3750-4159-a3e2-317c6e49166c")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C20")
 					(unit 0)
@@ -9726,7 +9726,7 @@
 			(uuid "1553c70f-c759-4efd-bf68-019182f217e7")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C27")
 					(unit 0)
@@ -10011,7 +10011,7 @@
 			(uuid "51a45865-f9ef-46d6-b8f2-6dcf9e984392")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R15")
 					(unit 1)
@@ -10569,7 +10569,7 @@
 			(uuid "01d60257-087b-4f24-9c6d-f52e120f7839")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C26")
 					(unit 0)
@@ -11055,7 +11055,7 @@
 			(uuid "58e9899c-b2cd-4b51-8f35-626eb2ce476c")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C21")
 					(unit 0)
@@ -11601,7 +11601,7 @@
 			(uuid "0b2fef62-6ea3-4e92-b61d-d73f5dceafa8")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C16")
 					(unit 0)
@@ -11675,7 +11675,7 @@
 			(uuid "878cc07d-4c15-46a3-963e-da682c78526f")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR56")
 					(unit 1)
@@ -12233,7 +12233,7 @@
 			(uuid "8c24d4c9-220e-4bd9-a5c4-2056d2d5376d")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C17")
 					(unit 0)
@@ -12780,7 +12780,7 @@
 			(uuid "8c1c9b8a-7514-4ebc-9cea-482f37b03b3b")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "R18")
 					(unit 0)
@@ -12927,7 +12927,7 @@
 			(uuid "a7cf94f7-f25a-44d3-9333-3b61666f500b")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D2")
 					(unit 1)
@@ -13210,7 +13210,7 @@
 			(uuid "d0ae9777-2e23-46c1-b885-c6a1d3e4312c")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C19")
 					(unit 0)
@@ -13706,7 +13706,7 @@
 			(uuid "f964bd54-20ce-4fc4-acb0-af1ff84f24c8")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D4")
 					(unit 0)
@@ -13892,7 +13892,7 @@
 			(uuid "3ab3c7e2-520d-4d97-889f-0f3c93fdee5c")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "T2")
 					(unit 1)
@@ -14498,7 +14498,7 @@
 			(uuid "1464ae71-0988-49d7-b137-1d9518b22b68")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "C23")
 					(unit 0)
@@ -14789,7 +14789,7 @@
 			(uuid "df05b963-b107-4214-80b3-35ab645c3482")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "D1")
 					(unit 1)
@@ -14863,7 +14863,7 @@
 			(uuid "e407ba9d-5af8-40ad-9443-f9600c2e2085")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "#PWR57")
 					(unit 1)
@@ -15027,7 +15027,7 @@
 			(uuid "173e446e-991e-4b97-8871-e52952026e78")
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(reference "L1")
 					(unit 1)
@@ -15063,7 +15063,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "BM_Mote_1_PowerMon.kicad_sch"
+		(property "Sheetfile" "Nereus_Pi_Shield_Adin2111_PowerMonitor.kicad_sch"
 			(at 187.96 136.9822 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15135,7 +15135,7 @@
 			)
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62"
 					(page "6")
 				)

@@ -288,7 +288,7 @@
 		(property ki_fp_filters "SolderJumper*Bridged*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/5b69bf6e-b16f-436e-84a8-d0283c1b79fb")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -461,7 +461,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/f28dc06a-dbf0-467d-9b50-1b4ea499cce6")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -797,7 +797,7 @@
 		(property ki_fp_filters "*CAPC1608X100X20ML10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/42fef02a-ed04-4ac5-afd5-7a77411b90a6")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1201,7 +1201,7 @@
 		(property ki_fp_filters "*SOT-23-THIN-6_DDC_TEX*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/758c1c53-1a04-435c-89d5-a717a5502d9b")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -1917,7 +1917,7 @@
 		)
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/86132db7-8a78-4a88-8fa3-37acd90b9409")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2699,7 +2699,7 @@
 		(property ki_fp_filters "*FP-CRCW0402-e3-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/8a2dd92c-dc5e-4d82-a1d0-d2228fc87d1f")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -3113,7 +3113,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/2443a9e9-de41-4f17-b7e5-88bddcfd91d9")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -3243,7 +3243,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/b1194435-7ff2-4d02-9296-869b14cad966")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -3676,7 +3676,7 @@
 		(property ki_fp_filters "*FP-0603-L_1_6_0_2-W_0_8_0-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/d92b1457-44c5-48b9-8e9c-57099fddc73e")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4079,7 +4079,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/ce9caf69-04a9-4e43-b9ed-5b6fe9f7a53e")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4321,7 +4321,7 @@
 		(property ki_fp_filters "Texas*DRC0010J*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/cd0aab90-1f99-4308-9a33-b17b2b5b8798")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -4810,7 +4810,7 @@
 		(property ki_fp_filters "SolderJumper*Bridged12*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/915f8458-2355-40bb-9ad6-60c7b0ae96e4")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5251,7 +5251,7 @@
 		)
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4438bd76-a20f-415b-b0f8-735de9c274a1")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5498,7 +5498,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e7ad39f4-3d56-4485-9211-8037887df2ad")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -5751,7 +5751,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/603c0603-44c1-4d5d-ae1c-440b84588b52")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -6744,7 +6744,7 @@
 		(property ki_fp_filters "*FP-CL32-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/aa09c03f-eeb6-4b53-8410-080a34b30321")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7243,7 +7243,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/5666d8e0-a700-48ea-bfeb-c867e3f4f4f0")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -7592,7 +7592,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/f6938124-cedd-42bb-8d2b-eac500c4b1e3")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -8142,7 +8142,7 @@
 		(property ki_fp_filters "*ADIN2111BCPZ-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/94a85323-8a28-42d3-bb8c-566cbf788e0f")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -9131,7 +9131,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/e9c4d407-a0d1-4aae-acaf-809b755c648a")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -9738,7 +9738,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/ce1df36b-ce6c-4399-8948-d53bfba6fb19")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -10133,7 +10133,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/95d42bdb-e58b-49e7-a942-3d392670bd87")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -10484,7 +10484,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/4363fcaf-fecb-4575-bf87-1d9d0e141f29")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11273,7 +11273,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/3d6571d7-6036-4123-b9bd-07ce3a0b10eb")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -11732,7 +11732,7 @@
 		(property ki_fp_filters "*FP-PA5432_472NLT-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/75eb2568-a148-4bdf-8d19-213387492d35")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12369,7 +12369,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/c439e87d-2977-464d-92de-a0f6a813682c")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -12981,7 +12981,7 @@
 		(property ki_fp_filters "*FP-0603-L_1_6_0_2-W_0_8_0-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/99e40c6d-8afd-4c01-b24e-968a2fcc9ca5")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -13246,7 +13246,7 @@
 		(property ki_fp_filters "*SRF1260-101M-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/1021afda-7595-4ccf-aebf-e48ca8cbbf6a")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14139,7 +14139,7 @@
 		(property ki_fp_filters "*FP-FTD-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/5bc2be71-9f28-4531-a810-6151819794ec")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -14591,7 +14591,7 @@
 		(property ki_fp_filters "SolderJumper*Bridged12*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/0b9297da-8b33-4d83-a25d-1ca3006e909a")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15025,7 +15025,7 @@
 		(property ki_fp_filters "*SRF1260-101M-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/f21001b3-6cc0-4c7e-85d5-4a9a84c239e0")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -15863,7 +15863,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/aa2e5fd2-5ce2-4fa3-8009-f5e411b52828")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16199,7 +16199,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/3e556e84-921a-4236-b462-39d26a07ffe8")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16458,7 +16458,7 @@
 		(property ki_fp_filters "*RESC1005X40X25ML05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/fefeb76b-54cb-4941-b76b-47f30e39030a")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -16821,7 +16821,7 @@
 		(property ki_fp_filters "*FP-74930000-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/db0cf037-d33b-444a-8c33-f47c370be010")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -17754,7 +17754,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/e8408030-5c8e-43e6-8852-66f93675102c")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -18533,7 +18533,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/2fc1e49d-deb7-49a1-92ca-50595f131041")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19007,7 +19007,7 @@
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/5c5d58db-8660-4584-ad77-b14ba865696c")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19516,7 +19516,7 @@
 		(property ki_fp_filters "*CAPC1608X100X20ML10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/5c1d2db0-3295-4ca9-8bf0-ccc56d686ff4")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -19787,7 +19787,7 @@
 		(property ki_fp_filters "*FP-74930000-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/581b178d-8248-4d08-880a-f6c4371633ff")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -20528,7 +20528,7 @@
 		(property ki_fp_filters "*SOT-23-THIN-6_DDC_TEX*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/73a2ad12-8675-499f-918b-c0f9df1497e8")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -21375,7 +21375,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/257b8004-43cc-4db5-9d7a-c8d11ae22a57")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -21564,7 +21564,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/323fd21c-3e58-405c-9ab4-6ff7f664b0f1")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22140,7 +22140,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/f3b69e86-726c-4d31-9a46-5aaed8e41429")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -22756,7 +22756,7 @@
 		(property ki_fp_filters "*CRCW08057R50FKEAHP-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/1168e7ea-b343-4b42-83ef-710a3a41bfe4")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -23347,7 +23347,7 @@
 		(property ki_fp_filters "*FP-0603-L_1_6_0_2-W_0_8_0-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/e2a79d18-f66f-41e3-9ec4-8987dedd3259")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24170,7 +24170,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/7c01dae6-57ba-43f4-a93e-408b9fa7cfef")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24632,7 +24632,7 @@
 		(property ki_fp_filters "*SMA6F33A-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/e6362604-0bd9-454d-8a9b-f4dc929ef720")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -24896,7 +24896,7 @@
 		(property ki_fp_filters "*polyfuse* *PTC*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/7295e3f0-84eb-4e42-b0da-42b73bd6b6f4")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25683,7 +25683,7 @@
 		(property ki_fp_filters "*CAPC1608X100X20ML10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/65ac7f51-e73a-49d2-a948-5330cf4a97d7")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -25925,7 +25925,7 @@
 		(property ki_fp_filters "SolderJumper*Bridged12*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/cd64a667-a2da-406c-9d7c-e082d7ea13dd")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -26895,7 +26895,7 @@
 		(property ki_fp_filters "*FP-FTD-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/db734681-0291-45aa-8814-515d86d3e821")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -27437,7 +27437,7 @@
 		(property ki_fp_filters "*FP-PA5432_472NLT-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/7362980f-3dcb-412c-95be-4f9728325305")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -28362,7 +28362,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/a55dbf6a-bae4-4de2-ba72-247c36637abc")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -29240,7 +29240,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/3dd4ef14-a636-4db5-8e24-1a39bb0fa3fc")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -29810,7 +29810,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/2bdbb1f9-8763-4442-92ba-7ef4d1d425e1")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -30301,7 +30301,7 @@
 		(property ki_fp_filters "PinHeader*2x20*P2.54mm*Vertical* PinSocket*2x20*P2.54mm*Vertical*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c3c60074-48c4-4280-ad7a-63631b3eae93")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31315,7 +31315,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c10610e1-3a96-4fd9-932d-2e30671558d4")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -31812,7 +31812,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/47c17314-59fb-4bb4-80ba-81ebe51304d1")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -32484,7 +32484,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/88b52f49-f75c-49c9-bb64-69fc0a9e38b4")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -32961,7 +32961,7 @@
 		(property ki_fp_filters "*78614015360-Footprint-2*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/142c5bff-fe84-4534-b141-86c3d64ad9f3")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -33956,7 +33956,7 @@
 		(property ki_fp_filters "*FP-CL32-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b2dc19bb-a67e-44f9-88f2-777882cea805")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -34700,7 +34700,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/cc7b8cb5-fc21-4159-8caf-6ed6c58e1118")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -35195,7 +35195,7 @@
 		(property ki_fp_filters "*RESC1005X40X25ML05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/798c5379-c228-4b23-91e9-2f4808251bff")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -35757,7 +35757,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/00ce8866-0c64-4971-8467-87077db095c4")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -36050,7 +36050,7 @@
 		(property ki_fp_filters "*78614015360-Footprint-2*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/cf37f86b-4e4e-4b97-b48a-b59f8d74f071")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -36764,7 +36764,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/95e33819-4d37-4b6c-8094-c5f65bd88c40")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -37465,7 +37465,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e37a628b-a90e-417b-8283-6d7a6bbdf672")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -37794,7 +37794,7 @@
 		(property ki_fp_filters "*FP-PMDTM-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/b4f5bbeb-9f5e-46d9-8311-0fc1402b63aa")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -38490,7 +38490,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/cb32395f-b600-440e-9ded-a9517c0cb2b7")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -39229,7 +39229,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/ce3d93c1-ac87-4565-b070-6753f0c90c6d")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -39738,7 +39738,7 @@
 		(property ki_fp_filters "*CAPC2013X145X50LL20T25*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/c85a4264-9795-461b-af0b-1d162dba31c0")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -40250,7 +40250,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/28908ef0-3c9e-49c7-a440-0ad0f7457fab")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -40844,7 +40844,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/434e791e-a46d-4a7b-a96f-ed20dde89191")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -41668,7 +41668,7 @@
 		(property ki_fp_filters "*FP-0603-L_1_6_0_2-W_0_8_0-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/7d2afafa-dfec-433c-bff1-c41ef2a92d93")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -42645,7 +42645,7 @@
 		(property ki_fp_filters "*FP-RR0510-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b397b01d-b538-48ff-8d1e-c6790b25e249")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -43306,7 +43306,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/deed1919-a0c5-4a68-9143-273b76aad97c")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -43915,7 +43915,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e2c5c750-4af3-4cd1-a5e3-19719d1b1216")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -44606,7 +44606,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/f3ad1a86-dc87-4803-a8e5-84edf2ae46bc")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -45065,7 +45065,7 @@
 		(property ki_fp_filters "*CAPC2013X145X50LL20T25*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/813cba41-cccf-46cf-bb09-9a31ba5c0c57")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -45559,7 +45559,7 @@
 		(property ki_fp_filters "*CRCW08057R50FKEAHP-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/96af1db6-e055-4aa5-849a-2b5c2417d089")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -46272,7 +46272,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/63acbc26-bd8d-42bc-960d-c87c0bfc73de")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -46987,7 +46987,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/fc6e8da5-6fb4-4afb-aaf1-af42167a93bc")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -47560,7 +47560,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e0f65ec0-b11b-45fc-b5bc-c0a6a57df504")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -48398,7 +48398,7 @@
 		(property ki_fp_filters "*FP-SOD-323-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/245dc77e-4dea-4e30-b26b-3078481c2cec")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -48801,7 +48801,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/ef815181-60b4-4398-949b-fadf6edc9bd8")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -49440,7 +49440,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/b23db1bc-24cf-4f8f-b786-522dcba47904")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -50057,7 +50057,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/b7c1fe50-c857-4b28-a588-5a72cb673805")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -51015,7 +51015,7 @@
 		(property ki_fp_filters "*FP-CL32-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/96d93a03-81b6-414c-9f23-4b883cf77a49")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -51974,7 +51974,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/d3e824ec-fb3a-45cb-8e2d-506026586456")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -52988,7 +52988,7 @@
 		(property ki_fp_filters "*FP-0805-L_2_01_0_2-W_1_25-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/ad241296-1449-4412-ac1a-9081f1a5f859")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -53921,7 +53921,7 @@
 		(property ki_fp_filters "*FP-0805-L_2_01_0_2-W_1_25-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/5de85b80-0912-4d23-ae85-c182b6b0e613")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -54815,7 +54815,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/9579a79d-1787-46f7-a7ff-569f173ba4bc")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -55191,7 +55191,7 @@
 		(property ki_fp_filters "*RESC1005X40X25ML05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/9c2a4caf-73f5-4345-bff0-f9e8ac7471a6")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -55961,7 +55961,7 @@
 		(property ki_fp_filters "*FP-RC0402-0_4-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/b7ce41f6-a4f9-49dc-8826-217431bc3cd0")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -56418,7 +56418,7 @@
 		(property ki_fp_filters "*AP22913CN4-7-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/8c55b6c8-8cee-40d7-a11e-27a8798d2e08")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -56989,7 +56989,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/d62432d0-04f7-475b-bd30-b55b31ba56a8")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -57495,7 +57495,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/d506f041-76ca-43f6-9877-3d18080e1e96")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -58099,7 +58099,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e58b76e0-cbf1-45e5-bb07-1731bceca2af")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -58569,7 +58569,7 @@
 		(property ki_fp_filters "*AP22913CN4-7-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/4d2b30ce-ccc1-464f-89f1-216a44439254")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -59151,7 +59151,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/532bf35d-9d58-4620-91e7-374263c32b6f")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -59648,7 +59648,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/83ea6517-67c1-49b5-8eaf-e5af1859587c")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -60305,7 +60305,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/7b3fb62d-1623-4a67-a9a4-8b3cd3afd012")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -61234,7 +61234,7 @@
 		(property ki_fp_filters "*FP-0805-L_2_01_0_2-W_1_25-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/11325683-8a83-46a0-a064-b3aba6ad1d7c")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -62002,7 +62002,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b7759097-e9e5-490d-ac64-34ed3cfe8dff/6143abd5-c193-4b41-9cd7-0f159fa11c05")
 		(sheetname "/Top-Level Schematic/PoDL/Power Monitor/")
-		(sheetfile "BM_Mote_1_PowerMon.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PowerMonitor.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -62892,7 +62892,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/9b7b1b5d-4d2e-45f7-8248-388820ed63fe")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -63830,7 +63830,7 @@
 		(property ki_fp_filters "*FP-0805-L_2_01_0_2-W_1_25-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/4abd1870-9d24-44cb-8f6b-43b1eef1493e")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -64199,7 +64199,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/e8f2581a-9d0d-45c1-a45d-1f1838b518f5")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -64442,7 +64442,7 @@
 		(property ki_fp_filters "*INA232AIDDFR-Footprint-1*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b7759097-e9e5-490d-ac64-34ed3cfe8dff/31bb7daa-75ca-492a-9d9f-2443a0b72ad6")
 		(sheetname "/Top-Level Schematic/PoDL/Power Monitor/")
-		(sheetfile "BM_Mote_1_PowerMon.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PowerMonitor.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -65201,7 +65201,7 @@
 		(property ki_fp_filters "*FP-RC0402-0_4-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/f60879b8-1dc7-467d-8ea3-421f001806b3")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -66185,7 +66185,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/53f77051-6794-4f78-8f2d-d7c6b2737982")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -67157,7 +67157,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/7ca1f4f1-e64c-4459-9b1f-39667811f35c")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -68040,7 +68040,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T05*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/6752a891-a19f-4f48-8847-2a544957ac3e")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -68383,7 +68383,7 @@
 		(property ki_fp_filters "*FP-YBG0006-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/2e0a738c-cdfa-48be-abf8-9b73885e6180")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -69537,7 +69537,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/d6f7f502-bc82-4b9f-b10b-1992ab881e2a")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -70021,7 +70021,7 @@
 		(property ki_fp_filters "*RESC1005X40X25ML05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/0f7862df-f67a-46e2-af4c-b7fbde3738ae")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -70700,7 +70700,7 @@
 		(property ki_fp_filters "*FP-GRM188-0_1-e0_2_0_5-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/bf70bee3-d649-4b16-a861-2f41aee5c8d1")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -71558,7 +71558,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/94999505-b5cc-4767-99ac-b7ba5942dd8d")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -71981,7 +71981,7 @@
 		(property ki_fp_filters "*78614015360-Footprint-2*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/440df1bc-df0b-4013-8814-429b2e99f8cb")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -72494,7 +72494,7 @@
 		(property ki_fp_filters "*FP-ABM11W-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/a65069aa-4e17-4eba-82ca-8cea9586cc95")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -73260,7 +73260,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/869179de-3cdb-4460-9088-1da5ed23f2e5")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -73719,7 +73719,7 @@
 		(property ki_fp_filters "*78614015360-Footprint-2*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/e1f1d912-d33e-4773-92aa-4edaae3c80f9")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -74601,7 +74601,7 @@
 		(property ki_fp_filters "*FP-CC0402-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e4ea24bc-1490-4da7-b820-5321d1561131")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -75280,7 +75280,7 @@
 		(property ki_fp_filters "*RESC1608X60X55ML20T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b7759097-e9e5-490d-ac64-34ed3cfe8dff/68a02e29-28b2-4746-9b3f-7c0dda1b0b56")
 		(sheetname "/Top-Level Schematic/PoDL/Power Monitor/")
-		(sheetfile "BM_Mote_1_PowerMon.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PowerMonitor.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -75799,7 +75799,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c1ad0aa5-c0a0-4f8e-9aed-a1d50b3e91cc")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -76419,7 +76419,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/360452f1-eed7-4f55-97a2-2ba57670b1ef")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -77347,7 +77347,7 @@
 		(property ki_fp_filters "*FP-RC0402-0_4-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/b7759097-e9e5-490d-ac64-34ed3cfe8dff/63b07409-48dd-4d4a-a697-53d100fe0d34")
 		(sheetname "/Top-Level Schematic/PoDL/Power Monitor/")
-		(sheetfile "BM_Mote_1_PowerMon.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PowerMonitor.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -78155,7 +78155,7 @@
 		(property ki_fp_filters "*FP-SOD-323-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/d681d21c-6c91-491b-b1b2-6ecac1c0d18e")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -78931,7 +78931,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e3732ec4-64af-40e8-bb4f-479c20e40bb0")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -79578,7 +79578,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/9dab0bc8-b25b-4274-a2c9-e3e0d9b65470")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -80086,7 +80086,7 @@
 		(property ki_fp_filters "*PCB_TP_1.5mm*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/c7831528-f0a3-4ef0-807c-45964c3ded89/68cad502-ab04-432e-a08c-0bb8bf342583")
 		(sheetname "/Top-Level Schematic/Load Switch/")
-		(sheetfile "BM_Mote_1_Load.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_LoadSwitch.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -80688,7 +80688,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/5d0bba6f-4e3f-404a-a1cf-2473f211382e")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -81621,7 +81621,7 @@
 		(property ki_fp_filters "*FP-RMCF0402-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/9ddf74f9-e036-49c7-bbf6-a9fcf2032de9")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -82663,7 +82663,7 @@
 		(property ki_fp_filters "*FP-CRCW0402-e3-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/7a05ce00-44a5-425b-83ae-133ef47208cb")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -83427,7 +83427,7 @@
 		(property ki_fp_filters "*FP-CL278-IPC_C*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/e6f347bc-1cdc-4d7b-9d19-4c868ca0592f")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -84358,7 +84358,7 @@
 		(property ki_fp_filters "*FP-RR0510-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/2d1f652f-7479-45f9-856d-08b584c9ce7b")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -85138,7 +85138,7 @@
 		(property ki_fp_filters "*FP-CRCW1210-e3-IPC_B*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/8067e6fd-efdb-48c3-8fdd-83b2ed79c5d7")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -85586,7 +85586,7 @@
 		(property ki_fp_filters "*FP-DFE201612C-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/71f418ed-cfb2-4436-bf1a-6d19893fb06b")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -85928,7 +85928,7 @@
 		(property ki_fp_filters "*FIDUCIAL_075MM*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/23c3b7a2-2ae2-4582-82e2-5af48faa3202")
 		(sheetname "/Top-Level Schematic/")
-		(sheetfile "BM_Mote_1_Master.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -86223,7 +86223,7 @@
 		(property ki_fp_filters "*RESC1005X40X25LL05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/4eeafcb7-a684-4b4d-adeb-0d10d663bf3a/7b4c7fd0-ea4b-4608-ab62-fe606b07491c")
 		(sheetname "/Top-Level Schematic/Power Regulators/")
-		(sheetfile "BM_Mote_1_Power.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_Power.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -86931,7 +86931,7 @@
 		(property ki_fp_filters "*FP-CC0402-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/60cad588-a5e9-4d75-84cc-8f0787c367c6")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -87381,7 +87381,7 @@
 		(property ki_fp_filters "*FP-PMDTM-MFG*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/a31c5b59-6e77-4130-b11e-1392851c8b62/c1e86c2a-2e32-4692-95fc-04a47a16eaa3")
 		(sheetname "/Top-Level Schematic/PoDL/")
-		(sheetfile "BM_Mote_1_PoDL.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_PoDL.kicad_sch")
 		(units
 			(unit
 				(name "A")
@@ -87875,7 +87875,7 @@
 		(property ki_fp_filters "*RESC1005X40X25ML05T10*")
 		(path "/3c398828-e355-49f6-be37-cb3640d2c671/6b1c7de5-1c82-42d9-9a95-c340ffb1bf15/94f9937b-844b-4330-92ec-4c1e19152b86")
 		(sheetname "/Top-Level Schematic/ADIN/")
-		(sheetfile "BM_Mote_1_ADIN2111.kicad_sch")
+		(sheetfile "Nereus_Pi_Shield_Adin2111_ADIN2111.kicad_sch")
 		(units
 			(unit
 				(name "A")

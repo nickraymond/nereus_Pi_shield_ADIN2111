@@ -660,7 +660,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "nick_raw_routing.kicad_pro",
+    "filename": "Nereus_Pi_Shield_Adin2111.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -2075,8 +2075,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "nick_raw_routing.kicad_sch",
-        "name": "nick_raw_routing",
+        "filename": "Nereus_Pi_Shield_Adin2111.kicad_sch",
+        "name": "Nereus_Pi_Shield_Adin2111",
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
@@ -2086,7 +2086,7 @@
   "sheets": [
     [
       "30e82bf5-1344-486b-817c-02d3b0649ce4",
-      "nick_raw_routing"
+      "Nereus_Pi_Shield_Adin2111"
     ],
     [
       "3c398828-e355-49f6-be37-cb3640d2c671",
@@ -2119,7 +2119,7 @@
     "CONFIGURATORNAME": "",
     "DOCUMENTNUMBER": "8",
     "ISUSERCONFIGURABLE": "",
-    "PCBPARTNAME": "nereus_Pi_shield_ADIN2111",
+    "PCBPARTNAME": "Nereus_Pi_Shield_Adin2111",
     "PCBPARTNUMBER": "PCB-000001-AA",
     "PROJECTREVISION": "AA",
     "SHEETTOTAL": "9",

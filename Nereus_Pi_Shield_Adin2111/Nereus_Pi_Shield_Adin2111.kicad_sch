@@ -8902,7 +8902,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "BM_Mote_1_Master.kicad_sch"
+		(property "Sheetfile" "Nereus_Pi_Shield_Adin2111_TopLevel.kicad_sch"
 			(at 25.4 246.2022 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8914,7 +8914,7 @@
 			)
 		)
 		(instances
-			(project "nick_raw_routing"
+			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4"
 					(page "2")
 				)
