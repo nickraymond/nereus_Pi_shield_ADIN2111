@@ -28,9 +28,16 @@ NOT_SOFAR = STOCK + "; not Sofar's part, see PLANNED NOTE"
 MOTE = "Sofar's mote file gives no alternate"
 
 
-def bought(qty):
-    return (f"Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty {qty}; "
+SEEN = "on Nick's order screen (screenshot 2026-11-11)"
+
+
+def bought(qty, order="DOB202610190524705 (2026-10-18)", status="Complete"):
+    """A line bought into Nick's JLC parts library; status as his Parts Order History showed it on 2026-11-11."""
+    return (f"Nick's JLC parts library: order {order}, qty {qty}, {status} {SEEN}; "
             "pick it from My Parts Lib at the PCBA order")
+
+
+OCT20 = "DOB202610210529840 (2026-10-20)"
 
 
 def line(refs, mpn, mfr, lcsc, note=SPEC, sourcing=STOCK, **extra):
@@ -60,9 +67,8 @@ LINES = [
          f"As specified: Sofar's part is in JLC stock now (77,751 on {RD}, need 20). Planned before: Taiyo Yuden "
          "UMK325AB7106KM-T, now ALT2"),
     line("C22,C23", "EEEFT1H470AP", "Panasonic", "C92059",
-         f"As specified (Sofar's part, kept under SPEC constraint 8); {MOTE}. JLC public stock 0 on {RD}",
-         "OPEN (Nick): the 2026-10-23 review sheet says 60 ordered; confirm they are in My Parts Lib before the "
-         "PCBA order",
+         f"As specified (Sofar's part, kept under SPEC constraint 8); {MOTE}. JLC public stock 0 on {RD}, so from "
+         "the parts bought", bought(60, OCT20),
          ALT_NOTE="Sofar review: bus damping; a newly sourced replacement must be potting-safe (constraint 8), so "
                   "no like-for-like alternate"),
     line("C30,C55", "UMK107BBJ225KA-T", "Taiyo Yuden", "C268016",
@@ -94,8 +100,8 @@ LINES = [
     line("J3", "SM04B-SRSS-TB(LF)(SN)", "JST", "C160404",
          f"Qwiic connector (I2C3); in JLC stock (read {RD})"),
     line("L1,L2", "SRF1260-101M", "Bourns", "C6496096",
-         f"As specified; JLC stock 92 on {RD} (need 40)",
-         STOCK + "; the 2026-10-23 review sheet says 42 were also bought: check My Parts Lib"),
+         f"As specified; from the parts bought. JLC public stock is 92 on {RD} as well (need 40)",
+         bought(42, "POB0202610210527741 (2026-10-20)")),
     line("L3,L6", "PA5432.822NLT", "Pulse (YAGEO group)", "C17230195",
          f"As specified; JLC public stock 0 on {RD}, so from the parts bought", bought(42)),
     line("L4", "DFE201612E-2R2M=P2", "Murata", "C337893"),
@@ -105,10 +111,9 @@ LINES = [
     line("R2,R3,R4,R5,R6,R9,R26,R27", "ERJ-2RKF4701X", "Panasonic", "C400631"),
     line("R7,R10,R24", "RC0402JR-0710KL", "Yageo", "C60489"),
     line("R8", "UR73D1JTTD10L0F", "KOA Speer", "C2482319",
-         f"As specified if the 25 bought are in My Parts Lib (JLC public stock 0 on {RD}). If they are not: "
-         "Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 (ALT1), JLC stock 9,822",
-         "OPEN (Nick): the 2026-10-23 review sheet says 25 ordered (need 20 + 5 attrition); confirm in My Parts "
-         "Lib, else order ALT1 from JLC stock",
+         f"As specified; JLC public stock 0 on {RD}, so from the parts bought: 25 is 20 plus the listing's "
+         "attrition of 5, no spare. Backup in JLC stock: Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 "
+         "(ALT1), 9,822", bought(25, OCT20),
          ALT1_MPN="CSRF0603FT10L0", ALT1_MFR="Stackpole", ALT1_LCSC="C346485",
          ALT2_MPN="MFL0603R0100FA", ALT2_MFR="EATON", ALT2_LCSC="C6090593",
          ALT_NOTE=f"Sofar's own listed alternates 7 and 1 (mote file, MANUFACTURERPARTNUMBER7 / 1); JLC stock on "
@@ -121,9 +126,8 @@ LINES = [
          f"Specified RR0510P-101-D has JLC stock 0 ({RD}) and {MOTE}. 100 Ω thin film 0402, ±0.1 % ±25 ppm "
          "(tighter than the specified ±0.5 %); JLC stock 345,748 (need 48)", NOT_SOFAR),
     line("R15,R16", "CRCW08057R50FKEAHP", "Vishay Dale", "C313962",
-         f"As specified (pulse-rated part of the bus damper); {MOTE}. JLC public stock 0 on {RD}",
-         "OPEN (Nick): the 2026-10-23 review sheet says 50 ordered; confirm they are in My Parts Lib before the "
-         "PCBA order",
+         f"As specified (pulse-rated part of the bus damper); {MOTE}. JLC public stock 0 on {RD}, so from the "
+         "parts bought", bought(50, OCT20),
          ALT1_MPN="SR0805FR-477R5L", ALT1_MFR="YAGEO", ALT1_LCSC="C873769",
          ALT_NOTE="Not on Sofar's list: 7.5 Ω ±1 % 0.5 W, ±200 vs ±100 ppm/°C, pulse rating not stated; JLC stock "
                   f"5,492 on {RD}"),
@@ -145,9 +149,11 @@ LINES = [
     line("R47", "RC0402FR-071KL", "Yageo", "C106235",
          f"As specified: 1 kΩ (Nick, 2026-11-11); in JLC stock (read {RD})"),
     line("T1,T2", "74930000", "Würth Elektronik", "C4354923"),
-    line("U1", "ADIN2111BCPZ", "Analog Devices", "C3226964",
-         f"As specified; JLC public stock 0 on {RD}, so from the parts bought. JLC has a second listing, "
-         "C56341494: use the number My Parts Lib shows", bought(22)),
+    line("U1", "ADIN2111BCPZ", "Analog Devices", "C3226961",
+         f"As specified; JLC public stock 0 on {RD}, so from the parts bought. Nick's order line (Digi-Key "
+         "505-ADIN2111BCPZ-ND) carries JLC part C3226961, which JLC's public listing names ADIN2111BCPZ-R7; the "
+         "listings named ADIN2111BCPZ are C3226964 and C56341494",
+         "OPEN: " + bought(22, status="still PURCHASING (JLC's estimate was 2026-11-05)")),
     line("U2,U3", "AP22913CN4-7", "Diodes Inc.", "C2150198",
          f"As specified; JLC public stock 33 on {RD} (need 40), so from the parts bought", bought(42)),
     line("U4", "INA232AIDDFR", "Texas Instruments", "C5447660"),

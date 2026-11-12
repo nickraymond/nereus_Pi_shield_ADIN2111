@@ -539,12 +539,15 @@ Edits are scripted (`experiments/nick_raw_routing/scripts/`); after each step: r
 - [x] The board file after the BOM session: hidden footprint fields only (parity compares them with the symbol fields). With
       those fields taken out it equals tag `s9-layout-freeze` byte for byte (`scripts/bom_fields_board_sync_2026_11.py --verify
       <board at the tag> <board>`); its SHA-256 is no longer the one in the freeze item
-- [ ] Nick: six open BOM lines (`bom_review_2026-11.md`, top): C22 / C23, R15 / R16 and R8 have JLC stock 0 and the 10/23
-      review sheet says they were ordered (60, 50, 25): are they in My Parts Lib? F1 is a PPTC fuse (SPEC constraint 8): keep
-      for this unpotted build? J1 socket part. L1 / L2 from JLC stock (92) or from the 42 bought
-- [ ] Nick, at the order screen: My Parts Lib shows the seven lines bought 2026-10-18 (not verified by an agent); U1's JLC
-      number (C3226964 or C56341494); C597304 has no maker name on JLC's page
-- [ ] After Nick's answers: fields of the open lines; QE review of the BOM session's three commits; `pi-shield-checklist.html`,
+- [x] Nick's order screenshots, 2026-11-11 (BOM session's chat, "Here are the parts ordered"): R8 25, C22 / C23 60, R15 / R16 50
+      (order DOB202610210529840, 2026-10-20), L1 / L2 42 (POB0202610210527741) and six lines of the 10/18 order read "Complete";
+      their SOURCING fields name order, quantity and status. R8 has no spare (20 + attrition 5)
+- [!] **U1 (ADIN2111BCPZ, 22 bought 2026-10-18) still reads "Purchasing"** on that screen; JLC's estimate was 2026-11-05. The
+      PCBA order cannot include U1 until JLC has it: Nick asks JLC support for the date. U1's JLC part is C3226961 (the number
+      on the order line; JLC's public listing names it ADIN2111BCPZ-R7)
+- [ ] Nick: F1 is a PPTC fuse (SPEC constraint 8): keep it for this unpotted build? J1 socket part (height)
+- [ ] Nick, at the order screen: the bought lines show in My Parts Lib; C597304 has no maker name on JLC's page
+- [ ] After Nick's answers: fields of F1 / J1; QE review of the BOM session's commits; `pi-shield-checklist.html`,
       DESIGN (D16 says R38 13.7 kΩ, the board has 13.3 kΩ; D26 / D27 describe the earlier sourcing plan) and the Sofar brief
       are the design session's. Not checked: CSRF0603FT10L0's land pattern against R8's pads; the thickness of
       C2012X7S2A105KT000N (C17 / C26)

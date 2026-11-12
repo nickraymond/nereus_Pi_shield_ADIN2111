@@ -61,8 +61,15 @@ commits). Nothing pushed, no PR.
   the browser pane and copied into the table, then checked against a second reading (one stock figure had moved).
 - Not done: no datasheet read (CSRF0603 land pattern against R8's pads, C2012X7S2A105KT000N's thickness); no QE
   review; `pi-shield-checklist.html`, DESIGN and the Sofar brief are left to the design session.
-**Next:** Nick answers the six open lines in `docs/design-review/bom_review_2026-11.md` (My Parts Lib for C22 / C23,
-R15 / R16, R8; F1; J1; L1 / L2); then the fields of those lines, QE, and the design session's JLC export.
+- Later the same day (about 4:45 PM Pacific): Nick sent two screenshots of his JLC Parts Order History. Orders
+  DOB202610210529840 (2026-10-20: R8 25, C22 / C23 60, R15 / R16 50) and POB0202610210527741 (L1 / L2 42) read
+  "Complete", as do six of the seven lines of DOB202610190524705. **U1 (ADIN2111BCPZ, 22) still reads "Purchasing"**,
+  six days past JLC's estimate of 2026-11-05. Its order line carries JLC part C3226961, which JLC's public listing
+  names ADIN2111BCPZ-R7; the field now says C3226961 (was C3226964, from the public search). SOURCING of the eleven
+  bought lines names its order, quantity and status. Checks again: ERC 39, DRC counts unchanged, parity 0, nets
+  identical, board identical to the tag apart from the BOM fields. Open lines: six → three (U1, F1, J1).
+**Next:** U1's arrival at JLC (Nick asks JLC support; the order cannot include U1 before); Nick's word on F1 and J1;
+QE review of the BOM session's commits; the design session's JLC export from this branch's board.
 
 ## 2026-11-11 — Sprint S9 — New design session: Nick's answers to the open items; two mocks
 

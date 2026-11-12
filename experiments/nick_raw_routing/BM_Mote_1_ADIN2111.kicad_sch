@@ -6489,7 +6489,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "OPEN: Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 22, still PURCHASING (JLC's estimate was 2026-11-05) on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6522,7 +6522,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C3226964"
+		(property "PLANNED LCSC" "C3226961"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -6533,7 +6533,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. Nick's order line (Digi-Key 505-ADIN2111BCPZ-ND) carries JLC part C3226961, which JLC's public listing names ADIN2111BCPZ-R7; the listings named ADIN2111BCPZ are C3226964 and C56341494"
 			(at 187.96 204.47 0)
 			(hide yes)
 			(show_name no)
@@ -7771,7 +7771,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 106.68 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -11232,7 +11232,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 106.68 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -11990,7 +11990,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "OPEN: Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 22, still PURCHASING (JLC's estimate was 2026-11-05) on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -12023,7 +12023,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C3226964"
+		(property "PLANNED LCSC" "C3226961"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -12034,7 +12034,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. Nick's order line (Digi-Key 505-ADIN2111BCPZ-ND) carries JLC part C3226961, which JLC's public listing names ADIN2111BCPZ-R7; the listings named ADIN2111BCPZ are C3226964 and C56341494"
 			(at 123.19 85.2678 0)
 			(hide yes)
 			(show_name no)
@@ -13583,7 +13583,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 22, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 176.53 118.11 0)
 			(hide yes)
 			(show_name no)

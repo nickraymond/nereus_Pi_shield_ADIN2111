@@ -8048,7 +8048,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "OPEN: Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 22, still PURCHASING (JLC's estimate was 2026-11-05) on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8087,7 +8087,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C3226964"
+		(property "PLANNED LCSC" "C3226961"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8100,7 +8100,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. JLC has a second listing, C56341494: use the number My Parts Lib shows"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought. Nick's order line (Digi-Key 505-ADIN2111BCPZ-ND) carries JLC part C3226961, which JLC's public listing names ADIN2111BCPZ-R7; the listings named ADIN2111BCPZ are C3226964 and C56341494"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11651,7 +11651,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13178,7 +13178,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC stock (read 2026-11-11); the 2026-10-23 review sheet says 42 were also bought: check My Parts Lib"
+		(property "SOURCING" "Nick's JLC parts library: order POB0202610210527741 (2026-10-20), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13217,7 +13217,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC stock 92 on 2026-11-11 (need 40)"
+		(property "PLANNED NOTE" "As specified; from the parts bought. JLC public stock is 92 on 2026-11-11 as well (need 40)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14058,7 +14058,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 60 ordered; confirm they are in My Parts Lib before the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 60, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14110,7 +14110,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14983,7 +14983,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified; JLC stock 92 on 2026-11-11 (need 40)"
+		(property "PLANNED NOTE" "As specified; from the parts bought. JLC public stock is 92 on 2026-11-11 as well (need 40)"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15009,7 +15009,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC stock (read 2026-11-11); the 2026-10-23 review sheet says 42 were also bought: check My Parts Lib"
+		(property "SOURCING" "Nick's JLC parts library: order POB0202610210527741 (2026-10-20), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22688,7 +22688,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 50 ordered; confirm they are in My Parts Lib before the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 50, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22740,7 +22740,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24551,7 +24551,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 27; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 27, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26814,7 +26814,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 60 ordered; confirm they are in My Parts Lib before the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 60, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26866,7 +26866,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
+		(property "PLANNED NOTE" "As specified (Sofar's part, kept under SPEC constraint 8); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27356,7 +27356,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -32832,7 +32832,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -35921,7 +35921,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -37651,7 +37651,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 45; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 45, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -45430,7 +45430,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 50 ordered; confirm they are in My Parts Lib before the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 50, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -45486,7 +45486,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11"
+		(property "PLANNED NOTE" "As specified (pulse-rated part of the bus damper); Sofar's mote file gives no alternate. JLC public stock 0 on 2026-11-11, so from the parts bought"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -56275,7 +56275,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -58426,7 +58426,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -71852,7 +71852,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -72351,7 +72351,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 22; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 22, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -73590,7 +73590,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 84; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 84, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -75151,7 +75151,7 @@
 				(justify mirror)
 			)
 		)
-		(property "SOURCING" "OPEN (Nick): the 2026-10-23 review sheet says 25 ordered (need 20 + 5 attrition); confirm in My Parts Lib, else order ALT1 from JLC stock"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610210529840 (2026-10-20), qty 25, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -75207,7 +75207,7 @@
 				(justify mirror)
 			)
 		)
-		(property "PLANNED NOTE" "As specified if the 25 bought are in My Parts Lib (JLC public stock 0 on 2026-11-11). If they are not: Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 (ALT1), JLC stock 9,822"
+		(property "PLANNED NOTE" "As specified; JLC public stock 0 on 2026-11-11, so from the parts bought: 25 is 20 plus the listing's attrition of 5, no spare. Backup in JLC stock: Sofar's own listed alternate 7, Stackpole CSRF0603FT10L0 (ALT1), 9,822"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -87238,7 +87238,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 45; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 45, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")

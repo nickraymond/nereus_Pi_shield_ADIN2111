@@ -7322,7 +7322,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 187.96 83.6422 0)
 			(hide yes)
 			(show_name no)
@@ -8060,7 +8060,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "SOURCING" "Nick's JLC parts library: global sourcing order DOB202610190524705 (2026-10-18), qty 42; pick it from My Parts Lib at the PCBA order"
+		(property "SOURCING" "Nick's JLC parts library: order DOB202610190524705 (2026-10-18), qty 42, Complete on Nick's order screen (screenshot 2026-11-11); pick it from My Parts Lib at the PCBA order"
 			(at 187.96 220.8022 0)
 			(hide yes)
 			(show_name no)
