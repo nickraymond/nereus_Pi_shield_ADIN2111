@@ -1,6 +1,6 @@
 #!/bin/sh
-# Rebuild one phase from the previous phase's committed board, then check it.  Usage: sh run.sh <A|B|C|D|F|G|H|I|E>
-# Order: A B C D, then F (BM1 trunk fix, J5 moved), G (power rest), H (signals rest), I (ground), E (clean-up).
+# Rebuild one phase from the previous phase's committed board, then check it.  Usage: sh run.sh <A|B|C|D|F|G|H|J|K|L|M>
+# Order: A B C D, then F (BM1 trunk fix, J5 moved), G (power rest), H (signals rest); third session: J (motor group), K (header nets from the west), L (TP24, PI_5V), M (clean-up).
 # Input board: phase A = the stage 2c board (commit d30920b); later phases = the commit whose subject starts
 # "pi_zero_fit_01 stage 3 phase <previous>". Output: board/ in the worktree. DRC JSON and logs go to NereusData.
 set -e
@@ -11,7 +11,7 @@ PY=/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/C
 CLI=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 cd "$ROOT"
 BASE=d30920b
-case "$P" in A) PREV=$BASE;; B) Q=A;; C) Q=B;; D) Q=C;; F) Q=D;; G) Q=F;; H) Q=G;; I) Q=H;; E) Q=I;; esac
+case "$P" in A) PREV=$BASE;; B) Q=A;; C) Q=B;; D) Q=C;; F) Q=D;; G) Q=F;; H) Q=G;; I) Q=H;; E) Q=I;; J) Q=H;; K) Q=J;; L) Q=K;; M) Q=L;; esac
 [ -n "$Q" ] && PREV=$(git log --grep="^pi_zero_fit_01 stage 3 phase $Q" -1 --format=%H)
 [ -n "$PREV" ] || { echo "no commit for the previous phase"; exit 1; }
 git show $BASE:$BRD > "$OUT/board_stage2c.kicad_pcb"

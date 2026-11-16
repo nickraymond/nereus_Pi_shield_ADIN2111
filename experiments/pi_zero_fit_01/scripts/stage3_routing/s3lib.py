@@ -209,8 +209,16 @@ def prestep(path, base_path, removes=(), moves=()):
     if out.returncode: raise SystemExit('prestep failed: ' + out.stderr[-800:])
 def _prestep(path, base_path, spec):
     removes, moves = json.loads(spec); base = base_uuids(base_path); b = pcbnew.LoadBoard(path)
-    for ref, pos in moves:
+    for mv in moves:                         # (ref, (x, y)) or (ref, (x, y), pad number, (pad x, pad y)): turned in 90 degree steps until that pad is there
+        ref, pos = mv[0], mv[1]
         f = b.FindFootprintByReference(ref); old = N(f.GetPosition()); f.SetPosition(V(*pos)); print('   moved %s %s -> %s' % (ref, old, tuple(pos)))
+        if len(mv) > 3:
+            for k in range(4):
+                p = [N(q.GetPosition()) for q in f.Pads() if q.GetNumber() == str(mv[2])][0]
+                if abs(p[0] - mv[3][0]) < 0.02 and abs(p[1] - mv[3][1]) < 0.02: break
+                f.SetOrientationDegrees(f.GetOrientationDegrees() + 90)
+            else: raise SystemExit('%s: no 90 degree turn puts pad %s at %s (last %s)' % (ref, mv[2], mv[3], p))
+            print('      %s turned to %.0f deg, pad %s at %s' % (ref, f.GetOrientationDegrees(), mv[2], p))
     kill = []; cnt = {}                      # one GetTracks() call, then the removals: nothing is queried after the first Remove()
     for t in b.GetTracks():
         if t.m_Uuid.AsString() in base: continue
@@ -318,7 +326,8 @@ def snapshot(board):
     s = {}
     for f in board.GetFootprints():
         pads = sorted((p.GetNumber(), p.GetPosition().x, p.GetPosition().y, p.GetNetname(), p.GetSize().x if not _via_w_layer else p.GetBoundingBox().GetWidth()) for p in f.Pads())
-        s['F ' + f.m_Uuid.AsString()] = (f.GetReference(), f.GetPosition().x, f.GetPosition().y, round(f.GetOrientationDegrees(), 3), f.IsFlipped(), f.GetFPIDAsString(), hashlib.md5(repr(pads).encode()).hexdigest())
+        s['F ' + f.m_Uuid.AsString()] = (f.GetReference(), f.GetPosition().x, f.GetPosition().y, round(f.GetOrientationDegrees(), 3), f.IsFlipped(), f.GetFPIDAsString(), hashlib.md5(repr(pads).encode()).hexdigest(),
+                                         tuple(sorted((p.GetNumber(), p.GetNetname()) for p in f.Pads())))
     for t in board.GetTracks():
         if t.GetClass() == 'PCB_VIA': sig = ('via', t.GetStart().x, t.GetStart().y, t.GetWidth(pcbnew.F_Cu) if _via_w_layer else t.GetWidth(), t.GetDrillValue(), t.GetNetname())
         else: sig = (t.GetClass(), t.GetStart().x, t.GetStart().y, t.GetEnd().x, t.GetEnd().y, t.GetWidth(), t.GetLayer(), t.GetNetname())
@@ -332,12 +341,13 @@ def snapshot(board):
             bb = d.GetBoundingBox(); s['D ' + d.m_Uuid.AsString()] = (d.GetClass(), d.GetLayer(), bb.GetLeft(), bb.GetTop(), bb.GetRight(), bb.GetBottom())
     return s
 MOVED_OK = ('J5', 'FID2', 'FID4')    # non-core footprints stage 3 was told to move (design session, BM1 trunk fix); pads and nets must still be the same
+TURNED_OK = ('U12', 'C60', 'C61', 'C62', 'C63', 'C64', 'C66', 'R48')   # motor group (third session, design session's task 1): may move and turn; side, footprint and pad nets must be the same
 def verify_lock(ref_board_path, new_board_path, quiet=False):
     a, b = snapshot(pcbnew.LoadBoard(ref_board_path)), snapshot(pcbnew.LoadBoard(new_board_path))
     missing = [k for k in a if k not in b]; changed = [k for k in a if k in b and a[k] != b[k]]; added = [k for k in b if k not in a]
-    moved = [k for k in changed if k[0] == 'F' and a[k][0] in MOVED_OK and a[k][3:6] == b[k][3:6]]
+    moved = [k for k in changed if k[0] == 'F' and (a[k][0] in MOVED_OK and a[k][3:6] == b[k][3:6] or a[k][0] in TURNED_OK and a[k][4:6] == b[k][4:6] and a[k][7] == b[k][7])]
     changed = [k for k in changed if k not in moved]
-    for k in moved: print('  moved on instruction (not core): %s (%.2f, %.2f) -> (%.2f, %.2f)' % (a[k][0], mm(a[k][1]) - DX, mm(a[k][2]) - DY, mm(b[k][1]) - DX, mm(b[k][2]) - DY))
+    for k in moved: print('  moved on instruction (not core): %s (%.2f, %.2f) %.0f deg -> (%.2f, %.2f) %.0f deg' % (a[k][0], mm(a[k][1]) - DX, mm(a[k][2]) - DY, a[k][3], mm(b[k][1]) - DX, mm(b[k][2]) - DY, b[k][3]))
     cnt = lambda ks, c: sum(1 for k in ks if k[0] == c)
     print('lock check against %s' % ref_board_path.split('/')[-1])
     print('  input items: %d footprints, %d tracks+vias, %d zones, %d copper graphics' % (cnt(a, 'F'), cnt(a, 'T'), cnt(a, 'Z'), cnt(a, 'D')))
