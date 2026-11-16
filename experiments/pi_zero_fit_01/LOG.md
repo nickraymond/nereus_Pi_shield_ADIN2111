@@ -299,3 +299,20 @@ Baseline (61e1a9d, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_rang
 - Silkscreen scratch copy rebuilt from this board (`scripts/stage7_silk/run.sh`; `stage7_silk/run_log.txt`, the stage-8 files kept as
   `run_log_before_stage9.txt` / `silk_report_before_stage9.json`): net check 91 labels, 91 OK; `check.py` PASS (tracks + vias 1811, was 1815); 95 labels
   placed, 10 left out; the report differs in the via count only (283 -> 281). The committed board's silkscreen is unchanged.
+
+## Stage 11 (approved silkscreen on the board; logo and name on the bottom; J4 holes), 2026-11-16, Pacific
+
+Scripts `scripts/stage11_silk_logo/` (`run.sh <1|2|3>` rebuilds jobs 1..N from the stage-9 head 2fd2945, then DRC, `drcdiff.py`, ERC, `lock11.py`,
+project files; `run.sh head` measures the head). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage11_silk_logo/`.
+Baseline (2fd2945, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_range + 16 items_not_allowed, 537 warnings, 0 unconnected, parity 0; ERC 39.
+
+- Job 1 (Nick, as quoted in this session's task: "Silk screen approved"; "No need for you to keep working on silkscreen"): the stage-7 proposal is on
+  the committed board. `run.sh` runs `stage7_silk/silk.py` unchanged on a scratch copy of the board folder and copies the board file alone back (SaveBoard
+  rewrites `.kicad_pro` in the scratch folder only). `same_silk.py`: the 863 silkscreen items and footprint texts of this build against the scratch
+  board Nick saw (`stage7_silk/silk_scratch`, built 11:42 AM from 2fd2945), compared without ids: 0 different. `stage7_silk/check.py`, head board
+  against the result: tracks + vias 1811, zones 179 (outline and filled area), pads 484, footprints 163, outline items 8, copper drawings 17, footprint
+  graphics 2336 identical; 227 texts of the 81 locked footprints identical. `silk.py` net check 91 labels, 91 OK; `netcheck.py` the two LED traces OK.
+  Gates (`run_log_job1.txt`, `drc_job1.json`, `erc_job1.json`): errors 3 + 16; 0 unconnected; parity 0; warnings 537 -> 539, no new type
+  (silk_edge_clearance 5 -> 0, silk_over_copper 37 -> 8, silk_overlap 58 -> 13, text_height 138 -> 157, text_thickness 137 -> 199: more small texts,
+  as stage 7 reported); ERC 39; `lock11.py` PASS (against the head: 163 footprints, 1811 tracks + vias, 179 zones, 17 copper graphics, 484 pads, no
+  difference); `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic identical to 2fd2945. No silkscreen tuning: Nick does the final pass by hand.
