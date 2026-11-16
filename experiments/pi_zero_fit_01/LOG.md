@@ -173,3 +173,34 @@ Baseline (76d258b, my run, `drc_baseline_76d258b.json`): 3 skew_out_of_range + 1
   identical to d30920b. Planes (`planes_head.txt` / `planes_s6.txt`): same number of pieces everywhere; areas 3V3 294.42 -> 293.08, P_IN 173.85 -> 172.69,
   Sofar's GND 1021.36 -> 1019.43, S3 GND 870.45 -> 870.07, 5V_PI strip 141.16 -> 140.18 mm2 (new via antipads). Plots `plots_s6/`, renders `s6_render_top.png` /
   `_bottom.png`, crops `look/s6_*.png`: looked at.
+
+## Stage 7 (silkscreen proposal, second round; scratch copy only), 2026-11-16, Pacific
+
+Scripts `scripts/stage7_silk/` (`run.sh`, `silk.py`, `check.py`, `netcheck.py`, `split.py`, `crop.py`); the committed board is only read (a9d0778).
+Scratch board and outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage7_silk/` (`silk_scratch/board/`, `run_log.txt`,
+`silk_report.json`, `drc_silk_before.json` / `_after.json`, `silk_top.png` / `silk_bottom.png`, `zoom_*.png`).
+
+- Sizes: function names 1.0 .. 1.5 mm; pad-row, LED and polarity labels 1.0 mm (JLC minimum, `jlc_rules_2026-11.md` line 24); designators 0.8 x 0.75 mm,
+  the frozen board's size (its 128 visible designators, read by the script); pin names, test-point names 0.8 x 0.7, jumper end marks 0.8 x 0.65, J8's
+  pin names 0.7 x 0.7: all under JLC's 1.0 mm.
+- Lesson (corrects stage 4's): kicad-cli measures a text's glyphs, not its box, against the silk clearance (0.15 mm): a "0" 0.12 mm from JP3's outline
+  was flagged with "actual 0.1203 mm". Ink of a Menlo Bold text, measured on the frozen board's stored outlines: 1.06 x height (0.63 h above the
+  anchor, 0.44 h below), 0.842 x size-x per character less 0.16 x size-x. Texts are planned by ink + 0.17 mm against each other; no text-on-text warning.
+- Via tenting: board setup front and back tented; 173 vias set "tented", 108 "from board"; none untented. Via holes (+ 0.1 mm) are obstacles all the same.
+- LEDs: texts, offsets and size copied from the frozen board (ADIN over D8, BM2 / PWR / BM1 under D10 / D8 / D9); ADIN 0.15 mm further from D8 (via
+  (36.6, 34.0)). `netcheck.py` traces the schematic netlist: D10 ~ADIN_P2_LED1 -> U1 pin 48 (P2_LED_1) -> port 2 line pins 4 / 5 -> J9 (BM2); D9
+  ~ADIN_P1_LED1 -> U1 pin 21 -> pins 27 / 28 -> J10 (BM1).
+- Jumper names read from the frozen board: 5V SEL (JP1), LED (JP2), CFG1 (JP3), CFG0 (JP4); end marks 1 = ADIN_VDDIO end, 0 = GND end (one 0 shared
+  between JP3 and JP4, both ends there are GND). The frozen board has no names at the strap resistors.
+- Did not fit: JP4's name beside JP4 (JP2 north, JP3 west, R49 / R50 east, edge south): CFG0 / JP4 stands over CFG1 / JP3. MOTOR at 1.0 mm with J7 beside
+  it (six vias where a larger name would go). J8: pin names in one row in pin order at 0.7 mm, J8 at the connector's west corner. J3: one letter per pin
+  (G 3 D C), QWIIC and J3 at its north-east corner. The 5V pad's top label 0.15 mm east of the pad. "GPIO" title on the top only. JP1's end names. Net
+  names at TP1, TP2, TP5, TP7, TP20, TP21, TP22, TP23.
+- Designators hidden for want of a clear place: 19 (U12 R26 R40 R36 C64 C63 C65 C67 R10 R34 R48 R49 C49 C56 C57 C66 TP40 TP41 TP43); with text allowed
+  over tented via holes (`RELAX=via`) 11 (R40 C64 C63 C65 R10 R34 R49 U12 TP40 TP41 TP43). Hidden on purpose: FID1..6, H1..4, J15..J19 (pad names).
+- Checks (`run_log.txt`): errors 3 skew_out_of_range + 16 items_not_allowed before and after; 0 unconnected, parity 0. Ours / Sofar's, before -> after:
+  silk_overlap 52 / 6 -> 7 / 6, silk_over_copper 34 / 3 -> 5 / 3, silk_edge_clearance 5 / 0 -> 0 / 0, text_height 57 / 81 -> 76 / 81, text_thickness
+  53 / 84 -> 121 / 78. The 7 + 5 left of ours are footprint outlines (U13 / R50 / C67, C63 / C64, U12 / C61; J1's outline over the row pads, R48 / C63 / C65
+  outlines, U10's "*"), no text of this stage. text_thickness is 199 in total after every run and Sofar's share moved without his texts changing: not
+  explained. `check.py`: tracks + vias 1809, zones 179, pads 484, footprints 163, outline items 8, copper drawings 17, footprint graphics 2336 identical;
+  227 texts of the 81 locked footprints identical. Net check: 91 labels, 91 OK.
