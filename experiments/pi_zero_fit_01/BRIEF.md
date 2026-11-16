@@ -21,7 +21,25 @@ can be achieved; rip up our own header / breakout routing and start again once t
 - "Removing the conflict with the header is approved, as are updates to the schematic": five Sofar items at J1 pins 13
   and 35 are removed (listed by `scripts/build_stage1.py` when it runs).
 - JLC's rules for the 6-layer board apply (project rule set and stackup JLC06161H-3313, DESIGN D34).
-- Not placed (my reading of the approved mocks, not a typed decision): J2 breakout, J4 / F1 AUX 5 V, J6, TP36. JP1-JP4 stay.
+- Not placed (my reading of the approved mocks, not a typed decision): J2 breakout, J6, TP36. JP1-JP4 stay.
+
+## Decisions after the first placed board (Nick, design session's chat, 2026-11-15, evening)
+- 5 V converter: "keep it as close to how it is ... similar to how Sofar did their layout": it moves as one rigid group
+  with its own copper (`build_stage1.py` section 5).
+- "keep the connectors and LEDs as they are"; AUX 5 V on the west side, "large copper pads on the bottom unless a pair of
+  smaller thru holes oblong pads will fit": a smaller through-hole pair fits (J4: 2.2 x 3.3 mm, 1.1 mm drill, 3.2 mm pitch,
+  +5 V at the west edge, GND inboard). Payload pads J5 in the east with the load switch. J4, F1 and JP1 stay in the schematic.
+- Motor current limit: "4.02 k, so we don't clip - it's transient" (R48 = 4.02 kOhm, about 1.24 A by the MP6550 formula
+  the schematic stage cited).
+- I2C: "ADC on a different bus please, I want to keep i2c0 open for the LiFePo4+ board"; the third bus (I2C3) is for the
+  Qwiic connector only. Read from the stage-2 netlist: Sofar's power monitor U4 (INA232) and R26 / R27 are on I2C0
+  (J1 pins 27 / 28) on the frozen board, and J1 pins 3 / 5 (I2C1) are unconnected. Design session's reading, to be
+  confirmed by Nick: ADC and U4 both go to I2C1 (pins 3 / 5), I2C0 is left free, I2C3 stays Qwiic only.
+- Pot: add a resistor against the floating reading; value and place asked of the session "Builder: urchin board
+  bring-up" (message sent 2026-11-15); Nick tests it on the bench.
+- "When possible please reuse vetted part footprints": new passives take footprints and parts already on this board
+  or the Urchin.
+- JLC's rules for the 6-layer board apply to everything.
 
 ## Evidence (outside git): `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/`
 Mocks v1-v9, `PLACEMENT_SPEC_G.md`, reviews `review_G_placement.md` (FITS WITH CHANGES) and `review_G_routing.md`
