@@ -74,11 +74,23 @@ G5 = ['U10', 'L6', 'C53', 'C54', 'C55', 'C56', 'C57', 'C58', 'R37', 'R38', 'R39'
 def gbox(refs):          # (left, top, right, bottom) of the pads, board units
     q = [p.GetBoundingBox() for r in refs for p in fp[r].Pads()]
     return (min(x.GetLeft() for x in q), min(x.GetTop() for x in q), max(x.GetRight() for x in q), max(x.GetBottom() for x in q))
+# Nick, 2026-11-15: "keep it as close to how it is ... similar to how Sofar did their layout": the group moves as one
+# rigid piece WITH its own copper (tracks, vias, fills that lie inside the group's area on the frozen board).
 g = gbox(G5[:-1]); c = pcbnew.VECTOR2I((g[0] + g[2]) // 2, (g[1] + g[3]) // 2)
-for r in G5: fp[r].Rotate(c, pcbnew.EDA_ANGLE(float(sys.argv[4]) if len(sys.argv) > 4 else 90.0, pcbnew.DEGREES_T))
-bb = gbox(G5[:-1]); tgt = V(0.55, 7.15)
-for r in G5: fp[r].Move(pcbnew.VECTOR2I(tgt.x - bb[0], tgt.y - bb[1]))
+M = IU(0.6); gnets = {p.GetNetname() for r in G5 for p in fp[r].Pads()}
+inside = lambda p: g[0] - M <= p.x <= g[2] + M and g[1] - M <= p.y <= g[3] + M
+carry = [t for t in b.GetTracks() if key(t) not in mk and t.GetNetname() in gnets and inside(t.GetStart()) and inside(t.GetEnd())]
+for z in b.Zones():
+    bx = z.GetBoundingBox()
+    if zk(z) not in mz and not z.GetIsRuleArea() and inside(bx.GetPosition()) and inside(bx.GetEnd()): carry.append(z)
+cz = [x for x in carry if x.GetClass() == 'ZONE']; uid = {x.m_Uuid.AsString() for x in carry}
+rm = [x for x in rm if x.m_Uuid.AsString() not in uid]      # wrappers differ per call, so compare by UUID
+ANG = pcbnew.EDA_ANGLE(float(sys.argv[4]) if len(sys.argv) > 4 else 90.0, pcbnew.DEGREES_T)
+for x in [fp[r] for r in G5] + carry: x.Rotate(c, ANG)
+bb = gbox(G5[:-1]); tgt = V(1.0, 7.15); mv = pcbnew.VECTOR2I(tgt.x - bb[0], tgt.y - bb[1])
+for x in [fp[r] for r in G5] + carry: x.Move(mv)
 bb = gbox(G5[:-1]); print('5 V group pads box (new frame): x %.2f..%.2f y %.2f..%.2f' % (mm(bb[0]) - DX, mm(bb[2]) - DX, mm(bb[1]) - DY, mm(bb[3]) - DY), ' L6 at', N(fp['L6'].GetPosition()), ' U10 at', N(fp['U10'].GetPosition()))
+print('  carried with the group: %d tracks/vias, %d fills (%s)' % (len(carry) - len(cz), len(cz), ', '.join('%s on %s' % (z.GetNetname().split('/')[-1], z.GetLayerName()) for z in cz)))
 
 # 6. south row, top side (side-entry, cable leaves south). Courtyard bottom sits 0.3 mm inside the edge.
 def add(lib, name, ref, value, x_left, rot=0.0):
