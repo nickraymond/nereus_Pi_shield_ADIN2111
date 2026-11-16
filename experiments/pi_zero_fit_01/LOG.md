@@ -316,3 +316,21 @@ Baseline (2fd2945, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_rang
   (silk_edge_clearance 5 -> 0, silk_over_copper 37 -> 8, silk_overlap 58 -> 13, text_height 138 -> 157, text_thickness 137 -> 199: more small texts,
   as stage 7 reported); ERC 39; `lock11.py` PASS (against the head: 163 footprints, 1811 tracks + vias, 179 zones, 17 copper graphics, 484 pads, no
   difference); `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic identical to 2fd2945. No silkscreen tuning: Nick does the final pass by hand.
+- Job 2 (Nick, as quoted in this session's task: "Please add back the Bristlemouth fish logo with the Pi Adin 2111 shield details - there is a spot on
+  the bottom of the board where you can add this between A_PWR and TP35. Just make it as large as you can while fitting there."): `logo.py`, `freearea.py`.
+  The frozen board stores the logo as two filled silkscreen polygons (3560 and 221 points, line width 0) and the name as two Menlo Bold texts,
+  "Pi Shield" 2.6 x 2.2 mm and "ADIN2111 Rev0" 1.6 x 1.5 mm. The frozen logo is the mote file's logo x 1.15, a quarter turn on (largest point
+  distance 0.0000 mm after turning back; 4.456 x 3.731 against 3.245 x 3.874 mm): the copy is turned back upright as in the mote file, mirrored
+  left-right and scaled. Clear space (`freearea.py`: pads and mask openings + 0.15, via holes + 0.1, bottom silkscreen and Sofar's texts + 0.15, part
+  bodies + 0.1): the largest rectangles free of everything are 7.80 x 4.60 mm (x 35.75..43.55, y 12.30..16.90) and 9.10 x 3.80 mm (x 35.25..44.35,
+  y 12.75..16.55); with the via holes not counted it would be 14.00 x 7.05 mm (x 30.35..44.35, y 10.80..17.85): 18 tented vias stand in the area.
+  With the frozen board's letter widths the name does not fit clear of the via holes at any size from 1.0 mm (second line 10.1 mm long): the letters
+  are 0.8 x as wide (the stage-7 label proportion). Logo and name are placed each for itself, a further 0.15 mm off every obstacle; the logo by its
+  drawn shape, so a via may stand in its open inside. Largest logo: right of the name 0.86 x the mote's size, above it 0.60, left of it 0.52.
+  Built: logo 2.79 x 3.33 mm at x 31.36..34.15, y 13.65..16.98 (one tented via, (33.38, 14.51), inside the head); "Pi Shield" 1.75 x 1.184 mm and
+  "ADIN2111 Rev0" 1.077 x 0.808 mm, line 0.15 mm, block x 35.41..44.20, y 12.95..16.38; one group ("Bristlemouth logo and board name"). Finest logo
+  line 0.30 mm (0.35 mm in the mote file, cuts through the upright and the lowest bar), eye 0.36 mm; JLC's minimum is 0.15 mm.
+  Gates (`run_log_job2.txt`, `drc_job2.json`): errors 3 + 16; 0 unconnected; parity 0; warnings 539 as after job 1, same counts per type (the two new
+  texts are among the text_thickness items, as every Menlo text; that count stays 199 as stage 7 noted); no silk_overlap, silk_over_copper or
+  silk_edge_clearance item at the new graphics (`near.py`); ERC 39; `lock11.py` PASS, no difference from the head in copper, pads, footprints, zones;
+  `.kicad_pro` / `.kicad_dru` identical to d30920b. Render `job2_bottom_big.png`, crop `job2_logo_area.png`: looked at.

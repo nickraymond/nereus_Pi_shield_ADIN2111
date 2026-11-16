@@ -36,8 +36,9 @@ cp "$S/board/$P.kicad_pcb" "$B"
 echo "silk warnings, ours / Sofar's, head:"; python3 "$S7/split.py" "$OUT/drc_head.json" "$OUT/silk_report.json"
 if [ "$N" = 1 ]; then gates job1 1; echo "after job 1:"; python3 "$S7/split.py" "$OUT/drc_job1.json" "$OUT/silk_report.json"; git status --short; exit 0; fi
 echo "== job 2: logo and board name on the bottom"
-$PY -B "$HERE/logo.py" "$B" "$FROZEN" "$OUT/logo_report.json" 2>&1 | $Q
-if [ "$N" = 2 ]; then gates job2 2; git status --short; exit 0; fi
+# WR=0.8: with the frozen board's letter widths (WR=1.0) no arrangement clears the via holes; 0.8 gives the stage-7 label proportion (1.0 x 0.75)
+WR=0.8 $PY -B "$HERE/logo.py" "$B" "$FROZEN" "$OUT/logo_report.json" "$MOTE" 2>&1 | $Q
+if [ "$N" = 2 ]; then gates job2 2; python3 "$S7/split.py" "$OUT/drc_job2.json" "$OUT/silk_report.json"; python3 "$HERE/near.py" "$OUT/drc_job2.json" "$OUT/logo_report.json"; git status --short; exit 0; fi
 echo "== job 3: J4 holes 1.3 mm"
 $PY -B "$HERE/j4_holes.py" "$B" "$ROOT/$D/nereus.pretty" 2>&1 | $Q
 gates job3 3; git status --short
