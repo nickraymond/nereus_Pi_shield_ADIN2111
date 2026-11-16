@@ -219,3 +219,12 @@ project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_202
   identical after a refill). ERC 39 (`erc_s8_job1.json`; one multiple_net_names item names VBUS where the baseline run named 5V_Buck_Input, with no
   schematic change: KiCad's choice between labels on one net differs from run to run). `lock8.py` PASS (H1..H4 listed); planes same as head; `.kicad_pro` /
   `.kicad_dru` identical to d30920b.
+- Job 2 (LCSC numbers, schematic fields; `job2_lcsc.py`, `job2_sync.py`): `PLANNED LCSC` filled on U12 C3681248, U13 C468683, C60 C408132, C64 C386109,
+  R48 C137968, J7 / J9 / J10 C189895, J8 C514175. Source: `~/NereusData/.../pi_zero_fit_2026-11-15/stage7_lcsc/LCSC_LOOKUP.md` (JLC part pages read
+  2026-11-16); the script compares its list with that file's Result table and stops on any difference. The nine had no `SOURCING` field: added, hidden,
+  "JLC stock (read 2026-11-16)". `PLANNED NOTE`: "LCSC number not looked up" -> "LCSC number confirmed on JLC's part page (read 2026-11-16)" on all nine.
+  Not changed: `PLANNED MPN` (JLC's names carry suffixes, the lookup's open point 2), `PLANNED MFR` (missing on U12, U13, C60, C64), U13's reel form.
+  One `PLANNED LCSC` stays empty: J5 ("Wire pads", `PLANNED NOTE` "No part to buy", `SOURCING` "No part: wire pads"). The board's footprints carry the
+  fields too: the nine footprints' fields follow the netlist (stage 2b's `apply`; place, side, turn and pad nets asserted unchanged).
+  `drc_s8_job2.json`: 3 + 16 errors, 537 warnings (as after job 1), 0 unconnected, parity 0; ERC 39 (`erc_s8_job2.json`, same items but the label-name
+  flip noted under job 1); `lock8.py` PASS; planes same as head; `.kicad_pro` / `.kicad_dru` identical to d30920b.

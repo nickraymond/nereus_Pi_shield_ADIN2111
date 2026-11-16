@@ -26266,7 +26266,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C189895"
 			(at 541.02 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -26277,7 +26277,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same part as the Urchin board's J3; LCSC number not looked up"
+		(property "PLANNED NOTE" "Same part as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 541.02 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 541.02 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -26409,7 +26420,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C189895"
 			(at 541.02 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -26420,7 +26431,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same part as the Urchin board's J3; LCSC number not looked up"
+		(property "PLANNED NOTE" "Same part as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 541.02 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 541.02 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -26527,7 +26549,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C3681248"
 			(at 294.64 314.96 0)
 			(hide yes)
 			(show_name no)
@@ -26538,7 +26560,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (U1); LCSC number not looked up"
+		(property "PLANNED NOTE" "Copied from the Urchin board (U1); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 294.64 314.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 294.64 314.96 0)
 			(hide yes)
 			(show_name no)
@@ -26870,7 +26903,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C408132"
 			(at 229.87 312.42 0)
 			(hide yes)
 			(show_name no)
@@ -26881,7 +26914,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (C7); LCSC number not looked up"
+		(property "PLANNED NOTE" "Copied from the Urchin board (C7); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 229.87 312.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 229.87 312.42 0)
 			(hide yes)
 			(show_name no)
@@ -27331,7 +27375,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C137968"
 			(at 317.5 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -27342,7 +27386,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "4.02 kΩ: Nick, 2026-11-15 (4.02 k, so we don't clip - it's transient). Yageo RC0402FR-07 series as R34 / R23 / R1, footprint of R34; this value is not in the BOM yet, LCSC number not looked up"
+		(property "PLANNED NOTE" "4.02 kΩ: Nick, 2026-11-15 (4.02 k, so we don't clip - it's transient). Yageo RC0402FR-07 series as R34 / R23 / R1, footprint of R34; this value is not in the BOM yet, LCSC number confirmed on JLC's part page (read 2026-11-16)"
 			(at 317.5 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -27354,6 +27398,17 @@
 			)
 		)
 		(property "PLANNED MFR" "Yageo"
+			(at 317.5 325.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 317.5 325.12 0)
 			(hide yes)
 			(show_name no)
@@ -27531,7 +27586,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C386109"
 			(at 335.28 321.31 0)
 			(hide yes)
 			(show_name no)
@@ -27542,7 +27597,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (C6); LCSC number not looked up"
+		(property "PLANNED NOTE" "Copied from the Urchin board (C6); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 335.28 321.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 335.28 321.31 0)
 			(hide yes)
 			(show_name no)
@@ -27942,7 +28008,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C189895"
 			(at 388.62 311.15 0)
 			(hide yes)
 			(show_name no)
@@ -27953,7 +28019,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same part and pinout as the Urchin board's J3; LCSC number not looked up"
+		(property "PLANNED NOTE" "Same part and pinout as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 388.62 311.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 388.62 311.15 0)
 			(hide yes)
 			(show_name no)
@@ -28062,7 +28139,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C468683"
 			(at 449.58 314.96 0)
 			(hide yes)
 			(show_name no)
@@ -28073,7 +28150,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (U2); LCSC number not looked up"
+		(property "PLANNED NOTE" "Copied from the Urchin board (U2); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 449.58 314.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 449.58 314.96 0)
 			(hide yes)
 			(show_name no)
@@ -28968,7 +29056,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" ""
+		(property "PLANNED LCSC" "C514175"
 			(at 520.7 313.69 0)
 			(hide yes)
 			(show_name no)
@@ -28979,7 +29067,18 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "3-pin version of the Urchin board's GH connectors; 1 = 3V3, 2 = wiper, 3 = GND (assumed order); LCSC number not looked up"
+		(property "PLANNED NOTE" "3-pin version of the Urchin board's GH connectors; 1 = 3V3, 2 = wiper, 3 = GND (assumed order); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+			(at 520.7 313.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-16)"
 			(at 520.7 313.69 0)
 			(hide yes)
 			(show_name no)
