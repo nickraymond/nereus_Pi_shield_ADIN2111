@@ -257,3 +257,156 @@ along the channel) should open a four-lane corridor; I did not get to it.
 1. Design session / Nick: U12 placement for the outputs; delete the orphan U11_RTN via; say whether ~PAYLOAD_FAULT on Internal 1 under T1 stands.
 2. Re-plan the south-middle Internal 2 feeds, then MOTOR_nSLEEP, ADIN_TIMER, ADIN_MISO, the strap net, I2C3 as one bus; TP24 ground; PI_5V second path.
 3. Then the two reviews of the brief.
+
+---
+
+# Stage 3, third and fourth sessions (phases J, K, L, M, final checks): report
+
+Written 2026-11-16, 7:55 AM Pacific. Same branch, nothing pushed. **All connections are routed: 0 unconnected.** This part replaces the second
+part's "Gates", "Not routed", "Not done" and "Next". Numbers are from runs of the fourth session unless marked; files in the same NereusData folder.
+Phase J was made by the third session, which was cut off before it wrote anything; its lines here come from its commit and `phaseJ.py`.
+
+## Gates (`drc_final3.json`, `erc_final3.json`, board of the phase M commit)
+
+| | Start of the fourth session (d7da363, `drc_s3_baseline_d7da363.json`) | Now |
+|---|---|---|
+| DRC errors | 3 skew_out_of_range + 16 items_not_allowed | **the same 3 + 16, nothing else** |
+| Unconnected | 8 | **0** |
+| Schematic parity | 0 | **0** |
+| Warnings | 520 | 517: via_dangling 8 -> 5 (the orphan via, MOTOR_nSLEEP's via and Sofar's strap via are no longer dangling); every other type unchanged (track_dangling 8, isolated_copper 3, silk_edge_clearance 5, padstack 33, lib_footprint_mismatch 101, text_thickness 137, text_height 134, silk_over_copper 30, silk_overlap 59, nonmirrored_text_on_back_layer 2). No new type |
+| Dangling items | | all 8 track_dangling and 5 via_dangling items carry uuids of the input board d30920b (checked by uuid); none is stage-3 copper |
+| ERC | 39 (second session) | **39**, the same seven types and counts |
+| Lock check | PASS | **PASS**: 154 footprints, 1156 tracks + vias, 171 zones, 17 copper graphics of d30920b; missing 0 apart from the one via removed on instruction; changed 0 apart from the footprints moved on instruction (list below). Added: 572 tracks + vias, 7 zones, no footprint |
+| Project files | | `git diff --stat d30920b -- board/` lists only the `.kicad_pcb` |
+
+## Commits
+
+| Commit | Phase |
+|---|---|
+| d7da363 | J: motor group re-placed, outputs to J7 (third session) |
+| d87ce2e | K: orphan via removed, six long nets on Internal 1 |
+| df25e5a | L: TP24 ground, PI_5V second path, U12 VIN widened |
+| feb296d | M: clean-up |
+
+`sh scripts/stage3_routing/run.sh <J|K|L|M>` rebuilds a phase from the previous phase's commit and checks it.
+
+## The orphan via and the lock check
+
+Sofar's via on U11_RTN at (28.431, 6.214), 0.45 / 0.2 mm, is removed in phase K. Nick, 2026-11-16, as quoted in the session's task: "Yes delete the
+orphan via". Before removing it `phaseK.py` lists the copper within 0.6 mm of its pad on all six layers: J1 pin 17 (PI_3V3), the GND fills (top, GND
+plane), the 3V3 fill (PWR plane) and the VBUS track on Internal 2; nothing on U11_RTN (the script stops if there is). The net's other copper is
+at U11 in the south-east. **The lock check's expected list changed for exactly this item**: `s3lib.REMOVED_OK` holds its uuid; any other missing
+item still fails the check.
+
+## Footprints moved (all own parts, none of the 81 core ones)
+
+| Phase | Part | From -> to (new frame, mm; angle) |
+|---|---|---|
+| F (second session) | J5, FID4, FID2 | (61.9, 18.6) -> (61.9, 10.6); (62.6, 9.0) -> (62.6, 7.7) |
+| J | U12 | (6.30, 37.20) 90 deg -> (5.20, 36.90) 0 deg |
+| J | C60, C61, C62 | (3.05, 34.16) -> (9.40, 31.20); (6.23, 34.56) -> (7.60, 36.92); (4.68, 33.25) -> (4.40, 31.05) |
+| J | C63, C64, C66, R48 | (3.66, 37.17) -> (5.17, 34.32); (3.31, 38.20) -> (3.95, 34.00); (7.78, 33.25) -> (7.50, 31.05); (3.66, 36.10) -> (6.15, 34.32) |
+| K | R47 | (9.30, 35.70) -> (9.30, 35.90), turned 180 deg: ADIN_TIMER pad now west |
+| K | R9 | turned 180 deg in place at (9.30, 37.50): ADIN_MISO pad now north |
+
+Coordinates as printed by the lock check ("moved on instruction"). Why R47 and R9: a via for ADIN_MISO beside R9's old MISO pad would have to clear
+J7's mounting pad (top), the MOTOR_IN1 and MOTOR_VISEN lanes (Internal 2) and R9's other pad, and misses by 0.01..0.03 mm; and the three vias have to
+stand in the order the buses leave (TIMER west of the I2C3 lanes, strap and MISO east of them).
+
+## Phase J: motor driver (third session; from `phaseJ.py`, widths re-read from the board)
+
+| Net | Copper | Estimate (IPC-2221 outer, 1 oz, 10 degC) |
+|---|---|---|
+| MOTOR_OUT1 | bottom: 0.2 mm neck 0.15 mm past the pad (the pad is 0.2 mm wide), 0.6 mm bar to two vias; top 0.6 mm into J7 pads 1 and 2 | 0.6 mm 1.65 A |
+| MOTOR_OUT2 | bottom: 0.2 mm neck 0.45 mm, 0.5 mm bar, 0.6 mm to two vias; top 0.6 mm into J7 pads 3 and 4 | 0.5 mm 1.45 A |
+| 5V_PI (VIN) | 0.2 mm neck 0.2 mm, **0.4 mm for 0.6 mm to C61 (phase L; was 0.3 mm)**, **0.5 mm to one via (phase L; was 0.4 mm)** into the PWR-plane fill; bulk capacitors on a 1.0 mm rail | 0.4 mm 1.23 A, 0.5 mm 1.45 A, 1.0 mm 2.4 A |
+| GND (pin 3) | 0.2 mm, 0.35 mm from the pad's end to the centre of its one via into the GND plane | |
+
+Current limit 1.24 A (R48 = 4.02 k, BRIEF). The 0.2 mm necks exist because the MP6550's pads are 0.2 mm wide; a long 0.2 mm track would carry 0.74 A at
+10 degC by the same formula, these are under 0.5 mm long between a pad and wide copper. The 0.4 mm piece cannot be 0.5 mm: that leaves 0.10 mm to
+C61's ground pad (pre-check and DRC both showed it). **VIN and the ground pin each have one 0.6 / 0.3 mm via.** No second site clears the Internal 2
+motor lanes beside them. I have no via current figure from a file of this repo, so I do not rate them; see "Open or doubtful".
+
+## Phase K: six long nets, Internal 1 (0.2 mm, three new vias)
+
+| Net | Path | Length (script log) |
+|---|---|---|
+| I2C3_SCL | J1 pin 13, channel y 6.65, west corridor x 9.83, south strip y 38.2, 45 deg into the existing via (43.7, 36.38) at R24 | 80.6 mm, 0 new vias |
+| I2C3_SDA | J1 pin 15, channel y 7.05, x 10.19, y 37.8, north at x 39.6 into the existing via (39.6, 34.58) at R10 | 80.3 mm, 0 |
+| ADIN_MISO | R9, bottom 3.3 mm, via (11.5, 35.2), north at x 10.6 (x 11.6 north of y 12), channel y 7.45, north between J1 pins 15 / 17, between the pin rows (y 3.5), J1 pin 21 | 54.1 mm, 1 |
+| ADIN_TIMER | R47, via (9.15, 35.1), north at x 7.85, west of J1 pin 1, along the north edge above the header at y 0.85 (0.75 mm of board outside it), J1 pin 36 | 79.7 mm after phase M, 1 |
+| strap net (U1 P1_LED_0 / SPI_CFG1) | R2 / R47, bottom, via (10.85, 33.8), south strip y 37.4, 45 deg, Sofar's via (40.52, 27.88) | 39.7 mm, 1 |
+| MOTOR_nSLEEP | phase J's via (4.4, 38.62), south strip y 38.62 to x 55.9, north at x 56.25 / 55.36, between J1 pins 37 / 39, between the pin rows (y 3.5), J1 pin 29 | 98.5 mm, 0 |
+
+- The corridor is the one the task proposed for the header nets (channel, then south between the screw keep-out and L2), all on Internal 1. The
+  suggested east run at y 32.2..32.6 was **not** used: ADIN_VDDIO (phase H, Internal 1) runs from the jumpers along y 36.139 and up a 45 deg
+  diagonal to Sofar's via at (39.756, 27.839), and R10 / R24 / the strap via lie south-east of it; the nets pass under its west end and use the
+  strip south of it (y 37.4..38.62, four lanes, 0.4 mm pitch).
+- Lanes are parallel at 0.36..0.4 mm pitch, corners 45 deg and concentric. ADIN_MISO has one dogleg (x 10.6 to x 11.6 at y 12..13) past the VBUS
+  via at (10.73, 10.69), where the corridor holds only the two I2C3 lanes.
+- MOTOR_nSLEEP and ADIN_TIMER could not share the east side: the strip east of x 50 has one lane (y 38.6..38.9, between the U11 group's vias and
+  the edge rule), and J1 pins 29..36 are fenced on Internal 1 by Sofar's ADIN_PWR / ~ADIN_RST diagonals, so only the lane between the pin rows
+  reaches pin 29. TIMER therefore goes round the west and north.
+
+## Phase L: TP24, PI_5V, VIN
+
+- TP24: bottom 0.2 mm, 4.3 mm, to the ground via (55.5, 37.33); it passes between the U11 group's via column and the 1.0 mm VBUS_OUT track.
+- **PI_5V second path**, bottom layer, JP1 pad 1 to J1 pin 4, in parallel with the PWR-plane lane:
+
+| Piece | Width | Length |
+|---|---|---|
+| JP1 pad 1 east, north at x 12.09, 45 deg east | 0.5 mm | with the last piece 17.6 mm |
+| north at x 13.45 | 1.0 mm | 11.7 mm |
+| 45 deg west, north between J1 pins 3 / 5 (x 12.18), 45 deg into pin 4 | 0.5 mm | |
+| pin 4 to pin 2 | 0.6 mm | 2.5 mm |
+
+  Total JP1 to pin 4: 29.3 mm. Copper: 1 oz, 0.035 mm, read from the board file's stackup (F.Cu / B.Cu thickness 0.035) and
+  `docs/design-review/jlc_rules_2026-11.md` (1 oz outer, 0.5 oz inner). Estimate, IPC-2221 external formula as in `docs/design-review/power_budget.md`
+  ([IPC]: I = 0.048 dT^0.44 A^0.725), 10 degC rise, my arithmetic: **0.5 mm 1.45 A, 1.0 mm 2.39 A. The track alone, at its narrowest, carries
+  1.45 A at 10 degC** against the Pi's 1 A (D15, as cited in phase C). The plane lane is still there in parallel (first part: about 0.95 A at 20 degC
+  through its necks; by the same arithmetic with the usual IPC-2221 internal constant 0.024, 0.68 A at 10 degC for a 1.05 mm neck of 0.5 oz).
+  Track resistance about 23 mOhm (copper 1.72e-8 Ohm m, my arithmetic, not measured).
+  Why 0.5 mm and not wider: between the 5V_LIFEPO4 via / track at (11.3, 23.9) and the L_IN via row at y 22.16 there is 0.78 mm; between J1's pads 0.84 mm.
+
+## Phase M: clean-up (no net changes its route)
+
+- Acute corners removed: strap net at R2 (45 deg, now a T at 90 deg), ADIN_TIMER at J1 pin 36 (the lane overshot and came back; it now leaves
+  135 deg before the pin), PI_3V3's Internal 2 branch at the via (30.3, 35.5) (now a T at 90 deg at y 34.0).
+- 5V_PI's 1.0 mm trunk runs straight onto the bulk rail (it ended in a diagonal with a 0.07 mm link on top of it). MOTOR_IN2: two collinear pieces merged.
+- Ends 0.02..0.04 mm beside a centre now on it: PI_3V3 at J1 pin 17 and at its via, MOTOR_IN1 at J1 pin 32.
+- **36 track ends that stopped inside a pad of their own net, 0.08 mm or more off its centre, now end on the centre** (13 by one longer segment,
+  23 by a short piece inside the pad). Left: 16 ends under 0.08 mm off (largest 0.071 mm, U13 pin 4), and on purpose the BM trunk ends in the
+  ganged connector pads, the 5V_PI track into L6 pad 2, the BM1_P tap link at L1 pad 3 and the two pin links into U11's thermal pad.
+- My audit afterwards (own copper only): no segment off 0 / 45 / 90, no acute corner except BM1_N's width change at (47.78, 17.70) (a 1.0 mm and a 2.0 mm piece of the frozen
+  board's path lying in line, phase F), no loose end other than those listed, no own via without a second connection or a plane.
+  Still there, cosmetic: 20 segments shorter than 0.15 mm (via hooks and pad-centre pieces).
+
+## Open or doubtful
+
+1. **Single vias on U12 VIN and on its ground pin** for a 1.24 A limit (0.5 A steady by the BRIEF). Not rated here: the repo has no via current
+   figure. A second via needs the motor lanes on Internal 2 moved.
+2. **Long nets on Internal 1.** Per `jlc_rules_2026-11.md` Internal 1 is 0.10 mm under the top copper and 0.55 mm from the GND plane. I2C3_SCL / SDA
+   (80 mm) run under the BM2_N trunk for about 6 mm (x 9.83 / 10.19, y 19..25); ADIN_TIMER crosses under J7 pad 4 (MOTOR_OUT2); MOTOR_nSLEEP, the
+   strap net and both I2C3 nets run along the south strip under the connector row. No crosstalk or return-path calculation was made.
+3. **ADIN_MISO now has a 57 mm branch** from J1 pin 21 to the 4.7 k strap resistor R9 in the south-west corner. Moving R9 next to the header would
+   make the static CFG0_STRAP net the long one instead; that is a placement decision, not taken here.
+4. ADIN_TIMER runs 42 mm along the north edge, 0.75 mm from it (edge rule 0.5 mm), outside the header.
+5. PI_5V's second path is 0.5 mm for 17.6 mm, not the 1.0 mm of the other power tracks (reason above).
+6. The pre-check reports 0.10 mm between two short pieces at JP1 and JP1's own bridge graphic (the copper that joins its pads 1 and 2); kicad-cli DRC
+   does not flag it and the bridge joins those two nets by design.
+7. Carried over unchanged: items 1..5 and 7 of the second part's "Deviations" (~PAYLOAD_FAULT under T1's pads, via in U11's thermal pad, VBUS_OUT
+   0.4 mm for 9.5 mm, 0.13 mm clearances, the two bottom crossings of the core, the GND fills meeting when grown by 1 um: `zone_touch.py` rerun, same).
+8. The east part of the "S3 GND" fill (110.7 mm2) is a separate piece from the west / south part (763.5 mm2) in the fill data, as it was before this
+   session; both abut Sofar's GND fill.
+
+## Looked at
+
+All six copper plots (`plots_final3/cu_top|in1|gnd|in2|pwr|bot.png`) and both renders (`final3_top.png`, `final3_bottom.png`), whole board, plus
+model crops of the south-west corner during phase K. Seen: the Internal 1 buses as described, parallel and concentric; the PI_5V track on the bottom;
+the PI_5V plane lane in one piece from the pins to y 28.6 (fill data: one piece of 64.9 mm2, as before); nothing across a pad of another net.
+Not done: QE review, the two reviews of the brief, any impedance / thermal / crosstalk check beyond the arithmetic quoted.
+
+## Next
+
+1. Nick / design session: items 1..3 above.
+2. The two independent reviews of the routed board (BRIEF, stage 4).

@@ -44,3 +44,32 @@ Report: `reports/STAGE3_REPORT.md`.
 - Final: DRC `drc_final2.json` 3 + 16 errors, 13 unconnected, parity 0; ERC 39; lock PASS; plots `plots_final2/`, renders `final2_*.png`.
   Open: U12 outputs (placement), MOTOR_nSLEEP, ADIN_TIMER, ADIN_MISO to R9, strap net to R2 / R47, I2C3 from the header, TP24 ground, orphan U11_RTN via; PI_5V unchanged.
   Report: `reports/STAGE3_REPORT.md`, second part.
+
+## Stage 3, third session, 2026-11-15 night, Pacific (written by the fourth session from commit d7da363 and `phaseJ.py`; that session was cut off)
+
+- Phase J (motor group): U12 (6.3, 37.2) -> (5.2, 36.9) and turned so OUT1 faces west and OUT2 east, as J7's pins 1-2 / 3-4; C60, C61, C62, C63,
+  C64, C66, R48 re-placed round it (list with coordinates in the lock check's output). Outputs 0.5 / 0.6 mm with two vias each to J7; VIN from the
+  PWR-plane 5V_PI fill with C61 at the pin; bulk capacitors on a 1.0 mm rail north of J7's pads. Commit message: 3 skew + 16 items_not_allowed,
+  8 unconnected, parity 0, lock PASS. My own DRC of that commit (`drc_s3_baseline_d7da363.json`) gives the same.
+
+## Stage 3, fourth session, 2026-11-16 morning, Pacific
+
+- Baseline (d7da363, my run): errors 3 skew_out_of_range + 16 items_not_allowed; warnings 520; 8 unconnected; parity 0. The 8: TP24 ground,
+  I2C3_SDA, I2C3_SCL (J1 pins 15 / 13), strap net R2 to Sofar's via (40.52, 27.88), ADIN_MISO to R9, MOTOR_nSLEEP (J1 pin 29 to U12),
+  ADIN_TIMER (R47 to J1 pin 36), and the orphan U11_RTN via (28.43, 6.21).
+- Phase K: the orphan via is removed (Nick, 2026-11-16, quoted in this session's task: "Yes delete the orphan via"). Before removing it the script
+  lists all copper within 0.6 mm of its pad on every layer: 11 items, none on U11_RTN (J1 pin 17, GND / 3V3 fills, the VBUS track on Internal 2).
+  **The lock check's expected list changed for exactly this one item**: `REMOVED_OK` in `s3lib.py` holds its uuid (90140fec-...), `verify_lock`
+  prints it as "removed on instruction" and still fails on any other missing item. Six nets routed on Internal 1 as buses. R47 turned 180 deg and
+  0.2 mm south, R9 turned 180 deg in place (their reference texts stay where they were). Result: same 19 errors, 1 unconnected, parity 0, lock PASS.
+  On the way: ADIN_MISO's first lane (x 11.9) ran through three ground vias at (11.7..12.3, 14.8..15.5); the pre-check printed it, DRC showed
+  9 errors and the lock check failed (KiCad had put the vias on the track's net). Lane moved to x 10.6, rerun clean. Turning R47 / R9 also turned
+  their reference texts onto copper (one more silk_over_copper warning); `prestep` got a `keep_ref` option.
+- Phase L: TP24 ground on the bottom; PI_5V second path on the bottom; U12 VIN 0.3 -> 0.4 mm and 0.4 -> 0.5 mm. 0 unconnected. On the way: the
+  first PI_5V lane shorted to the 5V_LIFEPO4 via (I had read its position off a picture, 11.1 for 11.3; the pre-check printed it); lane moved to
+  x 12.09 at 0.5 mm, and the 1.0 mm part to x 13.45 clear of Sofar's ground polygon. A text replace of mine with an empty search string blew
+  `phaseL.py` up to 1.5 MB; rewritten whole before anything was committed.
+- Phase M: clean-up, see the report. `prestep` can now remove one exact segment (`'seg'`).
+- Final (commit of phase M, `drc_final3.json`, `erc_final3.json`): errors 3 skew_out_of_range + 16 items_not_allowed; warnings 517; 0 unconnected;
+  parity 0; ERC 39; lock PASS; `.kicad_pro`, `.kicad_dru`, all schematic files identical to d30920b (`git diff --stat d30920b -- board/` lists the
+  `.kicad_pcb` only). Plots `plots_final3/`, renders `final3_top.png` / `final3_bottom.png`, all eight looked at. Report: third part.
