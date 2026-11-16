@@ -117,3 +117,59 @@ Scripts `scripts/stage5_gpio_row/` (`run.sh` rebuilds from the stage-4 board 397
   the same net); warnings 541, no new type (lib_footprint_mismatch + 5 for J15..J19; silk_over_copper 37 -> 38: J1's bottom outline and the J1 / R39 /
   TP41 reference texts now lie over row pads or copper); 0 unconnected; parity 0; ERC 39, same items; `lock5.py` PASS; `.kicad_pro` / `.kicad_dru`
   identical to d30920b. Plots `plots_s5/`, crops `s5_*.png`, renders `s5_render_top.png` / `_bottom.png`: all looked at.
+
+## Stage 6 (electrical review fixes; converter heat spreading), 2026-11-16 morning, Pacific
+
+Scripts `scripts/stage6_review_fixes/` (`run.sh` rebuilds from the stage-5 board 76d258b; `step1_review.py`, `step2_heat.py`, `lock6.py`, `checks.py`).
+Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage6_review_fixes/`. Review: `stage4_review/electrical/REVIEW_ELECTRICAL.md` (written
+against 397fdfd; every place re-measured on 76d258b with `checks.py`, which uses the review's own methods: `checks_head.txt` / `checks_s6.txt`).
+Baseline (76d258b, my run, `drc_baseline_76d258b.json`): 3 skew_out_of_range + 16 items_not_allowed, 541 warnings, 0 unconnected, parity 0; ERC 39.
+
+- 1 MOTOR_IN1 (Internal 2): was x 45.3 / 44.2 past U1's east pads and under Y1. Now gap x 47.74 at the header, x 48.45 (west of Sofar's 3V3 via (48.98, 12.11)),
+  x 49.1 beside MOTOR_IN2 (x 49.5), diagonal x + y = 77.4 to the old lane y 38.05. ~PAYLOAD_FAULT moved to the gap x 45.2. MOTOR_IN2's diagonal moved to
+  x + y = 79.2: between Sofar's BM1_DATA vias (47.02, 28.86 / 29.51) and GND via (47.93, 30.46) there is room for one lane only (measured: 0.33 mm of free
+  width). Distances (plan view, edge to edge, my measurement with pcbnew): MOTOR_IN1 to U1 pads 23-28 4.52 mm, to Y1's crystal pads (1, 3) 2.18 mm, to Y1's
+  GND pad 2 1.49 mm; MOTOR_IN2 5.07 / 3.46 / 2.77 mm. Both cross Sofar's east GND slot (0.6 / 0.5 mm at (49.1 / 49.5, 13.7..14.5)): a net from J1 pins 29-33 leaves
+  the slotted area only over a slot or past the slot's end beside U1, where it was. No GND fill above: 7.4 -> 5.2 mm (pin antipads and the slot).
+- 2 MOTOR_nSLEEP (Internal 1): straight at x 55.36 to y 34.3, in the 0.5 mm gap between the BM1_N (x 53.12..55.12) and BM1_P (55.62..57.62) trunks; under
+  BM1_P 11.0 -> 1.3 mm (the short piece at L1 pad 3, which it has to cross, plus 0.8 mm under that pad and 0.4 mm at J10). I2C3_SCL / I2C3_SDA (Internal 1):
+  x 8.03 / 8.36 for y 17.6..25.9, west of the BM2_N trunk (x 8.53..10.53); under BM2_N 9.1 / 9.9 -> 0 mm. The three west lanes are at 0.33 mm pitch (0.13 mm gaps).
+- 3 R9 (bottom, (9.3, 37.5)) -> top, (44.381, 9.89), pad 2 on the ADIN_MISO track at (44.781, 9.89) (frozen board: top, (44.78, 9.49), pad 2 at (44.78, 9.89)).
+  ADIN_MISO's own copper 72.1 -> 15.0 mm, no branch. CFG0_STRAP (static, to JP4) is now 72.1 mm: top 1.1, Internal 1 59.8 (lane y 8.6 south of ADIN_MOSI, then
+  the old ADIN_MISO lane; x 10.75 in the west), bottom 11.2. It lies 5.6 mm under BM2_N where it crosses the trunk's two diagonal pieces, and crosses the west slot at (18, 8.4).
+  R47 / R2 (U1 pin 19, P1_LED_0 / SPI_CFG1: R2 4.7 k to JP3, R47 1 k in series to ADIN_TIMER) stay at (9.3, 35.9) / (9.3, 34.0): their frozen site
+  ((39.8, 35.41) / (41.13, 35.01), top) now holds the PI_3V3 via (41.15, 35.0), the I2C3_SDA via (39.6, 34.58) and, underneath, the Qwiic pull-ups R10 / R24,
+  and I found no other free site beside U1's south side in the time box. The 39.7 mm Internal 1 run from U1 pin 19 stays, and so do the perimeter tours of
+  finding 10 (own copper before -> after: I2C3_SCL 89.1 -> 90.6, I2C3_SDA 87.3 -> 88.9, MOTOR_nSLEEP 99.6 -> 99.6, ADIN_TIMER 80.7 -> 82.0, MOTOR_IN1 74.6 -> 79.8,
+  MOTOR_IN2 72.3 -> 73.2, PAYLOAD_EN 79.5 unchanged): nothing got shorter.
+- 4 5V_LIFEPO4: both outer layers are blocked between F1 and JP1 (bottom: the 1.0 mm 5V_PI track at x 7.15 and the J4 track; top: the BM2_N trunk), so it stays on
+  Internal 2, 0.8 -> 2.0 mm, 13.1 mm, two vias per end: (4.267, 15.887) (the dangling via in F1 pad 1, now used) + (4.267, 17.687), and (11.3, 23.05) (new) + (11.3, 23.9).
+  IPC-2221 I = k dT^0.44 A^0.725, A in mil2, k 0.024 (internal), copper 0.0152 mm (the board file's stackup, In3.Cu): 1.08 A at 10 degC, 1.46 A at 20 degC,
+  21 degC rise at 1.5 A (before: 0.56 A, 96 degC). Bottom piece to JP1 0.8 mm, 35 um, k 0.048: 2.03 A at 10 degC. In plan view the wider track lies 3.9 mm
+  within 0.15 mm of switch-node copper (L6 pad 1), with the GND plane between.
+- 6 not done: no site for a second 0.6 / 0.3 via on U12 VIN or GND passes the six-layer pre-check (grid 0.05 mm, boxes (6.5..9.0, 36.8..39.0) and
+  (3.0..5.6, 35.9..37.4)); the only 0.45 / 0.2 sites are inside U12 pad 3.
+- 7 VBUS feed (Internal 2): 1.5 mm at y 8.3 for x 10.7..19.8 and at y 8.45 / x 29.75 for x 25.5..29.75 (19.2 mm); 1.0 mm stays for 7.0 mm between x 19.8 and 25.5,
+  where Sofar's GND vias (22.28, 8.32) / (23.73, 8.06) and the holes of J15 pad 4 / J16 pad 1 leave 1.07 mm. One via at each end stays (the converter end is
+  converter copper, Sofar's via at the other). By my arithmetic 29.8 -> 22.4 mOhm; the neck is still 0.65 A at 10 degC / 0.89 A at 20 degC.
+- 9 ADIN_TIMER (Internal 1): x 9.3 for y 9.3..15.9; nothing within 0.3 mm of switch-node copper now (was 2.2 mm within 0.15 mm, 4.3 mm within 0.3 mm). South of
+  that it is the west lane of three, x 7.70: 0.58 mm from L6 pad 1 for 1.2 mm (y 17.5..18.7; before 0.73 mm for 5.6 mm). I2C3_SCL / SDA: 0.91 / 1.24 mm from that pad.
+- 11 partly: the Internal 1 link from the via at U11 pin 1 to C49 is 0.5 mm wide (was 0.2), same 6.3 mm and two vias. A bottom-layer link does not exist without
+  moving parts: U11's exposed pad reaches y 37.7 and VBUS_OUT (0.5 mm, y 38.2) leaves pin 10 between C49 and pin 1.
+- 12 removed (input items, listed by the lock check): 5V_PI top stub (1.221, 14.511)-(1.346, 14.386) and VBUS bottom stub (11.221, 10.194)-(10.726, 10.688).
+  Left, all on carried copper: GND top (32.531, 7.164..8.837); GND bottom (20.483..21.731, 9.389) and (24.267, 5.878..6.728); VBUS top (32.386, 10.409);
+  VBUS_OUT top (24.431..24.981, 10.419); ~ADIN_RST Internal 1 (52.706, 6.214..11.114); vias ADIN_PWR (51.656, 7.164), GND (32.681, 5.964), (41.195, 17.178), (51.756, 6.164).
+- 8 slot crossings now (`checks_s6.txt`; the method does not see a crossing within 1.7 mm of a through hole, so the I2C3 / VBUS lanes at x 18, y 7.6..8.3
+  beside J15 pad 4 are not in its list but are still there): west slot ADIN_TIMER (17.4, 0.85), CFG0_STRAP (18.0, 8.4), PI_3V3 (17.3, 3.5); east slot
+  ~PAYLOAD_FAULT (46.45, 16.7..17.2), MOTOR_IN1, MOTOR_IN2, MOTOR_nSLEEP (52.85, 3.5).
+- Job 2 (Nick, as quoted in this session's task: "Yes, build it"): GND zone "S3 GND converter heat spreader (stage 6)" on the bottom layer, solid connections,
+  62.03 mm2 in one piece (first build with the drawn outline: 58.44 mm2 in two pieces, the via (8.901, 7.459) on a 0.13 mm2 sliver). Outline changed in two
+  places to reach vias that are there: north edge y 7.5 -> 7.2, and a tab (10.7..12.0, 13.9..15.3) onto Sofar's GND copper shape. Ten GND vias in the fill
+  (eight that were there, two new) plus Sofar's two at (12.331, 14.764 / 15.464) through that shape; R38 pad 2 joins it. New vias (4.55, 11.6) and (4.4, 12.75):
+  clear on all six layers at the drawn sites, not within 0.3 mm of a pad (`via_in_pad_s6.txt`). Third site (11.4, 12.3) not built: on Internal 1 it lies on the
+  CFG0_STRAP lane (before stage 6: on the ADIN_MISO lane), and the nearest clear site (11.75, 12.6) is outside the zone, with GND copper on the GND plane only.
+- Final (`drc_s6.json`, `erc_s6.json`): errors 3 skew_out_of_range + 16 items_not_allowed; warnings 541 -> 533, no new type (track_dangling 8 -> 6, via_dangling 5 -> 4,
+  silk_over_copper 38 -> 37, silk_overlap 62 -> 58); 0 unconnected; parity 0; ERC 39; `lock6.py` PASS (R9 moved; two stubs removed); `.kicad_pro` / `.kicad_dru`
+  identical to d30920b. Planes (`planes_head.txt` / `planes_s6.txt`): same number of pieces everywhere; areas 3V3 294.42 -> 293.08, P_IN 173.85 -> 172.69,
+  Sofar's GND 1021.36 -> 1019.43, S3 GND 870.45 -> 870.07, 5V_PI strip 141.16 -> 140.18 mm2 (new via antipads). Plots `plots_s6/`, renders `s6_render_top.png` /
+  `_bottom.png`, crops `look/s6_*.png`: looked at.
