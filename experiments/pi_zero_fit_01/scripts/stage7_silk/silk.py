@@ -252,9 +252,16 @@ for side in (F, B):
     else: skipped.append('J5 function "VBUS OUT" (%s)' % ('top' if side == F else 'bottom'))
 
 # ---- 4. the pad row under J1: every pad named on the top and on the bottom; row title
-ROW = [('J15', '1', '5V', 'PI_5V'), ('J15', '2', 'GND', 'GND'), ('J15', '3', '14', 'GPIO14'), ('J15', '4', '15', 'GPIO15'), ('J16', '1', '3V3', 'PI_3V3'), ('J16', '2', '3V3', 'PI_3V3'),
-       ('J17', '1', 'GND', 'GND'), ('J17', '2', '17', 'GPIO17'), ('J18', '1', '18', 'GPIO18'), ('J18', '2', '7', 'GPIO7'), ('J18', '3', 'GND', 'GND'), ('J18', '4', 'GND', 'GND'),
-       ('J19', '1', '19', 'GPIO19'), ('J19', '2', '20', 'GPIO20'), ('J19', '3', '21', 'GPIO21')]
+# The label is read from the pad's net on this board (stage 8 moved GPIO18 / GPIO12): GPIOnn -> "nn", PI_5V -> "5V", PI_3V3 -> "3V3", GND -> "GND".
+# For a GPIO pad the J1 pin on the same net must carry that GPIO in its pin name (the Pi header symbol's name, e.g. "PWM0/GPIO12").
+def rowlabel(ref, n):
+    net = [sn(p.GetNetname()) for p in fps[ref].Pads() if p.GetNumber() == n][0]; m = re.fullmatch(r'GPIO(\d+)', net)
+    if not m: return {'PI_5V': '5V', 'PI_3V3': '3V3', 'GND': 'GND'}[net], net
+    j1 = [p.GetPinFunction() for p in fps['J1'].Pads() if sn(p.GetNetname()) == net]
+    assert len(j1) == 1 and re.search(r'GPIO%s(?!\d)' % m.group(1), j1[0]), (ref, n, net, j1)
+    return m.group(1), net
+ROW = [(ref, str(k)) + rowlabel(ref, str(k)) for ref, cnt in (('J15', 4), ('J16', 2), ('J17', 2), ('J18', 4), ('J19', 3)) for k in range(1, cnt + 1)]
+print('pad row labels from the pad nets:', ' '.join('%s.%s=%s' % (r_, n_, s_) for r_, n_, s_, _ in ROW))
 rowres = {}
 for side in (F, B):
     for ref, n, s_, rx in ROW:

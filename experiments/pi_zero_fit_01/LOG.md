@@ -240,11 +240,11 @@ project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_202
   | MOTOR_IN2 | Internal 2 72.3 + bottom 0.9 -> Internal 2 90.2 + bottom 0.9 | 73.2 -> 91.2 mm | 1 -> 1 | 3.46 (2.77) -> 22.77 (22.77) mm | 5.07 -> 16.00 mm | 2.7 -> 3.5 mm | east slot (49.5, 13.64..14.14) -> west slot (17.31..18.21, 0.65) |
   Target (10 mm from Y1's pads, 5 mm outside U1's pad area): met by both. MOTOR_IN1's largest x is 21.07 (pin 12).
   What is not as asked, or doubtful:
-  (1) Slot: both nets still cross one GND-plane slot each, now the west one. Both of Sofar's slots are open at the plane's north edge (west one from
-  (17.3..18.2, 0.5) south to y 12.4, east one from x 53), so a net from a header pin between them reaches the west side only over a slot or between
+  (1) Slot: both nets still cross one GND-plane slot each, now the west one. Both of Sofar's slots are open at the plane's north edge (read off the GND-plane plot `look/head_full_gnd.png`: the west one
+  from about x 17.5 at the edge south to about y 12.4, the east one from about x 53), so a net from a header pin between them reaches the west side only over a slot or between
   the slots' south ends beside U1. `checks.py` lists MOTOR_IN2's crossing only: MOTOR_IN1's is within 1.7 mm of J1 pin 10's hole, which that method skips.
   (2) GND above the north lanes is a strip: the fill reaches from y 0.51 to y 1.02..1.08 north of each pin (wider between pins; my scan at twelve x
-  positions); the lanes' copper is y 0.55..0.75 and 0.88..1.08, for 39 mm (MOTOR_IN2) and 13 mm (MOTOR_IN1).
+  positions); the lanes' copper is y 0.55..0.75 and 0.88..1.08, for 39.3 mm (MOTOR_IN2, x 7.6..46.89) and 12.5 mm (MOTOR_IN1, x 8.07..20.52).
   (3) Swap: MOTOR_IN1 changes lanes with MOTOR_IN2 through two new vias (14.1, 26.8) / (13.2, 25.9) and 1.27 mm on Internal 1 (inside its own vias'
   antipads, so with no GND fill above it; nothing on the top layer over it, `checks.py` reports no "under" length). With MOTOR_IN2 on pin 12 and
   MOTOR_IN1 on pin 33 the order at U12 would come out right with no swap: not built, the task names the pins.
@@ -258,3 +258,8 @@ project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_202
   662 own tracks + vias); `.kicad_pro` / `.kicad_dru` identical to d30920b. Planes: same number of pieces everywhere; P_IN 172.69 -> 170.62, Sofar's GND
   1019.43 -> 1017.99, S3 GND 870.07 -> 868.99 mm2 (the two vias' antipads). Vias within 0.3 mm of a pad: 119 pairs, ours 9, as stage 6.
   Plots `plots_s8/`, renders `s8_render_top.png` / `_bottom.png`, crops `look/s8_*.png` (six areas x six layers, montages `look/s8_six_*.png`): looked at.
+- Silkscreen scratch copy rebuilt from this board (`scripts/stage7_silk/run.sh`; `stage7_silk/run_log.txt`, the stage-7 files kept as `run_log_before_stage8.txt` /
+  `silk_report_before_stage8.json`). `silk.py` now reads each pad-row label from the pad's net and, for a GPIO pad, checks that the J1 pin on that net has
+  the GPIO in its pin name: J18 pad 1 reads "12" (was "18") on both sides, same place. Net check 91 labels, 91 OK; `check.py` PASS (tracks + vias 1815);
+  95 labels placed, 10 left out, 19 designators hidden, silk warning counts as in stage 7; the only differences in the report are the two J18 pad 1 labels.
+  `silk_top.png` / `silk_bottom.png` looked at. The committed board's silkscreen is unchanged.
