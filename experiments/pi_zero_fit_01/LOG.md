@@ -87,3 +87,33 @@ Report: `reports/STAGE3_REPORT.md`.
 - Job B, scratch copy only (`stage4_gpio_silk/silk_scratch/board/`, built by `scripts/stage4_silk/run.sh`); the committed board's silkscreen is
   unchanged. Lesson: KiCad's box for a Menlo text is 1.633 x its height and 0.842 x its width per character (measured with pcbnew), and
   silk_overlap works on that box; the first pass used the ink size and its stacked labels were all flagged.
+
+## Stage 5 (one pad row under J1; three review fixes), 2026-11-16 morning, Pacific
+
+Scripts `scripts/stage5_gpio_row/` (`run.sh` rebuilds from the stage-4 board 397fdfd and the stage-3 schematic 5f43210). Outputs:
+`~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage5_gpio_row/`. Baseline (397fdfd, my run, `drc_baseline_397fdfd.json`): 3 skew_out_of_range +
+16 items_not_allowed, 538 warnings, 0 unconnected, parity 0; ERC 39.
+
+- Row: y 6.70, on J1's pin columns, 15 pads (1.7 mm / 1.0 mm, stock PinHeader footprints, no outline, courtyard or model, out of BOM and position files),
+  west to east: J15 PI_5V (10.91), GND (13.45), GPIO14 (15.99), GPIO15 (18.53) | J16 PI_3V3 (26.15), PI_3V3 (28.69) | J17 GND (33.77), GPIO17 (36.31) |
+  J18 GPIO18 (41.39), GPIO7 (43.93), GND (46.47), GND (49.01) | J19 GPIO19 (54.09), GPIO20 (56.63), GPIO21 (59.17). J11..J14 and their tracks are gone;
+  FID5 / FID6 back at (62.2, 33.0).
+- 15, not 16: one PI_5V pad is left out (lowest in the priority list). The 16th clear column, 31.23, takes a GND pad only, and that pad would merge with
+  Sofar's GND via at (32.231, 6.864) (first build: KiCad flashed the pad on all six layers through that via; hole 0.06 mm from the pad's copper): the same
+  defect the review lists, so it is not built. Columns 21.07 / 23.61: VBUS (1.0 mm, Internal 2) must pass north of Sofar's vias (22.28, 8.32) / (23.73, 8.06).
+  38.85: R43 and Sofar's GND via. 51.55: Sofar's GND and ADIN_PWR vias. Row at y 6.6 was measured too: 0.13 mm between a row pad and the J1 pad above it; 6.7 gives 0.23.
+- Channel re-routed round the row (list and rules in `step3_route.py`): 19 existing nets, 8 GPIO nets, the two supply pads. VBUS keeps 1.0 mm.
+- On the way: (1) `Models().clear()` after removing footprint graphics fails in pcbnew: the stock footprint is now read from a temporary copy with the
+  outline blocks cut out as text. (2) first plan had 16 pads and a courtyard: DRC gave a short (PI_3V3 on Internal 2 against J16 pad 3 at 31.23, flashed on
+  inner layers through Sofar's via) and courtyards_overlap J15 / R40; pad dropped, courtyards left out. (3) J1 pin 26's no-connect flag sat at the end of a
+  wire, not on the pin (ERC no_connect_connected); `step1_schematic.py` now looks there.
+- Planes (`planes.py`, `planes_head.txt` / `planes_s5.txt`): no new piece on any plane zone. 3V3 plane 312.72 -> 294.42 mm2, 1 piece; PI_5V lane main piece
+  64.93 -> 63.65 mm2, 3 pieces as before; Sofar's GND plane zone 6 -> 4 pieces (main 962.35 -> 960.03), S3 GND 6 -> 5 pieces; NoConnect_Left 2 -> 1 piece.
+  Sofar's top-layer GND zone at (23.2..31.4, 5.0..10.9) loses 33.17 -> 24.18 mm2 to J16's two pads (1 piece).
+- Review fixes (`step4_review.py`, `via_in_pad_before.txt` / `_after.txt`): our vias within 0.3 mm of a pad 16 -> 9 pairs; TP41 to (2.2, 34.2), TP40 to
+  (2.2, 37.45), C62 to (4.4, 31.27), C64 to (3.95, 34.12). Left: C61 (two vias), U12 pad 3, U11 pad 11 (no site), and four pairs at 0.21..0.30 mm the
+  review did not name (R50, U13 x 2, JP2).
+- Final (`drc_s5.json`, `erc_s5.json`): errors 3 skew_out_of_range + 16 items_not_allowed (the skew figures are the same; KiCad now pins them on a pad of
+  the same net); warnings 541, no new type (lib_footprint_mismatch + 5 for J15..J19; silk_over_copper 37 -> 38: J1's bottom outline and the J1 / R39 /
+  TP41 reference texts now lie over row pads or copper); 0 unconnected; parity 0; ERC 39, same items; `lock5.py` PASS; `.kicad_pro` / `.kicad_dru`
+  identical to d30920b. Plots `plots_s5/`, crops `s5_*.png`, renders `s5_render_top.png` / `_bottom.png`: all looked at.

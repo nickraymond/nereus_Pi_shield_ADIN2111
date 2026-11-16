@@ -11569,24 +11569,20 @@
 		(uuid "4c3221ea-c998-4b16-8d1f-bf44f35f8fc9")
 	)
 	(junction
-		(at 74.93 203.2)
+		(at 67.31 187.96)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0c7b20fe-589a-4884-be58-117892af7884")
+		(uuid "25c79d7a-6b40-4269-96ef-f3159d89aa26")
 	)
 	(junction
-		(at 74.93 205.74)
+		(at 74.93 215.9)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "dba87598-9304-4d6a-9cd0-d3d901cfe4f0")
+		(uuid "6b076b3b-374f-4f8d-ad06-12607de08169")
 	)
 	(no_connect
 		(at 162.56 118.11)
 		(uuid "11130a27-4d33-4ef3-b8ca-75da518cd5af")
-	)
-	(no_connect
-		(at 165.1 133.35)
-		(uuid "236f88c1-ecf6-47b9-a974-c3cc7578f02c")
 	)
 	(no_connect
 		(at 175.26 370.84)
@@ -11607,10 +11603,6 @@
 	(no_connect
 		(at 162.56 370.84)
 		(uuid "bc4f57c9-bc0f-4384-af65-0aae89db0395")
-	)
-	(no_connect
-		(at 121.92 130.81)
-		(uuid "0a509f03-c448-4ebf-a0ee-beecee625ab8")
 	)
 	(no_connect
 		(at 278.13 320.04)
@@ -13332,7 +13324,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "90ef3e39-51aa-455a-898c-1e6c2aa4de56")
+		(uuid "30f16e6b-925a-4d07-927f-1a96a8697f2a")
 	)
 	(wire
 		(pts
@@ -13342,7 +13334,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7a5ea733-eaf2-46fd-ae6f-9e4d01edbc1e")
+		(uuid "423edf3e-cc26-4d94-8b75-7d43c53f11e9")
 	)
 	(wire
 		(pts
@@ -13352,7 +13344,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "84a31321-1a74-407a-b0b5-4b3154636bca")
+		(uuid "17afc3cb-94e0-4556-ae88-dd07a6aa792f")
 	)
 	(wire
 		(pts
@@ -13362,7 +13354,17 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1a9b3199-e4f0-4da1-9163-a21e0e7e6483")
+		(uuid "9081dcdf-ca09-4bf9-85a8-ae7b5f7da2a4")
+	)
+	(wire
+		(pts
+			(xy 165.1 133.35) (xy 167.64 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db58d318-fdfe-4985-b408-ad8279fac210")
 	)
 	(wire
 		(pts
@@ -13372,7 +13374,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f006ad10-892f-45dd-a2b5-df6b8491c459")
+		(uuid "957cf256-6836-4824-b436-35c9f53c2cbe")
 	)
 	(wire
 		(pts
@@ -13382,7 +13384,37 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b2242274-e520-4953-b03b-a08cd92d6b4b")
+		(uuid "1f03631e-92b3-4e52-8f81-334e435b3a4d")
+	)
+	(wire
+		(pts
+			(xy 121.92 130.81) (xy 116.84 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aeacffb6-6704-4c14-a215-a97f17a0be8a")
+	)
+	(wire
+		(pts
+			(xy 80.01 170.18) (xy 74.93 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f501dd5c-be95-44cf-b8cf-4f51dca2f3a4")
+	)
+	(wire
+		(pts
+			(xy 80.01 175.26) (xy 74.93 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ee68bd5-8ade-4fe5-8003-be2152611072")
 	)
 	(wire
 		(pts
@@ -13392,57 +13424,67 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "526f96d9-a9aa-4f03-adbe-54a3d40ac43f")
+		(uuid "a212160b-8061-4924-b88b-44b3205cc73c")
 	)
 	(wire
 		(pts
-			(xy 80.01 180.34) (xy 74.93 180.34)
+			(xy 80.01 172.72) (xy 62.23 172.72)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a448431f-983a-4104-8233-b92d30e6eac4")
+		(uuid "075eb3f0-e78f-4293-b9e7-fc973e7b4577")
 	)
 	(wire
 		(pts
-			(xy 80.01 185.42) (xy 74.93 185.42)
+			(xy 62.23 172.72) (xy 62.23 175.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e7127bba-9fbe-427c-86cf-fae8197b5962")
+		(uuid "d52dfe32-da4b-43fa-91a8-31972b62d819")
 	)
 	(wire
 		(pts
-			(xy 80.01 187.96) (xy 74.93 187.96)
+			(xy 80.01 187.96) (xy 67.31 187.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0619be63-5179-4580-b0c1-414b9bc8b43d")
+		(uuid "b56dda3d-055a-41c9-b194-2f7ed8e11be5")
 	)
 	(wire
 		(pts
-			(xy 80.01 193.04) (xy 74.93 193.04)
+			(xy 80.01 190.5) (xy 67.31 190.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "45e11dbb-97d6-4c1c-94a9-a43420183c1f")
+		(uuid "5d101447-8acf-47be-a7bf-4b981316570e")
 	)
 	(wire
 		(pts
-			(xy 80.01 195.58) (xy 74.93 195.58)
+			(xy 67.31 187.96) (xy 67.31 190.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3ffdfee3-7cab-48c8-ba20-67db49c7d424")
+		(uuid "f83b39dd-a8eb-4316-9ba2-5f2e1c0ac283")
+	)
+	(wire
+		(pts
+			(xy 67.31 187.96) (xy 67.31 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2d358f5-1d17-46ca-b837-6f49e9bb19d3")
 	)
 	(wire
 		(pts
@@ -13452,57 +13494,117 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "eb0a29bc-836f-48b9-b1da-963d81679d4e")
+		(uuid "478a69f0-1dc8-4c55-ad0b-3263ac43afd0")
 	)
 	(wire
 		(pts
-			(xy 80.01 203.2) (xy 74.93 203.2)
+			(xy 80.01 198.12) (xy 62.23 198.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "39e479db-edf3-4949-8635-f97c1a5ac416")
+		(uuid "42033159-f828-4903-aebe-7c79b0d41807")
 	)
 	(wire
 		(pts
-			(xy 80.01 205.74) (xy 74.93 205.74)
+			(xy 62.23 198.12) (xy 62.23 200.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "175e029f-44e3-4990-96c7-e8800761effb")
+		(uuid "31e82e2a-f064-4688-8dc4-73784170dc71")
 	)
 	(wire
 		(pts
-			(xy 74.93 200.66) (xy 74.93 203.2)
+			(xy 80.01 208.28) (xy 74.93 208.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "515868bd-578f-4db9-980d-1cd6016af7db")
+		(uuid "15ec7896-fd77-48d0-921b-52d7fb41ed5e")
 	)
 	(wire
 		(pts
-			(xy 74.93 203.2) (xy 74.93 205.74)
+			(xy 80.01 210.82) (xy 74.93 210.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4f2b43a8-b260-4df0-af8e-3d43daa22a8f")
+		(uuid "631a7b17-93e9-4e37-beed-fa7025630691")
 	)
 	(wire
 		(pts
-			(xy 74.93 205.74) (xy 74.93 208.28)
+			(xy 80.01 213.36) (xy 74.93 213.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ff501bed-457a-4c6e-a21a-a72b424041d3")
+		(uuid "48b3f125-f7c7-4583-963f-f5f04d0b6df9")
+	)
+	(wire
+		(pts
+			(xy 80.01 215.9) (xy 74.93 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45e50688-355c-4e13-85e2-3380a0bc1b4c")
+	)
+	(wire
+		(pts
+			(xy 74.93 213.36) (xy 74.93 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb2d71a3-8c61-49d8-8315-a0c46a4b7219")
+	)
+	(wire
+		(pts
+			(xy 74.93 215.9) (xy 74.93 218.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "517ad668-7508-40fd-a7a5-a38ce8907a1c")
+	)
+	(wire
+		(pts
+			(xy 80.01 226.06) (xy 74.93 226.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c376219f-b16e-44ea-9784-c560cef73c02")
+	)
+	(wire
+		(pts
+			(xy 80.01 228.6) (xy 74.93 228.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47f526cb-a959-424a-83b6-6eda27d2bf0c")
+	)
+	(wire
+		(pts
+			(xy 80.01 231.14) (xy 74.93 231.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27f128ba-28ea-435e-a565-44076fe0189c")
 	)
 	(wire
 		(pts
@@ -13512,7 +13614,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dbed5431-677c-4003-8d4c-db3292ecd1d4")
+		(uuid "f27909c0-5adb-4a6c-88be-b45899bfb99a")
 	)
 	(wire
 		(pts
@@ -13522,7 +13624,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9756ee05-6047-4bf0-92f6-594b7a605670")
+		(uuid "2020ac5e-6c0a-4518-9e4d-c7ab406528f6")
 	)
 	(wire
 		(pts
@@ -13532,7 +13634,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "25c2dfeb-ac01-449f-8e07-5d7d008cd58a")
+		(uuid "a01f401d-347a-459a-b745-5fcf1c3fa09a")
 	)
 	(wire
 		(pts
@@ -13542,7 +13644,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "93b89f25-31c1-4e20-98c5-1a1516df83c9")
+		(uuid "0025d9b0-51ec-4921-97d8-1b6eb53c86f3")
 	)
 	(label "BM2_P"
 		(at 486.41 124.46 0)
@@ -14192,7 +14294,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "92fb4f9d-550a-495f-86a0-840026536ec8")
+		(uuid "8f3219f1-182b-4d94-8c71-f3e1f22aee74")
 	)
 	(label "GPIO15"
 		(at 116.84 110.49 180)
@@ -14202,7 +14304,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "029854e9-46b2-4b9f-984f-3e6d03ba22ba")
+		(uuid "3ff8b6d2-78d0-4653-a028-60adbddc61e0")
 	)
 	(label "GPIO17"
 		(at 116.84 118.11 180)
@@ -14212,7 +14314,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "891c5aa1-d2a1-4fd2-8545-281f075ff8fa")
+		(uuid "3f39ea3a-0048-45e8-8ffe-3f332fd713ce")
 	)
 	(label "GPIO18"
 		(at 116.84 120.65 180)
@@ -14222,7 +14324,17 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "7205a784-d688-441d-b671-e63eb3771fe4")
+		(uuid "7b5acf65-9612-41db-82b1-d50a757f017d")
+	)
+	(label "GPIO7"
+		(at 167.64 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9ccb5be1-df6d-4a6d-b19e-d505d03496bf")
 	)
 	(label "GPIO19"
 		(at 116.84 125.73 180)
@@ -14232,7 +14344,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6a5ee60b-2c9a-4c96-9c3c-630f39109d5b")
+		(uuid "7c4bd376-cd44-45d9-ae7c-fab38a9142fd")
 	)
 	(label "GPIO20"
 		(at 116.84 128.27 180)
@@ -14242,9 +14354,39 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "63c1da08-aa08-4a7d-b774-425d0b70c378")
+		(uuid "7e47a1aa-89ae-49c4-baa0-e64e290758b6")
+	)
+	(label "GPIO21"
+		(at 116.84 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bde28db7-b068-4473-9231-cd657430a90e")
+	)
+	(label "PI_5V"
+		(at 74.93 170.18 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c5c4043f-6649-407b-a600-f1894e6b5ac9")
 	)
 	(label "GPIO14"
+		(at 74.93 175.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2ef84a03-fb5e-407b-8019-4ce1835f61ff")
+	)
+	(label "GPIO15"
 		(at 74.93 177.8 180)
 		(effects
 			(font
@@ -14252,57 +14394,67 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "93b4c3f2-1205-40a0-9e38-672fefe0d3a8")
-	)
-	(label "GPIO15"
-		(at 74.93 180.34 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5d0eed6c-4e14-4c88-a85b-02ea9a9e064e")
-	)
-	(label "GPIO18"
-		(at 74.93 185.42 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "72b3368f-d646-4a59-b81c-df0f9c83608b")
-	)
-	(label "GPIO19"
-		(at 74.93 187.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "32beecff-373a-4f10-945a-e92ae9a735c6")
+		(uuid "533361e6-b065-41b0-bce3-c0157bd44002")
 	)
 	(label "GPIO17"
-		(at 74.93 193.04 180)
+		(at 74.93 200.66 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "1a34912c-33f7-4371-b8e5-41f3df668263")
+		(uuid "05639160-9638-4aa6-8efd-515285186b10")
+	)
+	(label "GPIO18"
+		(at 74.93 208.28 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b35ffce5-1971-4077-a3d9-e70845935cf1")
+	)
+	(label "GPIO7"
+		(at 74.93 210.82 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7d179f8f-8009-4f12-a878-e40e9a48d7c8")
+	)
+	(label "GPIO19"
+		(at 74.93 226.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "131b229b-f27f-4bc5-b8f4-d32d45db81b6")
 	)
 	(label "GPIO20"
-		(at 74.93 195.58 180)
+		(at 74.93 228.6 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "6c06d107-7ada-4ef0-b26f-b6237b41962c")
+		(uuid "08b34b16-c551-4b5e-b7e6-94fbc4de6958")
+	)
+	(label "GPIO21"
+		(at 74.93 231.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5a78150a-de28-43e5-a6ad-b4bcabc31257")
 	)
 	(label "MOTOR_IN1"
 		(at 105.41 177.8 0)
@@ -14312,7 +14464,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "25286777-22bf-45fa-ae91-0d19f6934b65")
+		(uuid "607ea272-77ee-4621-b187-3b23ef148319")
 	)
 	(label "MOTOR_OUT1"
 		(at 105.41 187.96 0)
@@ -14322,7 +14474,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b151d8f8-4335-4aea-899d-43b65781954c")
+		(uuid "495f830d-671c-4fd8-97b1-30b83d51091a")
 	)
 	(label "MOTOR_OUT2"
 		(at 105.41 198.12 0)
@@ -14332,7 +14484,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2f6471c4-5b30-4966-ace0-74e7f7325d4f")
+		(uuid "6b1e8b5e-59fb-439e-a20c-77f4163f8ee7")
 	)
 	(label "I2C0_SCL"
 		(at 105.41 208.28 0)
@@ -14342,7 +14494,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2ff6ce53-e9db-4436-a59c-cc5866a072a1")
+		(uuid "d3ceacc9-9435-4e2b-92f5-a38011646818")
 	)
 	(global_label "ADIN_TIMER"
 		(shape input)
@@ -29602,41 +29754,41 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 85.09 177.8 0)
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 85.09 172.72 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
-		(uuid "6ebeddc5-0e93-4ab7-80f9-0581678cba62")
-		(property "Reference" "J11"
+		(uuid "ac798f81-1755-4267-a0f9-b6c7f61c917d")
+		(property "Reference" "J15"
+			(at 85.09 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "pad row: PI_5V / GND / GPIO14 / GPIO15"
+			(at 97.79 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
 			(at 85.09 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "Value" "GPIO14 / GPIO15"
-			(at 92.71 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 85.09 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 177.8 0)
+			(at 85.09 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29644,8 +29796,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Exposed through-hole pads, 2.54 mm pitch, 1.0 mm hole (no part fitted): GPIO14, GPIO15"
-			(at 85.09 177.8 0)
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): PI_5V, GND, GPIO14, GPIO15"
+			(at 85.09 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29654,219 +29806,21 @@
 			)
 		)
 		(pin "1"
-			(uuid "f8a81e57-6805-49aa-8df9-ac5fcc2d9cad")
+			(uuid "d410f4a3-4fad-4d93-8c28-472eefceeb51")
 		)
 		(pin "2"
-			(uuid "9c781443-e2d8-4126-a9d3-68fa91ae77cc")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 85.09 185.42 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "140bab41-2882-437e-ac1e-ae7fa24cf4a3")
-		(property "Reference" "J12"
-			(at 85.09 180.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GPIO18 / GPIO19"
-			(at 92.71 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Exposed through-hole pads, 2.54 mm pitch, 1.0 mm hole (no part fitted): GPIO18, GPIO19"
-			(at 85.09 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e5764fbc-6f82-4d20-9722-3b01195e4a73")
-		)
-		(pin "2"
-			(uuid "84f838f0-03b2-4ca4-8c60-11fd500b70ab")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 85.09 193.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "04205c2f-c119-4122-96a5-b47ce9431154")
-		(property "Reference" "J13"
-			(at 85.09 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GPIO17 / GPIO20"
-			(at 92.71 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 85.09 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Exposed through-hole pads, 2.54 mm pitch, 1.0 mm hole (no part fitted): GPIO17, GPIO20"
-			(at 85.09 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2c232b88-d9ff-4e3a-9fae-c4dd629a08fd")
-		)
-		(pin "2"
-			(uuid "7c581230-0d5f-40ae-b1bf-b2929be14a47")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 85.09 203.2 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bb0c2245-2867-4a9d-bd82-dcb4cbd2e5d5")
-		(property "Reference" "J14"
-			(at 85.09 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND pads"
-			(at 92.71 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 85.09 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Exposed through-hole pads, 2.54 mm pitch, 1.0 mm hole (no part fitted): GND, GND, GND"
-			(at 85.09 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ee2ce68f-ea49-44bb-a010-408d35b46f88")
-		)
-		(pin "2"
-			(uuid "c8938e97-1b53-4097-9e96-d50389ccc762")
+			(uuid "b3793212-512f-4a10-9be8-7607448a500a")
 		)
 		(pin "3"
-			(uuid "d690b66e-70ea-4b79-96df-02bf3ea1a021")
+			(uuid "6163c690-de29-455b-8bee-75e2268b59b0")
+		)
+		(pin "4"
+			(uuid "5fb718a1-4588-4291-9640-ba19b143b007")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J14")
+					(reference "J15")
 					(unit 1)
 				)
 			)
@@ -29874,7 +29828,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 74.93 208.28 0)
+		(at 62.23 175.26 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -29882,9 +29836,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "ce7431ab-c925-4a89-8f20-a993e6ac2d0a")
+		(uuid "8b9760da-ca43-431b-8680-b915f72c8a10")
 		(property "Reference" "#PWR118"
-			(at 74.93 208.28 0)
+			(at 62.23 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29895,7 +29849,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 74.93 214.63 0)
+			(at 62.23 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29905,7 +29859,8 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 74.93 208.28 0)
+			(at 62.23 175.26 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29915,7 +29870,8 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 74.93 208.28 0)
+			(at 62.23 175.26 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29925,7 +29881,8 @@
 			)
 		)
 		(property "Description" ""
-			(at 74.93 208.28 0)
+			(at 62.23 175.26 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -29935,12 +29892,520 @@
 			)
 		)
 		(pin ""
-			(uuid "71c95159-bc68-46c0-b9a3-3e775dd73bbf")
+			(uuid "21acf2cd-01bd-458d-9086-141bbf286513")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#PWR118")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 85.09 187.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "cb6c32bc-9610-4f2b-9bb3-0cb607793964")
+		(property "Reference" "J16"
+			(at 85.09 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "pad row: PI_3V3 / PI_3V3"
+			(at 97.79 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 85.09 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): PI_3V3, PI_3V3"
+			(at 85.09 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5f605341-cd5c-4569-bc58-15844003be3d")
+		)
+		(pin "2"
+			(uuid "daff9797-5525-45e3-969a-7588babf908f")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "J16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "nereus:PI_3V3")
+		(at 67.31 185.42 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b4b43a4b-85ae-436c-ba31-c740a4e53261")
+		(property "Reference" "#PWR119"
+			(at 67.31 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PI_3V3"
+			(at 71.628 184.404 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name '3V3'"
+			(at 67.31 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "e19897fe-51f6-400f-90ba-e405c3806a7c")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "#PWR119")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 85.09 198.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "dbcde246-8f2c-446f-af5d-22ce60b31eb6")
+		(property "Reference" "J17"
+			(at 85.09 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "pad row: GND / GPIO17"
+			(at 97.79 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 85.09 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): GND, GPIO17"
+			(at 85.09 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "886dff02-6d63-45d4-984a-1fdb1469822f")
+		)
+		(pin "2"
+			(uuid "88204b46-a7ae-4494-bb90-028c5b9123a9")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "J17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 62.23 200.66 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dbe4d2b3-e644-4d79-8610-3180e99a6280")
+		(property "Reference" "#PWR120"
+			(at 62.23 196.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 62.23 208.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62.23 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 62.23 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "8d8de5c8-2530-417e-8bd2-21470b73d2c2")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "#PWR120")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 85.09 210.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "b984ac81-ae72-4ddc-afb6-e3db6641fcd4")
+		(property "Reference" "J18"
+			(at 85.09 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "pad row: GPIO18 / GPIO7 / GND / GND"
+			(at 97.79 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
+			(at 85.09 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): GPIO18, GPIO7, GND, GND"
+			(at 85.09 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8fa9ee74-9218-44bc-bc1f-38db8fac38ab")
+		)
+		(pin "2"
+			(uuid "74d33721-1bea-42a5-a301-ad3212ef5856")
+		)
+		(pin "3"
+			(uuid "65b0dddb-9331-4901-9557-488a764ca363")
+		)
+		(pin "4"
+			(uuid "60bed9f6-2a9f-40a9-b7b2-81c858598e77")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "J18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 74.93 218.44 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ec77e12b-f4a6-4d2b-b5f9-c8db8a8a0bbc")
+		(property "Reference" "#PWR121"
+			(at 74.93 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 74.93 226.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 74.93 218.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "65d5ae69-4b4f-425d-be16-7a6fed8ccfb2")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "#PWR121")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 85.09 228.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "08e1e7a3-577e-4dda-a842-cd1a69298787")
+		(property "Reference" "J19"
+			(at 85.09 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "pad row: GPIO19 / GPIO20 / GPIO21"
+			(at 97.79 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 85.09 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): GPIO19, GPIO20, GPIO21"
+			(at 85.09 228.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "016a5e0e-2c33-448a-8065-f112a3eef176")
+		)
+		(pin "2"
+			(uuid "7fd96081-830d-4f53-b723-2df7e03c231a")
+		)
+		(pin "3"
+			(uuid "56e3e6a2-673c-4087-81ea-0e7c2d723ca7")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(reference "J19")
 					(unit 1)
 				)
 			)
@@ -29956,7 +30421,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "852dee01-5666-414f-83ee-857e06b16e98")
+		(uuid "78bb1d92-280c-4ed7-b4ba-cea15dd8a2a6")
 		(property "Reference" "TP40"
 			(at 104.14 170.18 0)
 			(show_name no)
@@ -30254,7 +30719,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "1d7a7972-b2a7-4afe-9ab2-0a412f21fd52")
+			(uuid "0b4c4660-ee67-4aec-87b2-4167f7e64248")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
@@ -30275,7 +30740,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "bf86cdab-c344-4546-a30e-334a6f685307")
+		(uuid "dc39b203-b6a1-46fb-9d5d-66550d36a9ce")
 		(property "Reference" "TP41"
 			(at 104.14 180.34 0)
 			(show_name no)
@@ -30573,7 +31038,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "7f224e93-327d-4c55-b9cf-12a36446c4b0")
+			(uuid "5b05fa58-bc48-46ff-9f80-f43b711dc08d")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
@@ -30594,7 +31059,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "164b8e61-578b-4f5f-8b37-e60babd509f8")
+		(uuid "07d73e97-1838-4815-a17e-ffd7897e34b2")
 		(property "Reference" "TP42"
 			(at 104.14 190.5 0)
 			(show_name no)
@@ -30892,7 +31357,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "327a510d-0edd-4fdd-9403-dad58d1f86b6")
+			(uuid "6d29a4ee-b916-4a22-8d71-abe787ee0f3b")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
@@ -30913,7 +31378,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8263c1c8-b1bf-460a-881d-d87c88e3cbf3")
+		(uuid "d108d186-9ea9-405e-9edb-a9e67dc04869")
 		(property "Reference" "TP43"
 			(at 104.14 200.66 0)
 			(show_name no)
@@ -31211,7 +31676,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "7ee1a900-c57b-4b06-ae7c-3084d2c9721b")
+			(uuid "34301bf9-cf76-4e77-a481-ad751fdb715d")
 		)
 		(instances
 			(project "Nereus_Pi_Shield_Adin2111"
