@@ -127,8 +127,8 @@ Baseline (76d258b, my run, `drc_baseline_76d258b.json`): 3 skew_out_of_range + 1
 
 - 1 MOTOR_IN1 (Internal 2): was x 45.3 / 44.2 past U1's east pads and under Y1. Now gap x 47.74 at the header, x 48.45 (west of Sofar's 3V3 via (48.98, 12.11)),
   x 49.1 beside MOTOR_IN2 (x 49.5), diagonal x + y = 77.4 to the old lane y 38.05. ~PAYLOAD_FAULT moved to the gap x 45.2. MOTOR_IN2's diagonal moved to
-  x + y = 79.2: between Sofar's BM1_DATA vias (47.02, 28.86 / 29.51) and GND via (47.93, 30.46) there is room for one lane only (measured: 0.33 mm of free
-  width). Distances (plan view, edge to edge, my measurement with pcbnew): MOTOR_IN1 to U1 pads 23-28 4.52 mm, to Y1's crystal pads (1, 3) 2.18 mm, to Y1's
+  x + y = 79.2: between Sofar's BM1_DATA vias (47.02, 28.86 / 29.51) and GND via (47.93, 30.46) there is room for one lane only (pre-check scan: a 0.2 mm
+  track passes for x + y = 77.2..77.6, a 0.28 mm range of centre lines). Distances (plan view, edge to edge, my measurement with pcbnew): MOTOR_IN1 to U1 pads 23-28 4.52 mm, to Y1's crystal pads (1, 3) 2.18 mm, to Y1's
   GND pad 2 1.49 mm; MOTOR_IN2 5.07 / 3.46 / 2.77 mm. Both cross Sofar's east GND slot (0.6 / 0.5 mm at (49.1 / 49.5, 13.7..14.5)): a net from J1 pins 29-33 leaves
   the slotted area only over a slot or past the slot's end beside U1, where it was. No GND fill above: 7.4 -> 5.2 mm (pin antipads and the slot).
 - 2 MOTOR_nSLEEP (Internal 1): straight at x 55.36 to y 34.3, in the 0.5 mm gap between the BM1_N (x 53.12..55.12) and BM1_P (55.62..57.62) trunks; under
@@ -146,7 +146,7 @@ Baseline (76d258b, my run, `drc_baseline_76d258b.json`): 3 skew_out_of_range + 1
   Internal 2, 0.8 -> 2.0 mm, 13.1 mm, two vias per end: (4.267, 15.887) (the dangling via in F1 pad 1, now used) + (4.267, 17.687), and (11.3, 23.05) (new) + (11.3, 23.9).
   IPC-2221 I = k dT^0.44 A^0.725, A in mil2, k 0.024 (internal), copper 0.0152 mm (the board file's stackup, In3.Cu): 1.08 A at 10 degC, 1.46 A at 20 degC,
   21 degC rise at 1.5 A (before: 0.56 A, 96 degC). Bottom piece to JP1 0.8 mm, 35 um, k 0.048: 2.03 A at 10 degC. In plan view the wider track lies 3.9 mm
-  within 0.15 mm of switch-node copper (L6 pad 1), with the GND plane between.
+  within 0.15 mm of switch-node copper (`checks_s6.txt`; before 2.6 mm), with the GND plane between.
 - 6 not done: no site for a second 0.6 / 0.3 via on U12 VIN or GND passes the six-layer pre-check (grid 0.05 mm, boxes (6.5..9.0, 36.8..39.0) and
   (3.0..5.6, 35.9..37.4)); the only 0.45 / 0.2 sites are inside U12 pad 3.
 - 7 VBUS feed (Internal 2): 1.5 mm at y 8.3 for x 10.7..19.8 and at y 8.45 / x 29.75 for x 25.5..29.75 (19.2 mm); 1.0 mm stays for 7.0 mm between x 19.8 and 25.5,
