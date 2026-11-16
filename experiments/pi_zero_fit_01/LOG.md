@@ -204,3 +204,18 @@ Scratch board and outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2
   outlines, U10's "*"), no text of this stage. text_thickness is 199 in total after every run and Sofar's share moved without his texts changing: not
   explained. `check.py`: tracks + vias 1809, zones 179, pads 484, footprints 163, outline items 8, copper drawings 17, footprint graphics 2336 identical;
   227 texts of the 81 locked footprints identical. Net check: 91 labels, 91 OK.
+
+## Stage 8 (mounting holes; LCSC numbers; PWM lines round the north-west), 2026-11-16, Pacific
+
+Scripts `scripts/stage8_pwm_holes/` (`run.sh <1|2|3>` rebuilds jobs 1..N from the stage-7 commit c9a67c8, then DRC, ERC, `lock8.py`, planes, `checks.py`,
+project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage8_pwm_holes/`. Baseline (c9a67c8, my run,
+`drc_baseline_c9a67c8.json`, `erc_baseline_c9a67c8.json`): 3 skew_out_of_range + 16 items_not_allowed, 533 warnings, 0 unconnected, parity 0; ERC 39; `lock6.py` PASS.
+
+- Job 1 (Nick, as quoted in this session's task: "Make the mounting holes fit the spec on the pi please"): H1..H4 pad and drill 2.70 -> 2.75 mm, still
+  np_thru_hole, same places (`job1_holes.py`). Source in the repo: `Nereus_Pi_Shield_Adin2111/Pi_Zero_outline.dxf`, layer MOUNT_HOLES, four circles of
+  radius 1.375 at (3.5, 3.5), (61.5, 3.5), (3.5, 26.5), (61.5, 26.5); the script reads them and stops if they are not 2.75 mm. The footprints keep the
+  library name `MountingHole_2.7mm_M2.5_ISO7380`. `drc_s8_job1.json`: 3 + 16 errors, 0 unconnected, parity 0; warnings 533 -> 537, all four
+  lib_footprint_mismatch on H1..H4 (106 -> 110); no clearance or hole item. The board file differs in the eight size / drill lines only (zone fills
+  identical after a refill). ERC 39 (`erc_s8_job1.json`; one multiple_net_names item names VBUS where the baseline run named 5V_Buck_Input, with no
+  schematic change: KiCad's choice between labels on one net differs from run to run). `lock8.py` PASS (H1..H4 listed); planes same as head; `.kicad_pro` /
+  `.kicad_dru` identical to d30920b.
