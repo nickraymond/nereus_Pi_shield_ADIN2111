@@ -15,6 +15,8 @@ r = s3lib.Router(sys.argv[1], 'B')
 for i, c in enumerate(s3lib.HOLES): r.keepout(c, 3.0, 'H%d screw keep-out' % (i + 1))
 r.zone('GND', 'GND Plane', [(0, 0), (17.3, 0), (17.3, 7.0), (12.0, 12.3), (12.0, 14.5), (11.2, 15.3), (11.2, 26.4), (19.0, 26.4), (19.0, 31.9), (51.4, 31.9), (51.4, 26.4),
                             (59.2, 26.4), (59.2, 15.5), (58.2, 14.5), (58.2, 12.2), (53.7, 7.7), (53.7, 0), (65, 0), (65, 39.5), (0, 39.5)], 'GND west / south / east (new board areas)')
-r.zone('5V_PI', 'PWR Plane', [(0, 12.4), (7.6, 12.4), (7.6, 29.0), (9.7, 29.0), (9.7, 39.5), (0, 39.5)], '5V_PI west strip (converter output, motor)')
-r.zone('PI_5V', 'PWR Plane', [(6.0, 0), (12.3, 0), (12.3, 6.3), (9.7, 6.3), (9.7, 28.6), (8.0, 28.6), (8.0, 6.3), (6.0, 6.3)], 'PI_5V lane (J1 pins 2 / 4 to JP1)')
+# PWR plane, west strip. The converter's own vias (GND at (8.90, 7.46), (7.22, 9.59), (8.72, 14.74), 5V_FB at (9.28, 8.27)) each cut a
+# 1.2 mm hole; the PI_5V lane is drawn so that 1.0 mm or more of copper passes every one of them and J1 pin 1.
+r.zone('5V_PI', 'PWR Plane', [(0, 12.4), (6.6, 12.4), (6.6, 16.7), (7.6, 17.7), (7.6, 29.0), (9.7, 29.0), (9.7, 39.5), (0, 39.5)], '5V_PI west strip (converter output, motor)')
+r.zone('PI_5V', 'PWR Plane', [(6.0, 0), (12.3, 0), (12.3, 6.3), (9.7, 6.3), (9.7, 28.6), (8.0, 28.6), (8.0, 17.5), (7.0, 16.5), (7.0, 12.0), (6.0, 11.0)], 'PI_5V lane (J1 pins 2 / 4 to JP1)')
 r.finish(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
