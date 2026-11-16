@@ -1,0 +1,115 @@
+(footprint "WirePads_1x02_P3.81mm_Oval4.2x2.6mm_Drill1.3mm"
+	(version 20241229)
+	(generator "nereus_tools")
+	(layer "F.Cu")
+	(descr "Two through-hole wire pads for soldering leads directly to the board, no connector. Oval pads 4.2 x 2.6 mm, 1.3 mm plated hole, 3.81 mm pitch. Pad 1 at the origin. Made for J5, payload power out (Nick, 2026-11-10)")
+	(tags "wire pads solder lead through hole 2 pin")
+	(property "Reference" "REF**"
+		(at 0 -2.3 0)
+		(layer "F.SilkS")
+		(uuid "4ce85b79-45a6-40b7-bcc1-335b54ac57f3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "WirePads_1x02_P3.81mm_Oval4.2x2.6mm_Drill1.3mm"
+		(at 0 6.2 0)
+		(layer "F.Fab")
+		(uuid "7a72668f-93a7-4d4a-bee6-bf4086ee8179")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9f472828-b783-4fe8-aa7c-49c7add80d24")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "de46b4b8-a52c-458b-9819-a5ac4496302e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole exclude_from_pos_files exclude_from_bom)
+	(fp_text user "+"
+		(at 2.9 0 0)
+		(layer "F.SilkS")
+		(uuid "948d9b71-65d4-4534-8311-cacd760130b7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "GND"
+		(at 3.95 3.81 0)
+		(layer "F.SilkS")
+		(uuid "3a612f3e-61ef-4249-a3d8-8f641bd8a556")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_rect
+		(start -2.35 -1.55)
+		(end 2.35 5.36)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "60f270f5-1981-43c7-ba9f-bf5994d9920a")
+	)
+	(fp_rect
+		(start -2.1 -1.3)
+		(end 2.1 5.11)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "9552c379-b8a4-4db1-a11c-cfa6a9abf2ec")
+	)
+	(pad "1" thru_hole oval
+		(at 0 0)
+		(size 4.2 2.6)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "3c04a8eb-4512-4179-bbab-5eb07d802319")
+	)
+	(pad "2" thru_hole oval
+		(at 0 3.81)
+		(size 4.2 2.6)
+		(drill 1.3)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "61eefce5-bf15-4383-be2b-15cdf73b096f")
+	)
+	(embedded_fonts no)
+)

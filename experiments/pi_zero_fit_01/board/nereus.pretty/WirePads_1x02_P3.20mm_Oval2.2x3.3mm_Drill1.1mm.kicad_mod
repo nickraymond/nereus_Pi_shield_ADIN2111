@@ -1,0 +1,148 @@
+(footprint "WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.1mm"
+	(version 20241229)
+	(generator "nereus_tools")
+	(layer "F.Cu")
+	(descr "Two through-hole wire pads for soldering leads directly to the board, no connector. Oval pads 2.2 x 3.3 mm, 1.1 mm plated hole, 3.2 mm pitch, side by side. Origin midway between the pads, pad 1 at x -1.6. Silkscreen: outline, + under the pad-1 corner, GND beside pad 2. Made for J4, AUX 5 V in, Pi Zero fit experiment (2026-11-15)")
+	(tags "wire pads solder lead through hole 2 pin")
+	(property "Reference" "REF**"
+		(at 0 -2.7 0)
+		(layer "F.SilkS")
+		(uuid "80390d0f-e013-5b2d-9e7e-fd3233e15a67")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.1mm"
+		(at 0 2.8 0)
+		(layer "F.Fab")
+		(uuid "6f5560e9-ec2f-59be-aeeb-555ad647f155")
+		(effects
+			(font
+				(size 1.0 1.0)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3e8bb585-f79c-520d-90d3-e7e549731cd3")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c48f4490-3ab0-5bfc-9f3e-51885c96888a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole exclude_from_pos_files exclude_from_bom)
+	(fp_text user "+"
+		(at -1.6 -1.2 0)
+		(layer "F.Fab")
+		(uuid "46a90bce-7a96-5ce5-9ae1-1d91e4d6e3ae")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.1)
+			)
+		)
+	)
+	(fp_text user "GND"
+		(at 1.6 -1.2 0)
+		(layer "F.Fab")
+		(uuid "1ca02374-3151-588d-942d-de7fd680d5ed")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.1)
+			)
+		)
+	)
+	(fp_text user "+"
+		(at -2.3 2.65 0)
+		(layer "F.SilkS")
+		(uuid "01a4e1f8-ff8f-529c-bc35-fe3de5cff9dd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "GND"
+		(at 4.6 -0.5 0)
+		(layer "F.SilkS")
+		(uuid "750afc57-7528-5e11-b157-f8856036eace")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_rect
+		(start -2.9 -1.85)
+		(end 2.9 1.85)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "a611989c-a4a7-5b19-862c-10fadf62d10d")
+	)
+	(fp_rect
+		(start -2.95 -1.9)
+		(end 2.95 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "a975fc5a-37ff-5ce2-9489-a153bb4235f6")
+	)
+	(fp_rect
+		(start -2.8 -1.75)
+		(end 2.8 1.75)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "4064cc06-5200-5b5d-a08f-c25835cbee22")
+	)
+	(pad "1" thru_hole oval
+		(at -1.6 0)
+		(size 2.2 3.3)
+		(drill 1.1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "92e89adb-4468-5b22-a332-55ffba7a9e11")
+	)
+	(pad "2" thru_hole oval
+		(at 1.6 0)
+		(size 2.2 3.3)
+		(drill 1.1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "403788e7-741a-5b79-b460-0051c6a716c3")
+	)
+	(embedded_fonts no)
+)
