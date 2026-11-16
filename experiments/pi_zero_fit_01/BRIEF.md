@@ -56,7 +56,9 @@ Mocks v1-v9, `PLACEMENT_SPEC_G.md`, reviews `review_G_placement.md` (FITS WITH C
 2. **Schematic** - add MP6550, ADS1115, the four connectors; remove inserts, J2, J4, F1, J6; then board parity.
 3. **Routing** - bus trunks first (BM2_N path past the 5 V converter; BM1_P neck of about 1.25 mm at the south-east
    hole), then the header fan-out through the 2.5 mm channel, then power.
-4. Report, QE review, Nick's KiCad look.
+4. Two independent reviews of the routed board (issues, errors, JLC rule compliance), fixes, then the design is posted
+   for Nick's inspection (Nick, design session's chat, 2026-11-15: "pass the final design through two reviewers and
+   check for issues, errors, and alignment with the JLC DRC before posting the final designs").
 
 ## Open
 - 5 V rail at 1.5 A: U10 about 0.82 W (reviewer's figure with `power_budget.md`'s method); MP6550 current-limit resistor.
