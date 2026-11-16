@@ -74,13 +74,16 @@ Report: `reports/STAGE3_REPORT.md`.
   parity 0; ERC 39; lock PASS; `.kicad_pro`, `.kicad_dru`, all schematic files identical to d30920b (`git diff --stat d30920b -- board/` lists the
   `.kicad_pcb` only). Plots `plots_final3/`, renders `final3_top.png` / `final3_bottom.png`, all eight looked at. Report: third part.
 
-## Stage 4 (GPIO pads, test points; silkscreen first pass on a scratch copy), 2026-11-16 morning, Pacific
+## Stage 4 (GPIO pads, test points; silkscreen on a scratch copy), 2026-11-16 morning, Pacific
 
-- Job A, committed (2754e8f), `scripts/stage4_gpio/run.sh` rebuilds it from 5f43210: J11 GPIO14 / 15 at (15.30 / 17.84, 9.60), J12 GPIO18 / 19 at
-  (57.70, 7.40 / 9.94), J13 GPIO17 / 20 at (62.60, 17.85 / 20.39), J14 GND x 3 at (62.20, 32.90 / 35.44 / 37.98); TP40 MOTOR_IN1, TP41 MOTOR_OUT1,
-  TP42 MOTOR_OUT2, TP43 I2C0_SCL. FID5 / FID6 (62.2, 33.0) -> (62.2, 30.6). ~ADC_ALERT's bottom piece at x 17.29 moved to x 16.57.
-  DRC `drc_s4.json`: 3 skew_out_of_range + 16 items_not_allowed, 0 unconnected, parity 0, warnings 517 -> 539 (no new type; the new parts' own
+- Job A, committed (2754e8f, then 3c74899 TP42 moved, 8c102d7 J13 moved); `scripts/stage4_gpio/run.sh` rebuilds it from 5f43210:
+  J11 GPIO14 / 15 at (15.30 / 17.84, 9.60), J12 GPIO18 / 19 at (57.70, 7.40 / 9.94), J13 GPIO17 / 20 at (62.60, 18.80 / 21.34), J14 GND x 3 at
+  (62.20, 32.90 / 35.44 / 37.98); TP40 MOTOR_IN1 (2.20, 37.85), TP41 MOTOR_OUT1 (2.50, 35.50), TP43 I2C0_SCL (31.13, 33.27) on the bottom, TP42
+  MOTOR_OUT2 (11.60, 31.00) on the top. FID5 / FID6 (62.2, 33.0) -> (62.2, 30.6). ~ADC_ALERT's bottom piece at x 17.29 moved to x 16.57.
+  DRC `drc_s4.json`: 3 skew_out_of_range + 16 items_not_allowed, 0 unconnected, parity 0, warnings 517 -> 538 (no new type; the new parts' own
   silkscreen and pad-stack items); ERC 39, same items; `lock4.py` PASS; `.kicad_pro` / `.kicad_dru` identical to d30920b.
-  Not fitted: GPIO7, GPIO21, PI_3V3 / PI_5V pads, a fourth GND pad, and test points for the other nets asked for (no clear site; see the session's report).
-- Job B, scratch copy only (`stage4_gpio_silk/silk_scratch/board/`, built by `scripts/stage4_silk/run.sh`): a first pass, not finished. The committed
-  board's silkscreen is unchanged.
+  On the way: the first lanes at x 58.75 lay 0.10 mm from J12's pads (two DRC clearance errors; the pre-check had printed them); moved to x 58.8.
+  Not fitted: GPIO7, GPIO21, PI_3V3 / PI_5V pads, a fourth GND pad, and test points for the other nets asked for (no clear site; the session's report has the table).
+- Job B, scratch copy only (`stage4_gpio_silk/silk_scratch/board/`, built by `scripts/stage4_silk/run.sh`); the committed board's silkscreen is
+  unchanged. Lesson: KiCad's box for a Menlo text is 1.633 x its height and 0.842 x its width per character (measured with pcbnew), and
+  silk_overlap works on that box; the first pass used the ink size and its stacked labels were all flagged.

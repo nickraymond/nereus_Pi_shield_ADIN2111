@@ -15,7 +15,13 @@ python3 "$HERE/../stage3_routing/drc_summary.py" "$OUT/drc_silk_after.json"
 echo "before:"; python3 "$HERE/split.py" "$OUT/drc_silk_before.json" "$OUT/silk_report.json"
 echo "after:";  python3 "$HERE/split.py" "$OUT/drc_silk_after.json" "$OUT/silk_report.json" $1
 $CLI pcb render --side top -w 2400 -h 1600 -o "$OUT/silk_top.png" "$B" >/dev/null; $CLI pcb render --side bottom -w 2400 -h 1600 -o "$OUT/silk_bottom.png" "$B" >/dev/null
-$CLI pcb render --side top -w 2400 -h 1600 --zoom 2.6 --pan 6,-1,0 -o "$OUT/silk_zoom_west.png" "$B" >/dev/null 2>&1 || true
-$CLI pcb render --side top -w 2400 -h 1600 --zoom 2.2 --pan 0,-4,0 -o "$OUT/silk_zoom_south.png" "$B" >/dev/null 2>&1 || true
-$CLI pcb render --side bottom -w 2400 -h 1600 --zoom 2.6 --pan 6,-3,0 -o "$OUT/silk_zoom_se_bottom.png" "$B" >/dev/null 2>&1 || true
+$CLI pcb render --side top -w 6000 -h 4000 -o "$OUT/silk_top_big.png" "$B" >/dev/null; $CLI pcb render --side bottom -w 6000 -h 4000 -o "$OUT/silk_bottom_big.png" "$B" >/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_top_big.png" "$OUT/silk_zoom_west.png" top -0.5 5.5 22 34 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_top_big.png" "$OUT/silk_zoom_south_w.png" top -0.5 26 33 40 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_top_big.png" "$OUT/silk_zoom_south_e.png" top 30 26 65.5 40 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_top_big.png" "$OUT/silk_zoom_east.png" top 50 0 65.5 26 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_bottom_big.png" "$OUT/silk_zoom_se_bottom.png" bottom 40 26 65.5 40 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_bottom_big.png" "$OUT/silk_zoom_sw_bottom.png" bottom -0.5 26 33 40 2>/dev/null
+$PY "$HERE/crop.py" "$OUT/silk_bottom_big.png" "$OUT/silk_zoom_nw_bottom.png" bottom -0.5 0 25 26 2>/dev/null
+rm -f "$OUT/silk_zoom_south.png"
 cd "$ROOT" && git status --short
