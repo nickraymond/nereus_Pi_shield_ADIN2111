@@ -199,19 +199,22 @@ def angles_ok(pts):
     return True
 
 # ---------- board edits ----------
-def prestep(path, base_path, removes=(), moves=()):
+def prestep(path, base_path, removes=(), moves=(), drop=()):
     """Run BEFORE Router(path), in a child process (pcbnew's SWIG layer does not survive Remove() followed by more queries, or a
     second LoadBoard, in one session). removes: [(net, layer | '*' (all layers and vias), optional box)] - tracks of that net which stage 3 itself added
-    (uuid not in the board at base_path, commit d30920b) are removed. moves: [(ref, (x, y))] for non-core footprints."""
+    (uuid not in the board at base_path, commit d30920b) are removed. moves: [(ref, (x, y))] for non-core footprints.
+    drop: uuids of tracks / vias of the input board itself that may be removed; only uuids listed in REMOVED_OK are accepted."""
     import subprocess
-    out = subprocess.run([sys.executable, __file__, '--pre', path, base_path, json.dumps([list(removes), list(moves)])], capture_output=True, text=True)
+    out = subprocess.run([sys.executable, __file__, '--pre', path, base_path, json.dumps([list(removes), list(moves), list(drop)])], capture_output=True, text=True)
     print(out.stdout.strip())
     if out.returncode: raise SystemExit('prestep failed: ' + out.stderr[-800:])
 def _prestep(path, base_path, spec):
-    removes, moves = json.loads(spec); base = base_uuids(base_path); b = pcbnew.LoadBoard(path)
-    for mv in moves:                         # (ref, (x, y)) or (ref, (x, y), pad number, (pad x, pad y)): turned in 90 degree steps until that pad is there
+    removes, moves, drop = json.loads(spec); base = base_uuids(base_path); b = pcbnew.LoadBoard(path)
+    if any('T ' + u not in REMOVED_OK for u in drop): raise SystemExit('drop: uuid not in REMOVED_OK')
+    for mv in moves:                         # (ref, (x, y)) or (ref, (x, y), pad number, (pad x, pad y) [, 'keep_ref']): turned in 90 degree steps until that pad is there
         ref, pos = mv[0], mv[1]
-        f = b.FindFootprintByReference(ref); old = N(f.GetPosition()); f.SetPosition(V(*pos)); print('   moved %s %s -> %s' % (ref, old, tuple(pos)))
+        f = b.FindFootprintByReference(ref); old = N(f.GetPosition()); rt = f.Reference(); rp, ra = N(rt.GetPosition()), rt.GetTextAngleDegrees()
+        f.SetPosition(V(*pos)); print('   moved %s %s -> %s' % (ref, old, tuple(pos)))
         if len(mv) > 3:
             for k in range(4):
                 p = [N(q.GetPosition()) for q in f.Pads() if q.GetNumber() == str(mv[2])][0]
@@ -219,8 +222,11 @@ def _prestep(path, base_path, spec):
                 f.SetOrientationDegrees(f.GetOrientationDegrees() + 90)
             else: raise SystemExit('%s: no 90 degree turn puts pad %s at %s (last %s)' % (ref, mv[2], mv[3], p))
             print('      %s turned to %.0f deg, pad %s at %s' % (ref, f.GetOrientationDegrees(), mv[2], p))
+        if len(mv) > 4 and mv[4] == 'keep_ref':      # the reference text stays where it was on the silkscreen (shifted with the part, not turned)
+            rt.SetPosition(V(rp[0] + pos[0] - old[0], rp[1] + pos[1] - old[1])); rt.SetTextAngleDegrees(ra)
     kill = []; cnt = {}                      # one GetTracks() call, then the removals: nothing is queried after the first Remove()
     for t in b.GetTracks():
+        if t.m_Uuid.AsString() in drop: kill.append(t); cnt['(input item) ' + sn(t.GetNetname())] = 1; print('   dropping input item %s %s at %s' % (t.GetClass(), sn(t.GetNetname()), N(t.GetStart()))); continue
         if t.m_Uuid.AsString() in base: continue
         for spec in removes:
             net, layer = spec[0], spec[1]; box = spec[2] if len(spec) > 2 else None
@@ -341,10 +347,16 @@ def snapshot(board):
             bb = d.GetBoundingBox(); s['D ' + d.m_Uuid.AsString()] = (d.GetClass(), d.GetLayer(), bb.GetLeft(), bb.GetTop(), bb.GetRight(), bb.GetBottom())
     return s
 MOVED_OK = ('J5', 'FID2', 'FID4')    # non-core footprints stage 3 was told to move (design session, BM1 trunk fix); pads and nets must still be the same
-TURNED_OK = ('U12', 'C60', 'C61', 'C62', 'C63', 'C64', 'C66', 'R48')   # motor group (third session, design session's task 1): may move and turn; side, footprint and pad nets must be the same
+TURNED_OK = ('U12', 'C60', 'C61', 'C62', 'C63', 'C64', 'C66', 'R48',   # motor group (third session, design session's task 1): may move and turn; side, footprint and pad nets must be the same
+             'R47', 'R9')                                              # phase K: two own 0402s turned by 180 deg (R47 also 0.2 mm south) so that their vias fit
+# The one locked Sofar item that may be missing: the orphan via on U11_RTN at (28.431, 6.214), a leftover of the frozen board's load-switch site.
+# Nick, 2026-11-16, as quoted in the task of the fourth session: "Yes delete the orphan via". Removed in phase K.
+REMOVED_OK = ('T 90140fec-db47-45b4-9b63-10910261351e',)
 def verify_lock(ref_board_path, new_board_path, quiet=False):
     a, b = snapshot(pcbnew.LoadBoard(ref_board_path)), snapshot(pcbnew.LoadBoard(new_board_path))
     missing = [k for k in a if k not in b]; changed = [k for k in a if k in b and a[k] != b[k]]; added = [k for k in b if k not in a]
+    gone = [k for k in missing if k in REMOVED_OK]; missing = [k for k in missing if k not in REMOVED_OK]
+    for k in gone: print('  removed on instruction (the one orphan via, see REMOVED_OK): %s %s' % (k, a[k]))
     moved = [k for k in changed if k[0] == 'F' and (a[k][0] in MOVED_OK and a[k][3:6] == b[k][3:6] or a[k][0] in TURNED_OK and a[k][4:6] == b[k][4:6] and a[k][7] == b[k][7])]
     changed = [k for k in changed if k not in moved]
     for k in moved: print('  moved on instruction (not core): %s (%.2f, %.2f) %.0f deg -> (%.2f, %.2f) %.0f deg' % (a[k][0], mm(a[k][1]) - DX, mm(a[k][2]) - DY, a[k][3], mm(b[k][1]) - DX, mm(b[k][2]) - DY, b[k][3]))
