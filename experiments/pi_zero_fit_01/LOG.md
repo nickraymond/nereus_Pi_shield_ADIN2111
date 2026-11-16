@@ -402,3 +402,16 @@ Built in the order 1, 3, 4, 2: job 2 moves a via of the frozen board, so it is t
   Gates (`run_log_job4.txt`, `drc_job4.json`): 3 + 16 errors; 539 warnings, same counts per type; no silk_overlap, silk_over_copper or
   silk_edge_clearance item at the group (`near.py`); 0 unconnected; parity 0; ERC 39; `lock12.py` PASS (2 polygons + 2 texts replaced; no copper
   difference from job 3). Render `job4_bottom_big.png`, crop `job4_logo_area.png`: looked at.
+- Job 2 (N2; `job2_f1.py`), last commit: the second via at F1 pad 1 moves from (4.267, 17.687) to (4.267, 18.00). **The task named it a stage-6 via; it is
+  not**: both F1-end vias (ids eadcc1d5-..., bfd1637c-...) are in the frozen JLC board's file and in the stage-2c board (not in the mote file); stage 6
+  widened the Internal 2 track between them. So this job moves a carried via of the frozen board: `lock12.py` lists bfd1637c-... as "removed on
+  instruction", and dropping this one commit undoes it. The via in the pad, (4.267, 15.887), stays. Hole edge to F1 pad 1: copper 0.062 -> 0.375 mm,
+  mask opening (pad + 0.025 mm) 0.037 -> 0.350 mm; next pads L6 pad 1 / pad 2 (top) 1.05 / 1.15 mm (`run_log_job2.txt`; pads as their boxes).
+  The site is the only column: on the top the via stands between L6's pads, and the 1.0 mm Net-(J4-Pin_1) track on the bottom (north edge y 18.50)
+  is 0.20 mm south of the via's pad. Connection on the bottom: 1.0 mm from inside the pad to (4.267, 17.80), 0.6 mm on to the via's centre; the
+  via stands inside the 2.0 mm Internal 2 track's copper: two vias on that end as before. Pre-check hits 0.
+  Gates (`drc_job2.json`): 3 + 16 errors; 539 warnings, same counts per type; 0 unconnected; parity 0; ERC 39; `lock12.py` PASS; planes as after job 1;
+  vias within 0.3 mm of a pad 119 -> 118 pairs (`via_in_pad_job2.txt`); `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic identical to 2bf006f.
+- After the last job: renders `s12_render_top.png` / `s12_render_bottom.png` (2400 x 1600), plots `plots_final/`, six-layer crops
+  `look/final_six_row_w.png`, `_row_e.png`, `_f1.png`, `_pwm.png`, render crops `s12_crop_row_w_top.png`, `s12_crop_row_e_bottom.png`, `s12_crop_f1.png`,
+  `job4_logo_area.png`: looked at.
