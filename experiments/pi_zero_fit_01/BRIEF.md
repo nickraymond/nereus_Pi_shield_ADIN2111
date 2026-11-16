@@ -31,12 +31,12 @@ can be achieved; rip up our own header / breakout routing and start again once t
   +5 V at the west edge, GND inboard). Payload pads J5 in the east with the load switch. J4, F1 and JP1 stay in the schematic.
 - Motor current limit: "4.02 k, so we don't clip - it's transient" (R48 = 4.02 kOhm, about 1.24 A by the MP6550 formula
   the schematic stage cited).
-- I2C: "ADC on a different bus please, I want to keep i2c0 open for the LiFePo4+ board"; the third bus (I2C3) is for the
-  Qwiic connector only. Read from the stage-2 netlist: Sofar's power monitor U4 (INA232) and R26 / R27 are on I2C0
-  (J1 pins 27 / 28) on the frozen board, and J1 pins 3 / 5 (I2C1) are unconnected. Design session's reading, to be
-  confirmed by Nick: ADC and U4 both go to I2C1 (pins 3 / 5), I2C0 is left free, I2C3 stays Qwiic only.
-- Pot: add a resistor against the floating reading; value and place asked of the session "Builder: urchin board
-  bring-up" (message sent 2026-11-15); Nick tests it on the bench.
+- I2C, settled: "ADC and power monitor on I2C0, how I have the load monitor in the frozen board. Then I2C1 is for the
+  LiFepo4+ board". U13 (ADS1115) shares I2C0 (J1 pins 27 / 28) with U4 (INA232) and R26 / R27; J1 pins 3 / 5 (I2C1)
+  stay unconnected for the LiFePO4+ board; I2C3 is for the Qwiic connector only. No schematic change from stage 2.
+- Pot: a 100 kOhm pull-down from the wiper to GND, plus an unfitted 0.1 uF footprint. Source: the session "Builder:
+  urchin board bring-up" (its reply of 2026-11-15: the pot has a dead zone of about 30 degrees where the wiper is open and
+  the input floats 0.08 to 1.22 V; cam02 bench, UrchinCam PR 1 `bringup/WIPER_BENCH.md`). Untested; Nick tests it.
 - "When possible please reuse vetted part footprints": new passives take footprints and parts already on this board
   or the Urchin.
 - JLC's rules for the 6-layer board apply to everything.
