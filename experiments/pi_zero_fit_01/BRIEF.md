@@ -40,6 +40,9 @@ can be achieved; rip up our own header / breakout routing and start again once t
 - "When possible please reuse vetted part footprints": new passives take footprints and parts already on this board
   or the Urchin.
 - JLC's rules for the 6-layer board apply to everything.
+- Routing style: "keep the trace routing like a human would do, not organic zig zags but more straight lines when
+  possible": few long segments on 0 / 45 / 90 degrees, related nets parallel; a path-finder's raw output never goes
+  on the board as it is.
 
 ## Evidence (outside git): `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/`
 Mocks v1-v9, `PLACEMENT_SPEC_G.md`, reviews `review_G_placement.md` (FITS WITH CHANGES) and `review_G_routing.md`
