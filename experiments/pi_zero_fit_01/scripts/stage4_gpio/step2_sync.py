@@ -22,7 +22,7 @@ PLACE = {
     'J11': ('1', (15.30, 9.60), '2', (17.84, 9.60), 'top'), 'J12': ('1', (57.70, 7.40), '2', (57.70, 9.94), 'top'),
     'J13': ('1', (62.60, 17.85), '2', (62.60, 20.39), 'top'), 'J14': ('1', (62.20, 32.90), '3', (62.20, 37.98), 'top'),
     'TP40': ('1', (2.20, 37.85), None, None, 'bottom'), 'TP41': ('1', (2.50, 35.50), None, None, 'bottom'),
-    'TP42': ('1', (8.35, 31.605), None, None, 'top'), 'TP43': ('1', (31.13, 33.27), None, None, 'bottom'),
+    'TP42': ('1', (11.60, 31.00), None, None, 'top'), 'TP43': ('1', (31.13, 33.27), None, None, 'bottom'),
 }
 missing = sorted(r for r in comps if r not in fps)
 assert missing == sorted(PLACE), ('the parts to add are not the parts this script places', missing)

@@ -28,7 +28,7 @@ r.track('GPIO17', I2, [(21.07, 4.77), (22.34, 3.5), (22.34, 1.4), (22.89, 0.85),
 r.track('GPIO20', I1, [(54.09, 2.23), (54.09, 1.4), (54.64, 0.85), (57.3, 0.85), (57.75, 1.3), (57.75, 4.8), (58.8, 5.85), (58.8, 18.59), (60.6, 20.39), (62.6, 20.39)], 0.2, clr=C)
 r.track('MOTOR_IN1', B, [(3.7, 37.85), (2.2, 37.85)], 0.2, clr=C, note='TP40')
 r.track('MOTOR_OUT1', B, [(2.75, 35.5), (2.5, 35.5)], 0.2, clr=C, note='TP41')
-r.track('MOTOR_OUT2', T, [(8.35, 34.105), (8.35, 31.605)], 0.2, clr=C, note='TP42')
+r.track('MOTOR_OUT2', T, [(8.35, 34.105), (8.35, 33.0), (10.35, 31.0), (11.6, 31.0)], 0.2, clr=C, note='TP42: east of J7, clear of the place for its silkscreen name')
 r.track('I2C0_SCL', B, [(30.6, 33.8), (31.13, 33.27)], 0.2, clr=C, note='TP43')
 n = r.report_bad()
 r.finish(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None); r.summary()
