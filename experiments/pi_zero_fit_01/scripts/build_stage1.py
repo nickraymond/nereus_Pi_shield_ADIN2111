@@ -41,7 +41,7 @@ for d in b.GetDrawings():
 print('to remove: our tracks/zones/board graphics =', len(rm))   # applied at the end: pcbnew wrappers go stale after Remove
 
 # 2. footprints that leave the board
-GONE = {'MP1', 'MP2', 'MP3', 'MP4', 'J2', 'J4', 'J5', 'J6', 'F1', 'TP36'}
+GONE = {'MP1', 'MP2', 'MP3', 'MP4', 'J2', 'J6', 'TP36'}
 for r in GONE: rm.append(fp.pop(r))
 
 def put(ref, x, y, rot=None, bottom=None):
@@ -117,19 +117,36 @@ for (d, r), x in zip((('D10', 'R46'), ('D8', 'R44'), ('D9', 'R45')), (32.3, 35.3
     put(d, x, 35.6, bottom=False); put(r, x, 35.6, bottom=True)
 
 # 7. bottom side under the south row (x 2..8 and 22..28.5 stay free for the motor driver and the ADC, stage 2)
-for ref, (x, y) in zip(('JP1', 'JP2', 'JP3', 'JP4'), ((13.0, 34.3), (18.0, 34.3), (13.0, 37.4), (18.0, 37.4))):   # cut jumpers, 2 x 2
+for ref, (x, y) in zip(('JP2', 'JP3', 'JP4'), ((18.0, 34.3), (13.0, 37.4), (18.0, 37.4))):   # cut jumpers
     put(ref, x, y, rot=0, bottom=True)
 put('R2', 9.3, 34.0, bottom=True); put('R47', 9.3, 35.7, bottom=True); put('R9', 9.3, 37.5, bottom=True)       # strap resistors by the jumpers
 put('R26', 29.6, 34.2, bottom=True); put('R27', 29.6, 36.0, bottom=True)        # I2C1 pull-ups (ADC side)
 put('R10', 40.3, 34.2, bottom=True); put('R24', 40.3, 36.0, bottom=True)        # I2C3 pull-ups (Qwiic)
 put('R43', 39.6, 8.0, bottom=True)                                             # ADIN_PWR pull-down, in the channel
-put('TP38', 5.0, 21.2, bottom=True)                                            # 5V_PI test point, under the converter
 # payload load switch, re-laid on one side (bottom), x 41.5..55.5
 put('D3', 43.0, 35.8, bottom=True); put('U11', 47.5, 36.0, rot=0, bottom=True); put('C49', 50.8, 36.0, bottom=True)
 put('C59', 52.8, 34.2, bottom=True); put('R34', 52.8, 36.0, bottom=True); put('R36', 52.8, 37.7, bottom=True)
 put('R41', 54.7, 36.0, bottom=True); put('R42', 54.7, 37.7, bottom=True); put('TP24', 55.0, 34.0, bottom=True)
+# 7b. Nick, 2026-11-15: AUX 5 V on the west side, payload pads in the east, both through-hole.
+# J4 (AUX 5 V): a smaller pair of oblong through-hole pads, turned so +5 V is at the west edge and GND inboard, in the
+# gap between L6 and the south-west screw keep-out. Pads 2.2 x 3.3 mm, 1.1 mm drill, 3.2 mm pitch (was 4.2 x 2.6 / 1.3 / 3.81).
+j4 = fp['J4']
+for gi in list(j4.GraphicalItems()): j4.Remove(gi)
+j4.SetOrientationDegrees(0); j4.SetPosition(V(3.5, 21.55))
+for pad in j4.Pads():
+    gnd = pad.GetNetname().split('/')[-1] == 'GND'
+    pad.SetShape(pcbnew.F_Cu, pcbnew.PAD_SHAPE_OVAL); pad.SetSize(pcbnew.F_Cu, pcbnew.VECTOR2I(IU(2.2), IU(3.3)))
+    pad.SetDrillSize(pcbnew.VECTOR2I(IU(1.1), IU(1.1))); pad.SetOrientationDegrees(0)
+    pad.SetPosition(V(3.5 + (1.6 if gnd else -1.6), 21.55))
+    print('  J4 pad', pad.GetNumber(), pad.GetNetname().split('/')[-1], N(pad.GetPosition()))
+cy = pcbnew.PCB_SHAPE(j4); cy.SetShape(pcbnew.SHAPE_T_RECT); cy.SetStart(V(0.55, 19.65)); cy.SetEnd(V(6.45, 23.45)); cy.SetLayer(pcbnew.F_CrtYd); cy.SetWidth(IU(0.05)); j4.Add(cy)
+j4.SetFPID(pcbnew.LIB_ID('nereus', 'WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.1mm'))
+put('JP1', 9.2, 26.0, rot=90, bottom=True); put('F1', 5.6, 16.6, rot=0, bottom=True)    # 5 V selector and fuse, next to J4
+put('TP38', 9.4, 22.4, bottom=True)                                                   # 5V_PI test point
+# J5 (payload VBUS_OUT): unchanged through-hole pads, in the east strip just above the south-east screw keep-out
+put('J5', 61.9, 18.6)
 # fiducials: three corners, both sides
-for (t_, b_), (x, y) in zip((('FID3', 'FID1'), ('FID4', 'FID2'), ('FID5', 'FID6')), ((8.2, 22.6), (62.6, 9.0), (62.2, 33.0))):
+for (t_, b_), (x, y) in zip((('FID3', 'FID1'), ('FID4', 'FID2'), ('FID5', 'FID6')), ((2.2, 31.1), (62.6, 9.0), (62.2, 33.0))):
     put(t_, x, y); put(b_, x, y)
 
 # 8. outline 65 x 39.5, 3 mm corners
