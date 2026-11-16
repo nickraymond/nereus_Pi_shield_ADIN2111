@@ -201,7 +201,7 @@ def angles_ok(pts):
 # ---------- board edits ----------
 def prestep(path, base_path, removes=(), moves=(), drop=()):
     """Run BEFORE Router(path), in a child process (pcbnew's SWIG layer does not survive Remove() followed by more queries, or a
-    second LoadBoard, in one session). removes: [(net, layer | '*' (all layers and vias), optional box)] - tracks of that net which stage 3 itself added
+    second LoadBoard, in one session). removes: [(net, layer | '*' (all layers and vias), optional box)] or [(net, layer, (ax, ay, bx, by), 'seg')] - tracks of that net which stage 3 itself added
     (uuid not in the board at base_path, commit d30920b) are removed. moves: [(ref, (x, y))] for non-core footprints.
     drop: uuids of tracks / vias of the input board itself that may be removed; only uuids listed in REMOVED_OK are accepted."""
     import subprocess
@@ -232,7 +232,10 @@ def _prestep(path, base_path, spec):
             net, layer = spec[0], spec[1]; box = spec[2] if len(spec) > 2 else None
             if sn(t.GetNetname()) != net: continue
             if layer and (t.GetClass() == 'PCB_VIA' or t.GetLayerName() != layer) and layer != '*': continue
-            if box and not all(box[0] <= p[0] <= box[2] and box[1] <= p[1] <= box[3] for p in (N(t.GetStart()), N(t.GetEnd()))): continue
+            if box and len(spec) > 3 and spec[3] == 'seg':     # one exact segment (ax, ay, bx, by), either direction
+                e = (N(t.GetStart()), N(t.GetEnd())); q = ((box[0], box[1]), (box[2], box[3])); near = lambda u, v: abs(u[0] - v[0]) < 0.003 and abs(u[1] - v[1]) < 0.003
+                if t.GetClass() == 'PCB_VIA' or not (near(e[0], q[0]) and near(e[1], q[1]) or near(e[0], q[1]) and near(e[1], q[0])): continue
+            elif box and not all(box[0] <= p[0] <= box[2] and box[1] <= p[1] <= box[3] for p in (N(t.GetStart()), N(t.GetEnd()))): continue
             kill.append(t); cnt[net] = cnt.get(net, 0) + 1; break
     for t in kill: b.Remove(t)
     print('   removed stage-3 items: %s' % cnt)
