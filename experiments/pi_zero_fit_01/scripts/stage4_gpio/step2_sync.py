@@ -5,7 +5,7 @@ Sites were searched on all six layers first (a 1.7 mm pad with a 1.0 mm hole aga
 the edge rule and the part bodies of both sides); these are the places that are clear without moving any part but FID5 / FID6:
   J11 west   (15.30, 9.60) + (17.84, 9.60)   GPIO14, GPIO15   south of their header pins, between the PI_5V track and Sofar's ground via
   J12 north-east (57.70, 7.40) + (57.70, 9.94)   GPIO18, GPIO19   between the header's east end and J5
-  J13 east   (62.60, 17.85) + (62.60, 20.39)  GPIO17, GPIO20   between J5 and the south-east screw
+  J13 east   (62.60, 18.80) + (62.60, 21.34)  GPIO17, GPIO20   between J5 and the south-east screw (1.9 mm south of J5's pad, room for J5's name)
   J14 south-east (62.20, 32.90 / 35.44 / 37.98)  GND x 3      east of J10; FID5 / FID6 move from (62.2, 33.0) to (62.2, 30.6) for it
 Test points (Vault:PCB_TP_1.5mm, the footprint of TP38): TP40 MOTOR_IN1, TP41 MOTOR_OUT1, TP43 I2C0_SCL on the bottom, TP42 MOTOR_OUT2 on the top.
 """
@@ -20,7 +20,7 @@ b = pcbnew.LoadBoard(sys.argv[1]); comps = L.load_netlist(sys.argv[2]); fps = L.
 # ref: (anchor pad, its place, second pad, its place, side)
 PLACE = {
     'J11': ('1', (15.30, 9.60), '2', (17.84, 9.60), 'top'), 'J12': ('1', (57.70, 7.40), '2', (57.70, 9.94), 'top'),
-    'J13': ('1', (62.60, 17.85), '2', (62.60, 20.39), 'top'), 'J14': ('1', (62.20, 32.90), '3', (62.20, 37.98), 'top'),
+    'J13': ('1', (62.60, 18.80), '2', (62.60, 21.34), 'top'), 'J14': ('1', (62.20, 32.90), '3', (62.20, 37.98), 'top'),
     'TP40': ('1', (2.20, 37.85), None, None, 'bottom'), 'TP41': ('1', (2.50, 35.50), None, None, 'bottom'),
     'TP42': ('1', (11.60, 31.00), None, None, 'top'), 'TP43': ('1', (31.13, 33.27), None, None, 'bottom'),
 }
