@@ -263,3 +263,39 @@ project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_202
   the GPIO in its pin name: J18 pad 1 reads "12" (was "18") on both sides, same place. Net check 91 labels, 91 OK; `check.py` PASS (tracks + vias 1815);
   95 labels placed, 10 left out, 19 designators hidden, silk warning counts as in stage 7; the only differences in the report are the two J18 pad 1 labels.
   `silk_top.png` / `silk_bottom.png` looked at. The committed board's silkscreen is unchanged.
+
+## Stage 9 (the two PWM inputs change pins; the swap vias go), 2026-11-16, Pacific
+
+Scripts `scripts/stage9_pwm_swap/` (`run.sh` rebuilds from the stage-8 head 61e1a9d, then DRC, ERC, `lock9.py`, planes, stage 6's `checks.py`, `measure.py`,
+`nognd.py`, project files; `HEADONLY=1 sh run.sh` measures the head board only). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage9_pwm_swap/`.
+Baseline (61e1a9d, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_range + 16 items_not_allowed, 537 warnings, 0 unconnected, parity 0; ERC 39.
+
+- Change (Nick, as quoted in this session's task: "Yes, swap them"): MOTOR_IN1 from J1 pin 12 (GPIO18) to pin 33 (GPIO13); MOTOR_IN2 from pin 33 to pin 12.
+  `step1_schematic.py`: two labels renamed where they stand, at (116.84, 120.65) and (165.1, 151.13) on the Top-Level sheet; the file keeps its size. No text
+  on any sheet and nothing in BRIEF.md names the GPIO of either input (searched GPIO13, GPIO18, PWM, MOTOR_IN): nothing else edited.
+  `step2_sync.py`: removed MOTOR_IN1 Internal 2 60.98 mm, Internal 1 1.27 mm and its two swap vias (14.1, 26.8) / (13.2, 25.9), MOTOR_IN2 Internal 2
+  90.21 mm; J1 pads 12 / 33 take their nets from the netlist. The vias at U12 ((3.7, 38.2) MOTOR_IN1, (7.0, 38.0) MOTOR_IN2) and the bottom pieces stay.
+  `step3_route.py`: the two lanes are rebuilt where they were from the header to the south end of the detour (x 15.8 / 16.13), with the nets changed
+  places: the outer / west lane is MOTOR_IN1 now. From there the pair turns 45 degrees once, at y 23.3 / 23.44 (stage 8: 24.2 / 24.77), and runs on
+  x + y = 39.1 (where MOTOR_IN1's last piece lay) and 39.57 at 0.33 mm pitch to (6.0, 33.57); then south at x 4.4 and x 6.0 (the two gaps in U12's via
+  field) into the two vias. 0 / 45 / 90 only, 0.2 mm, pre-check hits 0. Nothing else was routed or moved.
+- Before -> after (`measure_head.txt` / `measure_s9.txt`, `nognd_*.txt`, `checks_*.txt`; plan view, copper edge to edge):
+  | net | J1 pin | layers | length | vias | to Y1 crystal pads 1 / 3 (any Y1 pad) | to U1 pads | Internal track with no GND fill on the GND plane | slot crossing |
+  |---|---|---|---|---|---|---|---|---|
+  | MOTOR_IN1 | 12 -> 33 | Internal 2 61.0 + Internal 1 1.3 + bottom 2.6 -> Internal 2 91.0 + bottom 2.6 | 64.9 -> 93.5 mm | 3 -> 1 | 27.90 (27.75) -> 22.77 (22.77) mm | 20.50 -> 16.00 mm | 6.2 -> 3.0 mm | west slot, (17.32..18.22, 0.98) -> (17.31..18.21, 0.65) |
+  | MOTOR_IN2 | 33 -> 12 | Internal 2 90.2 + bottom 0.9 -> Internal 2 59.7 + bottom 0.9 | 91.2 -> 60.7 mm | 1 -> 1 | 22.77 (22.77) -> 28.11 (27.91) mm | 16.00 -> 20.50 mm | 3.5 -> 3.7 mm | west slot, (17.31..18.21, 0.65) -> (17.32..18.22, 0.98) |
+  The two nets together: 156.1 -> 154.2 mm, 4 -> 2 vias, no-GND length 9.7 -> 6.7 mm. The figures per net mostly change places, because the copper
+  north and west is the same and the names moved. Nearest switch-node pad (U10 pad 2): MOTOR_IN1 2.01 -> 1.68 mm, MOTOR_IN2 1.68 -> 2.01 mm.
+  Still there, as in stage 8: one crossing of the west GND-plane slot per net (`checks.py` lists the outer lane's only, now under MOTOR_IN1; the inner
+  lane's is within 1.7 mm of J1 pin 10's hole), the GND strip above the north lanes, the detour east of the P_IN vias.
+- Gates (`run_log.txt`, `drc_s9.json`, `erc_s9.json`): errors 3 skew_out_of_range + 16 items_not_allowed; warnings 537, same counts per type as the head;
+  0 unconnected; parity 0; ERC 39 (the same items but KiCad's run-to-run choice of label name in one multiple_net_names item, as noted in stage 8).
+  `lock9.py` PASS: against the stage-2c board as `lock8.py` (J1 pin 12 -> MOTOR_IN2, pin 32 -> GPIO12, pin 33 -> MOTOR_IN1; 658 own tracks + vias, was
+  662); against the head board: J1 pins 12 / 33 only, 29 tracks + vias of the two nets gone and 25 new, other differences 0. `.kicad_pro` / `.kicad_dru`
+  identical to d30920b. Planes: same number of pieces everywhere; P_IN 170.62 -> 172.69, Sofar's GND 1017.99 -> 1019.43, S3 GND 868.99 -> 870.07 mm2
+  (the two vias' antipads are gone: the areas are those of before stage 8, job 3).
+  Plots `plots_s9/` and `plots_head/`, crops `look/` (head left, stage 9 right): `pair_west_in2.png`, `pair_south_w_in2.png`, `pair_south_w_in1.png`
+  looked at: one parallel pair from the corner to U12, no via on it; the Internal 1 piece and both vias are gone, other Internal 1 copper as before.
+- Silkscreen scratch copy rebuilt from this board (`scripts/stage7_silk/run.sh`; `stage7_silk/run_log.txt`, the stage-8 files kept as
+  `run_log_before_stage9.txt` / `silk_report_before_stage9.json`): net check 91 labels, 91 OK; `check.py` PASS (tracks + vias 1811, was 1815); 95 labels
+  placed, 10 left out; the report differs in the via count only (283 -> 281). The committed board's silkscreen is unchanged.

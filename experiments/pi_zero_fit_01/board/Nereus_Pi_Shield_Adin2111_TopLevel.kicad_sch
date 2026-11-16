@@ -13766,7 +13766,7 @@
 		)
 		(uuid "3e2f9d55-5476-416f-aa38-98c4a3db2af8")
 	)
-	(label "MOTOR_IN2"
+	(label "MOTOR_IN1"
 		(at 165.1 151.13 0)
 		(effects
 			(font
@@ -14316,7 +14316,7 @@
 		)
 		(uuid "f20df407-5ecb-4800-b056-2ba2c5fcab3c")
 	)
-	(label "MOTOR_IN1"
+	(label "MOTOR_IN2"
 		(at 116.84 120.65 180)
 		(effects
 			(font
