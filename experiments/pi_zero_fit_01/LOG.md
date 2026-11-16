@@ -323,14 +323,29 @@ Baseline (2fd2945, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_rang
   distance 0.0000 mm after turning back; 4.456 x 3.731 against 3.245 x 3.874 mm): the copy is turned back upright as in the mote file, mirrored
   left-right and scaled. Clear space (`freearea.py`: pads and mask openings + 0.15, via holes + 0.1, bottom silkscreen and Sofar's texts + 0.15, part
   bodies + 0.1): the largest rectangles free of everything are 7.80 x 4.60 mm (x 35.75..43.55, y 12.30..16.90) and 9.10 x 3.80 mm (x 35.25..44.35,
-  y 12.75..16.55); with the via holes not counted it would be 14.00 x 7.05 mm (x 30.35..44.35, y 10.80..17.85): 18 tented vias stand in the area.
+  y 12.75..16.55); with the via holes not counted it would be 14.00 x 7.05 mm (x 30.35..44.35, y 10.80..17.85): tented vias stand in it.
   With the frozen board's letter widths the name does not fit clear of the via holes at any size from 1.0 mm (second line 10.1 mm long): the letters
   are 0.8 x as wide (the stage-7 label proportion). Logo and name are placed each for itself, a further 0.15 mm off every obstacle; the logo by its
   drawn shape, so a via may stand in its open inside. Largest logo: right of the name 0.86 x the mote's size, above it 0.60, left of it 0.52.
-  Built: logo 2.79 x 3.33 mm at x 31.36..34.15, y 13.65..16.98 (one tented via, (33.38, 14.51), inside the head); "Pi Shield" 1.75 x 1.184 mm and
+  Built: logo 2.79 x 3.33 mm at x 31.36..34.15, y 13.65..16.98 (one tented via, (33.38, 14.51), inside the head); "Pi Shield" 1.75 x 1.185 mm and
   "ADIN2111 Rev0" 1.077 x 0.808 mm, line 0.15 mm, block x 35.41..44.20, y 12.95..16.38; one group ("Bristlemouth logo and board name"). Finest logo
   line 0.30 mm (0.35 mm in the mote file, cuts through the upright and the lowest bar), eye 0.36 mm; JLC's minimum is 0.15 mm.
   Gates (`run_log_job2.txt`, `drc_job2.json`): errors 3 + 16; 0 unconnected; parity 0; warnings 539 as after job 1, same counts per type (the two new
   texts are among the text_thickness items, as every Menlo text; that count stays 199 as stage 7 noted); no silk_overlap, silk_over_copper or
   silk_edge_clearance item at the new graphics (`near.py`); ERC 39; `lock11.py` PASS, no difference from the head in copper, pads, footprints, zones;
   `.kicad_pro` / `.kicad_dru` identical to d30920b. Render `job2_bottom_big.png`, crop `job2_logo_area.png`: looked at.
+- Job 3 (Nick, as quoted in this session's task: "Aux 5v I was hoping to use twisted 20AWG - will that fit the pins? Else the hole can get bigger but
+  the pads stay the same"): J4's two holes 1.1 -> 1.3 mm round, plated; pads 2.2 x 3.3 mm oval, same places (`j4_holes.py`, text edits: the board's J4
+  block (footprint name, two drill lines, the footprint's descr), the library file renamed to `WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.3mm.kicad_mod`
+  with the same changes, J4's Footprint field on the Top-Level sheet (one line)). `j4_measure.py` (`j4_before.txt` / `j4_after.txt`): ring 0.55 -> 0.45 mm
+  across the pad's width, 1.10 -> 1.00 mm along it; hole edge to hole edge 2.10 -> 1.90 mm (rule 0.45 mm); hole edge to the nearest copper of another
+  net, per layer: pad 1 Top / Internal 1 / Internal 2 / Bottom 1.45 mm (J4 pad 2), GND plane 0.75 mm (GND fill), PWR plane 0.75 mm (5V_PI fill); pad 2
+  Top / Internal 1 / GND plane / Internal 2 1.16 mm (a 5V_PI via), PWR plane 0.75 mm (5V_PI fill), Bottom 0.90 mm (5V_PI track); the rule "JLC
+  through-hole pad: hole to copper" is 0.3 mm. `jlc_rules_2026-11.md` has no ring minimum for a plated pad hole: its only ring figure is the via's
+  (JLC 0.05 mm, board setting 0.1 mm). J5 as it is: 4.2 x 2.6 mm oval pads, 1.3 mm round plated holes, ring 1.45 / 0.65 mm.
+  Not changed: J4's Description field (schematic and board) still reads "5 V in ... 1.1 mm hole".
+  `sh run.sh 3` rebuilds all three jobs but gives the new silkscreen items new ids; the committed board is the job-2 commit plus `sh run.sh j4only`
+  (board diff: the four lines). Gates (`run_log_job3.txt`, `drc_job3.json`, `erc_job3.json`): errors 3 + 16; warnings 539, same counts per type as
+  after job 1 and 2 (lib_footprint_mismatch 110, none on J4); 0 unconnected; parity 0; ERC 39; `lock11.py` PASS (J4 listed: footprint name, two
+  drills; nothing else differs from the head in copper, pads, footprints, zones); `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic: the one
+  Footprint line. Renders `s11_render_top.png` / `s11_render_bottom.png`, crops `job2_logo_area.png`, `s11_j4_top.png`: looked at.

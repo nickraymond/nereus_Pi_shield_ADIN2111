@@ -19406,7 +19406,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "nereus:WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.1mm"
+		(property "Footprint" "nereus:WirePads_1x02_P3.20mm_Oval2.2x3.3mm_Drill1.3mm"
 			(at 271.78 375.92 0)
 			(hide yes)
 			(show_name no)
