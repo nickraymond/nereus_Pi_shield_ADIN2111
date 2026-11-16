@@ -228,16 +228,28 @@ class Router:
         v.SetDrill(IU(drill)); v.SetViaType(pcbnew.VIATYPE_THROUGH); v.SetLayerPair(pcbnew.F_Cu, pcbnew.B_Cu); v.SetNet(self.net(net))
         self.b.Add(v); self.geo.add_via(net, p, d, drill)
         self.log.append({'net': net, 'via': p, 'd': d, 'drill': drill, 'note': note})
-    def zone(self, net, layer, pts, name, prio=0, clr=0.2, minw=0.2, solid=True, island=True):
+    def zone(self, net, layer, pts, name, prio=1, clr=0.3, minw=0.25, solid=False):
+        """a new filled zone, settings as the frozen board's own added zones (clearance 0.3, min width 0.25, thermal
+        spokes 0.5 with 0.3 gap on pads, islands removed). Names start with 'S3 '."""
         z = pcbnew.ZONE(self.b); z.SetLayer(self.lid[layer]); z.SetNet(self.net(net)); z.SetZoneName('S3 ' + name)
         o = z.Outline(); o.NewOutline()
         for x, y in pts: o.Append(V(x, y).x, V(x, y).y)
         z.SetAssignedPriority(prio); z.SetLocalClearance(IU(clr)); z.SetMinThickness(IU(minw))
         z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL if solid else pcbnew.ZONE_CONNECTION_THERMAL)
-        z.SetThermalReliefGap(IU(0.3)); z.SetThermalReliefSpokeWidth(IU(0.4))
-        z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS if island else pcbnew.ISLAND_REMOVAL_MODE_NEVER)
-        z.SetIsFilled(False); self.b.Add(z)
-        self.log.append({'zone': name, 'net': net, 'layer': layer, 'pts': pts, 'prio': prio})
+        z.SetThermalReliefGap(IU(0.3)); z.SetThermalReliefSpokeWidth(IU(0.5))
+        z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
+        self.b.Add(z); self.log.append({'zone': name, 'net': net, 'layer': layer, 'pts': pts, 'prio': prio})
+        return z
+    def keepout(self, centre, r, name, n=64):
+        """screw keep-out as on the frozen board: all copper layers; tracks, vias and copper pour not allowed."""
+        z = pcbnew.ZONE(self.b); z.SetIsRuleArea(True); z.SetZoneName('S3 ' + name)
+        ls = pcbnew.LSET()
+        for l in self.lid.values(): ls.AddLayer(l)
+        z.SetLayerSet(ls); o = z.Outline(); o.NewOutline()
+        for i in range(n):
+            a = 2 * math.pi * i / n; p = V(centre[0] + r * math.cos(a), centre[1] + r * math.sin(a)); o.Append(p.x, p.y)
+        z.SetDoNotAllowTracks(True); z.SetDoNotAllowVias(True); z.SetDoNotAllowZoneFills(True); z.SetDoNotAllowPads(False); z.SetDoNotAllowFootprints(False)
+        self.b.Add(z); self.log.append({'zone': name, 'net': '', 'layer': 'all copper', 'pts': [centre], 'prio': 0})
         return z
     def report_bad(self):
         for net, layer, pts, hits in self.bad:
@@ -246,6 +258,10 @@ class Router:
         return len(self.bad)
     def finish(self, out=None, logfile=None):
         pcbnew.ZONE_FILLER(self.b).Fill(self.b.Zones())
+        for z in self.b.Zones():
+            if z.GetZoneName().startswith('S3 ') and not z.GetIsRuleArea():
+                z.CalculateFilledArea(); ps = z.GetFilledPolysList(z.GetLayer())
+                print('   zone %-34s %-10s %-9s filled %.1f mm2 in %d piece(s)' % (z.GetZoneName(), sn(z.GetNetname()), z.GetLayerName(), z.GetFilledArea() / 1e12, ps.OutlineCount()))
         pcbnew.SaveBoard(out or self.path, self.b)
         if logfile: json.dump(self.log, open(logfile, 'w'), indent=0)
         tr = [e for e in self.log if 'pts' in e and 'zone' not in e]; vi = [e for e in self.log if 'via' in e]
