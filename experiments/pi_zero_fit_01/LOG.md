@@ -228,3 +228,33 @@ project files). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_202
   fields too: the nine footprints' fields follow the netlist (stage 2b's `apply`; place, side, turn and pad nets asserted unchanged).
   `drc_s8_job2.json`: 3 + 16 errors, 537 warnings (as after job 1), 0 unconnected, parity 0; ERC 39 (`erc_s8_job2.json`, same items but the label-name
   flip noted under job 1); `lock8.py` PASS; planes same as head; `.kicad_pro` / `.kicad_dru` identical to d30920b.
+- Job 3, a trial (Nick, as quoted in this session's task: "Yes, trial it"): MOTOR_IN1 from J1 pin 32 (GPIO12) to pin 12 (GPIO18); J18 pad 1 (x 41.39) is GPIO12
+  now, fed from pin 32; MOTOR_IN2 stays on pin 33 (GPIO13). Both PWM lines go north of the header, round the north-west corner and down the west part
+  of the board on Internal 2. Scripts: `job3_schematic.py` (three labels renamed where they stand; J18's value and description), `job3_sync.py`
+  (old Internal 2 copper of GPIO18 26.2 mm, MOTOR_IN1 77.2 mm, MOTOR_IN2 72.3 mm removed, all our own; J1 / J18 pad nets from the netlist; net GPIO18 gone),
+  `job3_route.py` (path, and the reasons for the detour and the swap, in its header), `measure.py`, `nognd.py`, `look.sh`.
+  Before -> after (`measure_head.txt` / `measure_s8_job3.txt`, plan view, copper edge to edge; `nognd_head.txt` / `nognd_s8_job3.txt`; `checks_*.txt`):
+  | net | layers | length | vias | to Y1 crystal pads 1 / 3 (any Y1 pad) | to U1 pads | Internal track with no GND fill on the GND plane | slot crossings |
+  |---|---|---|---|---|---|---|---|
+  | MOTOR_IN1 | Internal 2 77.2 + bottom 2.6 -> Internal 2 61.0 + Internal 1 1.3 + bottom 2.6 | 79.8 -> 64.9 mm | 1 -> 3 | 2.18 (1.49) -> 27.90 (27.75) mm | 4.52 -> 20.50 mm | 4.8 -> 6.2 mm | east slot (49.1, 14.05..14.55) -> west slot (17.32..18.22, 0.98) |
+  | MOTOR_IN2 | Internal 2 72.3 + bottom 0.9 -> Internal 2 90.2 + bottom 0.9 | 73.2 -> 91.2 mm | 1 -> 1 | 3.46 (2.77) -> 22.77 (22.77) mm | 5.07 -> 16.00 mm | 2.7 -> 3.5 mm | east slot (49.5, 13.64..14.14) -> west slot (17.31..18.21, 0.65) |
+  Target (10 mm from Y1's pads, 5 mm outside U1's pad area): met by both. MOTOR_IN1's largest x is 21.07 (pin 12).
+  What is not as asked, or doubtful:
+  (1) Slot: both nets still cross one GND-plane slot each, now the west one. Both of Sofar's slots are open at the plane's north edge (west one from
+  (17.3..18.2, 0.5) south to y 12.4, east one from x 53), so a net from a header pin between them reaches the west side only over a slot or between
+  the slots' south ends beside U1. `checks.py` lists MOTOR_IN2's crossing only: MOTOR_IN1's is within 1.7 mm of J1 pin 10's hole, which that method skips.
+  (2) GND above the north lanes is a strip: the fill reaches from y 0.51 to y 1.02..1.08 north of each pin (wider between pins; my scan at twelve x
+  positions); the lanes' copper is y 0.55..0.75 and 0.88..1.08, for 39 mm (MOTOR_IN2) and 13 mm (MOTOR_IN1).
+  (3) Swap: MOTOR_IN1 changes lanes with MOTOR_IN2 through two new vias (14.1, 26.8) / (13.2, 25.9) and 1.27 mm on Internal 1 (inside its own vias'
+  antipads, so with no GND fill above it; nothing on the top layer over it, `checks.py` reports no "under" length). With MOTOR_IN2 on pin 12 and
+  MOTOR_IN1 on pin 33 the order at U12 would come out right with no swap: not built, the task names the pins.
+  (4) Detour: Internal 2 has no lane between the 2.0 mm 5V_LIFEPO4 track (edge x 12.3) and the P_IN vias (first at 12.78), nor west of that track (J4's
+  pads, H4's keep-out): the lanes go east of the last P_IN via (x 15.8 / 16.13 for y 21.4..24.8) and back.
+  Other figures: nearest switch-node pad (U10 pad 2) 2.01 / 1.68 mm in plan view, the GND plane between; ADIN_TIMER untouched (0.58 mm from L6 pad 1, as before).
+  On the way: the first build had MOTOR_IN1's 45 degree piece over the 5V_FB via (9.28, 8.27) (pre-check printed gap -0.120; DRC shorting_items); the
+  bend moved 0.4 mm south. Nothing else was straightened: ~PAYLOAD_FAULT keeps its jog (J18 pad 3 lies right south of pin 31).
+  Final (`run_log_job3.txt`, `drc_s8_job3.json`, `erc_s8_job3.json`): errors 3 skew_out_of_range + 16 items_not_allowed; warnings 537 (as after job 1, same
+  counts per type); 0 unconnected; parity 0; ERC 39, same items as the baseline; `lock8.py` PASS (new: J1 pin 12 -> MOTOR_IN1, pin 32 -> GPIO12; H1..H4;
+  662 own tracks + vias); `.kicad_pro` / `.kicad_dru` identical to d30920b. Planes: same number of pieces everywhere; P_IN 172.69 -> 170.62, Sofar's GND
+  1019.43 -> 1017.99, S3 GND 870.07 -> 868.99 mm2 (the two vias' antipads). Vias within 0.3 mm of a pad: 119 pairs, ours 9, as stage 6.
+  Plots `plots_s8/`, renders `s8_render_top.png` / `_bottom.png`, crops `look/s8_*.png` (six areas x six layers, montages `look/s8_six_*.png`): looked at.

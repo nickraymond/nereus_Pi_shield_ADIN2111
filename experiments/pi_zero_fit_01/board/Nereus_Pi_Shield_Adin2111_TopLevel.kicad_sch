@@ -14076,7 +14076,7 @@
 		)
 		(uuid "ecc2bc10-aa95-47c2-9944-18b9d3d4a28a")
 	)
-	(label "MOTOR_IN1"
+	(label "GPIO12"
 		(at 165.1 148.59 0)
 		(effects
 			(font
@@ -14316,7 +14316,7 @@
 		)
 		(uuid "f20df407-5ecb-4800-b056-2ba2c5fcab3c")
 	)
-	(label "GPIO18"
+	(label "MOTOR_IN1"
 		(at 116.84 120.65 180)
 		(effects
 			(font
@@ -14406,7 +14406,7 @@
 		)
 		(uuid "4932ecb1-d731-4f20-9816-fcc3a4b4d6f8")
 	)
-	(label "GPIO18"
+	(label "GPIO12"
 		(at 74.93 208.28 180)
 		(effects
 			(font
@@ -30307,7 +30307,7 @@
 				)
 			)
 		)
-		(property "Value" "pad row: GPIO18 / GPIO7 / GND / GND"
+		(property "Value" "pad row: GPIO12 / GPIO7 / GND / GND"
 			(at 97.79 203.2 0)
 			(effects
 				(font
@@ -30333,7 +30333,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): GPIO18, GPIO7, GND, GND"
+		(property "Description" "Exposed through-hole pads under J1, 2.54 mm pitch, 1.7 mm pad, 1.0 mm hole (no part fitted): GPIO12, GPIO7, GND, GND"
 			(at 85.09 210.82 0)
 			(effects
 				(font
