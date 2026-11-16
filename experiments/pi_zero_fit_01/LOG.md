@@ -349,3 +349,56 @@ Baseline (2fd2945, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_rang
   after job 1 and 2 (lib_footprint_mismatch 110, none on J4); 0 unconnected; parity 0; ERC 39; `lock11.py` PASS (J4 listed: footprint name, two
   drills; nothing else differs from the head in copper, pads, footprints, zones); `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic: the one
   Footprint line. Renders `s11_render_top.png` / `s11_render_bottom.png`, crops `job2_logo_area.png`, `s11_j4_top.png`: looked at.
+
+## Stage 12 (re-review fixes N1, N5, N4 / N9; larger logo; N2 last), 2026-11-16 midday, Pacific
+
+Scripts `scripts/stage12_rereview_fixes/` (`run.sh head | 1 | 3 | 4 | 2` applies one job to the board as it stands, then DRC, `drcdiff.py`, ERC, plane piece
+counts, `row_measure.py`, `pwm_fb.py`, `lock12.py`, project files, `netcheck.py`, `rowlabels.py`; `look.sh` plots and crops). Outputs:
+`~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage12_rereview_fixes/`. Re-review: `stage10_rereview/REREVIEW.md`.
+Baseline (2bf006f, my run, `drc_head.json`, `erc_head.json`): 3 skew_out_of_range + 16 items_not_allowed, 539 warnings, 0 unconnected, parity 0; ERC 39.
+Built in the order 1, 3, 4, 2: job 2 moves a via of the frozen board, so it is the last commit and can be dropped alone.
+
+- Job 1 (N1, N5; `job1_row.py`, `row_measure.py`): the 15 row pads 1.7 -> 1.5 mm round (1.0 mm hole, ring 0.35 -> 0.25 mm) and the row 0.10 mm south
+  (y 6.70 -> 6.80). Row pad to J1 pad, all 15 (least: J15 pad 1 PI_5V / J1 pin 3): copper 0.230 -> 0.430 mm, mask web 0.180 -> 0.380 mm (pcbnew gives
+  each pad a mask expansion of 0.025 mm). Why this option: with the hole at y 6.70 and a 0.25 mm ring the best gap is 0.33 mm, oval or offset pads
+  included, so the holes must move; a 1.5 mm circle at y 6.80 lies inside the old 1.7 mm circle at y 6.70, so on the two outer layers no copper comes
+  closer to anything than today and no outer lane moves; a 1.7 mm row 0.20 mm south gives the same gap but pushes its copper 0.20 mm south (I2C0_SDA on
+  the top at -0.05 mm; the lanes at y 7.8 on Internal 1 / 2 at 0.30 mm): three more lane groups (my arithmetic from the lanes' coordinates, not built). All 15 pads and nets stay.
+  Forced by the holes: Internal 1, I2C3_SCL y 7.60 -> 7.75 under J15, with I2C3_SDA 8.00 -> 8.15 and CFG0_STRAP 8.40 -> 8.55 keeping their 0.2 mm gaps (the
+  three steps at x 19..20.4 start 0.10 mm further east; CFG0_STRAP's step at J16 pad 1 0.10 mm further west, else that hole would be at 0.32 mm);
+  Internal 2, VBUS 1.5 mm lane y 8.30 -> 8.40 under J15. Track ends on the pads follow (same lanes): GPIO14 / 15 / 19 / 20 / 21, PI_5V, PI_3V3 (bottom),
+  GPIO17 (top), GPIO7 (Internal 1), GPIO12 (Internal 2). 15 polylines, 107.6 mm, 0 / 45 / 90, pre-check hits 0.
+  Hole edge to other-net copper, least per layer, head -> now (`row_head.txt` / `row_job1.txt`): Top 0.500 -> 0.400 (I2C0_SDA), Internal 1 0.300 -> 0.350
+  (I2C3_SCL: N5), GND plane 0.300 -> 0.300 (the fill, by the 0.3 mm rule), Internal 2 0.350 -> 0.350 (VBUS), PWR plane 0.350 -> 0.350 (fill), Bottom
+  0.520 -> 0.470 mm (PI_5V).
+  Silkscreen: the 30 pad names and "GPIO" are NOT moved. The pads' south edge is where it was (y 7.55), so each name is as far from its pad as approved.
+  Moved 0.10 mm with the holes (tried, `LABELS=1`): "21" comes 0.055 mm from the box line at y 9.0 on both sides, 4 new silk_overlap items.
+  `rowlabels.py`: 30 labels, each the text its pad's net gives and under its own pad; `netcheck.py` 93 rows OK.
+  Worse, and left: Sofar's no-net fill "NoConnect_Right" on the PWR plane is in 2 pieces (was 1), same area 47.33 mm2: a 0.17 mm2 tip at
+  (53.2..53.7, 5.75..6.28) north-west of J19 pad 1 hung on a neck that the hole's antipad now closes. The fill has no net; no DRC item changes
+  (isolated_copper 3 as before). With the row 0.06 mm south the tip stays on, but the gap to J1 is then 0.39 mm. Every other plane fill: same pieces.
+  Gates (`run_log_job1.txt`, `drc_job1.json`): 3 + 16 errors; 539 warnings, same counts per type; 0 unconnected; parity 0; ERC 39; `lock12.py` PASS
+  (J15..J19 0.10 mm south, 15 pads 1.7 -> 1.5 mm, tracks on the 14 listed nets only, 15 hidden footprint texts moved with their footprints);
+  `.kicad_pro` / `.kicad_dru` identical to d30920b; schematic identical to 2bf006f. Crops `look/job1_six_row_w.png` / `_e.png` looked at.
+- Job 3 (N4 / N9; `job3_pwm.py`, `pwm_fb.py`): the pair's first bend on Internal 2 moves 0.50 mm south: MOTOR_IN1 (6.75, 7.0)-(9.35, 9.6) ->
+  (6.75, 7.5)-(9.35, 10.1), MOTOR_IN2 (7.08, 6.863)-(9.68, 9.463) -> (7.08, 7.363)-(9.68, 9.963); same lanes, 0.33 mm pitch, six pieces replaced.
+  To the 5V_FB via (9.279, 8.267), copper to copper: MOTOR_IN2 0.163 -> 0.516 mm, MOTOR_IN1 0.493 -> 0.846 mm. 5V_FB has copper on Internal 2's
+  neighbours (GND plane, PWR plane) only as this via. Unchanged: in plan view both lines still pass under U10 pad 4 (top) and over R37 / R38's
+  5V_FB track (bottom), two layers away with a plane between. Price: plan view to the switch node, MOTOR_IN1 1.529 -> 1.323 mm (U10 pad 2, top),
+  MOTOR_IN2 1.859 -> 1.653 mm; bottom C53 pad 1 1.794 -> 1.441 / 2.124 -> 1.771 mm. Nothing of the converter moved.
+  Gates (`run_log_job3.txt`): 3 + 16 errors, 539 warnings, 0 unconnected, parity 0, ERC 39, `lock12.py` PASS, project files identical.
+- Job 4 (Nick, as quoted in this session's task: "Just make it as large as you can while fitting there."; `logo12.py`, `counters.py`): stage 11's group
+  is removed and rebuilt with tented vias allowed under it (all 281 vias are tented on the bottom; untented holes, pads, mask openings, other
+  silkscreen, Sofar's texts, part bodies: obstacles + 0.15 mm as before). The clear area between TP35 and A_PWR is not a rectangle and reaches west to
+  x 26.2. logo.py's order (largest logo with the name at its smallest, then the largest name), frozen letter widths (WR 1.0), same strings, one group:
+  logo 2.79 x 3.33 -> 6.04 x 7.21 mm (0.86 -> 1.86 x the mote's; frozen board 1.15) at x 38.16..44.20, y 10.60..17.81; "Pi Shield" 1.75 x 1.185 ->
+  1.825 x 1.544 mm (height x letter width), "ADIN2111 Rev0" 1.077 x 0.808 -> 1.123 x 1.053 mm, block 11.45 x 3.58 mm at x 26.20..37.65, y 13.85..17.43;
+  all of it 18.00 x 7.21 mm (was 12.84 x 4.03). Finest logo line 0.65 mm, eye 0.77 mm.
+  Tented vias under it: 12 (`counters_job4.txt`, pcbnew's glyph outlines): 5 in or beside the logo (2 on its lines, 3 in the open), 7 under the text
+  (2 on strokes, 5 between strokes); none in the eye, none in a letter counter. Of 7 places within 0.3 mm the one with the fewest holes under the
+  text was taken (6 by the box count against 7).
+  Not built, one switch away (`PROP=frozen`): logo and name in the frozen board's proportion to each other: logo 1.01 x (3.28 x 3.92 mm), texts
+  2.29 / 1.41 mm, 18.18 x 4.49 mm. Scratch renders of both: `logo_try_A_crop.png` (built), `logo_try_B_crop.png`.
+  Gates (`run_log_job4.txt`, `drc_job4.json`): 3 + 16 errors; 539 warnings, same counts per type; no silk_overlap, silk_over_copper or
+  silk_edge_clearance item at the group (`near.py`); 0 unconnected; parity 0; ERC 39; `lock12.py` PASS (2 polygons + 2 texts replaced; no copper
+  difference from job 3). Render `job4_bottom_big.png`, crop `job4_logo_area.png`: looked at.

@@ -46,10 +46,10 @@ gates) N=$2;;
    echo "== job 3: PWM pair's bend"; $PY -B "$HERE/job3_pwm.py" "$B" "$OUT/board_stage2c.kicad_pcb" "$OUT/log_job3.json" 2>&1 | q;;
 4) git diff --quiet HEAD -- $D || { echo "job 4 starts from the commit of job 3"; exit 1; }
    echo "== job 4: larger logo and name"; $PY -B "$HERE/logo12.py" --remove "$B" 2>&1 | q
-   VIAS=tented $PY -B "$HERE/logo12.py" "$B" "$FROZEN" "$OUT/logo_report.json" "$MOTE" 2>&1 | q
+   VIAS=tented WR=1.0 $PY -B "$HERE/logo12.py" "$B" "$FROZEN" "$OUT/logo_report.json" "$MOTE" 2>&1 | q      # PROP=frozen: logo and name in the frozen board's proportion instead (not built)
    ;;
 esac
 case "$N" in 1) DONE=1;; 3) DONE=13;; 4) DONE=134;; 2) DONE=1342;; esac
 gates job$N $DONE
-[ -f "$OUT/logo_report.json" ] && [ "$N" != 1 ] && [ "$N" != 3 ] && python3 "$HERE/../stage11_silk_logo/near.py" "$OUT/drc_job$N.json" "$OUT/logo_report.json"
+if [ -f "$OUT/logo_report.json" ] && [ "$N" != 1 ] && [ "$N" != 3 ]; then python3 "$HERE/../stage11_silk_logo/near.py" "$OUT/drc_job$N.json" "$OUT/logo_report.json"; $PY -B "$HERE/counters.py" "$B" 2>&1 | q | tee "$OUT/counters_job$N.txt"; fi
 git status --short
