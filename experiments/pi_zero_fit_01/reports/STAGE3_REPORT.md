@@ -138,3 +138,122 @@ DRC after D: 3 + 16 errors, 96 unconnected.
 2. U12 fan-out (outputs first: they set where the vias go), then the three MOTOR control nets and MOTOR_VISEN from the header (Internal 2, per review S5).
 3. Payload switch group in the south-east; then ADC group, Qwiic, LEDs and straps, ADIN_PWR; then the GND vias of each group.
 4. Continue as `phaseD2.py` from commit 91eebf9 (add it to the `case` in `run.sh`); `probe.py` finds free straight runs.
+
+---
+
+# Stage 3, second session (phases F, G, H, final checks): report
+
+Written 2026-11-15, 11:15 PM Pacific. Same branch, nothing pushed. **Partial result: 13 connections are still open** (list below);
+everything on the board is checked. This section replaces the first session's "Gates", "Not routed" and "Next session" sections;
+its phase A text about BM1 is superseded by phase F. Numbers are from runs of this session; files in the same NereusData folder.
+
+## Gates (last run, `drc_final2.json`, `erc_final2.json`)
+
+| | Start of this session (91eebf9) | Now (phase H board) |
+|---|---|---|
+| DRC errors | 3 skew_out_of_range + 16 items_not_allowed | **the same 3 + 16, nothing else** |
+| Unconnected | 96 | **13** |
+| Schematic parity | 0 | **0** |
+| Warnings | 533 (track_dangling 8, via_dangling 8, isolated_copper 3) | 532 (track_dangling 8, via_dangling 7, isolated_copper 3; none of them is stage-3 copper except the items in "Left as they are") |
+| ERC | not run | **39 items** (12 pin_not_connected, 5 power_pin_not_driven, 11 multiple_net_names, 7 unconnected_wire_endpoint, 2 lib_symbol_mismatch, 1 same_local_global_label, 1 endpoint_off_grid) |
+| Lock check | PASS | **PASS**: 154 footprints, 1156 tracks + vias, 171 zones, 17 copper graphics of d30920b all present and identical, except the three footprints moved on instruction (J5, FID4, FID2: position only; pads and nets checked equal). Added: 446 track segments + vias, 7 zones, no footprint |
+| Project files | | `.kicad_pro`, `.kicad_dru`, schematic identical to d30920b |
+
+Pair skew, before and after, identical (read from `drc_D.json` and `drc_F.json` / `drc_final2.json`): BM1_DATA_N -13.1105 mm,
+BM1_DATA_P -11.7761 mm, BM2_DATA_P -3.1088 mm. The trunks are not part of those nets.
+
+## Commits of this session
+
+| Commit | Phase |
+|---|---|
+| f5b3a1d | F: BM1 trunks redone, J5 and its fiducial pair moved |
+| 81f8bed | G: payload switch U11 group, VBUS_OUT to J5 |
+| df6a99b | H: signals, small feeds, ground vias |
+| (this commit) | report, log; no board change (phase E had nothing to remove after H was cleaned) |
+
+`sh scripts/stage3_routing/run.sh <F|G|H>` rebuilds a phase from the previous phase's commit and checks it.
+New in `s3lib.py`: `prestep` (removes stage-3's own copper by uuid against d30920b, moves named non-core footprints; runs in a child
+process), the lock check's list of footprints moved on instruction, screw keep-out r 3.0 on inner layers too (it was 2.0 in the pre-check;
+the rule areas are r 3.0 on all six layers). `hint.py` is a development aid: a 0.1 mm grid search over the pre-check's geometry that
+proposes a corridor. Nothing it printed went on the board unedited; proposals with many corners were rejected (that is why some nets are open).
+
+## Phase F: BM1 trunks (task 0)
+
+- J5 moved (61.9, 18.6) -> **(61.9, 10.6)**; fiducials FID4 (top) / FID2 (bottom) (62.6, 9.0) -> **(62.6, 7.7)** (1.1 mm from J5 pad 1, 0.74 mm from the screw keep-out circle, 1.9 mm from the edge).
+- **BM1_N: 2.0 mm for its whole 19.8 mm**: the frozen board's path under L1, 1:1 to (52.231, 22.964), then 45 deg to x 54.125 and south to J10 pads 1-2.
+- **BM1_P: 2.0 mm for 17.5 mm, 1.4 mm neck for 2.9 mm** (review expected about 1.25 mm for about 2 mm). East out of L1 pad 3, south at x 59.75
+  (0.22 mm off L1 pad 4), 45 deg between Sofar's GND polygon corner (58.43, 23.01) and the screw keep-out, then 2.0 mm to J10 pads 3-4.
+  In the neck: 0.17 mm to the GND polygon, 0.07 mm inside the gap to the keep-out circle (a rule area, not copper). What limits it: the gap is 1.65 mm.
+- The 0.2 mm link from Sofar's data-tap via (52.406, 18.614) to L1 pad 3 is as phase A drew it (1.9 mm).
+- Trunk lengths (script summary): P 20.4 mm (17.5 + 2.9), N 19.8 mm.
+- DRC after F: 3 + 16 errors, 96 unconnected, parity 0.
+
+## Phase G: payload power (task 1, part)
+
+| Net | Layer, width, length | Vias | Notes |
+|---|---|---|---|
+| VBUS to U11 | bottom 0.6 mm 17.4 mm from C20 pad 1 (Sofar's VBUS at TP22 / C20), 0.24 mm neck 1.6 mm into pin 1 (the pad is 0.24 mm wide); Internal 1 0.2 mm to C49 pad 1 and R41 pad 2 | 3 | 0.74 A. My IPC-2221 arithmetic, 1 oz outer, 10 degC: 0.6 mm about 1.6 A |
+| VBUS_OUT | bottom: 0.24 mm neck 0.35 mm, **0.4 mm for 9.5 mm** along the south edge (y 38.72: 0.16 mm to R36 / R42 pads, 0.58 mm to the edge; 0.5 mm does not fit), **1.0 mm for 28.6 mm** north at x 57.6, 45 deg past the screw keep-out, x 59.1 between TP3 and J5 pad 2 into J5 pad 1; 0.5 mm branch 6.3 mm to D3 pad 1 | 0 | 0.4 mm about 1.2 A, 1.0 mm 2.4 A (`power_budget.md` s.4) |
+| U11_RTN | pins 3 / 5 into the thermal pad; **one via in the thermal pad** (47.3, 35.3), Internal 2 to (51.9, 35.4), bottom lanes to R34, R36, C59 | 2 | |
+| ISET, dVdT | bottom, round the north of C49 (lanes x 49.5 / 49.9, y 32.9 / 33.3) | 0 | |
+| UVLO | Internal 2 y 36.0, vias at R36 pad 2 and R41 pad 1 | 3 | |
+| PAYLOAD_EN (local) | Internal 2 y 34.75 to R42 pad 1 | 2 | |
+| GND | U11 pin 6, C49 pad 2: one via each | 2 | |
+
+The group needs 12 vias because its parts stand on both sides of U11 (C49 and the resistor column east, pins 1-5 west). DRC after G: 3 + 16, 79 unconnected.
+
+## Phase H: signals, small feeds, ground
+
+Routed (0.2 mm; layers in `phaseH.py`'s header): ADC group complete (3V3 from Sofar's via at (25.15, 24.98) on Internal 2, I2C0 from Sofar's two vias at U4 on
+Internal 2, POT_WIPER with R51 / C67, ~ADC_ALERT to J1 pin 7, MOTOR_VISEN from U12 on Internal 2, U13 ADDR); LEDs D8-D10 with R44-R46, ADIN_LED_VDD to JP2,
+both ~ADIN_Px_LED1 nets; Qwiic pull-ups, PI_3V3 and the I2C3 nets from R10 / R24 to J3; PI_3V3 pin 1 to pin 17 (top, between the header rows) and south on
+Internal 2 (60 mm of 0.2 mm, 0.5 oz: about 0.3 ohm by my arithmetic, so about 30 mV at 100 mA of Qwiic load); CFG0 / CFG1 to JP4 / JP3; ADIN_VDDIO to JP2, JP3,
+JP4 on Internal 1 (south of J9, not under bus copper); MOTOR_IN2 and MOTOR_IN1 on Internal 2 (south strip y 38.6 / 38.05, 45 deg, then north through two
+one-lane corridors between Sofar's vias at x 49.5 and x 44.2 / 45.3); PAYLOAD_EN straight down Internal 2 at x 54.09 and to TP19 on the bottom; ~PAYLOAD_FAULT
+to J1 pin 31 and to TP35 / R35; VBUS_OUT on to Sofar's stub (C50, R11) on the bottom; ADIN_PWR (J1 pin 16, R43, Sofar's via); U12's ISET, VCC, V3P3 parts;
+ground vias for U13, R50, R51, C65, C67, J8, D3, J3, D8, R42, JP3 / JP4, R43, J1 pin 14's Sofar stub, R48 / C63 / C64 (to C60's ground by a 0.25 mm track).
+DRC after H: 3 + 16, 13 unconnected.
+
+## Not routed: 13 connections, net by net
+
+| Net | Open | Why |
+|---|---|---|
+| MOTOR_OUT1 (2), MOTOR_OUT2 (2), GND of U12 pin 3 (1) | U12 to J7 | **Blocked by placement, not attempted on the board.** U12's output pins are 0.2 mm wide; north of pin 8 is C61, south of pin 2 the edge rule leaves one lane of at most 0.3 mm (y 38.8), the centre of the part takes exactly one 0.6 mm via at 0.13..0.16 mm clearance, and J7's pads are on top right above the capacitor row, so the two outputs cross on the top layer whichever pin gets the centre via. Wants a placement change before it is routed for 1.24 A (ideas, not trialled: move C61, or turn U12 by 180 deg). The south lane, the centre and (7.75, 38.5) were kept free |
+| MOTOR_nSLEEP (1) | U12 pin 12 to J1 pin 29 | Internal 2 has two one-lane corridors through the core for nets from the south-west to the header (x 49.5, x 44.2 / 45.3); IN2 and IN1 took them. The third proposal had 13 corners; rejected |
+| ADIN_TIMER (1) | R47 to J1 pin 36 | same; proposal hopped layers three times |
+| ADIN_MISO (1) | R9 pad 2 to the MISO net | same (a 5-corner Internal 2 path exists if it is routed before the motor lines; it then blocks them) |
+| Net-(U1A-P1_LED_0/SPI_CFG1) (1) | R2 / R47 to Sofar's via (40.52, 27.88) | same |
+| I2C3_SDA (1), I2C3_SCL (1) | J1 pins 15 / 13 to R10 / R24 | proposals 7..11 corners, not a pair; rejected. **Qwiic has power and pull-ups but no bus** |
+| GND of TP24 (1) | test point | boxed in by the U11 lanes; BM1 copper is on top above it, so no via |
+| U11_RTN via at (28.43, 6.21) (1) | orphan via | a leftover of the frozen board's load-switch site in the north with nothing on it; it is locked copper. It should be deleted, which needs the design session's word |
+
+Cause common to the long nets: the R2 / R47 / R9 column sits between J7's west mounting pad (top), U12 and JP3, with room for three vias,
+and the south-middle of Internal 2 is fenced by the 3V3 / I2C0 / LED feeds routed first. A re-plan of those feeds (or a route up the west strip and
+along the channel) should open a four-lane corridor; I did not get to it.
+
+## Not done from the task list
+
+- **PI_5V: no change.** Still the PWR-plane lane alone (first session: about 0.95 A at 20 degC rise through 1.0..1.1 mm necks, 0.5 oz). No second lane was looked for.
+- 3V3 to "the LEDs' feed": the LEDs run from ADIN_LED_VDD (JP2), routed; no separate 3V3 LED feed exists in the netlist I read.
+- Phase E as its own script: none. After phase H's clean-up no stage-3 track or via is flagged dangling.
+
+## Deviations and things to know
+
+1. ~PAYLOAD_FAULT runs on Internal 1 at x 49.85 from y 36.6 to 22.7; it passes under T1's bus-side pads (BM1_N / BM1_P, top) for about 1 mm. Internal 1 was needed to cross the three Internal 2 lanes of the U11 group.
+2. Via in U11's thermal pad (U11_RTN).
+3. VBUS_OUT is 0.4 mm for 9.5 mm (above); the clearance to J5 pad 2 / TP3 on the 1.0 mm run is 0.37 / 0.4 mm.
+4. Minimum clearances used: 0.13 mm in the U11 and U12 groups (rule 0.127 mm); 0.147 mm at two ground vias.
+5. PAYLOAD_EN and ~PAYLOAD_FAULT each cross the core on the bottom (y 17.99 / 17.24, 18 and 16 mm) to reach TP19 and TP35 / R35.
+6. Left as they are, flagged dangling by DRC, all from d30920b: Sofar's GND stub end at (24.27, 5.88), the converter group's VBUS stub (11.22, 10.19), Sofar's ~ADIN_RST Internal 1 remainder, vias at (51.66, 7.16) ADIN_PWR, (28.43, 6.21) U11_RTN, (40.52, 27.88) strap net (open net above), three GND vias, (4.27, 15.89) 5V_LIFEPO4.
+7. Sofar's GND fill and the new GND zone still meet (zone_touch.py: when grown by 1 um). The new zone fills 917 mm2 (48 new vias pass through it).
+
+## Looked at / not looked at
+
+- Looked at, whole board: copper plots of Top, Internal 1, Internal 2, GND plane, Bottom (`plots_final2/`), and the bottom 3D render (`final2_bottom.png`). Seen: BM1 trunks as described; J5 pad 2 on the GND plane with spokes, pad 1 isolated; no track across a pad, no fill island, no copper under connector pads that DRC did not also accept.
+- Not looked at: the PWR-plane plot and the top 3D render (written: `plots_final2/cu_pwr.png`, `final2_top.png`). No QE review, no impedance, thermal or return-path check beyond the arithmetic quoted.
+
+## Next
+
+1. Design session / Nick: U12 placement for the outputs; delete the orphan U11_RTN via; say whether ~PAYLOAD_FAULT on Internal 1 under T1 stands.
+2. Re-plan the south-middle Internal 2 feeds, then MOTOR_nSLEEP, ADIN_TIMER, ADIN_MISO, the strap net, I2C3 as one bus; TP24 ground; PI_5V second path.
+3. Then the two reviews of the brief.

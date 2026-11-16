@@ -30,3 +30,17 @@ Report: `reports/STAGE3_REPORT.md`.
   ~ADIN_RST's via first sat 0.05 mm from Sofar's ADIN_PWR track (DRC clearance error, my pre-check had flagged it); moved to y 10.406.
 - Stopped at 10:30 PM Pacific with 96 connections open (context ran out). Final DRC `drc_final_recheck.json`; renders and plots
   written, not all looked at. Report: `reports/STAGE3_REPORT.md`.
+
+## Stage 3, second session, 2026-11-15 late evening, Pacific
+
+- Phase F (BM1 fix): J5 to (61.9, 10.6), FID4 / FID2 to (62.6, 7.7); BM1_N 2.0 mm on the frozen path under L1; BM1_P 2.0 mm east of L1 with a
+  1.4 mm neck for 2.9 mm. Errors 3 skew + 16 items_not_allowed; 96 unconnected; parity 0; lock PASS (three footprints moved on instruction).
+  Lesson: after `board.Remove()` (or a second `LoadBoard`) pcbnew's Python layer stops returning usable objects; removals now run in a child
+  process, one `GetTracks()` call, nothing queried afterwards.
+- Phase G (U11 group, VBUS_OUT to J5): same errors; 79 unconnected. One pre-check hit (PAYLOAD_EN against a UVLO via) was also a DRC clearance error; lane moved.
+- Phase H (signals, feeds, ground): same errors; 13 unconnected. One short on the way (a ~PAYLOAD_FAULT via on Sofar's ~ADIN_RST Internal 1 track; the
+  pre-check had printed it and I had not read it): via moved, DRC clean. `hint.py` (grid search) proposes corridors only; its first version missed the screw
+  keep-outs (bounding box too small), seen when a proposal ran through one; fixed before anything was placed.
+- Final: DRC `drc_final2.json` 3 + 16 errors, 13 unconnected, parity 0; ERC 39; lock PASS; plots `plots_final2/`, renders `final2_*.png`.
+  Open: U12 outputs (placement), MOTOR_nSLEEP, ADIN_TIMER, ADIN_MISO to R9, strap net to R2 / R47, I2C3 from the header, TP24 ground, orphan U11_RTN via; PI_5V unchanged.
+  Report: `reports/STAGE3_REPORT.md`, second part.
