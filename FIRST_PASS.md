@@ -92,10 +92,37 @@ side: 66 small parts over the whole area. Its last 20 mm at the L1 end are at mo
 - The converter is no longer beside the VIN pin, and the SPI pins P0 to P3 now have the converter 5 mm away on
   their other side.
 
-**Smallest outline that holds everything: mock A, 35.56 x 62.5 mm; mock C is 6 % larger in area but 14 mm shorter.** The converter and the motor
+**Mocks D, E and F** (Nick's ideas, 2026-11-17)
+
+| Mock | Outline | Area | What it is |
+|---|---|---|---|
+| D, tall | 35.56 x 60.5 mm | 2151 mm² | N6 width, through-hole headers. South section of 12 mm: BM1 in the south-west corner, the 5 V converter on the south wall, motor driver and MOTOR connector in the south-east. POT with the ADC in the north-east corner beside L2, BM2 in the north-west corner, QWIIC on the west edge. Side or top entry |
+| E, SMD headers | 45.0 x 54.5 mm | 2453 mm² | surface-mount headers on the N6-facing side, so the top face over the headers is free. Top-entry connectors lying east-west in two columns (BM1, QWIIC, BM2 west; MOTOR, POT east), the 5 V converter over the VIN header, four mounting holes |
+| F, one column | 45.6 x 54.5 mm | 2485 mm² | as E, with all five connectors in one column on the east edge and the motor driver in that column; the 5 V converter alone on the west, over the VIN header |
+
+- **D is the smallest outline so far** and keeps the N6's width. The BM1 bus tracks are about 8 mm long. The motor
+  driver sits on the east as asked, so its three control lines cross the south section from P7 / P8 / P14 on the
+  west header (about 30 mm, below the header rows). The south section's width is fully used (33.7 of 35.56 mm).
+- **E and F: the surface-mount headers fit, with little room.** With KiCad's generic 2x8 SMD socket pattern (pads
+  3.0 x 1.0 mm at 2.52 mm either side of the header centre; the real part is not chosen), the pads reach 4.0 mm
+  inboard of each header centre. The mote block's bottom-side copper and parts between the headers are 19.9 mm wide,
+  the pads leave 21.9 mm: about 1.0 mm each side once the block is moved 0.9 mm east. Not rule-checked.
+- **E and F cannot be only as tall as the N6.** The mote block alone is 47.5 mm against 44.45 mm, and the two
+  mounting holes at the USB end collide with the last header rows unless they sit in a 6 mm strip past the USB end
+  (drawn) or the board gets about 6 mm wider instead. The holes are drawn at 2.7 mm with a 5.1 mm keep-out because
+  the N6's own hole size was not found; smaller holes shrink that strip.
+- **F answers "all connectors on one side".** It is 0.6 mm wider than E. Both bus runs are about 7 mm; the motor
+  driver is beside its connector; only the N6's 5 V feed (0.15 A) and the motor's three control lines cross the
+  board. The converter is beside the VIN pin.
+- Open for E and F: the mated height of 7.3 mm plus wire bend above the shield; the strength of surface-mount
+  headers when the camera hangs from the shield (the shield is screwed to the housing, the N6 hangs on the solder
+  joints); which header part (socket for the N6's pins, or pins soldered into the N6) and its real land pattern.
+
+**Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
-`mock_C_east_wing_side_entry.png`, `mock_C_east_wing_top_entry.png`.
+`mock_C_east_wing_side_entry.png`, `mock_C_east_wing_top_entry.png`, `mock_D_tall_side_entry.png`,
+`mock_D_tall_top_entry.png`, `mock_E_smd_headers_top_entry.png`, `mock_F_one_column_top_entry.png`.
 
 **Connectors, both ways** (JST catalogue sheets eGH.pdf and eSH.pdf, jst-mfg.com, read 2026-11-17):
 
@@ -123,8 +150,9 @@ board under their bodies for pads.
 
 ## 4. Questions for Nick, each with a recommendation
 
-1. **Outline.** Mock A (35.56 x 62.5, N6 width, long), mock B (west wing) or mock C (east wing, 48.6 x 48.5)? *Recommendation: A, the smaller
-   one, unless the enclosure is short.* Is an overhang past the USB end acceptable, and what are the enclosure's
+1. **Outline.** Which mock: A, B, C, D (tall, 35.56 x 60.5), E or F (SMD headers, mounting holes, top wiring)?
+   *Recommendation: F if you want to mount the camera by the shield and plug all harnesses from behind; D if the
+   smallest board matters most.* Is an overhang past the USB end acceptable, and what are the enclosure's
    inner dimensions?
 2. **Connector entry.** Side or top? *Recommendation: top entry on the outer face if the enclosure has 7.3 mm plus
    wire bend behind the shield; otherwise side entry, which costs about 3 mm around the edges.*

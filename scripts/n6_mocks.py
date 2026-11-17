@@ -15,11 +15,12 @@ LAB = {1.56: ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "3V3"], 4.10: ["eth", "e
 USED = {"P0": "MOSI", "P1": "MISO", "P2": "SCK", "P3": "CS", "P4": "SCL", "P5": "SDA", "P7": "IN1", "P8": "IN2", "P9": "INT",
         "P13": "A_PWR", "P14": "SLP", "P6": "RST", "VIN": "5V", "GND": "", "3V3": ""}
 BX0, BY0 = 124.85, 95.88                   # block frame origin on the starting board (L2 end, north copper edge)
+G = {'XOFF': 32.13}
 YOFF, XOFF = 1.0, 32.13                    # block L1 end at y = 1.0; block north edge at X' = 32.13
-def blk(mx, my): return (XOFF - my, YOFF + 47.48 - mx)   # block frame -> (X', y): quarter turn, no mirror
+def blk(mx, my): return (G['XOFF'] - my, YOFF + 47.48 - mx)   # block frame -> (X', y): quarter turn, no mirror
 class Svg:
     def __init__(s, x0, y0, x1, y1, title):
-        s.x0, s.y1 = x0 - 6, y1 + 5; s.w = (x1 - x0 + 12) * S; s.h = (y1 - y0 + 20) * S
+        s.x0, s.y1 = x0 - 6, y1 + 5; s.w = max((x1 - x0 + 12) * S, 640); s.h = (y1 - y0 + 20) * S
         s.o = ['<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" font-family="Helvetica,Arial" font-size="11">' % (s.w, s.h),
                '<rect width="100%" height="100%" fill="white"/>', '<text x="12" y="22" font-size="17" font-weight="bold">%s</text>' % title]
     def p(s, X, y): return ((X - s.x0) * S, (s.y1 - y) * S)
@@ -36,14 +37,18 @@ class Svg:
         for i, t in enumerate(lines): s.o.append('<text x="12" y="%d" font-size="12">%s</text>' % (s.h - 14 * (len(lines) - i) + 4, t))
     def save(s, name):
         open(os.path.join(out, name), "w").write("\n".join(s.o + ["</svg>"])); print(name, "%d x %d px" % (s.w, s.h))
-def n6(s):
+def n6(s, smd=False):
     s.rect(0, 0, N6W, N6L, stroke="#1565c0", sw=2, dash="7 4")
+    if smd:   # KiCad PinSocket_2x08_P2.54mm_Vertical_SMD land pattern: pads 3.0 x 1.0 at +-2.52 from the header centre, bottom face
+        for hc in (2.83, 32.73):
+            for ry in ROWY:
+                for d in (-2.52, 2.52): s.rect(N6W - hc + d - 1.5, ry - 0.5, N6W - hc + d + 1.5, ry + 0.5, fill="#c5e1a5", stroke="#558b2f", sw=0.6, dash="2 1", op=0.7)
     for cx in COLX:
         for i, ry in enumerate(ROWY):
             l = LAB[cx][i]; X = N6W - cx; u = l in USED
-            s.circ(X, ry, 0.85, "#2e7d32" if u else "#bdbdbd", "black")
+            s.circ(X, ry, 0.45 if smd else 0.85, "#2e7d32" if u else "#bdbdbd", "black")
             outer = cx in (1.56, 33.96)
-            if outer: s.text(X + (1.3 if X > 18 else -1.3), ry, l + ((" " + USED[l]) if USED.get(l) else ""), 8, "start" if X > 18 else "end", "#1b5e20" if u else "#757575")
+            if outer and not smd: s.text(X + (1.3 if X > 18 else -1.3), ry, l + ((" " + USED[l]) if USED.get(l) else ""), 8, "start" if X > 18 else "end", "#1b5e20" if u else "#757575")
 def profile():
     """Per 1 mm slice along the block: extent across it of Sofar's copper and footprints (block frame, mm)."""
     sl = {}
@@ -147,5 +152,66 @@ def mock_c(entry):
     legend(s, entry, "48.6 x 48.5 mm = 2357 mm2 (N6: 1581 mm2). 13 mm wider on the P0 side, 4 mm past the camera end.",
            "Dashed red = BM1 bus tracks in the 2.1 mm channel beside the block (to prove); dotted = 5 V to VIN. ADC on the N6-facing side.")
     s.save("mock_C_east_wing_%s_entry.svg" % entry)
-for e in ("side", "top"): mock_a(e); mock_b(e); mock_c(e)
+def hole(s, X, y):
+    s.circ(X, y, 2.55, "#eeeeee", "#616161"); s.circ(X, y, 1.35, "white", "black")
+def mock_d(entry):
+    """Nick, 2026-11-17: grow taller, not wider. 5 V on the south wall, BM1 in the south-west corner, pot + ADC + motor on the east."""
+    s = Svg(-4, -13, N6W + 4, 49.5, "Mock D (%s-entry JST): taller, 35.56 x 60.5 mm" % entry)
+    s.rect(0, -12, N6W, 48.5, sw=3, rx=1); n6(s); mote(s)
+    i = 0 if entry == "side" else 0.6
+    group(s, 9.2, -11.2, 12.6, 10.2, "5 V: U10 + L6", "#c62828", (8.9, -11.7, 23.2, -0.3, "U10 copper 163 mm2 / face"))
+    group(s, 23.8, -10.6, 6.5, 9.4, "U12", "#283593", (23.5, -11.7, 35.2, -0.3, "U12 133 mm2 / face"))
+    conn(s, "BM1", 0.4, -12 + i, "x", 4, "GH", entry); conn(s, "MOTOR", N6W - i, -10.4, "y", 4, "GH", entry)
+    conn(s, "POT", 27.6, 48.5 - i, "x", 3, "GH", entry); conn(s, "BM2", 1.6, 48.5 - i, "x", 4, "GH", entry); conn(s, "QWIIC", i, 28.0, "y", 4, "SH", entry)
+    group(s, 26.8, 36.5, 5.3, 4.6, "ADC", "#6d4c41"); s.text(3.0, 38.5, "LEDs", 9, rot=-90)
+    s.line([(14.5, 2.0), (8.0, -3.0), (4.5, -6.0)], "#d50000", 2.0, "6 3"); s.text(4.6, -2.0, "BM1 8 mm", 9, fill="#d50000")
+    legend(s, entry, "35.56 x 60.5 mm = 2151 mm2 (N6: 1581 mm2). 12 mm past the USB end, 4 past the camera end.",
+           "Dashed red = BM1 bus tracks, about 8 mm. ADC on the N6-facing side beside the pot connector.")
+    s.save("mock_D_tall_%s_entry.svg" % entry)
+def mock_e():
+    """Nick, 2026-11-17: top-entry connectors lying east-west in two columns, surface-mount headers on the N6-facing
+    side, the 5 V converter over a header, four mounting holes."""
+    G['XOFF'] = 33.03     # block 0.9 mm east: about 1.0 mm from its bottom-side copper to the header pads on both sides
+    W0, E = -4.0, 41.0
+    s = Svg(W0 - 2, -7, E + 2, 49.5, "Mock E: SMD headers below, top-entry JST in two columns, 4 holes. 45.0 x 54.5 mm")
+    s.rect(W0, -6, E, 48.5, sw=3, rx=1); n6(s, smd=True); mote(s)
+    for X, y in ((W0 + 3, -3), (E - 3, -3), (W0 + 3, 45.5), (E - 3, 45.5)): hole(s, X, y)
+    c = lambda name, X, y, n=4, k="GH": conn(s, name, X, y, "x", n, k, "top")
+    c("BM1", -3.4, 6.2); c("QWIIC", -2.3, 11.8, 4, "SH"); c("BM2", -3.4, 40.6)
+    group(s, -3.4, 16.4, 10.2, 12.6, "5 V: U10 + L6", "#c62828", (-3.7, 15.9, 7.0, 34.0, "U10 copper 194 mm2 / face"))
+    c("MOTOR", 30.3, 6.2); c("POT", 30.9, 11.8, 3)
+    group(s, 34.0, 21.5, 6.5, 9.4, "U12", "#283593", (33.7, 21.0, 40.7, 34.0, "U12 91 mm2 / face"))
+    group(s, 34.2, 35.0, 5.7, 6.5, "ADC", "#6d4c41")
+    s.line([(14.0, 6.0), (8.0, 8.7), (5.0, 8.7)], "#d50000", 2.0, "6 3")
+    s.note(["Shield (thick black): 45.0 x 54.5 mm = 2453 mm2 (N6: 1581 mm2). 9.4 mm wider, 6 mm past the USB end, 4 past the camera end.",
+            "View from behind the camera, camera end up. Dashed blue = N6 outline 35.56 x 44.45 mm.",
+            "Pale green = surface-mount header pads on the N6-facing side (KiCad's generic 2x8 SMD socket pattern); dots = pins.",
+            "Orange = mote block top-side parts; grey = its bottom-side parts; pale orange = Sofar's copper.",
+            "Green = JST top entry lying east-west: GH 8.25 x 4.95 mm, mated 7.3 mm high (L1 / L2: 6.0 mm).",
+            "Grey rings = 4 mounting holes, drawn 2.7 mm with a 5.1 mm keep-out (N6 hole size not found). The lower two need the 6 mm strip.",
+            "ADC on the N6-facing side. Dashed red = BM1 bus tracks, about 9 mm."])
+    s.save("mock_E_smd_headers_top_entry.svg"); G['XOFF'] = 32.13
+def mock_f():
+    """Nick, 2026-11-17: as mock E, with all five connectors in one column on the east side."""
+    G['XOFF'] = 33.03
+    W0, E = -3.2, 42.4
+    s = Svg(W0 - 2, -7, E + 2, 49.5, "Mock F: as E, all connectors in one east column. 45.6 x 54.5 mm")
+    s.rect(W0, -6, E, 48.5, sw=3, rx=1); n6(s, smd=True); mote(s)
+    for X, y in ((W0 + 3, -3), (E - 3, -3), (W0 + 3, 45.5), (E - 3, 45.5)): hole(s, X, y)
+    c = lambda name, y, n=4, k="GH": conn(s, name, 33.5, y, "x", n, k, "top")
+    c("BM1", 0.4); c("POT", 5.95, 3); c("QWIIC", 11.5, 4, "SH"); c("MOTOR", 15.7); c("BM2", 41.3)
+    group(s, 33.7, 21.6, 6.5, 9.4, "U12", "#283593", (33.4, 21.2, 41.9, 34.0, "U12 109 mm2 / face"))
+    group(s, 34.0, 32.3, 5.7, 3.6, "ADC", "#6d4c41")
+    group(s, -2.8, 7.6, 10.2, 12.6, "5 V: U10 + L6", "#c62828", (-2.9, 6.0, 7.4, 26.0, "U10 copper 206 mm2 / face"))
+    s.line([(26.8, 4.0), (33.4, 2.9)], "#d50000", 2.0, "6 3"); s.line([(27.3, 40.0), (33.4, 38.8)], "#d50000", 2.0, "6 3")
+    s.note(["Shield (thick black): 45.6 x 54.5 mm = 2485 mm2 (N6: 1581 mm2). 10 mm wider, 6 mm past the USB end, 4 past the camera end.",
+            "View from behind the camera, camera end up. Dashed blue = N6 outline 35.56 x 44.45 mm.",
+            "Pale green = surface-mount header pads on the N6-facing side (KiCad's generic 2x8 SMD socket pattern); dots = pins.",
+            "Orange = mote block top-side parts; grey = its bottom-side parts; pale orange = Sofar's copper.",
+            "Green = JST top entry, all five in one column on the east: GH 8.25 x 4.95 mm, mated 7.3 mm high.",
+            "Grey rings = 4 mounting holes, drawn 2.7 mm with a 5.1 mm keep-out (N6 hole size not found).",
+            "ADC on the N6-facing side. Dashed red = BM1 and BM2 bus tracks, about 7 mm each. 5 V converter over the VIN header."])
+    s.save("mock_F_one_column_top_entry.svg"); G['XOFF'] = 32.13
+for e in ("side", "top"): mock_a(e); mock_b(e); mock_c(e); mock_d(e)
+mock_e(); mock_f()
 print("gap block to inner header pads, mm:", {k: round(v, 2) for k, v in header_gap().items()})
