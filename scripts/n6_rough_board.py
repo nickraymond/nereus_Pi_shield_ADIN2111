@@ -1,0 +1,95 @@
+"""Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F>
+What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
+the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
+holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
+mechanical mock, not a design. Frame: KiCad x = 100 + X', KiCad y = 100 - y (X', y as in n6_mocks.py); the drill
+origin is the N6's corner at the USB end on the VIN side."""
+import sys, pcbnew
+path, refpath, mock = sys.argv[1:4]
+assert "NereusData" in path, "scratch copies only"
+mm, MM = pcbnew.ToMM, pcbnew.FromMM
+K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
+OX = OY = 100.0
+XOFF = 32.13 if mock == "D" else 33.03; YOFF = 1.0
+b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
+V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
+fps = {f.GetReference(): f for f in b.GetFootprints()}
+rf = {f.GetReference(): f for f in r.GetFootprints()}
+core = [f for n, f in fps.items() if n in rf and f.GetPosition() == rf[n].GetPosition() and f.GetLayer() == rf[n].GetLayer()
+        and abs(f.GetOrientationDegrees() - rf[n].GetOrientationDegrees()) < 0.1]
+assert len(core) == 81, len(core)
+def tkey(t):
+    if t.Type() == pcbnew.PCB_VIA_T: return ("v", t.GetPosition().x, t.GetPosition().y)
+    p = sorted([(t.GetStart().x, t.GetStart().y), (t.GetEnd().x, t.GetEnd().y)]); return ("t", t.GetLayer(), p[0], p[1], t.GetWidth())
+refkeys = {tkey(t) for t in r.GetTracks()}
+tracks = list(b.GetTracks()); coretr = [t for t in tracks if tkey(t) in refkeys]; othertr = [t for t in tracks if tkey(t) not in refkeys]
+def cbox(f):
+    cy = f.GetCourtyard(pcbnew.F_CrtYd if f.GetLayer() == pcbnew.F_Cu else pcbnew.B_CrtYd)
+    q = cy.BBox() if cy.OutlineCount() else f.GetBoundingBox(False)
+    return [mm(q.GetLeft()), mm(q.GetTop()), mm(q.GetRight()), mm(q.GetBottom())]
+def gbox(fl):
+    bs = [cbox(f) for f in fl]; return [min(q[0] for q in bs), min(q[1] for q in bs), max(q[2] for q in bs), max(q[3] for q in bs)]
+def place(fl, X0, y0, rot=0, extra=()):
+    """Move a rigid group so that its courtyard box has its lower-left corner at (X', y) = (X0, y0), after turning it rot degrees."""
+    if rot:
+        g = gbox(fl); c = V((g[0] + g[2]) / 2, (g[1] + g[3]) / 2)
+        for o in list(fl) + list(extra): o.Rotate(c, pcbnew.EDA_ANGLE(rot, pcbnew.DEGREES_T))
+    g = gbox(fl); d = V(OX + X0 - g[0], OY - y0 - g[3])
+    for o in list(fl) + list(extra): o.Move(d)
+    g = gbox(fl); return "X' %.2f..%.2f, y %.2f..%.2f" % (g[0] - OX, g[2] - OX, OY - g[3], OY - g[1])
+# 1. the mote block: quarter turn, L1 end at the USB end, the ADIN's SPI side towards the P0..P3 column (higher X')
+for ang in (-90, 90):
+    g = gbox(core); c = V((g[0] + g[2]) / 2, (g[1] + g[3]) / 2)
+    for o in core + coretr: o.Rotate(c, pcbnew.EDA_ANGLE(ang, pcbnew.DEGREES_T))
+    u1 = fps["U1"]; spi = [p for p in u1.Pads() if "ADIN_SCK" in p.GetNetname()][0]
+    ok = fps["L1"].GetPosition().y > fps["L2"].GetPosition().y and spi.GetPosition().x > u1.GetPosition().x
+    if ok: break
+    for o in core + coretr: o.Rotate(c, pcbnew.EDA_ANGLE(-ang, pcbnew.DEGREES_T))
+assert ok, "no quarter turn gives L1 at the USB end with SPI towards P0..P3"
+g = gbox(core); d = V(OX + XOFF - 2.22 - g[2], OY - YOFF - g[3])     # block frame: courtyards start 2.22 mm inside the copper edge
+for o in core + coretr: o.Move(d)
+g = gbox(core); print("mote block turned %d deg: X' %.2f..%.2f, y %.2f..%.2f" % (ang, g[0] - OX, g[2] - OX, OY - g[3], OY - g[1]))
+# 2. our groups
+G = lambda s: [fps[n] for n in s.split()]
+conv, motor, adc = G("U10 L6 C53 C54 C55 C56 C57 C58 R37 R38 R39 R40"), G("U12 C60 C61 C62 C63 C64 C66 R48"), G("U13 C65 C67 R49 R50 R51")
+def lib(libname, name, ref, val, bottom=False):
+    f = pcbnew.FootprintLoad(K + libname + ".pretty", name); f.SetReference(ref); f.SetValue(val); b.Add(f)
+    f.SetPosition(V(OX, OY))
+    if bottom: f.Flip(f.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
+    return f
+GH4, GH3, SH4 = "JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical", "JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical", "JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical"
+def conn(name, ref, val, X0, y0, rot=0): print(val, place([lib("Connector_JST", name, ref, val)], X0, y0, rot))
+def header(ref, Xc, smd):
+    f = lib("Connector_PinHeader_2.54mm", "PinHeader_2x08_P2.54mm_Vertical" + ("_SMD" if smd else ""), ref, "N6 header, pins soldered to the N6", bottom=True)
+    ps = [p.GetPosition() for p in f.Pads()]; cx = sum(p.x for p in ps) / len(ps); cy = sum(p.y for p in ps) / len(ps)
+    f.Move(pcbnew.VECTOR2I(int(MM(OX + Xc) - cx), int(MM(OY - 10.48) - cy)))
+    xs = sorted({round(mm(p.GetPosition().x) - OX, 2) for p in f.Pads()}); print(ref, "pad columns X'", xs)
+if mock == "D":
+    W0, E, S0, N0 = 0.0, 35.56, -12.0, 48.5
+    print("5 V", place(conv, 10.2, -11.2, 90)); print("motor (N6-facing side, under the MOTOR connector's edge)", place(motor, 23.2, -10.6)); print("ADC", place(adc, 26.8, 42.3))
+    conn(GH4, "J10", "BM1", 0.3, -11.7); conn(GH4, "J7", "MOTOR", 28.67, -10.6, 90); conn(GH3, "J8", "POT", 27.05, 41.6)
+    conn(GH4, "J9", "BM2", 1.6, 41.6); conn(SH4, "J3", "QWIIC", 0.6, 28.0, 90)
+    header("J21", 2.83, False); header("J22", 32.73, False); holes = []
+else:
+    W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
+    print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))
+    conn(GH4, "J10", "BM1", 33.5, 0.3); conn(GH3, "J8", "POT", 33.5, 7.2); conn(SH4, "J3", "QWIIC", 33.5, 14.1)
+    conn(GH4, "J7", "MOTOR", 33.5, 19.6); conn(GH4, "J9", "BM2", 33.5, 35.5)
+    header("J21", 2.83, True); header("J22", 32.73, True)
+    holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
+for i, (X, y) in enumerate(holes):
+    f = lib("MountingHole", "MountingHole_2.7mm_M2.5", "H%d" % (i + 1), "2.7 mm hole (size to confirm)"); f.SetPosition(V(OX + X, OY - y))
+# 3. outline and origin
+old_edges = [d for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
+rc = pcbnew.PCB_SHAPE(b); rc.SetShape(pcbnew.SHAPE_T_RECTANGLE); rc.SetLayer(pcbnew.Edge_Cuts); rc.SetWidth(MM(0.1))
+rc.SetStart(V(OX + W0, OY - N0)); rc.SetEnd(V(OX + E, OY - S0)); b.Add(rc)
+b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
+print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
+# 4. removals last (pcbnew objects go stale after Remove: nothing is queried afterwards)
+keep = {f.GetReference() for f in core + conv + motor + adc} | {"J21", "J22", "H1", "H2", "H3", "H4"}
+gone = [f for n, f in fps.items() if n not in keep]
+print("removed footprints:", " ".join(sorted(f.GetReference() for f in gone)))
+zones = list(b.Zones())
+for o in gone + othertr + zones + old_edges: b.Remove(o)
+pcbnew.SaveBoard(path, b); print("saved", path)

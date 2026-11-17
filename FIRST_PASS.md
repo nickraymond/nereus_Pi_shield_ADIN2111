@@ -118,6 +118,25 @@ side: 66 small parts over the whole area. Its last 20 mm at the L1 end are at mo
   headers when the camera hangs from the shield (the shield is screwed to the housing, the N6 hangs on the solder
   joints); which header part (socket for the N6's pins, or pins soldered into the N6) and its real land pattern.
 
+**Rough boards and STEP files for mock D (top entry) and mock F** (Nick, 2026-11-17: "get me STEP files from KiCAD
+with the rough layout"; header choice: "Pins soldered to the N6"). `scripts/n6_rough_board.py` builds them on scratch
+copies outside git (`n6_shield/step_rough/`): the mote block turned as one group with Sofar's tracks, the converter,
+motor driver and ADC groups, KiCad's library footprints for the top-entry JST parts, pin headers on the N6-facing
+side (surface-mount on F) and four 2.7 mm holes on F. No zones, no routing of ours, small parts of ours left out.
+What the real footprints showed:
+- The top-entry JST land patterns are larger than the bodies drawn in the mocks: GH 4-pin 9.55 x 6.69 mm with its
+  solder tabs, GH 3-pin 8.29 x 6.69, SH 4-pin 7.89 x 5.29 (courtyards of KiCad's footprints).
+- **Mock D** still fits 35.56 x 60.5 mm, but only with the motor driver on the N6-facing side partly under the MOTOR
+  connector; the south section is full.
+- **Mock F** grows to 46.5 x 54.5 mm (2534 mm²); the five connectors fill the east column from the USB end to L2.
+- On F the 5 V converter's three bottom-side parts (C53, R37, R38) land on the west header's pads: they must move
+  to the top face when the converter is laid out again.
+- **Gap between the boards, to check first in CAD.** A plain 2.54 mm pin header holds the boards about 2.5 mm apart
+  (KiCad's model; the real part is not chosen). The N6's tallest back-side part is 2.09 mm (S5) and the mote's
+  bottom-side parts face it. A taller spacer header may be needed.
+- The STEP origin is the N6's board corner at the USB end on the VIN side; +X towards the P0 column, +Y towards
+  the camera end. U12's 3D model file is missing from the project, so the 2 x 2 mm chip is not in the STEP.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
