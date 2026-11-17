@@ -1,5 +1,11 @@
 # CLAUDE.md — nereus_Pi_shield_ADIN2111
 
+## Branches (2026-11-17)
+
+This is the `development` branch: docs, tools, references and experiment history. Boards are edited on their own
+branches (`pi-zero-side-entry`, `pi-zero-top-entry-incomplete`, `pi-full`); `main` is the release. Read
+`START_HERE.md` for the map. The board folders on this branch are reference snapshots.
+
 ## Start here, every session
 
 This repo runs on the agent discipline in **docs/TRACKER.md**. Before any other

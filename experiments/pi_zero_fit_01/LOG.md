@@ -415,3 +415,15 @@ Built in the order 1, 3, 4, 2: job 2 moves a via of the frozen board, so it is t
 - After the last job: renders `s12_render_top.png` / `s12_render_bottom.png` (2400 x 1600), plots `plots_final/`, six-layer crops
   `look/final_six_row_w.png`, `_row_e.png`, `_f1.png`, `_pwm.png`, render crops `s12_crop_row_w_top.png`, `s12_crop_row_e_bottom.png`, `s12_crop_f1.png`,
   `job4_logo_area.png`: looked at.
+
+## Stage 21 (top-entry connectors), 2026-11-17 morning, Pacific
+
+Scripts: `scripts/stage21_top_entry/` (`run.sh build`). Outputs: `~/NereusData/nereus_Pi_shield_ADIN2111/pi_zero_fit_2026-11-15/stage21_top_entry/`.
+- The stock vertical GH / SH footprints put the signal pads SOUTH of the body and the mounting pads north (rotation 0 keeps pin 1 west).
+  The new pads land where the side-entry bodies covered the board, and Stage 3 put other-net vias there. `fit21.py` (`fit21.txt`):
+  J7 (MOTOR_IN2 (7.0, 38.0), 5V_PI (8.05, 37.9), MOTOR_nSLEEP (4.4, 38.62), SPI_CFG1 (10.85, 33.8) vias), J8 (GND (28.6, 33.3), MOTOR_VISEN
+  (21.6, 34.55) vias on the mounting pads), J3 (VBUS via (44.5, 37.45) between pads 1 / 2), J10 (GND (55.5, 37.33), U11-UVLO (53.6, 38.07),
+  PAYLOAD_EN (55.6, 38.07), U11_RTN (51.9, 35.4), GND (50.8, 34.1) vias) have no clean site at their x up to 3 mm north: left side-entry.
+- J9 only: BM04B-GHS-TBT at (16.375, 36.15), x + 0.15 (the CFG0_STRAP via at (11.7, 33.6) touched the west mounting pad at the old x).
+  BM2 trunks to the new pads; BM2_N necks to 1.4 mm round the GND via (15.5, 35.45). Board text 'J9' 0.42 mm north. Schematic J9 fields.
+- Gates: DRC 3 + 16 errors, 634 warnings, same counts per type, 0 unconnected, parity 0; ERC the same 3 warnings; `lock21.py` PASS.

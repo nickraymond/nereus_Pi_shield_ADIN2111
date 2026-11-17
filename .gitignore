@@ -21,3 +21,6 @@ docs/design-review/out/
 # Python bytecode
 __pycache__/
 /Nereus_Pi_Shield_Adin2111/.history
+
+# KiCad local history
+.history/
