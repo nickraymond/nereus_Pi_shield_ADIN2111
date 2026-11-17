@@ -1,46 +1,8 @@
-# CLAUDE.md — nereus_Pi_shield_ADIN2111
+# CLAUDE.md (board branch)
 
-## Start here, every session
+This branch holds one board and nothing else. The project rules, docs, tools and the session ritual live on the
+`development` branch: read its `CLAUDE.md`, `START_HERE.md` and `docs/TRACKER.md` before doing any work.
 
-This repo runs on the agent discipline in **docs/TRACKER.md**. Before any other
-work: run **/agent-entry** (or follow the Rules for Agents at the top of
-docs/TRACKER.md). Owner and approval gate: **Nick**.
-
-Docs map — read per the ritual, don't skip it:
-
-- `docs/SPEC.md` — goal; verified facts; hard constraints; open questions
-- `docs/TRACKER.md` — rules + sprint ladder (the entry point, the only progress record)
-- `docs/DESIGN.md` — sheet hierarchy, pin map, decision log, ERC/net-check results
-- `docs/POWER_PATH.md` — 50 W power path trade study, deferred to a later revision (this
-  board keeps the mote's ~20 W path, DESIGN D12)
-- `docs/SOFAR_QUESTIONS.md` — open questions for Sofar and their answers
-- `docs/DEV_LOG.md` — session log, newest first
-- `docs/PROMPTS.md` — Nick's kickoff prompts
-- `docs/design-review/sofar_brief.md` — every change from Sofar's mote and why (ships with the board)
-- `pi-shield-checklist.html` — shared visual view of TRACKER; keep it in sync every PR
-- `.claude/agents/quality-engineer.md` — read-only QE reviewer; reviews every PR
-  before Nick's KiCad review (reports in `docs/design-review/qe/`)
-
-Layout: `Nereus_Pi_Shield_Adin2111/` is the live KiCad project, the board ordered at JLC (DESIGN D57); `tools/check.sh`
-runs every check; `docs/design-review/` holds check outputs;
-`KiCAD_reference_designs/` and `Archive/` are read-only.
-
-## Engineering values (apply to every bite)
-
-1. **Boring, debuggable engineering.** Small edits, explicit nets, visible
-   checks, plain formats. Build for the current sprint, not an imagined future.
-2. **Reuse before rewriting.** Copy proven mote blocks before designing new
-   ones; document what was reused. A new design needs a measurable reason.
-3. **Never invent facts.** Part values, ratings, pinouts: verify against
-   datasheets or measure, else flag in SPEC.md §Open questions.
-4. **Trust artifacts, not exit codes.** A schematic edit is done when kicad-cli
-   loads it, ERC runs and the net diff shows only the intended change.
-5. **One variable at a time.** Record the known-good baseline before changing it.
-6. **Fail loudly and usefully.** Errors carry context and a recovery hint;
-   partial failure never destroys good data.
-7. **KiCad runtime rules.** KiCad stays closed while an agent edits; checks run
-   through kicad-cli; no agent ever writes a `.kicad_pcb`, except a layout experiment's own board inside
-   `experiments/<name>/` (DESIGN D31), never merged into the live project. The JLC board in `Nereus_Pi_Shield_Adin2111/` is edited only by scripted steps on Nick's go (D33, D54) and is frozen since 2026-11-11: no copper, part, outline or silkscreen change without a new word from Nick.
-8. **Hard constraints in SPEC.md are absolute.**
-
-> Never trust a script just because it exits successfully. Trust the artifacts.
+Rules that apply here in any case: Nick is the owner and approval gate; KiCad stays closed while an agent edits;
+no agent changes the board, schematic or rule files without Nick's go in his own words; never push without asking;
+never invent facts. Outputs (gerbers, reports, renders) go to `~/NereusData/nereus_Pi_shield_ADIN2111/`, not into git.

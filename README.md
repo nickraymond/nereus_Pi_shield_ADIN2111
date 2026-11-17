@@ -1,27 +1,13 @@
-# nereus_Pi_shield_ADIN2111
+# Pi Zero Shield ADIN2111, top-entry connector variant: INCOMPLETE, DO NOT BUILD
 
-A Raspberry Pi Zero 2W shield built from a copy of the Sofar Bristlemouth mote:
-ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus, 5 V for the Pi,
-a 24 V payload port, and the Sofar mote's power path unchanged except the payload load switch (D17) (~20 W absolute
-max, 890 mA per port inductor at 24 V; 50 W in a later revision). Potted.
+Branch `pi-zero-top-entry-incomplete`. A stopped attempt (2026-11-17) to change the five south-wall JST connectors
+of the Pi Zero shield from side entry to top entry. One of five is done (J9, BM2); J7, J8, J3 and J10 are still
+side entry, so this board is a mix and must not be ordered.
 
-Claude Code does the schematic capture, up to a design-review package. Nick
-reviews, lays out, routes and brings up the board.
+Read `Pi_Zero_Shield_ADIN2111_top_entry/TOP_ENTRY_VARIANT.md`: what blocks each connector, the JLC part numbers
+for the top-entry parts, and the suggested next steps. The scripts of the attempt are on the `development` branch
+under `experiments/pi_zero_fit_01/scripts/stage21_top_entry/`.
 
-## Folders
+The board that ships is on `pi-zero-side-entry`. Docs, tools and references are on `development`.
 
-```
-Nereus_Pi_Shield_Adin2111/   live KiCad 10 project, the board ordered at JLC — open Nereus_Pi_Shield_Adin2111.kicad_pro
-docs/                        spec, tracker, design log, power-path study
-docs/design-review/          ERC, netlist, PDF and the review package
-KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)
-Archive/                     earlier iterations, junction fix (read-only)
-pi-shield-checklist.html     shared visual view of docs/TRACKER.md (open in a browser)
-```
-
-## Working on it
-
-- Agents: start with `CLAUDE.md`, then `/agent-entry`.
-- People: `docs/TRACKER.md` shows where things stand; `docs/SPEC.md` says what
-  we're building and why.
-- Close KiCad before an agent edits the project.
+To look at it: open `Pi_Zero_Shield_ADIN2111_top_entry/Nereus_Pi_Shield_Adin2111.kicad_pro` in KiCad 10.
