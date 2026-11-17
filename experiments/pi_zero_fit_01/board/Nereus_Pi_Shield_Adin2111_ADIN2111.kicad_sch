@@ -3248,7 +3248,7 @@
 		)
 		(uuid "888b4238-a826-4e39-ad8f-23990ca09fe8")
 	)
-	(text "ADIN status LEDs (D25): D8 red = ADIN powered (ADIN_VDDIO on).\nD9 / D10 yellow-green = port 1 / port 2 link/activity, ADIN pins 21 / 48, active low.\nOff until the Pi enables each port's LED_1 over SPI; port 2 is also asleep until woken.\nR3 / R5 keep the TX2P4_EN straps high (1.0 V p-p). Cut JP2 to disable all three LEDs."
+	(text "ADIN status LEDs (D25): \n\nD8 red = ADIN powered (ADIN_VDDIO on).\nD9 / D10 yellow-green = port 1 / port 2 link/activity, ADIN pins 21 / 48, active low.\nOff until the Pi enables each port's LED_1 over SPI; port 2 is also asleep until woken.\nR3 / R5 keep the TX2P4_EN straps high (1.0 V p-p). Cut JP2 to disable all three LEDs.\nCut JP2 to disable LEDs"
 		(exclude_from_sim no)
 		(at 285.75 228.6 0)
 		(effects
