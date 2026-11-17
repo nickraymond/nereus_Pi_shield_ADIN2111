@@ -146,7 +146,7 @@ only (`n6_rough_board.py ... G`), 3 mm corner radius:
 - West wall, top face, from the USB end: MOTOR, BM1, QWIIC, BM2, with **7.5 mm clear between land patterns**
   (pitch about 14 mm). BM1 sits beside L1 and BM2 beside L2.
 - South wall (11.3 mm past the USB end): motor driver (N6-facing side) under the MOTOR connector's corner, then the
-  5 V converter with L6, then POT with the ADC under it. The converter is 6 mm from VIN, the motor driver 8 mm
+  5 V converter with L6, then POT with the ADC under it. The converter is about 10 mm from VIN, the motor driver about 8 mm
   from P7 / P8: nothing crosses the board any more except SPI, which was already short.
 - The 7.5 mm is my choice, not a sourced figure. The reference Nick named is BotBlox's "SwitchBlox for Ardupilot"
   (BM04B-GHS-TBT top-entry headers, per a reseller page, bzbuas.com, read 2026-11-17); no dimensioned drawing of it
