@@ -625,8 +625,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": {},
-    "netclass_assignments": {},
+    "net_colors": null,
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -1999,7 +1999,7 @@
         "uuid": "30e82bf5-1344-486b-817c-02d3b0649ce4"
       }
     ],
-    "used_designators": "#FLG4-9,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-94,C59,F1,J2-4,J6,JP3-4,R9-10,R24,R36,R47",
+    "used_designators": "#FLG4-9,J2-4,J6,R9-10,R24,R36,R47,#PWR4,#PWR6-7,#PWR11-13,#PWR48,#PWR61,#PWR65,#PWR77-78,#PWR80,#PWR84-94,C59,F1,JP3-4",
     "variants": []
   },
   "sheets": [

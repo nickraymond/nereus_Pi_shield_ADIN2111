@@ -278,14 +278,14 @@
 		)
 		(uuid "fdf8189b-fcbf-5c89-97c3-216ad1c298d0")
 	)
-	(text_box "The Bristlemouth Mote Board is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License.  The Bristlemouth trademarks and the Bristlemouth logo are registered and unregistered marks belonging to Sofar Ocean Technologies, Inc., and are not included under the Creative Commons license.\nhttps://creativecommons.org/licenses/by-nd/4.0/legalcode"
+	(text_box "This board is based on the Bristlemouth Mote Board. The Bristlemouth Mote Board is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License.  The Bristlemouth trademarks and the Bristlemouth logo are registered and unregistered marks belonging to Sofar Ocean Technologies, Inc., and are not included under the Creative Commons license.\nhttps://creativecommons.org/licenses/by-nd/4.0/legalcode"
 		(exclude_from_sim no)
-		(at 300.99 243.84 0)
-		(size -208.28 21.844)
+		(at 92.71 243.84 0)
+		(size 208.28 21.844)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 			(color 0 0 0 1)
 		)
 		(fill
@@ -12023,7 +12023,7 @@
 				)
 				(uuid "e7374bec-2c77-5375-8756-375476ab48bf")
 			)
-			(table_cell "0.5 A"
+			(table_cell "0.5 A / 2.5 W"
 				(exclude_from_sim no)
 				(at 194.43 212.16 0)
 				(size 38 3.96)

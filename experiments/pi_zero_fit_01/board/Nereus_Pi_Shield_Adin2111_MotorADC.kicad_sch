@@ -2196,7 +2196,7 @@
 	)
 	(text "JST-GH pins rated for 1A"
 		(exclude_from_sim no)
-		(at 242.062 104.648 0)
+		(at 256.332 105.018 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2217,7 +2217,7 @@
 	)
 	(text "MOTOR"
 		(exclude_from_sim no)
-		(at 234.65 83.45 0)
+		(at 248.92 83.82 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2281,7 +2281,7 @@
 	)
 	(text_box "TEST POINTS"
 		(exclude_from_sim no)
-		(at 260.35 50.8 0)
+		(at 289.79 58.01 0)
 		(size 80 6.35)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -2331,7 +2331,7 @@
 		(uuid "86efc083-1379-4448-8e4b-4662c0e11de2")
 	)
 	(junction
-		(at 230.84 91.07)
+		(at 245.11 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9498b213-a05d-416a-a5e0-a2a4fa240d8b")
@@ -2343,7 +2343,7 @@
 		(uuid "9e363cbe-bb8e-42ec-9cf1-d878f0c53ecf")
 	)
 	(junction
-		(at 230.84 96.15)
+		(at 245.11 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c5f61125-bc6b-4888-8065-6edf9dedac43")
@@ -2422,7 +2422,7 @@
 	)
 	(wire
 		(pts
-			(xy 270.32 67.72) (xy 270.32 70.26)
+			(xy 299.76 74.93) (xy 299.76 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2442,7 +2442,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.38 98.69) (xy 230.84 98.69)
+			(xy 247.65 99.06) (xy 245.11 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2502,7 +2502,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.38 93.61) (xy 230.84 93.61)
+			(xy 247.65 93.98) (xy 245.11 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2522,7 +2522,7 @@
 	)
 	(wire
 		(pts
-			(xy 292.32 67.72) (xy 292.32 70.26)
+			(xy 321.76 74.93) (xy 321.76 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2562,7 +2562,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.38 91.07) (xy 225.76 91.07)
+			(xy 247.65 91.44) (xy 240.03 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2602,7 +2602,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.38 96.15) (xy 225.76 96.15)
+			(xy 247.65 96.52) (xy 240.03 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2652,7 +2652,7 @@
 	)
 	(wire
 		(pts
-			(xy 314.32 67.72) (xy 314.32 70.26)
+			(xy 343.76 74.93) (xy 343.76 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2692,7 +2692,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.84 93.61) (xy 230.84 91.07)
+			(xy 245.11 93.98) (xy 245.11 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2782,7 +2782,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.32 67.72) (xy 336.32 70.26)
+			(xy 365.76 74.93) (xy 365.76 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2822,7 +2822,7 @@
 	)
 	(wire
 		(pts
-			(xy 230.84 98.69) (xy 230.84 96.15)
+			(xy 245.11 99.06) (xy 245.11 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2941,7 +2941,7 @@
 		(uuid "5651f732-2118-47be-bda2-299f9235b448")
 	)
 	(label "MOTOR_OUT2"
-		(at 314.32 70.26 0)
+		(at 343.76 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2981,7 +2981,7 @@
 		(uuid "99394d4b-5d3b-4a12-b607-26ebaf19a11f")
 	)
 	(label "MOTOR_OUT1"
-		(at 225.76 91.07 180)
+		(at 240.03 91.44 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3001,7 +3001,7 @@
 		(uuid "b0fcef7c-4454-4e48-b762-a0784ab98833")
 	)
 	(label "MOTOR_OUT1"
-		(at 292.32 70.26 0)
+		(at 321.76 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3011,7 +3011,7 @@
 		(uuid "f34e785a-7905-4ec7-bf30-001413fdebe5")
 	)
 	(label "MOTOR_OUT2"
-		(at 225.76 96.15 180)
+		(at 240.03 96.52 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3033,7 +3033,7 @@
 	)
 	(hierarchical_label "MOTOR_IN1"
 		(shape passive)
-		(at 270.32 70.26 0)
+		(at 299.76 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3110,7 +3110,7 @@
 	)
 	(hierarchical_label "I2C0_SCL"
 		(shape passive)
-		(at 336.32 70.26 0)
+		(at 365.76 77.47 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4217,7 +4217,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 314.32 65.18 0)
+		(at 343.76 72.39 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4227,7 +4227,7 @@
 		(dnp no)
 		(uuid "522ee5c4-0d50-40cc-9d46-f583e89b2a8a")
 		(property "Reference" "TP42"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4238,7 +4238,7 @@
 			)
 		)
 		(property "Value" "TEST_POINT"
-			(at 313.05 70.26 0)
+			(at 342.49 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4250,7 +4250,7 @@
 			)
 		)
 		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 314.32 65.18 0)
+			(at 343.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4261,7 +4261,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 314.32 65.18 0)
+			(at 343.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4272,7 +4272,7 @@
 			)
 		)
 		(property "Description" "18mil Test Point"
-			(at 314.32 65.18 0)
+			(at 343.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4283,7 +4283,7 @@
 			)
 		)
 		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4295,7 +4295,7 @@
 			)
 		)
 		(property "$PN" "?"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4307,7 +4307,7 @@
 			)
 		)
 		(property "LIFESTATUS" "CUR"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4319,7 +4319,7 @@
 			)
 		)
 		(property "PARTTYPE" "non BOM"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4331,7 +4331,7 @@
 			)
 		)
 		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4343,7 +4343,7 @@
 			)
 		)
 		(property "PN" "#"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4355,7 +4355,7 @@
 			)
 		)
 		(property "PARTID" "56x-tmp12"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4367,7 +4367,7 @@
 			)
 		)
 		(property "ICS_PARTTYPE" "non BOM"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4379,7 +4379,7 @@
 			)
 		)
 		(property "MNTTYPE" "SMT"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4391,7 +4391,7 @@
 			)
 		)
 		(property "REVISION" "REV"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4403,7 +4403,7 @@
 			)
 		)
 		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4415,7 +4415,7 @@
 			)
 		)
 		(property "SOURCE" "WS0.2.SchLib"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4427,7 +4427,7 @@
 			)
 		)
 		(property "ALTIUM_VALUE" "TP18"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4439,7 +4439,7 @@
 			)
 		)
 		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4451,7 +4451,7 @@
 			)
 		)
 		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4463,7 +4463,7 @@
 			)
 		)
 		(property "BIDIRECTIONAL" "TRUE"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4475,7 +4475,7 @@
 			)
 		)
 		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4487,7 +4487,7 @@
 			)
 		)
 		(property "ISSUENO" "4891"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4499,7 +4499,7 @@
 			)
 		)
 		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4511,7 +4511,7 @@
 			)
 		)
 		(property "ROHS" "ROHS"
-			(at 313.05 62.64 0)
+			(at 342.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5133,7 +5133,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 292.32 65.18 0)
+		(at 321.76 72.39 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5143,7 +5143,7 @@
 		(dnp no)
 		(uuid "7a54e63b-3b33-4424-bb14-380c104a080d")
 		(property "Reference" "TP41"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5154,7 +5154,7 @@
 			)
 		)
 		(property "Value" "TEST_POINT"
-			(at 291.05 70.26 0)
+			(at 320.49 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5166,7 +5166,7 @@
 			)
 		)
 		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 292.32 65.18 0)
+			(at 321.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5177,7 +5177,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 292.32 65.18 0)
+			(at 321.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5188,7 +5188,7 @@
 			)
 		)
 		(property "Description" "18mil Test Point"
-			(at 292.32 65.18 0)
+			(at 321.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5199,7 +5199,7 @@
 			)
 		)
 		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5211,7 +5211,7 @@
 			)
 		)
 		(property "$PN" "?"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5223,7 +5223,7 @@
 			)
 		)
 		(property "LIFESTATUS" "CUR"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5235,7 +5235,7 @@
 			)
 		)
 		(property "PARTTYPE" "non BOM"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5247,7 +5247,7 @@
 			)
 		)
 		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5259,7 +5259,7 @@
 			)
 		)
 		(property "PN" "#"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5271,7 +5271,7 @@
 			)
 		)
 		(property "PARTID" "56x-tmp12"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5283,7 +5283,7 @@
 			)
 		)
 		(property "ICS_PARTTYPE" "non BOM"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5295,7 +5295,7 @@
 			)
 		)
 		(property "MNTTYPE" "SMT"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5307,7 +5307,7 @@
 			)
 		)
 		(property "REVISION" "REV"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5319,7 +5319,7 @@
 			)
 		)
 		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5331,7 +5331,7 @@
 			)
 		)
 		(property "SOURCE" "WS0.2.SchLib"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5343,7 +5343,7 @@
 			)
 		)
 		(property "ALTIUM_VALUE" "TP18"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5355,7 +5355,7 @@
 			)
 		)
 		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5367,7 +5367,7 @@
 			)
 		)
 		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5379,7 +5379,7 @@
 			)
 		)
 		(property "BIDIRECTIONAL" "TRUE"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5391,7 +5391,7 @@
 			)
 		)
 		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5403,7 +5403,7 @@
 			)
 		)
 		(property "ISSUENO" "4891"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5415,7 +5415,7 @@
 			)
 		)
 		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5427,7 +5427,7 @@
 			)
 		)
 		(property "ROHS" "ROHS"
-			(at 291.05 62.64 0)
+			(at 320.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6061,7 +6061,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 336.32 65.18 0)
+		(at 365.76 72.39 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6071,7 +6071,7 @@
 		(dnp no)
 		(uuid "a7cc2e49-f304-4f9a-ada9-70948a48e52f")
 		(property "Reference" "TP43"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6082,7 +6082,7 @@
 			)
 		)
 		(property "Value" "TEST_POINT"
-			(at 335.05 70.26 0)
+			(at 364.49 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6094,7 +6094,7 @@
 			)
 		)
 		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 336.32 65.18 0)
+			(at 365.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6105,7 +6105,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 336.32 65.18 0)
+			(at 365.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6116,7 +6116,7 @@
 			)
 		)
 		(property "Description" "18mil Test Point"
-			(at 336.32 65.18 0)
+			(at 365.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6127,7 +6127,7 @@
 			)
 		)
 		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6139,7 +6139,7 @@
 			)
 		)
 		(property "$PN" "?"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6151,7 +6151,7 @@
 			)
 		)
 		(property "LIFESTATUS" "CUR"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6163,7 +6163,7 @@
 			)
 		)
 		(property "PARTTYPE" "non BOM"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6175,7 +6175,7 @@
 			)
 		)
 		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6187,7 +6187,7 @@
 			)
 		)
 		(property "PN" "#"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6199,7 +6199,7 @@
 			)
 		)
 		(property "PARTID" "56x-tmp12"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6211,7 +6211,7 @@
 			)
 		)
 		(property "ICS_PARTTYPE" "non BOM"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6223,7 +6223,7 @@
 			)
 		)
 		(property "MNTTYPE" "SMT"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6235,7 +6235,7 @@
 			)
 		)
 		(property "REVISION" "REV"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6247,7 +6247,7 @@
 			)
 		)
 		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6259,7 +6259,7 @@
 			)
 		)
 		(property "SOURCE" "WS0.2.SchLib"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6271,7 +6271,7 @@
 			)
 		)
 		(property "ALTIUM_VALUE" "TP18"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6283,7 +6283,7 @@
 			)
 		)
 		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6295,7 +6295,7 @@
 			)
 		)
 		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6307,7 +6307,7 @@
 			)
 		)
 		(property "BIDIRECTIONAL" "TRUE"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6319,7 +6319,7 @@
 			)
 		)
 		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6331,7 +6331,7 @@
 			)
 		)
 		(property "ISSUENO" "4891"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6343,7 +6343,7 @@
 			)
 		)
 		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6355,7 +6355,7 @@
 			)
 		)
 		(property "ROHS" "ROHS"
-			(at 335.05 62.64 0)
+			(at 364.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6454,7 +6454,7 @@
 	)
 	(symbol
 		(lib_id "urchin:SM04B-GHS")
-		(at 238.46 94.88 0)
+		(at 252.73 95.25 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6465,7 +6465,7 @@
 		(fields_autoplaced yes)
 		(uuid "aed6b123-d6f2-4060-8df1-0069094e483d")
 		(property "Reference" "J7"
-			(at 241 93.6099 0)
+			(at 255.27 93.9799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6476,7 +6476,7 @@
 			)
 		)
 		(property "Value" "SM04B-GHS"
-			(at 241 96.1499 0)
+			(at 255.27 96.5199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6487,7 +6487,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 238.968 106.818 0)
+			(at 253.238 107.188 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6498,7 +6498,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6509,7 +6509,7 @@
 			)
 		)
 		(property "Description" "CONN HEADER SMD R/A 4POS 1.25MM"
-			(at 239.984 104.278 0)
+			(at 254.254 104.648 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6520,7 +6520,7 @@
 			)
 		)
 		(property "FUNCTION" "MOTOR"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6531,7 +6531,7 @@
 			)
 		)
 		(property "PLANNED MPN" "SM04B-GHS-TB"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6542,7 +6542,7 @@
 			)
 		)
 		(property "PLANNED MFR" "JST"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6553,7 +6553,7 @@
 			)
 		)
 		(property "PLANNED LCSC" "C189895"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6564,7 +6564,7 @@
 			)
 		)
 		(property "PLANNED NOTE" "Same part and pinout as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6575,7 +6575,7 @@
 			)
 		)
 		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 238.46 94.88 0)
+			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6955,7 +6955,7 @@
 	)
 	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 270.32 65.18 0)
+		(at 299.76 72.39 0)
 		(unit 0)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6965,7 +6965,7 @@
 		(dnp no)
 		(uuid "b902040a-b354-43fe-b079-b07f3395c7e4")
 		(property "Reference" "TP40"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6976,7 +6976,7 @@
 			)
 		)
 		(property "Value" "TEST_POINT"
-			(at 269.05 70.26 0)
+			(at 298.49 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6988,7 +6988,7 @@
 			)
 		)
 		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 270.32 65.18 0)
+			(at 299.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6999,7 +6999,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 270.32 65.18 0)
+			(at 299.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7010,7 +7010,7 @@
 			)
 		)
 		(property "Description" "18mil Test Point"
-			(at 270.32 65.18 0)
+			(at 299.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7021,7 +7021,7 @@
 			)
 		)
 		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7033,7 +7033,7 @@
 			)
 		)
 		(property "$PN" "?"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7045,7 +7045,7 @@
 			)
 		)
 		(property "LIFESTATUS" "CUR"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7057,7 +7057,7 @@
 			)
 		)
 		(property "PARTTYPE" "non BOM"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7069,7 +7069,7 @@
 			)
 		)
 		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7081,7 +7081,7 @@
 			)
 		)
 		(property "PN" "#"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7093,7 +7093,7 @@
 			)
 		)
 		(property "PARTID" "56x-tmp12"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7105,7 +7105,7 @@
 			)
 		)
 		(property "ICS_PARTTYPE" "non BOM"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7117,7 +7117,7 @@
 			)
 		)
 		(property "MNTTYPE" "SMT"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7129,7 +7129,7 @@
 			)
 		)
 		(property "REVISION" "REV"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7141,7 +7141,7 @@
 			)
 		)
 		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7153,7 +7153,7 @@
 			)
 		)
 		(property "SOURCE" "WS0.2.SchLib"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7165,7 +7165,7 @@
 			)
 		)
 		(property "ALTIUM_VALUE" "TP18"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7177,7 +7177,7 @@
 			)
 		)
 		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7189,7 +7189,7 @@
 			)
 		)
 		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7201,7 +7201,7 @@
 			)
 		)
 		(property "BIDIRECTIONAL" "TRUE"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7213,7 +7213,7 @@
 			)
 		)
 		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7225,7 +7225,7 @@
 			)
 		)
 		(property "ISSUENO" "4891"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7237,7 +7237,7 @@
 			)
 		)
 		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7249,7 +7249,7 @@
 			)
 		)
 		(property "ROHS" "ROHS"
-			(at 269.05 62.64 0)
+			(at 298.49 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
