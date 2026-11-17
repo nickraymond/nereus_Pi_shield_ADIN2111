@@ -11061,28 +11061,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "MP6550 on the 5 V rail (5V_PI). R48 sets the current limit and the VISEN scale:\nlimit = 0.5 V / (100 µA/A x 4.02 kΩ) = 1.24 A; VISEN = 0.402 V/A (MP6550 Rev. 1.0, p. 11).\nUrchin board: 2 kΩ (2.5 A). C62 + C66 = added bulk, 2 x 22 µF (C56's part); C60, C64 as on the Urchin; C61, C63 = this board's 100 nF.\nnSLEEP_LDO open: internal pull-down, 3.3 V LDO off (Urchin: test point only)."
-		(exclude_from_sim no)
-		(at 194.31 289.56 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "624ac630-bc18-4052-a250-26d860186903")
-	)
-	(text "ADS1115 on shield 3V3, bus I2C0, address 0x48 (ADDR to GND through R50).\nAIN0 = MP6550 VISEN, AIN1 = pot wiper (J8), AIN2 / AIN3 unused.\nJ8: 1 = 3V3, 2 = wiper, 3 = GND (assumed order)."
-		(exclude_from_sim no)
-		(at 411.48 285.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "79e30ce9-8e73-4f83-a158-b7ba78cbbb8d")
-	)
 	(text "BM1"
 		(exclude_from_sim no)
 		(at 537.21 85.09 0)
@@ -11104,28 +11082,6 @@
 			(justify left top)
 		)
 		(uuid "8e196158-a2c5-4bfb-8bb9-f7394c1f8587")
-	)
-	(text "POT"
-		(exclude_from_sim no)
-		(at 516.89 302.26 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left top)
-		)
-		(uuid "a55b2ad0-345c-4358-9ccb-e11fa147876f")
-	)
-	(text "MOTOR"
-		(exclude_from_sim no)
-		(at 374.65 298.45 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left top)
-		)
-		(uuid "aa818b6e-d384-45c9-a17a-e01dbe8246e1")
 	)
 	(text "Bristlemouth bus: JST GH 4-pin, side entry,\nJ10 = BM1, J9 = BM2.\nPins 1-2 = N, pins 3-4 = P (two pins per polarity)."
 		(exclude_from_sim no)
@@ -11149,17 +11105,6 @@
 		)
 		(uuid "c3de17c1-5863-41c3-8829-1d6a065415d0")
 	)
-	(text "R51 holds AIN1 at 0 V where the pot's\nwiper is open (dead zone, about 30°).\nC67: optional filter, not fitted. Untested."
-		(exclude_from_sim no)
-		(at 529.59 327.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "d73ed9fc-1e5e-4971-a5fb-bb0c36c8f13d")
-	)
 	(text_box "Shield logic runs off 3V3; ADIN AVDD runs off 1V8."
 		(exclude_from_sim no)
 		(at 384.81 81.28 0)
@@ -11181,48 +11126,6 @@
 			(justify left top)
 		)
 		(uuid "0b4b0ab1-b7f6-431e-91aa-7408ec0bb441")
-	)
-	(text_box "ADC - ADS1115, POT"
-		(exclude_from_sim no)
-		(at 408.94 273.05 0)
-		(size 163.83 6.8085)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width -0.0001)
-			(type solid)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 3.048 3.048)
-			)
-			(justify top)
-		)
-		(uuid "1198b3fa-a9d7-4d9c-9c34-711721e686a0")
-	)
-	(text_box "MOTOR DRIVER - MP6550"
-		(exclude_from_sim no)
-		(at 190.5 267.97 0)
-		(size 120 6.35)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width -0.0001)
-			(type solid)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 3.048 3.048)
-			)
-			(justify left top)
-		)
-		(uuid "12222762-133a-47bb-b668-ff783376beb4")
 	)
 	(text_box "LOAD SWITCH - PAYLOAD POWER"
 		(exclude_from_sim no)
@@ -11433,22 +11336,10 @@
 		(uuid "1c4bf8fd-e8be-4ffa-866f-689af08815b6")
 	)
 	(junction
-		(at 449.58 299.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1d9d9559-e7a1-4970-8c58-8759f3f56bfd")
-	)
-	(junction
 		(at 337.82 217.17)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "22ed36c4-10b1-46dd-8784-32451fa28288")
-	)
-	(junction
-		(at 201.93 306.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "42ab9259-385b-4324-bc3b-16f2c94ebe1f")
 	)
 	(junction
 		(at 58.42 203.2)
@@ -11461,18 +11352,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4a2a2337-b363-45f3-b7c0-2200fe194625")
-	)
-	(junction
-		(at 184.15 306.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4c3221ea-c998-4b16-8d1f-bf44f35f8fc9")
-	)
-	(junction
-		(at 219.71 306.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5edfc96b-602d-47be-995e-3e27a3ef85a4")
 	)
 	(junction
 		(at 196.85 217.17)
@@ -11499,28 +11378,10 @@
 		(uuid "78eda417-dc2d-4037-a74b-9a195fd40f06")
 	)
 	(junction
-		(at 469.9 309.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "86efc083-1379-4448-8e4b-4662c0e11de2")
-	)
-	(junction
 		(at 533.4 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9362c262-d338-4a3a-823b-c98c48b107ca")
-	)
-	(junction
-		(at 370.84 306.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9498b213-a05d-416a-a5e0-a2a4fa240d8b")
-	)
-	(junction
-		(at 236.22 306.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9e363cbe-bb8e-42ec-9cf1-d878f0c53ecf")
 	)
 	(junction
 		(at 323.85 121.92)
@@ -11539,12 +11400,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c4f9f5ff-950c-4ff6-b977-00c00f0f2d50")
-	)
-	(junction
-		(at 370.84 311.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c5f61125-bc6b-4888-8065-6edf9dedac43")
 	)
 	(junction
 		(at 123.19 317.5)
@@ -11571,14 +11426,6 @@
 		(uuid "6232d22a-3ce3-4932-8c7a-285f18997711")
 	)
 	(no_connect
-		(at 267.97 318.77)
-		(uuid "64ecc46c-fab7-4c80-b3d3-f6155505883a")
-	)
-	(no_connect
-		(at 439.42 317.5)
-		(uuid "80a1c028-d158-40f2-b8ae-26e973aa8993")
-	)
-	(no_connect
 		(at 158.75 383.54)
 		(uuid "95c4903b-26e2-4c04-8920-4f0cf1e868c1")
 	)
@@ -11589,10 +11436,6 @@
 	(no_connect
 		(at 133.35 383.54)
 		(uuid "bc4f57c9-bc0f-4384-af65-0aae89db0395")
-	)
-	(no_connect
-		(at 439.42 320.04)
-		(uuid "cbb6c1d4-23d6-4ecf-8130-b465c0db5a2b")
 	)
 	(wire
 		(pts
@@ -11606,16 +11449,6 @@
 	)
 	(wire
 		(pts
-			(xy 459.74 320.04) (xy 482.6 320.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00cc8cc3-27b1-450b-be9c-ce3be35e332f")
-	)
-	(wire
-		(pts
 			(xy 191.77 135.89) (xy 181.61 135.89)
 		)
 		(stroke
@@ -11623,16 +11456,6 @@
 			(type default)
 		)
 		(uuid "00df560e-6406-4425-be11-c502d7f4c181")
-	)
-	(wire
-		(pts
-			(xy 219.71 313.69) (xy 219.71 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01668c09-636c-412a-b5a7-02ff4f30d90b")
 	)
 	(wire
 		(pts
@@ -11706,16 +11529,6 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 321.31) (xy 265.43 321.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0db30d0d-ee1d-4ef7-8587-b2c7ba8c3be5")
-	)
-	(wire
-		(pts
 			(xy 176.53 176.53) (xy 171.45 176.53)
 		)
 		(stroke
@@ -11726,16 +11539,6 @@
 	)
 	(wire
 		(pts
-			(xy 449.58 299.72) (xy 416.56 299.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11a52b5c-ae65-48d3-ad29-41833ac290a2")
-	)
-	(wire
-		(pts
 			(xy 41.91 317.5) (xy 49.53 317.5)
 		)
 		(stroke
@@ -11743,16 +11546,6 @@
 			(type default)
 		)
 		(uuid "11a640af-14fd-40b1-bf8b-90ddcc23c3c5")
-	)
-	(wire
-		(pts
-			(xy 459.74 314.96) (xy 462.28 314.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "182b47ed-3d42-422e-9562-1b89fb304191")
 	)
 	(wire
 		(pts
@@ -11776,16 +11569,6 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 311.15) (xy 265.43 311.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1a93edb8-82cb-43fc-9b7e-051d96285475")
-	)
-	(wire
-		(pts
 			(xy 176.53 168.91) (xy 171.45 168.91)
 		)
 		(stroke
@@ -11796,16 +11579,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 172.72) (xy 20.32 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cd9bba7-f8e6-4cdb-a92e-b40e48cb66de")
-	)
-	(wire
-		(pts
 			(xy 63.5 185.42) (xy 45.72 185.42)
 		)
 		(stroke
@@ -11813,16 +11586,6 @@
 			(type default)
 		)
 		(uuid "1d6bf3c8-1ad1-4559-85c2-1a29686bd715")
-	)
-	(wire
-		(pts
-			(xy 184.15 306.07) (xy 176.53 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ee685f5-989b-43aa-8ca1-fd06e7103a42")
 	)
 	(wire
 		(pts
@@ -11866,26 +11629,6 @@
 	)
 	(wire
 		(pts
-			(xy 373.38 313.69) (xy 370.84 313.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27e4a411-4802-451b-a6ae-2c1b11886b00")
-	)
-	(wire
-		(pts
-			(xy 184.15 313.69) (xy 184.15 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "291bc7a4-491d-4673-8f11-f2393185c055")
-	)
-	(wire
-		(pts
 			(xy 504.19 105.41) (xy 504.19 106.68)
 		)
 		(stroke
@@ -11896,16 +11639,6 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 313.69) (xy 265.43 313.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b22bf8b-fbed-4c74-a2b2-659bd9505ac2")
-	)
-	(wire
-		(pts
 			(xy 63.5 198.12) (xy 58.42 198.12)
 		)
 		(stroke
@@ -11913,26 +11646,6 @@
 			(type default)
 		)
 		(uuid "2bb219b3-0a7e-4464-bab7-dc5c44990d09")
-	)
-	(wire
-		(pts
-			(xy 449.58 302.26) (xy 449.58 297.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d968925-06f9-4ac9-98c3-b8738bbbd842")
-	)
-	(wire
-		(pts
-			(xy 515.62 309.88) (xy 508 309.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2df5339d-dabf-4529-951f-f350984129b1")
 	)
 	(wire
 		(pts
@@ -11953,26 +11666,6 @@
 			(type default)
 		)
 		(uuid "2fbfcfb1-ce60-4a8e-9fe2-d0fc13219b81")
-	)
-	(wire
-		(pts
-			(xy 469.9 302.26) (xy 469.9 299.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32cb5409-aec1-4d15-b44f-5004a6b5c011")
-	)
-	(wire
-		(pts
-			(xy 373.38 308.61) (xy 370.84 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37c41520-cb9f-47b3-82cb-8b2ee145f12f")
 	)
 	(wire
 		(pts
@@ -12006,16 +11699,6 @@
 	)
 	(wire
 		(pts
-			(xy 561.34 314.96) (xy 561.34 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3bd4a07e-9117-42d4-81ad-1db7f350c253")
-	)
-	(wire
-		(pts
 			(xy 217.17 173.99) (xy 220.98 173.99)
 		)
 		(stroke
@@ -12023,16 +11706,6 @@
 			(type default)
 		)
 		(uuid "3bfa1647-fb8d-4339-823b-0528fbd28cf8")
-	)
-	(wire
-		(pts
-			(xy 20.32 182.88) (xy 20.32 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c270f8c-65ac-4bfe-aa43-b9042892db3a")
 	)
 	(wire
 		(pts
@@ -12063,16 +11736,6 @@
 			(type default)
 		)
 		(uuid "3ee1a0dc-5b1c-400b-978d-ae2d74d56bb4")
-	)
-	(wire
-		(pts
-			(xy 300.99 306.07) (xy 303.53 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f94b6b6-5a11-4cce-a2dd-19586a423b28")
 	)
 	(wire
 		(pts
@@ -12136,16 +11799,6 @@
 	)
 	(wire
 		(pts
-			(xy 515.62 314.96) (xy 508 314.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43bd72d3-f362-47d7-8fe9-e762f3e1b5dc")
-	)
-	(wire
-		(pts
 			(xy 401.32 227.33) (xy 406.4 227.33)
 		)
 		(stroke
@@ -12186,16 +11839,6 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 313.69) (xy 201.93 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d631a18-7799-49e3-808c-6345a4d13355")
-	)
-	(wire
-		(pts
 			(xy 323.85 121.92) (xy 323.85 129.54)
 		)
 		(stroke
@@ -12203,16 +11846,6 @@
 			(type default)
 		)
 		(uuid "4f131a18-fa2c-447e-820b-25b78902b068")
-	)
-	(wire
-		(pts
-			(xy 373.38 306.07) (xy 365.76 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4fbd7391-fbd5-42bf-bb9a-b4870f9b76c6")
 	)
 	(wire
 		(pts
@@ -12253,16 +11886,6 @@
 			(type default)
 		)
 		(uuid "518aa8ab-a99b-43f3-98ac-7e6de38c4416")
-	)
-	(wire
-		(pts
-			(xy 459.74 317.5) (xy 462.28 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "52860fc8-23e7-47a0-9095-29f489d4c0cf")
 	)
 	(wire
 		(pts
@@ -12376,16 +11999,6 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 306.07) (xy 267.97 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d95ab27-79b9-4542-b5b8-2a4fe1c36e84")
-	)
-	(wire
-		(pts
 			(xy 135.89 325.12) (xy 120.65 325.12)
 		)
 		(stroke
@@ -12416,26 +12029,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 306.07) (xy 236.22 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6450b5f9-219e-45f1-89ea-4a83cb24c4a8")
-	)
-	(wire
-		(pts
-			(xy 373.38 311.15) (xy 365.76 311.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64cde91f-bdec-4a4d-818c-2cabf0795924")
-	)
-	(wire
-		(pts
 			(xy 217.17 186.69) (xy 219.71 186.69)
 		)
 		(stroke
@@ -12453,16 +12046,6 @@
 			(type default)
 		)
 		(uuid "68714f75-1ddf-49a5-9e0c-ec21d3d72e6c")
-	)
-	(wire
-		(pts
-			(xy 300.99 321.31) (xy 307.34 321.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68949f0c-8f71-4816-8f80-ecc6b387be2a")
 	)
 	(wire
 		(pts
@@ -12486,16 +12069,6 @@
 	)
 	(wire
 		(pts
-			(xy 515.62 312.42) (xy 513.08 312.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "715e5201-e600-45a6-b5b0-6c48bfe2d986")
-	)
-	(wire
-		(pts
 			(xy 378.46 384.81) (xy 364.49 384.81)
 		)
 		(stroke
@@ -12513,16 +12086,6 @@
 			(type default)
 		)
 		(uuid "73fbad04-6676-4970-8895-8cb5e5086a41")
-	)
-	(wire
-		(pts
-			(xy 508 314.96) (xy 508 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7660c80b-5c09-4632-9864-ea4993cf44a1")
 	)
 	(wire
 		(pts
@@ -12553,16 +12116,6 @@
 			(type default)
 		)
 		(uuid "7c53d990-1a00-4bf6-ac72-a1a167bdc292")
-	)
-	(wire
-		(pts
-			(xy 284.48 326.39) (xy 284.48 328.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c8b0c13-1a9e-4b7e-b70b-0ef166fbd192")
 	)
 	(wire
 		(pts
@@ -12706,26 +12259,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 193.04) (xy 20.32 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f565490-ad62-416c-af7f-19aa6518c1c5")
-	)
-	(wire
-		(pts
-			(xy 469.9 307.34) (xy 469.9 309.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90fd5f9e-4f73-4618-9b27-3c2da8774142")
-	)
-	(wire
-		(pts
 			(xy 173.99 161.29) (xy 173.99 163.83)
 		)
 		(stroke
@@ -12783,26 +12316,6 @@
 			(type default)
 		)
 		(uuid "98a32d63-e5af-437c-9661-cea98ef46ffe")
-	)
-	(wire
-		(pts
-			(xy 300.99 317.5) (xy 325.12 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99baed0d-9fa7-45ad-a9b7-240befb443c2")
-	)
-	(wire
-		(pts
-			(xy 508 309.88) (xy 508 307.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a3b1f76-6a1d-4a57-9e93-8915a8e197e5")
 	)
 	(wire
 		(pts
@@ -12886,16 +12399,6 @@
 	)
 	(wire
 		(pts
-			(xy 370.84 308.61) (xy 370.84 306.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ab170980-97b9-4260-bc03-9255d1ea2907")
-	)
-	(wire
-		(pts
 			(xy 260.35 379.73) (xy 255.27 379.73)
 		)
 		(stroke
@@ -12926,26 +12429,6 @@
 	)
 	(wire
 		(pts
-			(xy 449.58 325.12) (xy 449.58 327.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "afcb942e-26c2-433a-ae8b-c1c4973c7793")
-	)
-	(wire
-		(pts
-			(xy 325.12 322.58) (xy 325.12 328.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0d63ee5-7781-4878-aabd-b73fe5fb9f38")
-	)
-	(wire
-		(pts
 			(xy 458.47 215.9) (xy 458.47 220.98)
 		)
 		(stroke
@@ -12953,16 +12436,6 @@
 			(type default)
 		)
 		(uuid "b1f17ebf-e680-4dbd-a309-922988949666")
-	)
-	(wire
-		(pts
-			(xy 416.56 304.8) (xy 416.56 307.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b2eed2ef-ad9d-4632-b6d8-1191e13c8f44")
 	)
 	(wire
 		(pts
@@ -12993,16 +12466,6 @@
 			(type default)
 		)
 		(uuid "b3ff3dd1-05ae-4517-a36d-55dc47c556ba")
-	)
-	(wire
-		(pts
-			(xy 439.42 314.96) (xy 436.88 314.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4eef6fe-e63c-48e5-aaf0-bd122c0f8214")
 	)
 	(wire
 		(pts
@@ -13056,16 +12519,6 @@
 	)
 	(wire
 		(pts
-			(xy 482.6 325.12) (xy 482.6 327.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b896ad12-d9bc-4dea-8c16-ee4fd9494f9b")
-	)
-	(wire
-		(pts
 			(xy 176.53 186.69) (xy 173.99 186.69)
 		)
 		(stroke
@@ -13096,16 +12549,6 @@
 	)
 	(wire
 		(pts
-			(xy 546.1 309.88) (xy 561.34 309.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be1d5370-f298-4c6b-8fe7-9c760342ef4c")
-	)
-	(wire
-		(pts
 			(xy 393.7 109.22) (xy 384.81 109.22)
 		)
 		(stroke
@@ -13113,16 +12556,6 @@
 			(type default)
 		)
 		(uuid "be87e378-aee2-4c0a-a86b-9f3d7b7ae825")
-	)
-	(wire
-		(pts
-			(xy 300.99 313.69) (xy 342.9 313.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bf973a81-7970-407d-99f4-b38bc1859803")
 	)
 	(wire
 		(pts
@@ -13156,16 +12589,6 @@
 	)
 	(wire
 		(pts
-			(xy 300.99 308.61) (xy 303.53 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4175a0c-7008-4a24-85df-ed41ffd4e284")
-	)
-	(wire
-		(pts
 			(xy 326.39 127) (xy 341.63 127)
 		)
 		(stroke
@@ -13173,36 +12596,6 @@
 			(type default)
 		)
 		(uuid "c5ddac9f-dbd4-49a0-86db-cf8786351f45")
-	)
-	(wire
-		(pts
-			(xy 20.32 203.2) (xy 20.32 205.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c64c1f9e-1369-4cc2-8ad2-3601c5b7a126")
-	)
-	(wire
-		(pts
-			(xy 219.71 306.07) (xy 219.71 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c9f6c48b-dfef-4f25-8f24-37e4af22db34")
-	)
-	(wire
-		(pts
-			(xy 439.42 312.42) (xy 436.88 312.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca308bc7-780c-4196-b1a3-74f613b088a4")
 	)
 	(wire
 		(pts
@@ -13266,16 +12659,6 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 326.39) (xy 307.34 328.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4b091e6-9698-41fb-878e-386761f3e502")
-	)
-	(wire
-		(pts
 			(xy 386.08 214.63) (xy 401.32 214.63)
 		)
 		(stroke
@@ -13286,16 +12669,6 @@
 	)
 	(wire
 		(pts
-			(xy 370.84 313.69) (xy 370.84 311.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6d26f59-76e5-49b0-a9d3-c20b16435224")
-	)
-	(wire
-		(pts
 			(xy 196.85 217.17) (xy 201.93 217.17)
 		)
 		(stroke
@@ -13303,26 +12676,6 @@
 			(type default)
 		)
 		(uuid "dacedad0-0f0c-4706-a531-3b32df9c6e5d")
-	)
-	(wire
-		(pts
-			(xy 342.9 318.77) (xy 342.9 328.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0506638-1475-40a5-95fd-5803b3a73dc2")
-	)
-	(wire
-		(pts
-			(xy 267.97 316.23) (xy 265.43 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1bff7d3-42a1-4651-938e-e6996a0c5859")
 	)
 	(wire
 		(pts
@@ -13406,16 +12759,6 @@
 	)
 	(wire
 		(pts
-			(xy 546.1 314.96) (xy 546.1 317.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb3e10e2-7657-473d-8035-3edd32ccfa34")
-	)
-	(wire
-		(pts
 			(xy 401.32 213.36) (xy 401.32 214.63)
 		)
 		(stroke
@@ -13426,16 +12769,6 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 306.07) (xy 184.15 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ef355e2a-9534-4379-94ab-836d1e43ac77")
-	)
-	(wire
-		(pts
 			(xy 274.32 379.73) (xy 274.32 386.08)
 		)
 		(stroke
@@ -13443,16 +12776,6 @@
 			(type default)
 		)
 		(uuid "efd0731c-e7f7-48b1-b94d-d5eb84adfd6e")
-	)
-	(wire
-		(pts
-			(xy 201.93 306.07) (xy 201.93 308.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f119d97d-1a20-48a4-a44e-383900d9f0fc")
 	)
 	(wire
 		(pts
@@ -13486,16 +12809,6 @@
 	)
 	(wire
 		(pts
-			(xy 543.56 309.88) (xy 546.1 309.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5eda927-991c-409b-ae69-6345ef261ac8")
-	)
-	(wire
-		(pts
 			(xy 401.32 214.63) (xy 406.4 214.63)
 		)
 		(stroke
@@ -13516,16 +12829,6 @@
 	)
 	(wire
 		(pts
-			(xy 459.74 309.88) (xy 477.52 309.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f7ec8a73-96b8-43eb-8b7b-0f3d459a30fa")
-	)
-	(wire
-		(pts
 			(xy 364.49 387.35) (xy 378.46 387.35)
 		)
 		(stroke
@@ -13533,16 +12836,6 @@
 			(type default)
 		)
 		(uuid "f8219e2c-141d-4282-9724-4f02fc63af02")
-	)
-	(wire
-		(pts
-			(xy 236.22 313.69) (xy 236.22 316.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f8fe21ce-f9f5-4b20-a1cf-6b16e80841d0")
 	)
 	(wire
 		(pts
@@ -14311,26 +13604,6 @@
 		)
 		(uuid "068f6ebf-2520-4057-b8cd-d6254ece7645")
 	)
-	(label "POT_WIPER"
-		(at 436.88 314.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "09515433-89c8-48bf-81ac-2cfb140b56f2")
-	)
-	(label "MOTOR_OUT1"
-		(at 303.53 306.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "12a54409-2c53-491c-a1cc-f800bc6aaab8")
-	)
 	(label "BM1_P"
 		(at 528.32 97.79 180)
 		(effects
@@ -14380,16 +13653,6 @@
 			(justify left bottom)
 		)
 		(uuid "25ae9ecd-480a-496d-b91d-d8b70dd12f5f")
-	)
-	(label "I2C0_SCL"
-		(at 462.28 314.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "25d4a58c-08e5-48bc-b601-f5f3bbaf22c4")
 	)
 	(label "BM2_DATA_P"
 		(at 405.13 124.46 0)
@@ -14531,26 +13794,6 @@
 		)
 		(uuid "5586779f-afcc-4a3d-a9c1-693d313902dc")
 	)
-	(label "POT_WIPER"
-		(at 513.08 312.42 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5651f732-2118-47be-bda2-299f9235b448")
-	)
-	(label "MOTOR_OUT2"
-		(at 20.32 195.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "57cdb20d-b87a-4ec6-b201-c2045734c84a")
-	)
 	(label "ADIN_MISO"
 		(at 219.71 186.69 0)
 		(effects
@@ -14560,36 +13803,6 @@
 			(justify left bottom)
 		)
 		(uuid "60c8ae4f-f9c4-4326-a21f-dbb594bcd479")
-	)
-	(label "MOTOR_VISEN"
-		(at 436.88 312.42 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "615bdfdd-36a3-42f3-a84e-a2a69f9dd6e7")
-	)
-	(label "MOTOR_IN1"
-		(at 20.32 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "619333ef-c088-42af-8290-1746cd73ad19")
-	)
-	(label "MOTOR_IN2"
-		(at 265.43 313.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "670be129-1d21-4098-9f74-a3222a3e73bb")
 	)
 	(label "MOTOR_IN2"
 		(at 171.45 168.91 180)
@@ -14620,16 +13833,6 @@
 			(justify right bottom)
 		)
 		(uuid "729fcd9f-7179-42a9-8f4d-f6b546c6a7d7")
-	)
-	(label "I2C0_SDA"
-		(at 462.28 317.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "746360ae-7ba1-4dae-904c-14037b06fd19")
 	)
 	(label "~{PAYLOAD_FAULT}"
 		(at 125.73 330.2 0)
@@ -14691,16 +13894,6 @@
 		)
 		(uuid "83a83b3f-872b-4341-9d25-80933492f8be")
 	)
-	(label "MOTOR_VISEN"
-		(at 265.43 321.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8581f3f8-cd23-4f0d-9488-f86992454636")
-	)
 	(label "5V_PI"
 		(at 204.47 125.73 0)
 		(effects
@@ -14740,26 +13933,6 @@
 			(justify left bottom)
 		)
 		(uuid "9110bd30-3b14-4237-bd97-25307e7df498")
-	)
-	(label "MOTOR_IN1"
-		(at 265.43 311.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "97a3efcb-94f6-4190-be52-3106e443aebe")
-	)
-	(label "POT_WIPER"
-		(at 543.56 309.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "99394d4b-5d3b-4a12-b607-26ebaf19a11f")
 	)
 	(label "BM1_DATA_P"
 		(at 405.13 116.84 0)
@@ -14801,16 +13974,6 @@
 		)
 		(uuid "a34567cd-63bb-42aa-8c06-332f428a579a")
 	)
-	(label "MOTOR_OUT1"
-		(at 365.76 306.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a453e7d8-30fd-4940-bc41-4e81980563e3")
-	)
 	(label "GPIO15"
 		(at 58.42 165.1 180)
 		(effects
@@ -14831,16 +13994,6 @@
 		)
 		(uuid "a85cd0d3-9363-45f1-813c-008a36b4310c")
 	)
-	(label "~{ADC_ALERT}"
-		(at 477.52 309.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aa17d20a-8a52-4b3f-ab72-ee98f2e8f8d8")
-	)
 	(label "GPIO19"
 		(at 171.45 173.99 180)
 		(effects
@@ -14860,26 +14013,6 @@
 			(justify left bottom)
 		)
 		(uuid "ab320800-1177-4572-ac85-0bd29e690107")
-	)
-	(label "MOTOR_nSLEEP"
-		(at 265.43 316.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "af015b0b-4474-4251-bde0-4c6ecd7a051f")
-	)
-	(label "MOTOR_OUT2"
-		(at 303.53 308.61 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b0fcef7c-4454-4e48-b762-a0784ab98833")
 	)
 	(label "PAYLOAD_EN"
 		(at 173.99 194.31 180)
@@ -14981,16 +14114,6 @@
 		)
 		(uuid "d92167c3-1107-48e1-8ef2-93a4838ffff9")
 	)
-	(label "5V_PI"
-		(at 176.53 306.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dc62bfb0-53e4-4a75-97b3-87c3620d03f7")
-	)
 	(label "MOTOR_nSLEEP"
 		(at 220.98 173.99 0)
 		(effects
@@ -15071,16 +14194,6 @@
 		)
 		(uuid "f20df407-5ecb-4800-b056-2ba2c5fcab3c")
 	)
-	(label "MOTOR_OUT1"
-		(at 20.32 185.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f34e785a-7905-4ec7-bf30-001413fdebe5")
-	)
 	(label "GPIO21"
 		(at 58.42 218.44 180)
 		(effects
@@ -15100,26 +14213,6 @@
 			(justify left bottom)
 		)
 		(uuid "f9de8043-501c-4e11-8570-f054f0bfe103")
-	)
-	(label "I2C0_SCL"
-		(at 20.32 205.74 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fa6871e7-e32e-45c1-b9d7-eb8248e3c46f")
-	)
-	(label "MOTOR_OUT2"
-		(at 365.76 311.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fd7b2bb2-99a1-4ae8-944e-7b2abb50ba76")
 	)
 	(global_label "ADIN_TIMER"
 		(shape input)
@@ -15142,231 +14235,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:SM03B-GHS")
-		(at 520.7 313.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "016b7a5e-65c5-4d59-b365-676f420c30e4")
-		(property "Reference" "J8"
-			(at 523.24 312.4199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SM03B-GHS"
-			(at 523.24 314.9599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal"
-			(at 521.208 325.628 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER SMD R/A 3POS 1.25MM"
-			(at 522.224 323.088 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "FUNCTION" "POT"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "SM03B-GHS-TB"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "JST"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C514175"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "3-pin version of the Urchin board's GH connectors; 1 = 3V3, 2 = wiper, 3 = GND (assumed order); LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 520.7 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9aa60380-c53e-4623-9dd2-be1c28c34397")
-		)
-		(pin "3"
-			(uuid "84ab32c9-f63b-4cff-972b-9d9601eb8839")
-		)
-		(pin "2"
-			(uuid "e855e873-406a-4073-99a8-7856b08a06c7")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 449.58 327.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "02ac6da7-e85a-4052-8d96-d006c4ecc118")
-		(property "Reference" "#PWR110"
-			(at 449.58 327.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 449.58 334.01 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 449.58 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 449.58 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 449.58 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "7b5b7739-f8af-4440-82ae-68dd93b9d509")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR110")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -15702,354 +14570,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:Res_10k_0402_5p")
-		(at 482.6 322.58 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0d51e3d0-4d92-45f3-8ec6-5c14f11a3dff")
-		(property "Reference" "R50"
-			(at 485.14 321.31 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10kΩ 5%"
-			(at 485.14 323.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
-			(at 483.87 335.534 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 482.6 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10K OHM 5% 1/16W 0402 p/n RC0402JR-0710KL"
-			(at 483.362 332.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "RC0402JR-0710KL"
-			(at 482.6 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C60489"
-			(at 482.6 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (R7, R10, R24); same part as on the Urchin board, footprint changed from the hand-solder one"
-			(at 482.6 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Yageo"
-			(at 482.6 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1ddda969-e371-4722-9823-87779d2a99a0")
-		)
-		(pin "2"
-			(uuid "a0054a34-7ad2-49c6-ac1d-0882024084da")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "R50")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:ADS1115IDGS")
-		(at 449.58 314.96 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "116f86c0-9eaf-46a7-8f4b-b58c611d1855")
-		(property "Reference" "U13"
-			(at 451.866 297.688 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "ADS1115IDGS"
-			(at 451.866 300.228 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_SO:TSSOP-10_3x3mm_P0.5mm"
-			(at 449.58 327.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ads1113.pdf"
-			(at 448.31 337.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Ultra-Small, Low-Power, I2C-Compatible, 860-SPS, 16-Bit ADCs With Internal Reference, Oscillator, and Programmable Comparator, VSSOP-10"
-			(at 449.58 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "ADS1115IDGS"
-			(at 449.58 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C468683"
-			(at 449.58 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (U2); LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 449.58 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 449.58 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "c6301da3-d5fd-4fc0-861e-0ecbe0c2e456")
-		)
-		(pin "1"
-			(uuid "b007e2fe-5678-4a08-a20c-e0a416c15995")
-		)
-		(pin "5"
-			(uuid "d8602368-3abc-4a27-83e8-095d38c021bb")
-		)
-		(pin "10"
-			(uuid "64bc83ed-3d2d-4b7e-86bb-43df70386816")
-		)
-		(pin "4"
-			(uuid "d3778576-2b8f-4c9a-8173-14fe627cfa06")
-		)
-		(pin "9"
-			(uuid "3ca102e5-9286-4d2c-8baf-7cd5c182a939")
-		)
-		(pin "6"
-			(uuid "046e4309-763d-40ac-a77e-880f1b319d9e")
-		)
-		(pin "7"
-			(uuid "8f7c5d10-7b5b-435b-bef7-6c6817793b15")
-		)
-		(pin "8"
-			(uuid "aab2dd69-548a-4d1a-b98b-b34fd0e86a84")
-		)
-		(pin "3"
-			(uuid "958dcd97-ce48-4135-87c4-1edb02639100")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "U13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 546.1 317.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1192fe25-2945-4972-8541-137b7fc3667a")
-		(property "Reference" "#PWR116"
-			(at 546.1 317.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 546.1 323.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 546.1 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 546.1 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 546.1 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "db820316-02f8-4b9b-a50c-b5205e064089")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR116")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:VBUS_OUT_BAR")
 		(at 49.53 317.5 180)
 		(unit 1)
@@ -16227,80 +14747,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 201.93 316.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1d56ac1d-a2a8-4f86-8e65-bd8d819ab5f7")
-		(property "Reference" "#PWR103"
-			(at 201.93 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 201.93 322.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 201.93 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 201.93 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 201.93 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "78603105-77ee-42b8-963a-d71f26312ae6")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR103")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 508 220.98 180)
 		(unit 1)
@@ -16372,131 +14818,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#FLG02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:Res_10k_0402_5p")
-		(at 469.9 304.8 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "22bef6f9-031e-495f-bc7b-89581c1ada91")
-		(property "Reference" "R49"
-			(at 472.44 303.53 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10kΩ 5%"
-			(at 472.44 306.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
-			(at 471.17 317.754 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 469.9 304.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10K OHM 5% 1/16W 0402 p/n RC0402JR-0710KL"
-			(at 470.662 314.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "RC0402JR-0710KL"
-			(at 469.9 304.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C60489"
-			(at 469.9 304.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (R7, R10, R24); same part as on the Urchin board, footprint changed from the hand-solder one"
-			(at 469.9 304.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Yageo"
-			(at 469.9 304.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "817bc403-0461-4d10-8610-129ff9318245")
-		)
-		(pin "2"
-			(uuid "1326d2a7-4cd7-49ab-9903-fe0abc210397")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "R49")
 					(unit 1)
 				)
 			)
@@ -17278,131 +15599,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:CAP_10uF_0402_10V")
-		(at 219.71 311.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "312aee78-2d06-4abc-9cab-662d2d4928ec")
-		(property "Reference" "C60"
-			(at 223.52 309.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10uF 10V"
-			(at 223.52 312.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 222.25 324.358 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 219.71 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 10UF 10V X5R 0402 p/n GRM155R61A106ME11D"
-			(at 220.98 321.818 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "GRM155R61A106ME11D"
-			(at 219.71 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C408132"
-			(at 219.71 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (C7); LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 219.71 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 219.71 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "22073122-377f-408f-acc0-62215d51e499")
-		)
-		(pin "1"
-			(uuid "f65626d1-d0d5-4b36-9d66-0aae3c247b01")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C60")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_0_FIDUCIAL_Sofar Ocean Technologies, Inc.")
 		(at 87.42 378.652 0)
 		(unit 0)
@@ -18166,80 +16362,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 236.22 316.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3e20f5cf-8543-41ff-beb2-c60e5e9a40ba")
-		(property "Reference" "#PWR101"
-			(at 236.22 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 236.22 322.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 236.22 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 236.22 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 236.22 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "e383809a-b275-45d8-a1c9-3f6294f76cf9")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR101")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 26.67 394.97 0)
 		(unit 1)
@@ -18629,131 +16751,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:CAP_100nF_0402_50V")
-		(at 416.56 302.26 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "43b1e15f-8c79-43ba-b9c9-654ad6e4420d")
-		(property "Reference" "C65"
-			(at 420.37 300.99 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 25V"
-			(at 420.37 303.53 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-CL278-IPC_C"
-			(at 419.1 315.468 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 416.56 302.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 p/n CL05A104KA5NNNC"
-			(at 417.83 312.928 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
-			(at 416.56 302.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C100072"
-			(at 416.56 302.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C1, C3, C9-C15, C28, C53); was the Urchin's CC0402KRX5R9BB104 (50 V) on a hand-solder footprint"
-			(at 416.56 302.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Samsung"
-			(at 416.56 302.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2ec1c62c-9b67-44f9-9b5e-d1886eff3f7d")
-		)
-		(pin "2"
-			(uuid "84187a22-d0a6-4ef1-a1f6-cd4592ca746b")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C65")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "nereus:SM02B-GHS")
 		(at 36.83 318.77 0)
 		(mirror y)
@@ -18982,450 +16979,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#PWR119")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 20.32 190.5 0)
-		(unit 0)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "522ee5c4-0d50-40cc-9d46-f583e89b2a8a")
-		(property "Reference" "TP42"
-			(at 19.05 187.96 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "TEST_POINT"
-			(at 19.05 195.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 20.32 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "18mil Test Point"
-			(at 20.32 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "$PN" "?"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LIFESTATUS" "CUR"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTTYPE" "non BOM"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PN" "#"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTID" "56x-tmp12"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICS_PARTTYPE" "non BOM"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MNTTYPE" "SMT"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "REVISION" "REV"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "SOURCE" "WS0.2.SchLib"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "TP18"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "BIDIRECTIONAL" "TRUE"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ISSUENO" "4891"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ROHS" "ROHS"
-			(at 19.05 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(pin "1"
-			(uuid "6a75478d-1f39-42f9-914a-94b9192a8908")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "TP42")
-					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:CAP_100nF_0402_50V")
-		(at 236.22 311.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "530242b5-a0c9-46fc-8c2c-32c1757fb9f3")
-		(property "Reference" "C61"
-			(at 240.03 309.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 25V"
-			(at 240.03 312.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-CL278-IPC_C"
-			(at 238.76 324.358 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 236.22 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 p/n CL05A104KA5NNNC"
-			(at 237.49 321.818 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
-			(at 236.22 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C100072"
-			(at 236.22 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C1, C3, C9-C15, C28, C53); was the Urchin's CC0402KRX5R9BB104 (50 V) on a hand-solder footprint"
-			(at 236.22 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Samsung"
-			(at 236.22 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b2d45e62-fff2-4bcc-be81-e85bc1182175")
-		)
-		(pin "2"
-			(uuid "7867f4e6-bcdf-4196-b4cc-ed1182e297b6")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C61")
 					(unit 1)
 				)
 			)
@@ -19828,131 +17381,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:CAP_47uF_bulk")
-		(at 184.15 311.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5792fd65-63f3-4810-b1a8-da879da8063e")
-		(property "Reference" "C66"
-			(at 187.96 309.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22uF 16V"
-			(at 187.96 312.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 186.69 324.358 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Chip Capacitor, 22 uF, +/- 20%, 16 V, X5R, 0805 p/n GRM21BR61C226ME44L; bulk at MP6550 VIN, two in parallel (C62, C66) = 44 uF nominal"
-			(at 185.42 321.818 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "GRM21BR61C226ME44L"
-			(at 184.15 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C86817"
-			(at 184.15 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C56 / C57). Replaces the 47 uF 1206 placeholder (Nick, 2026-11-15: reuse vetted footprints)"
-			(at 184.15 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Murata"
-			(at 184.15 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8e13aa99-bab1-4956-baf4-ef3d3eb0bdd4")
-		)
-		(pin "1"
-			(uuid "79db653a-e6a3-4d51-9ff1-a863fc5efea3")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C66")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "urchin:SM04B-GHS")
 		(at 541.02 137.16 0)
 		(unit 1)
@@ -20184,131 +17612,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:Res_10k_0402_5p")
-		(at 546.1 312.42 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "656a8484-a068-47de-82c3-84c932b54d9e")
-		(property "Reference" "R51"
-			(at 548.64 311.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100kΩ 1%"
-			(at 548.64 313.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-RMCF0402-IPC_C"
-			(at 547.37 325.374 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 546.1 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "100kΩ ±1% 0.063W 0402 p/n RMCF0402FT100K: pot wiper pull-down, holds AIN1 at 0 V in the pot's dead zone (wiper open)"
-			(at 546.862 322.58 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "RMCF0402FT100K"
-			(at 546.1 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C7055151"
-			(at 546.1 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (R21, R35-R37, R43). Fix from the Urchin bring-up bench finding (about 30° dead zone, input floats); untested, Nick tests it"
-			(at 546.1 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Stackpole"
-			(at 546.1 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3e00a9fd-2519-4060-be1d-d52c2fd8de0d")
-		)
-		(pin "2"
-			(uuid "71aef5b0-243e-47bd-9bdf-4ea549acd99c")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "R51")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
 		(at 45.72 187.96 0)
 		(unit 1)
@@ -20534,80 +17837,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 325.12 328.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6fc025b7-8eb9-49c4-be7f-0da16f327fed")
-		(property "Reference" "#PWR106"
-			(at 325.12 328.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 325.12 335.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 325.12 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 325.12 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 325.12 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "0f25dea0-38cc-4a74-b5af-788285d587ff")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR106")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:Polyfuse")
 		(at 264.16 379.73 90)
 		(unit 1)
@@ -20748,473 +17977,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "F1")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 508 307.34 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "74e71d8f-0dac-4535-bbfc-bcbaf1855409")
-		(property "Reference" "#PWR113"
-			(at 508 307.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3V3"
-			(at 508 303.53 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 508 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 508 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 508 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "7751ae87-ecc3-437c-925c-6fb8f87134c6")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR113")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 561.34 317.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7582f9ff-7d2a-4917-b21b-b41c28c49f3f")
-		(property "Reference" "#PWR117"
-			(at 561.34 317.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 561.34 323.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 561.34 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 561.34 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 561.34 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "a4c0168c-8a18-4aa7-9c41-713e8a223cea")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR117")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 20.32 180.34 0)
-		(unit 0)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7a54e63b-3b33-4424-bb14-380c104a080d")
-		(property "Reference" "TP41"
-			(at 19.05 177.8 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "TEST_POINT"
-			(at 19.05 185.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 20.32 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "18mil Test Point"
-			(at 20.32 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "$PN" "?"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LIFESTATUS" "CUR"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTTYPE" "non BOM"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PN" "#"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTID" "56x-tmp12"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICS_PARTTYPE" "non BOM"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MNTTYPE" "SMT"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "REVISION" "REV"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "SOURCE" "WS0.2.SchLib"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "TP18"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "BIDIRECTIONAL" "TRUE"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ISSUENO" "4891"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ROHS" "ROHS"
-			(at 19.05 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(pin "1"
-			(uuid "b2a0e7ed-c333-4883-ace2-4398cd3ed8ed")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "TP41")
-					(unit 0)
 				)
 			)
 		)
@@ -21763,142 +18525,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "R43")
 					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:Res_4.99k_0402_1p")
-		(at 307.34 323.85 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7f740aa1-4616-4307-847b-fb785351ced7")
-		(property "Reference" "R48"
-			(at 308.864 322.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.02kΩ 1%"
-			(at 308.864 325.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-RC0402-0_4-IPC_C"
-			(at 308.61 336.804 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 4.02K OHM 1% 1/16W 0402 p/n RC0402FR-074K02L: MP6550 current limit 0.5 V / (100 µA/A x 4.02 kΩ) = 1.24 A"
-			(at 308.102 334.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "RC0402FR-074K02L"
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C137968"
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "4.02 kΩ: Nick, 2026-11-15 (4.02 k, so we don't clip - it's transient). Yageo RC0402FR-07 series as R34 / R23 / R1, footprint of R34; this value is not in the BOM yet, LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Yageo"
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 307.34 323.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5af96411-2be4-4e57-a8ee-29881adc442d")
-		)
-		(pin "2"
-			(uuid "86c5015a-c468-45f1-abc5-e5b4390b3fbe")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "R48")
-					(unit 1)
 				)
 			)
 		)
@@ -22616,80 +19242,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 284.48 328.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "83be4bdd-f3eb-4fd3-a789-e3c3ad53e33b")
-		(property "Reference" "#PWR104"
-			(at 284.48 328.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 284.48 335.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 284.48 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 284.48 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 284.48 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "cd02df37-c033-42ac-b7f3-4cbacf3b01ba")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR104")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
 		(at 337.82 213.36 0)
 		(unit 0)
@@ -23118,80 +19670,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 219.71 316.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "86ea216b-2d98-49f8-8ea7-ca8c8403674f")
-		(property "Reference" "#PWR102"
-			(at 219.71 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 219.71 322.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 219.71 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 219.71 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 219.71 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "de82adab-0dc6-40bb-8333-54a88fbe68f7")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR102")
 					(unit 1)
 				)
 			)
@@ -24089,132 +20567,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:CAP_470nF_0402_50V")
-		(at 325.12 320.04 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "96dcc5f0-44e9-425c-96bf-e18c168bd0da")
-		(property "Reference" "C64"
-			(at 327.66 318.7762 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "470nF 50V"
-			(at 327.66 321.3162 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 327.66 333.248 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 325.12 320.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.47UF 50V X5R 0402 p/n UMK105ABJ474KV-F"
-			(at 326.39 330.708 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "UMK105ABJ474KV-F"
-			(at 325.12 320.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C386109"
-			(at 325.12 320.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (C6); LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 325.12 320.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 325.12 320.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5c6e05ef-19d4-47ca-b7eb-cad739735b51")
-		)
-		(pin "2"
-			(uuid "97abf3ae-4488-494d-956b-9e4f2465e07e")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C64")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
 		(at 458.47 215.9 180)
 		(unit 1)
@@ -24767,205 +21119,6 @@
 		)
 	)
 	(symbol
-		(lib_id "urchin:CAP_47uF_bulk")
-		(at 201.93 311.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a2d695fc-bfda-4048-9f8d-e4ca8fd2941c")
-		(property "Reference" "C62"
-			(at 205.74 309.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "22uF 16V"
-			(at 205.74 312.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 204.47 324.358 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 201.93 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Chip Capacitor, 22 uF, +/- 20%, 16 V, X5R, 0805 p/n GRM21BR61C226ME44L; bulk at MP6550 VIN, two in parallel (C62, C66) = 44 uF nominal"
-			(at 203.2 321.818 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "GRM21BR61C226ME44L"
-			(at 201.93 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C86817"
-			(at 201.93 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C56 / C57). Replaces the 47 uF 1206 placeholder (Nick, 2026-11-15: reuse vetted footprints)"
-			(at 201.93 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Murata"
-			(at 201.93 311.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8203d769-fae1-4691-bdc5-f5abc2647cf7")
-		)
-		(pin "1"
-			(uuid "41d77bfc-641a-4f66-914c-7679b4095f72")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 508 317.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a3598b03-19a2-4e93-bfc6-2966fda41a12")
-		(property "Reference" "#PWR114"
-			(at 508 317.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 508 323.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 508 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 508 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 508 317.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "76292aeb-a978-42e2-8fce-fc14a393ee68")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR114")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "nereus:PI_3V3")
 		(at 252.73 156.21 180)
 		(unit 1)
@@ -25038,325 +21191,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#PWR077")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 20.32 200.66 0)
-		(unit 0)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a7cc2e49-f304-4f9a-ada9-70948a48e52f")
-		(property "Reference" "TP43"
-			(at 19.05 198.12 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "TEST_POINT"
-			(at 19.05 205.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 20.32 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "18mil Test Point"
-			(at 20.32 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "$PN" "?"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LIFESTATUS" "CUR"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTTYPE" "non BOM"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PN" "#"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTID" "56x-tmp12"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICS_PARTTYPE" "non BOM"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MNTTYPE" "SMT"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "REVISION" "REV"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "SOURCE" "WS0.2.SchLib"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "TP18"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "BIDIRECTIONAL" "TRUE"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ISSUENO" "4891"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ROHS" "ROHS"
-			(at 19.05 198.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(pin "1"
-			(uuid "91296dd6-6873-41c6-9f47-659f2acb4429")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "TP43")
-					(unit 0)
 				)
 			)
 		)
@@ -25441,308 +21275,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 307.34 328.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ab3b115e-b7a0-4a3e-929c-96ce001d6d8c")
-		(property "Reference" "#PWR105"
-			(at 307.34 328.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 307.34 335.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 307.34 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 307.34 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "a78d59c8-d7fb-416f-9f10-e3cf5d675d7b")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR105")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:SM04B-GHS")
-		(at 378.46 309.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "aed6b123-d6f2-4060-8df1-0069094e483d")
-		(property "Reference" "J7"
-			(at 381 308.6099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SM04B-GHS"
-			(at 381 311.1499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 378.968 321.818 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CONN HEADER SMD R/A 4POS 1.25MM"
-			(at 379.984 319.278 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "FUNCTION" "MOTOR"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "SM04B-GHS-TB"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "JST"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C189895"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Same part and pinout as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 378.46 309.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "20f7769c-c2e5-465d-8cbc-4ccab5061e22")
-		)
-		(pin "3"
-			(uuid "a3d4123e-9563-41b0-8d63-cbf2e61c36f6")
-		)
-		(pin "2"
-			(uuid "c3c665df-c913-41b1-b5d4-09067f221146")
-		)
-		(pin "4"
-			(uuid "4b5701c3-c3d1-4904-a814-5edf012144b1")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "J7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 482.6 327.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b0ff1b92-1fa1-4846-8b98-52c782b09db3")
-		(property "Reference" "#PWR112"
-			(at 482.6 327.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 482.6 334.01 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 482.6 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 482.6 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 482.6 327.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "2ecafb9f-07f3-4bc2-8a28-9a6fe2b7196a")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR112")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 87.63 394.97 0)
 		(unit 1)
@@ -25813,131 +21345,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "H4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:CAP_100nF_0402_50V")
-		(at 561.34 312.42 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "b1f0b1e4-07e1-4fca-8ea3-25b3389999eb")
-		(property "Reference" "C67"
-			(at 565.15 311.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 25V"
-			(at 565.15 313.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-CL278-IPC_C"
-			(at 563.88 325.628 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 561.34 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 p/n CL05A104KA5NNNC: optional filter on the pot wiper, NOT FITTED"
-			(at 562.61 323.088 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
-			(at 561.34 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C100072"
-			(at 561.34 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C1, C3, C9-C15, C28, C53). DNP: optional, footprint only"
-			(at 561.34 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Samsung"
-			(at 561.34 312.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "74eb7fe6-b528-401d-845c-57c1ca19fdc3")
-		)
-		(pin "2"
-			(uuid "81c7f5fc-7084-4b6d-ac6b-e1a4692967ef")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C67")
 					(unit 1)
 				)
 			)
@@ -26169,80 +21576,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#FLG03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 416.56 307.34 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b59d5a3e-dfd0-4930-b139-23f971fd4686")
-		(property "Reference" "#PWR109"
-			(at 416.56 307.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 416.56 313.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 416.56 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 416.56 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 416.56 307.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "24ff5e93-41c6-4804-a15a-cdd60bbb2862")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR109")
 					(unit 1)
 				)
 			)
@@ -26734,399 +22067,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "R24")
-					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 184.15 316.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b89f0b4d-52e2-4e96-984d-0d5cd407ef38")
-		(property "Reference" "#PWR115"
-			(at 184.15 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 184.15 322.58 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 184.15 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 184.15 316.23 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "c2aad9f4-4c79-44f2-9eff-fe813e2142d2")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR115")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
-		(at 20.32 170.18 0)
-		(unit 0)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b902040a-b354-43fe-b079-b07f3395c7e4")
-		(property "Reference" "TP40"
-			(at 19.05 167.64 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "TEST_POINT"
-			(at 19.05 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Vault:PCB_TP_1.5mm"
-			(at 20.32 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 20.32 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "18mil Test Point"
-			(at 20.32 170.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "$PN" "?"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "LIFESTATUS" "CUR"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTTYPE" "non BOM"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "OUTPUT_LOAD" "(1.0,-1.0)"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PN" "#"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PARTID" "56x-tmp12"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICS_PARTTYPE" "non BOM"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "MNTTYPE" "SMT"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "REVISION" "REV"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "SOURCE" "WS0.2.SchLib"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ALTIUM_VALUE" "TP18"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "INPUT_LOAD" "(-0.01,0.01)"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "COMPONENT TYPE" "Standard (No BOM)"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "BIDIRECTIONAL" "TRUE"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ICSPARTNUMBER" "56x-tmp12"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ISSUENO" "4891"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "DESIGN ITEM ID" "TEST_POINT"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "ROHS" "ROHS"
-			(at 19.05 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(pin "1"
-			(uuid "923255c4-976d-40da-8c61-3ca0c1c6ea05")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "TP40")
 					(unit 0)
 				)
 			)
@@ -28140,80 +23080,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 469.9 299.72 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c61932ed-2fe5-4fa6-ad3f-9b2751e7ea1f")
-		(property "Reference" "#PWR111"
-			(at 469.9 299.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3V3"
-			(at 469.9 295.91 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 469.9 299.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 469.9 299.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 469.9 299.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "a8da058c-b383-46a3-aa6f-49d446ae0db5")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR111")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
 		(at 401.32 223.52 0)
 		(unit 0)
@@ -28831,159 +23697,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "MTG1")
 					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:MP6550")
-		(at 284.48 313.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d3cc9946-1305-47f6-bfdb-35b910f7648a")
-		(property "Reference" "U12"
-			(at 271.526 299.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MP6550"
-			(at 274.066 302.006 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "urchin:MP6550GG"
-			(at 284.48 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP6550GG-Z/"
-			(at 285.496 339.598 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unipolar Motor Driver Power MOSFET PWM 12-QFN (2x2) p/n MP6550GG"
-			(at 286.004 337.058 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "MP6550GG"
-			(at 284.48 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C3681248"
-			(at 284.48 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Copied from the Urchin board (U1); LCSC number confirmed on JLC's part page (read 2026-11-16)"
-			(at 284.48 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
-			(at 284.48 313.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "10"
-			(uuid "d4b62b99-6215-42b7-acc8-a8eb4db4a5d6")
-		)
-		(pin "5"
-			(uuid "ada1a0bb-8aca-4a4b-91f0-3271da5d726a")
-		)
-		(pin "8"
-			(uuid "679baed1-c05e-4a26-8e4b-667166099a7e")
-		)
-		(pin "7"
-			(uuid "9b4f33cf-7c11-4360-a5f6-9c83391fcab5")
-		)
-		(pin "9"
-			(uuid "7889418b-6710-4f8c-9ae3-dd7508c280dd")
-		)
-		(pin "11"
-			(uuid "9d31cf9d-ec13-4042-a4a0-88d5e3a2816c")
-		)
-		(pin "12"
-			(uuid "ec019295-cdc6-424d-a9f8-21707c6cdeb9")
-		)
-		(pin "3"
-			(uuid "9bd51254-6037-4a8b-a1af-84485276b08b")
-		)
-		(pin "1"
-			(uuid "cdfdbea6-9bb5-47c6-a327-16b5729ed0e6")
-		)
-		(pin "4"
-			(uuid "da16de2b-0adc-4bb4-b705-5c3b6df175bc")
-		)
-		(pin "2"
-			(uuid "84a1fc11-33ee-4af5-bddb-e1fc55618830")
-		)
-		(pin "6"
-			(uuid "23fa66f4-814d-42f5-a4df-a0b3c4923302")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "U12")
-					(unit 1)
 				)
 			)
 		)
@@ -29779,80 +24492,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
-		(at 342.9 328.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d7fec00e-723d-430b-b78b-773df4e412aa")
-		(property "Reference" "#PWR107"
-			(at 342.9 328.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 342.9 335.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 342.9 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 342.9 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 342.9 328.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "4ca00023-618b-4e30-9336-83755585b976")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR107")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "BM_Mote_000639-AB-altium-import:1V8_BAR")
 		(at 447.04 215.9 180)
 		(unit 1)
@@ -29921,132 +24560,6 @@
 			(project "Nereus_Pi_Shield_Adin2111"
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "#PWR090")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "urchin:CAP_100nF_0402_50V")
-		(at 342.9 316.23 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d9f245c6-0bcf-4145-a38c-1d1e0a934fba")
-		(property "Reference" "C63"
-			(at 345.44 314.9662 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 25V"
-			(at 345.44 317.5062 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Vault:FP-CL278-IPC_C"
-			(at 345.44 329.438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 342.9 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 p/n CL05A104KA5NNNC"
-			(at 344.17 326.898 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MPN" "CL05A104KA5NNNC"
-			(at 342.9 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED LCSC" "C100072"
-			(at 342.9 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED NOTE" "Vetted part and footprint of this board (C1, C3, C9-C15, C28, C53); was the Urchin's CC0402KRX5R9BB104 (50 V) on a hand-solder footprint"
-			(at 342.9 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PLANNED MFR" "Samsung"
-			(at 342.9 316.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f37be626-e217-4de2-9c54-aeaf6becc353")
-		)
-		(pin "2"
-			(uuid "e2c07f09-daa7-4713-93ab-4d7af251e5c6")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "C63")
 					(unit 1)
 				)
 			)
@@ -30518,80 +25031,6 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
 					(reference "TP5")
 					(unit 0)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
-		(at 449.58 297.18 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e442dd62-dc8a-44fc-bf32-cef13c45ce99")
-		(property "Reference" "#PWR108"
-			(at 449.58 297.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3V3"
-			(at 449.58 293.37 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 449.58 297.18 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 449.58 297.18 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 449.58 297.18 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin ""
-			(uuid "caa05b75-b2a4-4a15-8a60-95057bf67a48")
-		)
-		(instances
-			(project "Nereus_Pi_Shield_Adin2111"
-				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
-					(reference "#PWR108")
-					(unit 1)
 				)
 			)
 		)
@@ -32470,6 +26909,284 @@
 				)
 			)
 		)
+	)
+	(sheet
+		(at 241.3 290.83)
+		(size 50.8 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+			(color 128 0 0 1)
+		)
+		(fill
+			(color 128 255 128 1)
+		)
+		(uuid "645ec816-357b-5a25-ba19-618b53952414")
+		(property "Sheetname" "Motor + ADC"
+			(at 241.3 288.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Nereus_Pi_Shield_Adin2111_MotorADC.kicad_sch"
+			(at 241.3 290.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "5V_PI" passive
+			(at 241.3 295.91 180)
+			(uuid "daf8219d-77ef-52aa-9707-28e8a8d5b04d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_IN1" passive
+			(at 241.3 298.45 180)
+			(uuid "7ced2ac5-e204-5e07-b8b2-7f3b1fcdb27d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_IN2" passive
+			(at 241.3 300.99 180)
+			(uuid "9d48548b-68fb-5cfe-b8bb-b6693b4a1a5e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_nSLEEP" passive
+			(at 241.3 303.53 180)
+			(uuid "b7587d39-3145-5c5f-b739-59d352919a53")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "~{ADC_ALERT}" passive
+			(at 241.3 306.07 180)
+			(uuid "c02d63dc-ce51-53aa-a953-d05abceceb76")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C0_SDA" passive
+			(at 241.3 308.61 180)
+			(uuid "2003b888-a53c-5ef2-a28b-d7f9157344ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C0_SCL" passive
+			(at 241.3 311.15 180)
+			(uuid "8bb5e569-cfa7-5428-842f-8fc146e091dd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671"
+					(page "8")
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 223.52 295.91) (xy 241.3 295.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d12795a2-4b62-55d1-8df8-0a6182181892")
+	)
+	(label "5V_PI"
+		(at 223.52 295.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e7a2750-e52f-565a-aea5-c3b573b8cb86")
+	)
+	(wire
+		(pts
+			(xy 223.52 298.45) (xy 241.3 298.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9ad44b3-44c0-5c1c-ad24-a5f2386b6389")
+	)
+	(label "MOTOR_IN1"
+		(at 223.52 298.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2e155760-72dd-5f73-9bfa-b706302c46b7")
+	)
+	(wire
+		(pts
+			(xy 223.52 300.99) (xy 241.3 300.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "519175dc-338c-595e-b3e3-2651f33693a8")
+	)
+	(label "MOTOR_IN2"
+		(at 223.52 300.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b76f167-6731-5533-aa8d-83d1a6b1d63f")
+	)
+	(wire
+		(pts
+			(xy 223.52 303.53) (xy 241.3 303.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bd58b76-dcef-5fbf-9584-f95deb17d817")
+	)
+	(label "MOTOR_nSLEEP"
+		(at 223.52 303.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b299d90e-dcaa-5e93-a34f-244350b8e728")
+	)
+	(wire
+		(pts
+			(xy 223.52 306.07) (xy 241.3 306.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6334f674-6b11-56a2-87f6-44ad20d26fa9")
+	)
+	(label "~{ADC_ALERT}"
+		(at 223.52 306.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "178452e4-1da6-5800-b19e-83cfed5455df")
+	)
+	(wire
+		(pts
+			(xy 223.52 308.61) (xy 241.3 308.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ade94e6-d7bf-55e7-b7f0-5a0018caa581")
+	)
+	(label "I2C0_SDA"
+		(at 223.52 308.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4f685ccd-92e6-5642-8f4f-3df49d623265")
+	)
+	(wire
+		(pts
+			(xy 223.52 311.15) (xy 241.3 311.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4071e18d-bb90-5eea-bbff-e377117e2334")
+	)
+	(label "I2C0_SCL"
+		(at 223.52 311.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc9dd57c-b613-5f1c-afbe-ebbb7072e48d")
+	)
+	(text_box "MOTOR DRIVER + ADC"
+		(exclude_from_sim no)
+		(at 241.3 321.31 0)
+		(size 120 6.35)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width -0.0001)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 3.048 3.048)
+			)
+			(justify left top)
+		)
+		(uuid "6ef6ea70-c0d6-5bc3-84e8-acde70e644ba")
 	)
 	(sheet
 		(at 342.9 204.47)
