@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G> [gap mm]
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -12,6 +12,8 @@ mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
 XOFF = 32.13 if mock == "D" else 33.03; YOFF = 1.0
+RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
+GAP = float(sys.argv[4]) if len(sys.argv) > 4 else 7.5   # clear gap between connector land patterns in a column, for latch access
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
 V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
 fps = {f.GetReference(): f for f in b.GetFootprints()}
@@ -71,6 +73,17 @@ if mock == "D":
     conn(GH4, "J10", "BM1", 0.3, -11.7); conn(GH4, "J7", "MOTOR", 28.67, -10.6, 90); conn(GH3, "J8", "POT", 27.05, 41.6)
     conn(GH4, "J9", "BM2", 1.6, 41.6); conn(SH4, "J3", "QWIIC", 0.6, 28.0, 90)
     header("J21", 2.83, False); header("J22", 32.73, False); holes = []
+elif mock == "G":
+    # Nick, 2026-11-17: narrower F. BM1, BM2, MOTOR (and QWIIC) on the west wall with latch clearance; motor driver,
+    # 5 V converter, POT and ADC on the south wall; nothing east of the east header.
+    W0, E, S0, N0 = -3.0, 37.1, -11.3, 48.5
+    print("motor (N6-facing side)", place(motor, 2.9, -10.6)); print("5 V", place(conv, 9.8, -11.0, 90)); print("ADC (N6-facing side)", place(adc, 22.9, -6.6))
+    conn(GH3, "J8", "POT", 22.9, -10.9)
+    y = -5.0
+    for name, ref, val, h in ((GH4, "J7", "MOTOR", 6.69), (GH4, "J10", "BM1", 6.69), (SH4, "J3", "QWIIC", 5.29), (GH4, "J9", "BM2", 6.69)):
+        conn(name, ref, val, -2.65, y); y += h + GAP
+    header("J21", 2.83, True); header("J22", 32.73, True)
+    holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))
@@ -82,8 +95,17 @@ for i, (X, y) in enumerate(holes):
     f = lib("MountingHole", "MountingHole_2.7mm_M2.5", "H%d" % (i + 1), "2.7 mm hole (size to confirm)"); f.SetPosition(V(OX + X, OY - y))
 # 3. outline and origin
 old_edges = [d for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
-rc = pcbnew.PCB_SHAPE(b); rc.SetShape(pcbnew.SHAPE_T_RECTANGLE); rc.SetLayer(pcbnew.Edge_Cuts); rc.SetWidth(MM(0.1))
-rc.SetStart(V(OX + W0, OY - N0)); rc.SetEnd(V(OX + E, OY - S0)); b.Add(rc)
+def edge(kind, a, c=None, e=None):
+    s = pcbnew.PCB_SHAPE(b); s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(MM(0.1))
+    if kind == "line": s.SetShape(pcbnew.SHAPE_T_SEGMENT); s.SetStart(V(*a)); s.SetEnd(V(*e))
+    else: s.SetShape(pcbnew.SHAPE_T_ARC); s.SetCenter(V(*c)); s.SetStart(V(*a)); s.SetArcAngleAndEnd(pcbnew.EDA_ANGLE(90, pcbnew.DEGREES_T))
+    b.Add(s)
+x0, x1, y0, y1, R = OX + W0, OX + E, OY - N0, OY - S0, RAD     # KiCad frame: y0 = camera-end edge, y1 = USB-end edge
+edge("line", (x0 + R, y0), e=(x1 - R, y0)); edge("line", (x1, y0 + R), e=(x1, y1 - R))
+edge("line", (x1 - R, y1), e=(x0 + R, y1)); edge("line", (x0, y1 - R), e=(x0, y0 + R))
+if R:   # quarter arcs, each drawn clockwise on screen from its start point
+    edge("arc", (x1 - R, y0), c=(x1 - R, y0 + R)); edge("arc", (x1, y1 - R), c=(x1 - R, y1 - R))
+    edge("arc", (x0 + R, y1), c=(x0 + R, y1 - R)); edge("arc", (x0, y0 + R), c=(x0 + R, y0 + R))
 b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
 print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
 # 4. removals last (pcbnew objects go stale after Remove: nothing is queried afterwards)
