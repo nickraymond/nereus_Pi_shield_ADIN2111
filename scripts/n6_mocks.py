@@ -30,6 +30,8 @@ class Svg:
         a, b = s.p(X, y); s.o.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke="%s"/>' % (a, b, r * S, fill, stroke))
     def text(s, X, y, t, size=11, anchor="middle", fill="black", bold=False, rot=0):
         a, b = s.p(X, y); s.o.append('<text x="%.1f" y="%.1f" font-size="%s" text-anchor="%s" fill="%s"%s%s>%s</text>' % (a, b + size * 0.35, size, anchor, fill, ' font-weight="bold"' if bold else "", ' transform="rotate(%d %.1f %.1f)"' % (rot, a, b) if rot else "", t))
+    def line(s, pts, col, w, dash=""):
+        s.o.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%.1f" stroke-dasharray="%s" stroke-linejoin="round"/>' % (" ".join("%.1f,%.1f" % s.p(*q) for q in pts), col, w * S, dash))
     def note(s, lines):
         for i, t in enumerate(lines): s.o.append('<text x="12" y="%d" font-size="12">%s</text>' % (s.h - 14 * (len(lines) - i) + 4, t))
     def save(s, name):
@@ -128,5 +130,22 @@ def mock_b(entry):
     s.text(34.0, 44, "LEDs", 9, rot=-90)
     legend(s, entry, "48.6 x 53.5 mm = 2600 mm2 (N6: 1581 mm2); 48.6 x 48.5 if the BM1 trunks fit beside the block between the headers.", "ADC (U13) sits on the N6-facing side.")
     s.save("mock_B_wing_%s_entry.svg" % entry)
-for e in ("side", "top"): mock_a(e); mock_b(e)
+def mock_c(entry):
+    """Nick, 2026-11-17: BM1 and MOTOR on the east edge, so the board gets wider instead of longer."""
+    E = N6W + 13.0
+    s = Svg(-4, -1, E + 4, 49.5, "Mock C (%s-entry JST): east wing, BM1 and MOTOR on the east edge. 48.6 x 48.5 mm" % entry)
+    s.rect(0, 0, E, 48.5, sw=3, rx=1); n6(s); mote(s)
+    group(s, N6W + 1.4, 2.6, 10.2, 12.6, "5 V: U10 + L6", "#c62828", (N6W + 0.3, 0.3, E - 0.3, 16.3, "U10 copper 198 mm2 / face"))
+    group(s, N6W + 0.9, 18.0, 6.5, 9.4, "U12 motor", "#283593", (N6W + 0.3, 16.8, N6W + 7.9, 30.0, "U12 100 mm2 / face"))
+    inset = 0 if entry == "side" else 0.6
+    conn(s, "MOTOR", E - inset, 18.6, "y", 4, "GH", entry); conn(s, "BM1", E - inset, 30.5, "y", 4, "GH", entry)
+    conn(s, "BM2", inset, 39.6, "y", 4, "GH", entry); conn(s, "POT", inset, 31.6, "y", 3, "GH", entry); conn(s, "QWIIC", inset, 24.6, "y", 4, "SH", entry)
+    group(s, N6W + 1.5, 41.0, 8.5, 5.7, "ADC", "#6d4c41"); s.text(34.0, 44, "LEDs", 9, rot=-90)
+    s.line([(24.5, 9.0), (29.57, 11.0), (29.57, 22.0), (33.0, 25.0), (33.0, 34.6), (E - 5.2 - inset, 34.6)], "#d50000", 1.4, "6 3")
+    s.text(31.2, 28.5, "BM1 trunks: 2.1 mm channel", 9, fill="#d50000", rot=-90)
+    s.line([(1.6, 4.13), (8.0, -0.0 + 0.5), (N6W + 2.0, 0.5)], "#c62828", 0.3, "2 2")
+    legend(s, entry, "48.6 x 48.5 mm = 2357 mm2 (N6: 1581 mm2). 13 mm wider on the P0 side, 4 mm past the camera end.",
+           "Dashed red = BM1 bus tracks in the 2.1 mm channel beside the block (to prove); dotted = 5 V to VIN. ADC on the N6-facing side.")
+    s.save("mock_C_east_wing_%s_entry.svg" % entry)
+for e in ("side", "top"): mock_a(e); mock_b(e); mock_c(e)
 print("gap block to inner header pads, mm:", {k: round(v, 2) for k, v in header_gap().items()})

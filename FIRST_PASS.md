@@ -77,10 +77,25 @@ side: 66 small parts over the whole area. Its last 20 mm at the L1 end are at mo
 |---|---|---|---|
 | A, long | 35.56 x 62.5 mm | 2222 mm² | same width; 14 mm past the USB end, 4 mm past the camera end; +41 % area |
 | B, wing | 48.6 x 53.5 mm (48.6 x 48.5 if the BM1 bus tracks fit in the 2 mm beside the block between the headers) | 2600 mm² (2357 mm²) | 13 mm wider on the VIN side, 4 mm past the camera end, 5 mm past the USB end; +64 % (+49 %) |
+| C, east wing (Nick's idea, 2026-11-17) | 48.6 x 48.5 mm | 2357 mm² | nothing past the USB end; 13 mm wider on the P0 side, 4 mm past the camera end (the mote's own length); +49 % area |
 
-**Smallest outline that holds everything: mock A, 35.56 x 62.5 mm.** In both mocks the converter and the motor
-driver sit next to the pins they use (VIN, P7, P8). Images: `mock_A_long_side_entry.png`,
-`mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`.
+**Mock C** puts the 5 V converter, the motor driver and the BM1 and MOTOR connectors in a 13 mm wing on the east
+(P0 to P6) side; BM2, POT and QWIIC stay on the west edge. What it costs:
+- The BM1 bus tracks must run from L1 (at the USB end, between the headers) through the 2.1 mm channel between the
+  block and the east header pads for about 12 mm, then out to the wing: two tracks of about 1.4 mm on two layers.
+  A 2 mm track cannot pass between header pads (0.84 mm between pads). Sofar's own copper is clear of that channel
+  on every layer (the profile in `scripts/n6_mocks.py` counts all layers); his plane fills there would be re-cut.
+  Not proven: no track was drawn or rule-checked. The Pi Zero board has a 1.4 mm neck in BM1 for 2.9 mm only.
+- The motor inputs (P7, P8) and the sleep line come from the west header and VIN is on the west header, so three
+  logic tracks and the N6's 5 V feed (0.15 A) cross the board. They are thin enough to pass between header pads.
+  The motor's own current stays inside the wing.
+- The converter is no longer beside the VIN pin, and the SPI pins P0 to P3 now have the converter 5 mm away on
+  their other side.
+
+**Smallest outline that holds everything: mock A, 35.56 x 62.5 mm; mock C is 6 % larger in area but 14 mm shorter.** The converter and the motor
+driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
+`mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
+`mock_C_east_wing_side_entry.png`, `mock_C_east_wing_top_entry.png`.
 
 **Connectors, both ways** (JST catalogue sheets eGH.pdf and eSH.pdf, jst-mfg.com, read 2026-11-17):
 
@@ -108,7 +123,7 @@ board under their bodies for pads.
 
 ## 4. Questions for Nick, each with a recommendation
 
-1. **Outline.** Mock A (35.56 x 62.5, N6 width, long) or mock B (wider, shorter)? *Recommendation: A, the smaller
+1. **Outline.** Mock A (35.56 x 62.5, N6 width, long), mock B (west wing) or mock C (east wing, 48.6 x 48.5)? *Recommendation: A, the smaller
    one, unless the enclosure is short.* Is an overhang past the USB end acceptable, and what are the enclosure's
    inner dimensions?
 2. **Connector entry.** Side or top? *Recommendation: top entry on the outer face if the enclosure has 7.3 mm plus
