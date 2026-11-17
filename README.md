@@ -1,27 +1,23 @@
-# nereus_Pi_shield_ADIN2111
+# Pi Full Shield ADIN2111 (full-size Raspberry Pi form factor)
 
-A Raspberry Pi Zero 2W shield built from a copy of the Sofar Bristlemouth mote:
-ADIN2111 two-port 10BASE-T1L with PoDL, powered from the bus, 5 V for the Pi,
-a 24 V payload port, and the Sofar mote's power path unchanged except the payload load switch (D17) (~20 W absolute
-max, 890 mA per port inductor at 24 V; 50 W in a later revision). Potted.
+Branch `pi-full`. The 65 x 56 mm, 6-layer Raspberry Pi shield with Sofar's Bristlemouth mote core (ADIN2111, PoDL
+power) and a 5 V converter for the Pi. This is the board that was frozen on 2026-11-11 and ordered at JLC
+(decision D57 in `docs/DESIGN.md` on the `development` branch). The files are unchanged from that state; only the
+folder was renamed.
 
-Claude Code does the schematic capture, up to a design-review package. Nick
-reviews, lays out, routes and brings up the board.
+## Open it
 
-## Folders
+Open `Pi_Full_Shield_ADIN2111/Nereus_Pi_Shield_Adin2111.kicad_pro` in KiCad 10. Keep the `.kicad_pro` and
+`.kicad_dru` beside the board file: they carry the JLC rules.
 
-```
-Nereus_Pi_Shield_Adin2111/   live KiCad 10 project, the board ordered at JLC — open Nereus_Pi_Shield_Adin2111.kicad_pro
-docs/                        spec, tracker, design log, power-path study
-docs/design-review/          ERC, netlist, PDF and the review package
-KiCAD_reference_designs/     BM mote 000639-AB, UrchinCam (read-only)
-Archive/                     earlier iterations, junction fix (read-only)
-pi-shield-checklist.html     shared visual view of docs/TRACKER.md (open in a browser)
-```
+## What is in this branch
 
-## Working on it
+Only the files this board needs: the KiCad project, its libraries (`*.pretty`, `*.kicad_sym`, the lib tables) and
+the two outline DXFs. The decision log, power budget, BOM and purchase records, reviews, scripts and reference
+designs are on the `development` branch.
 
-- Agents: start with `CLAUDE.md`, then `/agent-entry`.
-- People: `docs/TRACKER.md` shows where things stand; `docs/SPEC.md` says what
-  we're building and why.
-- Close KiCad before an agent edits the project.
+## Other branches
+
+- `pi-zero-side-entry`: the Pi Zero-size shield with motor driver and ADC (in review).
+- `pi-zero-top-entry-incomplete`: a stopped top-entry connector variant. Do not build.
+- `development`: references, docs, tools and the history of how these boards were made.
