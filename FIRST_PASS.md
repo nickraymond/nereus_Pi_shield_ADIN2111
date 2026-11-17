@@ -138,22 +138,21 @@ What the real footprints showed:
   the camera end. U12's 3D model file is missing from the project, so the 2 x 2 mm chip is not in the STEP.
 
 **Mock G: mock F made narrower** (Nick, 2026-11-17: BM connectors and MOTOR on the west wall; pot, motor driver
-and ADC on the south wall; rounded corners; room between connectors to reach the latches). Built as a rough board
-only (`n6_rough_board.py ... G`), 3 mm corner radius:
-- **40.1 x 59.8 mm (2398 mm²)**: 6.4 mm narrower than F and 5.3 mm taller. The width is now set by the top-entry
-  GH land pattern (9.55 mm) west of the mote block and by the surface-mount header pads on the east (they reach
-  1.3 mm past the N6's edge).
-- West wall, top face, from the USB end: MOTOR, BM1, QWIIC, BM2, with **7.5 mm clear between land patterns**
-  (pitch about 14 mm). BM1 sits beside L1 and BM2 beside L2.
-- South wall (11.3 mm past the USB end): motor driver (N6-facing side) under the MOTOR connector's corner, then the
-  5 V converter with L6, then POT with the ADC under it. The converter is about 10 mm from VIN, the motor driver about 8 mm
-  from P7 / P8: nothing crosses the board any more except SPI, which was already short.
-- The 7.5 mm is my choice, not a sourced figure. The reference Nick named is BotBlox's "SwitchBlox for Ardupilot"
-  (BM04B-GHS-TBT top-entry headers, per a reseller page, bzbuas.com, read 2026-11-17); no dimensioned drawing of it
-  could be fetched, so its connector pitch is not found. JST's sheet gives the 4-pin plug as 6.25 mm wide against
-  8.25 mm for the header and names a "large outer latch" without dimensions (eGH.pdf).
-- Mock F's single east column has no such room: five land patterns take 32 mm of its 48 mm, about 3.5 mm between
-  them at best.
+and ADC on the south wall; rounded corners; "Connector spacing is 2-3mm between connectors", after the Blue Robotics
+Ethernet Switch, https://bluerobotics.com/store/comm-control-power/tether-interface/ethswitch/, which uses the same
+BM04B-GHS-TBT headers on a 64 x 46 mm board). Built as a rough board only (`n6_rough_board.py ... G`), 3 mm corners:
+- **40.1 x 56.0 mm (2246 mm²)**: 6.4 mm narrower than F and 1.5 mm taller. The width is set by the top-entry GH
+  land pattern (9.55 mm) west of the mote block and by the surface-mount header pads on the east (they reach 1.3 mm
+  past the N6's edge).
+- West wall, top face, from the USB end: MOTOR, BM1, QWIIC, then the 5 V converter with L6, then BM2. Connector
+  bodies are 3.0 mm apart (land patterns 1.26 mm apart). BM1 is beside L1, BM2 beside L2. With this pitch the
+  converter fits on the west wall too, clear of the header pads, 0.1 mm from the mote block's courtyards (tight).
+- South wall (7.5 mm past the USB end): motor driver on the N6-facing side below the MOTOR connector, POT, and the
+  ADC on the N6-facing side.
+- Distances: converter to VIN about 17 mm; motor driver to P7 / P8 about 10 mm. Nothing but SPI crosses the board.
+- Copper for the converter: the west strip beside it is narrow (10 mm), so its 200 mm² per face must come from the
+  strip's length (about 20 mm) and the planes. Not laid out.
+- With 3 mm between bodies, mock F's single east column also works: five connectors need 37 mm of its 48 mm.
 
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,

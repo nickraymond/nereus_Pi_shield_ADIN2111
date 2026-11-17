@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G> [gap mm]
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -13,7 +13,6 @@ K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
 XOFF = 32.13 if mock == "D" else 33.03; YOFF = 1.0
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
-GAP = float(sys.argv[4]) if len(sys.argv) > 4 else 7.5   # clear gap between connector land patterns in a column, for latch access
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
 V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
 fps = {f.GetReference(): f for f in b.GetFootprints()}
@@ -74,14 +73,16 @@ if mock == "D":
     conn(GH4, "J9", "BM2", 1.6, 41.6); conn(SH4, "J3", "QWIIC", 0.6, 28.0, 90)
     header("J21", 2.83, False); header("J22", 32.73, False); holes = []
 elif mock == "G":
-    # Nick, 2026-11-17: narrower F. BM1, BM2, MOTOR (and QWIIC) on the west wall with latch clearance; motor driver,
-    # 5 V converter, POT and ADC on the south wall; nothing east of the east header.
-    W0, E, S0, N0 = -3.0, 37.1, -11.3, 48.5
-    print("motor (N6-facing side)", place(motor, 2.9, -10.6)); print("5 V", place(conv, 9.8, -11.0, 90)); print("ADC (N6-facing side)", place(adc, 22.9, -6.6))
-    conn(GH3, "J8", "POT", 22.9, -10.9)
-    y = -5.0
-    for name, ref, val, h in ((GH4, "J7", "MOTOR", 6.69), (GH4, "J10", "BM1", 6.69), (SH4, "J3", "QWIIC", 5.29), (GH4, "J9", "BM2", 6.69)):
-        conn(name, ref, val, -2.65, y); y += h + GAP
+    # Nick, 2026-11-17: narrower F. Connectors on the west wall, 3 mm between connector bodies ("2-3mm between
+    # connectors"; the land patterns are then 1.26 mm apart); motor driver, POT and ADC on the south wall. With that
+    # pitch the 5 V converter also fits on the west wall, between QWIIC and BM2, clear of the header pads.
+    W0, E, S0, N0 = -3.0, 37.1, -7.5, 48.5
+    print("motor (N6-facing side)", place(motor, 3.0, -7.2, 90)); print("ADC (N6-facing side)", place(adc, 23.0, -6.5))
+    conn(GH3, "J8", "POT", 14.0, -7.2)
+    y = -1.6
+    for name, ref, val, h in ((GH4, "J7", "MOTOR", 6.69), (GH4, "J10", "BM1", 6.69), (SH4, "J3", "QWIIC", 5.29)):
+        conn(name, ref, val, -2.65, y); y += h + 1.26
+    print("5 V", place(conv, -2.8, 21.2)); conn(GH4, "J9", "BM2", -2.65, 36.17)
     header("J21", 2.83, True); header("J22", 32.73, True)
     holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
 else:
