@@ -14,8 +14,8 @@
 	)
 	(lib_symbols)
 	(rectangle
-		(start 142.24 53.34)
-		(end 403.86 143.54)
+		(start 105.41 53.34)
+		(end 403.86 168.91)
 		(stroke
 			(width 0.254)
 			(type default)
@@ -27,7 +27,7 @@
 	)
 	(text "Variant: Standard"
 		(exclude_from_sim no)
-		(at 25.4 64.5922 0)
+		(at 19.304 39.2938 0)
 		(effects
 			(font
 				(size 6.096 6.096)
@@ -51,7 +51,7 @@
 	)
 	(text "${PCBPARTNAME}"
 		(exclude_from_sim no)
-		(at 25.4 46.8122 0)
+		(at 18.288 27.432 0)
 		(effects
 			(font
 				(size 7.62 7.62)
@@ -88,7 +88,7 @@
 	)
 	(text "${PCBPARTNUMBER}"
 		(exclude_from_sim no)
-		(at 48.26 82.3722 0)
+		(at 41.402 51.4858 0)
 		(effects
 			(font
 				(size 6.096 6.096)
@@ -120,6 +120,19 @@
 			(justify left bottom)
 		)
 		(uuid "75b0b714-80e9-4602-bda9-381476cbc4b2")
+	)
+	(text "DEVELOPER SPEC (summary; details on the following pages)"
+		(exclude_from_sim no)
+		(at 138.43 181.61 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.508)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "791a827c-e5d3-5cf1-82eb-83caba19b412")
 	)
 	(text "2026-11-11"
 		(exclude_from_sim no)
@@ -158,7 +171,7 @@
 	)
 	(text "I2C Address Table"
 		(exclude_from_sim no)
-		(at 25.4 172.5422 0)
+		(at 23.41 181.3322 0)
 		(effects
 			(font
 				(size 3.048 3.048)
@@ -168,6 +181,19 @@
 			(justify left bottom)
 		)
 		(uuid "95b983a6-3331-4015-9e2f-2d06095aa606")
+	)
+	(text "POWER"
+		(exclude_from_sim no)
+		(at 138.43 186.21 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.3048)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "9650aa27-5245-5080-882e-c46bbd1b04cc")
 	)
 	(text "Eng"
 		(exclude_from_sim no)
@@ -204,9 +230,20 @@
 		)
 		(uuid "c83a258e-645f-44a2-ae66-b84233cfbdd1")
 	)
+	(text "* Thermal limit of U10: bench validation pending.\nThe 5 V rail, the payload and the 3.3 V logic all draw from the 12 W own-load budget: 7.5 W on the 5 V rail is about 8.4 W from the bus.\nVBUS OUT's 0.73 A limit (17.5 W at 24 V) is above that budget: it protects the port, it does not enforce the budget."
+		(exclude_from_sim no)
+		(at 138.43 228.54 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left top)
+		)
+		(uuid "e62f3b72-c80d-568e-8e87-4c6108ded075")
+	)
 	(text "P/N:"
 		(exclude_from_sim no)
-		(at 25.4 82.3722 0)
+		(at 18.542 51.4858 0)
 		(effects
 			(font
 				(size 6.096 6.096)
@@ -227,6 +264,19 @@
 			(justify left bottom)
 		)
 		(uuid "f21416d8-7faf-4df5-9036-960b9ed4d24b")
+	)
+	(text "EXAMPLE LOADS"
+		(exclude_from_sim no)
+		(at 273.13 185.92 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.3048)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "fdf8189b-fcbf-5c89-97c3-216ad1c298d0")
 	)
 	(text_box "The Bristlemouth Mote Board is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License.  The Bristlemouth trademarks and the Bristlemouth logo are registered and unregistered marks belonging to Sofar Ocean Technologies, Inc., and are not included under the Creative Commons license.\nhttps://creativecommons.org/licenses/by-nd/4.0/legalcode"
 		(exclude_from_sim no)
@@ -317,7 +367,7 @@
 	)
 	(polyline
 		(pts
-			(xy 25.4 172.5422) (xy 68.58 172.5422)
+			(xy 23.41 181.3322) (xy 66.59 181.3322)
 		)
 		(stroke
 			(width 0.254)
@@ -381,445 +431,9 @@
 		)
 		(uuid "f21502bc-3ab1-42db-a935-6665e84757ed")
 	)
-	(table
-		(column_count 4)
-		(border
-			(external yes)
-			(header yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(separators
-			(rows yes)
-			(cols yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(column_widths 16.0 25.4 52.0 14.0)
-		(row_heights 3.96 5.81 3.96 3.96 5.81 5.81)
-		(uuid "039b4ac3-e7be-5e3c-9f0d-65fffd7572f3")
-		(cells
-			(table_cell "Bus"
-				(exclude_from_sim no)
-				(at 25.4 176.53 0)
-				(size 16.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "92bea361-f351-5df8-904c-0c05a951f4d3")
-			)
-			(table_cell "Pi pins"
-				(exclude_from_sim no)
-				(at 41.4 176.53 0)
-				(size 25.4 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "c0ddeb8f-41e1-5e4a-9e05-4ccf68170ed2")
-			)
-			(table_cell "Device"
-				(exclude_from_sim no)
-				(at 66.8 176.53 0)
-				(size 52.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "7d1c6477-1b8f-5c63-afba-213c5102271d")
-			)
-			(table_cell "Address"
-				(exclude_from_sim no)
-				(at 118.8 176.53 0)
-				(size 14.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "8d883e72-299e-5407-a248-4d6b49548be7")
-			)
-			(table_cell "I2C0"
-				(exclude_from_sim no)
-				(at 25.4 180.49 0)
-				(size 16.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "283b8f1e-312c-5ff8-9287-e8637b242550")
-			)
-			(table_cell "GPIO0 / GPIO1\n(pins 27 / 28)"
-				(exclude_from_sim no)
-				(at 41.4 180.49 0)
-				(size 25.4 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "868f7a29-2108-5b4c-8d00-ee78dc449f34")
-			)
-			(table_cell "INA232 bus power monitor (U4)"
-				(exclude_from_sim no)
-				(at 66.8 180.49 0)
-				(size 52.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "a8101561-bd36-5213-aaad-acd7db73cff7")
-			)
-			(table_cell "0x41"
-				(exclude_from_sim no)
-				(at 118.8 180.49 0)
-				(size 14.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "70c0a44f-0271-5288-b793-7ff9f91f084f")
-			)
-			(table_cell "I2C0"
-				(exclude_from_sim no)
-				(at 25.4 186.3 0)
-				(size 16.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "c8440987-8c35-5b44-a0a0-63aa41b7a2fb")
-			)
-			(table_cell "GPIO0 / GPIO1"
-				(exclude_from_sim no)
-				(at 41.4 186.3 0)
-				(size 25.4 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "b0b73420-57bb-5196-947b-afc62f482d4d")
-			)
-			(table_cell "ADS1115 ADC (U13), ADDR to GND (R50)"
-				(exclude_from_sim no)
-				(at 66.8 186.3 0)
-				(size 52.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "ca9a67f3-0b13-58d2-9ca7-22f7a11736eb")
-			)
-			(table_cell "0x48"
-				(exclude_from_sim no)
-				(at 118.8 186.3 0)
-				(size 14.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "907590e4-3a38-5b8c-a4a4-25911abf72e2")
-			)
-			(table_cell "I2C0"
-				(exclude_from_sim no)
-				(at 25.4 190.26 0)
-				(size 16.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "09639af8-2eb2-56dc-a7cd-279170404f48")
-			)
-			(table_cell "GPIO0 / GPIO1"
-				(exclude_from_sim no)
-				(at 41.4 190.26 0)
-				(size 25.4 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "de81b488-6184-531d-8e6b-b6266bc8996f")
-			)
-			(table_cell "keep free: HAT EEPROM probe at boot"
-				(exclude_from_sim no)
-				(at 66.8 190.26 0)
-				(size 52.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "e0994765-c43a-568e-a762-7ad9deb0e1df")
-			)
-			(table_cell "0x50"
-				(exclude_from_sim no)
-				(at 118.8 190.26 0)
-				(size 14.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "2dd47001-3ae7-5a36-9ccb-a0efbdb5c1f1")
-			)
-			(table_cell "I2C1"
-				(exclude_from_sim no)
-				(at 25.4 194.22 0)
-				(size 16.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "db620465-880f-51a3-ad70-8a0f9dc4b00d")
-			)
-			(table_cell "GPIO2 / GPIO3\n(pins 3 / 5)"
-				(exclude_from_sim no)
-				(at 41.4 194.22 0)
-				(size 25.4 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "ed2be032-ed31-5e47-a688-8a81915c8e52")
-			)
-			(table_cell "none on this board; free for a\nLiFePO4wered UPS"
-				(exclude_from_sim no)
-				(at 66.8 194.22 0)
-				(size 52.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "50489319-a129-5731-8a3e-6201ae79c76b")
-			)
-			(table_cell "0x43"
-				(exclude_from_sim no)
-				(at 118.8 194.22 0)
-				(size 14.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "0a98d9c9-7389-5dc8-a834-0819c5fe8676")
-			)
-			(table_cell "I2C3 (sw)"
-				(exclude_from_sim no)
-				(at 25.4 200.03 0)
-				(size 16.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "1b092470-b71c-5811-bde3-905dea5f42df")
-			)
-			(table_cell "GPIO22 / GPIO27\n(pins 15 / 13)"
-				(exclude_from_sim no)
-				(at 41.4 200.03 0)
-				(size 25.4 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "e42f568f-d60a-5192-8c94-d861fd898462")
-			)
-			(table_cell "Qwiic J3 only, no device on board"
-				(exclude_from_sim no)
-				(at 66.8 200.03 0)
-				(size 52.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "56ff83cf-f60c-52de-b0e1-3233969f86f1")
-			)
-			(table_cell "-"
-				(exclude_from_sim no)
-				(at 118.8 200.03 0)
-				(size 14.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "b174efbc-d03a-5119-8d0d-b5ab2c35a738")
-			)
-		)
-	)
 	(image
-		(at 273.05 98.44)
-		(scale 0.68022)
+		(at 260.35 111.14)
+		(scale 0.916592)
 		(uuid "cfca9b83-9af9-44a2-b787-9334cd75e63d")
 		(data "iVBORw0KGgoAAAANSUhEUgAADuwAAAW2CAMAAADtVpUWAAADAFBMVEX////9/v7+/vz+/fz9/f37"
 			"/Pz7+/r4+Pj19fXz9PT19fDx8vDv7+3t7u3s7Ozs7OXr7Ovr6+ro6ejm5+bj5OPe3t3X2djj26f1"
@@ -11442,7 +11056,7 @@
 		)
 	)
 	(image
-		(at 306.07 236.22)
+		(at 287.02 223.88)
 		(scale 1.0127)
 		(uuid "e2b3a2cc-1e78-4755-ad44-6c8d6d185cc9")
 		(data "Qk3WKgAAAAAAADYAAAAoAAAAWAAAAB8AAAABACAAAAAAAAAAAADEDgAAxA4AAAAAAAAAAAAA////"
@@ -11676,31 +11290,441 @@
 			"OX8AADp/AAA7fwAASH8AAEl/AA=="
 		)
 	)
-	(text "DEVELOPER SPEC (summary; details on the following pages)"
-		(exclude_from_sim no)
-		(at 142.24 152.04 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-				(thickness 0.508)
-				(bold yes)
+	(table
+		(column_count 4)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0)
+				(type solid)
 			)
-			(justify left bottom)
 		)
-		(uuid "791a827c-e5d3-5cf1-82eb-83caba19b412")
-	)
-	(text "POWER"
-		(exclude_from_sim no)
-		(at 142.24 156.64 0)
-		(effects
-			(font
-				(size 1.524 1.524)
-				(thickness 0.3048)
-				(bold yes)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0)
+				(type solid)
 			)
-			(justify left bottom)
 		)
-		(uuid "9650aa27-5245-5080-882e-c46bbd1b04cc")
+		(column_widths 16 25.4 52 14)
+		(row_heights 3.96 5.81 3.96 3.96 5.81 5.81)
+		(uuid "039b4ac3-e7be-5e3c-9f0d-65fffd7572f3")
+		(cells
+			(table_cell "Bus"
+				(exclude_from_sim no)
+				(at 23.41 185.32 0)
+				(size 16 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "92bea361-f351-5df8-904c-0c05a951f4d3")
+			)
+			(table_cell "Pi pins"
+				(exclude_from_sim no)
+				(at 39.41 185.32 0)
+				(size 25.4 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "c0ddeb8f-41e1-5e4a-9e05-4ccf68170ed2")
+			)
+			(table_cell "Device"
+				(exclude_from_sim no)
+				(at 64.81 185.32 0)
+				(size 52 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "7d1c6477-1b8f-5c63-afba-213c5102271d")
+			)
+			(table_cell "Address"
+				(exclude_from_sim no)
+				(at 116.81 185.32 0)
+				(size 14 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "8d883e72-299e-5407-a248-4d6b49548be7")
+			)
+			(table_cell "I2C0"
+				(exclude_from_sim no)
+				(at 23.41 189.28 0)
+				(size 16 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "283b8f1e-312c-5ff8-9287-e8637b242550")
+			)
+			(table_cell "GPIO0 / GPIO1\n(pins 27 / 28)"
+				(exclude_from_sim no)
+				(at 39.41 189.28 0)
+				(size 25.4 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "868f7a29-2108-5b4c-8d00-ee78dc449f34")
+			)
+			(table_cell "INA232 bus power monitor (U4)"
+				(exclude_from_sim no)
+				(at 64.81 189.28 0)
+				(size 52 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "a8101561-bd36-5213-aaad-acd7db73cff7")
+			)
+			(table_cell "0x41"
+				(exclude_from_sim no)
+				(at 116.81 189.28 0)
+				(size 14 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "70c0a44f-0271-5288-b793-7ff9f91f084f")
+			)
+			(table_cell "I2C0"
+				(exclude_from_sim no)
+				(at 23.41 195.09 0)
+				(size 16 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "c8440987-8c35-5b44-a0a0-63aa41b7a2fb")
+			)
+			(table_cell "GPIO0 / GPIO1"
+				(exclude_from_sim no)
+				(at 39.41 195.09 0)
+				(size 25.4 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "b0b73420-57bb-5196-947b-afc62f482d4d")
+			)
+			(table_cell "ADS1115 ADC (U13), ADDR to GND (R50)"
+				(exclude_from_sim no)
+				(at 64.81 195.09 0)
+				(size 52 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "ca9a67f3-0b13-58d2-9ca7-22f7a11736eb")
+			)
+			(table_cell "0x48"
+				(exclude_from_sim no)
+				(at 116.81 195.09 0)
+				(size 14 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "907590e4-3a38-5b8c-a4a4-25911abf72e2")
+			)
+			(table_cell "I2C0"
+				(exclude_from_sim no)
+				(at 23.41 199.05 0)
+				(size 16 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "09639af8-2eb2-56dc-a7cd-279170404f48")
+			)
+			(table_cell "GPIO0 / GPIO1"
+				(exclude_from_sim no)
+				(at 39.41 199.05 0)
+				(size 25.4 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "de81b488-6184-531d-8e6b-b6266bc8996f")
+			)
+			(table_cell "keep free: HAT EEPROM probe at boot"
+				(exclude_from_sim no)
+				(at 64.81 199.05 0)
+				(size 52 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "e0994765-c43a-568e-a762-7ad9deb0e1df")
+			)
+			(table_cell "0x50"
+				(exclude_from_sim no)
+				(at 116.81 199.05 0)
+				(size 14 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "2dd47001-3ae7-5a36-9ccb-a0efbdb5c1f1")
+			)
+			(table_cell "I2C1"
+				(exclude_from_sim no)
+				(at 23.41 203.01 0)
+				(size 16 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "db620465-880f-51a3-ad70-8a0f9dc4b00d")
+			)
+			(table_cell "GPIO2 / GPIO3\n(pins 3 / 5)"
+				(exclude_from_sim no)
+				(at 39.41 203.01 0)
+				(size 25.4 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "ed2be032-ed31-5e47-a688-8a81915c8e52")
+			)
+			(table_cell "none on this board; free for a\nLiFePO4wered UPS"
+				(exclude_from_sim no)
+				(at 64.81 203.01 0)
+				(size 52 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "50489319-a129-5731-8a3e-6201ae79c76b")
+			)
+			(table_cell "0x43"
+				(exclude_from_sim no)
+				(at 116.81 203.01 0)
+				(size 14 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "0a98d9c9-7389-5dc8-a834-0819c5fe8676")
+			)
+			(table_cell "I2C3 (sw)"
+				(exclude_from_sim no)
+				(at 23.41 208.82 0)
+				(size 16 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "1b092470-b71c-5811-bde3-905dea5f42df")
+			)
+			(table_cell "GPIO22 / GPIO27\n(pins 15 / 13)"
+				(exclude_from_sim no)
+				(at 39.41 208.82 0)
+				(size 25.4 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "e42f568f-d60a-5192-8c94-d861fd898462")
+			)
+			(table_cell "Qwiic J3 only, no device on board"
+				(exclude_from_sim no)
+				(at 64.81 208.82 0)
+				(size 52 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "56ff83cf-f60c-52de-b0e1-3233969f86f1")
+			)
+			(table_cell "-"
+				(exclude_from_sim no)
+				(at 116.81 208.82 0)
+				(size 14 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "b174efbc-d03a-5119-8d0d-b5ab2c35a738")
+			)
+		)
 	)
 	(table
 		(column_count 3)
@@ -11720,14 +11744,14 @@
 				(type solid)
 			)
 		)
-		(column_widths 56.0 38.0 38.0)
+		(column_widths 56 38 38)
 		(row_heights 3.96 3.96 5.81 5.81 5.81 3.96 5.81 5.81)
 		(uuid "d4b11c5e-d785-553e-943d-b86a1c6ecdd5")
 		(cells
 			(table_cell "Description"
 				(exclude_from_sim no)
-				(at 142.24 157.24 0)
-				(size 56.0 3.96)
+				(at 138.43 186.81 0)
+				(size 56 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11744,8 +11768,8 @@
 			)
 			(table_cell "Nominal"
 				(exclude_from_sim no)
-				(at 198.24 157.24 0)
-				(size 38.0 3.96)
+				(at 194.43 186.81 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11762,8 +11786,8 @@
 			)
 			(table_cell "Max"
 				(exclude_from_sim no)
-				(at 236.24 157.24 0)
-				(size 38.0 3.96)
+				(at 232.43 186.81 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11780,8 +11804,8 @@
 			)
 			(table_cell "Bus voltage"
 				(exclude_from_sim no)
-				(at 142.24 161.2 0)
-				(size 56.0 3.96)
+				(at 138.43 190.77 0)
+				(size 56 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11797,8 +11821,8 @@
 			)
 			(table_cell "24 V"
 				(exclude_from_sim no)
-				(at 198.24 161.2 0)
-				(size 38.0 3.96)
+				(at 194.43 190.77 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11814,8 +11838,8 @@
 			)
 			(table_cell "16 - 32 V"
 				(exclude_from_sim no)
-				(at 236.24 161.2 0)
-				(size 38.0 3.96)
+				(at 232.43 190.77 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11831,8 +11855,8 @@
 			)
 			(table_cell "Node total power, own load + pass-through\n(0.89 A through port inductors L1 / L2)"
 				(exclude_from_sim no)
-				(at 142.24 165.16 0)
-				(size 56.0 5.81)
+				(at 138.43 194.73 0)
+				(size 56 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11848,8 +11872,8 @@
 			)
 			(table_cell "21 W at 24 V"
 				(exclude_from_sim no)
-				(at 198.24 165.16 0)
-				(size 38.0 5.81)
+				(at 194.43 194.73 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11863,10 +11887,10 @@
 				)
 				(uuid "82df748b-de44-59ba-b7cf-92b694a94107")
 			)
-			(table_cell "14 W at 16 V, 28 W at 32 V"
+			(table_cell "14 W at 16 V\n28 W at 32 V"
 				(exclude_from_sim no)
-				(at 236.24 165.16 0)
-				(size 38.0 5.81)
+				(at 232.43 194.73 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11882,8 +11906,8 @@
 			)
 			(table_cell "Node own load, continuous"
 				(exclude_from_sim no)
-				(at 142.24 170.97 0)
-				(size 56.0 5.81)
+				(at 138.43 200.54 0)
+				(size 56 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11897,10 +11921,10 @@
 				)
 				(uuid "55c67332-8a7b-5cd9-beeb-b32ef7c0e0b3")
 			)
-			(table_cell "8.7 W (Pi Zero 2 W +\nwiper, est.)"
+			(table_cell "8.7 W \n(Pi Zero 2W +wiper)"
 				(exclude_from_sim no)
-				(at 198.24 170.97 0)
-				(size 38.0 5.81)
+				(at 194.43 200.54 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11914,10 +11938,10 @@
 				)
 				(uuid "fccba6df-0dd6-581c-bffa-1a473496c98e")
 			)
-			(table_cell "12 W (Bristlemouth\nmodule budget) *"
+			(table_cell "12 W \n(Bristlemouth module budget)*"
 				(exclude_from_sim no)
-				(at 236.24 170.97 0)
-				(size 38.0 5.81)
+				(at 232.43 200.54 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11933,8 +11957,8 @@
 			)
 			(table_cell "5 V rail (U10)"
 				(exclude_from_sim no)
-				(at 142.24 176.78 0)
-				(size 56.0 5.81)
+				(at 138.43 206.35 0)
+				(size 56 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11950,8 +11974,8 @@
 			)
 			(table_cell "1.5 A / 7.5 W\ncontinuous *"
 				(exclude_from_sim no)
-				(at 198.24 176.78 0)
-				(size 38.0 5.81)
+				(at 194.43 206.35 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11967,8 +11991,8 @@
 			)
 			(table_cell "2.2 A peak\n(3 A converter)"
 				(exclude_from_sim no)
-				(at 236.24 176.78 0)
-				(size 38.0 5.81)
+				(at 232.43 206.35 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11984,8 +12008,8 @@
 			)
 			(table_cell "Motor J7 (from the 5 V rail)"
 				(exclude_from_sim no)
-				(at 142.24 182.59 0)
-				(size 56.0 3.96)
+				(at 138.43 212.16 0)
+				(size 56 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12001,8 +12025,8 @@
 			)
 			(table_cell "0.5 A"
 				(exclude_from_sim no)
-				(at 198.24 182.59 0)
-				(size 38.0 3.96)
+				(at 194.43 212.16 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12018,8 +12042,8 @@
 			)
 			(table_cell "1.24 A current limit"
 				(exclude_from_sim no)
-				(at 236.24 182.59 0)
-				(size 38.0 3.96)
+				(at 232.43 212.16 0)
+				(size 38 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12035,8 +12059,8 @@
 			)
 			(table_cell "VBUS OUT J5 (bus voltage, on with GPIO26)"
 				(exclude_from_sim no)
-				(at 142.24 186.55 0)
-				(size 56.0 5.81)
+				(at 138.43 216.12 0)
+				(size 56 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12052,8 +12076,8 @@
 			)
 			(table_cell "payload within the\n12 W budget"
 				(exclude_from_sim no)
-				(at 198.24 186.55 0)
-				(size 38.0 5.81)
+				(at 194.43 216.12 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12069,8 +12093,8 @@
 			)
 			(table_cell "0.73 A typ., electronic\nfuse U11"
 				(exclude_from_sim no)
-				(at 236.24 186.55 0)
-				(size 38.0 5.81)
+				(at 232.43 216.12 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12086,8 +12110,8 @@
 			)
 			(table_cell "AUX 5 V J4 (5 V rail via JP1 2-3)"
 				(exclude_from_sim no)
-				(at 142.24 192.36 0)
-				(size 56.0 5.81)
+				(at 138.43 221.93 0)
+				(size 56 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12103,8 +12127,8 @@
 			)
 			(table_cell "-"
 				(exclude_from_sim no)
-				(at 198.24 192.36 0)
-				(size 38.0 5.81)
+				(at 194.43 221.93 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12120,8 +12144,8 @@
 			)
 			(table_cell "1.5 A hold / 3 A trip,\npolyfuse F1"
 				(exclude_from_sim no)
-				(at 236.24 192.36 0)
-				(size 38.0 5.81)
+				(at 232.43 221.93 0)
+				(size 38 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12136,30 +12160,6 @@
 				(uuid "97060716-a042-545f-93f3-7e5d9f1dfa82")
 			)
 		)
-	)
-	(text "* Thermal limit of U10: bench validation pending.\nThe 5 V rail, the payload and the 3.3 V logic all draw from the 12 W own-load budget: 7.5 W on the 5 V rail is about 8.4 W from the bus.\nVBUS OUT's 0.73 A limit (17.5 W at 24 V) is above that budget: it protects the port, it does not enforce the budget."
-		(exclude_from_sim no)
-		(at 142.24 198.97 0)
-		(effects
-			(font
-				(size 1.0 1.0)
-			)
-			(justify left top)
-		)
-		(uuid "e62f3b72-c80d-568e-8e87-4c6108ded075")
-	)
-	(text "EXAMPLE LOADS"
-		(exclude_from_sim no)
-		(at 142.24 207.32 0)
-		(effects
-			(font
-				(size 1.524 1.524)
-				(thickness 0.3048)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "fdf8189b-fcbf-5c89-97c3-216ad1c298d0")
 	)
 	(table
 		(column_count 4)
@@ -12179,14 +12179,14 @@
 				(type solid)
 			)
 		)
-		(column_widths 34.0 50.0 14.0 34.0)
+		(column_widths 34 50 14 34)
 		(row_heights 3.96 5.81 5.81 5.81 5.81)
 		(uuid "e34521da-3be3-55e1-8253-2bf9cf86bf1c")
 		(cells
 			(table_cell "Load"
 				(exclude_from_sim no)
-				(at 142.24 207.92 0)
-				(size 34.0 3.96)
+				(at 273.13 186.52 0)
+				(size 34 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12203,8 +12203,8 @@
 			)
 			(table_cell "Current at 5 V"
 				(exclude_from_sim no)
-				(at 176.24 207.92 0)
-				(size 50.0 3.96)
+				(at 307.13 186.52 0)
+				(size 50 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12221,8 +12221,8 @@
 			)
 			(table_cell "Power"
 				(exclude_from_sim no)
-				(at 226.24 207.92 0)
-				(size 14.0 3.96)
+				(at 357.13 186.52 0)
+				(size 14 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12237,10 +12237,10 @@
 				)
 				(uuid "d6e10138-f490-551b-9be1-49e730ea1eba")
 			)
-			(table_cell "From this board"
+			(table_cell "Can I power with this board"
 				(exclude_from_sim no)
-				(at 240.24 207.92 0)
-				(size 34.0 3.96)
+				(at 371.13 186.52 0)
+				(size 34 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12257,8 +12257,8 @@
 			)
 			(table_cell "Pi Zero 2 W + camera,\nvideo streaming"
 				(exclude_from_sim no)
-				(at 142.24 211.88 0)
-				(size 34.0 5.81)
+				(at 273.13 190.48 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12274,8 +12274,8 @@
 			)
 			(table_cell "1.0 A design allowance\n(typ. 0.35 A bare + 0.25 A camera)"
 				(exclude_from_sim no)
-				(at 176.24 211.88 0)
-				(size 50.0 5.81)
+				(at 307.13 190.48 0)
+				(size 50 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12291,8 +12291,8 @@
 			)
 			(table_cell "5 W"
 				(exclude_from_sim no)
-				(at 226.24 211.88 0)
-				(size 14.0 5.81)
+				(at 357.13 190.48 0)
+				(size 14 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12308,8 +12308,8 @@
 			)
 			(table_cell "yes"
 				(exclude_from_sim no)
-				(at 240.24 211.88 0)
-				(size 34.0 5.81)
+				(at 371.13 190.48 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12325,8 +12325,8 @@
 			)
 			(table_cell "DC motor, wiper"
 				(exclude_from_sim no)
-				(at 142.24 217.69 0)
-				(size 34.0 5.81)
+				(at 273.13 196.29 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12342,8 +12342,8 @@
 			)
 			(table_cell "0.5 A continuous,\nspikes under 1 A"
 				(exclude_from_sim no)
-				(at 176.24 217.69 0)
-				(size 50.0 5.81)
+				(at 307.13 196.29 0)
+				(size 50 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12359,8 +12359,8 @@
 			)
 			(table_cell "2.5 W"
 				(exclude_from_sim no)
-				(at 226.24 217.69 0)
-				(size 14.0 5.81)
+				(at 357.13 196.29 0)
+				(size 14 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12376,8 +12376,8 @@
 			)
 			(table_cell "yes"
 				(exclude_from_sim no)
-				(at 240.24 217.69 0)
-				(size 34.0 5.81)
+				(at 371.13 196.29 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12393,8 +12393,8 @@
 			)
 			(table_cell "Pi 4 B"
 				(exclude_from_sim no)
-				(at 142.24 223.5 0)
-				(size 34.0 5.81)
+				(at 273.13 202.1 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12410,8 +12410,8 @@
 			)
 			(table_cell "recommended supply 3.0 A"
 				(exclude_from_sim no)
-				(at 176.24 223.5 0)
-				(size 50.0 5.81)
+				(at 307.13 202.1 0)
+				(size 50 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12427,8 +12427,8 @@
 			)
 			(table_cell "15 W"
 				(exclude_from_sim no)
-				(at 226.24 223.5 0)
-				(size 14.0 5.81)
+				(at 357.13 202.1 0)
+				(size 14 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12444,8 +12444,8 @@
 			)
 			(table_cell "no: power the Pi\nseparately"
 				(exclude_from_sim no)
-				(at 240.24 223.5 0)
-				(size 34.0 5.81)
+				(at 371.13 202.1 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12461,8 +12461,8 @@
 			)
 			(table_cell "Pi 5"
 				(exclude_from_sim no)
-				(at 142.24 229.31 0)
-				(size 34.0 5.81)
+				(at 273.13 207.91 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12478,8 +12478,8 @@
 			)
 			(table_cell "recommended supply 5.0 A"
 				(exclude_from_sim no)
-				(at 176.24 229.31 0)
-				(size 50.0 5.81)
+				(at 307.13 207.91 0)
+				(size 50 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12495,8 +12495,8 @@
 			)
 			(table_cell "25 W"
 				(exclude_from_sim no)
-				(at 226.24 229.31 0)
-				(size 14.0 5.81)
+				(at 357.13 207.91 0)
+				(size 14 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12512,8 +12512,8 @@
 			)
 			(table_cell "no: power the Pi\nseparately"
 				(exclude_from_sim no)
-				(at 240.24 229.31 0)
-				(size 34.0 5.81)
+				(at 371.13 207.91 0)
+				(size 34 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12526,448 +12526,6 @@
 					(justify left top)
 				)
 				(uuid "b5d39bfd-2094-5689-9b28-85b994c978b6")
-			)
-		)
-	)
-	(table
-		(column_count 2)
-		(border
-			(external yes)
-			(header yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(separators
-			(rows yes)
-			(cols yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(column_widths 40.0 89.62)
-		(row_heights 3.96 7.66 3.96 3.96 3.96 3.96 3.96 9.5)
-		(uuid "d311665d-8d75-529b-8fdb-1f7ee7695183")
-		(cells
-			(table_cell "I/O FOR DEVELOPERS"
-				(exclude_from_sim no)
-				(at 274.24 154.04 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "9699c4f6-ee83-5a49-8dda-12fca01dafed")
-			)
-			(table_cell "Pins (nets)"
-				(exclude_from_sim no)
-				(at 314.24 154.04 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "35820ac8-9125-59cd-9bac-b1f553144f5d")
-			)
-			(table_cell "Pad row under the header\n(2.54 mm, bare holes)"
-				(exclude_from_sim no)
-				(at 274.24 158.0 0)
-				(size 40.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "8f01d417-dca2-5ffd-aac0-cd4eff498883")
-			)
-			(table_cell "J15: 5 V (PI_5V), GND, GPIO14 TX, GPIO15 RX (UART)\nJ16: PI_3V3, PI_3V3   J17: GND, GPIO17\nJ18: GPIO12, GPIO7, GND, GND   J19: GPIO19, GPIO20, GPIO21"
-				(exclude_from_sim no)
-				(at 314.24 158.0 0)
-				(size 89.62 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "455b7912-2934-577d-9fd3-f24c8af18c8e")
-			)
-			(table_cell "Qwiic J3"
-				(exclude_from_sim no)
-				(at 274.24 165.66 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "9f8a849d-5e92-572c-bb21-f40ebf7d7dd9")
-			)
-			(table_cell "I2C3 (software, GPIO22 SDA / GPIO27 SCL), PI_3V3, GND"
-				(exclude_from_sim no)
-				(at 314.24 165.66 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "63fd8cd0-1a5e-56b3-8b11-15d8fe260685")
-			)
-			(table_cell "POT J8 (JST GH 3)"
-				(exclude_from_sim no)
-				(at 274.24 169.62 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "e3523a37-d18b-5644-91cf-454f1ea81fff")
-			)
-			(table_cell "1 = 3V3 (shield), 2 = wiper to ADC AIN1, 3 = GND"
-				(exclude_from_sim no)
-				(at 314.24 169.62 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "1c572592-970d-5e5a-8847-dec96f402011")
-			)
-			(table_cell "MOTOR J7 (JST GH 4)"
-				(exclude_from_sim no)
-				(at 274.24 173.58 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "ec78f124-469a-58de-84d9-f3f485c942b3")
-			)
-			(table_cell "1-2 = OUT1, 3-4 = OUT2 (MP6550 H-bridge)"
-				(exclude_from_sim no)
-				(at 314.24 173.58 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "d135ea52-d240-53bd-86bd-1c44cef9701f")
-			)
-			(table_cell "BM1 J10 / BM2 J9 (JST GH 4)"
-				(exclude_from_sim no)
-				(at 274.24 177.54 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "a763615b-e521-5aee-a4dc-3bb29e85bc11")
-			)
-			(table_cell "1-2 = N, 3-4 = P (bus power + 10BASE-T1L data)"
-				(exclude_from_sim no)
-				(at 314.24 177.54 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "9e65558f-3cee-5b9c-b7cb-4838d51537b3")
-			)
-			(table_cell "AUX 5 V J4 / VBUS OUT J5"
-				(exclude_from_sim no)
-				(at 274.24 181.5 0)
-				(size 40.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "6869a462-a417-5c69-940a-102d207d685a")
-			)
-			(table_cell "wire pads: 1 = +, 2 = GND"
-				(exclude_from_sim no)
-				(at 314.24 181.5 0)
-				(size 89.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "cad7b455-ef47-51cb-854c-8b5a16b3fe9a")
-			)
-			(table_cell "GPIO used by the shield"
-				(exclude_from_sim no)
-				(at 274.24 185.46 0)
-				(size 40.0 9.5)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "6b07ffb0-e99f-50c7-90cd-36ca22cd856d")
-			)
-			(table_cell "SPI0 (GPIO8-11) + GPIO23 PWR, 24 RST, 25 INT, 16 TIMER: ADIN2111\nGPIO26 payload on, GPIO6 payload fault   GPIO4 ADC alert\nGPIO13 / GPIO18 motor IN1 / IN2 (PWM), GPIO5 motor sleep\nGPIO0 / 1 I2C0   GPIO22 / 27 I2C3   GPIO2 / 3 left free (I2C1)"
-				(exclude_from_sim no)
-				(at 314.24 185.46 0)
-				(size 89.62 9.5)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "c3c1c45a-f798-5f76-bb81-3e609373f583")
-			)
-		)
-	)
-	(table
-		(column_count 1)
-		(border
-			(external yes)
-			(header yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(separators
-			(rows yes)
-			(cols yes)
-			(stroke
-				(width 0)
-				(type solid)
-			)
-		)
-		(column_widths 129.62)
-		(row_heights 3.96 3.96 5.81 3.96 3.96 3.96 3.96)
-		(uuid "ba246225-4982-51c4-b96d-c489888f3a07")
-		(cells
-			(table_cell "NOTES"
-				(exclude_from_sim no)
-				(at 274.24 197.5 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "d17b3986-bd18-5c8b-8a51-95b47a3dbbeb")
-			)
-			(table_cell "No USB power on the Pi while JP1 feeds it (JP1 1-2, as built)."
-				(exclude_from_sim no)
-				(at 274.24 201.46 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "f5c5a971-6c75-5b1f-86c0-ee3d65012669")
-			)
-			(table_cell "ADIN2111 SPI mode as built: JP3 CFG1 = 1, JP4 CFG0 = 0: generic SPI + CRC (row not checked\nagainst the datasheet; only CFG 0 0 is)."
-				(exclude_from_sim no)
-				(at 274.24 205.42 0)
-				(size 129.62 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "64d93a08-413d-51b8-bd74-5fb55d0ef028")
-			)
-			(table_cell "Motor current reads on ADC AIN0 at 0.402 V/A (MP6550 VISEN)."
-				(exclude_from_sim no)
-				(at 274.24 211.23 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "5732f572-6f7c-56db-98e8-3246ac6b68a1")
-			)
-			(table_cell "ADC inputs AIN2 / AIN3 are not brought out."
-				(exclude_from_sim no)
-				(at 274.24 215.19 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "52146788-2836-5147-9620-7c06a7c2f91f")
-			)
-			(table_cell "Mounting: M2.5 screws, 2.75 mm holes."
-				(exclude_from_sim no)
-				(at 274.24 219.15 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "d3fe1140-56c0-55a2-aaa4-bf31e84fbc9e")
-			)
-			(table_cell "Board views: layout of commit 955d57c, 2026-11-16 (schematic rev AA)."
-				(exclude_from_sim no)
-				(at 274.24 223.11 0)
-				(size 129.62 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "f13ad9ae-b1ef-5fb1-b0dd-a663605a7d0e")
 			)
 		)
 	)

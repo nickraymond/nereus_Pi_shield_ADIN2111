@@ -13,7 +13,7 @@
 		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
-				(symbol "BM_Mote_000639-AB-altium-import:3V3_BAR"
+		(symbol "BM_Mote_000639-AB-altium-import:3V3_BAR"
 			(power global)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -132,7 +132,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc."
+		(symbol "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc."
 			(pin_numbers
 				(hide yes)
 			)
@@ -266,7 +266,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND"
+		(symbol "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND"
 			(power global)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -421,7 +421,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:ADS1115IDGS"
+		(symbol "urchin:ADS1115IDGS"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -699,7 +699,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:CAP_100nF_0402_50V"
+		(symbol "urchin:CAP_100nF_0402_50V"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -835,7 +835,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:CAP_10uF_0402_10V"
+		(symbol "urchin:CAP_10uF_0402_10V"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -971,7 +971,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:CAP_470nF_0402_50V"
+		(symbol "urchin:CAP_470nF_0402_50V"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1107,7 +1107,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:CAP_47uF_bulk"
+		(symbol "urchin:CAP_47uF_bulk"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1243,7 +1243,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:MP6550"
+		(symbol "urchin:MP6550"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1546,7 +1546,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:Res_10k_0402_5p"
+		(symbol "urchin:Res_10k_0402_5p"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1680,7 +1680,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:Res_4.99k_0402_1p"
+		(symbol "urchin:Res_4.99k_0402_1p"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1814,7 +1814,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:SM03B-GHS"
+		(symbol "urchin:SM03B-GHS"
 			(pin_names
 				(hide yes)
 			)
@@ -1978,7 +1978,7 @@
 			)
 			(embedded_fonts no)
 		)
-				(symbol "urchin:SM04B-GHS"
+		(symbol "urchin:SM04B-GHS"
 			(pin_names
 				(hide yes)
 			)
@@ -2172,7 +2172,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "MP6550 on the 5 V rail (5V_PI). R48 sets the current limit and the VISEN scale:\nlimit = 0.5 V / (100 µA/A x 4.02 kΩ) = 1.24 A; VISEN = 0.402 V/A (MP6550 Rev. 1.0, p. 11).\nUrchin board: 2 kΩ (2.5 A). C62 + C66 = added bulk, 2 x 22 µF (C56's part); C60, C64 as on the Urchin; C61, C63 = this board's 100 nF.\nnSLEEP_LDO open: internal pull-down, 3.3 V LDO off (Urchin: test point only)."
+	(text "MP6550 on the 5 V rail (5V_PI). R48 sets the current limit and the VISEN scale:\nlimit = 0.5 V / (100 µA/A x 4.02 kΩ) = 1.24 A; VISEN = 0.402 V/A (MP6550 Rev. 1.0, p. 11).\n"
 		(exclude_from_sim no)
 		(at 54.31 74.56 0)
 		(effects
@@ -2193,6 +2193,16 @@
 			(justify left top)
 		)
 		(uuid "79e30ce9-8e73-4f83-a158-b7ba78cbbb8d")
+	)
+	(text "JST-GH pins rated for 1A"
+		(exclude_from_sim no)
+		(at 242.062 104.648 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8053b4a9-e695-4182-a4da-0f46ae687680")
 	)
 	(text "POT"
 		(exclude_from_sim no)
@@ -2268,6 +2278,27 @@
 			(justify left top)
 		)
 		(uuid "12222762-133a-47bb-b668-ff783376beb4")
+	)
+	(text_box "TEST POINTS"
+		(exclude_from_sim no)
+		(at 260.35 50.8 0)
+		(size 80 6.35)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width -0.0001)
+			(type solid)
+			(color 0 0 0 1)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 3.048 3.048)
+			)
+			(justify left top)
+		)
+		(uuid "152858ee-1237-552b-a176-2646c8cac134")
 	)
 	(junction
 		(at 79.58 189.72)
@@ -2899,17 +2930,6 @@
 		)
 		(uuid "12a54409-2c53-491c-a1cc-f800bc6aaab8")
 	)
-	(hierarchical_label "I2C0_SCL"
-		(shape passive)
-		(at 92.28 204.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "25d4a58c-08e5-48bc-b601-f5f3bbaf22c4")
-	)
 	(label "POT_WIPER"
 		(at 143.08 202.42 180)
 		(effects
@@ -2939,6 +2959,77 @@
 			(justify right bottom)
 		)
 		(uuid "615bdfdd-36a3-42f3-a84e-a2a69f9dd6e7")
+	)
+	(label "MOTOR_VISEN"
+		(at 125.43 106.31 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8581f3f8-cd23-4f0d-9488-f86992454636")
+	)
+	(label "POT_WIPER"
+		(at 173.56 199.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "99394d4b-5d3b-4a12-b607-26ebaf19a11f")
+	)
+	(label "MOTOR_OUT1"
+		(at 225.76 91.07 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a453e7d8-30fd-4940-bc41-4e81980563e3")
+	)
+	(label "MOTOR_OUT2"
+		(at 163.53 93.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0fcef7c-4454-4e48-b762-a0784ab98833")
+	)
+	(label "MOTOR_OUT1"
+		(at 292.32 70.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f34e785a-7905-4ec7-bf30-001413fdebe5")
+	)
+	(label "MOTOR_OUT2"
+		(at 225.76 96.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "fd7b2bb2-99a1-4ae8-944e-7b2abb50ba76")
+	)
+	(hierarchical_label "I2C0_SCL"
+		(shape passive)
+		(at 92.28 204.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "25d4a58c-08e5-48bc-b601-f5f3bbaf22c4")
 	)
 	(hierarchical_label "MOTOR_IN1"
 		(shape passive)
@@ -2973,16 +3064,6 @@
 		)
 		(uuid "746360ae-7ba1-4dae-904c-14037b06fd19")
 	)
-	(label "MOTOR_VISEN"
-		(at 125.43 106.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8581f3f8-cd23-4f0d-9488-f86992454636")
-	)
 	(hierarchical_label "MOTOR_IN1"
 		(shape passive)
 		(at 125.43 96.15 180)
@@ -2993,26 +3074,6 @@
 			(justify right)
 		)
 		(uuid "97a3efcb-94f6-4190-be52-3106e443aebe")
-	)
-	(label "POT_WIPER"
-		(at 173.56 199.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "99394d4b-5d3b-4a12-b607-26ebaf19a11f")
-	)
-	(label "MOTOR_OUT1"
-		(at 225.76 91.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a453e7d8-30fd-4940-bc41-4e81980563e3")
 	)
 	(hierarchical_label "~{ADC_ALERT}"
 		(shape passive)
@@ -3036,16 +3097,6 @@
 		)
 		(uuid "af015b0b-4474-4251-bde0-4c6ecd7a051f")
 	)
-	(label "MOTOR_OUT2"
-		(at 163.53 93.61 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b0fcef7c-4454-4e48-b762-a0784ab98833")
-	)
 	(hierarchical_label "5V_PI"
 		(shape passive)
 		(at 36.53 91.07 180)
@@ -3057,16 +3108,6 @@
 		)
 		(uuid "dc62bfb0-53e4-4a75-97b3-87c3620d03f7")
 	)
-	(label "MOTOR_OUT1"
-		(at 292.32 70.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f34e785a-7905-4ec7-bf30-001413fdebe5")
-	)
 	(hierarchical_label "I2C0_SCL"
 		(shape passive)
 		(at 336.32 70.26 0)
@@ -3077,16 +3118,6 @@
 			(justify left)
 		)
 		(uuid "fa6871e7-e32e-45c1-b9d7-eb8248e3c46f")
-	)
-	(label "MOTOR_OUT2"
-		(at 225.76 96.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fd7b2bb2-99a1-4ae8-944e-7b2abb50ba76")
 	)
 	(symbol
 		(lib_id "urchin:SM03B-GHS")
@@ -7741,26 +7772,5 @@
 				)
 			)
 		)
-	)
-	(text_box "TEST POINTS"
-		(exclude_from_sim no)
-		(at 260.35 50.8 0)
-		(size 80 6.35)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width -0.0001)
-			(type solid)
-			(color 0 0 0 1)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 3.048 3.048)
-			)
-			(justify left top)
-		)
-		(uuid "152858ee-1237-552b-a176-2646c8cac134")
 	)
 )

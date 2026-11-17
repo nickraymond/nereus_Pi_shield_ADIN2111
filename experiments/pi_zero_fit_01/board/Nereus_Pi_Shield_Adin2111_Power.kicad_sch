@@ -2140,6 +2140,18 @@
 		)
 		(uuid "1766a63d-57fc-42d9-b0d4-700c52fccd92")
 	)
+	(text "Sofar: 3V3_Buck_Input"
+		(exclude_from_sim no)
+		(at 96.52 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "3c144e0b-acd7-5a56-a450-77ec8ea27102")
+	)
 	(text "5V buck converter for the Pi: U10 LMR51430, VBUS → 5V_PI"
 		(exclude_from_sim no)
 		(at 30.226 182.118 0)
@@ -2160,6 +2172,30 @@
 			)
 		)
 		(uuid "5b720dd1-3ce8-41d4-b6ba-11d1b08a057e")
+	)
+	(text "Sofar: 1V8_Buck_Input"
+		(exclude_from_sim no)
+		(at 251.46 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "8c5d509e-53ab-5646-9362-9653262e2eb9")
+	)
+	(text "Sofar: 5V_Buck_Input"
+		(exclude_from_sim no)
+		(at 102.87 216.9922 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "e46a7c4f-dc1d-5f76-9def-f40e11ed9521")
 	)
 	(text "5V_PI = 0.6 V × (1 + 100k/13.3k) = 5.11 V"
 		(exclude_from_sim no)
@@ -2224,12 +2260,6 @@
 		(uuid "6cc050fe-8f3c-4d5a-9c3b-4e420db97991")
 	)
 	(junction
-		(at 171.45 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "77e3cb35-a5b9-479d-bbeb-5ad596b27699")
-	)
-	(junction
 		(at 95.25 215.7222)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2240,12 +2270,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8ba92422-61ce-44b8-9d54-598d6ec0a1d6")
-	)
-	(junction
-		(at 166.37 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8c731511-80fa-4177-83a3-55fb6920330c")
 	)
 	(junction
 		(at 74.93 239.8522)
@@ -14114,41 +14138,5 @@
 				)
 			)
 		)
-	)
-	(text "Sofar: 3V3_Buck_Input"
-		(exclude_from_sim no)
-		(at 96.52 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(italic yes)
-			)
-			(justify left top)
-		)
-		(uuid "3c144e0b-acd7-5a56-a450-77ec8ea27102")
-	)
-	(text "Sofar: 5V_Buck_Input"
-		(exclude_from_sim no)
-		(at 102.87 216.9922 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(italic yes)
-			)
-			(justify left top)
-		)
-		(uuid "e46a7c4f-dc1d-5f76-9def-f40e11ed9521")
-	)
-	(text "Sofar: 1V8_Buck_Input"
-		(exclude_from_sim no)
-		(at 251.46 138.43 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(italic yes)
-			)
-			(justify left top)
-		)
-		(uuid "8c5d509e-53ab-5646-9362-9653262e2eb9")
 	)
 )
