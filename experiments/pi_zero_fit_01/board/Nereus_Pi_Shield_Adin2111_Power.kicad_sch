@@ -776,7 +776,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin power_out line
 					(at 40.64 -2.54 180)
 					(length 7.62)
 					(name "SW"
@@ -848,7 +848,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin passive line
 					(at 40.64 2.54 180)
 					(length 7.62)
 					(name "CB"
@@ -1167,7 +1167,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin power_out line
 					(at 33.02 0 180)
 					(length 5.08)
 					(name "SW"
@@ -2383,16 +2383,6 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 59.69) (xy 171.45 59.8678)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0944b7cc-3981-403c-a5fd-2f33577877e9")
-	)
-	(wire
-		(pts
 			(xy 181.61 220.8022) (xy 187.96 220.8022)
 		)
 		(stroke
@@ -3163,16 +3153,6 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 59.69) (xy 166.37 59.8678)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f6812f4b-7ef4-4f6e-a691-2093d455f26a")
-	)
-	(wire
-		(pts
 			(xy 171.45 58.5978) (xy 171.45 59.69)
 		)
 		(stroke
@@ -3251,16 +3231,6 @@
 		)
 		(uuid "ff1dd015-afb8-4bda-affd-928a5e8ca7de")
 	)
-	(label "3V3_Buck_Input"
-		(at 96.52 59.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "16a8fd68-3976-4ef0-960c-5d9015cac454")
-	)
 	(label "5V_Buck_SW"
 		(at 168.91 220.8022 0)
 		(effects
@@ -3291,16 +3261,6 @@
 		)
 		(uuid "6aee1dd3-6056-45c2-8e91-5320755228c1")
 	)
-	(label "5V_Buck_Input"
-		(at 102.87 215.7222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "92dc24ee-b046-4bcd-a465-ae092a46e412")
-	)
 	(label "3V3_UVLO"
 		(at 83.82 83.82 0)
 		(effects
@@ -3330,16 +3290,6 @@
 			(justify left bottom)
 		)
 		(uuid "eaa01913-3709-4d78-bd89-d31f94877c1f")
-	)
-	(label "1V8_Buck_Input"
-		(at 251.46 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f93221c6-dad4-461d-8f89-ffbffcb726b1")
 	)
 	(hierarchical_label "1V8"
 		(shape passive)
@@ -14164,5 +14114,41 @@
 				)
 			)
 		)
+	)
+	(text "Sofar: 3V3_Buck_Input"
+		(exclude_from_sim no)
+		(at 96.52 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "3c144e0b-acd7-5a56-a450-77ec8ea27102")
+	)
+	(text "Sofar: 5V_Buck_Input"
+		(exclude_from_sim no)
+		(at 102.87 216.9922 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "e46a7c4f-dc1d-5f76-9def-f40e11ed9521")
+	)
+	(text "Sofar: 1V8_Buck_Input"
+		(exclude_from_sim no)
+		(at 251.46 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "8c5d509e-53ab-5646-9362-9653262e2eb9")
 	)
 )

@@ -3013,16 +3013,6 @@
 		)
 		(uuid "6ec5dd1d-b008-4bd7-9417-fe1b00370d87")
 	)
-	(label "VBUS_P"
-		(at 243.84 134.62 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "acfced89-1738-4434-9099-e914a3f985e2")
-	)
 	(label "PAYLOAD_EN"
 		(at 199.39 154.94 0)
 		(effects
@@ -7543,5 +7533,17 @@
 				)
 			)
 		)
+	)
+	(text "Sofar: VBUS_P"
+		(exclude_from_sim no)
+		(at 243.84 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "5f389185-1069-59b6-b546-9cd158a4c2a1")
 	)
 )

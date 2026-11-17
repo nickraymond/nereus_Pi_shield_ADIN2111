@@ -3482,7 +3482,7 @@
 	)
 	(wire
 		(pts
-			(xy 284.48 220.8022) (xy 264.16 220.8022)
+			(xy 276.86 220.8022) (xy 264.16 220.8022)
 		)
 		(stroke
 			(width 0)
@@ -3792,7 +3792,7 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 86.1822) (xy 264.16 86.1822)
+			(xy 279.4 86.1822) (xy 264.16 86.1822)
 		)
 		(stroke
 			(width 0)
@@ -4450,126 +4450,53 @@
 		)
 		(uuid "fba77149-f4c3-42d3-845f-c75c25f40559")
 	)
-	(label "PHY2_N"
+	(hierarchical_label "BM2_N"
+		(shape passive)
 		(at 213.36 223.3422 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
 		(uuid "0ca82597-c2f9-4119-b25f-1126d562bbbf")
 	)
-	(label "PHY1_P"
-		(at 45.72 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0e41cda1-5047-417c-8178-08909065db1a")
-	)
-	(label "PHY1_N"
-		(at 45.72 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "222876ed-c014-4e69-aa04-fdcfc2454980")
-	)
-	(label "PHY2_P"
+	
+	(hierarchical_label "BM2_P"
+		(shape passive)
 		(at 276.86 220.8022 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
 		(uuid "67ed597f-9147-447b-ab2d-a414617c979d")
 	)
-	(label "PHY1_N"
+	(hierarchical_label "BM1_N"
+		(shape passive)
 		(at 215.9 88.7222 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
 		(uuid "9ec6bc3b-063a-40c3-9604-13e6b52ee361")
 	)
-	(label "PHY2_N"
-		(at 45.72 212.09 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c60c9f0c-fe21-4d50-98f7-937824f4af6b")
-	)
-	(label "PHY1_P"
+	(hierarchical_label "BM1_P"
+		(shape passive)
 		(at 279.4 86.1822 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
 		(uuid "cf2e01c7-8be8-4f0a-9c38-507edf895cb5")
 	)
-	(label "DATA2_P"
-		(at 124.46 182.7022 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d0819b85-249b-49a7-84c9-af5d00195de1")
-	)
-	(label "PHY2_P"
-		(at 45.72 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d675716e-63a7-45e5-92f7-e37a042e66da")
-	)
-	(label "DATA2_N"
-		(at 124.46 203.0222 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "df8fef9f-7f78-498c-aa9e-bb183404be92")
-	)
-	(label "DATA1_N"
-		(at 125.73 90.17 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e91652c3-e23d-497f-8022-05f3b17be09c")
-	)
-	(label "DATA1_P"
-		(at 124.46 69.85 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ef3d7cd6-ae0d-4e24-904c-7713789c00a0")
-	)
+	
+	
 	(hierarchical_label "SDA"
 		(shape passive)
 		(at 238.76 149.6822 0)
@@ -15130,5 +15057,149 @@
 				)
 			)
 		)
+	)
+	(text "Sofar: DATA1_P"
+		(exclude_from_sim no)
+		(at 124.46 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "514aa700-b876-57a0-ba5c-64ae6450f4fd")
+	)
+	(text "Sofar: DATA1_N"
+		(exclude_from_sim no)
+		(at 125.73 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "7dbaeb44-7cf4-5ee3-983f-8cd86ad241f7")
+	)
+	(text "Sofar: DATA2_P"
+		(exclude_from_sim no)
+		(at 124.46 183.9722 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "af1fc9d7-54a3-576f-b43f-7684609e8c7f")
+	)
+	(text "Sofar: DATA2_N"
+		(exclude_from_sim no)
+		(at 124.46 204.2922 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "9227a70d-fd61-54bc-9539-b1d2b102c9c0")
+	)
+	(text "Sofar: PHY1_P"
+		(exclude_from_sim no)
+		(at 45.72 64.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "42c8fb43-ee86-51b0-afeb-e463ff497ad0")
+	)
+	(text "Sofar: PHY1_P"
+		(exclude_from_sim no)
+		(at 279.4 87.4522 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "263905e8-e2ae-523e-a562-16d1dc413c81")
+	)
+	(text "Sofar: PHY1_N"
+		(exclude_from_sim no)
+		(at 45.72 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "c37a27ca-b76b-5dfb-a6ed-e49ddd563384")
+	)
+	(text "Sofar: PHY1_N"
+		(exclude_from_sim no)
+		(at 215.9 89.9922 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "2c04901b-e3a5-5627-a27c-afa58500975e")
+	)
+	(text "Sofar: PHY2_P"
+		(exclude_from_sim no)
+		(at 45.72 176.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "eb4f7fc2-b3b0-58d3-8e55-91fc003df368")
+	)
+	(text "Sofar: PHY2_P"
+		(exclude_from_sim no)
+		(at 276.86 222.0722 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "7a64cf32-8d2c-5c16-8292-407f28810b38")
+	)
+	(text "Sofar: PHY2_N"
+		(exclude_from_sim no)
+		(at 45.72 213.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "e55c3272-da0d-571a-ae6b-74ae68b05da4")
+	)
+	(text "Sofar: PHY2_N"
+		(exclude_from_sim no)
+		(at 213.36 224.6122 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(italic yes)
+			)
+			(justify left top)
+		)
+		(uuid "bdd036d6-16ec-5871-bbfc-3a8d958b0854")
 	)
 )
