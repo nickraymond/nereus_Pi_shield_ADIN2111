@@ -11689,6 +11689,19 @@
 		)
 		(uuid "791a827c-e5d3-5cf1-82eb-83caba19b412")
 	)
+	(text "POWER"
+		(exclude_from_sim no)
+		(at 142.24 156.64 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.3048)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "9650aa27-5245-5080-882e-c46bbd1b04cc")
+	)
 	(table
 		(column_count 3)
 		(border
@@ -11707,13 +11720,31 @@
 				(type solid)
 			)
 		)
-		(column_widths 38.0 46.0 48.0)
-		(row_heights 3.96 5.81 5.81 3.96 7.66 7.66 5.81 5.81 5.81 5.81)
-		(uuid "719eb4bd-23de-510b-a6b3-2253b3b66ee7")
+		(column_widths 56.0 38.0 38.0)
+		(row_heights 3.96 3.96 5.81 5.81 5.81 3.96 5.81 5.81)
+		(uuid "d4b11c5e-d785-553e-943d-b86a1c6ecdd5")
 		(cells
-			(table_cell "POWER"
+			(table_cell "Description"
 				(exclude_from_sim no)
-				(at 142.24 154.04 0)
+				(at 142.24 157.24 0)
+				(size 56.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "4ba33a10-8047-58d9-87f3-56c91b77c35f")
+			)
+			(table_cell "Nominal"
+				(exclude_from_sim no)
+				(at 198.24 157.24 0)
 				(size 38.0 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11727,12 +11758,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "397bb7e9-65bc-5a37-be53-6612ecdb7692")
+				(uuid "6ea1cbb5-d770-5207-8836-51d3e7f6c4c0")
 			)
-			(table_cell "Rating"
+			(table_cell "Max"
 				(exclude_from_sim no)
-				(at 180.24 154.04 0)
-				(size 46.0 3.96)
+				(at 236.24 157.24 0)
+				(size 38.0 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11745,30 +11776,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "07e0d8f7-e3b4-5bb4-b9ad-c52022fb24b9")
+				(uuid "efa843a3-72b3-5c83-a1cc-df09218b4066")
 			)
-			(table_cell "Notes"
+			(table_cell "Bus voltage"
 				(exclude_from_sim no)
-				(at 226.24 154.04 0)
-				(size 48.0 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(bold yes)
-					)
-					(justify left top)
-				)
-				(uuid "66d4a685-e93f-521f-83a4-bffc5420ef2d")
-			)
-			(table_cell "Bus in, PoDL on BM1 J10 /\nBM2 J9"
-				(exclude_from_sim no)
-				(at 142.24 158.0 0)
-				(size 38.0 5.81)
+				(at 142.24 161.2 0)
+				(size 56.0 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11780,96 +11793,11 @@
 					)
 					(justify left top)
 				)
-				(uuid "bf859183-167a-5c9a-ac22-3123c67e66ff")
+				(uuid "374e52d0-d7ab-554b-819b-28ad39e2c2c0")
 			)
-			(table_cell "24 V nominal, 16-32 V"
+			(table_cell "24 V"
 				(exclude_from_sim no)
-				(at 180.24 158.0 0)
-				(size 46.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "74b35a63-fe7b-54df-b5a7-bf494e9d1421")
-			)
-			(table_cell "Bristlemouth bus"
-				(exclude_from_sim no)
-				(at 226.24 158.0 0)
-				(size 48.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "e2dad494-0fb2-5462-ab22-5dcac63bc235")
-			)
-			(table_cell "Per port"
-				(exclude_from_sim no)
-				(at 142.24 163.81 0)
-				(size 38.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "b1df8c86-15f2-52c3-bae1-3b0143e7651b")
-			)
-			(table_cell "0.89 A max (21.4 W at 24 V)"
-				(exclude_from_sim no)
-				(at 180.24 163.81 0)
-				(size 46.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "25e47e60-89df-52c2-b916-91c5684de1eb")
-			)
-			(table_cell "port inductor L1 / L2: own load\nplus pass-through to other modules"
-				(exclude_from_sim no)
-				(at 226.24 163.81 0)
-				(size 48.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "0297a9e8-ab6d-5c4b-bc1f-972b9f5fea48")
-			)
-			(table_cell "Module budget"
-				(exclude_from_sim no)
-				(at 142.24 169.62 0)
+				(at 198.24 161.2 0)
 				(size 38.0 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11882,12 +11810,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "9ea4b639-2c9a-5444-b59c-00428a4c56a8")
+				(uuid "e6fe4b13-7298-59de-867c-df1b5c3743ef")
 			)
-			(table_cell "12 W per module"
+			(table_cell "16 - 32 V"
 				(exclude_from_sim no)
-				(at 180.24 169.62 0)
-				(size 46.0 3.96)
+				(at 236.24 161.2 0)
+				(size 38.0 3.96)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11899,12 +11827,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "60c3fb94-6bb8-5265-8baf-b29e3f22d684")
+				(uuid "57a74d99-c741-5003-8ebf-06b6586c844e")
 			)
-			(table_cell "shield + Pi + payload together"
+			(table_cell "Node total power, own load + pass-through\n(0.89 A through port inductors L1 / L2)"
 				(exclude_from_sim no)
-				(at 226.24 169.62 0)
-				(size 48.0 3.96)
+				(at 142.24 165.16 0)
+				(size 56.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -11916,113 +11844,11 @@
 					)
 					(justify left top)
 				)
-				(uuid "7caafc5b-bffa-534e-b79e-a6c4420d3454")
+				(uuid "8315fc19-aa73-5ff3-b83c-2a11c8b560ce")
 			)
-			(table_cell "5 V rail (U10 LMR51430,\n3 A converter)"
+			(table_cell "21 W at 24 V"
 				(exclude_from_sim no)
-				(at 142.24 173.58 0)
-				(size 38.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "3348ba7b-b216-5d28-afda-93991b551354")
-			)
-			(table_cell "1.5 A = 7.5 W continuous\n(Pi 1.0 A + motor 0.5 A);\npeaks about 2.2 A"
-				(exclude_from_sim no)
-				(at 180.24 173.58 0)
-				(size 46.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "4954e99a-01a0-5909-b8b6-b16095d17655")
-			)
-			(table_cell "design target, thermally limited\nby U10: bench check pending"
-				(exclude_from_sim no)
-				(at 226.24 173.58 0)
-				(size 48.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "cc10a509-7356-5042-a02a-3ef628926a0f")
-			)
-			(table_cell "Pi model on the 5 V rail"
-				(exclude_from_sim no)
-				(at 142.24 181.24 0)
-				(size 38.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "25c073b9-b52a-5f02-8f1c-ff03e3256d30")
-			)
-			(table_cell "Zero 2 W: 2 A PSU, 350 mA typ.\n4 B: 3.0 A PSU, 600 mA typ.\n5: 5.0 A PSU, 800 mA typ."
-				(exclude_from_sim no)
-				(at 180.24 181.24 0)
-				(size 46.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "21eb1df6-7459-5ada-97f8-167764109e75")
-			)
-			(table_cell "Pi 4 / 5 can draw more than this\nrail's 1.0 A Pi share: budget it or\npower the Pi separately"
-				(exclude_from_sim no)
-				(at 226.24 181.24 0)
-				(size 48.0 7.66)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "9eba2440-5e40-5d55-96de-127567898e9b")
-			)
-			(table_cell "3.3 V rail (U5 LMR51430)"
-				(exclude_from_sim no)
-				(at 142.24 188.9 0)
+				(at 198.24 165.16 0)
 				(size 38.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -12035,45 +11861,11 @@
 					)
 					(justify left top)
 				)
-				(uuid "de138d49-c586-5112-a487-78b1c560de6d")
+				(uuid "82df748b-de44-59ba-b7cf-92b694a94107")
 			)
-			(table_cell "shield logic only"
+			(table_cell "14 W at 16 V, 28 W at 32 V"
 				(exclude_from_sim no)
-				(at 180.24 188.9 0)
-				(size 46.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "c9449e52-8822-5ef2-bc9f-8de4ca7d0ed8")
-			)
-			(table_cell "ADIN2111, INA232, ADS1115, pot;\nPi 3V3 pads are the Pi's own rail"
-				(exclude_from_sim no)
-				(at 226.24 188.9 0)
-				(size 48.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "f1b98ac1-aa61-5279-9037-1ffe1e35677e")
-			)
-			(table_cell "Payload J5 VBUS OUT"
-				(exclude_from_sim no)
-				(at 142.24 194.71 0)
+				(at 236.24 165.16 0)
 				(size 38.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -12086,12 +11878,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "0e7902a6-52ce-5df1-9d7e-848b6310e794")
+				(uuid "4249493f-c87d-553a-bc9c-3ccace6fe79a")
 			)
-			(table_cell "bus voltage, 0.73 A typ. limit"
+			(table_cell "Node own load, continuous"
 				(exclude_from_sim no)
-				(at 180.24 194.71 0)
-				(size 46.0 5.81)
+				(at 142.24 170.97 0)
+				(size 56.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12103,28 +11895,11 @@
 					)
 					(justify left top)
 				)
-				(uuid "8c2a4144-9572-5f9b-b686-14139eef28f9")
+				(uuid "55c67332-8a7b-5cd9-beeb-b32ef7c0e0b3")
 			)
-			(table_cell "U11 TPS26621 eFuse; on: GPIO26\nhigh; fault: GPIO6 low"
+			(table_cell "8.7 W (Pi Zero 2 W +\nwiper, est.)"
 				(exclude_from_sim no)
-				(at 226.24 194.71 0)
-				(size 48.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "a18be740-81c8-5c1f-bb7e-96ac14246637")
-			)
-			(table_cell "AUX 5 V J4"
-				(exclude_from_sim no)
-				(at 142.24 200.52 0)
+				(at 198.24 170.97 0)
 				(size 38.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -12137,45 +11912,11 @@
 					)
 					(justify left top)
 				)
-				(uuid "1b528f6c-dc6c-5b36-89f9-59365786e727")
+				(uuid "fccba6df-0dd6-581c-bffa-1a473496c98e")
 			)
-			(table_cell "5 V rail via JP1 2-3 and F1"
+			(table_cell "12 W (Bristlemouth\nmodule budget) *"
 				(exclude_from_sim no)
-				(at 180.24 200.52 0)
-				(size 46.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "feb293df-239c-5327-8393-45aaf15ea90a")
-			)
-			(table_cell "F1 polyfuse 1.5 A hold / 3 A trip;\nJP1 as built (1-2) feeds the Pi"
-				(exclude_from_sim no)
-				(at 226.24 200.52 0)
-				(size 48.0 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "c6333f93-8233-5c67-8b58-f8cd4c44eff8")
-			)
-			(table_cell "Motor J7 (U12 MP6550)"
-				(exclude_from_sim no)
-				(at 142.24 206.33 0)
+				(at 236.24 170.97 0)
 				(size 38.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -12188,12 +11929,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "a280587c-6086-5cce-8734-366e5cd18325")
+				(uuid "e383ac2c-01c2-5d0c-84a3-820affdca8e6")
 			)
-			(table_cell "limit 1.24 A (R48 4.02 kOhm)"
+			(table_cell "5 V rail (U10)"
 				(exclude_from_sim no)
-				(at 180.24 206.33 0)
-				(size 46.0 5.81)
+				(at 142.24 176.78 0)
+				(size 56.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12205,12 +11946,12 @@
 					)
 					(justify left top)
 				)
-				(uuid "b01432ad-27ba-5e47-8503-977da1c233c6")
+				(uuid "12490a4d-844f-5dda-84b9-7fbde6e2403e")
 			)
-			(table_cell "on the 5 V rail; design load\n0.5 A continuous"
+			(table_cell "1.5 A / 7.5 W\ncontinuous *"
 				(exclude_from_sim no)
-				(at 226.24 206.33 0)
-				(size 48.0 5.81)
+				(at 198.24 176.78 0)
+				(size 38.0 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
 				(fill
@@ -12222,7 +11963,569 @@
 					)
 					(justify left top)
 				)
-				(uuid "5785b6a4-bdc9-5ed2-a357-9da58f95d929")
+				(uuid "caefe79b-049c-572f-85f7-2891ce5d5d35")
+			)
+			(table_cell "2.2 A peak\n(3 A converter)"
+				(exclude_from_sim no)
+				(at 236.24 176.78 0)
+				(size 38.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "863dcf4c-5170-5fe3-ba8f-300ed96d3415")
+			)
+			(table_cell "Motor J7 (from the 5 V rail)"
+				(exclude_from_sim no)
+				(at 142.24 182.59 0)
+				(size 56.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "e7374bec-2c77-5375-8756-375476ab48bf")
+			)
+			(table_cell "0.5 A"
+				(exclude_from_sim no)
+				(at 198.24 182.59 0)
+				(size 38.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "551ae2a3-d23b-5aed-8861-deda946ca11d")
+			)
+			(table_cell "1.24 A current limit"
+				(exclude_from_sim no)
+				(at 236.24 182.59 0)
+				(size 38.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "278d2f00-4eb8-5c58-8c0e-639a93178cee")
+			)
+			(table_cell "VBUS OUT J5 (bus voltage, on with GPIO26)"
+				(exclude_from_sim no)
+				(at 142.24 186.55 0)
+				(size 56.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "5a9b7852-6605-5895-8be2-576cfc18df9e")
+			)
+			(table_cell "payload within the\n12 W budget"
+				(exclude_from_sim no)
+				(at 198.24 186.55 0)
+				(size 38.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "4e58921c-e254-5f1a-bbc6-9dc05f0e0f32")
+			)
+			(table_cell "0.73 A typ., electronic\nfuse U11"
+				(exclude_from_sim no)
+				(at 236.24 186.55 0)
+				(size 38.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "220098d4-db0f-5755-bf00-fa3bcbb4527f")
+			)
+			(table_cell "AUX 5 V J4 (5 V rail via JP1 2-3)"
+				(exclude_from_sim no)
+				(at 142.24 192.36 0)
+				(size 56.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "83963572-4be6-54b8-928c-b032dba1f38d")
+			)
+			(table_cell "-"
+				(exclude_from_sim no)
+				(at 198.24 192.36 0)
+				(size 38.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "221fd169-f534-58b8-ab6a-ca1d49ecd7fd")
+			)
+			(table_cell "1.5 A hold / 3 A trip,\npolyfuse F1"
+				(exclude_from_sim no)
+				(at 236.24 192.36 0)
+				(size 38.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "97060716-a042-545f-93f3-7e5d9f1dfa82")
+			)
+		)
+	)
+	(text "* Thermal limit of U10: bench validation pending.\nThe 5 V rail, the payload and the 3.3 V logic all draw from the 12 W own-load budget: 7.5 W on the 5 V rail is about 8.4 W from the bus.\nVBUS OUT's 0.73 A limit (17.5 W at 24 V) is above that budget: it protects the port, it does not enforce the budget."
+		(exclude_from_sim no)
+		(at 142.24 198.97 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left top)
+		)
+		(uuid "e62f3b72-c80d-568e-8e87-4c6108ded075")
+	)
+	(text "EXAMPLE LOADS"
+		(exclude_from_sim no)
+		(at 142.24 207.32 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+				(thickness 0.3048)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "fdf8189b-fcbf-5c89-97c3-216ad1c298d0")
+	)
+	(table
+		(column_count 4)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(column_widths 34.0 50.0 14.0 34.0)
+		(row_heights 3.96 5.81 5.81 5.81 5.81)
+		(uuid "e34521da-3be3-55e1-8253-2bf9cf86bf1c")
+		(cells
+			(table_cell "Load"
+				(exclude_from_sim no)
+				(at 142.24 207.92 0)
+				(size 34.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "151891be-d2a2-537c-ba42-2968ffe96959")
+			)
+			(table_cell "Current at 5 V"
+				(exclude_from_sim no)
+				(at 176.24 207.92 0)
+				(size 50.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "f09eb75d-7325-5573-bc94-dab1554d4792")
+			)
+			(table_cell "Power"
+				(exclude_from_sim no)
+				(at 226.24 207.92 0)
+				(size 14.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "d6e10138-f490-551b-9be1-49e730ea1eba")
+			)
+			(table_cell "From this board"
+				(exclude_from_sim no)
+				(at 240.24 207.92 0)
+				(size 34.0 3.96)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "a21e50cb-548e-5c9f-a3c4-fbdcdd302be0")
+			)
+			(table_cell "Pi Zero 2 W + camera,\nvideo streaming"
+				(exclude_from_sim no)
+				(at 142.24 211.88 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "158e75f7-d4ab-51c0-8c00-62a2a84d1548")
+			)
+			(table_cell "1.0 A design allowance\n(typ. 0.35 A bare + 0.25 A camera)"
+				(exclude_from_sim no)
+				(at 176.24 211.88 0)
+				(size 50.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "f593327a-064c-5506-82ac-628f975bfe35")
+			)
+			(table_cell "5 W"
+				(exclude_from_sim no)
+				(at 226.24 211.88 0)
+				(size 14.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "3dc5d368-9b9a-5907-9fa8-280875c1c762")
+			)
+			(table_cell "yes"
+				(exclude_from_sim no)
+				(at 240.24 211.88 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "9130dd4d-318c-5038-8354-0b55d9f550b1")
+			)
+			(table_cell "DC motor, wiper"
+				(exclude_from_sim no)
+				(at 142.24 217.69 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "5595c9e3-0dd1-5844-bf31-a099a7907f3f")
+			)
+			(table_cell "0.5 A continuous,\nspikes under 1 A"
+				(exclude_from_sim no)
+				(at 176.24 217.69 0)
+				(size 50.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "9584563e-0938-5b02-8220-8e035e52f13a")
+			)
+			(table_cell "2.5 W"
+				(exclude_from_sim no)
+				(at 226.24 217.69 0)
+				(size 14.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "29808c2d-db74-5a34-80bf-76a99056176c")
+			)
+			(table_cell "yes"
+				(exclude_from_sim no)
+				(at 240.24 217.69 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "f9211bf3-fece-555c-87c1-12a1c6c9fb08")
+			)
+			(table_cell "Pi 4 B"
+				(exclude_from_sim no)
+				(at 142.24 223.5 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "24add0eb-c8e2-57ef-86de-19a7fdcb1580")
+			)
+			(table_cell "recommended supply 3.0 A"
+				(exclude_from_sim no)
+				(at 176.24 223.5 0)
+				(size 50.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "2e5440fe-1596-5d90-bccd-1bfd71f159af")
+			)
+			(table_cell "15 W"
+				(exclude_from_sim no)
+				(at 226.24 223.5 0)
+				(size 14.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "08ba400c-53fe-5c3b-925b-0b25b8f864d5")
+			)
+			(table_cell "no: power the Pi\nseparately"
+				(exclude_from_sim no)
+				(at 240.24 223.5 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "1be3c0f1-55b0-5b7b-92f0-c71b60237bb9")
+			)
+			(table_cell "Pi 5"
+				(exclude_from_sim no)
+				(at 142.24 229.31 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "bd63f2fb-8bb0-5481-8f83-151249434c2d")
+			)
+			(table_cell "recommended supply 5.0 A"
+				(exclude_from_sim no)
+				(at 176.24 229.31 0)
+				(size 50.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "8b12c2ec-35dc-5d48-9bfb-0165991511d7")
+			)
+			(table_cell "25 W"
+				(exclude_from_sim no)
+				(at 226.24 229.31 0)
+				(size 14.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "9913de21-fd5c-5853-a8be-7fbccc19f329")
+			)
+			(table_cell "no: power the Pi\nseparately"
+				(exclude_from_sim no)
+				(at 240.24 229.31 0)
+				(size 34.0 5.81)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "b5d39bfd-2094-5689-9b28-85b994c978b6")
 			)
 		)
 	)
