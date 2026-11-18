@@ -468,6 +468,12 @@ tracks, 185 vias and 17 shapes): 0 base (schematic imported, placement changes, 
 block); A bus; B planes; C power; D SPI and ADIN control; E motor logic and analog; F I2C; G straps, LEDs, test
 points; H silkscreen, fiducials, review. The trial supports A and C to G; B (planes) was not trialled.
 
+**Mock P with the review's placement fixes** (Nick, 2026-11-17: "keep it going"): BM1 0.5 mm east and its copper
+starting on the pads' east halves (P1); BM1_N necked to 1.6 mm for 2.5 mm between the BM1_P via and L1's VBUS pad
+(P6); north edge 1.3 mm further out so MOTOR, POT, BM2, QWIIC are named above their connectors inside the outline;
+strap legend in three short lines. **42.16 x 62.0 mm.** DRC on the scratch copy: only the 3 inherited skew errors.
+Next step and its open decisions: `STAGE0_PLAN.md`.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

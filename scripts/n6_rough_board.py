@@ -203,7 +203,7 @@ elif mock == "P":
     # the east wall needs to end with the N6"; four connectors at the north end; height around 70 mm at most; wide
     # enough for the mounting holes, back to 2.7 mm, three holes only; connector order by the best routing for BM2.
     # (No mock O, to avoid confusion with zero.)
-    W0, E, S0, N0 = -6.6, 35.56, -1.4, 59.3
+    W0, E, S0, N0 = -6.6, 35.56, -1.4, 60.6    # north edge 1.3 mm further out than the first mock P: room for the row's names
     # north row, pin rows running north-south, bodies 3 mm apart; BM2 sits in line with L2's bus pads (X' 21.4)
     conn(GH4, "J7", "MOTOR", -0.5, 49.3, 90); conn(GH3, "J8", "POT", 7.45, 49.3, 90)
     conn(GH4, "J9", "BM2", 15.4, 49.3, 90); conn(SH4, "J3", "QWIIC", 23.35, 49.3, 90)
@@ -213,7 +213,7 @@ elif mock == "P":
     # two paths are drawn here as real tracks so DRC can judge them. The connector is turned so that its P pins are
     # south and its N pins north (no pin swap, same cable pinout as the other boards); its pins face the header and
     # the tracks leave eastwards under its housing. This needs the board 1.4 mm past the N6's south edge.
-    conn(GH4, "J10", "BM1", 5.4, -1.1, 270)
+    conn(GH4, "J10", "BM1", 5.9, -1.1, 270)     # 0.5 mm east of the first version: REVIEW_P P1 (pads were 0.96 mm from the N6 pin pads)
     j10 = NEWFP[-1]; nets = {n.split("/")[-1]: v for n, v in ((str(k), v) for k, v in b.GetNetsByName().items())}
     pin = {}
     for pd in j10.Pads():
@@ -224,10 +224,13 @@ elif mock == "P":
         for a, c in zip(pts, pts[1:]):
             s = pcbnew.PCB_TRACK(b); s.SetNet(nets[net]); s.SetLayer(pcbnew.F_Cu); s.SetWidth(MM(w))
             s.SetStart(V(OX + a[0], OY - a[1])); s.SetEnd(V(OX + c[0], OY - c[1])); b.Add(s)
-    xp = pin["3"][0]
+    xp = pin["3"][0] + 0.55      # copper starts on the pads' east halves, away from the header pins (REVIEW_P P1)
+    for k in pin: pin[k] = (xp, pin[k][1])
     yn = (pin["1"][1] + pin["2"][1]) / 2; yp = (pin["3"][1] + pin["4"][1]) / 2      # each 2 mm track leaves between its two pins
     trk("BM1_N", [pin["1"], pin["2"]], 0.6)
-    trk("BM1_N", [(xp, yn), (12.2, yn), (12.2 + (5.7 - yn), 5.7), (13.8, 5.7), (15.7, 7.6), (18.1, 7.6), (21.0, 10.5), (21.0, 12.1)], 2.0)
+    trk("BM1_N", [(xp, yn), (12.2, yn), (12.2 + (5.7 - yn), 5.7), (13.8, 5.7), (15.7, 7.6), (18.1, 7.6)], 2.0)
+    trk("BM1_N", [(18.1, 7.6), (19.9, 9.4)], 1.6)      # neck between the BM1_P via and L1's VBUS pad (REVIEW_P P6)
+    trk("BM1_N", [(19.9, 9.4), (21.0, 10.5), (21.0, 12.1)], 2.0)
     trk("BM1_P", [pin["3"], pin["4"]], 0.6)
     trk("BM1_P", [(xp, yp), (13.8 - (yp - 2.0), yp), (13.8, 2.0)], 2.0)
     trk("BM1_P", [(13.8, 2.0), (15.7, 0.1)], 1.4); trk("BM1_P", [(15.7, 0.1), (20.0, 0.1), (21.0, 1.1), (21.0, 3.6)], 2.0)
@@ -239,10 +242,10 @@ elif mock == "P":
     STRAPS = {"JP3", "JP4"}
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
-    LABELS = [("MOTOR", 2.8, 48.3, 0, "F"), ("POT", 10.8, 58.6, 0, "F"), ("BM2", 18.7, 58.6, 0, "F"), ("QWIIC", 26.0, 58.2, 0, "F"),
-              ("BM1", 8.7, 9.6, 0, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
+    LABELS = [("MOTOR", 2.8, 59.6, 0, "F"), ("POT", 10.8, 59.6, 0, "F"), ("BM2", 18.7, 59.6, 0, "F"), ("QWIIC", 26.0, 59.6, 0, "F"),
+              ("BM1", 8.7, 9.6, 0, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 1.6, 45.0, 90, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
               ("MOTOR DRV", -1.6, 46.0, 0, "B"), ("SPI CFG", -3.4, 7.8, 0, "B"), ("CFG1", -3.4, 16.3, 0, "B"), ("CFG0", -3.4, 17.9, 0, "B"),
-              ("0|1  0/0=OA+CRC", -3.2, 19.6, 0, "B")]
+              ("0 | 1", -3.2, 19.5, 0, "B"), ("0/0 =", -3.2, 21.0, 0, "B"), ("OA+CRC", -3.2, 22.5, 0, "B")]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))

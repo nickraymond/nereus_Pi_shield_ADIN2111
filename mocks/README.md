@@ -16,7 +16,7 @@ What each mock is and what is still open: `FIRST_PASS.md`, section 3.
 | `step/N6_shield_mock_L_short_rough.step` | L: mock K with BM2 beside L2 on the west, shorter | 45.56 x 56.2 mm |
 | `step/N6_shield_mock_M_narrow_west_rough.step` | M: mock L with a narrower west side (MOTOR, BM1, QWIIC south; POT turned on the west wall) | 42.36 x 56.2 mm |
 | `step/N6_shield_mock_N_after_review_rough.step` | N: mock L with the review's placement changes (driver and ADC beside their connectors, BM1 turned, holes 3.0 mm in) | 46.36 x 56.6 mm |
-| `step/N6_shield_mock_P_north_row_rough.step` | P: east edge flush with the N6, MOTOR / POT / BM2 / QWIIC in a north row, BM1 beside T1 with its two bus tracks drawn, south edge 1.4 mm past the N6, three 2.7 mm holes | 42.16 x 60.7 mm |
+| `step/N6_shield_mock_P_north_row_rough.step` | P: east edge flush with the N6, MOTOR / POT / BM2 / QWIIC in a north row, BM1 beside T1 with its two bus tracks drawn, south edge 1.4 mm past the N6, three 2.7 mm holes | 42.16 x 62.0 mm |
 
 Origin of every file: the N6's board corner at the USB end on the VIN side; +X towards the P0 column, +Y towards the
 camera end. The view convention (which header column is P0 to P6 seen from the back) is assumed, see `N6_FACTS.md`.
