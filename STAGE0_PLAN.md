@@ -102,3 +102,30 @@ starting sheets); re-checked by me with my own ERC run and netlist comparison (k
   Power Monitor and ADIN sheets; the title; the connector symbols' library names. The board file is untouched and
   no longer matches the schematic until step 0c.
 - Check outputs and the schematic PDF: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stage0/`.
+
+## Result of step 0c (board), 2026-11-17
+
+Built by the same fresh-context agent with `scripts/stage0/step0c_board.py` (`run_0c.sh` rebuilds it from the
+committed starting board and schematic on copies outside git); re-checked by me with my own DRC run and lock check.
+
+- **Outline 42.16 x 62.0 mm**, 3 mm corners, three bare 2.7 mm holes; placement as mock P.
+- **Sofar's block turned as one group:** 76 of his 81 footprints (the five VBUS-out leftovers left the board), 870
+  tracks, 185 vias, 17 copper shapes, 16 copper zones and 154 rule areas. **Lock check PASS:** one transform
+  reproduces every footprint, pad, track, via, shape and zone outline (5081 vertices) to the nanometre.
+- **DRC with schematic parity (kicad-cli 10.0.7): 3 `skew_out_of_range` + 16 `items_not_allowed`, the inherited
+  ones, and nothing else; parity 0; 127 unconnected** (expected: only the two BM1 bus tracks are routed).
+- **Zones are refilled.** As turned, Sofar's old fills ran past the new east edge and through the header pads
+  (53 extra DRC errors). Fills are derived data, so the committed board is the one KiCad's own filler produced;
+  the lock check compares zone outlines, nets, layers and priorities, not fills. His zone OUTLINES are untouched:
+  several still reach past the outline or over header pads (GND plane, 3V3 and VBUS on the power plane, the two
+  "NoConnect" areas, 38 rule areas). Re-cutting them is routing stage B.
+- Only the `.kicad_pcb` changed in the project folder; `.kicad_pro`, `.kicad_dru`, the schematic and the libraries
+  are byte-identical to the schematic commit.
+- New warnings to clear in later stages: 15 dangling track ends and 5 dangling vias (Sofar's stubs that led to
+  our removed tracks or the five removed parts), silkscreen overlaps, 6 silkscreen-to-edge items.
+- Small parts placed by the agent (positions in `~/NereusData/.../stage0/0c/step0c.log`): SPI resistors R53 to R56
+  and the CS pull-up R52 in the east channel beside P0 to P3; I2C pull-ups beside P4 / P5; LEDs and JP2 in the west
+  wing; R37 / R38 moved to the top face; three fiducials per face; test points. R2 and R47 are 3.3 and 4.4 mm from
+  U1 pin 19's via (nothing nearer was free). Not added, because they are not in the schematic: test points on SCK,
+  MISO, INT and VBUS.
+- Nets ~PAYLOAD_FAULT and VBUS_OUT remain on the board as copper of Sofar's with no pad (his tracks were kept).
