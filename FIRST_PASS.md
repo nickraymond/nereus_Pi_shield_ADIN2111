@@ -267,6 +267,15 @@ to the west wall"). Built as a rough board (`... L`):
   plus margins. A further 2.7 mm would come off only by moving BM1 off the south end as well; the column beside
   the west header is full (MOTOR, POT, QWIIC), so that needs more width or one connector fewer. Not built.
 
+**SPI configuration straps on mock L** (Nick, 2026-11-17: "bring back the straps for SPI CFG config ... on the bottom
+somewhere with large area for silkscreen and then room to make the solder connections"). The straps were never
+removed from the schematic; the rough boards had left them out with the other small parts. On mock L the two
+three-pad solder jumpers JP3 (SPI_CFG1) and JP4 (SPI_CFG0) now sit on the N6-facing side in the west wing, at
+X' -8.4 to -3.7 mm, y 17.6 to 24.6 mm: outside the N6's outline, so they can be reworked with the N6 soldered on,
+with about 9 x 10 mm of free board around them for silkscreen. Default 0 / 0 = OPEN Alliance SPI with protection
+(ADIN2111 Table 22, `docs/SPEC.md`). Their resistors (R2 and R47 at U1 pin 19, R9 on MISO) stay at the chip, as on
+the Pi boards (DESIGN D38); only the DC side of each strap runs to the jumpers. Not placed in the mock.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

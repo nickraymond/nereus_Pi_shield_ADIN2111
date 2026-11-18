@@ -13,6 +13,7 @@ K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
 XOFF = 32.13 if mock in "DIJKL" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
+STRAPS = set()
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
 V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
@@ -135,7 +136,17 @@ elif mock in "KL":
     HOLE = 2.1
     conn(GH4, "J10", "BM1", 14.4, -7.0)
     if mock == "K": conn(GH4, "J9", "BM2", 14.4, 48.9)
-    else: conn(GH4, "J9", "BM2", 0.5, 41.6)
+    else:
+        conn(GH4, "J9", "BM2", 0.5, 41.6)
+        # Nick, 2026-11-17: the SPI configuration straps come back, on the N6-facing side with room for silkscreen and
+        # for rework. They sit in the west wing, outside the N6's outline, so they stay reachable with the N6 soldered on.
+        # JP3 = SPI_CFG1, JP4 = SPI_CFG0; both at 0 = OPEN Alliance SPI with protection (ADIN2111 Table 22, SPEC.md).
+        print("JP3 CFG1 (N6-facing side)", place([fps["JP3"]], -8.4, 17.6)); print("JP4 CFG0 (N6-facing side)", place([fps["JP4"]], -8.4, 22.0))
+        for txt, ty in (("ADIN SPI STRAPS  0 | 1", 16.2), ("CFG1", 18.9), ("CFG0", 23.3), ("0 / 0 = OPEN ALLIANCE + CRC", 25.6)):
+            s = pcbnew.PCB_TEXT(b); s.SetText(txt); s.SetLayer(pcbnew.B_SilkS); s.SetMirrored(True)
+            s.SetTextSize(pcbnew.VECTOR2I(MM(0.8), MM(0.8))); s.SetTextThickness(MM(0.13))
+            s.SetPosition(V(OX + (-2.2 if txt.startswith("CFG") else -5.0), OY - ty)); b.Add(s)
+        STRAPS = {"JP3", "JP4"}
     y = 0.5
     for name, ref, val, h in ((GH4, "J7", "MOTOR", 6.69), (GH3, "J8", "POT", 6.69), (SH4, "J3", "QWIIC", 5.29)):
         conn(name, ref, val, -9.75, y); y += h + 1.26
@@ -176,7 +187,7 @@ if R:   # quarter arcs, each drawn clockwise on screen from its start point
 b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
 print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
 # 4. removals last (pcbnew objects go stale after Remove: nothing is queried afterwards)
-keep = {f.GetReference() for f in core + conv + motor + adc} | {"J21", "J22", "H1", "H2", "H3", "H4"}
+keep = {f.GetReference() for f in core + conv + motor + adc} | {"J21", "J22", "H1", "H2", "H3", "H4"} | STRAPS
 gone = [f for n, f in fps.items() if n not in keep]
 print("removed footprints:", " ".join(sorted(f.GetReference() for f in gone)))
 zones = list(b.Zones())
