@@ -18,7 +18,7 @@ not running by `pgrep` before each run). Pushing and the draft pull request stil
 | `e20079c` | J21 moved 0.04 mm east | same errors, 64 unconnected; lock check PASS with J21 allowed; header check: 0.00 mm offset |
 | `d818176` | stage D part 1: east channel (SPI, INT, I2C to the header, R43) | same errors, 47 unconnected; 61 new tracks, 5 new vias; dangling warnings 14 + 5 down to 9 + 2 |
 | `058fede` | stage D part 2: reset to P9 | same errors, 46 unconnected; 3 new tracks |
-| next commit | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
+| `c46af62` | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -67,7 +67,7 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - Not connected on the board: U12 pin 5 (nSLEEP_LDO). The datasheet gives it an internal pull-down (3.3 V regulator
   off). That is the schematic's choice, not a routing matter.
 
-## What stage D did (commits `d818176`, `058fede` and the ADIN_PWR commit after them; scripts in `scripts/stageD/`)
+## What stage D did (commits `d818176`, `058fede`, `c46af62`; scripts in `scripts/stageD/`)
 
 - East channel, one track per gap between J22's inner pads (gap centre lines y 18.10, 13.02, 10.48, 7.94, 5.40,
   2.86; MOSI passes above row 1 at y 20.55), then 45 degrees into the outer pin.
