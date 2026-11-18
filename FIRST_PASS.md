@@ -443,6 +443,31 @@ connector"). Mock P is rebuilt in place: **42.16 x 60.7 mm**; the 6.3 mm version
 - The south edge is 1.4 mm past the N6 across the full width; only X' 5 to 22 needs it. The south-west hole is at
   (-3.6, 1.6).
 
+**Routing review and routing plan for mock P, 2026-11-17** (the reviewer of mock L, resumed; trial routes of every
+net group on its own copy as existence proof; DRC on the copy: 3 inherited skew errors, nothing else). Text in git:
+`mocks/review/REVIEW_P.md` and `mocks/review/ROUTING_PLAN_P.md`; plots and measurements outside git in
+`~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/review_P/`. **Verdict: ROUTABLE, NO BLOCKER.** Both bus ports
+route at 2.0 mm on the top layer with no via (BM2: N 3.7 mm, P 21.5 mm; five other arrangements of the north row
+were tried and none is better).
+
+| # | Rank | Finding on mock P | Change |
+|---|---|---|---|
+| P1 | Major | BM1's pads are 0.96 mm from the N6's 3V3 and BOOT0 header pads (1.22 mm from P13). Those pins are hand-soldered after BM1 is fitted; a solder bridge would put up to 32 V on the N6's 3.3 V rail | move BM1 0.5 mm east (0.59 mm is free) and start its tracks at the pads' east ends |
+| P2 | Major, open from L | where Sofar's south ground slot ends decides the SPI return path | end it at the block's edge; ask Sofar what it is for |
+| P3 | Major, open from L | SPI power states | 10 k pull-up on CS, four series resistors, firmware hold-off |
+| P4 | Major | motor logic lines are now 30 to 32 mm and the straight path runs under the 5 V switch node | use a lane on Internal 2 west of L6 (X' -5.6 to -4.6); trial: 38 to 39.5 mm |
+| P5 | Minor | converter and motor driver share the wing's copper, 6.4 mm apart; wing above the header 258 mm² top, 279 mm² N6 side | optionally move the driver to about (-2.0, 45.0) |
+| P6 | Minor | BM1 as drawn passes with little margin (0.18 to 0.23 mm to a via and to L1's other pads, 0.50 mm to the edge). Current is no issue: 3.95 A at 2.0 mm, 3.05 A at the 1.4 mm neck, 10 degC rise (IPC-2221, reviewer's arithmetic) | neck BM1_N to 1.6 mm for 2 mm |
+| P8-10 | Minor | north row 0.45 mm from the north edge and 0.10 mm from a hole's keep-out; QWIIC's I2C not under L2; 2.6 mm of N6 pin would stand above the top face | 0.5 mm more at the north edge; Internal 2 for that I2C; trim or choose the header length |
+
+Mock L findings: closed B1, B2, B3 (on paper), M1, m2; open M2, M3 (INT / reset swap: Nick's decision), M4, M5 and
+the small ones; M6 (microSD) mostly closed with the 6.6 mm wing and 5 mm gap.
+
+Routing stages proposed (each gated by DRC = the 3 skew errors and the lock check of Sofar's 81 footprints, 870
+tracks, 185 vias and 17 shapes): 0 base (schematic imported, placement changes, Sofar's zones turned in with the
+block); A bus; B planes; C power; D SPI and ADIN control; E motor logic and analog; F I2C; G straps, LEDs, test
+points; H silkscreen, fiducials, review. The trial supports A and C to G; B (planes) was not trialled.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
