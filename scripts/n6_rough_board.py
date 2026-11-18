@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L|M>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L|M|N>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -11,7 +11,7 @@ assert "NereusData" in path, "scratch copies only"
 mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
-XOFF = 32.13 if mock in "DIJKLM" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
+XOFF = 32.13 if mock in "DIJKLMN" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 STRAPS = set()
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
@@ -172,6 +172,25 @@ elif mock == "M":
     STRAPS = {"JP3", "JP4"}
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 2.3, S0 + 2.3), (E - 2.3, S0 + 2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
+elif mock == "N":
+    # After the mock L review (2026-11-17), Nick: "Yes, build it". Rules taken from the review: no part of ours on the
+    # opposite face of a connector's pads; the motor driver 1.3 mm or more from the header pads; BM1's pins towards
+    # L1; holes 3.0 mm in from the edges; north edge 0.4 mm further out; strap legend at 1.0 mm inside the outline.
+    # West wing, beside the header, from the USB end: MOTOR (top), motor driver (N6-facing side), POT (top); above
+    # the header: ADC (N6-facing side) in a west column, the 5 V converter beside it, the straps under the wing, BM2.
+    # South strip: BM1 (turned half a turn) and QWIIC.
+    W0, E, S0, N0 = -10.8, 35.56, -7.3, 49.3
+    HOLE = 2.1
+    conn(GH4, "J7", "MOTOR", -10.0, -1.9); print("motor (N6-facing side)", place(motor, -10.0, 5.6, 90)); conn(GH3, "J8", "POT", -10.0, 13.0)
+    print("ADC (N6-facing side)", place(adc, -10.0, 20.5, 90)); print("5 V", place(conv, -4.05, 24.0)); conn(GH4, "J9", "BM2", 0.5, 41.6)
+    conn(GH4, "J10", "BM1", 10.0, -7.0, 180); conn(SH4, "J3", "QWIIC", 20.8, -7.0)
+    print("JP3 CFG1 (N6-facing side)", place([fps["JP3"]], -9.8, 31.0)); print("JP4 CFG0 (N6-facing side)", place([fps["JP4"]], -9.8, 34.6))
+    for txt, tx, ty in (("SPI CFG", -5.0, 29.6), ("CFG1", -2.6, 32.3), ("CFG0", -2.6, 35.9), ("0 | 1", -7.4, 38.4), ("0 / 0 =", -5.0, 40.0), ("OA + CRC", -5.0, 41.6)):
+        s = pcbnew.PCB_TEXT(b); s.SetText(txt); s.SetLayer(pcbnew.B_SilkS); s.SetMirrored(True)
+        s.SetTextSize(pcbnew.VECTOR2I(MM(1.0), MM(1.0))); s.SetTextThickness(MM(0.15)); s.SetPosition(V(OX + tx, OY - ty)); b.Add(s)
+    STRAPS = {"JP3", "JP4"}
+    header("J21", 2.83, False); header("J22", 32.73, False)
+    holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))

@@ -343,6 +343,26 @@ Checked and fine in the review: the channels beside the block are 2.0 mm (west) 
 SPI runs 15 to 18 mm with under 4 mm spread and nothing of ours within 10 mm of its ends; no courtyard overlaps;
 OpenMV's pinout image agrees with the model on the left / right sense of the header.
 
+**Mock N: the review's placement changes built in** (Nick, 2026-11-17: "Yes, build it"). Rough board (`... N`),
+both headers through-hole, 2.1 mm holes now 3.0 mm in from the edges, 3 mm corners. DRC on the scratch copy under
+the project's rules: only the 3 inherited skew errors; 122 unconnected (nothing of ours is routed).
+- **46.36 x 56.6 mm (2624 mm²).** West edge 10.8 mm past the N6, east edge flush, south edge 7.3 mm past the USB
+  end, north edge 4.85 mm past the camera end (0.4 mm more than L, for the edge clearance of Sofar's via).
+- **It is back to mock L's width, not mock M's.** The review's rule "no part of ours on the opposite face of a
+  connector's pads" means the motor driver and the ADC each need their own stretch of the west wing instead of
+  hiding under a connector; with M's 6.8 mm wing that stretch does not exist (the wing would have to hold 59 mm of
+  parts in 46 mm). A narrower board is possible only by putting parts on both faces at the same spot again.
+- West wing beside the header, from the USB end: MOTOR (top), motor driver (N6-facing side, 1.36 mm from the
+  header pads, beside the connector and not under it), POT (top). Above the header: the ADC (N6-facing side) in a
+  west column beside the 5 V converter, the strap jumpers JP3 / JP4 under the wing with a 1.0 mm legend, then BM2.
+- South strip: BM1 turned half a turn (pins 5.3 mm from L1's BM1_P pad), and QWIIC east of it.
+- BM2 is unchanged, west of L2: its bus pads are on L2's east side, so its tracks stay about 15 mm with the N line
+  on an inner layer. Shorter tracks need BM2 north of L2 again (mock K: about 7 mm taller). Nick's choice.
+- Not placement, so not in the mock: the pin-map and schematic changes (`PIN_MAP.md`, last section), the plane
+  slot (M2), the via arrays and keep-clear copper for the converter (M5), fiducials, moving R37 / R38 / C53 to the
+  top face, and the two decisions that are Nick's: the header that sets the board gap (B3) and whether the microSD
+  slot must stay reachable (M6).
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

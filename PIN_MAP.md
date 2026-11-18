@@ -107,3 +107,18 @@ gigabit Ethernet.
 - I2C pull-ups: none on the N6 (S1), so R26 / R27 stay, fed from the N6's 3V3 pin.
 - VIN range conflict (4.7 to 5.7 V in the schematic, 3.6 to 5 V on the pinout image): U10 is set to 5.11 V nominal,
   4.95 to 5.28 V worst case (`power_budget.md` section 5), inside the schematic's range.
+
+## Changes proposed by the mock L review (2026-11-17), for Nick to decide
+
+Source: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/review_L/REVIEW_L.md` (independent review agent; trial
+routes on a copy of the mock L board; ADIN2111 datasheet Rev. 0 for the pin facts). Not yet applied to the table above.
+
+| Item | Today's proposal | Review's proposal | Why |
+|---|---|---|---|
+| ~ADIN_INT | P9 (west header) | **P6 (east header)** | Sofar's stub for INT ends on the block's east side: 6.6 mm to P6 in the trial, against 19.9 mm to P9 under U1 and past the crystal. P6 carries about 1 M to ground inside the N6 (S1) against the 1.5 k pull-up R1: no effect on the level |
+| ~ADIN_RST | P6 | P9, or not connected | reset is rarely driven; the chip has its own power-on reset (SPEC) |
+| ADIN_PWR | P13 (west header) | open: 19.2 mm through T1's footprint in the trial | look for a shorter path at layout time, or swap with a west-side signal |
+| ~ADIN_CS | plain pin P3 | add 10 k pull-up to ADIN_VDDIO | the ADIN's CS, SCLK and SDI have internal pull-downs, so CS reads "selected" while the N6's pins float |
+| SCK, MOSI, MISO, CS | direct | 22 to 47 ohm series resistors at the driving ends (33 ohm to start) | edge control and current limiting if one side is unpowered; there is 2.45 mm of room in the east channel |
+| Firmware | - | do not drive SPI pins high before ADIN_PWR is on and VDDIO is up | ADIN pins are rated to VDDIO + 0.3 V |
+| U13 / pot supply | mote 3V3 | N6 3V3 pin | about 11 mm against 21 mm; decide at schematic time (it changes what the pot reads against) |
