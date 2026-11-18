@@ -38,16 +38,17 @@ That is 18 signals plus 8 spares. The N6 offers 12 free pins.
 | I2C SDA | P5 | I2C2 SDA |
 | MOTOR_IN1 | P7 | TIM4 CH1 |
 | MOTOR_IN2 | P8 | TIM4 CH2: both PWM inputs on one timer |
-| ~ADIN_INT | P9 | plain input with interrupt |
+| ~ADIN_INT | P6 | plain input with interrupt; Sofar's INT stub ends on the block's east side, 6.6 to 10 mm from P6 (reviews of mocks L and P). Decided by Nick, 2026-11-17: "Yes, swap them" |
 | ADIN_PWR | P13 | plain output |
 | MOTOR_nSLEEP | P14 | plain output |
-| ~ADIN_RST, or spare | P6 | see "what cannot be supported" |
+| ~ADIN_RST | P9 | plain output; 8.7 mm in the mock P trial. Decided with the INT swap, 2026-11-17 |
 | 5 V from U10 | VIN | accepts 4.7 to 5.7 V (S1) |
 | Pull-up and Qwiic supply | 3V3 (both pins) | the N6's 3.3 V output; kept apart from the mote's own 3.3 V, as on the Pi boards (SPEC constraint 4) |
 | GND | both GND pins | |
 | Not connected, pads isolated | RAW, BOOT0, PWR WKUP, P10, P11, RESET, the nine Ethernet positions | live or special-purpose lines on the N6 (S1, S2) |
 
-All twelve free pins are used. P13 / P14 are the N6's only UART that does not overlap SPI2 or I2C2, so this map
+All twelve free pins are used. P6 has about 1 M to ground inside the N6 (S1); against the 1.5 k pull-up R1 on INT that
+does not move the level. P13 / P14 are the N6's only UART that does not overlap SPI2 or I2C2, so this map
 leaves no serial port on the header.
 
 ## Answers to the explore questions
@@ -93,7 +94,7 @@ costs the last spare pin P6.
 | ~ADC_ALERT | not connected; firmware polls U13 over I2C |
 | ADIN_TIMER (timestamp output) | not connected, to a test pad. It is only needed for hardware time-stamping |
 | Second and third I2C buses | one bus: U4, U13 and the Qwiic connector share I2C2. The separate bus for the LiFePO4+ board is gone |
-| ~ADIN_RST | either on P6, or left to the chip's own power-on reset (RESET may float, SPEC confirmed facts) with a reset by cycling ADIN_PWR. P6 carries about 1 M to ground inside the N6 (S1), harmless for a driven output |
+| ~ADIN_RST | on P9 since 2026-11-17 (was P6). The chip's own power-on reset still works if the line is left floating (SPEC confirmed facts) |
 | A UART on the header | none left, because P13 / P14 carry ADIN_PWR and MOTOR_nSLEEP |
 
 If one more pin is needed later, the choices are: tie MOTOR_nSLEEP high through a resistor (the driver then never
@@ -111,12 +112,12 @@ gigabit Ethernet.
 ## Changes proposed by the mock L review (2026-11-17), for Nick to decide
 
 Source: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/review_L/REVIEW_L.md` (independent review agent; trial
-routes on a copy of the mock L board; ADIN2111 datasheet Rev. 0 for the pin facts). Not yet applied to the table above.
+routes on a copy of the mock L board; ADIN2111 datasheet Rev. 0 for the pin facts). The INT / reset swap is applied to the table above; the other rows are still open proposals.
 
 | Item | Today's proposal | Review's proposal | Why |
 |---|---|---|---|
-| ~ADIN_INT | P9 (west header) | **P6 (east header)** | Sofar's stub for INT ends on the block's east side: 6.6 mm to P6 in the trial, against 19.9 mm to P9 under U1 and past the crystal. P6 carries about 1 M to ground inside the N6 (S1) against the 1.5 k pull-up R1: no effect on the level |
-| ~ADIN_RST | P6 | P9, or not connected | reset is rarely driven; the chip has its own power-on reset (SPEC) |
+| ~ADIN_INT | P9 (west header) | **P6 (east header): DECIDED by Nick 2026-11-17, applied in the table above** | Sofar's stub for INT ends on the block's east side: 6.6 mm to P6 in the trial, against 19.9 mm to P9 under U1 and past the crystal. P6 carries about 1 M to ground inside the N6 (S1) against the 1.5 k pull-up R1: no effect on the level |
+| ~ADIN_RST | P6 | P9: decided with the INT swap | reset is rarely driven; the chip has its own power-on reset (SPEC) |
 | ADIN_PWR | P13 (west header) | open: 19.2 mm through T1's footprint in the trial | look for a shorter path at layout time, or swap with a west-side signal |
 | ~ADIN_CS | plain pin P3 | add 10 k pull-up to ADIN_VDDIO | the ADIN's CS, SCLK and SDI have internal pull-downs, so CS reads "selected" while the N6's pins float |
 | SCK, MOSI, MISO, CS | direct | 22 to 47 ohm series resistors at the driving ends (33 ohm to start) | edge control and current limiting if one side is unpowered; there is 2.45 mm of room in the east channel |

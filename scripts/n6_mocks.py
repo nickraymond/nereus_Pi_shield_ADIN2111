@@ -12,8 +12,8 @@ COLX = [1.56, 4.10, 31.42, 33.96]          # N6 model x of the four pin columns
 ROWY = [19.37 - 2.54 * i for i in range(8)]  # row 1 (camera end) .. row 8 (USB end)
 LAB = {1.56: ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "3V3"], 4.10: ["eth", "eth", "eth", "eth", "eth", "WKUP", "RAW", "GND"],
        31.42: ["eth", "eth", "eth", "eth", "P14", "P13", "BOOT", "3V3"], 33.96: ["RST", "P11", "P10", "P9", "P8", "P7", "VIN", "GND"]}
-USED = {"P0": "MOSI", "P1": "MISO", "P2": "SCK", "P3": "CS", "P4": "SCL", "P5": "SDA", "P7": "IN1", "P8": "IN2", "P9": "INT",
-        "P13": "A_PWR", "P14": "SLP", "P6": "RST", "VIN": "5V", "GND": "", "3V3": ""}
+USED = {"P0": "MOSI", "P1": "MISO", "P2": "SCK", "P3": "CS", "P4": "SCL", "P5": "SDA", "P7": "IN1", "P8": "IN2", "P9": "RST",
+        "P13": "A_PWR", "P14": "SLP", "P6": "INT", "VIN": "5V", "GND": "", "3V3": ""}
 BX0, BY0 = 124.85, 95.88                   # block frame origin on the starting board (L2 end, north copper edge)
 G = {'XOFF': 32.13}
 YOFF, XOFF = 1.0, 32.13                    # block L1 end at y = 1.0; block north edge at X' = 32.13
