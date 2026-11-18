@@ -176,6 +176,27 @@ Read from the screenshot, roughly (scaled from the board's known size, about 1 m
 - Not checked: the N6 parts under the west strip (gap between the boards), copper for the converter and the motor
   driver now that they share the west strip, and all routing.
 
+**Mock I: both headers through-hole** (Nick, 2026-11-17: through-hole "is better for alignment and shear stress
+resistance"; "keep the BM1 and BM2 connectors on the west side with the 5V reg, then move the other connectors to
+the east wall"). Built as a rough board (`... I`), 2.1 mm holes, 3 mm corners:
+- **43.7 x 59.5 mm (2600 mm²)**. West edge 4.3 mm past the N6, east edge 3.8 mm past the N6's P0-side edge, south
+  edge 4.6 mm past the USB end, north edge 10.45 mm past the camera end.
+- **Why it is wider than H.** Through-hole pads go through the board, so nothing of ours can sit over a header on
+  either face. Both columns therefore start above the header rows (y 21 mm and up). On the east, the mote block
+  leaves only 3.4 mm inside the N6's width, so a connector (6.69 mm across when turned along the wall) needs the
+  board 3.8 mm past the N6's edge: **the east edge is no longer flush with the N6.**
+- West wall, from the header upward: BM1, the 5 V converter, BM2. East wall: MOTOR, POT, QWIIC, turned so their pin
+  rows run along the wall, bodies 3.0 mm apart. Motor driver under MOTOR and ADC under POT, on the N6-facing side.
+- The mote block goes back to the centre between the pad rows: 1.9 mm and 2.1 mm to the pads, as in mocks A to D.
+- **What this arrangement costs electrically (not routed, to weigh before choosing):**
+  - BM1 sits above the header, so its two bus tracks run about 7 mm from L1 through the 1.9 mm channel between
+    the mote block and the west header pads (the unproven channel of mock C, shorter).
+  - The motor driver is on the east, the 5 V converter and the PWM pins P7 / P8 on the west: the motor's 5 V supply
+    (0.5 A) and three control lines cross the board, round the south or north end, about 60 mm. The Pi Zero board
+    has PWM runs of 58 to 62 mm (`review_G_routing.md`), so there is a precedent, not a proof.
+- Alternative that keeps the east edge flush with the N6: put MOTOR, POT and QWIIC on a north wall instead
+  (about 39.9 x 60.6 mm). Not built.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

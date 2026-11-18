@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -11,7 +11,7 @@ assert "NereusData" in path, "scratch copies only"
 mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
-XOFF = 32.13 if mock == "D" else 33.03; YOFF = 1.0
+XOFF = 32.13 if mock in "DI" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
@@ -100,6 +100,17 @@ elif mock == "H":
     print("5 V", place(conv, -2.8, y)); conn(GH4, "J9", "BM2", -2.65, y + 12.6 + 1.26)
     print("motor (N6-facing side)", place(motor, -2.7, 21.2, 90)); print("ADC (N6-facing side)", place(adc, -2.7, 28.3))
     header("J21", 2.83, True); header("J22", 32.73, False)
+    holes = [(W0 + 2.3, -2.3), (E - 2.3, -2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
+elif mock == "I":
+    # Nick, 2026-11-17: both headers through-hole (alignment, shear strength); BM1, BM2 and the 5 V converter on the
+    # west side; MOTOR, POT and QWIIC on the east wall. With through-hole pads nothing of ours can sit over a header,
+    # so both columns start above the header rows, and the east column needs the board 3.8 mm past the N6's edge.
+    W0, E, S0, N0 = -4.3, 39.4, -4.6, 54.9
+    HOLE = 2.1
+    conn(GH4, "J10", "BM1", -3.35, 21.3); print("5 V", place(conv, -4.05, 29.25)); conn(GH4, "J9", "BM2", -3.35, 43.1)
+    conn(GH4, "J7", "MOTOR", 32.5, 21.2, 90); conn(GH3, "J8", "POT", 32.5, 32.45, 90); conn(SH4, "J3", "QWIIC", 32.5, 42.44, 90)
+    print("motor (N6-facing side)", place(motor, 32.6, 21.2)); print("ADC (N6-facing side)", place(adc, 32.6, 32.4, 90))
+    header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 2.3, -2.3), (E - 2.3, -2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
