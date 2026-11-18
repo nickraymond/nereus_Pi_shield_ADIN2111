@@ -1,9 +1,9 @@
-# N6 shield: hand-over (2026-11-18, about 1:10 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 2:45 PM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
 done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair) are local until Nick says push. The QE review ran in
+PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison) are local until Nick says push. The QE review ran in
 its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
 in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
 Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Stages F and G and the repair have NOT
@@ -34,6 +34,7 @@ not running by `pgrep` before each run). Every further push still needs his word
 | `d39a491` | repair: Sofar's BM1_P top track from his via at (20.057, 7.458) into L1 pad 3 put back | same errors, 8 unconnected; 1 new track |
 | `0c7c3f6` | stage G part 2: ADIN_VDDIO to the jumpers, CFG1 strap, ~ADIN_P1_LED1 | same errors, 3 unconnected; 29 new tracks, 6 new vias; pour check 0 |
 | `986339c` | stage G part 3: CFG0 strap, ~ADIN_P2_LED1, ADIN_VDDIO to R52 | same errors, **0 unconnected**; 28 new tracks, 4 new vias; pour check 0 |
+| `197115e` | stage G part 4: CFG0, CFG1 and R2 moved clear of the crystal (Nick's request) | same errors, 0 unconnected; 14 of this session's tracks removed, 9 new, no new via; lock check PASS with R2 allowed; pour check 0 |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -48,9 +49,10 @@ Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/sta
 `sh scripts/stageC/run_C.sh ../review1/stepR1_fixes.py R1`, `sh scripts/stageC/run_C.sh ../stageF/stepF1_u13.py F1`,
 `sh scripts/stageC/run_C.sh ../stageF/stepF2_3v3_east.py F2`, `sh scripts/stageC/run_C.sh ../stageF/stepF3_north.py F3`,
 `sh scripts/stageC/run_C.sh ../stageG/stepG1_local.py G1`, `sh scripts/stageC/run_C.sh ../stageG/stepG0_bm1p_restore.py G0`,
-`sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`
+`sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`,
+`ALLOW_REF=R2 sh scripts/stageC/run_C.sh ../stageG/stepG4_straps_clear_crystal.py G4`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -182,8 +184,15 @@ Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
 - ADIN_VDDIO: JP3 pad 1 to JP4 pad 3 on the bottom; JP2 pad 1 through a via at (-5.45, 8.0); feed on Internal 1 from a
   via at (-1.6, 13.895) into Sofar's via at (10.832, 20.108) (27.9 mm in all). To R52 pad 1: a via at (30.2, 8.921),
   Internal 2 north at X' 30.2, west at y 18.25 into Sofar's via at (19.776, 17.677) (20.2 mm).
-- CFG1_STRAP: bottom, a via at (6.6, 10.48), top to R2 pad 2 (20.8 mm). CFG0_STRAP: bottom, a via at (5.9, 15.56),
-  Internal 2 east at y 15.77 and 17.7 through Sofar's block, a via at (28.0, 16.55), top into R9 pad 1 (35.3 mm).
+- CFG1_STRAP: bottom, a via at (6.6, 10.48), top at X' 6.6 to R2 pad 2. CFG0_STRAP: bottom, a via at (5.9, 15.56),
+  Internal 2 round the south of the crystal (part 4, below), a via at (28.0, 16.55), top into R9 pad 1.
+- **Part 4 (`197115e`, Nick's request: straps away from the crystal).** The crystal Y1 is on the bottom, box X' 8.93..11.98,
+  y 13.58..16.51, with its load capacitors C8 / C7 at X' 7.76..12.96. CFG0 ran on Internal 2 at y 15.77 under all three and
+  R2 stood on top over the XTAL_I pad. Now: CFG0 on Internal 2 south at X' 5.9, east at y 11.2, north-east between the
+  VBUS vias (X' 16.1) and U1's via row, east at y 14.12, north-east between Sofar's ~ADIN_INT via and the ADIN_PWR via
+  (0.21 mm from each) into the old line at y 17.7. R2 at (6.6, 15.4) upright; CFG1 and the pin 19 net on top at X' 6.6,
+  1.2 mm west of C8's pads. Still under the crystal and not moved: the reset line on Internal 1 (Sofar's own corner at
+  (10.007, 15.633) lies there; this board taps it at that corner). Picture: `stageG4/N6_shield_stageG4_straps_before_after.png`.
 - ~ADIN_P1_LED1: a via at (-4.325, 15.1), bottom, a via at (5.95, 18.083), Internal 2 into Sofar's via at
   (10.857, 18.083) (17.7 mm). ~ADIN_P2_LED1: top along the west edge at X' -5.95 and east at y 21.3, one via at
   (5.6, 23.0), Internal 2 at y 22.639 into Sofar's via at (19.122, 22.639) (35.7 mm).
@@ -193,18 +202,42 @@ Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
   1. **Repair `d39a491`.** Sofar's via at (20.057, 7.458) carries BM1_P on Internal 2 from the data transformer T1
      pin 6. The starting board (`325599c`) joined it to L1 pad 3 with a 0.2 mm top track; stage 0c dropped that track
      with the old bus tracks, so T1 pin 6 had no connection to the BM1 bus from stage 0c on. DRC showed it as one
-     unconnected item. The same track is back (same ends, width, layer). Stage 0c's other removals have not been
-     compared with the starting board item by item: worth a check in the review.
-  2. CFG0 on Internal 2 has two short 45 degree steps at X' 18..20.6 to pass three of Sofar's vias; it is 0.25 mm
-     from his VDDIO and INT vias and runs under the crystal Y1 at y 15.77, 0.5 mm from each crystal via, with the PWR
-     plane between it and the crystal on the bottom. The strap carries DC.
+     unconnected item. The same track is back (same ends, width, layer). **Corrected after the mote comparison:** that
+     track was the Pi Zero work's, not Sofar's (his mote joins the via to L1 through a copper polygon and the 2.0 mm bus
+     track), and the commit message of `d39a491` calls it Sofar's wrongly. The full comparison is the next section.
+  2. CFG0 on Internal 2: see part 4 above (it no longer runs under the crystal).
   3. ~ADIN_P2_LED1 runs 9 mm along the west edge, 0.55 mm from the board edge (rule 0.5 mm) and 0.175 mm from the LED
      pads.
-  4. The R52 VDDIO line and the CFG0 line run side by side on Internal 2 for 6 mm, 0.3 mm apart.
+  4. The R52 VDDIO line and the CFG0 line run side by side on Internal 2 for 4.7 mm, 0.3 mm apart.
   5. Other-net copper nearer than 0.2 mm to stage G's copper, all 0.15 mm or more (`stageG1..G3/clearcheck.txt`): the
      P1_LED1 via at (5.95, 18.083) to R47 pad 1; the VDDIO via at (30.2, 8.921) to SCL's bottom track; P2_LED1 to the
      LED pads.
   6. Via count per net against the plan's limits: LED lines 2 and 1 new (limit 2), straps 1 and 2 (limit 3).
+
+## Mote reference against the board (Nick's request, 2026-11-18): `docs/design-review/mote_diff_review_2026-11-18.md`
+
+`scripts/review2/motediff.py` compares Sofar's mote reference, the starting board and today's board by geometry.
+- **This branch changed none of Sofar's copper:** all 870 tracks and 185 vias of the mote that the starting board
+  carried are on today's board, same width, layer and net; 15 of 16 zones and all 154 rule areas the same.
+- Everything else of the mote (1184 copper items, 79 footprints) was already missing on the starting board, and
+  serves parts that were removed or moved.
+- **Open, Nick's word needed:** the 3V3 converter's switch-node pour (top, X' 15.26..22.51, y 30.46..33.88) has no net
+  since the starting board (21.29 mm2 on the mote, 3.63 mm2 of floating copper today). Trial with the net put back:
+  21.35 mm2, errors unchanged (`trial_sw_zone/`). It is one of the three `isolated_copper` warnings.
+- The lock checks protect copper that matches the mote reference. The Pi Zero work's own copper inside the block (747
+  items) was removed by stage 0c by design and rebuilt in stages A to G.
+
+## Motor driver's 5 V feed: trial waiting for Nick (QE finding 6)
+
+Measured on `197115e` (PWR plane, 15.2 um): U12's 5 V comes through a band 2.0 mm wide (IPC-2221 inner layer: 1.08 A
+for 10 degC rise) and a tab that necks to 1.55 mm at C61's GND via (0.90 A), two 0.6 / 0.3 mm vias, then 0.5 / 0.3 /
+0.2 mm of bottom track into pin 9 (the pin is 0.2 mm wide). The driver's current limit is 1.24 A (R48 4.02 k, BRIEF).
+The N6's own 5 V runs 27 mm down the wing on a PWR-plane strip 3.9 mm wide (1.75 A; 2.7 mm at two via cut-outs) into
+J21 pin 14.
+Trial on a scratch copy (`trial_motor_feed/`, script in the routing session's scratchpad, not in git): the band 3.5 mm
+wide and reaching west over the bulk capacitors' vias, plus the same shape on Internal 1 (only GND pour there today);
+the five existing 5 V vias tie the two layers. 1.62 A per layer for 10 degC rise. DRC, lock, pour, plane and bus checks
+pass, 0 unconnected. **Not on the board: Nick decides.** Picture: `trial_motor_feed/N6_shield_motor_5V_feed_today_vs_trial.png`.
 
 ## QE review of pull request 39 (reports in `docs/design-review/qe/`): what is open
 
@@ -248,7 +281,9 @@ check, DRC warnings read one by one, independent review, then Nick.
 
 - Decide: when to push stages F and G (the local commits after `edfa070`); the QE session is reviewing head
   `edfa070`.
-- Read the repair `d39a491` (BM1_P): stage 0c had dropped one of Sofar's tracks.
+- Decide: put the net back on the 3V3 converter's switch-node pour (mote comparison, finding 1).
+- Decide: the heavier 5 V feed for the motor driver (trial above), and whether the 5 V copper should be sized for more
+  than the driver's 1.24 A limit.
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
