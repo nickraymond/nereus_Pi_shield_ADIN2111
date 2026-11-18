@@ -203,13 +203,16 @@ elif mock == "P":
     # the east wall needs to end with the N6"; four connectors at the north end; height around 70 mm at most; wide
     # enough for the mounting holes, back to 2.7 mm, three holes only; connector order by the best routing for BM2.
     # (No mock O, to avoid confusion with zero.)
-    W0, E, S0, N0 = -6.6, 35.56, 0.0, 59.3
+    W0, E, S0, N0 = -6.6, 35.56, -6.3, 59.3
     # north row, pin rows running north-south, bodies 3 mm apart; BM2 sits in line with L2's bus pads (X' 21.4)
     conn(GH4, "J7", "MOTOR", -0.5, 49.3, 90); conn(GH3, "J8", "POT", 7.45, 49.3, 90)
     conn(GH4, "J9", "BM2", 15.4, 49.3, 90); conn(SH4, "J3", "QWIIC", 23.35, 49.3, 90)
-    # BM1 cannot leave the space between the header columns (a 2 mm track does not pass between through-hole pads) and
-    # the south edge is the N6's: it goes in the free pocket between the west header and L1
-    conn(GH4, "J10", "BM1", 5.4, 0.3, 90)
+    # BM1, update of 2026-11-17 (Nick: "how much more extension south is needed to make BM1 clean and safe?"): 6.3 mm.
+    # Sofar's only copper between T1 and L1 on the bus nets is a 0.2 mm data track on Internal 2, so the bus current
+    # must enter at L1's own pads, which are on L1's east side (BM1_P pad at X' 20.97, y 1.33..5.83). The connector
+    # sits south of L1, lying east-west, pins north: its two P pins are about 1 mm from L1's BM1_P pad, and its two N
+    # pins lead into the 4.7 mm channel east of L1 for a 2 mm track to L1's BM1_N pad (about 12 mm, top layer).
+    conn(GH4, "J10", "BM1", 17.2, -6.0, 180)
     print("5 V", place(conv, -4.05, 24.0)); print("motor (N6-facing side)", place(motor, -6.3, 38.5, 90))
     c0 = adc[0].GetPosition()
     for f in adc: f.Flip(c0, pcbnew.FLIP_DIRECTION_LEFT_RIGHT)      # the ADC group goes to the top face, beside L2 and below POT
@@ -217,9 +220,9 @@ elif mock == "P":
     print("JP3 CFG1 (N6-facing side)", place([fps["JP3"]], -6.2, 9.0)); print("JP4 CFG0 (N6-facing side)", place([fps["JP4"]], -6.2, 12.6))
     STRAPS = {"JP3", "JP4"}
     header("J21", 2.83, False); header("J22", 32.73, False)
-    holes = [(W0 + 3, 3.0), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
+    holes = [(W0 + 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
     LABELS = [("MOTOR", 2.8, 48.3, 0, "F"), ("POT", 10.8, 58.6, 0, "F"), ("BM2", 18.7, 58.6, 0, "F"), ("QWIIC", 26.0, 58.2, 0, "F"),
-              ("BM1", 8.7, 10.7, 0, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
+              ("BM1", 15.2, -3.0, 90, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
               ("MOTOR DRV", -1.6, 46.0, 0, "B"), ("SPI CFG", -3.4, 7.8, 0, "B"), ("CFG1", -3.4, 16.3, 0, "B"), ("CFG0", -3.4, 17.9, 0, "B"),
               ("0|1  0/0=OA+CRC", -3.2, 19.6, 0, "B")]
 else:
@@ -250,7 +253,6 @@ def edge(kind, a, c=None, e=None):
     b.Add(s)
 x0, x1, y0, y1 = OX + W0, OX + E, OY - N0, OY - S0     # KiCad frame: y0 = camera-end edge, y1 = USB-end edge
 rne = rnw = rsw = rse = RAD
-if mock == "P": rse = 0.0          # the N6's header pin is 1.6 mm from that corner: a rounded corner cuts into its clearance
 edge("line", (x0 + rnw, y0), e=(x1 - rne, y0)); edge("line", (x1, y0 + rne), e=(x1, y1 - rse))
 edge("line", (x1 - rse, y1), e=(x0 + rsw, y1)); edge("line", (x0, y1 - rsw), e=(x0, y0 + rnw))
 # quarter arcs, each drawn clockwise on screen from its start point

@@ -403,6 +403,23 @@ Rough board (`... P`), both headers through-hole, 5 mm board gap by spacers:
   few mm; I2C to QWIIC about 45 mm up the east strip.
 - Not routed, not reviewed. The review of mock L does not carry over to the BM1 pocket or the north row.
 
+**Mock P, update: BM1 made clean with a 6.3 mm south strip** (Nick, 2026-11-17: "how much more extension south is
+needed to make BM1 clean and safe?"). Mock P is rebuilt in place; the pocket position described above is withdrawn.
+- **Answer: 6.3 mm.** That is one connector land pattern (6.69 mm deep) lying east-west directly south of L1,
+  0.3 mm from the edge, overlapping the N6's outline by 0.7 mm up to L1's courtyard. Outline now **42.16 x 65.6 mm**.
+- **Why the pocket position was not safe** (measured on the mock, `bm1.py` in the session's scratch folder): the only
+  copper Sofar has between T1's bus pads and L1's bus pads is a **0.2 mm track on Internal 2** (7.3 mm, each
+  polarity): a data connection, not a power one. The bus current (up to 0.89 A) must enter at L1's own pads, and
+  those are on L1's east side: BM1_P pad at X' 20.97, y 1.33 to 5.83 (2.16 x 4.5 mm); BM1_N pad at X' 20.97,
+  y 9.84 to 14.34, with Sofar's 2.0 mm track and copper shape beside it.
+- **Now:** BM1's two P pins (X' 20.1 and 21.3, y -0.7) are about 2 mm south of L1's BM1_P pad, straight line. Its
+  two N pins (X' 22.6 and 23.8) lead east into the 4.7 mm wide channel between L1 and the east header pads, for a
+  2 mm track on the top layer to L1's BM1_N pad: about 12 mm, no layer change needed. Not routed.
+- DRC on the scratch copy: only the 3 inherited skew errors; the courtyard overlap with T1 is gone.
+- The strip is drawn across the full width. Only the connector needs it (about X' 17 to 27): a tab of about
+  10 x 6.3 mm would do if the rest of the south edge must stay at the N6's edge. The south-west hole moved with the
+  strip to (-3.6, -3.3); with a tab it would go back to (-3.6, 3.0).
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
