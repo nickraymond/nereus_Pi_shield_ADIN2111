@@ -197,6 +197,37 @@ the east wall"). Built as a rough board (`... I`), 2.1 mm holes, 3 mm corners:
 - Alternative that keeps the east edge flush with the N6: put MOTOR, POT and QWIIC on a north wall instead
   (about 39.9 x 60.6 mm). Not built.
 
+**Mock J: mock I with the BM connectors at the north and south ends, east edge flush** (Nick, 2026-11-17: "the BM
+connectors should move to the north and south ends, so make the shortest possible traces between the inductors";
+"how can we make it so the east edge is flush again"; "Consider routing"). Built as a rough board (`... J`), both
+headers through-hole, 2.1 mm holes, 3 mm corners:
+- **35.56 x 66.8 mm (2375 mm²): exactly the N6's width, flush on the east and the west.** South edge 7.3 mm past
+  the USB end, north edge 15.05 mm past the camera end.
+- South strip: MOTOR and BM1 on top, the motor driver under MOTOR. North strip: the 5 V converter and BM2.
+  Pocket beside L2: POT on top, ADC under it. West strip above the header: QWIIC.
+- The east edge is flush because nothing of ours is on the east: inside the N6's width the mote block leaves only
+  3.4 mm there.
+
+Routing considered (lengths from the placement coordinates; **nothing is routed or rule-checked**):
+
+| Net | Run in mock J | Verdict |
+|---|---|---|
+| BM1, BM2 bus tracks (2 mm wide) | about 2 mm each, L1 to BM1 and L2 to BM2, no channel beside the block | best of all mocks |
+| ADIN SPI | about 16 mm to P0..P3, unchanged | fine |
+| Motor outputs | about 2 mm, driver under its connector | fine |
+| Motor PWM and sleep (P7, P8, P14) | about 12 to 15 mm south from the west header. Three tracks must pass the header: 0.84 mm between the two pad columns, or the 1.9 mm channel beside the mote block. They run away from the ADIN's crystal (which sits 4 mm inside the block's west edge, level with header rows 2 and 3) | fits, tight |
+| 5 V, converter to VIN and to the motor driver | about 50 to 55 mm down the west side, 0.65 A steady. About 27 mOhm and 18 mV on a 1 mm, 1 oz track (my arithmetic), or on the power plane. The motor's bulk capacitors stay at the driver, so the long run carries the average current | longest power run of any mock |
+| VBUS to the converter | about 15 mm past L2 on an inner layer; Sofar's VBUS plane ends at about y 35 mm | fine |
+| I2C to the ADC (north-east) | about 35 mm up the 3.4 mm east strip from P4 / P5 | fine, slow bus |
+| I2C and 3.3 V to QWIIC (west) | about 40 mm round the north end from P4 / P5 | long but slow; QWIIC has no better place at this width |
+
+- Why the converter is north and the motor south, not the other way round: with the motor in the north its PWM
+  lines would run 50 mm up the west side within about 3.5 mm of the ADIN's crystal (the Pi Zero lesson). Putting
+  the converter, BM1 and MOTOR all in the south strip would be best for power, but they need 34.2 mm in a row and
+  the strip has 26.4 mm between the two mounting holes.
+- If 1 to 4 mm more width on the west is acceptable, the converter can sit on the west wall above the header (as
+  in mock I): the 5 V runs shrink to about 25 and 35 mm and the board to about 39.9 x 63.5 mm. Not built.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
