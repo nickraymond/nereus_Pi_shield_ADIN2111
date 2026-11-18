@@ -420,6 +420,29 @@ needed to make BM1 clean and safe?"). Mock P is rebuilt in place; the pocket pos
   10 x 6.3 mm would do if the rest of the south edge must stay at the N6's edge. The south-west hole moved with the
   strip to (-3.6, -3.3); with a tab it would go back to (-3.6, 3.0).
 
+**Mock P, second update: BM1 beside T1 with 1.4 mm of south extension, not 6.3** (Nick, 2026-11-17: the 6.3 mm
+strip is "not viable"; "what is preventing it from getting closer to T1? Can we swap the P and N pads on the
+connector"). Mock P is rebuilt in place: **42.16 x 60.7 mm**; the 6.3 mm version above is withdrawn.
+- **What I had missed:** the starting Pi Zero board already feeds L1 from this side, on the top layer, with our own
+  tracks (read from the board file and mapped into the mock's frame): BM1_N at 2.0 mm under L1's body between its
+  pads, to L1's N pad; BM1_P at 2.0 mm with a 1.4 mm neck round L1's south end, to L1's P pad. That board passed
+  DRC and two reviews and is the one sent to M. So the bus does not need Sofar's 0.2 mm T1-to-L1 track.
+- **What was really in the way:** (1) BM1's land pattern overlapped T1's courtyard by 0.87 mm; (2) the BM1_P track
+  round L1's south end is centred 0.1 mm inside the N6's south edge and is 2 mm wide, so it needs about 1.4 mm of
+  board past that edge (track half-width plus the 0.5 mm edge clearance); (3) my first pocket placement had the
+  connector's N pins south and P pins north, crossed against L1's pads (P south, N north).
+- **Now:** BM1 is turned half a turn in the pocket: P pins south, N pins north, **no pin swap**, same cable pinout
+  as the other boards. Its pins face the header (1.0 mm from the pads) and the two tracks leave eastwards under its
+  housing. The connector moved 1.4 mm south with the edge, which also clears T1 (0.53 mm between courtyards).
+- **Proof on the scratch board:** both tracks are drawn as real copper on the top layer with their nets
+  (BM1_N 2.0 mm, about 17 mm; BM1_P 2.0 mm with the 1.4 mm neck, about 16 mm) and J10's pins carry the bus nets.
+  DRC under the project's rules: only the 3 inherited skew errors, no clearance or short; the connector pins and
+  L1's pads are reported connected.
+- **With no extension at all** it is not clean: the connector overlaps T1 again, and BM1_P would have to shrink to
+  about 0.7 mm for about 6 mm between the edge clearance and L1's ground pad. Not built.
+- The south edge is 1.4 mm past the N6 across the full width; only X' 5 to 22 needs it. The south-west hole is at
+  (-3.6, 1.6).
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

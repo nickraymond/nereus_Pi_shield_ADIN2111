@@ -203,16 +203,34 @@ elif mock == "P":
     # the east wall needs to end with the N6"; four connectors at the north end; height around 70 mm at most; wide
     # enough for the mounting holes, back to 2.7 mm, three holes only; connector order by the best routing for BM2.
     # (No mock O, to avoid confusion with zero.)
-    W0, E, S0, N0 = -6.6, 35.56, -6.3, 59.3
+    W0, E, S0, N0 = -6.6, 35.56, -1.4, 59.3
     # north row, pin rows running north-south, bodies 3 mm apart; BM2 sits in line with L2's bus pads (X' 21.4)
     conn(GH4, "J7", "MOTOR", -0.5, 49.3, 90); conn(GH3, "J8", "POT", 7.45, 49.3, 90)
     conn(GH4, "J9", "BM2", 15.4, 49.3, 90); conn(SH4, "J3", "QWIIC", 23.35, 49.3, 90)
-    # BM1, update of 2026-11-17 (Nick: "how much more extension south is needed to make BM1 clean and safe?"): 6.3 mm.
-    # Sofar's only copper between T1 and L1 on the bus nets is a 0.2 mm data track on Internal 2, so the bus current
-    # must enter at L1's own pads, which are on L1's east side (BM1_P pad at X' 20.97, y 1.33..5.83). The connector
-    # sits south of L1, lying east-west, pins north: its two P pins are about 1 mm from L1's BM1_P pad, and its two N
-    # pins lead into the 4.7 mm channel east of L1 for a 2 mm track to L1's BM1_N pad (about 12 mm, top layer).
-    conn(GH4, "J10", "BM1", 17.2, -6.0, 180)
+    # BM1, second update of 2026-11-17 (Nick: the 6.3 mm south strip is "not viable"; "what is preventing it from
+    # getting closer to T1? Can we swap the P and N pads"). The starting Pi Zero board already fed L1 from this side on
+    # the top layer: BM1_N at 2.0 mm under L1 between its pads, BM1_P at 2.0 / 1.4 mm round L1's south end. The same
+    # two paths are drawn here as real tracks so DRC can judge them. The connector is turned so that its P pins are
+    # south and its N pins north (no pin swap, same cable pinout as the other boards); its pins face the header and
+    # the tracks leave eastwards under its housing. This needs the board 1.4 mm past the N6's south edge.
+    conn(GH4, "J10", "BM1", 5.4, -1.1, 270)
+    j10 = NEWFP[-1]; nets = {n.split("/")[-1]: v for n, v in ((str(k), v) for k, v in b.GetNetsByName().items())}
+    pin = {}
+    for pd in j10.Pads():
+        if pd.GetNumber() in "1234":
+            pd.SetNet(nets["BM1_N" if pd.GetNumber() in "12" else "BM1_P"]); pin[pd.GetNumber()] = (mm(pd.GetPosition().x) - OX, OY - mm(pd.GetPosition().y))
+    print("BM1 pins (X', y):", {k: (round(v[0], 2), round(v[1], 2)) for k, v in sorted(pin.items())})
+    def trk(net, pts, w):
+        for a, c in zip(pts, pts[1:]):
+            s = pcbnew.PCB_TRACK(b); s.SetNet(nets[net]); s.SetLayer(pcbnew.F_Cu); s.SetWidth(MM(w))
+            s.SetStart(V(OX + a[0], OY - a[1])); s.SetEnd(V(OX + c[0], OY - c[1])); b.Add(s)
+    xp = pin["3"][0]
+    yn = (pin["1"][1] + pin["2"][1]) / 2; yp = (pin["3"][1] + pin["4"][1]) / 2      # each 2 mm track leaves between its two pins
+    trk("BM1_N", [pin["1"], pin["2"]], 0.6)
+    trk("BM1_N", [(xp, yn), (12.2, yn), (12.2 + (5.7 - yn), 5.7), (13.8, 5.7), (15.7, 7.6), (18.1, 7.6), (21.0, 10.5), (21.0, 12.1)], 2.0)
+    trk("BM1_P", [pin["3"], pin["4"]], 0.6)
+    trk("BM1_P", [(xp, yp), (13.8 - (yp - 2.0), yp), (13.8, 2.0)], 2.0)
+    trk("BM1_P", [(13.8, 2.0), (15.7, 0.1)], 1.4); trk("BM1_P", [(15.7, 0.1), (20.0, 0.1), (21.0, 1.1), (21.0, 3.6)], 2.0)
     print("5 V", place(conv, -4.05, 24.0)); print("motor (N6-facing side)", place(motor, -6.3, 38.5, 90))
     c0 = adc[0].GetPosition()
     for f in adc: f.Flip(c0, pcbnew.FLIP_DIRECTION_LEFT_RIGHT)      # the ADC group goes to the top face, beside L2 and below POT
@@ -222,7 +240,7 @@ elif mock == "P":
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
     LABELS = [("MOTOR", 2.8, 48.3, 0, "F"), ("POT", 10.8, 58.6, 0, "F"), ("BM2", 18.7, 58.6, 0, "F"), ("QWIIC", 26.0, 58.2, 0, "F"),
-              ("BM1", 15.2, -3.0, 90, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
+              ("BM1", 8.7, 9.6, 0, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
               ("MOTOR DRV", -1.6, 46.0, 0, "B"), ("SPI CFG", -3.4, 7.8, 0, "B"), ("CFG1", -3.4, 16.3, 0, "B"), ("CFG0", -3.4, 17.9, 0, "B"),
               ("0|1  0/0=OA+CRC", -3.2, 19.6, 0, "B")]
 else:
