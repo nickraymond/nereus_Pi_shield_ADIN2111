@@ -213806,6 +213806,14 @@
 		(uuid "76cb6af5-0132-4452-8fe4-f43467c5eec2")
 	)
 	(segment
+		(start 120.057 92.542)
+		(end 120.057 94.422)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/Top-Level Schematic/BM1_P")
+		(uuid "99dda5bb-8508-47e9-92d6-0bd997cc16c0")
+	)
+	(segment
 		(start 113.375 97.575)
 		(end 113.8 98)
 		(width 2)
