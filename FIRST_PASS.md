@@ -228,6 +228,35 @@ Routing considered (lengths from the placement coordinates; **nothing is routed 
 - If 1 to 4 mm more width on the west is acceptable, the converter can sit on the west wall above the header (as
   in mock I): the 5 V runs shrink to about 25 and 35 mm and the board to about 39.9 x 63.5 mm. Not built.
 
+**Mock K: the layout Nick reviewed in CAD, with through-hole headers** (Nick, 2026-11-17, with a screenshot of
+mock H behind the N6: "leverage this reference layout, with the thru- headers"; "the BM connectors go north and
+south, the 5V reg fits on the west side where there is room to go wider to allow for sufficient copper width, then
+motor + pot + QWicc connectors goes on the west side horizontally"). Built as a rough board (`... K`), both headers
+through-hole, 2.1 mm holes in the corners, 3 mm corner radius:
+- **45.56 x 63.3 mm (2884 mm²).** East edge flush with the N6, as in mock H. West edge 10.0 mm past the N6 (mock
+  H: 3.0), south edge 7.3 mm past the USB end (H: 4.6), north edge 11.55 mm past the camera end (H: 11.25).
+- South strip: BM1 centred on L1. North strip: BM2 centred on L2. The south strip grew by 2.7 mm because a
+  connector land pattern is 6.69 mm deep.
+- West side, beside the west header (through-hole pads allow nothing over the header): MOTOR, POT, QWIIC lying
+  east-west, bodies 3.0 mm apart; the motor driver under MOTOR and the ADC under POT, on the N6-facing side but
+  outside the N6's outline, so the gap between the boards does not limit them.
+- West side, above the header: the 5 V converter alone, in a strip about 16 mm wide and 25 mm long: about 400 mm²
+  of copper per outer face is available, twice the first estimate.
+- Why 10 mm on the west: a connector lying east-west is 9.55 mm across and must clear the header pads.
+
+Routing considered for mock K (from the placement coordinates; nothing routed or rule-checked):
+
+| Net | Run in mock K | Verdict |
+|---|---|---|
+| BM1, BM2 bus tracks | about 2 mm each | as short as it gets |
+| Motor PWM and sleep (P7, P8, P14) | about 3 to 6 mm west from the header to the driver under MOTOR | much better than mock J |
+| Motor outputs | about 2 mm | fine |
+| 5 V, converter to VIN | about 22 mm down the west side | fine |
+| 5 V, converter to the motor driver | about 20 mm, on the wide west strip | fine |
+| VBUS to the converter | a few mm: Sofar's VBUS plane lies beside it | fine |
+| ADIN SPI | about 16 mm to P0..P3, unchanged | fine |
+| I2C to the ADC and QWIIC (P4, P5 are on the east header) | about 45 mm round the south end | long but slow |
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
