@@ -13,26 +13,27 @@
 		(comment 3 "Derived from Sofar Bristlemouth mote 000639-AB")
 	)
 	(lib_symbols
-		(symbol "BM_Mote_000639-AB-altium-import:3V3_BAR"
-			(power global)
+		(symbol "BM_Mote_000639-AB-altium-import:ADIN_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault"
+			(pin_names
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
+			(property "Reference" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
-				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "3V3"
-				(at 0 -3.81 0)
+			(property "Value" ""
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -63,7 +64,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name '3V3'"
+			(property "Description" "Cap Ceramic 100nF 25V X5R ±10% SMD 0402 +85°C Paper T/R"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -74,7 +75,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_fp_filters" "*FP-CL278-IPC_C*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -85,13 +86,13 @@
 					)
 				)
 			)
-			(symbol "3V3_BAR_0_0"
+			(symbol "ADIN_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault_1_0"
 				(polyline
 					(pts
-						(xy -1.27 -2.54) (xy 1.27 -2.54)
+						(xy 0 -1.778) (xy 0 -1.016)
 					)
 					(stroke
-						(width 0.254)
+						(width 0)
 						(type solid)
 					)
 					(fill
@@ -100,28 +101,69 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 -2.54)
+						(xy 0 -3.556) (xy 0 -3.81)
 					)
 					(stroke
-						(width 0.254)
+						(width 0)
 						(type solid)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(pin power_in line
-					(at 0 0 0)
-					(length 0)
-					(hide yes)
-					(name "3V3"
+				(polyline
+					(pts
+						(xy 2.54 -1.778) (xy -2.54 -1.778)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -3.302) (xy -2.54 -3.302)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 0 270)
+					(length 1.778)
+					(name "1"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number ""
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 1.524)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -404,6 +446,125 @@
 					(length 0)
 					(hide yes)
 					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "nereus:N6_3V3"
+			(power global)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "N6_3V3"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name 'N6_3V3'"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "power-flag"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "N6_3V3_0_0"
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy 1.27 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin power_in line
+					(at 0 0 0)
+					(length 0)
+					(hide yes)
+					(name "N6_3V3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2183,7 +2344,7 @@
 		)
 		(uuid "624ac630-bc18-4052-a250-26d860186903")
 	)
-	(text "ADS1115 on shield 3V3, bus I2C0, address 0x48 (ADDR to GND through R50).\nAIN0 = MP6550 VISEN, AIN1 = pot wiper (J8), AIN2 / AIN3 unused.\nJ8: 1 = 3V3, 2 = wiper, 3 = GND (assumed order)."
+	(text "ADS1115 on N6_3V3 (the N6's 3V3 pin), bus I2C0, address 0x48 (ADDR to GND through R50).\nAIN0 = MP6550 VISEN, AIN1 = pot wiper (J8), AIN2 / AIN3 unused.\nJ8: 1 = N6_3V3, 2 = wiper, 3 = GND (assumed order)."
 		(exclude_from_sim no)
 		(at 41.48 175.75 0)
 		(effects
@@ -2329,6 +2490,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "86efc083-1379-4448-8e4b-4662c0e11de2")
+	)
+	(junction
+		(at 46.56 189.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "91869059-744a-4689-84e7-9dfc18b72cc0")
 	)
 	(junction
 		(at 245.11 91.44)
@@ -2642,6 +2809,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.32 194.8) (xy 31.32 197.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7897dca2-ebbe-47ec-b67a-e2ceb60d7c66")
+	)
+	(wire
+		(pts
 			(xy 144.48 111.39) (xy 144.48 113.93)
 		)
 		(stroke
@@ -2689,6 +2866,16 @@
 			(type default)
 		)
 		(uuid "9a3b1f76-6a1d-4a57-9e93-8915a8e197e5")
+	)
+	(wire
+		(pts
+			(xy 387.76 74.93) (xy 387.76 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6ba1236-c650-4c31-9aae-3bfe32845205")
 	)
 	(wire
 		(pts
@@ -2852,6 +3039,16 @@
 	)
 	(wire
 		(pts
+			(xy 46.56 189.72) (xy 31.32 189.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2593941-3cb2-4cc1-8403-5643aa7f619e")
+	)
+	(wire
+		(pts
 			(xy 176.1 204.96) (xy 176.1 207.5)
 		)
 		(stroke
@@ -2930,6 +3127,16 @@
 		)
 		(uuid "12a54409-2c53-491c-a1cc-f800bc6aaab8")
 	)
+	(label "~{ADC_ALERT}"
+		(at 387.76 77.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3ea6061c-6497-49b3-bc52-b3e044889d8c")
+	)
 	(label "POT_WIPER"
 		(at 143.08 202.42 180)
 		(effects
@@ -2989,6 +3196,16 @@
 			(justify right bottom)
 		)
 		(uuid "a453e7d8-30fd-4940-bc41-4e81980563e3")
+	)
+	(label "~{ADC_ALERT}"
+		(at 107.52 199.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ab71601c-454a-41ea-a14d-9845a6391979")
 	)
 	(label "MOTOR_OUT2"
 		(at 163.53 93.61 0)
@@ -3075,17 +3292,6 @@
 		)
 		(uuid "97a3efcb-94f6-4190-be52-3106e443aebe")
 	)
-	(hierarchical_label "~{ADC_ALERT}"
-		(shape passive)
-		(at 107.52 199.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "aa17d20a-8a52-4b3f-ab72-ee98f2e8f8d8")
-	)
 	(hierarchical_label "MOTOR_nSLEEP"
 		(shape passive)
 		(at 125.43 101.23 180)
@@ -3142,8 +3348,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SM03B-GHS"
-			(at 153.24 204.9599 0)
+		(property "Value" "BM03B-GHS-TBT(LF)(SN)"
+			(at 142 209.6 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3153,7 +3359,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical"
 			(at 151.208 215.628 0)
 			(hide yes)
 			(show_name no)
@@ -3175,7 +3381,7 @@
 				)
 			)
 		)
-		(property "Description" "CONN HEADER SMD R/A 3POS 1.25MM"
+		(property "Description" "CONN HEADER SMD TOP ENTRY 3POS 1.25MM"
 			(at 152.224 213.088 0)
 			(hide yes)
 			(show_name no)
@@ -3197,7 +3403,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "SM03B-GHS-TB"
+		(property "PLANNED MPN" "BM03B-GHS-TBT(LF)(SN)"
 			(at 150.7 203.69 0)
 			(hide yes)
 			(show_name no)
@@ -3219,7 +3425,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C514175"
+		(property "PLANNED LCSC" "C161691"
 			(at 150.7 203.69 0)
 			(hide yes)
 			(show_name no)
@@ -3230,7 +3436,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "3-pin version of the Urchin board's GH connectors; 1 = 3V3, 2 = wiper, 3 = GND (assumed order); LCSC number confirmed on JLC's part page (read 2026-11-16)"
+		(property "PLANNED NOTE" "Top-entry JST GH, 3 pins; 1 = N6_3V3, 2 = wiper, 3 = GND (assumed order, unchanged). Part and LCSC number: TOP_ENTRY_VARIANT.md on development: read on jlcpcb.com 2026-11-17, pages showed In Stock"
 			(at 150.7 203.69 0)
 			(hide yes)
 			(show_name no)
@@ -3241,7 +3447,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
+		(property "SOURCING" "JLC (TOP_ENTRY_VARIANT.md on development: read on jlcpcb.com 2026-11-17, pages showed In Stock)"
 			(at 150.7 203.69 0)
 			(hide yes)
 			(show_name no)
@@ -3762,6 +3968,405 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/645ec816-357b-5a25-ba19-618b53952414"
 					(reference "#PWR103")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:ADIN_0_b4654b650e69147ec39a6b967a45e02_Altium Content Vault")
+		(at 31.32 189.72 0)
+		(unit 0)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "22894dc3-1dcc-4524-b4fc-7b0e453e087f")
+		(property "Reference" "C68"
+			(at 34.114 193.022 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "CL05A105KP5NNNC"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "Vault:FP-CL511-IPC_C"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Cap Ceramic 1uF 10V X5R ±10% SMD 0402 +85°C Paper T/R"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DEPTH" "0.5mm"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CASE CODE (IMPERIAL)" "0402"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MATERIAL" "Ceramic"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MOUNT" "Surface Mount"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "THICKNESS" "0.022inch"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "DIELECTRIC" "X5R"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CAPACITANCE" "1uF"
+			(at 34.114 195.562 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "RADIATION HARDENING" "No"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CASE/PACKAGE" "0402"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "LENGTH" "1mm"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "TOLERANCE" "10%"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MAX OPERATING TEMPERATURE" "85°C"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PACKAGE QUANTITY" "1"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "WIDTH" "0.02inch"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "VOLTAGE RATING" "10V"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CONTACT PLATING" "Tin"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "HEIGHT" "0.5mm"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MIN OPERATING TEMPERATURE" "-55°C"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "CASE CODE (METRIC)" "1005"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PACKAGING" "Tape and Reel"
+			(at 28.526 189.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "SHEET" "MotorADC"
+			(at 28.526 198.102 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PLANNED MPN" "CL05A105KP5NNNC"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PLANNED MFR" "Samsung"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PLANNED LCSC" "C14445"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PLANNED NOTE" "1 uF at U13 on N6_3V3 (STAGE0_PLAN.md decision 5); same part as C2 / C4 (fields copied from C2)"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MANUFACTURER" "Samsung"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SOURCING" "JLC stock (read 2026-11-11)"
+			(at 31.32 189.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ba19f861-39f8-4285-a584-8275051d17a3")
+		)
+		(pin "2"
+			(uuid "dda8b1c6-18da-4137-bcf4-c111cbae374c")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/645ec816-357b-5a25-ba19-618b53952414"
+					(reference "C68")
+					(unit 0)
 				)
 			)
 		)
@@ -4984,7 +5589,7 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
+		(lib_id "nereus:N6_3V3")
 		(at 138 197.34 180)
 		(unit 1)
 		(body_style 1)
@@ -5005,7 +5610,7 @@
 				)
 			)
 		)
-		(property "Value" "3V3"
+		(property "Value" "N6_3V3"
 			(at 138 193.53 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6475,7 +7080,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SM04B-GHS"
+		(property "Value" "BM04B-GHS-TBT(LF)(SN)"
 			(at 255.27 96.5199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6486,7 +7091,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
+		(property "Footprint" "Connector_JST:JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical"
 			(at 253.238 107.188 0)
 			(hide yes)
 			(show_name no)
@@ -6508,7 +7113,7 @@
 				)
 			)
 		)
-		(property "Description" "CONN HEADER SMD R/A 4POS 1.25MM"
+		(property "Description" "CONN HEADER SMD TOP ENTRY 4POS 1.25MM"
 			(at 254.254 104.648 0)
 			(hide yes)
 			(show_name no)
@@ -6530,7 +7135,7 @@
 				)
 			)
 		)
-		(property "PLANNED MPN" "SM04B-GHS-TB"
+		(property "PLANNED MPN" "BM04B-GHS-TBT(LF)(SN)"
 			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -6552,7 +7157,7 @@
 				)
 			)
 		)
-		(property "PLANNED LCSC" "C189895"
+		(property "PLANNED LCSC" "C161692"
 			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -6563,7 +7168,7 @@
 				)
 			)
 		)
-		(property "PLANNED NOTE" "Same part and pinout as the Urchin board's J3; LCSC number confirmed on JLC's part page (read 2026-11-16)"
+		(property "PLANNED NOTE" "Top-entry JST GH; pin order unchanged. Part and LCSC number: TOP_ENTRY_VARIANT.md on development: read on jlcpcb.com 2026-11-17, pages showed In Stock"
 			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -6574,7 +7179,7 @@
 				)
 			)
 		)
-		(property "SOURCING" "JLC stock (read 2026-11-16)"
+		(property "SOURCING" "JLC (TOP_ENTRY_VARIANT.md on development: read on jlcpcb.com 2026-11-17, pages showed In Stock)"
 			(at 252.73 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -7273,7 +7878,7 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
+		(lib_id "nereus:N6_3V3")
 		(at 99.9 189.72 180)
 		(unit 1)
 		(body_style 1)
@@ -7294,7 +7899,7 @@
 				)
 			)
 		)
-		(property "Value" "3V3"
+		(property "Value" "N6_3V3"
 			(at 99.9 185.91 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7342,6 +7947,325 @@
 				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/645ec816-357b-5a25-ba19-618b53952414"
 					(reference "#PWR111")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BM_Mote_000639-AB-altium-import:Designator_3_TEST_POINT_Sofar Ocean Technologies, Inc.")
+		(at 387.76 72.39 0)
+		(unit 0)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cc79c582-8181-4d2c-be0e-d77876a23842")
+		(property "Reference" "TP44"
+			(at 386.49 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Value" "TEST_POINT"
+			(at 386.49 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Footprint" "Vault:PCB_TP_1.5mm"
+			(at 387.76 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 387.76 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "18mil Test Point"
+			(at 387.76 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DATEMODIFIED" "8/26/2014 4:58:34 PM"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "$PN" "?"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "LIFESTATUS" "CUR"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PARTTYPE" "non BOM"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "OUTPUT_LOAD" "(1.0,-1.0)"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PN" "#"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PARTID" "56x-tmp12"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ICS_PARTTYPE" "non BOM"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "MNTTYPE" "SMT"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "REVISION" "REV"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "PCBFOOTPRINTALT" "PCB_TP_18MIL"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "SOURCE" "WS0.2.SchLib"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ALTIUM_VALUE" "TP18"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "INPUT_LOAD" "(-0.01,0.01)"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "COMPONENT TYPE" "Standard (No BOM)"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "BIDIRECTIONAL" "TRUE"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ICSPARTNUMBER" "56x-tmp12"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ISSUENO" "4891"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "DESIGN ITEM ID" "TEST_POINT"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "ROHS" "ROHS"
+			(at 386.49 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(pin "1"
+			(uuid "d0f48f0c-c8dc-4580-aeba-e7ca7c98e4e7")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/645ec816-357b-5a25-ba19-618b53952414"
+					(reference "TP44")
+					(unit 0)
 				)
 			)
 		)
@@ -7700,7 +8624,81 @@
 		)
 	)
 	(symbol
-		(lib_id "BM_Mote_000639-AB-altium-import:3V3_BAR")
+		(lib_id "BM_Mote_000639-AB-altium-import:GND_POWER_GROUND")
+		(at 31.32 197.34 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "df444c8d-758e-42c5-a880-750764d5a9c3")
+		(property "Reference" "#PWR206"
+			(at 31.32 197.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 31.32 203.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 31.32 197.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.32 197.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 31.32 197.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin ""
+			(uuid "8c7ab041-50c0-4021-a315-40b6e7906cb0")
+		)
+		(instances
+			(project "Nereus_Pi_Shield_Adin2111"
+				(path "/30e82bf5-1344-486b-817c-02d3b0649ce4/3c398828-e355-49f6-be37-cb3640d2c671/645ec816-357b-5a25-ba19-618b53952414"
+					(reference "#PWR206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "nereus:N6_3V3")
 		(at 79.58 187.18 180)
 		(unit 1)
 		(body_style 1)
@@ -7721,7 +8719,7 @@
 				)
 			)
 		)
-		(property "Value" "3V3"
+		(property "Value" "N6_3V3"
 			(at 79.58 183.37 0)
 			(show_name no)
 			(do_not_autoplace no)

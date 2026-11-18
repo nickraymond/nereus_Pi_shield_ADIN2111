@@ -54,7 +54,7 @@ is used; 4 holes bare; 5 N6 3V3 for U13 and the pot. Decision 6 (the header part
 sentence as his go for steps 0a to 0c (decision 7); the session that makes the edits must still confirm with him
 that KiCad is closed before its first edit (SPEC constraint 2).
 
-Proposed 33 ohm part for decision 3, **waiting for Nick's yes**: UNI-ROYAL 0402WGF330JTCE, LCSC / JLC C25105, 33 ohm
+33 ohm part for decision 3, **approved by Nick** ("Yes to both", 2026-11-17, with his confirmation that KiCad is closed): UNI-ROYAL 0402WGF330JTCE, LCSC / JLC C25105, 33 ohm
 +/-1 %, 62.5 mW, 0402, thick film, library type "Basic" (https://jlcpcb.com/partdetail/C25105, read 2026-11-17 by a
 fetch agent; no stock figure shown on the page). Same maker and series as the board's R38 (0402WGF1332TCE).
 
@@ -77,3 +77,28 @@ confirmation.
 
 A real N6 (which column is P0 to P6 from the back, row spacing); Sofar's ground-slot purpose; ADIN2111 datasheet
 Rev. B for the pull-downs and LED registers; ST's pin limits; potting and heat.
+
+## Result of steps 0a and 0b (schematic), 2026-11-17
+
+Done by a fresh-context agent in this session with `scripts/stage0/` (`run_all.sh` rebuilds the result from the
+starting sheets); re-checked by me with my own ERC run and netlist comparison (kicad-cli 10.0.7).
+
+- ERC: starting design 0 errors, 3 warnings; now **0 errors, 2 warnings** (one warning left with U11; the two that
+  remain, a library-symbol mismatch on JP2 and a local / global label note on ADIN_VDDIO, are the starting design's).
+- Parts: 26 removed (C49, C50, C59, D3, F1, H4, J1, J4, J5, J15 to J19, JP1, R10, R11, R24, R34, R35, R36, R41, R42,
+  TP19, TP35, U11), 10 added (J21, J22, R52 10 k CS pull-up, R53 to R56 33 ohm, C68 1 uF, TP44, TP45).
+- Kept pins whose net changed: 11, all intended (C65.1, J8.1, R49.1, U13.8 from 3V3 to N6_3V3; J3.2, R26.2, R27.2
+  from PI_3V3 to N6_3V3; J3.3 / J3.4 from I2C3 to I2C0; R49.2, U13.2 only renamed with ~ADC_ALERT's new scope).
+- The mote's 3V3 keeps 12 pins, all Sofar's; VBUS lost only the four pins of removed parts. The ADIN2111, Power and
+  Power Monitor sheets are byte-identical; PoDL differs by its page number.
+- Header pins as netlisted. J22 (east, N6 left header): 1 N6_MOSI, 3 N6_MISO, 5 N6_SCK, 7 ~N6_CS, 9 I2C0_SCL,
+  11 I2C0_SDA, 13 ~ADIN_INT, 15 N6_3V3, 16 GND, the rest unconnected. J21 (west, N6 right header): 8 ~ADIN_RST,
+  9 MOTOR_nSLEEP, 10 MOTOR_IN2, 11 ADIN_PWR, 12 MOTOR_IN1, 14 5V_PI (VIN), 15 N6_3V3, 16 GND, the rest unconnected.
+  This numbering assumes the footprints are placed exactly as mock P's `header()` places them, and the N6's
+  left / right sense from the back as in `N6_FACTS.md` (not confirmed on a real board).
+- The 5 V net keeps the name 5V_PI. The series resistors sit between N6_MOSI / N6_MISO / N6_SCK / ~N6_CS (header
+  side) and the ADIN_* nets; the CS pull-up R52 and the MISO strap R9 are on the ADIN side.
+- Left as it was and now out of date, to fix with Nick: Pi wording on the cover page and in notes on the Power,
+  Power Monitor and ADIN sheets; the title; the connector symbols' library names. The board file is untouched and
+  no longer matches the schematic until step 0c.
+- Check outputs and the schematic PDF: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stage0/`.
