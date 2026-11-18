@@ -46,7 +46,15 @@ outline and holes. Gate: DRC shows only the 3 inherited skew errors plus the 16 
 come back with Sofar's rule areas; schematic parity 0; the lock check passes (81 footprints, 870 tracks, 185 vias,
 17 shapes of Sofar's, per the routing plan). Routing stages A to H follow, each with its own gate.
 
-## Decisions needed before step 0a
+## Decisions (Nick, this session's chat, 2026-11-17)
+
+"Go with the rest of your suggestions", after choosing the N6's 3V3 for the pot and ADC. So: decision 1 remove the
+five parts and leave Sofar's copper; 2 remove J4; 3 a JLC basic 33 ohm 0402, to be proposed with its page before it
+is used; 4 holes bare; 5 N6 3V3 for U13 and the pot. Decision 6 (the header part) stays Nick's. I read the same
+sentence as his go for steps 0a to 0c (decision 7); the session that makes the edits must still confirm with him
+that KiCad is closed before its first edit (SPEC constraint 2).
+
+## Decisions as they were put to Nick
 
 | # | Decision | My recommendation |
 |---|---|---|
