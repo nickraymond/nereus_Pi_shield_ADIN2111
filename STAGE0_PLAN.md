@@ -54,6 +54,13 @@ is used; 4 holes bare; 5 N6 3V3 for U13 and the pot. Decision 6 (the header part
 sentence as his go for steps 0a to 0c (decision 7); the session that makes the edits must still confirm with him
 that KiCad is closed before its first edit (SPEC constraint 2).
 
+Proposed 33 ohm part for decision 3, **waiting for Nick's yes**: UNI-ROYAL 0402WGF330JTCE, LCSC / JLC C25105, 33 ohm
++/-1 %, 62.5 mW, 0402, thick film, library type "Basic" (https://jlcpcb.com/partdetail/C25105, read 2026-11-17 by a
+fetch agent; no stock figure shown on the page). Same maker and series as the board's R38 (0402WGF1332TCE).
+
+KiCad was not running when checked at the end of the first-pass session (`pgrep`, 2026-11-17); that is not Nick's
+confirmation.
+
 ## Decisions as they were put to Nick
 
 | # | Decision | My recommendation |
