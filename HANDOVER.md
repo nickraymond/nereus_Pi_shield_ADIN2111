@@ -1,6 +1,6 @@
 # N6 shield: hand-over (2026-11-18, about 10:45 AM Pacific)
 
-State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C and most of D
+State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C and D
 done and J21 moved to the model's header spacing. **All of it is committed locally only; `origin/n6-shield` is at
 `af83088`. Nothing is pushed, no pull request is open, no QE review has run.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
@@ -18,15 +18,17 @@ not running by `pgrep` before each run). Pushing and the draft pull request stil
 | `e20079c` | J21 moved 0.04 mm east | same errors, 64 unconnected; lock check PASS with J21 allowed; header check: 0.00 mm offset |
 | `d818176` | stage D part 1: east channel (SPI, INT, I2C to the header, R43) | same errors, 47 unconnected; 61 new tracks, 5 new vias; dangling warnings 14 + 5 down to 9 + 2 |
 | `058fede` | stage D part 2: reset to P9 | same errors, 46 unconnected; 3 new tracks |
+| next commit | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
 the plane check (`scripts/stageB/planecheck.py`) and the bus check (`scripts/stageA/buscheck.py`).
 Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/stageC/run_C.sh stepC1_converter.py C1`,
 `sh scripts/stageC/run_C.sh stepC2_motor.py C2`, `ALLOW_REF=J21 sh scripts/stageC/run_C.sh stepJ21_move.py J21`,
-`sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`
+`sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`,
+`sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -65,7 +67,7 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - Not connected on the board: U12 pin 5 (nSLEEP_LDO). The datasheet gives it an internal pull-down (3.3 V regulator
   off). That is the schematic's choice, not a routing matter.
 
-## What stage D did so far (commits `d818176`, `058fede`; scripts in `scripts/stageD/`)
+## What stage D did (commits `d818176`, `058fede` and the ADIN_PWR commit after them; scripts in `scripts/stageD/`)
 
 - East channel, one track per gap between J22's inner pads (gap centre lines y 18.10, 13.02, 10.48, 7.94, 5.40,
   2.86; MOSI passes above row 1 at y 20.55), then 45 degrees into the outer pin.
@@ -75,6 +77,8 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
   X' 28.3 to R27 pad 1, P5. INT: top at X' 28.382 south, P6. All five new vias are 0.45 / 0.20 mm (Sofar's size).
 - R43: pad 2 to Sofar's GND via (31.732, 21.058); pad 1 on the bottom (X' 30.0, then y 14.7) to test pad TP8.
 - Reset: Internal 1 from Sofar's corner (10.007, 15.633) through the gap y 13.02 of J21 into pin 8, no via.
+- ADIN_PWR: one new via (0.45 / 0.20 mm) at (21.0, 15.728) on Sofar's Internal 1 track, then Internal 2: south-west
+  to y 10.5, west, and 45 degrees into J21 pin 11; 20.6 mm (`scripts/stageD/stepD3_adinpwr.py`).
 - **Deviations from the routing plan, for the QE review and Nick:**
   1. SPI copper from U1 to the header pin (`scripts/stageD/spilen.py`, branches included): MOSI 23.5, MISO 20.8,
      SCK 21.7, CS 26.4 mm. The plan proposed 20 mm or less and a spread of 5 mm or less. MOSI, MISO and SCK lie
@@ -88,14 +92,9 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - An independent sub-agent review of stages C part 2 and D part 1 was started on 2026-11-18; its findings are in
   the session's report to Nick and, if they led to changes, in later commits.
 
-## Next: the rest of D, then E to H
+## Next: stages E to H
 
-Still open in stage D:
-- **ADIN_PWR to P13 (J21 pin 11 at (4.14, 6.67)).** Its copper: Internal 1 from (25.013, 12.214) by
-  (21.499, 15.728) and (19.040, 15.728) to (18.307, 16.461) and north to U2 / U3; a via at (25.032, 12.233); test
-  pad TP8. The plan's path is Internal 2, (15.9, 14.4) - (12.9, 12.9) - (10.8, 12.9) - (4.9, 7.0), under the BM1
-  tracks; it needs one new via on his Internal 1 track, outside the keep-out 'NoConnect_Pwr_MCU' (PWR plane,
-  X' 12.65..17.41, y 17.06..21.60: no tracks, vias or pads). Not laid out yet.
+Left over from stage D for later stages:
 - R52 pad 1 (ADIN_VDDIO) and R9 pad 1 (CFG0_STRAP) wait for stage G; R26 / R27 pad 2 (N6_3V3) for stage F.
 - One unconnected item that no stage of the plan names: BM1_P, Sofar's via at (20.06, 7.46) against his bottom
   track at (22.73, 5.73). Read it before stage G's "0 unconnected" gate.
