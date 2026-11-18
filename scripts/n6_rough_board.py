@@ -27,6 +27,9 @@ def tkey(t):
     p = sorted([(t.GetStart().x, t.GetStart().y), (t.GetEnd().x, t.GetEnd().y)]); return ("t", t.GetLayer(), p[0], p[1], t.GetWidth())
 refkeys = {tkey(t) for t in r.GetTracks()}
 tracks = list(b.GetTracks()); coretr = [t for t in tracks if tkey(t) in refkeys]; othertr = [t for t in tracks if tkey(t) not in refkeys]
+# Sofar's copper shapes (pads drawn as graphics on copper layers; all 17 on the starting board are his, checked against
+# the reference board) travel with the block like his tracks. Found missing by the mock L review, 2026-11-17.
+coretr += [d for d in b.GetDrawings() if pcbnew.IsCopperLayer(d.GetLayer())]
 def cbox(f):
     cy = f.GetCourtyard(pcbnew.F_CrtYd if f.GetLayer() == pcbnew.F_Cu else pcbnew.B_CrtYd)
     q = cy.BBox() if cy.OutlineCount() else f.GetBoundingBox(False)
@@ -202,7 +205,9 @@ if R:   # quarter arcs, each drawn clockwise on screen from its start point
 b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
 print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
 # 4. removals last (pcbnew objects go stale after Remove: nothing is queried afterwards)
-keep = {f.GetReference() for f in core + conv + motor + adc} | {"J21", "J22", "H1", "H2", "H3", "H4"} | STRAPS
+# keep by object, not by name: the Pi Zero board's own H1..H4 holes must go (the new holes reuse those names;
+# the first version of this script kept the old ones by mistake: mock L review, 2026-11-17)
+keep = {f.GetReference() for f in core + conv + motor + adc} | STRAPS
 gone = [f for n, f in fps.items() if n not in keep]
 print("removed footprints:", " ".join(sorted(f.GetReference() for f in gone)))
 zones = list(b.Zones())

@@ -307,6 +307,42 @@ or south-west, as Nick suspected. The ADC's two analog inputs (motor current fro
 100 k pull-down) are the sensitive lines, so the ADC and POT stay beside the driver and the ADC's slow I2C is what
 crosses to the east header. QWIIC is I2C only, so it is the one connector that prefers the east side.
 
+**Independent review of mock L, 2026-11-17, and corrections to this file.** A separate review agent measured the
+mock L scratch board (pcbnew, copper raster, a grid-router trial as existence proof, DRC on a copy). Full report
+outside git: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/review_L/REVIEW_L.md`. Verdict: ROUTABLE WITH CHANGES.
+
+Corrections to statements above (mine, wrong; the review measured them, and I re-checked the first two):
+- **Every STEP file made before this commit contained the Pi Zero board's four 2.75 mm mounting holes** at their old
+  positions, and left 17 of Sofar's copper shapes behind instead of turning them with the block.
+  `n6_rough_board.py` kept footprints by name (the new holes reuse H1..H4) and did not move copper graphics. Fixed;
+  all nine STEP files are regenerated and checked (4 holes, or none on D; no copper shape outside the outline).
+- **"Bus tracks about 2 mm" is wrong for mocks J to M.** L1's and L2's bus pads are on the inductors' east side
+  (mock L: BM1_P at X' 21.0, y 3.6; BM1_N at 21.0, 12.1; BM2_P at 21.4, 37.4; BM2_N at 21.4, 45.9), and a connector's
+  pin row is on the far side of its land pattern. The review's trial routes at 2.0 mm: BM1_P 6.2, BM1_N 15.2,
+  BM2_P 15.0, BM2_N 16.7 mm, the N lines on Internal 1 with vias.
+- **"About 400 mm² of copper per face" at the converter in mocks K / L is wrong:** 245 mm² (top) and 278 mm²
+  (N6-facing side) are free in mock L. Still above the 200 mm² estimate.
+- **"Sofar's VBUS plane lies beside the converter" is wrong:** that plane is P_IN (before the shunt R8). The nearest
+  VBUS copper is 6.4 mm away, and the converter must take VBUS, or the power monitor will not see its current.
+
+Changes the review calls for (each to be decided by Nick; none is built):
+
+| # | Rank | Change |
+|---|---|---|
+| B2 | Blocker | Motor driver not directly under the MOTOR connector's pads and not 1.5 mm from the header pads: no room for vias or for its four control nets. Move it beside the connector, clear of both |
+| B3 | Blocker | Board gap: a plain header gives about 2.5 mm, but the N6's LiPo leads (2.09 mm) and microSD socket (1.46 mm) face mote parts of about 1.3 mm. Choose a header that gives 4 mm or more, or prove each overlap in CAD |
+| M1 | Major | Turn BM1's connector half a turn so its pins face L1; accept the N lines on Internal 1 at 2.0 mm with four or more vias per end |
+| M2 | Major | End Sofar's south ground-plane slot at the block's edge instead of carrying it to the board edge, so the SPI return path to the N6's ground pins is not cut (ask Sofar what the slot is for) |
+| M3 | Major | Put the ADIN interrupt on P6 (east, 6.6 mm in the trial) instead of P9 (west, 19.9 mm past the crystal); reset on P9 or dropped. ADIN_PWR to P13 is 19.2 mm through T1's footprint: revisit |
+| M4 | Major | SPI power states: 10 k pull-up on CS to ADIN_VDDIO (the ADIN's CS, SCLK and SDI have internal pull-downs, so CS reads selected while the N6's pins float), 22 to 47 ohm series resistors on the SPI lines at the driving ends, keep R43, and a firmware hold-off until VDDIO is up |
+| M5 | Major | Thermal: keep the wing's outer layers free of tracks, eight or more ground vias at U10; at full pass-through current the whole board dissipates about 2.2 W (reviewer's arithmetic, free air) |
+| M6 | Major if used | The west wing covers the N6's microSD slot |
+| m | Minor | North edge 0.3 to 0.5 mm further out; holes 3.0 mm from the edges (2.3 mm leaves 0.96 mm of board at the rounded corners); strap legend at 1.0 mm text inside the outline; three fiducials per face; R37, R38, C53 to the top face; one centred track per gap between the live Ethernet pins; remove unused inner pads on the headers; feed U13 / pot from the N6's 3V3 pin |
+
+Checked and fine in the review: the channels beside the block are 2.0 mm (west) and 2.1 mm (east) on every layer;
+SPI runs 15 to 18 mm with under 4 mm spread and nothing of ours within 10 mm of its ends; no courtyard overlaps;
+OpenMV's pinout image agrees with the model on the left / right sense of the header.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
