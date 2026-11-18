@@ -21,6 +21,7 @@ model's bounding boxes (S5) myself for the values marked ✔. Values without ✔
 | S9 | OpenMV battery life estimator script | https://docs.openmv.io/dev/_static/battery_life/app.js |
 | S10 | Gigabit PoE shield docs | https://docs.openmv.io/dev/_sources/openmvcam/shields/gigabit-poe-shield.rst.txt |
 | S11 | PoE shield docs | https://docs.openmv.io/dev/_sources/openmvcam/shields/poe-shield.rst.txt |
+| S12 | Pinout image from the product page, posted by Nick in the first-pass session's chat on 2026-11-18 ("this is from the front view") | https://openmv.io/products/openmv-n6 |
 
 Not reachable: OpenMV's store page (HTTP 429) and ST's STM32N657 datasheet (timeout).
 
@@ -72,9 +73,9 @@ PHY lines without magnetics (S1, S2): the shield must leave those eight pads and
 |---|---|---|
 | Logic level | 3.3 V; "The N6's I/O pins are **not 5 V tolerant**" ✔ | S2 |
 | Per pin | 20 mA sink or source ✔ | S2, S3 |
-| VIN | "5 V input" (S2 ✔); schematic net label "4.7V-5.7V" (S1, S4). The pinout image says 3.6 to 5 V: conflict | S1 to S4 |
+| VIN | "5 V input" (S2 ✔); schematic net label "4.7V-5.7V" (S1, S4); the product page's pinout image says "VIN (4.7V – 5.7V)" (S12 ✔). The docs copy of the image still says "VIN (3.6V - 5V)" (S3 ✔, re-read 2026-11-18): two versions of the same image. The shield feeds 5.11 V nominal, inside the 4.7 to 5.7 V range | S1 to S4, S12 |
 | VIN and USB together | a dual ideal diode (LM66200) picks the higher of VIN and USB; P-FET reverse protection on VIN | S1, S2 ✔ |
-| 3V3 pins | output only, "Up to 1 A available for shields" ✔. A retailer's copy of the store text says under 250 mA: conflict | S2 |
+| 3V3 pins | output only, "Up to 1 A available for shields" ✔; "3.3V Rail (1A supply Max)" on the pinout image (S12 ✔). A retailer's copy of the store text says under 250 mA: conflict | S2, S12 |
 | RAW | always-on 3.6 to 5 V, in or out; "You must drive RAW through a series diode" ✔ | S2 |
 | Board power | 750 mW active; deep sleep 3.7 mW on LiPo, 12.5 mW on VIN or USB | S9 |
 | OpenMV's PoE shields | feed 5.4 V and 5.6 V into VIN, up to about 1 A | S10, S11 |
@@ -93,5 +94,13 @@ PHY lines without magnetics (S1, S2): the shield must leave those eight pads and
 - OpenMV's stated maximum SPI and I2C speeds.
 - The LM66200's datasheet was not read: the VIN / USB behaviour above is from the schematic and the docs text.
 - The ADC reference (the schematic shows VREF+ on a 1.8 V rail, read at low zoom): recheck before relying on it.
-- Which way round the model's x axis is when the board is seen from the back. The mocks assume the model's frame is
-  seen from the camera side, so that P0 to P6 are on the right when looking at the back. To confirm on a real N6.
+
+## Left / right sense of the headers: settled by the maker's image, 2026-11-18
+
+The pinout image (S12, and the docs copy S3) is a view of the camera side: the lens is in it, and Nick confirmed
+"this is from the front view". Seen from the front, P0 to P6 and one 3V3 pin are the left outer column; Reset, P11,
+P10, P9, P8, P7, VIN and GND are the right outer column. Seen from the back they are mirrored, which is what the
+mocks and the board assume. `scripts/n6_header_check.py` compares every pad of J21 / J22 on the board with the
+image's four columns and eight rows: **0 of 32 pads disagree** (run on the stage C part 1 board).
+Still not measured on a real board: the header spacing. The shield has 32.44 mm outer to outer; the r3 model gives
+32.40 mm (J21 sits 0.04 mm west of the model's position, because the mock used the un-mirrored column value).

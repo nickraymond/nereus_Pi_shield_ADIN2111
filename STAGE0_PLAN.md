@@ -58,6 +58,9 @@ that KiCad is closed before its first edit (SPEC constraint 2).
 +/-1 %, 62.5 mW, 0402, thick film, library type "Basic" (https://jlcpcb.com/partdetail/C25105, read 2026-11-17 by a
 fetch agent; no stock figure shown on the page). Same maker and series as the board's R38 (0402WGF1332TCE).
 
+Decision 6, the header part: Nick, first-pass session's chat, 2026-11-18: "the headers you have know are sufficient for
+our needs to solder." So J21 / J22 stay `PinHeader_2x08_P2.54mm_Vertical` as placed.
+
 KiCad was not running when checked at the end of the first-pass session (`pgrep`, 2026-11-17); that is not Nick's
 confirmation.
 

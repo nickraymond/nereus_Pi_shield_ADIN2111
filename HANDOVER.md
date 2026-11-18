@@ -51,9 +51,13 @@ read in this session (verify before use):
 ## For Nick
 
 - Decide: push and open the draft pull request for QE now, or after more routing stages.
-- Decide: the header part for the 5 mm gap (decision 6 of `STAGE0_PLAN.md`).
+- Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
+  our needs to solder").
+- Decide: move J21 0.04 mm east, to the r3 model's header spacing (32.40 mm; the shield has 32.44 mm). Nothing is
+  routed to J21 yet apart from the planes; `scripts/n6_header_check.py` shows the offset.
 - Ask Sofar: what the two GND-plane slots are for, and whether they must stay open to the board edge.
-- Confirm on a real N6: which header column is P0 to P6 seen from the back.
+- Settled 2026-11-18 by the maker's front-view pinout image: P0 to P6 are on the left seen from the front, so the
+  board's assumption holds; all 32 header pads agree with the image (`N6_FACTS.md`, `scripts/n6_header_check.py`).
 - Still out of date in the schematic: Pi wording on the cover page and notes, the net name `5V_PI`, the title.
 - Not in the schematic yet: test points on SCK, MISO, INT and VBUS.
 
