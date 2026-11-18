@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L|M|N>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L|M|N|P>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -11,7 +11,7 @@ assert "NereusData" in path, "scratch copies only"
 mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
-XOFF = 32.13 if mock in "DIJKLMN" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
+XOFF = 32.13 if mock in "DIJKLMNP" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 STRAPS = set()
 LABELS = []
@@ -198,6 +198,30 @@ elif mock == "N":
     LABELS = [("MOTOR", -5.2, 5.75, 0, "F"), ("POT", -5.9, 20.75, 0, "F"), ("BM2", 2.6, 40.5, 0, "F"), ("BM1", 8.6, -3.6, 90, "F"),
               ("QWIIC", 24.7, -0.75, 0, "F"), ("5V REG", -0.6, 37.7, 0, "F"), ("MOCK N", 30.4, 42.6, 0, "F"),
               ("MOTOR DRV", -5.3, 13.2, 0, "B"), ("ADC", -7.1, 19.5, 0, "B")]
+elif mock == "P":
+    # Nick, 2026-11-17, after seeing mock N in CAD: "The North end can grow, the south end needs to end with the N6,
+    # the east wall needs to end with the N6"; four connectors at the north end; height around 70 mm at most; wide
+    # enough for the mounting holes, back to 2.7 mm, three holes only; connector order by the best routing for BM2.
+    # (No mock O, to avoid confusion with zero.)
+    W0, E, S0, N0 = -6.6, 35.56, 0.0, 59.3
+    # north row, pin rows running north-south, bodies 3 mm apart; BM2 sits in line with L2's bus pads (X' 21.4)
+    conn(GH4, "J7", "MOTOR", -0.5, 49.3, 90); conn(GH3, "J8", "POT", 7.45, 49.3, 90)
+    conn(GH4, "J9", "BM2", 15.4, 49.3, 90); conn(SH4, "J3", "QWIIC", 23.35, 49.3, 90)
+    # BM1 cannot leave the space between the header columns (a 2 mm track does not pass between through-hole pads) and
+    # the south edge is the N6's: it goes in the free pocket between the west header and L1
+    conn(GH4, "J10", "BM1", 5.4, 0.3, 90)
+    print("5 V", place(conv, -4.05, 24.0)); print("motor (N6-facing side)", place(motor, -6.3, 38.5, 90))
+    c0 = adc[0].GetPosition()
+    for f in adc: f.Flip(c0, pcbnew.FLIP_DIRECTION_LEFT_RIGHT)      # the ADC group goes to the top face, beside L2 and below POT
+    print("ADC (top face)", place(adc, 3.3, 42.2))
+    print("JP3 CFG1 (N6-facing side)", place([fps["JP3"]], -6.2, 9.0)); print("JP4 CFG0 (N6-facing side)", place([fps["JP4"]], -6.2, 12.6))
+    STRAPS = {"JP3", "JP4"}
+    header("J21", 2.83, False); header("J22", 32.73, False)
+    holes = [(W0 + 3, 3.0), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
+    LABELS = [("MOTOR", 2.8, 48.3, 0, "F"), ("POT", 10.8, 58.6, 0, "F"), ("BM2", 18.7, 58.6, 0, "F"), ("QWIIC", 26.0, 58.2, 0, "F"),
+              ("BM1", 8.7, 10.7, 0, "F"), ("5V REG", -2.6, 23.0, 0, "F"), ("ADC", 7.4, 48.6, 0, "F"), ("MOCK P", 30.4, 42.6, 0, "F"),
+              ("MOTOR DRV", -1.6, 46.0, 0, "B"), ("SPI CFG", -3.4, 7.8, 0, "B"), ("CFG1", -3.4, 16.3, 0, "B"), ("CFG0", -3.4, 17.9, 0, "B"),
+              ("0|1  0/0=OA+CRC", -3.2, 19.6, 0, "B")]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))
@@ -224,12 +248,16 @@ def edge(kind, a, c=None, e=None):
     if kind == "line": s.SetShape(pcbnew.SHAPE_T_SEGMENT); s.SetStart(V(*a)); s.SetEnd(V(*e))
     else: s.SetShape(pcbnew.SHAPE_T_ARC); s.SetCenter(V(*c)); s.SetStart(V(*a)); s.SetArcAngleAndEnd(pcbnew.EDA_ANGLE(90, pcbnew.DEGREES_T))
     b.Add(s)
-x0, x1, y0, y1, R = OX + W0, OX + E, OY - N0, OY - S0, RAD     # KiCad frame: y0 = camera-end edge, y1 = USB-end edge
-edge("line", (x0 + R, y0), e=(x1 - R, y0)); edge("line", (x1, y0 + R), e=(x1, y1 - R))
-edge("line", (x1 - R, y1), e=(x0 + R, y1)); edge("line", (x0, y1 - R), e=(x0, y0 + R))
-if R:   # quarter arcs, each drawn clockwise on screen from its start point
-    edge("arc", (x1 - R, y0), c=(x1 - R, y0 + R)); edge("arc", (x1, y1 - R), c=(x1 - R, y1 - R))
-    edge("arc", (x0 + R, y1), c=(x0 + R, y1 - R)); edge("arc", (x0, y0 + R), c=(x0 + R, y0 + R))
+x0, x1, y0, y1 = OX + W0, OX + E, OY - N0, OY - S0     # KiCad frame: y0 = camera-end edge, y1 = USB-end edge
+rne = rnw = rsw = rse = RAD
+if mock == "P": rse = 0.0          # the N6's header pin is 1.6 mm from that corner: a rounded corner cuts into its clearance
+edge("line", (x0 + rnw, y0), e=(x1 - rne, y0)); edge("line", (x1, y0 + rne), e=(x1, y1 - rse))
+edge("line", (x1 - rse, y1), e=(x0 + rsw, y1)); edge("line", (x0, y1 - rsw), e=(x0, y0 + rnw))
+# quarter arcs, each drawn clockwise on screen from its start point
+if rne: edge("arc", (x1 - rne, y0), c=(x1 - rne, y0 + rne))
+if rse: edge("arc", (x1, y1 - rse), c=(x1 - rse, y1 - rse))
+if rsw: edge("arc", (x0 + rsw, y1), c=(x0 + rsw, y1 - rsw))
+if rnw: edge("arc", (x0, y0 + rnw), c=(x0 + rnw, y0 + rnw))
 b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
 print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
 if LABELS:

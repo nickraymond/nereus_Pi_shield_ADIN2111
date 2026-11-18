@@ -374,6 +374,35 @@ the height"; "label the silk with the functional names"):
   designators are hidden; the Pi Zero board's own silkscreen (pin names, logo) is removed from the mock. The STEP
   file of mock N now carries the silkscreen as flat faces.
 
+**Mock P: new direction after Nick saw mock N in his CAD** (2026-11-17, with a marked-up screenshot: "The North end
+can grow, the south end needs to end with the N6, the east wall needs to end with the N6"; "four of the connectors
+at the north end ... stay around 70mm"; "wide enough to support the mounting holes, make them back to the 2.7mm
+size but only need 3x holes"; "order of the connectors ... by the best routing for BM2 first"). There is no mock O.
+Rough board (`... P`), both headers through-hole, 5 mm board gap by spacers:
+- **42.16 x 59.3 mm (2500 mm²).** South edge = the N6's USB-end edge, east edge = the N6's P0-side edge, west edge
+  6.6 mm past the N6, north edge 14.85 mm past the camera end. About 10 mm of the 70 mm allowance is unused.
+- **Three 2.7 mm holes**, 3.0 mm in from the edges: south-west (-3.6, 3.0), north-west (-3.6, 56.3), north-east
+  (32.56, 56.3). None in the south-east: that corner is over the N6's header, and it is square, not rounded,
+  because the N6's header pin is 1.6 mm from it. The west edge is where it is so that the two western holes and
+  their keep-outs sit outside the N6 (1.05 mm from its edge).
+- **North row, west to east: MOTOR, POT, BM2, QWIIC**, pin rows running north-south, bodies 3 mm apart. BM2 is
+  third so that its pins (X' 20.7) are in line with L2's bus pads (X' 21.4): about 6.5 mm to the BM2_N pad and about
+  15 mm to the BM2_P pad at L2's far end. MOTOR is west, next to the motor driver and the 5 V converter; QWIIC is
+  east, above the strip that leads to its I2C pins P4 / P5; POT is beside the ADC.
+- **BM1** cannot go south (the board ends with the N6) or into the west wing (a 2 mm track does not pass between
+  through-hole header pads). It sits in the free pocket between the west header and L1, pins towards L1.
+  **Open, to prove before relying on it:** (1) its land pattern's courtyard overlaps T1's by 0.87 mm (the one DRC
+  error besides the 3 inherited skew errors); (2) its pins are 3 mm from T1's BM1 pads but about 10 mm, across L1's
+  footprint, from L1's own bus pads, so the bus current would run on Sofar's own track between T1 and L1, whose
+  width and layer I have not read, or on an inner layer under L1.
+- West wing above the header: the 5 V converter (as before), the motor driver on the N6-facing side just north of
+  it and 4 mm south of MOTOR, and the ADC on the top face in the pocket west of L2, below POT. The strap jumpers are
+  on the N6-facing side of the wing beside the header, outside the N6's outline.
+- Runs, from the placement: 5 V converter to VIN about 20 mm; motor PWM from P7 / P8 to the driver about 32 mm,
+  up the wing west of the header (8 mm or more from the ADIN's crystal); pot and motor-current lines to the ADC a
+  few mm; I2C to QWIIC about 45 mm up the east strip.
+- Not routed, not reviewed. The review of mock L does not carry over to the BM1 pocket or the north row.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
