@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -11,7 +11,7 @@ assert "NereusData" in path, "scratch copies only"
 mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
-XOFF = 32.13 if mock in "DIJK" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
+XOFF = 32.13 if mock in "DIJKL" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
@@ -124,14 +124,18 @@ elif mock == "J":
     conn(GH3, "J8", "POT", 26.9, 41.7); print("ADC (N6-facing side)", place(adc, 26.8, 42.3)); conn(SH4, "J3", "QWIIC", 0.5, 24.0, 90)
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 2.3, S0 + 2.3), (E - 2.3, S0 + 2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
-elif mock == "K":
+elif mock in "KL":
     # Nick, 2026-11-17: stay close to the layout he reviewed in CAD (mock H: east edge flush with the N6, holes in the
     # corners), with both headers through-hole. BM1 south and BM2 north, at their inductors. The west side goes
     # wider: MOTOR, POT, QWIIC lying east-west beside the west header (motor driver and ADC under them, outside the
     # N6's outline), and the 5 V converter above them with a wide copper area.
-    W0, E, S0, N0 = -10.0, 35.56, -7.3, 56.0
+    # Mock L (Nick: "minimize the height ... by shifting the north BM connector to the west wall"): BM2 moves into
+    # the pocket west of L2, so the north strip goes and the board ends just past the mote block.
+    W0, E, S0, N0 = -10.0, 35.56, -7.3, (56.0 if mock == "K" else 48.9)
     HOLE = 2.1
-    conn(GH4, "J10", "BM1", 14.4, -7.0); conn(GH4, "J9", "BM2", 14.4, 48.9)
+    conn(GH4, "J10", "BM1", 14.4, -7.0)
+    if mock == "K": conn(GH4, "J9", "BM2", 14.4, 48.9)
+    else: conn(GH4, "J9", "BM2", 0.5, 41.6)
     y = 0.5
     for name, ref, val, h in ((GH4, "J7", "MOTOR", 6.69), (GH3, "J8", "POT", 6.69), (SH4, "J3", "QWIIC", 5.29)):
         conn(name, ref, val, -9.75, y); y += h + 1.26

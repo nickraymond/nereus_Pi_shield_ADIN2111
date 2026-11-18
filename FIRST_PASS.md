@@ -257,6 +257,16 @@ Routing considered for mock K (from the placement coordinates; nothing routed or
 | ADIN SPI | about 16 mm to P0..P3, unchanged | fine |
 | I2C to the ADC and QWIIC (P4, P5 are on the east header) | about 45 mm round the south end | long but slow |
 
+**Mock L: mock K, shorter** (Nick, 2026-11-17: "minimize the height if you can by shifting the north BM connector
+to the west wall"). Built as a rough board (`... L`):
+- **45.56 x 56.2 mm (2560 mm²)**: 7.1 mm shorter than K, same width. The north edge is now 4.45 mm past the N6's
+  camera end, just past the mote block (which ends 4.04 mm past it).
+- BM2 sits in the free pocket west of L2, lying east-west, 2 mm from L2's pads and 3 mm north of the 5 V converter.
+  Its bus tracks stay about 2 mm long. The two northern holes sit in the pockets either side of L2.
+- Everything else is as in K. The height is now the mote block (47.5 mm) plus the south strip for BM1 (7.3 mm)
+  plus margins. A further 2.7 mm would come off only by moving BM1 off the south end as well; the column beside
+  the west header is full (MOTOR, POT, QWIIC), so that needs more width or one connector fewer. Not built.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

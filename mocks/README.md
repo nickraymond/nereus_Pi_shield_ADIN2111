@@ -13,8 +13,9 @@ What each mock is and what is still open: `FIRST_PASS.md`, section 3.
 | `step/N6_shield_mock_I_through_hole_rough.step` | I: both headers through-hole, BM1 / BM2 / 5 V west, MOTOR / POT / QWIIC east, 2.1 mm holes | 43.7 x 59.5 mm |
 | `step/N6_shield_mock_J_bm_north_south_rough.step` | J: both headers through-hole, BM1 south, BM2 north, N6 width, 2.1 mm holes | 35.56 x 66.8 mm |
 | `step/N6_shield_mock_K_wide_west_rough.step` | K: both headers through-hole, BM1 south, BM2 north, 5 V and MOTOR / POT / QWIIC on a wider west side, 2.1 mm holes | 45.56 x 63.3 mm |
+| `step/N6_shield_mock_L_short_rough.step` | L: mock K with BM2 beside L2 on the west, shorter | 45.56 x 56.2 mm |
 
 Origin of every file: the N6's board corner at the USB end on the VIN side; +X towards the P0 column, +Y towards the
 camera end. The view convention (which header column is P0 to P6 seen from the back) is assumed, see `N6_FACTS.md`.
 The motor driver chip U12 is missing from the models (its 3D file is not in the project). Mounting holes are 2.7 mm
-placeholders on F and G, and 2.1 mm on H, I, J and K (Nick, 2026-11-17).
+placeholders on F and G, and 2.1 mm on H to L (Nick, 2026-11-17).
