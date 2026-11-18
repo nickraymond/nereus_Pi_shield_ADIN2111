@@ -54,7 +54,7 @@ come back with Sofar's rule areas; schematic parity 0; the lock check passes (81
 | 2 | AUX 5 V pads J4 | remove: the N6's ideal diode lets USB and VIN coexist, and the mock has no place for them |
 | 3 | 33 ohm 0402 part for the SPI lines | a JLC basic part; I will propose one with its page before using it |
 | 4 | Mounting holes bare or tied to ground | bare (no plating), as on the Pi boards' M2.5 holes |
-| 5 | U13 and pot supply | mote 3V3, as today (9 mm away in mock P; the N6's pin is 44 mm) |
+| 5 | U13 and pot supply | **N6 3V3 pin** (Nick, 2026-11-17: "I'd like to not interfere with the mote circuit if we can avoid it"). Today both are on the mote's own 3V3 (starting board: J8 pin 1 = 3V3, U13 pin 8 = 3V3, C65, R49; the Pi's rail is the separate net PI_3V3). Change: J8 pin 1, U13 VDD, C65 and R49 to N6_3V3; about 44 mm from the west header's 3V3 pin in mock P; add a 1 uF capacitor at U13. Not 5 V: the N6 has no 5 V output (VIN is an input fed by our own converter), and a 5 V pot would put up to 5 V on the inputs of an ADC running at 3.3 V |
 | 6 | Header part for a 5 mm gap | yours: pin length must cover 5 mm + 1.6 mm + 1.3 mm + solder; about 2.6 mm of the N6's own pins would stand above the shield if its fitted header is used (reviewer's arithmetic) |
 | 7 | Your go for step 0a to 0c, with KiCad closed | |
 
