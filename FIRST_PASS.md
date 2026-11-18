@@ -276,6 +276,37 @@ with about 9 x 10 mm of free board around them for silkscreen. Default 0 / 0 = O
 (ADIN2111 Table 22, `docs/SPEC.md`). Their resistors (R2 and R47 at U1 pin 19, R9 on MISO) stay at the chip, as on
 the Pi boards (DESIGN D38); only the DC side of each strap runs to the jumpers. Not placed in the mock.
 
+**Mock M: mock L with a narrower west side** (Nick, 2026-11-17: "is it possible to reduce the width by 2-4 mm by
+rotating the connectors 90 deg and moving one or two to the north and south ends?"). Built as a rough board (`... M`):
+- **42.36 x 56.2 mm (2381 mm²)**: 3.2 mm narrower than L, same height. West edge 6.8 mm past the N6 (L: 10.0).
+- What set L's west width: a connector lying east-west beside the through-hole west header. Its land pattern is
+  9.55 mm across and must clear the header pads; the 5 V converter needs less (its group is 10.25 mm wide but may
+  reach 6.2 mm inside the N6's outline above the header rows, so it needs the board only 4.3 mm past the N6).
+- Changes: MOTOR and QWIIC move into the south strip beside BM1; POT is turned so its pin row runs along the west
+  wall (6.69 mm across). Motor driver under MOTOR, ADC under POT: the two are 2 mm apart, beside P7 / P8 and VIN.
+  QWIIC is at the east end of the south strip, about 12 mm from its I2C pins P4 / P5. Straps under the west wing.
+- The converter's strip is now 13 mm wide (L: 16 mm): about 320 mm² of copper per face against the 200 mm² target.
+- Going narrower still: with POT in the south strip too (in place of QWIIC, which would go beside L2 in the
+  north-east), the west edge could come in to 4.3 mm past the N6 (39.9 mm wide), set by the converter. That leaves
+  the converter a 10.5 mm strip. Not built.
+
+**Which header carries what** (seen from behind, `PIN_MAP.md`):
+
+| West header (VIN side) | East header (P0 side) |
+|---|---|
+| VIN: 5 V from the converter | P0, P1, P2, P3: ADIN SPI (MOSI, MISO, SCK, CS) |
+| P7, P8: motor PWM (IN1, IN2) | P4, P5: I2C (power monitor, ADC, QWIIC) |
+| P14: motor sleep | P6: ADIN reset, or spare |
+| P9: ADIN interrupt | 3V3, GND |
+| P13: ADIN power enable | not connected: RAW, PWR WKUP, Ethernet LED and pairs A / B |
+| 3V3, GND | |
+| not connected: RESET, P11, P10, BOOT0, Ethernet pairs C / D | |
+
+So 5 V and every motor signal are on the west header: the converter, the motor driver and MOTOR belong on the west
+or south-west, as Nick suspected. The ADC's two analog inputs (motor current from the driver, pot wiper with its
+100 k pull-down) are the sensitive lines, so the ADC and POT stay beside the driver and the ADC's slow I2C is what
+crosses to the east header. QWIIC is I2C only, so it is the one connector that prefers the east side.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H|I|J|K|L|M>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -11,7 +11,7 @@ assert "NereusData" in path, "scratch copies only"
 mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
-XOFF = 32.13 if mock in "DIJKL" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
+XOFF = 32.13 if mock in "DIJKLM" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 STRAPS = set()
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
@@ -152,6 +152,21 @@ elif mock in "KL":
         conn(name, ref, val, -9.75, y); y += h + 1.26
     print("motor (N6-facing side)", place(motor, -9.7, 0.6, 90)); print("ADC (N6-facing side)", place(adc, -9.3, 8.9))
     print("5 V", place(conv, -6.9, 26.0))
+    header("J21", 2.83, False); header("J22", 32.73, False)
+    holes = [(W0 + 2.3, S0 + 2.3), (E - 2.3, S0 + 2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
+elif mock == "M":
+    # Nick, 2026-11-17: mock L with a narrower west side. What set L's 10 mm was a connector lying east-west beside
+    # the through-hole header (9.55 mm land pattern). Here: MOTOR and QWIIC join BM1 in the south strip, POT is turned
+    # so its pin row runs along the wall (6.69 mm across), the motor driver stays under MOTOR and the ADC under POT,
+    # next to each other and to P7 / P8 / VIN. QWIIC sits at the east end of the south strip, near P4 / P5 (I2C).
+    W0, E, S0, N0 = -6.8, 35.56, -7.3, 48.9
+    HOLE = 2.1
+    conn(GH4, "J7", "MOTOR", -2.2, -7.0); conn(GH4, "J10", "BM1", 12.0, -7.0); conn(SH4, "J3", "QWIIC", 22.8, -7.0)
+    print("motor (N6-facing side)", place(motor, -2.1, -7.0, 90))
+    conn(GH3, "J8", "POT", -6.3, 1.0, 90); print("ADC (N6-facing side)", place(adc, -6.2, 1.0, 90))
+    print("5 V", place(conv, -4.05, 24.0)); conn(GH4, "J9", "BM2", 0.5, 41.6)
+    print("JP3 CFG1 (N6-facing side)", place([fps["JP3"]], -6.0, 12.0)); print("JP4 CFG0 (N6-facing side)", place([fps["JP4"]], -6.0, 16.0))
+    STRAPS = {"JP3", "JP4"}
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 2.3, S0 + 2.3), (E - 2.3, S0 + 2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
 else:
