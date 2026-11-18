@@ -14,6 +14,7 @@ OX = OY = 100.0
 XOFF = 32.13 if mock in "DIJKLMN" else 33.03; YOFF = 1.0   # through-hole headers: block centred between the pad rows
 HOLE = 2.7
 STRAPS = set()
+LABELS = []
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
 V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
@@ -26,6 +27,8 @@ def tkey(t):
     if t.Type() == pcbnew.PCB_VIA_T: return ("v", t.GetPosition().x, t.GetPosition().y)
     p = sorted([(t.GetStart().x, t.GetStart().y), (t.GetEnd().x, t.GetEnd().y)]); return ("t", t.GetLayer(), p[0], p[1], t.GetWidth())
 refkeys = {tkey(t) for t in r.GetTracks()}
+olddraw = [d for d in b.GetDrawings() if d.GetLayer() != pcbnew.Edge_Cuts and not pcbnew.IsCopperLayer(d.GetLayer())]   # before anything is added
+NEWFP = []
 tracks = list(b.GetTracks()); coretr = [t for t in tracks if tkey(t) in refkeys]; othertr = [t for t in tracks if tkey(t) not in refkeys]
 # Sofar's copper shapes (pads drawn as graphics on copper layers; all 17 on the starting board are his, checked against
 # the reference board) travel with the block like his tracks. Found missing by the mock L review, 2026-11-17.
@@ -60,7 +63,7 @@ g = gbox(core); print("mote block turned %d deg: X' %.2f..%.2f, y %.2f..%.2f" % 
 G = lambda s: [fps[n] for n in s.split()]
 conv, motor, adc = G("U10 L6 C53 C54 C55 C56 C57 C58 R37 R38 R39 R40"), G("U12 C60 C61 C62 C63 C64 C66 R48"), G("U13 C65 C67 R49 R50 R51")
 def lib(libname, name, ref, val, bottom=False):
-    f = pcbnew.FootprintLoad(K + libname + ".pretty", name); f.SetReference(ref); f.SetValue(val); b.Add(f)
+    f = pcbnew.FootprintLoad(K + libname + ".pretty", name); f.SetReference(ref); f.SetValue(val); b.Add(f); NEWFP.append(f)
     f.SetPosition(V(OX, OY))
     if bottom: f.Flip(f.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
     return f
@@ -191,6 +194,10 @@ elif mock == "N":
     STRAPS = {"JP3", "JP4"}
     header("J21", 2.83, False); header("J22", 32.73, False)
     holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
+    # Nick, 2026-11-17: functional names on the silkscreen. Connector designators are hidden; names sit beside the parts.
+    LABELS = [("MOTOR", -5.2, 5.75, 0, "F"), ("POT", -5.9, 20.75, 0, "F"), ("BM2", 2.6, 40.5, 0, "F"), ("BM1", 8.6, -3.6, 90, "F"),
+              ("QWIIC", 24.7, -0.75, 0, "F"), ("5V REG", -0.6, 37.7, 0, "F"), ("MOCK N", 30.4, 42.6, 0, "F"),
+              ("MOTOR DRV", -5.3, 13.2, 0, "B"), ("ADC", -7.1, 19.5, 0, "B")]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))
@@ -210,6 +217,8 @@ for i, (X, y) in enumerate(holes):
     f.SetPosition(V(OX + X, OY - y))
 # 3. outline and origin
 old_edges = [d for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
+# the Pi Zero board's own board-level silkscreen, fab and user drawings (pin names, logo, notes) do not belong on a mock
+old_edges += olddraw
 def edge(kind, a, c=None, e=None):
     s = pcbnew.PCB_SHAPE(b); s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(MM(0.1))
     if kind == "line": s.SetShape(pcbnew.SHAPE_T_SEGMENT); s.SetStart(V(*a)); s.SetEnd(V(*e))
@@ -223,6 +232,13 @@ if R:   # quarter arcs, each drawn clockwise on screen from its start point
     edge("arc", (x0 + R, y1), c=(x0 + R, y1 - R)); edge("arc", (x0, y0 + R), c=(x0 + R, y0 + R))
 b.GetDesignSettings().SetAuxOrigin(V(OX, OY))
 print("outline %.2f x %.2f mm" % (E - W0, N0 - S0))
+if LABELS:
+    for f in NEWFP: f.Reference().SetVisible(False)
+for txt, tx, ty, rot, side in LABELS:
+    s = pcbnew.PCB_TEXT(b); s.SetText(txt); s.SetLayer(pcbnew.F_SilkS if side == "F" else pcbnew.B_SilkS); s.SetMirrored(side == "B")
+    s.SetTextSize(pcbnew.VECTOR2I(MM(1.0), MM(1.0))); s.SetTextThickness(MM(0.15)); s.SetPosition(V(OX + tx, OY - ty))
+    if rot: s.SetTextAngle(pcbnew.EDA_ANGLE(rot, pcbnew.DEGREES_T))
+    b.Add(s)
 # 4. removals last (pcbnew objects go stale after Remove: nothing is queried afterwards)
 # keep by object, not by name: the Pi Zero board's own H1..H4 holes must go (the new holes reuse those names;
 # the first version of this script kept the old ones by mistake: mock L review, 2026-11-17)

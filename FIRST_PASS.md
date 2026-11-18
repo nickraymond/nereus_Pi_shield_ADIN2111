@@ -363,6 +363,17 @@ the project's rules: only the 3 inherited skew errors; 122 unconnected (nothing 
   top face, and the two decisions that are Nick's: the header that sets the board gap (B3) and whether the microSD
   slot must stay reachable (M6).
 
+**Mock N, second pass** (Nick, 2026-11-17: "I planned to add 5mm spacers between the board during soldering to set
+the height"; "label the silk with the functional names"):
+- **Board gap 5 mm**, set by spacers while the header pins are soldered. That answers the review's blocker B3 on
+  paper: 5.0 mm against 2.09 mm (N6 LiPo leads) plus about 1.3 mm (mote parts) = 3.4 mm. Still to check: the
+  header's pins must be long enough for 5 mm of gap plus both boards (1.6 mm shield, 1.3 mm N6) plus solder; a
+  standard pin header may be too short. The mock's 3D header is KiCad's standard part and is not to scale for this.
+- **Silkscreen names on mock N.** Top: MOTOR, POT, BM1, BM2, QWIIC, 5V REG. N6-facing side: MOTOR DRV, ADC, and the
+  strap legend (SPI CFG, CFG1, CFG0, 0 | 1, 0 / 0 = OA + CRC). Text 1.0 mm high, 0.15 mm thick. The connectors'
+  designators are hidden; the Pi Zero board's own silkscreen (pin names, logo) is removed from the mock. The STEP
+  file of mock N now carries the silkscreen as flat faces.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,
