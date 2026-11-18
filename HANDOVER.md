@@ -1,9 +1,9 @@
-# N6 shield: hand-over (2026-11-18, about 12:50 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 1:10 PM Pacific)
 
-State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C, D, E and F
-done and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
+State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
+done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes"). Commits after `edfa070` (stage F) are local until Nick says push. The QE review runs in
+PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair) are local until Nick says push. The QE review runs in
 its own session, started by Nick about 12:25 PM, on head `edfa070`; no verdict yet when this was written.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
 keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
@@ -27,6 +27,10 @@ not running by `pgrep` before each run). Every further push still needs his word
 | `692fc4e` | stage F part 1: I2C to U13, U13's GND pin, N6 3V3 at C68 / C65 / U13 | same errors, 27 unconnected; 17 new tracks, 3 new vias; pour check 0 |
 | `c23fbce` | stage F part 2: N6 3V3 join of the two header pins, east trunk, pull-ups, J3 pin 2 | same errors, 24 unconnected; 8 new tracks, 2 new vias; pour check 0 |
 | `4dc6f74` | stage F part 3: SDA, SCL, N6 3V3 across the north row to QWIIC J3; 3V3 to R49 and J8 | same errors, 19 unconnected; 27 new tracks, 5 new vias; pour check 0 |
+| `b083f7f` | stage G part 1: LED parts, timer test pad, pin 19 net, ALERT test pad | same errors, 9 unconnected; 39 new tracks, 3 new vias; pour check 0 |
+| `d39a491` | repair: Sofar's BM1_P top track from his via at (20.057, 7.458) into L1 pad 3 put back | same errors, 8 unconnected; 1 new track |
+| `0c7c3f6` | stage G part 2: ADIN_VDDIO to the jumpers, CFG1 strap, ~ADIN_P1_LED1 | same errors, 3 unconnected; 29 new tracks, 6 new vias; pour check 0 |
+| `986339c` | stage G part 3: CFG0 strap, ~ADIN_P2_LED1, ADIN_VDDIO to R52 | same errors, **0 unconnected**; 28 new tracks, 4 new vias; pour check 0 |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -38,9 +42,11 @@ Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/sta
 `sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`,
 `sh scripts/stageC/run_C.sh ../stageE/stepE1_motor_logic.py E1`, `sh scripts/stageC/run_C.sh ../stageE/stepE2_wiper.py E2`,
 `sh scripts/stageC/run_C.sh ../review1/stepR1_fixes.py R1`, `sh scripts/stageC/run_C.sh ../stageF/stepF1_u13.py F1`,
-`sh scripts/stageC/run_C.sh ../stageF/stepF2_3v3_east.py F2`, `sh scripts/stageC/run_C.sh ../stageF/stepF3_north.py F3`
+`sh scripts/stageC/run_C.sh ../stageF/stepF2_3v3_east.py F2`, `sh scripts/stageC/run_C.sh ../stageF/stepF3_north.py F3`,
+`sh scripts/stageC/run_C.sh ../stageG/stepG1_local.py G1`, `sh scripts/stageC/run_C.sh ../stageG/stepG0_bm1p_restore.py G0`,
+`sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -157,23 +163,60 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
   4. Other-net copper nearer than 0.2 mm to stage F's copper, all 0.15 mm or more (`stageF3/clearcheck.txt`): the
      SDA via to SCL's top track under U13, and the two I2C lines to the UVLO and VBUS vias in the gap.
 
-## Next: stages G and H
+## What stage G did (commits `b083f7f`, `0c7c3f6`, `986339c`; scripts in `scripts/stageG/`)
 
-19 connections are left (`stageF3/drcsum.txt`, `drc.json`). By group:
-- Stage G: ADIN_VDDIO (JP2 pad 1, JP3 pad 1, JP4 pad 3 to Sofar's track at (9.96, 19.58); R52 pad 1 to Sofar's via
-  at (19.78, 17.68)), CFG0_STRAP (JP4 pad 2 to R9 pad 1), CFG1_STRAP (JP3 pad 2 to R2 pad 2), ADIN_LED_VDD (JP2 pad
-  2, R44, R45, R46), the three LED anode nets (D8 / R44, D9 / R45, D10 / R46), ~ADIN_P1_LED1 (D9), ~ADIN_P2_LED1
-  (D10 to Sofar's track at (18.41, 22.08)), the pin 19 net (R47 pad 2, R2 pad 1, Sofar's track at (11.06, 19.08)),
-  ADIN_TIMER (TP45 to R47 pad 1), ~ADC_ALERT's test pad TP44 (bottom, under U13).
-- One unconnected item that no stage of the plan names: BM1_P, Sofar's via at (20.06, 7.46) against his bottom
-  track at (22.73, 5.73). Read it before stage G's "0 unconnected" gate.
-- Stage H: silkscreen and finish.
-- Internal 2 now holds the N6 3V3 line at y 0.2 (X' 5.5 to 32.6) and the trunk at X' 32.73: stage G's strap lines from
-  the west wing to R9 and R52 must cross neither on Internal 2.
+The west header J21 lies between the wing and U1, and the motor logic lines run through it on Internal 2. Stage G's
+lines cross it on the bottom through the gaps between the pad rows (y 10.48 CFG1, 15.56 CFG0, 18.083 P1_LED1), on
+Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
+- LED parts (top): ADIN_LED_VDD rail at X' -2.85 from JP2 pad 2 to R46 / R45 / R44; the anode links in the gap
+  between the LED column and the resistor column.
+- ADIN_TIMER: R47 pad 1 to TP45 on top. Pin 19 net: R47 pad 2 and R2 pad 1 on top, one via at (6.6, 17.3), Internal 1
+  into Sofar's via at (10.794, 19.345).
+- ~ADC_ALERT to TP44: one via at (8.35, 44.5) under U13, 0.2 mm from the test pad TP43.
+- ADIN_VDDIO: JP3 pad 1 to JP4 pad 3 on the bottom; JP2 pad 1 through a via at (-5.45, 8.0); feed on Internal 1 from a
+  via at (-1.6, 13.895) into Sofar's via at (10.832, 20.108) (27.9 mm in all). To R52 pad 1: a via at (30.2, 8.921),
+  Internal 2 north at X' 30.2, west at y 18.25 into Sofar's via at (19.776, 17.677) (20.2 mm).
+- CFG1_STRAP: bottom, a via at (6.6, 10.48), top to R2 pad 2 (20.8 mm). CFG0_STRAP: bottom, a via at (5.9, 15.56),
+  Internal 2 east at y 15.77 and 17.7 through Sofar's block, a via at (28.0, 16.55), top into R9 pad 1 (35.3 mm).
+- ~ADIN_P1_LED1: a via at (-4.325, 15.1), bottom, a via at (5.95, 18.083), Internal 2 into Sofar's via at
+  (10.857, 18.083) (17.7 mm). ~ADIN_P2_LED1: top along the west edge at X' -5.95 and east at y 21.3, one via at
+  (5.6, 23.0), Internal 2 at y 22.639 into Sofar's via at (19.122, 22.639) (35.7 mm).
+- Three GND vias for pour pieces the new tracks shut off, each found by the pour check on a trial run: (-5.2, 17.9)
+  at D8 pad 1, (-1.5, 10.295) at JP3 pad 3 (bottom), and stage F's (8.94, 43.5) at R50 pad 2.
+- **For the QE review and Nick:**
+  1. **Repair `d39a491`.** Sofar's via at (20.057, 7.458) carries BM1_P on Internal 2 from the data transformer T1
+     pin 6. The starting board (`325599c`) joined it to L1 pad 3 with a 0.2 mm top track; stage 0c dropped that track
+     with the old bus tracks, so T1 pin 6 had no connection to the BM1 bus from stage 0c on. DRC showed it as one
+     unconnected item. The same track is back (same ends, width, layer). Stage 0c's other removals have not been
+     compared with the starting board item by item: worth a check in the review.
+  2. CFG0 on Internal 2 has two short 45 degree steps at X' 18..20.6 to pass three of Sofar's vias; it is 0.25 mm
+     from his VDDIO and INT vias and runs under the crystal Y1 at y 15.77, 0.5 mm from each crystal via, with the PWR
+     plane between it and the crystal on the bottom. The strap carries DC.
+  3. ~ADIN_P2_LED1 runs 9 mm along the west edge, 0.55 mm from the board edge (rule 0.5 mm) and 0.175 mm from the LED
+     pads.
+  4. The R52 VDDIO line and the CFG0 line run side by side on Internal 2 for 6 mm, 0.3 mm apart.
+  5. Other-net copper nearer than 0.2 mm to stage G's copper, all 0.15 mm or more (`stageG1..G3/clearcheck.txt`): the
+     P1_LED1 via at (5.95, 18.083) to R47 pad 1; the VDDIO via at (30.2, 8.921) to SCL's bottom track; P2_LED1 to the
+     LED pads.
+  6. Via count per net against the plan's limits: LED lines 2 and 1 new (limit 2), straps 1 and 2 (limit 3).
+
+## Next: stage H
+
+0 connections are left (`stageG3/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
+check, DRC warnings read one by one, independent review, then Nick.
+- Copper warnings left, all on Sofar's items (`stageG3/drc.json`): 9 `track_dangling` (among them a 2.5 mm tail of
+  ~ADIN_RST on Internal 1 at (25.81, 8.91), left from the Pi header) and 3 `isolated_copper` (his no-net zones).
+  They are locked items: changing any needs Nick's word.
+- Silkscreen: Nick's rule is a mock first (slashed-zero font, function name large with the designator small under
+  it, boxed power outputs). Three labels are clipped today (routing plan, stage H row).
+- Not done: a second sub-agent review (stages E, F, G and the fixes have had none), the length report for the SPI
+  lines after stage G (they did not change), a 3D check of the headers against the N6.
 
 ## For Nick
 
-- Decide: when to push stage F (three local commits after `edfa070`); the QE session is reviewing head `edfa070`.
+- Decide: when to push stages F and G (the local commits after `edfa070`); the QE session is reviewing head
+  `edfa070`.
+- Read the repair `d39a491` (BM1_P): stage 0c had dropped one of Sofar's tracks.
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
@@ -194,7 +237,11 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - kicad-cli's SVG with `--page-size-mode 2` has its origin at the outline's corner (X' -6.6, y 60.6), not KiCad's.
 - No PDF tool is installed; a datasheet's text can be read with macOS PDFKit through `osascript -l JavaScript`.
 - The test-point pads (TP8, TP40..TP44) are round, 1.5 mm; a pad's bounding box is not its copper.
-- A new track or via through a GND pour can cut a piece off from every via: read the pour check's last line.
+- A new track or via through a GND pour can cut a piece off from every via: read the pour check's last line. Stages
+  F and G each ran on a scratch copy first (same steps as `run_C.sh`, nothing copied back); three cut-off pieces were
+  caught that way.
+- Chain a script edit and the run with `&&`: on 2026-11-18 a failed edit followed by `;` ran the unfixed step onto
+  the working board (not committed; rerun from the base commit put it right).
 - Earlier traps still hold: `n6_rough_board.py` builds mocks only; in zsh write `"${d}:path"`; no poppler here.
 
 Read first: `BRIEF.md`, `STAGE0_PLAN.md` (stage 0 results), `mocks/review/ROUTING_PLAN_P.md`, `PIN_MAP.md`,
