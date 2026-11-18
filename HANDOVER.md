@@ -1,11 +1,12 @@
-# N6 shield: hand-over (2026-11-18, about 11 AM Pacific)
+# N6 shield: hand-over (2026-11-18, about 11:10 AM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C, D and E
-done and J21 moved to the model's header spacing. **All of it is committed locally only; `origin/n6-shield` is at
-`af83088`. Nothing is pushed, no pull request is open, no QE review has run.** The routing session (second session
+done and J21 moved to the model's header spacing. **Pushed up to `602830d` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
+`n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
+PR"). Commits after `602830d` are local until Nick says push. The QE review has not run yet.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
 keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
-not running by `pgrep` before each run). Pushing and the draft pull request still need his word.
+not running by `pgrep` before each run). Every further push still needs his word.
 
 | Commit | What | Gate result (kicad-cli 10.0.7, DRC with schematic parity) |
 |---|---|---|
@@ -21,17 +22,20 @@ not running by `pgrep` before each run). Pushing and the draft pull request stil
 | `c46af62` | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
 | `3d056ac` | stage E part 1: motor logic and current sense | same errors, 40 unconnected; 35 new tracks, 4 new vias |
 | `328363a` | stage E part 2: pot wiper, two links at U13 | same errors, 36 unconnected; 9 new tracks |
+| `e3c8688` | fixes after the sub-agent review (three defects of stages C part 2, D part 1 and E part 2) | same errors, 33 unconnected; 13 new tracks, 3 new vias, 4 of this session's SDA segments replaced; pour check 0 untied pieces (was 2) |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
-the plane check (`scripts/stageB/planecheck.py`) and the bus check (`scripts/stageA/buscheck.py`).
+the plane check (`scripts/stageB/planecheck.py`), the bus check (`scripts/stageA/buscheck.py`) and, since `e3c8688`,
+the pour check (`scripts/review1/pourcheck.py`: every filled piece of our GND pours has a GND via or through-hole pad).
 Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/stageC/run_C.sh stepC1_converter.py C1`,
 `sh scripts/stageC/run_C.sh stepC2_motor.py C2`, `ALLOW_REF=J21 sh scripts/stageC/run_C.sh stepJ21_move.py J21`,
 `sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`,
 `sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`,
-`sh scripts/stageC/run_C.sh ../stageE/stepE1_motor_logic.py E1`, `sh scripts/stageC/run_C.sh ../stageE/stepE2_wiper.py E2`
+`sh scripts/stageC/run_C.sh ../stageE/stepE1_motor_logic.py E1`, `sh scripts/stageC/run_C.sh ../stageE/stepE2_wiper.py E2`,
+`sh scripts/stageC/run_C.sh ../review1/stepR1_fixes.py R1`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -65,8 +69,10 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
   (0.0, 42.6) and a top branch at y 42.6.
 - GND vias: (0.845, 38.45) for pin 3, (0.85, 43.6) for C61, (-3.4, 41.07) and (-2.55, 41.07) at the bulk capacitors.
   C64 / C63 / R48 pad 2 connect through the bottom pour.
-- The top GND pour is now in five pieces instead of three (the MOTOR_OUT1 trunk and the two test-point branches cut
-  it); each piece has a GND via or pad, no new isolated-copper warning.
+- The top GND pour is now in more pieces (the MOTOR_OUT1 trunk and the two test-point branches cut it). **This left
+  one piece with R38 pad 2 and R40 pad 1 and no via: the 5 V feedback divider's ground was open. Found by the
+  sub-agent review, fixed in `e3c8688`.** KiCad's isolated-copper warning does not catch a pour piece that touches
+  only surface-mount pads; the DRC showed it only as a zone-to-zone unconnected item.
 - Not connected on the board: U12 pin 5 (nSLEEP_LDO). The datasheet gives it an internal pull-down (3.3 V regulator
   off). That is the schematic's choice, not a routing matter.
 
@@ -92,8 +98,12 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
      touching only the GND plane is reported as dangling.
   3. N6_MOSI on top passes 0.18 mm from Sofar's GND via at (31.732, 21.058) and 0.23 mm from J22's row 1 inner pad
      (`stageD1/clearcheck.txt`); everything else new is 0.2 mm or more from other nets.
-- An independent sub-agent review of stages C part 2 and D part 1 was started on 2026-11-18; its findings are in
-  the session's report to Nick and, if they led to changes, in later commits.
+- An independent sub-agent review of stages C part 2 and D part 1 ran on 2026-11-18 (record:
+  `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageR1/subagent_review_2026-11-18.md`). Three defects, each
+  confirmed on the board and fixed in `e3c8688` (`scripts/review1/stepR1_fixes.py`): the open divider ground above;
+  ADIN_PWR's track ended 0.07 mm outside the round test pad TP8; R26 pad 2 (N6_3V3) was shut in, so SDA's bottom
+  run moved to X' 27.9 and R27 pad 2 is joined to R26 pad 2 at X' 28.4. The review agreed with deviation 2 (no GND
+  via) and saw no current concern at 1.24 A. It did not review stage E or the fixes.
 
 ## What stage E did (commits `3d056ac`, `328363a`; scripts in `scripts/stageE/`)
 
@@ -115,17 +125,14 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 
 ## Next: stages F to H
 
-36 connections are left (`stageE2/drcsum.txt`, `drc.json`). By group:
+33 connections are left (`stageR1/drcsum.txt`, `drc.json`). By group:
 - Stage F: I2C branches (U13 pins 9 / 10 and TP43 from Sofar's bus stubs on the bottom at about (10.3, 26.7) and
-  (10.6, 26.0); QWIIC J3 pins 3 / 4), N6_3V3 (nine connections: both header 3V3 pins, R26 / R27 pad 2, U13 pin 8,
-  C65, C68, R49, J8 pin 1, J3 pin 2), U13's GND pin and the GND pads of R50 / R51 / C67 (no pour on top inside the
-  mote outline: they need vias; under U13 the bottom holds TP43 and TP44).
+  (10.6, 26.0); QWIIC J3 pins 3 / 4), N6_3V3 (eight connections: both header 3V3 pins, the R26 / R27 pair, U13 pin 8,
+  C65, C68, R49, J8 pin 1, J3 pin 2), U13's GND pin (no pour reaches it; under U13 the bottom holds TP43 and TP44).
 - Stage G: CFG0_STRAP (R9 pad 1 to JP4), CFG1_STRAP, ADIN_VDDIO (R52 pad 1, JP2 / JP3 / JP4), the LED nets, the
-  pin 19 net (R2, R47), ADIN_TIMER (TP45), ALERT's test pad TP44, the two zone-to-zone GND items.
+  pin 19 net (R2, R47), ADIN_TIMER (TP45), ALERT's test pad TP44.
 - One unconnected item that no stage of the plan names: BM1_P, Sofar's via at (20.06, 7.46) against his bottom
   track at (22.73, 5.73). Read it before stage G's "0 unconnected" gate.
-- Before routing more, handle the findings of the sub-agent review (see the session's report; none had arrived when
-  this note was written).
 
 ## For Nick
 
@@ -149,6 +156,8 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
   not for others (`VBUS`, `GND`, `5V_FB`).
 - kicad-cli's SVG with `--page-size-mode 2` has its origin at the outline's corner (X' -6.6, y 60.6), not KiCad's.
 - No PDF tool is installed; a datasheet's text can be read with macOS PDFKit through `osascript -l JavaScript`.
+- The test-point pads (TP8, TP40..TP44) are round, 1.5 mm; a pad's bounding box is not its copper.
+- A new track or via through a GND pour can cut a piece off from every via: read the pour check's last line.
 - Earlier traps still hold: `n6_rough_board.py` builds mocks only; in zsh write `"${d}:path"`; no poppler here.
 
 Read first: `BRIEF.md`, `STAGE0_PLAN.md` (stage 0 results), `mocks/review/ROUTING_PLAN_P.md`, `PIN_MAP.md`,
