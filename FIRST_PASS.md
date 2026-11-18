@@ -154,6 +154,28 @@ BM04B-GHS-TBT headers on a 64 x 46 mm board). Built as a rough board only (`n6_r
   strip's length (about 20 mm) and the planes. Not laid out.
 - With 3 mm between bodies, mock F's single east column also works: five connectors need 37 mm of its 48 mm.
 
+**Mock H: after Nick's CAD check of mock G** (2026-11-17, screenshot of the shield over the N6 in his camera shell:
+"make the mounting holes 2.1mm"; "shift the openMV board to south east corner while leaving room for the smaller
+mounting screws"; then, asked: the N6 position in the screenshot is the target, and the outline may change).
+Read from the screenshot, roughly (scaled from the board's known size, about 1 mm uncertain): the N6 sits about
+3.7 mm from the shield's USB-end edge and flush with its P0-side edge. Built as a rough board (`... H`):
+- **38.56 x 60.3 mm (2325 mm²)**, 3 mm corners. East edge = the N6's P0-side edge. South edge 4.6 mm past the N6's
+  USB end. West edge 3.0 mm past the N6. North edge 11.25 mm past the N6's camera end.
+- **Holes 2.1 mm**, centres 2.3 mm in from the edges: (-0.7, -2.3), (33.26, -2.3), (-0.7, 53.4), (33.26, 53.4) in
+  the N6 frame (X' from the VIN-side edge, y from the USB-end edge). The two southern holes are 2.3 mm south of the
+  N6's edge, the northern ones 8.95 mm north of it. Screw head and standoff sizes are not known to me.
+- **East header through-hole, west header surface-mount.** Surface-mount pads would overhang the N6's edge by
+  1.3 mm, which the flush east edge does not allow. Nothing of ours sits over the east header.
+- **Everything of ours on the west wall, top face, from the USB end:** BM1, MOTOR, POT, QWIIC, the 5 V converter,
+  BM2; connector bodies 3.0 mm apart. BM1 is beside L1, BM2 beside L2. The motor driver and the ADC are on the
+  N6-facing side of the same strip, above the header (motor driver under POT / QWIIC, ADC next to it, partly under
+  the converter: the converter's three bottom-side parts must move to the top face anyway).
+- The south wall is empty: 4.6 mm is too shallow for a connector land pattern (6.69 mm).
+- The height comes from the west column: four GH, one SH and the converter need 51 mm. With 2.0 mm between
+  connector bodies it would be 5 mm less.
+- Not checked: the N6 parts under the west strip (gap between the boards), copper for the converter and the motor
+  driver now that they share the west strip, and all routing.
+
 **Smallest outline that holds everything: mock D, 35.56 x 60.5 mm.** Mock A is 2 mm longer; mock C is wider and 12 mm shorter. The converter and the motor
 driver sit next to the pins they use (VIN, P7, P8) in mocks A and B. Images: `mock_A_long_side_entry.png`,
 `mock_A_long_top_entry.png`, `mock_B_wing_side_entry.png`, `mock_B_wing_top_entry.png`,

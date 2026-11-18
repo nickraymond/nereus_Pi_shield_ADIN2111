@@ -1,5 +1,5 @@
 """Rough-layout scratch board for a mock, for a STEP export. Works ONLY on a scratch copy outside the repository.
-Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G>
+Usage: <KiCad python> n6_rough_board.py <scratch .kicad_pcb (in/out)> <Sofar reference .kicad_pcb> <D|F|G|H>
 What it does: turns Sofar's mote block (81 footprints and his tracks / vias) a quarter turn as one rigid group, places
 the 5 V converter, motor driver and ADC groups, top-entry JST connectors, pin headers on the N6-facing side, mounting
 holes (F) and a rectangular outline. Everything else of ours is removed, and all zones are removed: this is a
@@ -12,6 +12,7 @@ mm, MM = pcbnew.ToMM, pcbnew.FromMM
 K = "/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/"
 OX = OY = 100.0
 XOFF = 32.13 if mock == "D" else 33.03; YOFF = 1.0
+HOLE = 2.7
 RAD = 0.0 if mock == "D" else 3.0          # corner radius of the outline (Nick: radius on the larger board)
 b = pcbnew.LoadBoard(path); r = pcbnew.LoadBoard(refpath)
 V = lambda x, y: pcbnew.VECTOR2I(MM(x), MM(y))
@@ -85,6 +86,21 @@ elif mock == "G":
     print("5 V", place(conv, -2.8, 21.2)); conn(GH4, "J9", "BM2", -2.65, 36.17)
     header("J21", 2.83, True); header("J22", 32.73, True)
     holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
+elif mock == "H":
+    # Nick, 2026-11-17, after his CAD check of mock G: the N6 sits in the shield's south-east corner (its P0-side edge
+    # flush with the shield's east edge, a short strip past the USB end for the screws), 2.1 mm mounting holes.
+    # East header through-hole (surface-mount pads would overhang the N6's edge by 1.3 mm), west header surface-mount.
+    # Everything of ours on the west wall: BM1, MOTOR, POT, QWIIC, 5 V converter, BM2 (3 mm between connector bodies);
+    # motor driver and ADC on the N6-facing side of the same strip.
+    W0, E, S0, N0 = -3.0, 35.56, -4.6, 55.7
+    HOLE = 2.1
+    y = 0.2
+    for name, ref, val, h in ((GH4, "J10", "BM1", 6.69), (GH4, "J7", "MOTOR", 6.69), (GH3, "J8", "POT", 6.69), (SH4, "J3", "QWIIC", 5.29)):
+        conn(name, ref, val, -2.65, y); y += h + 1.26
+    print("5 V", place(conv, -2.8, y)); conn(GH4, "J9", "BM2", -2.65, y + 12.6 + 1.26)
+    print("motor (N6-facing side)", place(motor, -2.7, 21.2, 90)); print("ADC (N6-facing side)", place(adc, -2.7, 28.3))
+    header("J21", 2.83, True); header("J22", 32.73, False)
+    holes = [(W0 + 2.3, -2.3), (E - 2.3, -2.3), (W0 + 2.3, N0 - 2.3), (E - 2.3, N0 - 2.3)]
 else:
     W0, E, S0, N0 = -3.2, 43.3, -6.0, 48.5
     print("5 V", place(conv, -2.8, 7.6)); print("motor (N6-facing side)", place(motor, 33.7, 26.5)); print("ADC (N6-facing side, under BM2)", place(adc, 33.7, 36.2))
@@ -93,7 +109,15 @@ else:
     header("J21", 2.83, True); header("J22", 32.73, True)
     holes = [(W0 + 3, S0 + 3), (E - 3, S0 + 3), (W0 + 3, N0 - 3), (E - 3, N0 - 3)]
 for i, (X, y) in enumerate(holes):
-    f = lib("MountingHole", "MountingHole_2.7mm_M2.5", "H%d" % (i + 1), "2.7 mm hole (size to confirm)"); f.SetPosition(V(OX + X, OY - y))
+    if HOLE == 2.1:
+        f = lib("MountingHole", "MountingHole_2.2mm_M2", "H%d" % (i + 1), "2.1 mm hole")
+        for pd in f.Pads():
+            pd.SetDrillSize(V(2.1, 2.1))
+            try: pd.SetSize(pcbnew.F_Cu, V(2.1, 2.1))
+            except TypeError: pd.SetSize(V(2.1, 2.1))
+            print("hole drill", mm(pd.GetDrillSize().x))
+    else: f = lib("MountingHole", "MountingHole_2.7mm_M2.5", "H%d" % (i + 1), "2.7 mm hole (size to confirm)")
+    f.SetPosition(V(OX + X, OY - y))
 # 3. outline and origin
 old_edges = [d for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
 def edge(kind, a, c=None, e=None):
