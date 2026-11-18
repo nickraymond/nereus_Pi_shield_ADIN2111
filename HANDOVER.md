@@ -3,8 +3,11 @@
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
 done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair) are local until Nick says push. The QE review runs in
-its own session, started by Nick about 12:25 PM, on head `edfa070`; no verdict yet when this was written.** The routing session (second session
+PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair) are local until Nick says push. The QE review ran in
+its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
+in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
+Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Stages F and G and the repair have NOT
+been reviewed by QE.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
 keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
 not running by `pgrep` before each run). Every further push still needs his word.
@@ -35,7 +38,8 @@ not running by `pgrep` before each run). Every further push still needs his word
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
 the plane check (`scripts/stageB/planecheck.py`), the bus check (`scripts/stageA/buscheck.py`) and, since `e3c8688`,
-the pour check (`scripts/review1/pourcheck.py`: every filled piece of our GND pours has a GND via or through-hole pad).
+the pour check (`scripts/review1/pourcheck.py`: every filled piece of our GND pours has a GND via or through-hole pad)
+and, since the QE review, `scripts/review1/uncdiff.py` (no net may have more unconnected items than before the step).
 Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/stageC/run_C.sh stepC1_converter.py C1`,
 `sh scripts/stageC/run_C.sh stepC2_motor.py C2`, `ALLOW_REF=J21 sh scripts/stageC/run_C.sh stepJ21_move.py J21`,
 `sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`,
@@ -126,10 +130,12 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - **Deviation from the routing plan:** the plan's lane for these lines is X' -5.6..-4.6. From that lane they reach
   J21 in the order IN1, nSLEEP, IN2 (north to south), but the pins need IN1 last, so two lines would cross on the
   one layer. The direct band has the right order, is about 9 mm shorter, stays on Internal 2 under the GND plane and
-  passes 0.35 mm east of the converter's GND via (3.15, 29.7) and 1.1 mm or more from the switch-node via
-  (2.47, 33.75). No logic line is on an outer layer between y 22 and 37.5 (the plan's gate).
+  passes 0.35 mm east of the converter's GND via (3.15, 29.7) and 1.03 mm (MOTOR_IN2, edge to edge) or more from the
+  switch-node via (2.47, 33.75). MOTOR_IN1 is on the bottom from U12 pin 1 to its via in TP40 at y 37.3, so the plan's
+  gate (no logic line on an outer layer between y 22 and 37.5) is missed by 0.2 mm there; from y 22 to 37.3 all three
+  lines are on Internal 2. (Both numbers corrected after the QE review.)
 - MOTOR_VISEN: bottom from pin 11 through the gap, north-east to y 43.95 between TP44 and TP43, via at
-  (7.4, 43.95) under U13, top to U13 pin 4. It is 0.33 mm from the nSLEEP via and 0.35 mm from TP41 (MOTOR_OUT1)
+  (7.4, 43.95) under U13, top to U13 pin 4. It is 0.33 mm from the nSLEEP via and 0.44 mm from TP41 (MOTOR_OUT1)
   at U12, where the plan asks 0.5 mm: the pins are 0.5 mm apart and TP41 stands 0.9 mm from them.
 - Pot wiper on top: U13 pin 5, R51 pad 1, C67 pad 1, north past J8's mounting pad, J8 pin 2. R50 to U13 pin 1 and
   R49 pad 2 to U13 pin 2.
@@ -200,6 +206,32 @@ Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
      LED pads.
   6. Via count per net against the plan's limits: LED lines 2 and 1 new (limit 2), straps 1 and 2 (limit 3).
 
+## QE review of pull request 39 (reports in `docs/design-review/qe/`): what is open
+
+Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on the board after stage G
+(2026-11-18). Open findings, by the report's numbers:
+- **2, gate.** Done: `scripts/review1/uncdiff.py` runs in `run_C.sh` and names any net with more unconnected items
+  than before the step (tried on the trial run that had a cut-off pour piece: it names GND; every stage F and G step:
+  none). Still true: `pourcheck.py` looks only at zones named "N6 GND" and counts a via near a piece as tying it. At 0
+  unconnected, DRC itself shows no pour piece of any net without a connection.
+- **4, departures from the plan's net classes not listed before** (all at U12 unless said): MOTOR_IN1 0.21 mm from
+  MOTOR_OUT1 on the bottom; the nSLEEP via 0.25 mm from MOTOR_OUT1's top branch; the IN2 via 0.25 mm from
+  MOTOR_OUT2's top branch; ISET (pin 7) 0.25 mm from MOTOR_OUT2 (plan 0.5 mm for each). The VBUS feed track in the
+  wing is 0.5 mm (plan 1.0 mm; stage C part 1). 5 V changes layer with 3 vias at the bulk capacitors, 2 at C61 and 3 at
+  the converter (plan 4 or more). MOTOR_OUT2 is 0.3 mm wide for 0.8 mm. QE's view: acceptable, list them.
+- **5, GND-plane slots.** The south slot is a void y 6.67..7.04 from X' 20.0 to the east edge. It is crossed by
+  ~ADIN_INT (top, X' 28.38), I2C0_SDA (bottom, X' 27.9), ADIN_PWR (Internal 2; QE's finding) and, since stage F, the
+  N6 3V3 trunk (Internal 2, X' 32.73), which also crosses the north slot (void y 41.65..42.02 there). No SPI line
+  crosses a slot. Goes with the question to Sofar.
+- **6, U12's 5 V** comes through the 2.0 mm band and 1.75 mm tab of the zone "N6 5V U12" (15.2 um copper): up to
+  1.24 A against the plan's 1.08 A for 2.0 mm at 10 degC rise. Not changed. **Nick decides before fabrication:**
+  widen, add copper on another layer, or accept on the motor's average current.
+- **7, J21's inner pads.** See Traps.
+- **9 (nit).** Sofar's ~ADIN_RST track on Internal 1 runs on 22 mm past the point where this board taps it
+  ((11.1, 15.6) to (27.56, 7.16)), an open stub left from the Pi header. Locked item; noted, not changed.
+- Could not be verified by QE: the MP6550 datasheet values (the maker's site blocked its fetch) and the N6's 1 M on
+  P6.
+
 ## Next: stage H
 
 0 connections are left (`stageG3/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
@@ -220,7 +252,9 @@ check, DRC warnings read one by one, independent review, then Nick.
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
-- Ask Sofar: what the two GND-plane slots are for, and whether they must stay open to the board edge.
+- Ask Sofar: what the two GND-plane slots are for, and whether they must stay open to the board edge (INT, SDA,
+  ADIN_PWR and the N6 3V3 trunk cross them; list in the QE section).
+- Decide before fabrication: U12's 5 V path on the PWR plane (QE finding 6).
 - Settled 2026-11-18 by the maker's front-view pinout image: P0 to P6 are on the left seen from the front, so the
   board's assumption holds; all 32 header pads agree with the image (`N6_FACTS.md`, `scripts/n6_header_check.py`).
 - Still out of date in the schematic: Pi wording on the cover page and notes, the net name `5V_PI`, the title.
@@ -240,6 +274,10 @@ check, DRC warnings read one by one, independent review, then Nick.
 - A new track or via through a GND pour can cut a piece off from every via: read the pour check's last line. Stages
   F and G each ran on a scratch copy first (same steps as `run_C.sh`, nothing copied back); three cut-off pieces were
   caught that way.
+- The Internal 2 motor logic lines between J21's pad columns need J21's unused inner-layer pads to stay removed:
+  MOTOR_IN1 (X' 3.2) is 0.34 mm from the pin holes (rule 0.3 mm in the `.kicad_dru`) and would overlap a full 1.7 mm
+  pad by 0.01 mm; nSLEEP would clear one by 0.01 mm. "Update footprint from library" on J21 brings the pads back (QE
+  finding 7). The fab's own hole-to-inner-copper minimum has not been read.
 - Chain a script edit and the run with `&&`: on 2026-11-18 a failed edit followed by `;` ran the unfixed step onto
   the working board (not committed; rerun from the base commit put it right).
 - Earlier traps still hold: `n6_rough_board.py` builds mocks only; in zsh write `"${d}:path"`; no poppler here.
