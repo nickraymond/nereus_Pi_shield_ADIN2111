@@ -1,6 +1,6 @@
-# N6 shield: hand-over (2026-11-18, about 10:45 AM Pacific)
+# N6 shield: hand-over (2026-11-18, about 11 AM Pacific)
 
-State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C and D
+State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A, B, C, D and E
 done and J21 moved to the model's header spacing. **All of it is committed locally only; `origin/n6-shield` is at
 `af83088`. Nothing is pushed, no pull request is open, no QE review has run.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
@@ -19,6 +19,8 @@ not running by `pgrep` before each run). Pushing and the draft pull request stil
 | `d818176` | stage D part 1: east channel (SPI, INT, I2C to the header, R43) | same errors, 47 unconnected; 61 new tracks, 5 new vias; dangling warnings 14 + 5 down to 9 + 2 |
 | `058fede` | stage D part 2: reset to P9 | same errors, 46 unconnected; 3 new tracks |
 | `c46af62` | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
+| `3d056ac` | stage E part 1: motor logic and current sense | same errors, 40 unconnected; 35 new tracks, 4 new vias |
+| `328363a` | stage E part 2: pot wiper, two links at U13 | same errors, 36 unconnected; 9 new tracks |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -26,9 +28,10 @@ the plane check (`scripts/stageB/planecheck.py`) and the bus check (`scripts/sta
 Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/stageC/run_C.sh stepC1_converter.py C1`,
 `sh scripts/stageC/run_C.sh stepC2_motor.py C2`, `ALLOW_REF=J21 sh scripts/stageC/run_C.sh stepJ21_move.py J21`,
 `sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`,
-`sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`
+`sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`,
+`sh scripts/stageC/run_C.sh ../stageE/stepE1_motor_logic.py E1`, `sh scripts/stageC/run_C.sh ../stageE/stepE2_wiper.py E2`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -92,22 +95,37 @@ Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `s
 - An independent sub-agent review of stages C part 2 and D part 1 was started on 2026-11-18; its findings are in
   the session's report to Nick and, if they led to changes, in later commits.
 
-## Next: stages E to H
+## What stage E did (commits `3d056ac`, `328363a`; scripts in `scripts/stageE/`)
 
-Left over from stage D for later stages:
-- R52 pad 1 (ADIN_VDDIO) and R9 pad 1 (CFG0_STRAP) wait for stage G; R26 / R27 pad 2 (N6_3V3) for stage F.
+- MOTOR_IN1: bottom from U12 pin 1 into test pad TP40, via inside the pad at (3.9, 37.3). MOTOR_nSLEEP: via at
+  (3.1, 39.95) in the 0.9 mm gap between U12 and TP41. MOTOR_IN2: via at (2.55, 42.0). All 0.45 / 0.20 mm.
+- From the vias on Internal 2 as three parallel lines 0.4 mm apart at X' 3.9 (IN2), 4.3 (IN1), 4.7 (nSLEEP) from
+  y 36 to 22; at J21, IN2 and IN1 run between the pad columns (X' 2.6 and 3.2) into pins 10 and 12, nSLEEP east of
+  the inner column (X' 5.1) into pin 9. 33 to 35 mm each.
+- **Deviation from the routing plan:** the plan's lane for these lines is X' -5.6..-4.6. From that lane they reach
+  J21 in the order IN1, nSLEEP, IN2 (north to south), but the pins need IN1 last, so two lines would cross on the
+  one layer. The direct band has the right order, is about 9 mm shorter, stays on Internal 2 under the GND plane and
+  passes 0.35 mm east of the converter's GND via (3.15, 29.7) and 1.1 mm or more from the switch-node via
+  (2.47, 33.75). No logic line is on an outer layer between y 22 and 37.5 (the plan's gate).
+- MOTOR_VISEN: bottom from pin 11 through the gap, north-east to y 43.95 between TP44 and TP43, via at
+  (7.4, 43.95) under U13, top to U13 pin 4. It is 0.33 mm from the nSLEEP via and 0.35 mm from TP41 (MOTOR_OUT1)
+  at U12, where the plan asks 0.5 mm: the pins are 0.5 mm apart and TP41 stands 0.9 mm from them.
+- Pot wiper on top: U13 pin 5, R51 pad 1, C67 pad 1, north past J8's mounting pad, J8 pin 2. R50 to U13 pin 1 and
+  R49 pad 2 to U13 pin 2.
+
+## Next: stages F to H
+
+36 connections are left (`stageE2/drcsum.txt`, `drc.json`). By group:
+- Stage F: I2C branches (U13 pins 9 / 10 and TP43 from Sofar's bus stubs on the bottom at about (10.3, 26.7) and
+  (10.6, 26.0); QWIIC J3 pins 3 / 4), N6_3V3 (nine connections: both header 3V3 pins, R26 / R27 pad 2, U13 pin 8,
+  C65, C68, R49, J8 pin 1, J3 pin 2), U13's GND pin and the GND pads of R50 / R51 / C67 (no pour on top inside the
+  mote outline: they need vias; under U13 the bottom holds TP43 and TP44).
+- Stage G: CFG0_STRAP (R9 pad 1 to JP4), CFG1_STRAP, ADIN_VDDIO (R52 pad 1, JP2 / JP3 / JP4), the LED nets, the
+  pin 19 net (R2, R47), ADIN_TIMER (TP45), ALERT's test pad TP44, the two zone-to-zone GND items.
 - One unconnected item that no stage of the plan names: BM1_P, Sofar's via at (20.06, 7.46) against his bottom
   track at (22.73, 5.73). Read it before stage G's "0 unconnected" gate.
-
-Notes for stage E (motor logic and sense), from the copper now round U12:
-- Free on the bottom: pin 1 (IN1) can leave south or east at y 39.15 towards TP40; pin 10 (IN2) must turn north-east
-  right after the pin (C61 pad 1 is 0.09 mm from its line); pins 11 / 12 (VISEN, nSLEEP) leave east into the 0.9 mm
-  gap before TP41.
-- Vias near U12 must miss the top copper of MOTOR_OUT1 (trunk X' -1.2..-0.6, branch y 39.175..39.425 from X' -0.9
-  to 3.3) and of MOTOR_OUT2's test branch (y 42.475..42.725 from X' 0.0 to 4.0).
-- Internal 2 is still empty in the wing. Lines west from U12 fit at y 39.4..40.2 (the vias at y 41.07 start at
-  y 40.77) or south of the MOTOR_OUT1 vias (below y 37.15).
-- Keep the Internal 2 lane X' -5.6..-4.6, y 16..37.6 free of vias.
+- Before routing more, handle the findings of the sub-agent review (see the session's report; none had arrived when
+  this note was written).
 
 ## For Nick
 
