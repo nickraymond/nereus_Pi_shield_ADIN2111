@@ -102,5 +102,6 @@ The pinout image (S12, and the docs copy S3) is a view of the camera side: the l
 P10, P9, P8, P7, VIN and GND are the right outer column. Seen from the back they are mirrored, which is what the
 mocks and the board assume. `scripts/n6_header_check.py` compares every pad of J21 / J22 on the board with the
 image's four columns and eight rows: **0 of 32 pads disagree** (run on the stage C part 1 board).
-Still not measured on a real board: the header spacing. The shield has 32.44 mm outer to outer; the r3 model gives
-32.40 mm (J21 sits 0.04 mm west of the model's position, because the mock used the un-mirrored column value).
+Still not measured on a real board: the header spacing. The r3 model gives 32.40 mm outer to outer. The shield had
+32.44 mm (J21 sat 0.04 mm west of the model's position, because the mock used the un-mirrored column value); J21 was
+moved 0.04 mm east on 2026-11-18 on Nick's word, and the check now shows 32.40 mm and no pad offset.
