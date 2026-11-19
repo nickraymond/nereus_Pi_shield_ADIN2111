@@ -1,4 +1,4 @@
-# N6 shield: hand-over (2026-11-18, about 5:10 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 5:20 PM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
 done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `d1c9f42` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
@@ -6,8 +6,8 @@ done (every connection routed: 0 unconnected) and J21 moved to the model's heade
 PR", then "Push the fixes", then "Yes push" for `edfa070..d1c9f42`: stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4). Any commit after `d1c9f42` is local until Nick says push. The QE review ran in
 its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
 in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
-Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Nothing after `edfa070` has been reviewed
-by QE; round 3 on `edfa070..d1c9f42` was asked of the QE session on 2026-11-18 about 5:10 PM.** The routing session (second session
+Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Round 3 on `d1c9f42`: APPROVED WITH NITS (0 blockers, 0 majors, 3 minor, 4 nits), report
+`qe_pr39_d1c9f42.md`, posted on the pull request (issuecomment-6996671846); what is open is in the QE section below.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
 keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
 not running by `pgrep` before each run). Every further push still needs his word.
@@ -194,8 +194,9 @@ Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
   R2 stood on top over the XTAL_I pad. Now: CFG0 on Internal 2 south at X' 5.9, east at y 11.2, north-east between the
   VBUS vias (X' 16.1) and U1's via row, east at y 14.12, north-east between Sofar's ~ADIN_INT via and the ADIN_PWR via
   (0.21 mm from each) into the old line at y 17.7. R2 at (6.6, 15.4) upright; CFG1 and the pin 19 net on top at X' 6.6,
-  1.2 mm west of C8's pads. Still under the crystal and not moved: the reset line on Internal 1 (Sofar's own corner at
-  (10.007, 15.633) lies there; this board taps it at that corner). Picture: `stageG4/N6_shield_stageG4_straps_before_after.png`.
+  1.2 mm west of C8's pads. Still under the crystal and not moved: the reset line on Internal 1. **Corrected after QE round 3 (R3-1):** not only
+  Sofar's own track lies there; this branch's tap from his corner (10.007, 15.633) south-west to (7.394, 13.02)
+  (stage D part 2) also runs under Y1 and C8. See the QE section. Picture: `stageG4/N6_shield_stageG4_straps_before_after.png`.
 - ~ADIN_P1_LED1: a via at (-4.325, 15.1), bottom, a via at (5.95, 18.083), Internal 2 into Sofar's via at
   (10.857, 18.083) (17.7 mm). ~ADIN_P2_LED1: top along the west edge at X' -5.95 and east at y 21.3, one via at
   (5.6, 23.0), Internal 2 at y 22.639 into Sofar's via at (19.122, 22.639) (35.7 mm).
@@ -282,6 +283,31 @@ Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on 
 - Could not be verified by QE: the MP6550 datasheet values (the maker's site blocked its fetch) and the N6's 1 M on
   P6.
 
+### Round 3 on `d1c9f42` (APPROVED WITH NITS): what is open
+
+- **R3-1, reset line under the crystal (minor). Confirmed; waits for Nick.** Measured (`trial_reset/xdist.txt`): 5.82 mm
+  of reset-net track on Internal 1 lies over or under Y1's body or the pads of Y1 / C8 / C7. Of it 1.66 mm is this
+  branch's tap (the diagonal of `scripts/stageD/stepD2_reset.py`), 4.16 mm is Sofar's own track, which runs on east
+  23.95 mm and ends open at (27.557, 7.158) (one of the 9 `track_dangling` warnings).
+  Two trials on scratch copies (`trial_reset/trial_reset.py`, not in git; both: inherited errors only, 0 unconnected,
+  lock / pour / plane / bus pass, no other-net copper nearer than 0.25 mm):
+  A. new tap at Sofar's corner (9.507, 17.404), west at y 17.404, south-west to X' 6.75, south, into the old y 13.02
+     run: none of our copper under the crystal; Sofar's 4.16 mm stays.
+  B. as A, and Sofar's track from (9.507, 17.404) on east removed (11 segments; nothing is connected through it
+     after the new tap): 0 mm under the crystal, nearest 0.36 mm (C8 pad 1) and 0.55 mm (Y1's body); `track_dangling`
+     9 to 8. A locked item of Sofar's: Nick's word needed.
+  No wider path exists on Internal 1: the new line has to pass between the GND via at (7.257, 16.783) and C8.
+  Picture: `trial_reset/N6_shield_reset_line_at_crystal_today_vs_trials.png`.
+- **R1-6, U12 pin 9 escape (minor).** Open for Nick before fabrication (motor feed section above).
+- **R3-2, deviation from the plan, listed here as QE asked:** the plan's "R9 and R2 / R47 stay within 2 mm of their U1
+  pins" is not met. QE's figures: R2 pad 1 is 5.99 mm from U1 pin 19 (3.81 mm before stage G part 4), R47 5.25 mm,
+  R9 11.31 mm (R9 and R47 since mock P). The straps are DC; QE: acceptable.
+- **R3-3, hand-over wording (nit).** Corrected in `9eceb1a`.
+- **R3-4 (nit).** The commit message of `d39a491` calls the BM1_P track Sofar's; it was the Pi Zero work's. History,
+  not changed.
+- **N-2 (nit), for stage H:** ADIN_VDDIO's bottom track end at (-5.450, 9.600) is 0.037 mm outside JP3 pad 1.
+- QE could not verify: the MP6550 datasheet, the N6's 1 M on P6, the full counts of `motediff.py`; fab rules not read.
+
 ## Next: stage H
 
 0 connections are left (`stageG3/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
@@ -302,6 +328,7 @@ check, DRC warnings read one by one, independent review, then Nick.
 - Settled 2026-11-18 (Nick: "Yes, both"): the switch-node pour's net (`2db5cd7`) and the heavier 5 V feed for the
   motor driver (`4a378ee`).
 - Open: whether the motor limit should go above 1.24 A (R48, a schematic change), and the 0.2 mm escape at U12 pin 9.
+- Decide: the reset line at the crystal (QE R3-1): trial A, trial B (removes Sofar's dead reset track), or accept.
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
