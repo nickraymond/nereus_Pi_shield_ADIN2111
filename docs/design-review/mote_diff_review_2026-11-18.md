@@ -33,12 +33,14 @@ on START already except the first: R26.2 / R27.2 from 3V3 to N6_3V3 (stage 0, Ni
 
 ## Findings
 
-1. **Open, needs Nick's word (a locked item of Sofar's).** The 3V3 converter's switch node (U5 pin 2, L3 pad 1, C28
-   pad 1) has a top-layer copper pour on the mote: 21.29 mm2 on net 3V3_Buck_SW. On START and today the same zone has
-   **no net** and fills 3.63 mm2 of copper that touches nothing; the node is carried by its tracks alone (0.5 mm at
+1. **Closed in `2db5cd7` on Nick's word** (routing session's chat, 2026-11-18: "Yes, both" to "Put the heavier motor
+   feed and the switch-node pour net on the board?"). The 3V3 converter's switch node (U5 pin 2, L3 pad 1, C28
+   pad 1) has a top-layer copper pour on the mote: 21.29 mm2 on net 3V3_Buck_SW. On START and at `197115e` the same zone had
+   **no net** and filled 3.63 mm2 of copper that touched nothing; the node was carried by its tracks alone (0.5 mm at
    each end, 1.0 mm between). It is one of the three `isolated_copper` warnings that were filed as "Sofar's no-net
    zones". Trial on a scratch copy (`trial_sw_zone/`): giving the zone its net back fills 21.35 mm2, errors unchanged,
-   one warning fewer, lock / pour / plane / bus checks pass. Not changed on the board.
+   one warning fewer, lock / pour / plane / bus checks pass. The same change on the board (`scripts/stageC/stepC4_sw_pour_net.py`):
+   only the net; 21.35 mm2; the comparison then counts 16 of 16 zones the same (`review2/motediff_C4.txt`).
 2. **Correction of the record.** The BM1_P track that stage 0c dropped and `d39a491` put back was not Sofar's. On the
    mote, his via at (20.057, 7.458) joins L1 pad 3 through a copper polygon and the 2.0 mm bus track; the Pi Zero work
    had replaced both by one 0.2 mm top track, and that is what came back. The line carries data from T1 pin 6 on

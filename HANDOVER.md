@@ -1,9 +1,9 @@
-# N6 shield: hand-over (2026-11-18, about 2:45 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 4:40 PM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
 done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison) are local until Nick says push. The QE review ran in
+PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4) are local until Nick says push. The QE review ran in
 its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
 in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
 Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Stages F and G and the repair have NOT
@@ -35,6 +35,8 @@ not running by `pgrep` before each run). Every further push still needs his word
 | `0c7c3f6` | stage G part 2: ADIN_VDDIO to the jumpers, CFG1 strap, ~ADIN_P1_LED1 | same errors, 3 unconnected; 29 new tracks, 6 new vias; pour check 0 |
 | `986339c` | stage G part 3: CFG0 strap, ~ADIN_P2_LED1, ADIN_VDDIO to R52 | same errors, **0 unconnected**; 28 new tracks, 4 new vias; pour check 0 |
 | `197115e` | stage G part 4: CFG0, CFG1 and R2 moved clear of the crystal (Nick's request) | same errors, 0 unconnected; 14 of this session's tracks removed, 9 new, no new via; lock check PASS with R2 allowed; pour check 0 |
+| `4a378ee` | stage C part 3: heavier 5 V feed for the motor driver (Nick: "Yes, both") | same errors, 0 unconnected; zone "N6 5V U12" redrawn, zone "N6 5V U12 In1" new; no track or via changed; pour check 0 |
+| `2db5cd7` | stage C part 4: Sofar's switch-node pour at the 3V3 converter back on net 3V3_Buck_SW (Nick: "Yes, both") | same errors, `isolated_copper` 3 to 2, 0 unconnected; only the zone's net changed |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -50,9 +52,10 @@ Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/sta
 `sh scripts/stageC/run_C.sh ../stageF/stepF2_3v3_east.py F2`, `sh scripts/stageC/run_C.sh ../stageF/stepF3_north.py F3`,
 `sh scripts/stageC/run_C.sh ../stageG/stepG1_local.py G1`, `sh scripts/stageC/run_C.sh ../stageG/stepG0_bm1p_restore.py G0`,
 `sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`,
-`ALLOW_REF=R2 sh scripts/stageC/run_C.sh ../stageG/stepG4_straps_clear_crystal.py G4`
+`ALLOW_REF=R2 sh scripts/stageC/run_C.sh ../stageG/stepG4_straps_clear_crystal.py G4`,
+`sh scripts/stageC/run_C.sh stepC3_motor_feed.py C3`, `sh scripts/stageC/run_C.sh stepC4_sw_pour_net.py C4`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`, `stageC3`, `stageC4`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -218,26 +221,41 @@ Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
 
 `scripts/review2/motediff.py` compares Sofar's mote reference, the starting board and today's board by geometry.
 - **This branch changed none of Sofar's copper:** all 870 tracks and 185 vias of the mote that the starting board
-  carried are on today's board, same width, layer and net; 15 of 16 zones and all 154 rule areas the same.
+  carried are on today's board, same width, layer and net; all 154 rule areas the same; 15 of 16 zones the same at
+  `197115e`, 16 of 16 since `2db5cd7`.
 - Everything else of the mote (1184 copper items, 79 footprints) was already missing on the starting board, and
   serves parts that were removed or moved.
-- **Open, Nick's word needed:** the 3V3 converter's switch-node pour (top, X' 15.26..22.51, y 30.46..33.88) has no net
-  since the starting board (21.29 mm2 on the mote, 3.63 mm2 of floating copper today). Trial with the net put back:
-  21.35 mm2, errors unchanged (`trial_sw_zone/`). It is one of the three `isolated_copper` warnings.
+- **Done in `2db5cd7` on Nick's word** (routing session's chat, 2026-11-18: "Yes, both" to "Put the heavier motor feed
+  and the switch-node pour net on the board?"): the 3V3 converter's switch-node pour (top, X' 15.26..22.51,
+  y 30.46..33.88) had no net since the starting board (21.29 mm2 on the mote, 3.63 mm2 of floating copper). Its net is
+  3V3_Buck_SW again: 21.35 mm2, errors unchanged, `isolated_copper` 3 to 2. Only the net changed.
+  Picture: `stageC4/N6_shield_stageC4_switch_node_pour_before_after.png`. Output of the comparison on the result:
+  `review2/motediff_C4.txt`.
 - The lock checks protect copper that matches the mote reference. The Pi Zero work's own copper inside the block (747
   items) was removed by stage 0c by design and rebuilt in stages A to G.
 
-## Motor driver's 5 V feed: trial waiting for Nick (QE finding 6)
+## Motor driver's 5 V feed: made heavier in `4a378ee` (QE finding 6; `scripts/stageC/stepC3_motor_feed.py`)
 
-Measured on `197115e` (PWR plane, 15.2 um): U12's 5 V comes through a band 2.0 mm wide (IPC-2221 inner layer: 1.08 A
-for 10 degC rise) and a tab that necks to 1.55 mm at C61's GND via (0.90 A), two 0.6 / 0.3 mm vias, then 0.5 / 0.3 /
-0.2 mm of bottom track into pin 9 (the pin is 0.2 mm wide). The driver's current limit is 1.24 A (R48 4.02 k, BRIEF).
-The N6's own 5 V runs 27 mm down the wing on a PWR-plane strip 3.9 mm wide (1.75 A; 2.7 mm at two via cut-outs) into
-J21 pin 14.
-Trial on a scratch copy (`trial_motor_feed/`, script in the routing session's scratchpad, not in git): the band 3.5 mm
-wide and reaching west over the bulk capacitors' vias, plus the same shape on Internal 1 (only GND pour there today);
-the five existing 5 V vias tie the two layers. 1.62 A per layer for 10 degC rise. DRC, lock, pour, plane and bus checks
-pass, 0 unconnected. **Not on the board: Nick decides.** Picture: `trial_motor_feed/N6_shield_motor_5V_feed_today_vs_trial.png`.
+Nick, routing session's chat, 2026-11-18: "I'd like to have a robust solution that allows for higher current draw
+since this is motor and NPU processing", then "Yes, both" to "Put the heavier motor feed and the switch-node pour net
+on the board?".
+Before (`197115e`, PWR plane, 15.2 um): a band 2.0 mm wide (IPC-2221 inner layer: 1.08 A for 10 degC rise) and a tab
+necking to 1.55 mm at C61's GND via (0.90 A), two vias, then 0.5 / 0.3 / 0.2 mm of bottom track into pin 9.
+Now: the PWR-plane zone "N6 5V U12" has a band 3.5 mm wide (1.62 A) reaching west over the bulk capacitors' vias, and
+a new zone "N6 5V U12 In1" on Internal 1 (priority 1 over the ground pour) has the same band and tab plus a column
+1.69 mm wide over the three bulk-capacitor vias. The five existing 5 V vias tie the two layers; no new via, no track
+changed. Measured on the result (`stageC3/cuts.txt`): band 3.50 mm on each layer; the tab is 1.75 mm and still necks
+to 1.54 mm at y 43.6 on each layer (C61's GND via), which only the lower of U12's two vias (1.694, 43.55) is fed
+through; the upper via (1.694, 44.25) sits at the band's edge.
+**Still the narrowest part, not changed:** the bottom track from the two vias into pin 9: 0.5 mm for 1.52 mm, 0.3 mm
+for 0.88 mm, 0.2 mm for 0.65 mm (the pin's pad is 0.20 mm wide). IPC-2221 outer layer, 35 um, 10 degC rise, for long
+tracks: 1.45 A, 1.00 A, 0.74 A. The driver's current limit is 1.24 A (R48 4.02 k, BRIEF). Not checked: what the
+driver's data sheet asks for at this pin.
+Top-layer tracks that now have 5 V under them on Internal 1 instead of ground: MOTOR_OUT1 4.9 mm, MOTOR_OUT2 1.5 mm,
+N6_3V3 0.4 mm; no data line.
+The N6's own 5 V (not changed) runs 27 mm down the wing on a PWR-plane strip 3.9 mm wide (1.75 A; 2.7 mm at two via
+cut-outs) into J21 pin 14.
+Picture: `stageC3/N6_shield_stageC3_motor_5V_feed_before_after.png`.
 
 ## QE review of pull request 39 (reports in `docs/design-review/qe/`): what is open
 
@@ -270,7 +288,8 @@ Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on 
 0 connections are left (`stageG3/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
 check, DRC warnings read one by one, independent review, then Nick.
 - Copper warnings left, all on Sofar's items (`stageG3/drc.json`): 9 `track_dangling` (among them a 2.5 mm tail of
-  ~ADIN_RST on Internal 1 at (25.81, 8.91), left from the Pi header) and 3 `isolated_copper` (his no-net zones).
+  ~ADIN_RST on Internal 1 at (25.81, 8.91), left from the Pi header) and 2 `isolated_copper` (his no-net zones; a
+  third, the switch-node pour, got its net back in `2db5cd7`).
   They are locked items: changing any needs Nick's word.
 - Silkscreen: Nick's rule is a mock first (slashed-zero font, function name large with the designator small under
   it, boxed power outputs). Three labels are clipped today (routing plan, stage H row).
@@ -279,17 +298,16 @@ check, DRC warnings read one by one, independent review, then Nick.
 
 ## For Nick
 
-- Decide: when to push stages F and G (the local commits after `edfa070`); the QE session is reviewing head
-  `edfa070`.
-- Decide: put the net back on the 3V3 converter's switch-node pour (mote comparison, finding 1).
-- Decide: the heavier 5 V feed for the motor driver (trial above), and whether the 5 V copper should be sized for more
-  than the driver's 1.24 A limit.
+- Decide: when to push the 15 local commits after `edfa070` (this hand-over's among them; stages F and G, the repair, stage G part 4, the mote
+  comparison, stage C parts 3 and 4); QE has reviewed head `edfa070` only.
+- Settled 2026-11-18 (Nick: "Yes, both"): the switch-node pour's net (`2db5cd7`) and the heavier 5 V feed for the
+  motor driver (`4a378ee`).
+- Open: whether the motor limit should go above 1.24 A (R48, a schematic change), and the 0.2 mm escape at U12 pin 9.
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
 - Ask Sofar: what the two GND-plane slots are for, and whether they must stay open to the board edge (INT, SDA,
   ADIN_PWR and the N6 3V3 trunk cross them; list in the QE section).
-- Decide before fabrication: U12's 5 V path on the PWR plane (QE finding 6).
 - Settled 2026-11-18 by the maker's front-view pinout image: P0 to P6 are on the left seen from the front, so the
   board's assumption holds; all 32 header pads agree with the image (`N6_FACTS.md`, `scripts/n6_header_check.py`).
 - Still out of date in the schematic: Pi wording on the cover page and notes, the net name `5V_PI`, the title.
