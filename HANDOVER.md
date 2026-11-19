@@ -322,8 +322,8 @@ anything was removed; the step ran on a scratch copy first (`stageH1_trial/`).
   Sofar's corner (9.507, 17.404), west at y 17.404, south-west to X' 6.75, south, into the old y 13.02 run; 9.2 mm,
   no via.
 - Gate: inherited errors only, parity 0, 0 unconnected, `track_dangling` 9 to 2, no dangling via, lock PASS (48
-  allowed), pour 0, ground plane 1 piece (2223.6 mm2, was 2217.0). The mote comparison's counts of 870 tracks and
-  185 vias "the same" are now 830 and 179 by this step (not re-run).
+  allowed), pour 0, ground plane 1 piece (2223.6 mm2, was 2217.0). The mote comparison re-run on the result (`review2/motediff_H1.txt`): 830 tracks
+  and 179 vias the same as the mote (were 870 and 185); missing by this branch: exactly these 46 items; changed: 0.
   Picture: `stageH1/N6_shield_stageH1_reset_and_dead_copper_before_after.png`.
 
 ## U12 pin 9 (the motor driver's supply pin): data sheet read, no board change (Nick: "please read the data sheet them inform the design")

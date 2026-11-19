@@ -54,3 +54,14 @@ on START already except the first: R26.2 / R27.2 from 3V3 to N6_3V3 (stage 0, Ni
    PWR plane 475 to 362 mm2, P_IN 178 to 168 mm2). Every pad of these nets is connected (0 unconnected). The cause
    was not checked zone by zone.
 5. This branch's own copper with an end inside the mote's outline box: 250 items on 35 nets (list in the output).
+
+## Addendum, same day: Sofar's dead copper removed on Nick's word (`8aa3c30`)
+
+Nick (routing session's chat, 2026-11-18): "yes remove them but you need to be careful, another session had to do this
+very carefully because deleteing them all simply would have deleted good copper". From `8aa3c30` on, the sentence
+"this branch changed none of Sofar's copper" no longer holds: 46 of his items are removed, none changed. They are his
+reset track east of (9.507, 17.404) (11 segments, open end), a GND end to former D3 pad 2 (3), a 3V3 end to former R35
+pad 2 (1), and all copper of the two nets left without a pad when the load switch went in stage 0: VBUS_OUT (16
+tracks, 4 vias) and ~PAYLOAD_FAULT (9 tracks, 2 vias). The comparison on the result
+(`review2/motediff_H1.txt`): 830 tracks and 179 vias the same as the mote; missing by this branch: 46; changed: 0;
+zones 16 of 16; rule areas 154 of 154. What was kept and why: `HANDOVER.md`, "Stage H part 1".
