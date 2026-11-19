@@ -1,31 +1,401 @@
-# N6 shield: hand-over after the first pass (2026-11-17, about 6 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 5:35 PM Pacific)
 
-State: study, mocks and plan are done and pushed on `n6-shield`. **No file in `N6_Shield_ADIN2111/` has changed yet.**
-Next: stage 0 of `STAGE0_PLAN.md` (schematic first), approved by Nick in the first-pass session's chat
-("Go with the rest of your suggestions").
+State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
+done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `d1c9f42` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
+`n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
+PR", then "Push the fixes", then "Yes push" for `edfa070..d1c9f42`: stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4). Any commit after `d1c9f42` is local until Nick says push (at this writing: `9eceb1a`, `b5ec89f`, `8aa3c30` stage H part 1, and this hand-over's). The QE review ran in
+its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
+in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
+Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Round 3 on `d1c9f42`: APPROVED WITH NITS (0 blockers, 0 majors, 3 minor, 4 nits), report
+`qe_pr39_d1c9f42.md`, posted on the pull request (issuecomment-6996671846); what is open is in the QE section below.** The routing session (second session
+on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
+keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
+not running by `pgrep` before each run). Every further push still needs his word.
 
-Read in this order: `BRIEF.md`, `STAGE0_PLAN.md`, `PIN_MAP.md`, the mock P sections at the end of section 3 of
-`FIRST_PASS.md`, `mocks/review/ROUTING_PLAN_P.md` and `REVIEW_P.md`, `N6_FACTS.md`. Then the rules on `development`
-(`CLAUDE.md`, `docs/TRACKER.md`, `docs/SPEC.md`) and the top of `experiments/pi_zero_fit_01/LOG.md`.
+| Commit | What | Gate result (kicad-cli 10.0.7, DRC with schematic parity) |
+|---|---|---|
+| `9fdada4` | stage 0a + 0b: schematic | ERC 0 errors, 2 warnings (the starting design's) |
+| `d9f7e32` | stage 0c: board per mock P | 3 skew + 16 items_not_allowed (inherited), parity 0, 127 unconnected |
+| `8859f01` | stage A: BM2 bus tracks, top layer | same errors, 123 unconnected; 9 new tracks; all 8 bus pins reach their inductor pads on top |
+| `3c4f76a` | stage B: our planes round Sofar's block | same errors, 95 unconnected; 9 new zones; none of Sofar's zones touched |
+| `2fb0497` | stage C part 1: the 5 V converter | same errors, 79 unconnected; 48 new tracks, 11 new vias |
+| `9541a01` | stage C part 2: the motor driver U12 | same errors, 64 unconnected; 35 new tracks, 15 new vias, 1 new zone |
+| `e20079c` | J21 moved 0.04 mm east | same errors, 64 unconnected; lock check PASS with J21 allowed; header check: 0.00 mm offset |
+| `d818176` | stage D part 1: east channel (SPI, INT, I2C to the header, R43) | same errors, 47 unconnected; 61 new tracks, 5 new vias; dangling warnings 14 + 5 down to 9 + 2 |
+| `058fede` | stage D part 2: reset to P9 | same errors, 46 unconnected; 3 new tracks |
+| `c46af62` | stage D part 3: ADIN_PWR to P13 | same errors, 45 unconnected; 3 new tracks, 1 new via |
+| `3d056ac` | stage E part 1: motor logic and current sense | same errors, 40 unconnected; 35 new tracks, 4 new vias |
+| `328363a` | stage E part 2: pot wiper, two links at U13 | same errors, 36 unconnected; 9 new tracks |
+| `e3c8688` | fixes after the sub-agent review (three defects of stages C part 2, D part 1 and E part 2) | same errors, 33 unconnected; 13 new tracks, 3 new vias, 4 of this session's SDA segments replaced; pour check 0 untied pieces (was 2) |
+| `692fc4e` | stage F part 1: I2C to U13, U13's GND pin, N6 3V3 at C68 / C65 / U13 | same errors, 27 unconnected; 17 new tracks, 3 new vias; pour check 0 |
+| `c23fbce` | stage F part 2: N6 3V3 join of the two header pins, east trunk, pull-ups, J3 pin 2 | same errors, 24 unconnected; 8 new tracks, 2 new vias; pour check 0 |
+| `4dc6f74` | stage F part 3: SDA, SCL, N6 3V3 across the north row to QWIIC J3; 3V3 to R49 and J8 | same errors, 19 unconnected; 27 new tracks, 5 new vias; pour check 0 |
+| `b083f7f` | stage G part 1: LED parts, timer test pad, pin 19 net, ALERT test pad | same errors, 9 unconnected; 39 new tracks, 3 new vias; pour check 0 |
+| `d39a491` | repair: Sofar's BM1_P top track from his via at (20.057, 7.458) into L1 pad 3 put back | same errors, 8 unconnected; 1 new track |
+| `0c7c3f6` | stage G part 2: ADIN_VDDIO to the jumpers, CFG1 strap, ~ADIN_P1_LED1 | same errors, 3 unconnected; 29 new tracks, 6 new vias; pour check 0 |
+| `986339c` | stage G part 3: CFG0 strap, ~ADIN_P2_LED1, ADIN_VDDIO to R52 | same errors, **0 unconnected**; 28 new tracks, 4 new vias; pour check 0 |
+| `197115e` | stage G part 4: CFG0, CFG1 and R2 moved clear of the crystal (Nick's request) | same errors, 0 unconnected; 14 of this session's tracks removed, 9 new, no new via; lock check PASS with R2 allowed; pour check 0 |
+| `4a378ee` | stage C part 3: heavier 5 V feed for the motor driver (Nick: "Yes, both") | same errors, 0 unconnected; zone "N6 5V U12" redrawn, zone "N6 5V U12 In1" new; no track or via changed; pour check 0 |
+| `2db5cd7` | stage C part 4: Sofar's switch-node pour at the 3V3 converter back on net 3V3_Buck_SW (Nick: "Yes, both") | same errors, `isolated_copper` 3 to 2, 0 unconnected; only the zone's net changed |
+| `8aa3c30` | stage H part 1: reset tap off the crystal; Sofar's dead copper removed (Nick: "yes remove them but you need to be careful") | same errors, 0 unconnected, `track_dangling` 9 to 2; 48 items removed (46 of Sofar's), 5 new tracks; lock PASS; pour check 0 |
 
-What is settled (Nick's words are quoted in the files named):
-- Board: OpenMV N6. Layout: mock P, 42.16 x 62.0 mm; east edge = the N6's edge; south edge 1.4 mm past the N6;
-  both headers through-hole, pins soldered to the N6 with 5 mm spacers; three 2.7 mm bare holes; connectors
-  top-entry, 3 mm between bodies; coordinates in `scripts/n6_rough_board.py` (mock "P").
-- Pin map with INT on P6 and reset on P9; pot and ADC on the N6's 3V3; AUX pads, jumper, fuse, load switch go.
-- Straps JP3 / JP4 stay, on the N6-facing side of the west wing; default 0 / 0.
+Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
+the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
+the plane check (`scripts/stageB/planecheck.py`), the bus check (`scripts/stageA/buscheck.py`) and, since `e3c8688`,
+the pour check (`scripts/review1/pourcheck.py`: every filled piece of our GND pours has a GND via or through-hole pad)
+and, since the QE review, `scripts/review1/uncdiff.py` (no net may have more unconnected items than before the step).
+Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/stageC/run_C.sh stepC1_converter.py C1`,
+`sh scripts/stageC/run_C.sh stepC2_motor.py C2`, `ALLOW_REF=J21 sh scripts/stageC/run_C.sh stepJ21_move.py J21`,
+`sh scripts/stageC/run_C.sh ../stageD/stepD1_east.py D1`, `sh scripts/stageC/run_C.sh ../stageD/stepD2_reset.py D2`,
+`sh scripts/stageC/run_C.sh ../stageD/stepD3_adinpwr.py D3`,
+`sh scripts/stageC/run_C.sh ../stageE/stepE1_motor_logic.py E1`, `sh scripts/stageC/run_C.sh ../stageE/stepE2_wiper.py E2`,
+`sh scripts/stageC/run_C.sh ../review1/stepR1_fixes.py R1`, `sh scripts/stageC/run_C.sh ../stageF/stepF1_u13.py F1`,
+`sh scripts/stageC/run_C.sh ../stageF/stepF2_3v3_east.py F2`, `sh scripts/stageC/run_C.sh ../stageF/stepF3_north.py F3`,
+`sh scripts/stageC/run_C.sh ../stageG/stepG1_local.py G1`, `sh scripts/stageC/run_C.sh ../stageG/stepG0_bm1p_restore.py G0`,
+`sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`,
+`ALLOW_REF=R2 sh scripts/stageC/run_C.sh ../stageG/stepG4_straps_clear_crystal.py G4`,
+`sh scripts/stageC/run_C.sh stepC3_motor_feed.py C3`, `sh scripts/stageC/run_C.sh stepC4_sw_pour_net.py C4`,
+`sh scripts/stageC/run_C.sh ../stageH/stepH1_reset_and_dead_stubs.py H1`
+(each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`, `stageC3`, `stageC4`, `stageH1`
+(a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
-Traps found in this session:
-- `n6_rough_board.py` builds MOCKS: it drops all zones, our routing and our small parts, and uses library footprints
-  without nets. It is the source of coordinates, not a stage script.
-- Keep footprints by object, not by reference (new parts reused H1..H4); Sofar's 17 copper shapes must turn with
-  the block; collect "old" drawings before adding new ones.
-- Sofar's only T1-to-L1 copper on the bus nets is a 0.2 mm data track: the bus enters at L1's and L2's own pads.
-- In zsh, `$d:path` eats the path's first letter: write `"${d}:path"`.
-- pdftotext / poppler are not installed here: PDFs cannot be read with the Read tool.
+## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
 
-Open, not verified: a real N6 (header left / right sense, row spacing); the header part for a 5 mm gap; Sofar's
-ground-slot purpose; ADIN2111 Rev. B; ST's pin limits; the 33 ohm part; heat and potting.
+- Sofar's GND-plane zone is the old mote outline (X' 5.02..41.0, y -0.14..49.8). It already covers the east strip
+  from y 7.05 to 41.64. His two slots are notches open to the mote's old east edge.
+- His 152 rule areas on the two planes forbid nothing (all keep-out flags off): they do not block our zones and
+  were left alone. **No outline of his was re-cut.** KiCad clips his fills at the new board edge.
+- Our GND on the GND plane joins his with 0.5 mm overlap. **His two slots are carried on to the board edge** (no
+  ground bridge across the slot mouths at the east edge), so his slot topology is as on the mote. The review's
+  proposal was to end the slots at the block edge; that waits for Sofar's answer on what the slots are for.
+- No pour of ours on top, Internal 1 or the PWR plane within 1.0 mm of the bus tracks outside the mote outline.
+- J21 / J22 pads drop inner-layer copper where nothing connects (two more footprint-differs-from-library warnings).
+- The review's "0.5 mm from zones to header pads" needs a rule in the `.kicad_dru` (Nick's word); not done. A pad
+  clearance on the header pads would also block the one-track-per-gap routes between the pins.
+- Pours on top, Internal 1 and bottom fill only where a GND pad or via lies in them; more stitching vias come with
+  later stages.
 
-Outside git: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/` (scratch boards `step_rough/mock_*`, renders,
-`review_L/`, `review_P/` with plots and scripts, `n6_research_raw.md`, `sources/`).
+## What stage C part 2 did (commit `9541a01`, script `scripts/stageC/stepC2_motor.py`)
+
+- U12 has twelve pads and no centre pad; the MP6550 datasheet (Rev. 1.0, 7/16/2019) has no layout section, gives
+  theta JA 80 C/W on a JESD51-7 board, and its pin table agrees with the board's nets. Heat leaves through the pins.
+- 5 V: C62 / C66 / C60 joined on the bottom at X' -5.2 with three vias into the stage B 5 V area. **New zone
+  "N6 5V U12" on the PWR plane** (priority 3): joins the stage B area over y 42.6..45.6, a band y 44.3..46.3, a tab
+  X' 1.25..3.0 down to C61; two vias north of C61 pad 1. A 5 V track on an outer layer would cross a motor output.
+- MOTOR_OUT1: bottom from pin 2 south, two vias at (1.195, 37.45) and (0.395, 37.45), then TOP: trunk at X' -0.9
+  from y 38.35 to 44.4, 45 degrees to the lane X' 3.4 between J7's mounting pad and its pins, pins 1 / 2 from the
+  west. TP41 (bottom): top branch at y 39.3 and a via inside the test pad at (3.95, 39.95).
+- MOTOR_OUT2: bottom from pin 8, west at y 42.08 between the pin row and C61, trunk at X' 0.0 north to y 51.4,
+  45 degrees to two vias at (3.3, 54.7) and (3.3, 55.95), top into pins 3 / 4. TP42 (top): via on the trunk at
+  (0.0, 42.6) and a top branch at y 42.6.
+- GND vias: (0.845, 38.45) for pin 3, (0.85, 43.6) for C61, (-3.4, 41.07) and (-2.55, 41.07) at the bulk capacitors.
+  C64 / C63 / R48 pad 2 connect through the bottom pour.
+- The top GND pour is now in more pieces (the MOTOR_OUT1 trunk and the two test-point branches cut it). **This left
+  one piece with R38 pad 2 and R40 pad 1 and no via: the 5 V feedback divider's ground was open. Found by the
+  sub-agent review, fixed in `e3c8688`.** KiCad's isolated-copper warning does not catch a pour piece that touches
+  only surface-mount pads; the DRC showed it only as a zone-to-zone unconnected item.
+- Not connected on the board: U12 pin 5 (nSLEEP_LDO). The datasheet gives it an internal pull-down (3.3 V regulator
+  off). That is the schematic's choice, not a routing matter.
+
+## What stage D did (commits `d818176`, `058fede`, `c46af62`; scripts in `scripts/stageD/`)
+
+- East channel, one track per gap between J22's inner pads (gap centre lines y 18.10, 13.02, 10.48, 7.94, 5.40,
+  2.86; MOSI passes above row 1 at y 20.55), then 45 degrees into the outer pin.
+- MISO on top (stub, R9 pad 2, R54). MOSI on Internal 1 to a new via at (28.75, 19.671). SCK and CS on Internal 2
+  from Sofar's vias to new vias at (29.0, 12.35) and (28.95, 10.25). R52 pad 2 and R56 pad 1 joined on top.
+- SCL: via (28.85, 14.083), bottom at X' 29.6, branch to R26 pad 1, P4. SDA: via (28.65, 13.315), bottom at
+  X' 28.3 to R27 pad 1, P5. INT: top at X' 28.382 south, P6. All five new vias are 0.45 / 0.20 mm (Sofar's size).
+- R43: pad 2 to Sofar's GND via (31.732, 21.058); pad 1 on the bottom (X' 30.0, then y 14.7) to test pad TP8.
+- Reset: Internal 1 from Sofar's corner (10.007, 15.633) through the gap y 13.02 of J21 into pin 8, no via.
+- ADIN_PWR: one new via (0.45 / 0.20 mm) at (21.0, 15.728) on Sofar's Internal 1 track, then Internal 2: south-west
+  to y 10.5, west, and 45 degrees into J21 pin 11; 20.6 mm (`scripts/stageD/stepD3_adinpwr.py`).
+- **Deviations from the routing plan, for the QE review and Nick:**
+  1. SPI copper from U1 to the header pin (`scripts/stageD/spilen.py`, branches included): MOSI 23.5, MISO 20.8,
+     SCK 21.7, CS 26.4 mm. The plan proposed 20 mm or less and a spread of 5 mm or less. MOSI, MISO and SCK lie
+     within 2.7 mm of each other. Sofar's own part is 9 to 15 mm of each line and the pins are on the header's outer
+     column, so 20 mm is out of reach with the resistors where stage 0 placed them.
+  2. No GND via beside the three new SPI vias: top, Internal 1 and Internal 2 all have the GND plane as their
+     nearest plane in the east strip (no pour of ours there), so no line changes its reference plane, and a via
+     touching only the GND plane is reported as dangling.
+  3. N6_MOSI on top passes 0.18 mm from Sofar's GND via at (31.732, 21.058) and 0.23 mm from J22's row 1 inner pad
+     (`stageD1/clearcheck.txt`); everything else new is 0.2 mm or more from other nets.
+- An independent sub-agent review of stages C part 2 and D part 1 ran on 2026-11-18 (record:
+  `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageR1/subagent_review_2026-11-18.md`). Three defects, each
+  confirmed on the board and fixed in `e3c8688` (`scripts/review1/stepR1_fixes.py`): the open divider ground above;
+  ADIN_PWR's track ended 0.07 mm outside the round test pad TP8; R26 pad 2 (N6_3V3) was shut in, so SDA's bottom
+  run moved to X' 27.9 and R27 pad 2 is joined to R26 pad 2 at X' 28.4. The review agreed with deviation 2 (no GND
+  via) and saw no current concern at 1.24 A. It did not review stage E or the fixes.
+
+## What stage E did (commits `3d056ac`, `328363a`; scripts in `scripts/stageE/`)
+
+- MOTOR_IN1: bottom from U12 pin 1 into test pad TP40, via inside the pad at (3.9, 37.3). MOTOR_nSLEEP: via at
+  (3.1, 39.95) in the 0.9 mm gap between U12 and TP41. MOTOR_IN2: via at (2.55, 42.0). All 0.45 / 0.20 mm.
+- From the vias on Internal 2 as three parallel lines 0.4 mm apart at X' 3.9 (IN2), 4.3 (IN1), 4.7 (nSLEEP) from
+  y 36 to 22; at J21, IN2 and IN1 run between the pad columns (X' 2.6 and 3.2) into pins 10 and 12, nSLEEP east of
+  the inner column (X' 5.1) into pin 9. 33 to 35 mm each.
+- **Deviation from the routing plan:** the plan's lane for these lines is X' -5.6..-4.6. From that lane they reach
+  J21 in the order IN1, nSLEEP, IN2 (north to south), but the pins need IN1 last, so two lines would cross on the
+  one layer. The direct band has the right order, is about 9 mm shorter, stays on Internal 2 under the GND plane and
+  passes 0.35 mm east of the converter's GND via (3.15, 29.7) and 1.03 mm (MOTOR_IN2, edge to edge) or more from the
+  switch-node via (2.47, 33.75). MOTOR_IN1 is on the bottom from U12 pin 1 to its via in TP40 at y 37.3, so the plan's
+  gate (no logic line on an outer layer between y 22 and 37.5) is missed by 0.2 mm there; from y 22 to 37.3 all three
+  lines are on Internal 2. (Both numbers corrected after the QE review.)
+- MOTOR_VISEN: bottom from pin 11 through the gap, north-east to y 43.95 between TP44 and TP43, via at
+  (7.4, 43.95) under U13, top to U13 pin 4. It is 0.33 mm from the nSLEEP via and 0.44 mm from TP41 (MOTOR_OUT1)
+  at U12, where the plan asks 0.5 mm: the pins are 0.5 mm apart and TP41 stands 0.9 mm from them.
+- Pot wiper on top: U13 pin 5, R51 pad 1, C67 pad 1, north past J8's mounting pad, J8 pin 2. R50 to U13 pin 1 and
+  R49 pad 2 to U13 pin 2.
+
+## What stage F did (commits `692fc4e`, `c23fbce`, `4dc6f74`; scripts in `scripts/stageF/`)
+
+- I2C to U13: Internal 2 from Sofar's own bus vias beside U4, (9.932, 25.408) SDA and (10.657, 25.208) SCL, with no
+  new via there. Two parallel lines 0.15 mm wide (Sofar's I2C width in the block), 0.35 mm apart: north at X' 10.15 /
+  10.5, 45 degrees through the gap between the UVLO via (9.557, 31.533) and the VBUS via (9.707, 33.433), north at
+  X' 6.3 / 6.85. One via per line under U13 (0.45 / 0.20 mm): SDA at (6.3, 44.69), SCL at (6.85, 45.2) on the bottom
+  test pad TP43. 22.0 and 24.0 mm.
+- U13 pin 3 (GND): top to R51 pad 2 and its GND via at (11.45, 47.51). One new GND via at (8.94, 43.5) for R50 pad 2:
+  the 3V3 track at y 45.19 shut that top pour piece off (the trial's pour check found it).
+- N6 3V3 is one chain, 0.4 mm on Internal 2: J21 pin 15, a straight line at y 0.2 along the south edge (31 mm), J22
+  pin 15, the trunk at X' 32.73 between the east header's pad columns up to a via at (32.73, 52.745), top into J3
+  pin 2, back on Internal 2 across the north row to a via at (12.3, 46.65) (top branch to R49 pad 1 and J8 pin 1) and
+  to a via at (3.72, 44.35) south of C65, top to C65, C68 and U13 pin 8. The pull-ups R26 / R27 hang on the trunk
+  through a via at (29.0, 7.94) and a branch at y 7.94.
+- QWIIC: SCL, SDA (0.2 mm) and the 3V3 line run as three parallel lines on Internal 2 from U13 east (y 45.7 / 46.1 /
+  46.65), 45 degrees, east at y 48.8 / 49.2 / 49.75 under J9 and the BM2 bus tracks (the GND plane lies between), round
+  J3's east end, one via per line (0.45 / 0.20 mm), top into pins 2, 3, 4. 31 to 32 mm from U13.
+- **Differences from the routing plan, for the QE review and Nick:**
+  1. The plan had no join of the two header 3V3 pins and fed U13 from the mote's 3V3; Nick's stage 0 decision put U13
+     and the pot on the N6's 3V3. The board needs all N6 3V3 pins on one piece of copper, so the chain above. U13 and
+     the pot get the N6's 3V3 through about 88 mm of track from J22 pin 15 (points in the scripts), about 0.25 ohm by
+     my arithmetic (copper 1.72e-8 ohm m, 0.4 mm wide, 15.2 um inner foil as in the routing plan). QWIIC's supply
+     current shares the first 56 mm of it. Not measured, not simulated.
+  2. The I2C lines to U13 are 0.15 mm wide (plan 0.2 mm): two 0.2 mm lines 0.2 mm apart would pass the two vias of
+     the gap at 0.125 mm (rule 0.127 mm). As routed they pass at 0.18 mm.
+  3. SCL's via stands on the test pad TP43; three more vias stand under U13's body (SDA, SCL, VISEN from stage E).
+  4. Other-net copper nearer than 0.2 mm to stage F's copper, all 0.15 mm or more (`stageF3/clearcheck.txt`): the
+     SDA via to SCL's top track under U13, and the two I2C lines to the UVLO and VBUS vias in the gap.
+
+## What stage G did (commits `b083f7f`, `0c7c3f6`, `986339c`; scripts in `scripts/stageG/`)
+
+The west header J21 lies between the wing and U1, and the motor logic lines run through it on Internal 2. Stage G's
+lines cross it on the bottom through the gaps between the pad rows (y 10.48 CFG1, 15.56 CFG0, 18.083 P1_LED1), on
+Internal 1 north of it (VDDIO, y 20.6) and on top north of it (P2_LED1, y 21.3).
+- LED parts (top): ADIN_LED_VDD rail at X' -2.85 from JP2 pad 2 to R46 / R45 / R44; the anode links in the gap
+  between the LED column and the resistor column.
+- ADIN_TIMER: R47 pad 1 to TP45 on top. Pin 19 net: R47 pad 2 and R2 pad 1 on top, one via at (6.6, 17.3), Internal 1
+  into Sofar's via at (10.794, 19.345).
+- ~ADC_ALERT to TP44: one via at (8.35, 44.5) under U13, 0.2 mm from the test pad TP43.
+- ADIN_VDDIO: JP3 pad 1 to JP4 pad 3 on the bottom; JP2 pad 1 through a via at (-5.45, 8.0); feed on Internal 1 from a
+  via at (-1.6, 13.895) into Sofar's via at (10.832, 20.108) (27.9 mm in all). To R52 pad 1: a via at (30.2, 8.921),
+  Internal 2 north at X' 30.2, west at y 18.25 into Sofar's via at (19.776, 17.677) (20.2 mm).
+- CFG1_STRAP: bottom, a via at (6.6, 10.48), top at X' 6.6 to R2 pad 2. CFG0_STRAP: bottom, a via at (5.9, 15.56),
+  Internal 2 round the south of the crystal (part 4, below), a via at (28.0, 16.55), top into R9 pad 1.
+- **Part 4 (`197115e`, Nick's request: straps away from the crystal).** The crystal Y1 is on the bottom, box X' 8.93..11.98,
+  y 13.58..16.51, with its load capacitors C8 / C7 at X' 7.76..12.96. CFG0 ran on Internal 2 at y 15.77 under all three and
+  R2 stood on top over the XTAL_I pad. Now: CFG0 on Internal 2 south at X' 5.9, east at y 11.2, north-east between the
+  VBUS vias (X' 16.1) and U1's via row, east at y 14.12, north-east between Sofar's ~ADIN_INT via and the ADIN_PWR via
+  (0.21 mm from each) into the old line at y 17.7. R2 at (6.6, 15.4) upright; CFG1 and the pin 19 net on top at X' 6.6,
+  1.2 mm west of C8's pads. Still under the crystal and not moved: the reset line on Internal 1. **Corrected after QE round 3 (R3-1):** not only
+  Sofar's own track lies there; this branch's tap from his corner (10.007, 15.633) south-west to (7.394, 13.02)
+  (stage D part 2) also runs under Y1 and C8. See the QE section. Picture: `stageG4/N6_shield_stageG4_straps_before_after.png`.
+- ~ADIN_P1_LED1: a via at (-4.325, 15.1), bottom, a via at (5.95, 18.083), Internal 2 into Sofar's via at
+  (10.857, 18.083) (17.7 mm). ~ADIN_P2_LED1: top along the west edge at X' -5.95 and east at y 21.3, one via at
+  (5.6, 23.0), Internal 2 at y 22.639 into Sofar's via at (19.122, 22.639) (35.7 mm).
+- Three GND vias for pour pieces the new tracks shut off, each found by the pour check on a trial run: (-5.2, 17.9)
+  at D8 pad 1, (-1.5, 10.295) at JP3 pad 3 (bottom), and stage F's (8.94, 43.5) at R50 pad 2.
+- **For the QE review and Nick:**
+  1. **Repair `d39a491`.** Sofar's via at (20.057, 7.458) carries BM1_P on Internal 2 from the data transformer T1
+     pin 6. The starting board (`325599c`) joined it to L1 pad 3 with a 0.2 mm top track; stage 0c dropped that track
+     with the old bus tracks, so T1 pin 6 had no connection to the BM1 bus from stage 0c on. DRC showed it as one
+     unconnected item. The same track is back (same ends, width, layer). **Corrected after the mote comparison:** that
+     track was the Pi Zero work's, not Sofar's (his mote joins the via to L1 through a copper polygon and the 2.0 mm bus
+     track), and the commit message of `d39a491` calls it Sofar's wrongly. The full comparison is the next section.
+  2. CFG0 on Internal 2: see part 4 above (it no longer runs under the crystal).
+  3. ~ADIN_P2_LED1 runs 9 mm along the west edge, 0.55 mm from the board edge (rule 0.5 mm) and 0.175 mm from the LED
+     pads.
+  4. The R52 VDDIO line and the CFG0 line run side by side on Internal 2 for 4.7 mm, 0.3 mm apart.
+  5. Other-net copper nearer than 0.2 mm to stage G's copper, all 0.15 mm or more (`stageG1..G3/clearcheck.txt`): the
+     P1_LED1 via at (5.95, 18.083) to R47 pad 1; the VDDIO via at (30.2, 8.921) to SCL's bottom track; P2_LED1 to the
+     LED pads.
+  6. Via count per net against the plan's limits: LED lines 2 and 1 new (limit 2), straps 1 and 2 (limit 3).
+
+## Mote reference against the board (Nick's request, 2026-11-18): `docs/design-review/mote_diff_review_2026-11-18.md`
+
+`scripts/review2/motediff.py` compares Sofar's mote reference, the starting board and today's board by geometry.
+- **This branch changed none of Sofar's copper:** all 870 tracks and 185 vias of the mote that the starting board
+  carried are on today's board, same width, layer and net; all 154 rule areas the same; 15 of 16 zones the same at
+  `197115e`, 16 of 16 since `2db5cd7`.
+- Everything else of the mote (1184 copper items, 79 footprints) was already missing on the starting board, and
+  serves parts that were removed or moved.
+- **Done in `2db5cd7` on Nick's word** (routing session's chat, 2026-11-18: "Yes, both" to "Put the heavier motor feed
+  and the switch-node pour net on the board?"): the 3V3 converter's switch-node pour (top, X' 15.26..22.51,
+  y 30.46..33.88) had no net since the starting board (21.29 mm2 on the mote, 3.63 mm2 of floating copper). Its net is
+  3V3_Buck_SW again: 21.35 mm2, errors unchanged, `isolated_copper` 3 to 2. Only the net changed.
+  Picture: `stageC4/N6_shield_stageC4_switch_node_pour_before_after.png`. Output of the comparison on the result:
+  `review2/motediff_C4.txt`.
+- The lock checks protect copper that matches the mote reference. The Pi Zero work's own copper inside the block (747
+  items) was removed by stage 0c by design and rebuilt in stages A to G.
+
+## Motor driver's 5 V feed: made heavier in `4a378ee` (QE finding 6; `scripts/stageC/stepC3_motor_feed.py`)
+
+Nick, routing session's chat, 2026-11-18: "I'd like to have a robust solution that allows for higher current draw
+since this is motor and NPU processing", then "Yes, both" to "Put the heavier motor feed and the switch-node pour net
+on the board?".
+Before (`197115e`, PWR plane, 15.2 um): a band 2.0 mm wide (IPC-2221 inner layer: 1.08 A for 10 degC rise) and a tab
+necking to 1.55 mm at C61's GND via (0.90 A), two vias, then 0.5 / 0.3 / 0.2 mm of bottom track into pin 9.
+Now: the PWR-plane zone "N6 5V U12" has a band 3.5 mm wide (1.62 A) reaching west over the bulk capacitors' vias, and
+a new zone "N6 5V U12 In1" on Internal 1 (priority 1 over the ground pour) has the same band and tab plus a column
+1.69 mm wide over the three bulk-capacitor vias. The five existing 5 V vias tie the two layers; no new via, no track
+changed. Measured on the result (`stageC3/cuts.txt`): band 3.50 mm on each layer; the tab is 1.75 mm and still necks
+to 1.54 mm at y 43.6 on each layer (C61's GND via), which only the lower of U12's two vias (1.694, 43.55) is fed
+through; the upper via (1.694, 44.25) sits at the band's edge.
+**Still the narrowest part, not changed:** the bottom track from the two vias into pin 9: 0.5 mm for 1.52 mm, 0.3 mm
+for 0.88 mm, 0.2 mm for 0.65 mm (the pin's pad is 0.20 mm wide). IPC-2221 outer layer, 35 um, 10 degC rise, for long
+tracks: 1.45 A, 1.00 A, 0.74 A. The driver's current limit is 1.24 A (R48 4.02 k, BRIEF). Not checked: what the
+driver's data sheet asks for at this pin.
+Top-layer tracks that now have 5 V under them on Internal 1 instead of ground: MOTOR_OUT1 4.9 mm, MOTOR_OUT2 1.5 mm,
+N6_3V3 0.4 mm; no data line.
+The N6's own 5 V (not changed) runs 27 mm down the wing on a PWR-plane strip 3.9 mm wide (1.75 A; 2.7 mm at two via
+cut-outs) into J21 pin 14.
+Picture: `stageC3/N6_shield_stageC3_motor_5V_feed_before_after.png`.
+
+## QE review of pull request 39 (reports in `docs/design-review/qe/`): what is open
+
+Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on the board after stage G
+(2026-11-18). Open findings, by the report's numbers:
+- **2, gate.** Done: `scripts/review1/uncdiff.py` runs in `run_C.sh` and names any net with more unconnected items
+  than before the step (tried on the trial run that had a cut-off pour piece: it names GND; every stage F and G step:
+  none). Still true: `pourcheck.py` looks only at zones named "N6 GND" and counts a via near a piece as tying it. At 0
+  unconnected, DRC itself shows no pour piece of any net without a connection.
+- **4, departures from the plan's net classes not listed before** (all at U12 unless said): MOTOR_IN1 0.21 mm from
+  MOTOR_OUT1 on the bottom; the nSLEEP via 0.25 mm from MOTOR_OUT1's top branch; the IN2 via 0.25 mm from
+  MOTOR_OUT2's top branch; ISET (pin 7) 0.25 mm from MOTOR_OUT2 (plan 0.5 mm for each). The VBUS feed track in the
+  wing is 0.5 mm (plan 1.0 mm; stage C part 1). 5 V changes layer with 3 vias at the bulk capacitors, 2 at C61 and 3 at
+  the converter (plan 4 or more). MOTOR_OUT2 is 0.3 mm wide for 0.8 mm. QE's view: acceptable, list them.
+- **5, GND-plane slots.** The south slot is a void y 6.67..7.04 from X' 20.0 to the east edge. It is crossed by
+  ~ADIN_INT (top, X' 28.38), I2C0_SDA (bottom, X' 27.9), ADIN_PWR (Internal 2; QE's finding) and, since stage F, the
+  N6 3V3 trunk (Internal 2, X' 32.73), which also crosses the north slot (void y 41.65..42.02 there). No SPI line
+  crosses a slot. Goes with the question to Sofar.
+- **6, U12's 5 V.** Done in `4a378ee` on Nick's word: band 3.5 mm on the PWR plane and on Internal 1 (section above).
+  Left: the 0.2 mm bottom-track escape into pin 9.
+- **7, J21's inner pads.** See Traps.
+- **9 (nit).** Sofar's ~ADIN_RST track on Internal 1 runs on 22 mm past the point where this board taps it
+  ((11.1, 15.6) to (27.56, 7.16)), an open stub left from the Pi header. Locked item; noted, not changed.
+- Could not be verified by QE: the MP6550 datasheet values (the maker's site blocked its fetch) and the N6's 1 M on
+  P6.
+
+### Round 3 on `d1c9f42` (APPROVED WITH NITS): what is open
+
+- **R3-1, reset line under the crystal (minor). Done in `8aa3c30`** (stage H part 1 below): 0 mm of reset-net track
+  over or under the crystal now (was 5.82 mm: 1.66 mm this branch's tap of stage D part 2, 4.16 mm Sofar's own
+  track); nearest 0.36 mm (C8 pad 1) and 0.55 mm (Y1's body). No wider path exists on Internal 1: the line has to pass
+  between the GND via at (7.257, 16.783) and C8.
+- **R1-6, U12 pin 9 escape (minor).** Closed without a board change: see "U12 pin 9" below.
+- **R3-2, deviation from the plan, listed here as QE asked:** the plan's "R9 and R2 / R47 stay within 2 mm of their U1
+  pins" is not met. QE's figures: R2 pad 1 is 5.99 mm from U1 pin 19 (3.81 mm before stage G part 4), R47 5.25 mm,
+  R9 11.31 mm (R9 and R47 since mock P). The straps are DC; QE: acceptable.
+- **R3-3, hand-over wording (nit).** Corrected in `9eceb1a`.
+- **R3-4 (nit).** The commit message of `d39a491` calls the BM1_P track Sofar's; it was the Pi Zero work's. History,
+  not changed.
+- **N-2 (nit), for stage H:** ADIN_VDDIO's bottom track end at (-5.450, 9.600) is 0.037 mm outside JP3 pad 1.
+- QE could not verify: the MP6550 datasheet, the N6's 1 M on P6, the full counts of `motediff.py`; fab rules not read.
+
+## Stage H part 1 (`8aa3c30`, `scripts/stageH/stepH1_reset_and_dead_stubs.py`): reset tap, Sofar's dead copper
+
+Nick, routing session's chat, 2026-11-18, on Sofar's leftovers: "yes remove them but you need to be careful, another
+session had to do this very carefully because deleteing them all simply would have deleted good copper".
+How it was done: every `track_dangling` item walked from its open end back to the first point where anything of its
+net touches (`stageH1/dangle_analysis.txt`), and every net checked for pads (`stageH1/padless_nets.txt`), before
+anything was removed; the step ran on a scratch copy first (`stageH1_trial/`).
+- **Kept on purpose.** Two flagged tracks are not dead: GND bottom at (27.532, 40.534) and VBUS bottom at
+  (27.357, 30.033); both ends lie in copper of nets that have pads, only the end points miss each other. Sofar's two
+  no-net zones NoConnect_Left / NoConnect_Right on the PWR plane (73.6 and 48.8 mm2, priority 7) are named, and the
+  same on the mote reference: meant to be there. So 2 `track_dangling` and 2 `isolated_copper` warnings stay.
+- **Removed, Sofar's (46 items):** his reset track on Internal 1 from (9.507, 17.404) to its open end at
+  (27.557, 7.158) (11 segments, 23.95 mm); a GND end on the bottom from the via at (30.607, 36.133) to former D3
+  pad 2 (3 segments, 1.56 mm; the via stays); a 3V3 end on top to former R35 pad 2 (1 segment); and all copper of
+  the two nets with no pad since the load switch U11 went in stage 0: VBUS_OUT (16 tracks, 20.5 mm at 0.6 mm, 4
+  vias) and ~PAYLOAD_FAULT (9 tracks, 2 vias). Removing only the flagged end of ~PAYLOAD_FAULT left a dangling via
+  on the trial; that is how the pad-less nets were found.
+- **Removed, this branch's:** the reset tap of stage D part 2 (2 segments). **New:** reset tap on Internal 1 from
+  Sofar's corner (9.507, 17.404), west at y 17.404, south-west to X' 6.75, south, into the old y 13.02 run; 9.2 mm,
+  no via.
+- Gate: inherited errors only, parity 0, 0 unconnected, `track_dangling` 9 to 2, no dangling via, lock PASS (48
+  allowed), pour 0, ground plane 1 piece (2223.6 mm2, was 2217.0). The mote comparison re-run on the result (`review2/motediff_H1.txt`): 830 tracks
+  and 179 vias the same as the mote (were 870 and 185); missing by this branch: exactly these 46 items; changed: 0.
+  Picture: `stageH1/N6_shield_stageH1_reset_and_dead_copper_before_after.png`.
+
+## U12 pin 9 (the motor driver's supply pin): data sheet read, no board change (Nick: "please read the data sheet them inform the design")
+
+MP6550 data sheet Rev. 1.0, 7/16/2019 (text in the routing session's scratchpad; the maker's site blocks fetches):
+VIN is one pin (pin 9) on a part rated "2A Continuous Driver Current"; pin table: "An input capacitor is needed to
+prevent large voltage spikes from appearing at the input"; no value, no layout section; theta JA 80 / theta JC
+16 degC/W on a JESD51-7 board; "Continuous current depends on PCB layout and ambient temperature".
+On the board (`8aa3c30`): pin 9's pad is 0.20 x 0.95 mm. The input capacitor C61 (100 nF) sits in the feed: its pad
+edge is 0.81 mm from the end of pin 9's pad. Between them 0.17 mm of 0.2 mm track and 0.64 mm of 0.3 mm track
+(about 1.5 mOhm by my sum, 35 um copper: 2 mV and 2 mW at 1.24 A). The 0.3 mm part is 0.25 mm from MOTOR_OUT2's
+track and 0.19 / 0.22 mm from the pads of pins 8 and 10 (0.5 mm pitch): it cannot be wider. From C61 to the two
+vias the track is 0.5 mm; bulk 22 + 22 + 10 uF sits 7 mm west on the 3.5 mm two-layer feed.
+Conclusion: the data sheet's one requirement (a capacitor at VIN) is met; the long-track figure of 0.74 A for 0.2 mm
+does not describe a 0.17 mm neck between a pad and a wider track. No change.
+Nick, same message: "motor limit, fine as is - i'm trying to limit to 0,5A continous in software so 1.24A is plenty".
+R48 stays.
+
+## Next: stage H
+
+0 connections are left (`stageH1/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
+check, DRC warnings read one by one, independent review, then Nick. Part 1 (dead copper, reset tap) is done.
+- Copper warnings left (`stageH1/drc.json`): 2 `track_dangling` and 2 `isolated_copper`, all kept on purpose
+  (stage H part 1 above).
+- QE nit N-2: ADIN_VDDIO's bottom track end 0.037 mm outside JP3 pad 1.
+- Silkscreen: Nick's rule is a mock first (slashed-zero font, function name large with the designator small under
+  it, boxed power outputs). Three labels are clipped today (routing plan, stage H row).
+- Not done: a second sub-agent review (stages E, F, G and the fixes have had none), the length report for the SPI
+  lines after stage G (they did not change), a 3D check of the headers against the N6.
+
+## For Nick
+
+- Settled 2026-11-18 (Nick: "Yes push"): `edfa070..d1c9f42` pushed to draft pull request 39. Each further push needs
+  his word again. The pull request stays a draft until QE passes its head.
+- Settled 2026-11-18 (Nick: "Yes, both"): the switch-node pour's net (`2db5cd7`) and the heavier 5 V feed for the
+  motor driver (`4a378ee`).
+- Settled 2026-11-18 (Nick): the motor limit stays 1.24 A; pin 9's escape stays (data sheet read); Sofar's dead copper
+  removed and the reset tap moved (`8aa3c30`).
+- Asked by Nick 2026-11-18, not started here: "Give the schematic a clean up, names and such should be fixed and should
+  the layout of each page be make to be easy to ready, consistent and unfiform in teh way headers are used, notes are
+  used, and details per page." Goes to its own session (it renames net `5V_PI`, which also rewrites the board file).
+- Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
+  our needs to solder").
+- Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
+- Ask Sofar: what the two GND-plane slots are for, and whether they must stay open to the board edge (INT, SDA,
+  ADIN_PWR and the N6 3V3 trunk cross them; list in the QE section).
+- Settled 2026-11-18 by the maker's front-view pinout image: P0 to P6 are on the left seen from the front, so the
+  board's assumption holds; all 32 header pads agree with the image (`N6_FACTS.md`, `scripts/n6_header_check.py`).
+- Still out of date in the schematic: Pi wording on the cover page and notes, the net name `5V_PI`, the title.
+- Not in the schematic yet: test points on SCK, MISO, INT and VBUS.
+
+## Traps
+
+- `pcbnew.SaveBoard` rewrites the `.kicad_pro`: always work on a copy and copy only the `.kicad_pcb` back.
+- A "KiCad is running" check with `pgrep -f KiCad` also matches the shell that runs the check when the command
+  text contains the KiCad path. `run_C.sh` uses `pgrep -x kicad` / `pcbnew` / `eeschema`.
+- KiCad wants overlapping zones to have different priorities even on the same net (our GND-plane zone is 1, his 0).
+- Net names carry the sheet path for some nets (`/Top-Level Schematic/5V_PI`, `/Top-Level Schematic/BM2_P`) and
+  not for others (`VBUS`, `GND`, `5V_FB`).
+- kicad-cli's SVG with `--page-size-mode 2` has its origin at the outline's corner (X' -6.6, y 60.6), not KiCad's.
+- No PDF tool is installed; a datasheet's text can be read with macOS PDFKit through `osascript -l JavaScript`.
+- The test-point pads (TP8, TP40..TP44) are round, 1.5 mm; a pad's bounding box is not its copper.
+- A new track or via through a GND pour can cut a piece off from every via: read the pour check's last line. Stages
+  F and G each ran on a scratch copy first (same steps as `run_C.sh`, nothing copied back); three cut-off pieces were
+  caught that way.
+- The Internal 2 motor logic lines between J21's pad columns need J21's unused inner-layer pads to stay removed:
+  MOTOR_IN1 (X' 3.2) is 0.34 mm from the pin holes (rule 0.3 mm in the `.kicad_dru`) and would overlap a full 1.7 mm
+  pad by 0.01 mm; nSLEEP would clear one by 0.01 mm. "Update footprint from library" on J21 brings the pads back (QE
+  finding 7). The fab's own hole-to-inner-copper minimum has not been read.
+- Chain a script edit and the run with `&&`: on 2026-11-18 a failed edit followed by `;` ran the unfixed step onto
+  the working board (not committed; rerun from the base commit put it right).
+- Earlier traps still hold: `n6_rough_board.py` builds mocks only; in zsh write `"${d}:path"`; no poppler here.
+
+Read first: `BRIEF.md`, `STAGE0_PLAN.md` (stage 0 results), `mocks/review/ROUTING_PLAN_P.md`, `PIN_MAP.md`,
+`N6_FACTS.md`; then the rules on `development` (`CLAUDE.md`, `docs/TRACKER.md`, `docs/SPEC.md`).

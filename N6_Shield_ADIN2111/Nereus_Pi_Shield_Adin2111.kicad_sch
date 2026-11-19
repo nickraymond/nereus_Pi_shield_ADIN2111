@@ -219,7 +219,7 @@
 		)
 		(uuid "b4f83ee2-d90e-4347-b948-dce6adef1c21")
 	)
-	(text "1  Cover\n2  Top-Level\n3  ADIN2111 (Single-Pair Ethernet)\n4  Load Switch (payload port)\n5  PoDL (Power over Data Line)\n6  Bus Power Monitor\n7  Power (buck converters)\n8  Motor driver + ADC"
+	(text "1  Cover\n2  Top-Level\n3  ADIN2111 (Single-Pair Ethernet)\n4  PoDL (Power over Data Line)\n5  Bus Power Monitor\n6  Power (buck converters)\n7  Motor driver + ADC"
 		(exclude_from_sim no)
 		(at 25.4 102.87 0)
 		(effects
@@ -230,7 +230,7 @@
 		)
 		(uuid "c83a258e-645f-44a2-ae66-b84233cfbdd1")
 	)
-	(text "* Thermal limit of U10: bench validation pending.\nThe 5 V rail, the payload and the 3.3 V logic all draw from the 12 W own-load budget: 7.5 W on the 5 V rail is about 8.4 W from the bus.\nVBUS OUT's 0.73 A limit (17.5 W at 24 V) is above that budget: it protects the port, it does not enforce the budget."
+	(text "* Thermal limit of U10: bench validation pending.\nThe 5 V rail, the payload and the 3.3 V logic all draw from the 12 W own-load budget: 7.5 W on the 5 V rail is about 8.4 W from the bus."
 		(exclude_from_sim no)
 		(at 138.43 228.54 0)
 		(effects
@@ -11309,7 +11309,7 @@
 			)
 		)
 		(column_widths 16 25.4 52 14)
-		(row_heights 3.96 5.81 3.96 3.96 5.81 5.81)
+		(row_heights 3.96 5.81 3.96 5.81)
 		(uuid "039b4ac3-e7be-5e3c-9f0d-65fffd7572f3")
 		(cells
 			(table_cell "Bus"
@@ -11330,7 +11330,7 @@
 				)
 				(uuid "92bea361-f351-5df8-904c-0c05a951f4d3")
 			)
-			(table_cell "Pi pins"
+			(table_cell "N6 pins"
 				(exclude_from_sim no)
 				(at 39.41 185.32 0)
 				(size 25.4 3.96)
@@ -11401,7 +11401,7 @@
 				)
 				(uuid "283b8f1e-312c-5ff8-9287-e8637b242550")
 			)
-			(table_cell "GPIO0 / GPIO1\n(pins 27 / 28)"
+			(table_cell "P4 (SCL) / P5 (SDA)"
 				(exclude_from_sim no)
 				(at 39.41 189.28 0)
 				(size 25.4 5.81)
@@ -11469,7 +11469,7 @@
 				)
 				(uuid "c8440987-8c35-5b44-a0a0-63aa41b7a2fb")
 			)
-			(table_cell "GPIO0 / GPIO1"
+			(table_cell "P4 / P5"
 				(exclude_from_sim no)
 				(at 39.41 195.09 0)
 				(size 25.4 3.96)
@@ -11523,142 +11523,6 @@
 			(table_cell "I2C0"
 				(exclude_from_sim no)
 				(at 23.41 199.05 0)
-				(size 16 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "09639af8-2eb2-56dc-a7cd-279170404f48")
-			)
-			(table_cell "GPIO0 / GPIO1"
-				(exclude_from_sim no)
-				(at 39.41 199.05 0)
-				(size 25.4 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "de81b488-6184-531d-8e6b-b6266bc8996f")
-			)
-			(table_cell "keep free: HAT EEPROM probe at boot"
-				(exclude_from_sim no)
-				(at 64.81 199.05 0)
-				(size 52 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "e0994765-c43a-568e-a762-7ad9deb0e1df")
-			)
-			(table_cell "0x50"
-				(exclude_from_sim no)
-				(at 116.81 199.05 0)
-				(size 14 3.96)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "2dd47001-3ae7-5a36-9ccb-a0efbdb5c1f1")
-			)
-			(table_cell "I2C1"
-				(exclude_from_sim no)
-				(at 23.41 203.01 0)
-				(size 16 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "db620465-880f-51a3-ad70-8a0f9dc4b00d")
-			)
-			(table_cell "GPIO2 / GPIO3\n(pins 3 / 5)"
-				(exclude_from_sim no)
-				(at 39.41 203.01 0)
-				(size 25.4 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "ed2be032-ed31-5e47-a688-8a81915c8e52")
-			)
-			(table_cell "none on this board; free for a\nLiFePO4wered UPS"
-				(exclude_from_sim no)
-				(at 64.81 203.01 0)
-				(size 52 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "50489319-a129-5731-8a3e-6201ae79c76b")
-			)
-			(table_cell "0x43"
-				(exclude_from_sim no)
-				(at 116.81 203.01 0)
-				(size 14 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "0a98d9c9-7389-5dc8-a834-0819c5fe8676")
-			)
-			(table_cell "I2C3 (sw)"
-				(exclude_from_sim no)
-				(at 23.41 208.82 0)
 				(size 16 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11673,9 +11537,9 @@
 				)
 				(uuid "1b092470-b71c-5811-bde3-905dea5f42df")
 			)
-			(table_cell "GPIO22 / GPIO27\n(pins 15 / 13)"
+			(table_cell "P4 / P5"
 				(exclude_from_sim no)
-				(at 39.41 208.82 0)
+				(at 39.41 199.05 0)
 				(size 25.4 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11690,9 +11554,9 @@
 				)
 				(uuid "e42f568f-d60a-5192-8c94-d861fd898462")
 			)
-			(table_cell "Qwiic J3 only, no device on board"
+			(table_cell "Qwiic J3, no device on board"
 				(exclude_from_sim no)
-				(at 64.81 208.82 0)
+				(at 64.81 199.05 0)
 				(size 52 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11709,7 +11573,7 @@
 			)
 			(table_cell "-"
 				(exclude_from_sim no)
-				(at 116.81 208.82 0)
+				(at 116.81 199.05 0)
 				(size 14 5.81)
 				(margins 0.9525 0.9525 0.9525 0.9525)
 				(span 1 1)
@@ -11745,7 +11609,7 @@
 			)
 		)
 		(column_widths 56 38 38)
-		(row_heights 3.96 3.96 5.81 5.81 5.81 3.96 5.81 5.81)
+		(row_heights 3.96 3.96 5.81 5.81 5.81 3.96)
 		(uuid "d4b11c5e-d785-553e-943d-b86a1c6ecdd5")
 		(cells
 			(table_cell "Description"
@@ -12056,108 +11920,6 @@
 					(justify left top)
 				)
 				(uuid "278d2f00-4eb8-5c58-8c0e-639a93178cee")
-			)
-			(table_cell "VBUS OUT J5 (bus voltage, on with GPIO26)"
-				(exclude_from_sim no)
-				(at 138.43 216.12 0)
-				(size 56 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "5a9b7852-6605-5895-8be2-576cfc18df9e")
-			)
-			(table_cell "payload within the\n12 W budget"
-				(exclude_from_sim no)
-				(at 194.43 216.12 0)
-				(size 38 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "4e58921c-e254-5f1a-bbc6-9dc05f0e0f32")
-			)
-			(table_cell "0.73 A typ., electronic\nfuse U11"
-				(exclude_from_sim no)
-				(at 232.43 216.12 0)
-				(size 38 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "220098d4-db0f-5755-bf00-fa3bcbb4527f")
-			)
-			(table_cell "AUX 5 V J4 (5 V rail via JP1 2-3)"
-				(exclude_from_sim no)
-				(at 138.43 221.93 0)
-				(size 56 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "83963572-4be6-54b8-928c-b032dba1f38d")
-			)
-			(table_cell "-"
-				(exclude_from_sim no)
-				(at 194.43 221.93 0)
-				(size 38 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "221fd169-f534-58b8-ab6a-ca1d49ecd7fd")
-			)
-			(table_cell "1.5 A hold / 3 A trip,\npolyfuse F1"
-				(exclude_from_sim no)
-				(at 232.43 221.93 0)
-				(size 38 5.81)
-				(margins 0.9525 0.9525 0.9525 0.9525)
-				(span 1 1)
-				(fill
-					(type none)
-				)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-				(uuid "97060716-a042-545f-93f3-7e5d9f1dfa82")
 			)
 		)
 	)
