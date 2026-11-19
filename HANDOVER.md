@@ -1,9 +1,9 @@
-# N6 shield: hand-over (2026-11-18, about 5:20 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 5:35 PM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
 done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `d1c9f42` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes", then "Yes push" for `edfa070..d1c9f42`: stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4). Any commit after `d1c9f42` is local until Nick says push. The QE review ran in
+PR", then "Push the fixes", then "Yes push" for `edfa070..d1c9f42`: stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4). Any commit after `d1c9f42` is local until Nick says push (at this writing: `9eceb1a`, `b5ec89f`, `8aa3c30` stage H part 1, and this hand-over's). The QE review ran in
 its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
 in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
 Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Round 3 on `d1c9f42`: APPROVED WITH NITS (0 blockers, 0 majors, 3 minor, 4 nits), report
@@ -37,6 +37,7 @@ not running by `pgrep` before each run). Every further push still needs his word
 | `197115e` | stage G part 4: CFG0, CFG1 and R2 moved clear of the crystal (Nick's request) | same errors, 0 unconnected; 14 of this session's tracks removed, 9 new, no new via; lock check PASS with R2 allowed; pour check 0 |
 | `4a378ee` | stage C part 3: heavier 5 V feed for the motor driver (Nick: "Yes, both") | same errors, 0 unconnected; zone "N6 5V U12" redrawn, zone "N6 5V U12 In1" new; no track or via changed; pour check 0 |
 | `2db5cd7` | stage C part 4: Sofar's switch-node pour at the 3V3 converter back on net 3V3_Buck_SW (Nick: "Yes, both") | same errors, `isolated_copper` 3 to 2, 0 unconnected; only the zone's net changed |
+| `8aa3c30` | stage H part 1: reset tap off the crystal; Sofar's dead copper removed (Nick: "yes remove them but you need to be careful") | same errors, 0 unconnected, `track_dangling` 9 to 2; 48 items removed (46 of Sofar's), 5 new tracks; lock PASS; pour check 0 |
 
 Every stage: one script, run on a copy outside git, zones refilled by kicad-cli, then DRC against the board before,
 the lock check (`scripts/stageA/lockcheck_all.py`: every item that was on the board before is unchanged, by uuid),
@@ -53,9 +54,10 @@ Run: `sh scripts/stageA/run_A.sh`, `sh scripts/stageB/run_B.sh`, `sh scripts/sta
 `sh scripts/stageC/run_C.sh ../stageG/stepG1_local.py G1`, `sh scripts/stageC/run_C.sh ../stageG/stepG0_bm1p_restore.py G0`,
 `sh scripts/stageC/run_C.sh ../stageG/stepG2_west.py G2`, `sh scripts/stageC/run_C.sh ../stageG/stepG3_long.py G3`,
 `ALLOW_REF=R2 sh scripts/stageC/run_C.sh ../stageG/stepG4_straps_clear_crystal.py G4`,
-`sh scripts/stageC/run_C.sh stepC3_motor_feed.py C3`, `sh scripts/stageC/run_C.sh stepC4_sw_pour_net.py C4`
+`sh scripts/stageC/run_C.sh stepC3_motor_feed.py C3`, `sh scripts/stageC/run_C.sh stepC4_sw_pour_net.py C4`,
+`sh scripts/stageC/run_C.sh ../stageH/stepH1_reset_and_dead_stubs.py H1`
 (each takes the commit before it as base; default HEAD; `ALLOW_REF` names one footprint the lock check lets change).
-Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`, `stageC3`, `stageC4`
+Outputs and plots: `~/NereusData/nereus_Pi_shield_ADIN2111/n6_shield/stageA`, `stageB`, `stageC1`, `stageC2`, `stageJ21`, `stageD1`, `stageD2`, `stageD3`, `stageE1`, `stageE2`, `stageR1`, `stageF1`, `stageF2`, `stageF3`, `stageG1`, `stageG0`, `stageG2`, `stageG3`, `stageG4`, `stageC3`, `stageC4`, `stageH1`
 (a `_trial` folder beside a stage is the same step run on a scratch copy before the board was touched).
 
 ## What stage B found and decided (differs from `mocks/review/ROUTING_PLAN_P.md` section 1)
@@ -285,20 +287,11 @@ Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on 
 
 ### Round 3 on `d1c9f42` (APPROVED WITH NITS): what is open
 
-- **R3-1, reset line under the crystal (minor). Confirmed; waits for Nick.** Measured (`trial_reset/xdist.txt`): 5.82 mm
-  of reset-net track on Internal 1 lies over or under Y1's body or the pads of Y1 / C8 / C7. Of it 1.66 mm is this
-  branch's tap (the diagonal of `scripts/stageD/stepD2_reset.py`), 4.16 mm is Sofar's own track, which runs on east
-  23.95 mm and ends open at (27.557, 7.158) (one of the 9 `track_dangling` warnings).
-  Two trials on scratch copies (`trial_reset/trial_reset.py`, not in git; both: inherited errors only, 0 unconnected,
-  lock / pour / plane / bus pass, no other-net copper nearer than 0.25 mm):
-  A. new tap at Sofar's corner (9.507, 17.404), west at y 17.404, south-west to X' 6.75, south, into the old y 13.02
-     run: none of our copper under the crystal; Sofar's 4.16 mm stays.
-  B. as A, and Sofar's track from (9.507, 17.404) on east removed (11 segments; nothing is connected through it
-     after the new tap): 0 mm under the crystal, nearest 0.36 mm (C8 pad 1) and 0.55 mm (Y1's body); `track_dangling`
-     9 to 8. A locked item of Sofar's: Nick's word needed.
-  No wider path exists on Internal 1: the new line has to pass between the GND via at (7.257, 16.783) and C8.
-  Picture: `trial_reset/N6_shield_reset_line_at_crystal_today_vs_trials.png`.
-- **R1-6, U12 pin 9 escape (minor).** Open for Nick before fabrication (motor feed section above).
+- **R3-1, reset line under the crystal (minor). Done in `8aa3c30`** (stage H part 1 below): 0 mm of reset-net track
+  over or under the crystal now (was 5.82 mm: 1.66 mm this branch's tap of stage D part 2, 4.16 mm Sofar's own
+  track); nearest 0.36 mm (C8 pad 1) and 0.55 mm (Y1's body). No wider path exists on Internal 1: the line has to pass
+  between the GND via at (7.257, 16.783) and C8.
+- **R1-6, U12 pin 9 escape (minor).** Closed without a board change: see "U12 pin 9" below.
 - **R3-2, deviation from the plan, listed here as QE asked:** the plan's "R9 and R2 / R47 stay within 2 mm of their U1
   pins" is not met. QE's figures: R2 pad 1 is 5.99 mm from U1 pin 19 (3.81 mm before stage G part 4), R47 5.25 mm,
   R9 11.31 mm (R9 and R47 since mock P). The straps are DC; QE: acceptable.
@@ -308,14 +301,54 @@ Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on 
 - **N-2 (nit), for stage H:** ADIN_VDDIO's bottom track end at (-5.450, 9.600) is 0.037 mm outside JP3 pad 1.
 - QE could not verify: the MP6550 datasheet, the N6's 1 M on P6, the full counts of `motediff.py`; fab rules not read.
 
+## Stage H part 1 (`8aa3c30`, `scripts/stageH/stepH1_reset_and_dead_stubs.py`): reset tap, Sofar's dead copper
+
+Nick, routing session's chat, 2026-11-18, on Sofar's leftovers: "yes remove them but you need to be careful, another
+session had to do this very carefully because deleteing them all simply would have deleted good copper".
+How it was done: every `track_dangling` item walked from its open end back to the first point where anything of its
+net touches (`stageH1/dangle_analysis.txt`), and every net checked for pads (`stageH1/padless_nets.txt`), before
+anything was removed; the step ran on a scratch copy first (`stageH1_trial/`).
+- **Kept on purpose.** Two flagged tracks are not dead: GND bottom at (27.532, 40.534) and VBUS bottom at
+  (27.357, 30.033); both ends lie in copper of nets that have pads, only the end points miss each other. Sofar's two
+  no-net zones NoConnect_Left / NoConnect_Right on the PWR plane (73.6 and 48.8 mm2, priority 7) are named, and the
+  same on the mote reference: meant to be there. So 2 `track_dangling` and 2 `isolated_copper` warnings stay.
+- **Removed, Sofar's (46 items):** his reset track on Internal 1 from (9.507, 17.404) to its open end at
+  (27.557, 7.158) (11 segments, 23.95 mm); a GND end on the bottom from the via at (30.607, 36.133) to former D3
+  pad 2 (3 segments, 1.56 mm; the via stays); a 3V3 end on top to former R35 pad 2 (1 segment); and all copper of
+  the two nets with no pad since the load switch U11 went in stage 0: VBUS_OUT (16 tracks, 20.5 mm at 0.6 mm, 4
+  vias) and ~PAYLOAD_FAULT (9 tracks, 2 vias). Removing only the flagged end of ~PAYLOAD_FAULT left a dangling via
+  on the trial; that is how the pad-less nets were found.
+- **Removed, this branch's:** the reset tap of stage D part 2 (2 segments). **New:** reset tap on Internal 1 from
+  Sofar's corner (9.507, 17.404), west at y 17.404, south-west to X' 6.75, south, into the old y 13.02 run; 9.2 mm,
+  no via.
+- Gate: inherited errors only, parity 0, 0 unconnected, `track_dangling` 9 to 2, no dangling via, lock PASS (48
+  allowed), pour 0, ground plane 1 piece (2223.6 mm2, was 2217.0). The mote comparison's counts of 870 tracks and
+  185 vias "the same" are now 830 and 179 by this step (not re-run).
+  Picture: `stageH1/N6_shield_stageH1_reset_and_dead_copper_before_after.png`.
+
+## U12 pin 9 (the motor driver's supply pin): data sheet read, no board change (Nick: "please read the data sheet them inform the design")
+
+MP6550 data sheet Rev. 1.0, 7/16/2019 (text in the routing session's scratchpad; the maker's site blocks fetches):
+VIN is one pin (pin 9) on a part rated "2A Continuous Driver Current"; pin table: "An input capacitor is needed to
+prevent large voltage spikes from appearing at the input"; no value, no layout section; theta JA 80 / theta JC
+16 degC/W on a JESD51-7 board; "Continuous current depends on PCB layout and ambient temperature".
+On the board (`8aa3c30`): pin 9's pad is 0.20 x 0.95 mm. The input capacitor C61 (100 nF) sits in the feed: its pad
+edge is 0.81 mm from the end of pin 9's pad. Between them 0.17 mm of 0.2 mm track and 0.64 mm of 0.3 mm track
+(about 1.5 mOhm by my sum, 35 um copper: 2 mV and 2 mW at 1.24 A). The 0.3 mm part is 0.25 mm from MOTOR_OUT2's
+track and 0.19 / 0.22 mm from the pads of pins 8 and 10 (0.5 mm pitch): it cannot be wider. From C61 to the two
+vias the track is 0.5 mm; bulk 22 + 22 + 10 uF sits 7 mm west on the 3.5 mm two-layer feed.
+Conclusion: the data sheet's one requirement (a capacitor at VIN) is met; the long-track figure of 0.74 A for 0.2 mm
+does not describe a 0.17 mm neck between a pad and a wider track. No change.
+Nick, same message: "motor limit, fine as is - i'm trying to limit to 0,5A continous in software so 1.24A is plenty".
+R48 stays.
+
 ## Next: stage H
 
-0 connections are left (`stageG3/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
-check, DRC warnings read one by one, independent review, then Nick.
-- Copper warnings left, all on Sofar's items (`stageG3/drc.json`): 9 `track_dangling` (among them a 2.5 mm tail of
-  ~ADIN_RST on Internal 1 at (25.81, 8.91), left from the Pi header) and 2 `isolated_copper` (his no-net zones; a
-  third, the switch-node pour, got its net back in `2db5cd7`).
-  They are locked items: changing any needs Nick's word.
+0 connections are left (`stageH1/drcsum.txt`). Stage H in the routing plan: silkscreen, fiducials, heat-copper
+check, DRC warnings read one by one, independent review, then Nick. Part 1 (dead copper, reset tap) is done.
+- Copper warnings left (`stageH1/drc.json`): 2 `track_dangling` and 2 `isolated_copper`, all kept on purpose
+  (stage H part 1 above).
+- QE nit N-2: ADIN_VDDIO's bottom track end 0.037 mm outside JP3 pad 1.
 - Silkscreen: Nick's rule is a mock first (slashed-zero font, function name large with the designator small under
   it, boxed power outputs). Three labels are clipped today (routing plan, stage H row).
 - Not done: a second sub-agent review (stages E, F, G and the fixes have had none), the length report for the SPI
@@ -327,8 +360,11 @@ check, DRC warnings read one by one, independent review, then Nick.
   his word again. The pull request stays a draft until QE passes its head.
 - Settled 2026-11-18 (Nick: "Yes, both"): the switch-node pour's net (`2db5cd7`) and the heavier 5 V feed for the
   motor driver (`4a378ee`).
-- Open: whether the motor limit should go above 1.24 A (R48, a schematic change), and the 0.2 mm escape at U12 pin 9.
-- Decide: the reset line at the crystal (QE R3-1): trial A, trial B (removes Sofar's dead reset track), or accept.
+- Settled 2026-11-18 (Nick): the motor limit stays 1.24 A; pin 9's escape stays (data sheet read); Sofar's dead copper
+  removed and the reset tap moved (`8aa3c30`).
+- Asked by Nick 2026-11-18, not started here: "Give the schematic a clean up, names and such should be fixed and should
+  the layout of each page be make to be easy to ready, consistent and unfiform in teh way headers are used, notes are
+  used, and details per page." Goes to its own session (it renames net `5V_PI`, which also rewrites the board file).
 - Settled 2026-11-18: the header footprints stay as they are (Nick: "the headers you have know are sufficient for
   our needs to solder").
 - Settled 2026-11-18: J21 moved 0.04 mm east (Nick: "go, and move J21 and keep moving forward."), commit `e20079c`.
