@@ -1,13 +1,13 @@
-# N6 shield: hand-over (2026-11-18, about 4:40 PM Pacific)
+# N6 shield: hand-over (2026-11-18, about 5:10 PM Pacific)
 
 State: the real project `N6_Shield_ADIN2111/` is an N6 shield, placed per mock P, with routing stages A to G
-done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `edfa070` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
+done (every connection routed: 0 unconnected) and J21 moved to the model's header spacing. **Pushed up to `d1c9f42` as branch `claude/n6-shield-first-pass-afa1eb`; draft pull request 39 against
 `n6-shield` (base `af83088`) is open for the QE review (Nick, routing session's chat, 2026-11-18: "Push, open draft
-PR", then "Push the fixes"). Commits after `edfa070` (stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4) are local until Nick says push. The QE review ran in
+PR", then "Push the fixes", then "Yes push" for `edfa070..d1c9f42`: stages F and G, one repair, the QE follow-ups, stage G part 4, the mote comparison, stage C parts 3 and 4). Any commit after `d1c9f42` is local until Nick says push. The QE review ran in
 its own session (started by Nick): round 1 on `602830d` CHANGES REQUESTED (1 major: the open divider ground, fixed
 in `e3c8688` before the report came), round 2 on `edfa070` APPROVED WITH NITS (0 blockers, 0 majors, 5 minor, 2 nits).
-Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Stages F and G and the repair have NOT
-been reviewed by QE.** The routing session (second session
+Reports: `docs/design-review/qe/qe_pr39_602830d.md`, `qe_pr39_edfa070.md`. Nothing after `edfa070` has been reviewed
+by QE; round 3 on `edfa070..d1c9f42` was asked of the QE session on 2026-11-18 about 5:10 PM.** The routing session (second session
 on this branch) took over on 2026-11-18. Nick's words for its run (its own chat, 2026-11-18): "go, and move J21 and
 keep moving forward.", in answer to "Go for stage C part 2 on the N6 shield board, and is KiCad closed?" (KiCad was
 not running by `pgrep` before each run). Every further push still needs his word.
@@ -274,9 +274,8 @@ Verdict on `edfa070`: APPROVED WITH NITS. I measured the numbers below again on 
   ~ADIN_INT (top, X' 28.38), I2C0_SDA (bottom, X' 27.9), ADIN_PWR (Internal 2; QE's finding) and, since stage F, the
   N6 3V3 trunk (Internal 2, X' 32.73), which also crosses the north slot (void y 41.65..42.02 there). No SPI line
   crosses a slot. Goes with the question to Sofar.
-- **6, U12's 5 V** comes through the 2.0 mm band and 1.75 mm tab of the zone "N6 5V U12" (15.2 um copper): up to
-  1.24 A against the plan's 1.08 A for 2.0 mm at 10 degC rise. Not changed. **Nick decides before fabrication:**
-  widen, add copper on another layer, or accept on the motor's average current.
+- **6, U12's 5 V.** Done in `4a378ee` on Nick's word: band 3.5 mm on the PWR plane and on Internal 1 (section above).
+  Left: the 0.2 mm bottom-track escape into pin 9.
 - **7, J21's inner pads.** See Traps.
 - **9 (nit).** Sofar's ~ADIN_RST track on Internal 1 runs on 22 mm past the point where this board taps it
   ((11.1, 15.6) to (27.56, 7.16)), an open stub left from the Pi header. Locked item; noted, not changed.
@@ -298,8 +297,8 @@ check, DRC warnings read one by one, independent review, then Nick.
 
 ## For Nick
 
-- Decide: when to push the 15 local commits after `edfa070` (this hand-over's among them; stages F and G, the repair, stage G part 4, the mote
-  comparison, stage C parts 3 and 4); QE has reviewed head `edfa070` only.
+- Settled 2026-11-18 (Nick: "Yes push"): `edfa070..d1c9f42` pushed to draft pull request 39. Each further push needs
+  his word again. The pull request stays a draft until QE passes its head.
 - Settled 2026-11-18 (Nick: "Yes, both"): the switch-node pour's net (`2db5cd7`) and the heavier 5 V feed for the
   motor driver (`4a378ee`).
 - Open: whether the motor limit should go above 1.24 A (R48, a schematic change), and the 0.2 mm escape at U12 pin 9.
